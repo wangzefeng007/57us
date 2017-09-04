@@ -1,0 +1,124 @@
+{template 'Common/TourTop',1}
+<link rel="stylesheet" href="/Plugins/fonts/mobile/iconfont.css">
+<link href="{echo CssURL}/bbs/tour/style.css" rel="stylesheet" type="text/css" />
+<div class="w1200 BbsLocation">您当前位置：
+	<a href="{echo WEB_TOUR_URL}">首页</a><span>&gt;</span>
+	<a href="{echo WEB_TOUR_URL}/ask/">问答专区</a><span>&gt;</span><span class="Position">  {$AskCategoryInfo['AskCategoryName']}</span></div>
+<div class="w1200 cf">
+	<div class="w900 fl">
+		<div class="areaCard cf">
+			<img src="{echo LImageURL}{$AskCategoryInfo['Images']}" width="350" height="215"/>
+			<p class="tit">{$AskCategoryInfo['AskCategoryName']}</p>
+			<p class="cardNum"><span><em>{$AskCategoryInfo['PartakeNum']}</em>人参与 </span>|<span><em>{$AskCategoryInfo['ProblemNum']}</em>个问题 </span></p>
+			<p class="cardIns mt10">{$AskCategoryInfo['Description']}</p>
+		</div>
+		<div class="questBox mt10">
+			<div class="hd">
+				<a href="/ask/section?id={$AskCategoryInfo['AskCategoryID']}" {if $Type==''}class="on"{/if}>最新问题<span class="line"></span></a>
+				<a href="/ask/section?id={$AskCategoryInfo['AskCategoryID']}&t=hot" {if $Type=='hot'}class="on"{/if}>最热问题<span class="line"></span></a>
+				<a href="/ask/section?id={$AskCategoryInfo['AskCategoryID']}&t=no" {if $Type=='no'}class="on"{/if}>待回答问题<span class="line"></span></a>
+				<a href="/ask/section?id={$AskCategoryInfo['AskCategoryID']}&t=my" {if $Type=='my'}class="on"{/if}>我的问题<span class="line"></span></a>
+			</div>
+			{if $Data['Data']==''}
+			<div class="noProblem mt10">
+				<div class="noProblemTip">{if $Type != 'no'}你还没有提过问题。敏而好学，不耻下问。{else}所有问题都有人回答了{/if}
+					<a class="transition bradius nowAsk {if !$_SESSION['UserID']}_MustLogin{else}MyQuestions{/if}" href="JavaScript:void(0)" {if !$_SESSION['UserID']}data-type="tc_login"{/if}>马上提问题</a>
+				</div>
+			</div>
+			{/if}
+			<ul class="questList">
+				{loop  $Data['Data'] $key $lists}
+				<li>
+					<div class="listHead">
+						<span class="time fr">{$lists['NowTime']}</span>
+						<p class="fl user"><img src="{echo ImageURLP2}{$lists[Avatar]}" width="36" height="36"/>{$lists[NickName]}</p>
+					</div>
+					<div class="listCont"><a href="/ask_section/{$lists['AskID']}.html" target="_blank">{echo mb_substr($lists['AskInfo'], 0, 30, 'utf-8')}{if mb_strlen($lists['AskInfo'],'utf-8')>30}…{/if}</a></div>
+					<div class="listBottom">
+						<p class="otherFun fr">
+							<span><i class="icon iconfont icon-yanjing"></i>{$lists[BrowseNum]}次浏览</span>
+							<span><i class="icon iconfont icon-start"></i>{$lists[FollowNum]}人关注</span>
+							<span><i class="icon iconfont icon-iconfont02"></i>{$lists[AnswerNum]}人回答 </span></p>
+						<p class="tip fl">{loop $lists['Tags'] $k $val}{if $val['TagName']!=''}<a href="/ask/topic?id={$val[TagID]}" class="bradius" target="_blank" title="{$val['TagName']}">{$val['TagName']}</a>{/if}{/loop}</p>
+					</div>
+					{if $lists[AnswerNum]>0 && $lists[Answer]!=''}
+					<div class="listfeedbck">
+						<img src="{echo ImageURLP2}{$lists[AnswerAvatar]}" width="36" height="36"/>
+						<p class="nr mt5">{$lists[AnswerNickName]}</p>
+						<p>{$lists['Answer']}</p>
+					</div>
+					{/if}
+				</li>
+				{/loop}
+			</ul>
+			{if $Listpage!=''}
+			<div class="page mt35" id="Page2">
+				<form action="/ask/section?id={$AskCategoryInfo['AskCategoryID']}{if  $Type!=''}&t={$Type}{/if}" method="post">
+					{$Listpage}
+					<div class="GoPage">到 <input type="text" name="page" value="" class="input" maxlength="4"> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn"></div>
+				</form>
+			</div>
+			{/if}
+		</div>
+	</div>
+	<div class="w280 fr">
+		{template AskMode}
+		<div class="otherArea mt5">
+			<p class="mainTit"><span class="name fl">其它专区</span></p>
+			<div class="otherAreaM">
+				<ul>
+					{loop $AskCategoryList $lists}
+					<li>
+						<a href="/ask/section?id={$lists['AskCategoryID']}" target="_blank" title="{$lists['AskCategoryName']}"><img src="{echo LImageURL}{$lists['Images']}" width="250" height="154" class="transition" title="{$lists['AskCategoryName']}"alt="{$lists['AskCategoryName']}"/>
+							<p class="tit transition">{$lists['AskCategoryName']}</p>
+						</a>
+					</li>
+					{/loop}
+				</ul>
+				<p class="tac mt15 moreArea">
+					<a href="JavaScript:void(0)" class="chanM">展开更多<i class="icon iconfont icon-down"></i></a>
+					<a href="JavaScript:void(0)" class="chanA">收起更多<i class="icon iconfont icon-up"></i></a>
+				</p>
+			</div>
+		</div>
+		<div class="hotTopic mt5">
+			<p class="mainTit">
+				<a href="javascript:void (0)" class="changeChan fr" id="changeTags" data-type="1">换一换<i class="icon iconfont icon-shuaxin"></i></a>
+				<span class="name fl">人气话题</span>
+			</p>
+			<div class="hotTopicM cf" id="changeChanHtml">
+				{loop $HotTagList $lists}
+				<a href="/ask/topic?id={$lists[TagID]}" class="bradius" title="{$lists['TagName']}" target="_blank">{$lists['TagName']}</a>
+				{/loop}
+			</div>
+		</div>
+		<ul class="adW280">
+			{loop $StudyAskADLists $lists}
+			<li>
+				<a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP4}{$lists[Picture]}" width="280" /></a>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+</div>
+<div class="cf mt30"></div>
+{template Footer}
+<!--问答公用js-->
+<script type="text/javascript" src="{echo JsURL}/bbs/tour/AskPublic.js"></script>
+<script>
+    $(".PageBtn").click(function(){
+        var gopage = $("#gopage").val();
+        var lastpage = {$Data['PageCount']};
+        if(!gopage){
+            alert("请输入页码");return false;
+        }
+        if( lastpage < gopage ){
+            alert("您输入的页码超过最大页数");return false;
+        }
+        var gourl = '{$GoPageUrl}';
+        window.location.href=gourl+'&p='+gopage;
+        return false;
+    });
+</script>
+</body>
+</html>

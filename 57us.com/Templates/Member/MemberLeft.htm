@@ -1,0 +1,55 @@
+<!--会员首页左侧-->
+<div class="lmenu fl">
+    <ul id="leftmenu">
+        <li class="on">
+            <a href="JavaScript:void(0)" class="firstA">
+                <i class="fl licon icon iconfont icon-dingdan"></i>
+                <i class="fr icon iconfont icon-up-copy"></i>
+                <span class="name">我的订单</span>
+            </a>
+            <div class="secondUl">
+                <a href="{echo WEB_MEMBER_URL}/membertour/tourorderlist/">旅游订单</a>
+                <a href="{echo WEB_MEMBER_URL}">留学订单</a>
+            </div>
+        </li>
+        <li class="on">
+            <a href="JavaScript:void(0)" class="firstA">
+                <i class="fl licon icon iconfont icon-gerenzhongxin"></i>
+                <i class="fr icon iconfont icon-up-copy"></i>
+                <span class="name">个人中心</span>
+            </a>
+            <div class="secondUl">
+                <a href="{echo WEB_MEMBER_URL}" {if $UserNav =='Index'}class="on"{/if}>我的主页</a>
+                <a href="{echo WEB_MEMBER_URL}/member/information/" {if $UserNav =='Information'}class="on"{/if}>我的资料</a>
+                <a href="{echo WEB_MEMBER_URL}/member/messagelist/" {if $UserNav =='MessageList'}class="on"{/if}>站内消息</a>
+<!--
+                <a href="{echo WEB_MEMBER_URL}/member/changepassword/" {if $UserNav =='ChangePassword'}class="on"{/if}>修改密码</a>
+-->
+                <a href="{echo WEB_MEMBER_URL}/member/accountsafety/" {if $UserNav =='AccountSafety'}class="on"{/if}>账户安全</a>
+            </div>
+        </li>
+        <li  {if $UserNav =='MyCollect'}class="on"{/if}>
+            <a href="{echo WEB_MEMBER_URL}/member/mycollect/" class="firstA">
+                <i class="fl licon icon iconfont icon-shoucang1"></i>
+                <span class="name">我的收藏</span>
+            </a>
+        </li>
+        <li {if $UserNav =='MyProperty'}class="on"{/if}>
+            <a href="{echo WEB_MEMBER_URL}/member/myproperty/" class="firstA">
+                <i class="fl licon icon iconfont icon-qianbao"></i>
+                <span class="name">我的资产</span>
+            </a>
+        </li>
+        <li class="on">
+            <a href="JavaScript:void(0)" class="firstA">
+                <i class="fl licon icon iconfont icon-message"></i>
+                <i class="fr icon iconfont icon-up-copy"></i>
+                <span class="name">常用信息</span>
+            </a>
+            <div class="secondUl">
+                <a href="{echo WEB_MEMBER_URL}/member/passengerlist/" {if $UserNav =='Passenger'}class="on"{/if}>常用旅客</a>
+                <a href="{echo WEB_MEMBER_URL}/member/addresslist/" {if $UserNav =='Address'}class="on"{/if}>邮寄地址</a>
+            </div>
+        </li>
+    </ul>
+</div>

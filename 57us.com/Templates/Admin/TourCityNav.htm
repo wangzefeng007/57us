@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li>
+                <a href="#"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="#">旅游产品管理</a>
+            </li>
+            <li>
+                <a href="/index.php?Module=TourCitySpecial&Action=Lists">城市专题列表</a>
+            </li>
+            <li class="active">编辑专题详情</li>
+        </ul>
+        <span class="position hidden">城市专题管理</span>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-body special-details" style="padding-bottom: 0px">
+                {if $AreaID|| $CitySpecialID}
+                <input class="{if $_GET[Action]=='Add'}btn btn-info{else}btn btn-default{/if}" type="button" value="详情设置"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourCitySpecial&Action=Add{if $AreaID}&AreaID={$AreaID}{/if}{if $CitySpecialID}&CitySpecialID={$CitySpecialID}{/if}'">
+                <input class="{if $_GET[Action]=='SpecialCityContent'}btn btn-info{else}btn btn-default{/if}" type="button" value="城市必游设置"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourCitySpecial&Action=SpecialCityContent&{if $AreaID}&AreaID={$AreaID}{/if}{if $CitySpecialID}&CitySpecialID={$CitySpecialID}{/if}'">
+                <input class="{if $_GET[Action]=='SpecialPlayContent'}btn btn-info{else}btn btn-default{/if}" type="button" value="吃喝玩乐设置"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourCitySpecial&Action=SpecialPlayContent&{if $AreaID}&AreaID={$AreaID}{/if}{if $CitySpecialID}&CitySpecialID={$CitySpecialID}{/if}'">
+                <input class="{if $_GET[Action]=='SpecialTopicContent'}btn btn-info{else}btn btn-default{/if}" type="button" value="活动专题设置"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourCitySpecial&Action=SpecialTopicContent&{if $AreaID}&AreaID={$AreaID}{/if}{if $CitySpecialID}&CitySpecialID={$CitySpecialID}{/if}'">
+                {/if}
+            </div>

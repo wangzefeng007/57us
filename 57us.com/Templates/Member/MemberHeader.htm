@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$Title}</title>
+    <meta name="keywords" content="{$Keywords}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="description" content="{$Description}">
+    <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{echo CssURL}/member/v3.1/style.css" rel="stylesheet" type="text/css"/>
+    <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="{echo JsURL}/base/base.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="pubHead">
+        <div class="w1200 cf">
+            <a href="/member/messagelist/" class="fr mNews">消息{if $_SESSION['IsHaveMessage']}<span class="red">●</span>{/if}</a>
+            <div class="mUserBox cf fr">
+                <div class="mUserSecond">
+                    <a href="{echo WEB_MEMBER_URL}">会员首页</a>
+                    <a href="{echo WEB_MEMBER_URL}/member/signout/">退出</a>
+                </div>
+                <div class="mUser">
+                    <a href="">
+                        <i class="fr icon iconfont icon-up-copy"></i>
+                        <span class="userName">{$_SESSION['NickName']}</span>
+                        <img src="{echo LImageURL}{$_SESSION['Avatar']}" width="35" height="35" />
+                    </a>
+                </div>
+            </div>
+            <a href="{echo WEB_MEMBER_URL}" class="textIn fl mlogo">57美国</a>
+            <ul class="mMenu fl">
+                <li {if $this->Nav=='Member'}class="on"{/if}>
+                    <a href="{echo WEB_MEMBER_URL}">会员首页<span class="line transition"></span></a>
+                </li>
+                <li {if $this->Nav=='MemberTour'}class="on"{/if}>
+                    <a href="{echo WEB_MEMBER_URL}/membertour/tourorderlist/">美国旅游<span class="line transition"></span></a>
+                </li>
+                {if $_SESSION['Identity'] == 1}
+                <li {if $this->Nav=='MemberStudy'}class="on"{/if}>
+                    <a href="{echo WEB_MEMBER_URL}/memberstudy/serviceorderlist/">美国留学<span class="line transition"></span></a>
+                </li>
+                {elseif $_SESSION['Identity'] == 2}
+                <li {if $this->Nav=='MemberStudy'}class="on"{/if}>
+                    <a href="{echo WEB_STUDY_URL}/consultantmanage/mycenter/">美国留学<span class="line transition"></span></a>
+                </li>
+                {elseif $_SESSION['Identity'] == 3}
+                <li {if $this->Nav=='MemberStudy'}class="on"{/if}>
+                    <a href="{echo WEB_STUDY_URL}/teachermanage/mycenter/">美国留学<span class="line transition"></span></a>
+                </li>
+                {/if}
+            </ul>
+        </div>
+    </div>

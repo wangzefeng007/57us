@@ -1,0 +1,99 @@
+{template Head}
+<link href="{echo JsURL}/admin/common/iCheck/skins/flat/green.css" rel="stylesheet">
+<div class="wrapper">
+  {template TourLineTop}
+  <div class="panel-body">
+    <form action='/index.php?Module=TourLine&Action=TourProductLineSkuEdit'  method='post' enctype="multipart/form-data">
+      <table class="table table-bordered table-striped table-hover">
+        <tbody>
+        <tr>
+          <td colspan="2" class="t-h">编辑SKU：</td>
+        </tr>
+        <tr>
+          <td width="150" class="t-r"><span class="red">*</span>&nbsp;SKU名称：</td>
+          <td>
+            <div class="col-sm-5 cf">
+            <input type="text" name="SKUName" value="{$ProductLineSkuInfo[SKUName]}" class="form-control"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;SKU状态：</td>
+          <td>
+            <div class="icheck">
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input tabindex="3" name="Status" type="radio" id="Status" value="1" {if $ProductLineSkuInfo[Status]==1}checked="checked"{/if}>
+                  <label>启用</label>
+                </div>
+              </div>
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input tabindex="3" type="radio" name="Status" id="Status2" value="0" {if $ProductLineSkuInfo[Status]==0}checked="checked"{/if}/>
+                  <label>禁用</label>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;人数:</td>
+            {if $TourProductLineInfo[SkuType]==1}
+            <td>
+              <div class="fl col-sm-2" style="padding: 0">
+                <div class="t-l cf fl">成人：</div>
+                <div class="col-sm-8 cf">
+                  <input id="AdultNum" name="AdultNum" placeholder="成人人数" value="{$ProductLineSkuInfo[AdultNum]}" class="form-control"/>
+                </div>
+              </div>
+              <div class="fl col-sm-2" style="padding: 0">
+                <div class="t-l cf fl">儿童：</div>
+                <div class="col-sm-8 cf">
+                  <input id="ChildrenNum" name="ChildrenNum" placeholder="儿童人数" value="{$ProductLineSkuInfo[ChildrenNum]}" class="form-control"/>
+                </div>
+              </div>
+            </td>
+            {else}
+            <td>
+              <div class="fl col-sm-11" style="padding: 0">
+                <div class="t-l cf fl">总人数：</div>
+                <div class="col-sm-2 cf">
+                  <input id="PeopleNum" name="PeopleNum" placeholder="总人数" value="{$ProductLineSkuInfo[PeopleNum]}" class="form-control"/>
+                </div>
+              </div>
+            </td>
+            {/if}
+        </tr>
+        <tr id="MaterialRequested">
+          <td width="150px" height="35" align="right"></td>
+            <input type="hidden" name="TourProductID" id="TourProductID" value="{if $TourProductID}{$TourProductID}{elseif $ProductLineSkuInfo[TourProductID]}{$ProductLineSkuInfo[TourProductID]}{/if}" />
+            <input type="hidden" name="ProductSkuID" id="ProductSkuID" value="{$ProductLineSkuInfo[ProductSkuID]}" />
+          <td><input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+            &nbsp;&nbsp;
+            <input type="button" class="btn btn-success" onClick="javascript:history.go(-1)" value="返回"/>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".btn1").click(function(){
+      document.getElementById('Obj0').style.display='block';
+      document.getElementById('Obj1').style.display='none';
+    });
+    $(".btn2").click(function(){
+      document.getElementById('Obj0').style.display='none';
+      document.getElementById('Obj1').style.display='block';
+    });
+  });
+</script>
+<!--icheck -->
+<script src="{echo JsURL}/admin/common/iCheck/jquery.icheck.js"></script>
+<script src="{echo JsURL}/admin/common/icheck-init.js"></script>

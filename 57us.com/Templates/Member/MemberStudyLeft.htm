@@ -1,0 +1,32 @@
+<!--留学留学左侧-->
+<div class="lmenu fl">
+    <ul id="leftmenu">
+        <li {if $PreNav == 'order'}class="on"{/if}>
+            <a href="javascript:void(0)" class="firstA">
+                <i class="fl licon icon iconfont icon-dingdan"></i>
+                <span class="name">我的订单</span>
+                <i class="fr icon iconfont icon-up-copy"></i>
+            </a>
+            <div class="secondUl">
+                <a href="/memberstudy/serviceorderlist/" {if $Nav=='serviceorder'}class="on"{/if}>留学订单</a>
+                <a href="/memberstudy/tourorderlist/" {if $Nav=='tourorder'}class="on"{/if}>游学订单</a>
+            </div>
+        </li>
+        <li {if $PreNav == ''}class="on"{/if}>
+            <a href="JavaScript:void(0)" class="firstA">
+                <i class="fl licon icon iconfont icon-gerenzhongxin"></i>
+                <i class="fr icon iconfont icon-up-copy"></i>
+                <span class="name">我的服务</span>
+            </a>
+            <div class="secondUl">
+                <a href="/memberstudy/information/" {if $Nav=='information'}class="on"{/if}>信息收集表</a>
+                <a href="/memberstudy/chooseschool/" {if $Nav=='chooseschool'}class="on"{/if}>选校定校</a>
+                <a href="/memberstudy/document/" {if $Nav=='document'}class="on"{/if}>文书材料</a>
+                <a href="/memberstudy/schoolapply/" {if $Nav=='schoolapply'}class="on"{/if}>学校申请</a>
+                <a href="/memberstudy/visa/" {if $Nav=='visa'}class="on"{/if}>签证申请</a>
+                <a href="/memberstudy/translate/" {if $Nav=='translate'}class="on"{/if}>材料翻译</a>
+                <a href="/memberstudy/background/" {if $Nav=='background'}class="on"{/if}>背景提升</a>
+            </div>
+        </li>
+    </ul>
+</div>

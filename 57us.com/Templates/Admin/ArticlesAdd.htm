@@ -1,0 +1,106 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li>
+                    <a href="JavaScript:void (0)" class="active">编辑自定义页面</a>
+                </li>
+                <span class="position hidden">自定义页面</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=Articles&Action=ArticlesAdd'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td width="150px" class="t-r">选择类别：</td>
+                                <td>
+                                    <div class="col-sm-2" style="width: 300px">
+                                        <select name="CategoryID" id="CategoryID" class="form-control">
+                                            <option value="">Top</option>
+                                            {loop $Category $Lists}
+                                            <option value="{$Lists[CategoryID]}" data-id="{$Lists[IsEdit]}" {if $ArticlesInfo[CategoryID] ==$Lists[CategoryID]} selected="selected"{/if}>|-{$Lists[CategoryName]} </option>
+                                            {loop $Lists[Two] $PLists}
+                                            <option value="{$PLists[CategoryID]}" data-id="{$PLists[IsEdit]}" {if $ArticlesInfo[CategoryID] ==$PLists[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp; |- {$PLists[CategoryName]} </option>
+                                            {loop $PLists[Three] $List}
+                                            <option value="{$List[CategoryID]}" data-id="{$List[IsEdit]}" {if $ArticlesInfo[CategoryID] ==$List[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;&nbsp; &nbsp; |- {$List[CategoryName]} </option>
+                                            {/loop}
+                                            {/loop}
+                                            {/loop}
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="150px" class="t-r"><span style="color: #FF0000">*</span>&nbsp;标题名称：</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="Title" value="{$ArticlesInfo[Title]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr  id="Content0" style="display: none">
+                                <td class="t-r">详细内容</td >
+                                <td>
+                                    <textarea name="Content0" style="width: 900px;height: 300px;">{$ArticlesInfo[Content]}</textarea>
+                                </td>
+                            </tr>
+                            <tr   id="Content1" style="display: none">
+                                <td class="t-r">内容：</td >
+                                <td>
+                                    <div class="col-sm-2" style="width: 300px">
+                                        <script id="Content" name="Content1" type="text/plain" style="width:1024px;height:400px"></script>
+                                        <script>
+                                            var ue = UE.getEditor('Content',{initialContent:'{$ArticlesInfo[Content]}',initialFrameWidth:1024,initialFrameHeight:400,autoHeightEnabled:false});
+                                        </script>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="MaterialRequested">
+                                <td class="t-r"></td>
+                                <td>
+                                    <div class="col-sm-5">
+                                        <input type="hidden" name="ArticleID" value="{$ArticlesInfo[ArticleID]}"/>
+                                        <input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}
+<script>
+    $(function(){
+        $('#CategoryID').click(function () {
+            var id = $("option:selected").data("id");
+            if(id == '1'){
+                $("#Content0").hide();
+                $("#Content1").show();
+            }else if(id == '0'){
+                $("#Content0").show();
+                $("#Content1").hide();
+            }
+        })
+    })
+</script>

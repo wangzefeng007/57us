@@ -1,0 +1,103 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight cf fr">
+        <div class="moneyBox cf">
+            <div class="mRightit">
+                <span class="name">我的钱包</span>
+            </div>
+            <!--此处input绑定可提现的金额-->
+            <input type="hidden" name="maxMoney" id="maxMoney" value="{echo ceil($UserBank['FreeBalance'])}" />
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" class="moneyTab">
+                <tr>
+                    <td width="180">账户余额：<span class="red">￥<em class="f16">{echo ceil($UserBank['TotalBalance'])}</em></span></td>
+                    <td width="180">冻结金额：<span class="red">￥<em class="f16">{echo ceil($UserBank['FrozenBalance'])}</em></span></td>
+                    <td width="180">可操作金额：<span class="red">￥<em class="f16">{echo ceil($UserBank['FreeBalance'])}</em></span></td>
+                    <td width="160" class="tac">
+                        <a href="JavaScript:void(0)" class="publicBtn3 getMoney" id="withdraw">提现</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="MoneyBox mt25 cf">
+            <div class="cf MoneyHeader">
+                <p class="fl">近期收支明细</p>
+                <ul class="hd fl" id="detailType">
+                    <li class="on" data-type="0">
+                        <a href="javascript:void(0)">全部</a><span class="line transition"></span></li>
+                    <li data-type="1">
+                        <a href="javascript:void(0)">收入</a><span class="line"></span></li>
+                    <li data-type="2">
+                        <a href="javascript:void(0)">支出</a><span class="line"></span></li>
+                    <li data-type="3">
+                        <a href="javascript:void(0)">提现记录</a><span class="line"></span></li>
+                </ul>
+            </div>
+            <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab mt10">
+                <tbody id="dealLists">
+                <tr>
+                    <th width="120">交易时间</th>
+                    <th width="390">交易详情</th>
+                    <th width="120">操作金额</th>
+                    <th width="205">状态</th>
+                </tr>
+                </tbody>
+            </table>
+            <div class="notrans tac" id="noTrans" style="display: none">
+                <i class="icon iconfont icon-qian"></i>暂无资产明细
+            </div>
+            <div class="tcdPageCode page mt35"></div>
+        </div>
+    </div>
+</div>
+
+<!--提现模态窗口-->
+<div class="mpopMask mpoptrans">
+    <div class="mpop">
+        <div class="mpopBox">
+            <p class="mpoptransT">余额提现</p>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" class="transTab mt10">
+                <tr>
+                    <th>提现到：</th>
+                    <td style="padding: 0;">
+                        <div class="sexChose" id="transactionType">
+                            <label name="rbt1" type="radiobox" val="0" class="cbt cb rb_active rb"><i></i>支付宝</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>提现账号：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="transactionAccount" id="transactionAccount" value="" class="tabInput" placeholder="请输入支付宝帐号" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>提现金额：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="transactionMoney" id="transactionMoney" value="" class="tabInput" placeholder="请输入提现金额" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td style="padding: 0;" class="c9">预计1-3个工作日到帐</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <a href="JavaScript:void(0)" class="publicBtn2 canceBtn">取消</a>
+                        <a href="JavaScript:void(0)" class="publicBtn2 sureBtn withdrawBtn">提现</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberMyProperty.js" type="text/javascript"></script>
+<script src="{echo JsURL}/base/Page/2.0/page.js" type="text/javascript"></script>
+</body>
+</html>

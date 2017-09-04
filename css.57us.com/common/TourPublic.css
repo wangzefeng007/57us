@@ -1,0 +1,116 @@
+body{ background:#f6faff}
+/*旅游头部*/
+.MtopBar{background:#3c3c3c;height: 27px;line-height: 27px;}
+.MtopBar a{color: #999999;}
+.MtopBar a:hover{color: #fdb968;}
+.TourHeader{background:#55b0ff;height: 119px;}
+.TourLogo,.TourHeaderI{background:url(http://images.57us.com/img/common/TourLogo.png) no-repeat;width: 253px;height: 69px;float: left;margin-top: 24px; overflow: hidden;text-indent: -9999px;}
+.TourHeaderI{background:url(http://images.57us.com/img/common/TourHeaderI.png) no-repeat;width: 296px;}
+.TourSearchBox{background:#fff;width: 459px;height: 39px; line-height: 39px; border-radius: 39px;margin-top: 40px;}
+.TourSearchBox .SearchInput{width: 304px;height: 24px;border: 0;background: none; border-right: 1px solid #55b0ff; padding: 0 20px;margin-top: 7px;color: #3c3c3c;}
+.TourSearchBox .SearchBtn{background:url(http://images.57us.com/img/common/TourPulicIcon.png) -5px -386px no-repeat;border:0;width: 70px;height: 24px;float: right;margin: 7px 18px 0 0;font-size: 16px;color: #55b0ff;text-indent: 8px;cursor: pointer;}
+.TourMenu{ background: #fff; height: 57px;line-height: 57px;border-bottom: 2px solid #e5e5e5; position: relative;z-index: 100;}
+.TourMenu ul{}
+.TourMenu ul li{float: left;position: relative;}
+.TourMenu ul li .FirstA{padding: 0 20px;font-size: 16px;color: #3c3c3c;display: inline-block; margin: 0 8px;}
+.TourMenu ul li .FirstA:hover{color: #55b0ff;}
+.TourMenu ul li .FirstA i{background:url(http://images.57us.com/img/common/TourPulicIcon.png) -4px -423px no-repeat;width:20px; height: 20px;display: inline-block;vertical-align: middle;}
+.TourShow{border-bottom: 1px solid #eaeef2;box-shadow: 0 0 8px rgba(0,0,0,0.2);}
+.TourMenu ul li .SecondUl{ background:#fff;border:1px solid #eaeef2;width: auto;  height: 41px; line-height: 41px; position: absolute;top: 57px; left: 50%;margin-left: -100px;display: none;}
+.TourMenu ul li .SecondUl a{float: left;padding: 0 15px;font-size: 15px; color: #3C3C3C;}
+.TourMenu ul li .SecondUl em{background:url(http://images.57us.com/img/common/TourPulicIcon.png) -5px -492px no-repeat;width: 21px; height: 8px; position: absolute;top: -8px; left: 50%;margin-left: -19px;}
+.TourMenu ul li:hover .FirstA{color: #29beb5;}
+.TourMenu ul li:hover .FirstA i{ background-position:-4px -455px;}
+.TourMenu ul li:hover .SecondUl{display: block;}
+.TourMenu ul li .SecondUl a:hover{background: #f7f7f7;}
+.HotIcon{width: 25px; height: 15px;display: inline-block;background: url(http://images.57us.com/img/tour/TourIcon.png) 0 -31px no-repeat;position: absolute;}
+.TourMenu ul li .HotIcon{vertical-align: top;margin: 5px 0 0 5px;}
+/*跟旅游相关底部*/
+.TourFoot{ background:#323232;width:100%; color:#fff; padding:22px 0;}
+.TourFootBox{ width:1050px; float:left; margin-top:5px }
+.TourFootMenu{ height:30px; line-height:30px; margin-left:-24px;}
+.TourFoot a{ color:#fff;}
+.TourFoot a:hover{ text-decoration:underline}
+.TourFootMenu a{ display:inline-block; padding:0 24px; color:#fff;}
+.TourFootMenu a i{ background:url(http://images.57us.com/img/common/TourPulicIcon.png) no-repeat; width:18px; height:18px; overflow:hidden; display:inline-block; margin-right:3px; vertical-align:middle}
+.TourFootMenu a.i1 i{ background-position:0 0}
+.TourFootMenu a.i2 i{ background-position:0 -32px}
+.TourFootMenu a.i3 i{ background-position:0 -64px}
+.TourFootMenu a.i4 i{ background-position:0 -96px}
+.TourFootMenu a.i5 i{ background-position:0 -128px}
+.TourFootMenu a.i6 i{ background-position:0 -160px}
+.TourFootMenu a.i7 i{ background-position:0 -192px}
+.TourFootMenu a.i8 i{ background-position:0 -224px}
+.TourFootCopy{ height:30px; line-height:30px; overflow:hidden}
+
+.TourFootMeida{ width:auto; height:64px; border-left:1px dashed #fff; padding-left:18px;}
+.TourFootMeida li{ height:32px; line-height:32px; position:relative}
+.TourFootMeida li i{ background:url(http://images.57us.com/img/common/TourPulicIcon.png) no-repeat; width:32px; height:32px; display:inline-block; vertical-align:middle; margin-right:5px;}
+.TourFootMeida li.i1 i{ background-position:0 -254px}
+.TourFootMeida li.i2 i{ background-position:0 -316px}
+.TourFootMeida li.i1:hover i{ background-position:0 -286px}
+.TourFootMeida li.i2:hover i{ background-position:0 -348px}
+.TourFootMeida li a:hover{ text-decoration:none !important}
+.TourFootMeida li a{ display:block; height:32px;}
+.ChatCode{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); width:126px; height:126px; position:absolute; top:-126px; left:20px; display:none}
+.ChatCode img{ margin:7px;}
+.ChatCode em{background:url(http://images.57us.com/img/common/sj.png) no-repeat;  width:30px; height:7px; display:inline-block; position:absolute; bottom:-7px; left:50%; margin-left:-15px;}
+.TourFootMeida li:hover .ChatCode{ display:block}
+.HotThing{ width:100%;border-top:1px solid #8b8d8a; padding-top:15px;}
+.HotThing a{ padding:0 5px;}
+
+/*订单以及支付页面头部*/
+.NewsLogo{background:url(http://images.57us.com/img/www/logo.png) no-repeat;width:193px;height:49px;float: left;margin-top:10px; overflow: hidden;text-indent: -9999px;}
+.OrderHeader{background: #3c3c3c; height: 86px; overflow: hidden;}
+.OrderHeader .NewsLogo{margin-top: 20px;}
+.TourLineProcess{ float:right;margin-top: 32px;}
+.TourLineProcess li{ width:102px; height:53px; line-height:53px;float:left;  position:relative; text-align:center; color: #818181;}
+.TourLineProcess li i{ background:#313131; width:22px; height:22px;  text-align:center;line-height: 22px; font-style: normal; text-indent: -2px; border-radius:100%; position:absolute; top:-14px; left:50%; margin-left:-11px; display:inline-block;color: #4f4f4f;z-index: 2;}
+.TourLineProcess li.on{ color: #29bbb2;}
+.TourLineProcess li.on i{ background:#29bbb2; color: #fff;}
+.TourLineProcess li em{ background: #313131; width: 100%; height: 5px; display: inline-block;  position: absolute; top: -5px; left: 0; z-index: 1;}
+.TourLineProcess li.on em{ background: #29bbb2;}
+.w1000{width: 1000px; margin: 0 auto;}
+.payCont{color: #666;}
+.payCont td span{color: #999;}
+/*倒计时*/
+.Countdown{display: inline-block;padding: 0 9px;}
+.SurplusPay{font-size: 16px;font-weight: bold;padding-bottom: 8px;}
+.SurplusPay span{font-size: 20px; color: #ff5863;}
+/*总价*/
+.allPrice{ font-size: 24px; color: #666;}
+.allPrice b{color: #ff6767;}
+.allPrice b i{font-size: 32px;}
+/*支付通用*/
+.PayStyleBox{height: auto;overflow: hidden;padding: 25px 0;}
+.PayStyleBox .hd{ width: 100%; height: 46px;}
+.PayStyleBox .hd a{background:#f2f2f2;float: left; height: 46px;line-height: 46px; padding: 0 20px;text-align: center;font-size: 20px;  color: #999999;}
+.PayStyleBox .hd a.on{border-bottom:3px solid #29bbb2; height: 44px; color: #29bbb2;}
+.PayStyleBox .bd{margin-top: -1px;width: 100%; height: auto; overflow: hidden;} 
+.PayStyleBox .bd .Alipay,.PayStyleBox .bd .ChatPay{border: 1px solid #d1d1d1; height: 370px; overflow: hidden;}
+.PayStyleBox .bd .BdTab{ height:aueo;overflow: hidden; display: none;}
+.PayStyleBox .bd .Alipay{background: url(http://images.57us.com/img/common/AlipayPay3.0.jpg) center center no-repeat; height:370px;}
+.PayStyleBox .bd .ChatPay{background: url(http://images.57us.com/img/common/ChatPay3.0.jpg) center center no-repeat;height:370px;}
+
+
+.PayOrderFoot{ background: #e9e9e9; height: 60px; line-height: 60px; overflow: hidden;}
+.PayOrderFoot .nextPay{ background: #f77754; width: 155px; height: 60px; text-align: center;color: #fff; font-size: 24px;}
+.PayOrderFoot .nextPay:hover{background: #ed6f4c;}
+.PayOrderFoot .allPrice{margin-right: 60px;}
+
+.partTab{margin-top: 10px;}
+.partTab p{float: left;margin-right: 6px;}
+
+/*2016-8-31*/
+/*内有头部*/
+.InHeader{height: 73px;background: #3c3c3c;}
+.Insearch{background: #fff; width: 321px;height: 31px;border-radius: 31px;}
+.Insearch .input{background: none; border: 0; width: 280px;height: 31px;float: left;line-height: 31px;overflow: hidden;text-indent: 15px;}
+.Insearch .IsearchBtn{ background:url(http://images.57us.com/img/tour/s.png) no-repeat;width: 31px; height: 31px;text-indent: -9999px;overflow: hidden; display: inline-block;cursor: pointer;border: 0;}
+
+.safeBox a{padding: 0;}
+.DetailCont img{max-width: 100%;}
+
+.erro_input{ border:1px solid #ff5863 !important; border-radius:3px;box-shadow:0 0 3px #ff5863 inset}
+.erro_tip{ background-position:0 -42px; padding-left:24px; line-height:38px; color:#ff5863; margin-left:10px; font-size:12px; display:inline-block}
+.focus_input{border:1px solid #1fc0fc; border-radius:3px; box-shadow:0 0 3px #1fc0fc inset}

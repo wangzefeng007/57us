@@ -1,0 +1,99 @@
+.index .NewsTop{color: #333333;height: 27px; line-height: 27px;}
+.index .NewsTop a{color: #333333; padding: 0 10px;}
+.index .NewsTop a:hover{color: #fdb968;}
+.index .UserList .UserListM{border: 1px solid #c5c5c5;box-shadow: none; border-radius: 4px; }
+.index .UserLogin .UserList table{margin-top: 0;}
+.index .UserLogin .UserList th, .index .UserLogin .UserList td{border: 0;}
+.index .UserList a:hover{color: #eab66a;}
+.index .UserLogin .UserList b.ico{background: url(http://images.57us.com/img/www/up.png) no-repeat;width: 20px; height: 10px; border: 0;}
+.IndexTopMain{ height:574px; overflow: hidden; position: relative;}
+.MaskUp{ background: url(http://images.57us.com/img/www/mask.png) 0 -114px no-repeat;width:1920px; height: 101px; position: absolute; top: 0; left:50%; margin-left:-960px;z-index: 2;}
+.NewsSearchBox{ position: absolute; top:15px; left: 50%; margin-left: 260px; z-index: 3; border-radius: 3px;background: #202020;width: 328px; height: 32px; padding: 2px; overflow: hidden;margin-top:15px;}
+.NewsSearchBox .input{ background: #fff; border: 0; width: 267px; height: 32px; line-height: 32px; text-indent: 10px; float: left;}
+.SearchBtn{background: url(http://images.57us.com/img/www/PublicIco.png) center -120px no-repeat;border:0;width:60px;height:32px; line-height:32px;float: right;cursor: pointer;}
+.NewsLogo{ position: absolute; top: 40px; left:50%; margin-left: -600px; z-index: 3; width: 231px; height: 57px; background:url(../images/logo.png) no-repeat; overflow: hidden;text-indent: -9999px; margin-top: 10px;}
+
+.IndexMenu{ position: absolute; top:66px; left: 50%; margin-left: -364px; z-index: 3;}
+.IndexMenu li{ float: left; position: relative;}
+.IndexMenu li .a{  padding: 0 10px; height: 30px; line-height: 30px; display: block; text-align: center; font-size: 16px; color: #636363;}
+.IndexMenu li .a:hover,.IndexMenu li:hover .a{color: #c4003a;}
+.SeconMenu{width: 157px; height: auto; overflow: hidden; padding-top: 9px; position: absolute; top: 30px; left: 50%; margin-left: -78px;display: none;}
+.SeconMenu em{width: 0;height: 0;border-left: 8px solid transparent;border-right: 8px solid transparent;border-bottom: 10px solid #fff; display: block; position: absolute; top: 0; left: 50%; margin-left: -8px;}
+.SeconMenuM{background: #ffffff; padding: 10px 0; height: auto; overflow: hidden; border-radius: 3px; }
+.SeconMenuM a{display: block;width: 100%; height: 36px; line-height: 36px; text-indent: 20px; font-size: 16px; color: #666666;}
+.SeconMenuM .line{width: 118px; height: 0; border-bottom: 1px solid #efefef; display: block; margin: 0 auto;}
+.SeconMenuM a:hover{ background: #f5f5f5;}
+.IndexMenu li:hover .SeconMenu{display: block;}
+
+/*banner*/
+.IndexBan{ width:1920px; height:574px; position:relative; left:50%; margin-left:-960px; overflow:hidden; position:relative;z-index: 1;}
+.IndexBan .pic{ position:relative; z-index:0; }
+.IndexBan .pic img { width:1920px; height:574px; display: block; }
+.IndexBan .hd { width:100%; position: absolute; bottom: 113px; text-align: center; font-size:0; z-index:1; }
+.IndexBan .hd li{ border-radius:100%; border: 1px solid #fff; width:14px;height:14px;overflow: hidden;display:inline-block; *display:inline; zoom:1; cursor: pointer;margin: 0 5px; box-shadow:0 0 3px rgba(255,255,255,0.5)}
+.IndexBan .hd .on{background:#fff; }
+.IndexBan .prev,.IndexBan .next{ background: url(http://images.57us.com/img/www/indexicon.png) no-repeat; width: 31px; height: 55px; display: block; overflow: hidden;text-indent: -999px; position: absolute; top: 50%; left: 50%; z-index: 3; cursor: pointer;filter:alpha(opacity=30);opacity: 0.3; display: none;}
+.IndexBan .prev{ background-position: -225px -4px; margin: -28px 0 0 -600px;}
+.IndexBan .next{ background-position: -269px -4px;margin: -28px 0 0 560px;}
+.IndexBan .prev:hover,.IndexBan .next:hover{filter:alpha(opacity=70) !important;opacity: 0.7 !important; }
+
+.menu{ background: url(../images/menubg.png) left top repeat-x; height: 100px;}
+.nav{width: 1000px; height: 46px; overflow: hidden; padding-top: 30px; margin: 0 auto;}
+.nav li{width: 25%; float: left; text-align: center; color: #4a4a4a;}
+.nav li span{display: block;}
+.nav li .ch{height:28px; line-height: 28px; font-size: 26px; font-weight: bold;}
+.nav li .en{ height: 18px; line-height: 18px; overflow: hidden; font-family: arial;}
+.nav li a{display: block; border-right: 1px solid #b4b4b4; color: #4a4a4a;}
+.nav li.last a{border-right: 0;}
+.w1113{width: 1113px; margin: 0 auto;}
+/*项目介绍*/
+.ItemInstr{ background: url(../images/boxbg1.jpg) center top no-repeat; height: 754px; padding-top: 20px;}
+.ItemTitle,.ItemTitle1,.ItemTitle3,.ItemTitle4,.ItemTitle5{ background: url(../images/tit1.png) no-repeat; width: 564px; height: 70px; margin: 0 auto; overflow: hidden;text-indent: -999px; }
+.ItemTitle1{ background: url(../images/tit2.png) no-repeat;}
+.ItemTitle3{ background: url(../images/tit3.png) no-repeat;}
+.ItemTitle4{ background: url(../images/tit4.png) no-repeat;}
+.ItemTitle5{ background: url(../images/tit5.png) no-repeat;}
+.ItemIns{height: 93px; overflow: hidden; line-height: 31px; color: #fff; text-align: center; font-size: 18px;}
+.ItemLeft{width:450px;}
+.ItemTit{ font-size: 30px; color: #e5b274; font-weight: bold;}
+.ItemTit span{font-size: 14px; font-weight: normal; line-height: 20px; display: inline-block;}
+.ItemList{}
+.ItemList li{ height: 46px; line-height: 46px; overflow: hidden;border-bottom: 1px solid #66696c; color: #fff; font-size:22px;}
+.ItemList li.m{font-weight: bold; color: #ff8981;}
+
+.DetailIns{ background: #78ddd9; height: 286px;}
+.gaiyao{width: 388px; float: left; margin:15px 0 0 88px;}
+.DetailInsTit{font-size: 30px;font-weight: bold;color: #015853; line-height: 35px;}
+.DetailInsNr{font-size: 24px;color: #292929;  line-height: 36px;}
+.schoolInsr{ background: #6ad1cd; width: 440px; height:271px; float: right; padding:15px 80px 0 80px;}
+/*项目优势*/
+.Advantage{ margin-top:130px ; padding-top: 20px;}
+.AdvantageUl{padding-left: 14px;}
+.AdvantageUl li{width: 262px; height: 164px;border-bottom: 4px solid #94e9e4;font-size: 20px; float: left; margin: 20px 10px 10px 0;}
+.AdvantageUl li .tit{color: #292929; font-weight: bold;}
+.AdvantageUl li .nr{height: 120px; line-height: 30px; overflow: hidden; margin-top: 5px;}
+/*投资保障*/
+.guaranteeList{background: url(../images/guarantee.png) center top no-repeat; width: 927px; height: 402px; overflow: hidden; padding-bottom: 46px;}
+.guaranteeList li{width: 284px; float: left; margin: 114px 12px 0; text-align: center; color: #ffffff;}
+.guaranteeList li .tit{font-size: 32px; font-weight:bold; height: 58px; line-height: 58px;}
+.guaranteeList li .nr{ font-size: 18px; height: 170px; overflow: hidden; line-height: 34px; padding: 0 12px; margin-top: 7px;}
+.guaranteeList li.i2{color: #3b3b3b;}
+
+/*团队介绍*/
+.TeamIns{ background: #292929;height: 1158px; padding-top: 17px;}
+.TeamBox{ background: #94e9e4; height: 290px; overflow: hidden;}
+.TeamBoxTit{height: 64px; overflow: hidden;line-height: 64px; background: #78ddd9; color: #3b3b3b; font-weight:bold;font-size: 30px; padding-left: 15px;}
+.TeamBoxNr{padding: 15px 15px 0;}
+.TeamBoxNr .title{ color: #3b3b3b; font-weight:bold;font-size: 30px; line-height: 40px;}
+.TeamBoxNr .nr{height: 144px; line-height: 36px; overflow: hidden;font-size: 18px;color: #3b3b3b;}
+/*流程介绍*/
+.Process{ padding-top: 20px;}
+/*底部联系方式*/
+.BottomContact{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#E50F0F0F', endColorstr='#E50F0F0F');background:rgba(15,15,15,0.9); height: 264px; overflow: hidden;}
+.ContactFeek{ background: url(../images/bottom.png) no-repeat;  height: 220px; overflow: hidden;}
+.ContactList{ width: 406px; padding-top: 36px;}
+.ContactList li{height: 41px; line-height: 41px; overflow: hidden;border-bottom: 1px solid #fff; text-indent: 6px; font-size: 18px; color: #cacaca;}
+.ContactList li input{width: 340px; height: 41px; line-height: 41px;border: 0; background: none; color: #cacaca;font-size: 18px; }
+.ContactBtn{ background: #cc3a30; width: 125px; height: 44px; text-align: center; line-height: 44px; color: #fff; border: 0; cursor: pointer; display: inline-block; font-size: 18px; margin-top: 12px;}
+.ContactBtn:hover{ background: #bb271d; color: #fff;}
+

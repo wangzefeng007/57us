@@ -1,0 +1,52 @@
+{template NewsHeader}
+<body>
+<div class="page-group">
+  <div class="page page-current" style="background: #EEEEEE;">
+  	<!-- 标题栏 --> 
+	<header class="bar bar-nav contBar {if $TourInfo[Image]!=''}deContBar{/if} transition">
+		<a class="back pull-left" href="javascript:history.go(-1)"><i class="icon iconfont">&#xe604;</i></a>
+		<p class="title">{$CategoryInfo[CategoryName]}</p>
+	</header>
+    <div class="content  {if $TourInfo[Image]!=''}detailCont{/if}">
+        {if $TourInfo[Image]!=''}
+        <div class="detailHead"> <img src="{echo ImageURLP4.$TourInfo[Image]}" width="100%"/>
+          <div class="detailBar"> <!--<span class="pull-right share"><i class="icon iconfont">&#xe629;</i></span> <span class="pull-right collect"><i class="icon iconfont">&#xe608;</i></span>--> <a class="pull-left back" href="javascript:history.go(-1)"><i class="icon iconfont">&#xe604;</i></a> </div>
+        </div>
+        {/if}
+        <div class="detailBody">
+          <h1 class="detailTitle">{$TourInfo[Title]}</h1>
+          <div class="detailIns"> <i class="icon iconfont leftT">&#xe62e;</i> <i class="icon iconfont rightB">&#xe7f4;</i>
+            <article>{$TourInfo[Description]}</article>
+            <p class="articeTime"><i class="icon iconfont">&#xe62f;</i>{echo date("Y.m.d",strtotime($TourInfo[AddTime]))}</p>
+          </div>
+          <div class="detailArtice">
+            {$TourInfo[Content]}
+          </div>
+          <div class="mt10 cf"><img src="http://images.57us.com/img/m/www/mtourewm.jpg"/></div>
+        </div>
+      <div class="diyCard">
+        <div class="diyCardHead"><span class="name">产品推荐</span></div>
+        <ul class="proTjList disable-router">
+        
+
+                    
+          {if count($ListsR2)>0}
+          {loop $ListsR2 $lists}
+          <li> <a href="{echo WEB_M_URL}/group/{$lists[TourProductID]}.html" target="_blank" class="external"> <img src="{echo ImageURLP4.$lists[ImageUrl]}" class="pull-left"/>
+            <p class="tit">{$lists[ProductName]}</p>
+            <p class="sutit">{$lists[ProductSimpleName]}</p>
+            {if $lists[TagInfo][0]!=''}<p class="tipFun">{loop $lists[TagInfo] $k $lis}{if $k<2}<span>{$lis}</span>{/if}{/loop}</p>{/if}
+            <p class="bottomFun"> <span class="pull-left prodate">行程天数：<i>{$lists[Days]}天</i></span> <span class="pull-right proPrice"><i>￥{$lists[LowPrice]}</i>/人起</span> </p>
+            </a> </li>
+           {/loop}
+           {/if}
+        </ul>
+      </div>
+      
+    </div>
+    <div class="fixBackTop"><i class="icon iconfont">&#xe60a;</i></div>
+    </div>
+</div>
+
+</body>
+</html>

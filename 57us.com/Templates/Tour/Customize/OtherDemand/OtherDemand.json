@@ -1,0 +1,26 @@
+[
+  {
+    "OtherDemandName": "预定门票",
+    "EnName": "EntranceTicket",
+    "img": null,
+    "Description": "门票，通常是由商业活动的主办方或者旅游景点的管理方负责发行制作、销售并监管使用的一种有价票证。"
+  },
+  {
+    "OtherDemandName": "安排购物",
+    "EnName": "shop",
+    "img": null,
+    "Description": "指在零售商拣选或购买货品或服务的行为，可视为一种 经济和休闲活动。"
+  },
+  {
+    "OtherDemandName": "接机",
+    "EnName": "jieji",
+    "img": null,
+    "Description": "接机，读作jiē jī，汉语词语，是指到飞机场接人。"
+  },
+  {
+    "OtherDemandName": "导游",
+    "EnName": "guide",
+    "img": null,
+    "Description": "导游主要分为中文导游和外语导游。其主要工作内容为引导游客感受山水之美，解决旅途中可能出现的突发事件，并给予游客食、宿、行等方面的帮助。"
+  }
+]

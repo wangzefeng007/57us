@@ -1,0 +1,32 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current" id="newsList">
+		<header class="bar bar-nav suvBar">
+                    {if $Rscount[Num]>0}<span class="pull-right mangeBtn">管理</span>{/if}
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">消息中心</h2>
+		</header>
+		<div class="content pull-to-refresh-content infinite-scroll ListCont">
+			<!-- 默认的下拉刷新层 -->
+			<div class="pull-to-refresh-layer">
+				<div class="preloader"></div>
+				<div class="pull-to-refresh-arrow"></div>
+			</div>
+			<ul class="newsList" id="list">
+			</ul>
+			<div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+			<!-- 加载提示符 -->
+			<div class="infinite-scroll-preloader" style="display: none">
+				<div class="preloader">
+				</div>
+			</div>
+		</div>
+		<div class="deteBox hidden">
+			<a href="javascript:void(0)" class="button button-fill button-orange newsdete delBtn">删除</a>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserMessageList.js" charset='utf-8'></script>
+</body>
+</html>

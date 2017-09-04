@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>日期选择</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://css.57us.cn/m/msui/0.6.2/sm.min.css">
+		<link rel="stylesheet" href="http://css.57us.cn/m/msui/0.6.2/sm-extend.min.css">
+		<link rel="stylesheet" href="http://css.57us.cn/m/tour/style.css">
+		<link rel="stylesheet" href="http://www.57us.cn/Plugins/mfonts/iconfont.css">
+
+	</head>
+
+	<body>
+		<div class="page">
+			<!-- 标题栏 -->
+			<header class="bar bar-nav diybar">
+				<a class="back pull-left"><i class="icon iconfont">&#xe001;</i></a>
+				<a class="back pull-right"><i class="icon iconfont">&#xe011;</i></a>
+				<h1 class="title">跟团游</h1>
+			</header>
+			<div class="buttons-tab diyTab">
+				<a href="http://www.baidu.com" class="tab-link button">国内参团</a>
+				<a href="#tab2" class="tab-link active button">当地参团</a>
+			</div>
+			<div class="content infinite-scroll ListCont" data-distance="100" id='page-infinite-scroll'>
+				<div class="list-block">
+					<ul class="PlayList">
+						<li>
+							<a href="">
+								<img src="http://images.57us.com/p6/up/2016/0922/201609221747357070.jpg" />
+								<div class="ListRight">
+									<p class="tit">全程豪华大巴！拉斯维加斯-洛杉矶商务游-4天3-夜团黄石公园</p>
+									<p class="tipspan"><span>标签1</span><span>标签2</span><span>标签3</span></p>
+									<p class="ListBottom">
+										<span class="pull-left">行程天数：<i class="green">5天</i></span>
+										<span class="pull-right price"><i>¥888</i>/人起</span>
+									</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="http://images.57us.com/p6/up/2016/0922/201609221747357070.jpg" />
+								<div class="ListRight">
+									<p class="tit">全程豪华大巴！拉斯维加斯-洛杉矶商务游-4天3-夜团黄石公园</p>
+									<p class="tipspan"><span>标签1</span><span>标签2</span><span>标签3</span></p>
+									<p class="ListBottom">
+										<span class="pull-left">行程天数：<i class="green">5天</i></span>
+										<span class="pull-right price"><i>¥888</i>/人起</span>
+									</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="http://images.57us.com/p6/up/2016/0922/201609221747357070.jpg" />
+								<div class="ListRight">
+									<p class="tit">全程豪华大巴！拉斯维加斯-洛杉矶商务游-4天3-夜团黄石公园</p>
+									<p class="tipspan"><span>标签1</span><span>标签2</span><span>标签3</span></p>
+									<p class="ListBottom">
+										<span class="pull-left">行程天数：<i class="green">5天</i></span>
+										<span class="pull-right price"><i>¥888</i>/人起</span>
+									</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="http://images.57us.com/p6/up/2016/0922/201609221747357070.jpg" />
+								<div class="ListRight">
+									<p class="tit">全程豪华大巴！拉斯维加斯-洛杉矶商务游-4天3-夜团黄石公园</p>
+									<p class="tipspan"><span>标签1</span><span>标签2</span><span>标签3</span></p>
+									<p class="ListBottom">
+										<span class="pull-left">行程天数：<i class="green">5天</i></span>
+										<span class="pull-right price"><i>¥888</i>/人起</span>
+									</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="http://images.57us.com/p6/up/2016/0922/201609221747357070.jpg" />
+								<div class="ListRight">
+									<p class="tit">全程豪华大巴！拉斯维加斯-洛杉矶商务游-4天3-夜团黄石公园</p>
+									<p class="tipspan"><span>标签1</span><span>标签2</span><span>标签3</span></p>
+									<p class="ListBottom">
+										<span class="pull-left">行程天数：<i class="green">5天</i></span>
+										<span class="pull-right price"><i>¥888</i>/人起</span>
+									</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="http://images.57us.com/p6/up/2016/0922/201609221747357070.jpg" />
+								<div class="ListRight">
+									<p class="tit">全程豪华大巴！拉斯维加斯-洛杉矶商务游-4天3-夜团黄石公园</p>
+									<p class="tipspan"><span>标签1</span><span>标签2</span><span>标签3</span></p>
+									<p class="ListBottom">
+										<span class="pull-left">行程天数：<i class="green">5天</i></span>
+										<span class="pull-right price"><i>¥888</i>/人起</span>
+									</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="infinite-scroll-preloader">
+					<div class="preloader">
+					</div>
+				</div>
+				<!--
+                	作者：xiao15980751809@126.com
+                	时间：2016-11-01
+                	描述：筛选不到产品
+                -->
+				<div class="payTipBox" style="display: none;">
+						<p class="tac cf"><i class="icon iconfont sadIcon">&#xe020;</i></p>
+						<div class="payContText tac mt10">
+							<p class="tit">暂时没有符合条件的产品</p>
+							<p class="mt10 c9">
+								删除筛选条件或扩大搜索范围，您一<br>定会找到合适您的产品。
+							</p>
+						</div>
+						<div class="payResultBtn tac mt10">
+							<a href="#" class="button button-big">重新搜索</a>
+						</div>
+					</div>
+			</div>
+			
+			<nav class="bar bar-tab diyBottom">
+				<a class="tab-item external" href="JavaScript:void(0)" date-id="playFoth">
+					<i class="icon iconfont">&#xe006;</i>
+					<span class="tab-label">线路玩法</span>
+				</a>
+				<a class="tab-item external" href="JavaScript:void(0)" date-id="howday">
+					<i class="icon iconfont">&#xe004;</i>
+					<span class="tab-label">时间天数</span>
+				</a>
+				<a class="tab-item external" href="JavaScript:void(0)" date-id="FeaPlay">
+					<i class="icon iconfont">&#xe009;</i>
+					<span class="tab-label">特色筛选</span>
+				</a>
+				<a class="tab-item external" href="JavaScript:void(0)" date-id="ranking">
+					<i class="icon iconfont">&#xe010;</i>
+					<span class="tab-label">综合排序</span>
+				</a>
+			</nav>
+			<div class="tabMain">
+				<div class="tabBox" id="playFoth">
+				<div class="tabBoxHead">
+					<a class="pull-left">取消</a>
+					<a class="pull-right">确定</a>
+					<a class="pull-right sxDete"><i class="icon iconfont">&#xe007;</i>清空筛选</a>
+				</div>
+				<div class="tabBoxCity">
+					<div class="tabBoxCityl">
+						<a href="" class="on">出发城市</a>
+						<a href="">结束城市</a>
+						<a href="">途经城市</a>
+					</div>
+					<div class="tabBoxCityM swiper-letter">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide on">热门</div>
+							<div class="swiper-slide">A</div>
+							<div class="swiper-slide">B</div>
+							<div class="swiper-slide">C</div>
+							<div class="swiper-slide">D</div>
+							<div class="swiper-slide">E</div>
+							<div class="swiper-slide">F</div>
+							<div class="swiper-slide">G</div>
+							<div class="swiper-slide">H</div>
+							<div class="swiper-slide">I</div>
+							<div class="swiper-slide">J</div>
+							<div class="swiper-slide">K</div>
+							<div class="swiper-slide">L</div>
+							<div class="swiper-slide">M</div>
+							<div class="swiper-slide">N</div>
+							<div class="swiper-slide">O</div>
+							<div class="swiper-slide">P</div>
+							<div class="swiper-slide">Q</div>
+							<div class="swiper-slide">R</div>
+							<div class="swiper-slide">S</div>
+							<div class="swiper-slide">T</div>
+							<div class="swiper-slide">U</div>
+							<div class="swiper-slide">V</div>
+							<div class="swiper-slide">W</div>
+							<div class="swiper-slide">X</div>
+							<div class="swiper-slide">Y</div>
+							<div class="swiper-slide">Z</div>
+						</div>
+					</div>
+					<div class="tabBoxCityR swiper-city">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<label class="choseList on">
+									<input type="hidden" name="" id="" value="" />
+									<p class="pull-left">城市1</p>
+									<p class="pull-right checkBox"><i class="icon iconfont">&#xe003;</i></p>
+								</label>
+							</div>
+							<div class="swiper-slide">
+								<label class="choseList">
+									<input type="hidden" name="" id="" value="" />
+									<p class="pull-left">城市2</p>
+									<p class="pull-right checkBox"><i class="icon iconfont">&#xe003;</i></p>
+								</label>
+							</div>
+							<div class="swiper-slide">
+								<label class="choseList">
+									<input type="hidden" name="" id="" value="" />
+									<p class="pull-left">城市3</p>
+									<p class="pull-right checkBox"><i class="icon iconfont">&#xe003;</i></p>
+								</label>
+							</div>
+							<div class="swiper-slide">
+								<label class="choseList">
+									<input type="hidden" name="" id="" value="" />
+									<p class="pull-left">城市4</p>
+									<p class="pull-right checkBox"><i class="icon iconfont">&#xe003;</i></p>
+								</label>
+							</div>
+							<div class="swiper-slide">
+								<label class="choseList">
+									<input type="hidden" name="" id="" value="" />
+									<p class="pull-left">城市5</p>
+									<p class="pull-right checkBox"><i class="icon iconfont">&#xe003;</i></p>
+								</label>
+							</div>
+							<div class="swiper-slide">
+								<label class="choseList">
+									<input type="hidden" name="" id="" value="" />
+									<p class="pull-left">城市6</p>
+									<p class="pull-right checkBox"><i class="icon iconfont">&#xe003;</i></p>
+								</label>
+							</div>
+							<div class="swiper-slide">
+								<label class="choseList">
+									<input type="hidden" name="" id="" value="" />
+									<p class="pull-left">城市7</p>
+									<p class="pull-right checkBox"><i class="icon iconfont">&#xe003;</i></p>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tabBox" id="howday">
+				<div class="tabBoxHead">
+					<a class="pull-left">取消</a>
+					<a class="pull-right">确定</a>
+					<a class="pull-right sxDete"><i class="icon iconfont">&#xe007;</i>清空筛选</a>
+				</div>
+				<div class="tabBoxBody">
+					<p class="tit">行程天数</p>
+					<div class="tabBoxBodyM">
+						<span class="on">不限</span><span>1天内</span><span>2-3天</span><span>4-6天</span><span>7-9天</span><span>7-9天</span><span>10-15天</span><span>15天以上</span>
+					</div>
+				</div>
+				<div class="tabBoxBody">
+					<p class="tit">出发时间</p>
+					<div class="tabBoxBodyM">
+						<span class="on">不限</span><span>16年9月</span><span>16年10月</span><span>16年11月</span><span>17年1月</span><span>17年2月</span>
+					</div>
+				</div>
+			</div>
+				<div class="tabBox" id="FeaPlay">
+					<div class="tabBoxHead">
+						<a class="pull-left">取消</a>
+						<a class="pull-right">确定</a>
+						<a class="pull-right sxDete"><i class="icon iconfont">&#xe007;</i>清空筛选</a>
+					</div>
+					<div class="tabBoxBody">
+						<p class="tit">特色主题</p>
+						<div class="tabBoxBodyM">
+							<span class="on">不限</span><span>主题公园</span><span>蜡像馆</span><span>主题公园</span><span>蜡像馆</span><span>主题公园</span>
+						</div>
+					</div>
+				</div>
+				<div class="tabBox" id="ranking">
+					<div class="tabBoxHead">
+						<a class="pull-left">取消</a>
+						<a class="pull-right">确定</a>
+						<a class="pull-right sxDete"><i class="icon iconfont">&#xe007;</i>清空筛选</a>
+					</div>
+					<div class="tabBoxBody">
+						<ul class="tabBoxPx">
+							<li>综合排序<i class="icon iconfont">&#xe003;</i></li>
+							<li class="on">价格从低到高<i class="icon iconfont">&#xe003;</i></li>
+							<li>价格从高到低<i class="icon iconfont">&#xe003;</i></li>
+							<li>销量从高到低<i class="icon iconfont">&#xe003;</i></li>
+							<li>销量从低到高<i class="icon iconfont">&#xe003;</i></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+
+			
+			
+		</div>
+
+		<script type='text/javascript' src="http://js.57us.cn/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.cn/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.cn/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.cn/m/lib/msui/0.6.2/dev/swiper.js" charset='utf-8'></script>
+		<script type="text/javascript">
+			$(function() {
+				var swiper = new Swiper('.swiper-letter', {
+					slidesPerView: "auto",
+					direction: 'vertical'
+				});
+				var swiper1 = new Swiper('.swiper-city', {
+					slidesPerView: "auto",
+					direction: 'vertical'
+				});
+				//弹出切换
+				$(".diyBottom .tab-item").each(function() {
+					$(this).on('click', function() {
+						var num = $(this).index();
+						$(this).addClass("active").siblings().removeClass("active");
+						$(".tabMain .tabBox").removeClass("on").eq(num).addClass("on")
+					})
+				})
+				//综合排序选择
+				$(".tabBoxPx li").on('click',function(){
+					$(this).addClass("on").siblings().removeClass("on")
+				})
+				//出发城市
+				$(".choseList").on("click",function(){
+					$(this).addClass("on").parent().siblings().find(".choseList").removeClass("on")
+				})
+				
+			})
+		</script>
+	</body>
+
+</html>

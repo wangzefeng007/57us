@@ -1,0 +1,118 @@
+{template StudyStudentManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 studentBody cf mt30">
+    <div class="inforLeft fl">
+        {template StudentManageLeft}
+    </div>
+    <div class="w898 fr">
+        <table border="0" cellspacing="1" cellpadding="0" width="100%" class="OrderDetailTab">
+            <tr>
+                <th colspan="5">
+                    <div class="MyOrderBody">
+                        <img src="{if $consultant[Avatar]}{$consultant[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="60" height="60">
+                        <p class="fl StudentName">{$consultant[RealName]}</p>
+                        <span class="MyOrderStyle fl"><em></em>{$Status[$OrderInfo['Status']]}</span>
+                        <p class="MyOrderSe fl">服务名称：{$OrderInfo[OrderName]}</p>
+                    </div>
+                </th>
+            </tr>
+        </table>
+        <div class="cf mt20">
+            <div class="ProcessFlowT">
+                <span class="name fl">订单人信息</span>
+            </div>
+            <table border="0" cellspacing="1" cellpadding="0" class="detailTab mt20" width="100%">
+                <tr>
+                    <th width="25%">订单人姓名</th>
+                    <td width="25%">{$OrderInfo[Contacts]}</td>
+                    <th width="25%">订单人手机号</th>
+                    <td width="25%">{$OrderInfo[Tel]}</td>
+                </tr>
+                <tr>
+                    <th>留学目标</th>
+                    <td>{$OrderInfo[StudyTarget]}</td>
+                    <th>计划留学时间</th>
+                    <td>{$OrderInfo[StudyDate]}</td>
+                </tr>
+                <tr>
+                    <th>订单留言</th>
+                    <td colspan="3">{$OrderInfo[LeaveMessage]}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="cf ProcessFlow mt30">
+            <div class="ProcessFlowT">
+                <span class="name fl">办理流程</span>
+            </div>
+            <ul class="QuestionProcess mt50" style="margin-left: 30px !important;">
+                <li class="{if $OrderInfo[IsHesitate]>=0}circle{else}carryOut{/if}">
+                    <span class="circle"></span>
+                    <div class="QuestionL">
+                        <p class="tit">支付完成</p>
+                        <p class="time mt5">{echo date("Y-m-d H:i",$OrderInfo[AddTime])}</p>
+                    </div>
+                    <div class="QuestionR cf">
+                        <em class="sj"></em>
+                        <div class="QuestionRl">
+                            <p>支付成功后，展开服务。</p>
+                        </div>
+                    </div>
+                </li>
+                {loop $OrderConsultant $key $list}
+                {if $list[Type]=='6'}
+                <li class="{if $list[Status]==3}circle{else}carryOut{/if}">
+                    <span class="carryOut"></span>
+                    <div class="QuestionL">
+                        <p class="tit">学生上传</p>
+                        <p class="time mt5">{echo date("Y-m-d H:i",$list[ConfirmTime])}</p>
+                    </div>
+                    <div class="QuestionR cf">
+                        <em class="sj"></em>
+                        <div class="QuestionRl">
+                            <p>学生上传待翻译的材料。</p>
+                        </div>
+                    </div>
+                </li>
+                {/if}
+                {/loop}
+                {loop $OrderConsultant $key $list}
+                {if $list[Type]=='6'}
+                <li class="{if $list[Status]==3}circle{else}carryOut{/if}">
+                    <span class="carryOut"></span>
+                    <div class="QuestionL">
+                        <p class="tit">材料翻译</p>
+                        <p class="time mt5">{echo date("Y-m-d H:i",$list[ConfirmTime])}</p>
+                    </div>
+                    <div class="QuestionR cf">
+                        <em class="sj"></em>
+                        <div class="QuestionRl">
+                            <p>翻译学生上传的材料</p>
+                        </div>
+                    </div>
+                </li>
+                {/if}
+                {/loop}
+                <li class="{if $OrderInfo[Status]==3}circle{else}carryOut{/if}">
+                    <span class="circle"></span>
+                    <div class="QuestionL">
+                        <p class="tit">完成</p>
+                        <p class="time mt5">{if $list[ConfirmTime]==0}未完成{else}{echo date("Y-m-d H:i",$list[ConfirmTime])}{/if}</p>
+                    </div>
+                    <div class="QuestionR cf">
+                        <em class="sj"></em>
+                        <div class="QuestionRl">
+                            <p>完成服务！</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{template Footer}
+<!--图片裁剪插件-->
+<link href="{echo JsURL}/base/cropper/2.3.2/cropper.css" rel="stylesheet">
+<script src="{echo JsURL}/base/cropper/2.3.2/cropper.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/StudentManage.js"></script>
+</body>
+</html>

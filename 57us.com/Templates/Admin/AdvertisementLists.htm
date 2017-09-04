@@ -1,0 +1,87 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li href="/index.php?Module=Advertisement&Action=Lists" class="active">广告模块</li>
+            </ul>
+            <span class="position hidden">广告模块</span>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel breadcrumb">
+                <section id="unseen">
+                    <div class="panel-body">
+                        <form class="form-inline" role="form" action="/index.php?Module=Advertisement&Action=Lists" method="get">
+                            <input type="hidden" name="Module" value="Advertisement">
+                            <input type="hidden" name="Action" value="Lists">
+                            <input class="{if $TopNavs=='CategoryAdd'}btn btn-info{else}btn btn-danger{/if}" type="button" value="添加广告"
+                                   onclick="javascrtpt:window.location.href='/index.php?Module=Advertisement&Action=AdEdit'">
+                            <select class="form-control" name="Type" id="Type">
+                                <option value="0">请选择广告类别</option>
+                                <option value="1"  {if $AdInfo[Type]=="1"}selected="true"{/if} data-type="1">资讯</option>
+                                <option value="2"  {if $AdInfo[Type]=="2"}selected="true"{/if} data-type="2">留学</option>
+                                <option value="3"  {if $AdInfo[Type]=="3"}selected="true"{/if} data-type="3">旅游</option>
+                                <option value="4"  {if $AdInfo[Type]=="4"}selected="true"{/if} data-type="4">移民</option>
+                            </select>
+                            <button class="btn btn-info">搜索</button>
+                        </form>
+                    </div>
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>广告名称</th>
+                            <th>别名(用于调用广告标示)</th>
+                            <th>广告类型</th>
+                            <th>广告类别</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $AdList $lists}
+                        <tr height="35" align="center">
+                            <td nowrap="nowrap">{$lists[ADID]}</td>
+                            <td nowrap="nowrap">{$lists[ADTitle]}</td>
+                            <td nowrap="nowrap">{$lists[Key]}</td>
+                            <td nowrap="nowrap">{$lists[ADType]}</td>
+                            <td nowrap="nowrap">{$Type[$lists[Type]]}</td>
+                            <td nowrap="nowrap">
+                                <a href="/index.php?Module=Advertisement&Action=AdManage&ID={$lists[ADID]}">管理广告</a>
+                                &nbsp;|&nbsp;
+                                <a href="/index.php?Module=Advertisement&Action=AdEdit&ID={$lists[ADID]}">编辑</a>
+                                &nbsp;|&nbsp;
+                                <a class="getinfo del" href="javascript:void(0)" data-id="{$lists[ADID]}" data-text="{$lists[ADTitle]}">删除</a>
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}
+<script>
+    $('.del').click(function () {
+        var delid = $(this).attr('data-id');
+        var text = $(this).attr('data-text');
+        layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+            title: '删除提示',
+            btn: ['确定','取消'] //按钮
+        }, function(index){
+            window.location.href='/index.php?Module=Advertisement&Action=AdDelete&ID='+delid;
+            layer.close(index);
+        });
+    });
+</script>

@@ -1,0 +1,54 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">资讯内容管理</a>
+        </li>
+        <li>
+          <a href="/index.php?Module=StudyAbroadNewsCategory&Action=Lists">留学模块</a>
+        </li>
+        <li class="active">分类列表</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+          <!--{template TourNewsTop}-->
+        <div class="panel-body">
+            <section id="unseen">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr align="center">
+              <th width="50px"><strong>ID</strong></th>
+              <th>分类名称</th>
+              <th>别名</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $CategoryList $list}
+            <tr align="center">
+              <td >{$list[CategoryID]}</td>
+              <td align="left">{if $list[Level]==1}{$list[CategoryName]}{else}<div style="text-indent:{echo $list[Level]-1}em">|-{$list[CategoryName]}</div>{/if}</td>
+              <td >{$list[Alias]}</td>
+              <td ><a href="/index.php?Module=StudyAbroadNewsCategory&Action=Index&CategoryID={$list[CategoryID]}">修改</a>
+                <!--<a href="/index.php?Module=TourNewsCategory&Action=Delete&CategoryID={$list[CategoryID]}">删除</a>-->
+            </tr>
+            {/loop}
+            </tbody>
+          </table>
+           </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

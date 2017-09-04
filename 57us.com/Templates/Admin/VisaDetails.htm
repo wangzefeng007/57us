@@ -1,0 +1,257 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">签证产品管理</a>
+                </li>
+                <li class="active">产品编辑</li>
+            </ul>
+            <span class="position hidden">添加签证</span>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body special-details" style="padding-bottom: 0px">
+                    {if $VisaID}
+                    <input class="{if $Nav=='Details'}btn btn-info{else}btn btn-default{/if}" type="button" value="产品详息"
+                           onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=Details&ID={$VisaID}'">
+                    <input class="{if $Nav=='SetMeal'}btn btn-info{else}btn btn-default{/if}" type="button" value="套餐介绍"
+                           onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetMeal&ID={$VisaID}'">
+                    <input class="{if $Nav=='SetProcess'}btn btn-info{else}btn btn-default{/if}" type="button" value="办理流程"
+                           onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetProcess&ID={$VisaID}'">
+                    <input class="{if $Nav=='SetMaterial'}btn btn-info{else}btn btn-default{/if}" type="button" value="所需材料"
+                           onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetMaterial&ID={$VisaID}'">
+                    <input class="{if $Nav=='SetNotice'}btn btn-info{else}btn btn-default{/if}" type="button" value="预定须知"
+                           onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetNotice&ID={$VisaID}'">
+                    <input class="{if $Nav=='SetProblem'}btn btn-info{else}btn btn-default{/if}" type="button" value="常见问题"
+                           onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetProblem&ID={$VisaID}'">
+                    {/if}
+                </div>
+                <div class="panel-body">
+                    <form action='/index.php?Module=Visa&Action=Details'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td class="t-r">标题：</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="Title" value="{$VisaDetails[Title]}" class="form-control"/>
+                                    </div>
+                                    <span style="color:red;position: relative;top:5px;">* 必填</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">关键字:</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="Keywords" value="{$VisaDetails[Keywords]}" class="form-control"/>
+                                    </div>
+                                    <span style="position: relative;top:5px;">三个关键词,用逗号隔开(如：签证,美国签证,去美国签证)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" style="width: 150px"> 分类：</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <select name="Type" id="Type" class="form-control" onchange="GetNewAreaID(this.value)">
+                                            <option value="0">选择分类</option>
+                                            <!--{loop $VisaSeachType $Key $List}-->
+                                            <option value="{$Key}" {if $VisaDetails[Type]==$Key}selected="selected"{/if}>{$List}</option>
+                                            <!--{/loop}-->
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" style="width: 150px"> 地区：</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <select name="Area" id="Area" class="form-control" onchange="GetNewAreaID(this.value)">
+                                            <option value="0">选择地区</option>
+                                            <!--{loop $VisaSeachCity $Key $List}-->
+                                            <option value="{$Key}" {if $VisaDetails[Area]==$Key}selected="selected"{/if}>{$List}</option>
+                                            <!--{/loop}-->
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">产品状态：</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <input name="Status" type="radio" id="Status" value="1" {if $VisaDetails[Status]=='1'}checked="checked"{/if}/>
+                                        上架
+                                        <input type="radio" name="Status" id="Status2" value="2" {if $VisaDetails[Status]!='1'}checked="checked"{/if}/>
+                                        下架
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">标签：</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="Tag" value="{$VisaDetails[Tag]}" class="form-control"/>
+                                    </div>
+                                    <span style="position: relative;top:5px;"> 使用逗号 , 分隔</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">套餐：</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="Package" value="{$VisaDetails[Package]}" class="form-control"/>
+                                    </div>
+                                    <span style="position: relative;top:5px;"> 使用逗号 , 分隔</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" style="width: 150px">配图:</td>
+                                <td>
+                                    <div class="col-sm-5" style="padding-top: 8px">
+                                        <input type="file" name="Image[]"/>
+                                        {if $VisaDetails[Image]}
+                                        <a href="{$VisaDetails[Image]}" target="_blank"><img src="{$VisaDetails[Image]}" style="margin-top: 5px;"/></a>
+                                        {/if}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">有效期:</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input name="Validity" type="text" id="Alias" value="{$VisaDetails[Validity]}" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">入境次数：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="Entries" value="{$VisaDetails[Entries]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">办理时长：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="Duration" value="{$VisaDetails[Duration]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">是否面试：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="Interview" value="{$VisaDetails[Interview]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">最多停留：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="Stay" value="{$VisaDetails[Stay]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">受理范围：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="Region" value="{$VisaDetails[Region]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">原价：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="OriginalPrice" value="{$VisaDetails[OriginalPrice]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">现价：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="PresentPrice" value="{$VisaDetails[PresentPrice]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">截止时间：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="ExpirationTime" value="{$VisaDetails[ExpirationTime]}" class="form-control"/>
+                                    </div>
+                                    <span style="position: relative;top:5px;"> 格式 2016-09-22 00:00:00</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">适合人群：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="SuitedPerson" value="{$VisaDetails[SuitedPerson]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">年龄段：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="SuitedAge" value="{$VisaDetails[SuitedAge]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">费用包含：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="CostInclude" value="{$VisaDetails[CostInclude]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">推荐选择：</td>
+                                <td>
+                                    <div class="col-sm-9 t-d">
+                                        <input name="R1" type="checkbox" id="R1" value="1" {if $VisaDetails[R1]}checked="checked"{/if} />
+                                        签证特价推荐
+                                        <input type="text" name="S1" value="{$VisaDetails[S1]}"/>
+                                        <input name="R2" type="checkbox" id="R2" value="1" {if $VisaDetails[R2]}checked="checked"{/if} />
+                                        签证精品推荐
+                                        <input type="text" name="S2" value="{$VisaDetails[S2]}"/>
+                                        &nbsp;（注意：推荐后面跟随着本推荐排序，排序数值越高越靠前。）
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="MaterialRequested">
+                                <td width="150" class="t-h"></td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="hidden" name="ID" id="ID" value="{$VisaID}" />
+                                        <input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

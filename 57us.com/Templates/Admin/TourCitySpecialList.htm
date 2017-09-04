@@ -1,0 +1,79 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">城市专题管理</a>
+                </li>
+                <li class="active">城市专题列表</li>
+            </ul>
+            <!--breadcrumbs end -->
+            <span class="position hidden">城市专题管理</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel breadcrumb">
+                <div class="panel-body">
+                    <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">地区：</span>
+                </div>
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>城市</th>
+                            <th>上架/下架</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop  $Data[Data] $lists}
+                        <tr align="center">
+                            <td width="60%">{$lists[City]}</td>
+                            <td width="20%">{$Status[$lists[Status]]}</td>
+                            <td>
+                                <a href="javascript:void(0)" class="grounding" data-status="{$lists[Status]}" data-id="{$lists[CitySpecialID]}" data-title="{$lists[City]}">{if $lists[Status] == 1}下架{else}上架{/if}</a> |
+                                <a href="/index.php?Module=TourCitySpecial&Action=Add&CitySpecialID={$lists[CitySpecialID]}">修改</a> |
+                                <a href="javascript:void(0)" class="del" data-id="{$lists[CitySpecialID]}" data-title="{$lists[City]}">删除</a>
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}
+<script>
+    $('.del').click(function () {
+        var tjid = $(this).attr('data-id');
+        var title = $(this).attr('data-title');
+        layer.confirm('您确定要删除<span style="color: red">'+title+'</span>？', {
+            title: '删除提示',
+            btn: ['确定','取消'] //按钮
+        }, function(index){
+            window.location.href='/index.php?Module=TourCitySpecial&Action=Delete&CitySpecialID='+tjid;
+            layer.close(index);
+        });
+    })
+    $('.grounding').click(function () {
+        var tjid = $(this).attr('data-id');
+        var text = $(this).text();
+        var title = $(this).attr('data-title');
+        var status = $(this).attr('data-status');
+        layer.confirm('您确定要'+text+'<span style="color: red">'+title+'</span>？', {
+            title: '状态更新提示',
+            btn: ['确定','取消'] //按钮
+        }, function(index){
+            window.location.href='/index.php?Module=TourCitySpecial&Action=UpdataStatus&CitySpecialID='+tjid+'&Status='+status;
+            layer.close(index);
+        });
+    })
+</script>

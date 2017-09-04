@@ -1,0 +1,60 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">签证产品管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=VisaOrder&Action=Lists" class="position">签证订单管理</a>
+                </li>
+                <li class="active" id="modify">订单管理</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <td height="35" colspan="3"><h5>&nbsp;&nbsp;订单详情：</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="35" width="500px">订单号： {$OderInfo[OrderNumber]}</td>
+                            <td height="35" width="500px">姓名： {$OderInfo[UserName]}</td>
+                            <td height="35" width="500px">手机号： {$OderInfo[Phone]}</td>
+                        </tr>
+                        <tr>
+                            <td height="35" width="500px">详细地址： {$OderInfo[Address]}</td>
+                            <td height="35" width="500px">邮箱： {$OderInfo[Email]}</td>
+                            <td height="35" width="500px">数量： {$OderInfo[Num]}</td>
+                        </tr>
+                        <tr>
+                            <td height="35" width="500px">创建时间： {$OderInfo[CreateTime]}</td>
+                            <td height="35" width="500px">出行日期： {$OderInfo[GoDate]}</td>
+                            <td height="35" width="500px">订单状态： {$StatusInfo[$OderInfo[Status]]}</td>
+                        </tr>
+                        <tr>
+                            <td height="35" width="500px">付款方式： {$Pay[$OderInfo[PaymentMethod]]}</td>
+                            <td height="35" width="500px">金额： {$OderInfo[Money]}</td>
+                            <td height="35" width="500px">单价： {$OderInfo[OneMoney]}</td>
+                        </tr>
+                    </table>
+                    <tr>
+                        <td height="35" width="500px"> <a class="right"  href="/index.php?Module=VisaOrder&Action=Lists">返回列表</a></td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<!--{template Foot}-->

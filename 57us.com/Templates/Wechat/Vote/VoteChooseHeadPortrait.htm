@@ -1,0 +1,64 @@
+{template VoteHeader}
+<body>
+<script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if(isAndroid == true){
+        $("#backbtn").show();
+    }else if(isiOS == true){
+        $("#backbtn").hide();
+    }
+</script>
+<div class="body">
+    <div class="wrap" style="padding-bottom: 0" >
+        <section class="AddActive">
+            <div class="backBar" id="backbtn"><a href="javascript:" onclick="history.back();"><i class="icon iconfont">&#xe602;</i>返回</a></div>
+            <div class="AddActivebox choseMianPic">
+                <p class="text">选一张照片作为封面吧</p>
+                <ul class="stepPic">
+                    {loop $Images $key $val}
+                    <li {if $key == 0}class="on"{/if}>
+                        <em></em>
+                        <img src="{echo LImageURL}{$val}"/>
+                    </li>
+                    {/loop}
+                </ul>
+                <a href="javascript:void (0);" class="overBtn">完成</a>
+            </div>
+        </section>
+    </div>
+</div>
+<script type="text/javascript" src="<?php echo WEB_WECHAT_URL ?>/Templates/Wechat/Vote/js/layer/2.4/layer.js"></script>
+<script>
+    var defaultimg;
+    $(".stepPic li").click(function () {
+        $(".stepPic li").removeClass('on');
+        $(this).addClass('on');
+        defaultimg = $(this).find('img').attr('src');
+    })
+    $(".overBtn").click(function(){
+        if(defaultimg == undefined || defaultimg == ''){
+            defaultimg = $('.stepPic li:first').find('img').attr('src');
+        }
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: "/vote/saveheadportrait/",
+            data: {
+                'image': defaultimg,
+            },
+            success: function (data) {
+                if(data.ResultCode == '200'){
+                    var Url = data.Url;
+                    layer.msg('设置成功');
+                    setTimeout(function(){window.location=Url;},600);
+                }else {
+                    layer.msg(data.Message);
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>

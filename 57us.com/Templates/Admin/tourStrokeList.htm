@@ -1,0 +1,68 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li class="active position">旅游主站首页行程管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel breadcrumb">
+        <div class="panel-body">
+          <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">标题：</span>
+          <form class="form-inline" role="form" action="/index.php" method="get">
+            <input type="hidden" name="Module" value="TourArea">
+            <input type="hidden" name="Action" value="TourStrokeList">
+            <input type="text" class="form-control" placeholder="名称" name="Title" value="{$Title}">
+            <button class="btn btn-info">搜索</button>
+            <input type="button" onClick="location.href='/index.php?Module=TourArea&Action=TourStrokeAdd'" value="添加" class="btn btn-danger">
+          </form>
+        </div>
+        <section id="unseen">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>标题名称</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $Data[Data] $lists}
+            <tr height="35" align="center">
+              <td nowrap="nowrap">{$lists[ID]}</td>
+              <td nowrap="nowrap">{$lists[Title]}</td>
+              <td nowrap="nowrap"><a href="/index.php?Module=TourArea&Action=TourStrokeAdd&ID={$lists[ID]}">修改</a> | <a href="javascript:void(0)" data-id="{$lists[ID]}" class="del">删除</a>
+            </tr>
+            {/loop}
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}
+<script>
+  $('.del').click(function () {
+    var delid = $(this).attr('data-id');
+    var text = $(this).parent().prev().text();
+    layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=TourArea&Action=TourStrokeDelete&ID='+delid;
+      layer.close(index);
+    });
+  })
+</script>

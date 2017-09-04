@@ -1,0 +1,211 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight cf fr">
+        <div class="mRight_v">
+            <div class="inforBox mt40">
+                <!--头像显示-->
+                <input class="hidden" id="avatarInput" name="avatar_file" type="file" data-size="1" data-msg="512kb" data-ratio="1">
+                <div class="InforFaceBox" id="show_photo">
+                    <img onclick="$('input[id=avatarInput]').click();" src="{echo WriteTopPicture($UserInfo['Avatar'])}" width="90" height="90" />
+                </div>
+                <p class="inforUserName">{$UserInfo['NickName']}</p>
+                <!--初始页面-->
+                <!--初始页面，编辑状态页面都需要绑定值 -->
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" class="inforTab" id="index1">
+                    <tr>
+                        <th>资料完整度：</th>
+                        <td>
+                            <div class="inforLoad">
+                                <span class="LoadNum" style="width: {$Completion};"></span>
+                            </div>
+                            {$Completion}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>手机号码：</th>
+                        <td>
+                            {if $User['Mobile']!=''}<p class="c9">{$User['Mobile']}<a href="/member/changemobile/?do=c" class="changeBtn">修改</a>
+                        </p>{else}<p class="c9">未设置<a href="/member/changemobile/?do=b" class="changeBtn">绑定</a></p>{/if}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>邮箱：</th>
+                        <td>
+                            {if $User['E-Mail']!=''}<p class="c9">{$User['E-Mail']}<a href="/member/changemail/?do=c" class="changeBtn">修改</a>
+                        </p>{else}<p class="c9">未设置<a href="/member/changemail/?do=b" class="changeBtn">绑定</a></p>{/if}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>昵称：</th>
+                        <td>
+                            <p class="c9">{$UserInfo['NickName']}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>真实姓名：</th>
+                        <td>
+                            <p class="c9">{$UserInfo['RealName']}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>性别：</th>
+                        <td>
+                            <p class="c9">{if $UserInfo['Sex']==0}女{elseif $UserInfo['Sex']==1}男{elseif $UserInfo['Sex']==2}保密{/if}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>职业：</th>
+                        <td>
+                            <p class="c9">{$UserInfo[Occupation]}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>出生日期：</th>
+                        <td>
+                            <p class="c9">{$UserInfo['BirthDay']}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>详细地址：</th>
+                        <td>
+                            <p class="c9">{$UserInfo['Province']}{$UserInfo['City']}{$UserInfo['Area']}{$UserInfo['Address']}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p class="pl20">
+                                <a href="JavaScript:void(0)" class="publicBtn2 editeBtn" id="modification">编辑</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <!--编辑状态页面-->
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" class="inforTab" id="index2" style="display: none">
+                    <tr>
+                        <th>资料完整度：</th>
+                        <td>
+                            <div class="inforLoad">
+                                <span class="LoadNum" style="width: {$Completion};"></span>
+                            </div>
+                            {$Completion}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>手机号码：</th>
+                        <td>
+                            <p class="c9">{$User['Mobile']}
+                                <a href="" class="changeBtn">修改</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>邮箱：</th>
+                        <td>
+                            <p class="c9">{$User['E-Mail']}
+                                <a href="" class="changeBtn">修改</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="red">*</span>昵称：</th>
+                        <td>
+                            <div class="posDiv">
+                                <input type="text" name="NickName" id="NickName" class="tabInput" value="{$UserInfo['NickName']}" />
+                                <span class="c9 f14 pl20">3-20为中文、字母、符号、数字</span>
+                                <p class="errotip"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="red">*</span>真实姓名：</th>
+                        <td>
+                            <div class="posDiv">
+                                <input type="text" name="RealName" id="RealName" class="tabInput" value="{$UserInfo['RealName']}" />
+                                <span class="c9 f14 pl20">2-8位中文姓名</span>
+                                <p class="errotip"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="red">*</span>性别：</th>
+                        <td>
+                            <div class="sexChose" id="Sex">
+                                <label name="rbt1" type="radiobox" val="1" class="cbt cb {if $UserInfo['Sex']==1}rb_active{/if} rb"><i></i>男</label>
+                                <label name="rbt1" type="radiobox" val="0" class="cbt cb {if $UserInfo['Sex']==0}rb_active{/if} rb"><i></i>女</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>职业：</th>
+                        <td>
+                            <div name="Occupation" type="selectbox" class="diyselect" id="Occupation">
+                                <div class="opts">
+                                    <a href="javascript:void(0);" value="学生" {if $UserInfo[Occupation]=='学生'}class="selected"{/if}>学生</a>
+                                    <a href="javascript:void(0);" value="网络IT" {if $UserInfo[Occupation]=='网络IT'}class="selected"{/if}>网络IT</a>
+                                    <a href="javascript:void(0);" value="教师" {if $UserInfo[Occupation]=='教师'}class="selected"{/if}>教师</a>
+                                    <a href="javascript:void(0);" value="职工" {if $UserInfo[Occupation]=='职工'}class="selected"{/if}>职工</a>
+                                    <a href="javascript:void(0);" value="其他" {if $UserInfo[Occupation]=='其他'}class="selected"{/if}>其他</a>
+                                    <a href="javascript:void(0);" value="" {if $UserInfo[Occupation]==''}class="selected"{/if}>请选择职业</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>出生日期：</th>
+                        <td>
+                            <div class="posDiv">
+                                <i class="icon iconfont icon-up1-copy"></i>
+                                <input type="text" name="BirthDay" id="BirthDay" value="{$UserInfo['BirthDay']}" class="tabInput" onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>所在地区：</th>
+                        <td>
+                            <div class="posDiv">
+                                <i class="icon iconfont icon-up1-copy"></i>
+                                <input class="tabInput" type="text" name="CitySet" id="CitySet" value="{if $UserInfo['Province']}{$UserInfo['Province']}-{$UserInfo['City']}-{$UserInfo['Area']}{/if}" class="input" placeholder="请选择所在地区">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>详细地址：</th>
+                        <td>
+                            <div class="posDiv">
+                                <input type="text" name="Address" id="Address" value="{$UserInfo['Address']}" class="tabInput" placeholder="不需要重复填写省市区" />
+                                <p class="errotip">请输入详细地址</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <a href="JavaScript:void(0)" class="publicBtn2 sureBtn" id="save">保存</a>
+                            <a href="JavaScript:void(0)" class="publicBtn2 canceBtn" id="cancel">取消</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="bottomIns mt30">
+                郑重承诺：<br> 我们将尊重您的个人隐私，您的个人信息不会被公开。
+                <br> 我们会为您量身定制个性化服务，让您享受更优质的美国体验。
+            </div>
+        </div>
+    </div>
+</div>
+{template MemberFooter}
+<!--日期选择插件-->
+<script type="text/javascript" src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<!--三级城市选择联动-->
+<script type="text/javascript" src="{echo JsURL}/base/Citys/1.0.0/Popt.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/Citys/1.0.0/cityJson.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/Citys/1.0.0/citySet.js"></script>
+<link href="{echo JsURL}/base/Citys/1.0.0/citys.css" rel="stylesheet" type="text/css" />
+<!--头像裁剪上传-->
+<script type="text/javascript" src="{echo JsURL}/base/cropper/2.3.2/cropper.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/cropper/2.3.2/main.js"></script>
+<!--个人资料对应的js-->
+<script type="text/javascript" src="{echo JsURL}/member/MemberInformation.js"></script>
+</body>
+</html>

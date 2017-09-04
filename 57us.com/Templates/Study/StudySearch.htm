@@ -1,0 +1,302 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+    <div class="w1200 StudyLocation">您当前位置：
+        <a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+        <span class="Position">搜索“{$SearchKeyWords}”</span>
+    </div>
+    <div class="w1200 cf">
+        <div class="SlideLeft fl" style="background: none;">
+            {template SearchOption}
+            {if $Count==1}
+            <div class="seachNoBox mt20">
+                <div class="Nosearch" id="Nosearch">
+                    <i class="ico"></i>
+                    <p class="notext">Sorry，没有找到<span class="red">“ {$SearchKeyWords}”</span>相关的内容!<br>有任何疑问，请<a  href="javascript:void (0)" class="zixun">咨询</a>我们专业人员吧</p>
+                </div>
+            </div>
+            {/if}
+            {if !($ServiceRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox">
+                <p class="sutit">
+                    {if $Count==1}<a href="/consultant_service/" class="more fr" target="_blank">全部服务 ></a>{else}{if count($ServiceList)>2}<a href="/consultant_service/?K={$SearchKeyWords}" class="more fr" target="_blank">更多服务 ></a>{/if}{/if}
+                    <a href="/consultant_service/" class="name"  target="_blank">{if $Count==1}推荐{/if}服务</a>
+                </p>
+                <ul class="ServiceLineList">
+                    {loop $ServiceList $lists}
+                    <li>
+                        <div class="ListLeft">
+                            <p class="tit">
+                                <a href="{$lists[StudyUrl]}" title="{$lists[Study_name]}" target="_blank">{$lists[Study_name]}</a>
+                            </p>
+                            <div class="img">
+                                <a href="{$lists[StudyUrl]}" title="{$lists[Study_name]}" target="_blank">
+                                    <img src="{$lists[StudyImg]}" class="transition" width="200" height="150" alt="{$lists[Study_name]}"/>
+                                </a>
+                            </div>
+                            <p class="where">
+                                <span>层次：{$lists[StudyLevel]}</span>
+                                <span>类型：{$lists[StudyServiceType]}</span>
+                                <span>地区：{$lists[StudyServiceRegion]}</span>
+                            </p>
+                            <p class="ListService mt15">{$lists[StudyService]}</p>
+                            <p class="ListDescion mt10"><b>服务简介</b>：{$lists[StudyDepict]}</p>
+                        </div>
+                        <div class="ListRight">
+                            <span class="price">&yen;<em>{$lists[StudyPicre]}</em></span>
+                            <a href="{$lists[StudyUrl]}" class="CheckMore transition mt15" target="_blank">查看详情</a>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($CourseRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox">
+                <p class="sutit">
+                    {if $Count==1}<a href="/teacher_course/" class="more fr" target="_blank">全部课程 ></a>{else}{if count($CourseList)>2}<a href="/teacher_course/?K={$SearchKeyWords}" class="more fr" target="_blank">更多课程 ></a>{/if}{/if}
+                    <a href="/teacher_course/" class="name" target="_blank">{if $Count==1}推荐{/if}课程</a>
+                </p>
+                <ul class="ServiceLineList" id="StudyLineList">
+                    {loop $CourseList $lists}
+                    <li>
+                        <div class="ListLeft">
+                            <p class="tit">
+                                <a href="{$lists[StudyUrl]}" title="{$lists[Study_name]}" target="_blank">{$lists[Study_name]}</a>
+                            </p>
+                            <div class="img">
+                                <a href="{$lists[StudyUrl]}" title="{$lists[Study_name]}" target="_blank">
+                                    <img src="{$lists[StudyImg]}" class="transition" width="200" height="150" alt="{$lists[Study_name]}"/>
+                                </a>
+                            </div>
+                            <p class="where">
+                                <span>科目：{$lists[StudyTrainSubject]}</span>
+                                <span>上课方式：{$lists[StudyFormClass]}</span>
+                                <span>地区：{$lists[StudyServiceRegion]}</span>
+                            </p>
+                            <p class="ListService mt15">{$lists[StudyService]}</p>
+                            <p class="ListDescion mt10"><b>课程简介</b>：{$lists[StudyDepict]}</p>
+                        </div>
+                        <div class="ListRight">
+                            <span class="price">&yen;<em>{$lists[StudyPicre]}</em><i>/课时</i></span>
+                            <a href="{$lists[StudyUrl]}" class="CheckMore transition mt15" target="_blank">查看详情</a>
+                            <a href="" class="Collect" style="display: none">收藏</a>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($StudytourRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox" style="background: none;">
+                <p class="sutit">
+                    {if $Count==1}<a href="/studytour/" class="more fr" target="_blank">全部游学 ></a>{else}{if count($StudyYoosureList)>2}<a href="/studytour/?K={$SearchKeyWords}" class="more fr" target="_blank">更多游学 ></a>{/if}{/if}
+                    <a href="/studytour/" class="name" target="_blank">{if $Count==1}推荐{/if}游学</a>
+                </p>
+                <ul class="studytourList cf mt20">
+                    {loop $StudyYoosureList $lists}
+                    <li>
+                        <span class="Recommend {if $lists['R1']==1}HotTj1{/if}" data-id="{$lists[Recommend]}"></span>
+                        <img src="{$lists[Image]}" width="286" height="181" alt="{$lists[Title]}" title="{$lists[Title]}"/>
+                        <div class="listM">
+                            <p class="tit">{$lists[Title]}</p>
+                            <p class="time mt10">报名截止时间：{$lists[ApplyTime]}</p>
+                            <p class="price">
+                                <span class="fl oldPrice">原价：&yen;{$lists[OriginalPrice]}</span>
+                                <span class="fr nowPrice">现价：<em class="red f18">￥<i>{$lists[Price]}</i></em></span>
+                            </p>
+                        </div>
+                        <div class="listMask">
+                            <a href="{echo WEB_STUDY_URL}/studytour/{$lists[YoosureID]}.html" target="_blank" title="{$lists[Title]}">查看详情</a>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($ConsultantRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox" style="background: none;">
+                <p class="sutit">
+                    {if $Count==1}<a href="/consultant/" class="more fr" target="_blank">全部顾问 ></a>{else}{if count($ConsultantList)>2}<a href="/consultant/?K={$SearchKeyWords}" class="more fr" target="_blank">更多顾问 ></a>{/if}{/if}
+                    <a href="/consultant/" class="name" target="_blank">{if $Count==1}推荐{/if}顾问</a>
+                </p>
+                <ul class="consultantList cf">
+                    {loop $ConsultantList $lists}
+                    <li data-id="{$lists[StudyID]}">
+                        <a href="{$lists[StudyUrl]}" target="_blank" title="{$lists[Study_name]}">
+                            <p class="img">
+                                <i class="{if $lists[StudySex]==0}sex woman{elseif $lists[StudySex]==1}sex man{/if}" data-type="{$lists[StudySex]}"></i>
+                                <img src="{$lists[StudyImg]}" width="96" height="96" alt="{$lists[Study_name]}"></p>
+                            <div class="contRight">
+                                <p class="f22 mt10">{$lists[Study_name]}</p>
+                                <p class="mt10">从业{$lists[StudyExperience]}年<span class="pl10"><i class="mapIco"></i>{$lists[StudyServiceRegion]}</span></p>
+                            </div>
+                            <p class="counTip mt15">{$lists[StudyTag]}</p>
+                            <p class="counIns mt20"><span class="green">顾问简介：</span>{$lists[StudyDepict]}</p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($TeacherRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox" style="background: none;">
+                <p class="sutit">
+                    {if $Count==1}<a href="/teacher/" class="more fr" target="_blank">全部教师 ></a>{else}{if count($TeacherList)>2}<a href="/teacher/?K={$SearchKeyWords}" class="more fr" target="_blank">更多教师 ></a>{/if}{/if}
+                    <a href="/teacher/" class="name" target="_blank">{if $Count==1}推荐{/if}教师</a>
+                </p>
+                <ul class="consultantList cf">
+                    {loop $TeacherList $lists}
+                    <li data-id="{$lists[StudyID]}">
+                        <a href="{$lists[StudyUrl]}" title="{$lists[Study_name]}" target="_blank">
+                            <p class="img">
+                                <i class="{if $lists[StudySex]==0}sex woman{elseif $lists[StudySex]==1}sex man{/if}" data-type="{$lists[StudySex]}"></i>
+                                <img src="{$lists[StudyImg]}" width="96" height="96" alt="{$lists[Study_name]}"></p>
+                            <div class="contRight">
+                                <p class="f22 mt10">{$lists[Study_name]}</p>
+                                <p class="mt10">从业{$lists[StudyExperience]}年<span class="pl10"><i class="mapIco"></i>{$lists[StudyServiceRegion]}</span></p>
+                            </div>
+                            <p class="counTip mt15">{$lists[StudyTag]}</p>
+                            <p class="counIns mt20"><span class="green">教师简介：</span>{$lists[StudyDepict]}</p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($HighSchoolRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox">
+                <p class="sutit">
+                    {if $Count==1}<a href="/highschool/" class="more fr" target="_blank">全部高中 ></a>{else}{if count($HighSchoolList)>2}<a href="/highschool/?K={$SearchKeyWords}" class="more fr" target="_blank">更多高中 ></a>{/if}{/if}
+                    <a href="/highschool/" class="name" target="_blank">{if $Count==1}推荐{/if}高中</a>
+                </p>
+                <ul class="schoolList" id="StudyLineList">
+                    {loop $HighSchoolList $lists}
+                    <li>
+                        <div class="ListRight">
+                            <a href="{$lists[StudyUrl]}" class="CheckMore transition mt25" title="{$lists[Study_name]}" target="_blank">查看详情</a>
+                            <a href="" class="Collect mt20 hidden">收藏</a>
+                        </div>
+                        <img class="transition" width="100%" src="{$lists[StudyImg]}" width="200" height="150" alt="{$lists[Study_name]}">
+                        <div class="ListCont">
+                            <p class="tit">{$lists[Study_name]}</p>
+                            <table border="0" cellspacing="0" cellpadding="0" width="100%" class="mt15">
+                                <tr>
+                                    <td colspan="2">学校地点：{$lists[StudyLocation]}</td>
+                                </tr>
+                                <tr>
+                                    <td>SAT成绩：{$lists[StudySAT]}</td>
+                                    <td>AP课程数量：{$lists[StudyAP]}</td>
+                                </tr>
+                                <tr>
+                                    <td>每年总费用：${$lists[StudyAnnualCost]}</td>
+                                    <td>住宿方式：{$lists[StudyAccommodationMode]}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($CollegeRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox">
+                <p class="sutit">
+                    {if $Count==1}<a href="/college/" class="more fr" target="_blank">全部本科 ></a>{else}{if count($CollegeList)>2}<a href="/college/?K={$SearchKeyWords}" class="more fr" target="_blank">更多本科 ></a>{/if}{/if}
+                    <a href="/college/" class="name" target="_blank">{if $Count==1}推荐{/if}本科</a>
+                </p>
+                <ul class="schoolList schoolList1" id="StudyLineList">
+                    {loop $CollegeList $lists}
+                    <li>
+                        <div class="ListRight">
+                            <a href="{$lists[StudyUrl]}" class="CheckMore transition mt50" title="{$lists[Study_name]}">查看详情</a>
+                            <a href="{$lists[StudyUrl]}" class="Collect mt20 hidden">收藏</a>
+                        </div>
+                        <img class="transition" width="100%" src="{$lists[StudyImg]}" width="200" height="150" alt="{$lists[Study_name]}">
+                        <div class="ListCont">
+                            <p class="tit">{$lists[Study_name]}</p>
+                            <table border="0" cellspacing="0" cellpadding="0" width="100%" class="mt10">
+                                <tr>
+                                    <td colspan="2">学校排名：{$lists[StudySchooRanking]}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">学校地点：位于{$lists[StudyLocation]}</td>
+                                </tr>
+                                <tr>
+                                    <td>录取率：{$lists[StudyAcceptanceRate]}%</td>
+                                    <td>总费用：${$lists[StudyAnnualCost]}</td>
+                                </tr>
+                                <tr>
+                                    <td>托福成绩：{$lists[StudyTOEFL]}</td>
+                                    <td>SAT II 成绩：{$lists[StudySAT]}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($GrduateRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox">
+                <p class="sutit">
+                    {if $Count==1}<a href="/graduateschool/" class="more fr" target="_blank">全部研究生 ></a>{else}{if count($GrduateList)>2}<a href="/graduateschool/?K={$SearchKeyWords}" class="more fr" target="_blank">更多研究生 ></a>{/if}{/if}
+                    <a href="/graduateschool/" class="name" target="_blank">{if $Count==1}推荐{/if}研究生</a>
+                </p>
+                <ul class="schoolList" id="StudyLineList">
+                    {loop $GrduateList $lists}
+                    <li data-id="{$lists[StudyID]}">
+                        <div class="ListRight">
+                            <a href="{$lists[StudyUrl]}" class="CheckMore transition mt25" target="_blank" title="{$lists[Study_name]}">查看详情</a>
+                            <a href="" class="Collect mt20" style="display: none">收藏</a>
+                        </div>
+                        <a href="{$lists[StudyUrl]}" target="_blank"><img class="transition" width="100%" src="{$lists[StudyImg]}" width="200" height="150" alt="{$lists[Study_name]}"></a>
+                        <div class="ListCont">
+                            <p class="tit"><a href="{$lists[StudyUrl]}" target="_blank">{$lists[Study_name]}</a></p>
+                            <p class="tit"><span class="f16">{$lists[Study_Englishname]}</span></p>
+                            <table border="0" cellspacing="0" cellpadding="0" width="100%" class="mt15">
+                                <tr>
+                                    <td colspan="2">学校地点：位于{$lists[StudyLocation]}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">{$lists[StudyMajor]}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+        </div>
+        <div class="SlideRight fr">
+            <ul class="adList">
+                {loop $StudySearchADLists $lists}
+                <li>
+                    <a href="{$lists[Link]}" target="_blank" class="ImgBlackBg"><img class="transition lazy" width="280" height="300" src="{echo ImageURLP4}{$lists[Picture]}"></a>
+                </li>
+                {/loop}
+            </ul>
+            <div class="NewNews">
+                <div class="NewNewsT">最新资讯</div>
+                <ul class="NewNewsList">
+                    {loop $NewsList $lists}
+                    <li>
+                        <a href="{echo WEB_MAIN_URL}/study/{$lists[StudyID]}.html" target="_blank" title="{$lists[Title]}"><b>●</b>{$lists[Title]}</a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="wxShare mt20">
+                <img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99" />
+                <p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+            </div>
+        </div>
+    </div>
+{template Footer}
+<script>
+    $(".zixun").on('click',function () {
+        $(".NfixMenu .i1").trigger('click');
+    })
+</script>
+</body>
+</html>

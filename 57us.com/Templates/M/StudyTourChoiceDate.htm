@@ -1,0 +1,42 @@
+{template StudyHeader}
+<div class="page-group">
+    <div class="page page-current" style="background: #fff;" id="page">
+        <header class="bar bar-nav diybar">
+            <a class="pull-left back"><i class="icon iconfont icon-Left"></i></a>
+            <h1 class="title">请选择日期、人数</h1>
+        </header>
+        <!--此处price value绑定此产品价格-->
+        <input type="hidden" id="price" value="{$StudyYoosure['Price']}">
+        <div class="content">
+            <div class="goUp">
+                <p>请选择出发时间</p>
+                <div class="input">
+                    <i class="icon iconfont icon-down"></i>
+                    <input type="text" name="departDate" id="departDate" data-id="{$StudyYoosure[YoosureID]}" value="" placeholder="请选择出发时间" readonly/>
+                </div>
+                <p class="dateTip" id="ednDate"></p>
+            </div>
+            <div class="goUp" style="border-bottom: 0;">
+                <p>请选择报名人数</p>
+                <div class="goNum cf mt10">
+                    报名人数：
+                    <div class="changeNum num_box">
+                        <a href="javascript:void(0)" data-type="-">-</a>
+                        <input type="number" name="num_input" class="num_input" value="1" readonly/>
+                        <a href="javascript:void(0)" data-type="+">+</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bar bar-tab fixFun">
+            <p class="pull-left">
+                需付定金：
+                <span class="nPrice" id="totalPrice"><em>￥</em>{$StudyYoosure['Price']}</span></p>
+            <a href="javascript:void(0)" class="pull-right payMone submitBtn">提交</a>
+        </div>
+    </div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/study/StudyTourChoiceDate.js" charset='utf-8'></script>
+</body>
+</html>

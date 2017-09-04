@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$Title}</title>
+    <meta name="keywords" content="{$Keywords}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="description" content="{$Description}">
+    <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{echo CssURL}/study/studypublic3.0.css" rel="stylesheet" type="text/css" />
+    <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{echo JsURL}/base/base.js"></script>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else{
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrap">
+    {template 'Common/TopLoginStatus',1}
+    {template 'Common/RightNav',1}
+    <div class="header">
+        <div class="w1200 cf">
+            <span class="fr HeaderTell">欢迎拨打电话咨询400-018-5757</span>
+            <a target="_blank" href="{echo WEB_STUDY_URL}" class="StudyLogo" title="57美国网">57美国网</a>
+        </div>
+    </div>

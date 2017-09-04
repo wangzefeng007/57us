@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta content="telephone=no, email=no" name="format-detection">
+		<!-- 启用360浏览器的极速模式(webkit) -->
+		<meta name="renderer" content="webkit">
+		<!-- 避免IE使用兼容模式 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+		<meta name="HandheldFriendly" content="true">
+		<!-- 微软的老式浏览器 -->
+		<meta name="MobileOptimized" content="320">
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<title>首页</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="font/iconfont.css">
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery/2.0/jquery.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+
+	<body>
+		<div class="body">
+			<div class="wrap">
+				<div id="wrapper">
+					<section>
+						<div class="searchBox">
+							<form action="#">
+								<div class="searchBtn">
+									<a href=""><i class="icon iconfont">&#xe600;</i></a>
+								</div>
+								<div class="searchInput">
+
+									<input type="search" name="" required="" placeholder="搜索名字或编号" x-webkit-speech="" x-webkit-grammar="builtin:search" lang="zh-CN">
+								</div>
+							</form>
+					</div>
+					<div class="ban"><img src="images/ban.jpg" width="100%" height="100%" /></div>
+					<ul class="ViewsBox">
+						<li>参与人数<br><b>2000000</b></li>
+						<li>访问量<br><b>2000000</b></li>
+						<li>投票人次<br><b>2000000</b></li>
+					</ul>
+					<div class="Popularity">
+						<p class="PopularityT">人气之星<i class="icon iconfont">&#xe10;</i></p>
+						<ul class="PopularityList">
+						<li>
+							<a href="javascript:void(0);">
+								<p class="img"><span><img src="images/pic.jpg" /></span></p>
+								<div class="listR">
+									<p>编号:<b>2057</b></p>
+									<p>张三丰</p>
+									<p class="ballot">
+										<b>300票</b>
+									</p>
+									<span class="zanBtn vote" data-id="">为
+										<span>TA</span>投票
+									<i class="icon iconfont">&#xe03;</i>
+									</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<p class="img"><span><img src="images/pic.jpg" /></span></p>
+								<div class="listR">
+									<p>编号:<b>2057</b></p>
+									<p>张三丰</p>
+									<p class="ballot">
+										<b>300票</b>
+									</p>
+									<span class="zanBtn vote" data-id="">为
+										<span>TA</span>投票
+									<i class="icon iconfont">&#xe03;</i>
+									</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<p class="img"><span><img src="images/pic.jpg" /></span></p>
+								<div class="listR">
+									<p>编号:<b>2057</b></p>
+									<p>张三丰</p>
+									<p class="ballot">
+										<b>300票</b>
+									</p>
+									<span class="zanBtn vote" data-id="">为
+										<span>TA</span>投票
+									<i class="icon iconfont">&#xe03;</i>
+									</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+					</div>
+					</section>
+				</div>
+			</div>
+			<footer>
+				<ul>
+					<li class="on">
+						<a href="index.html"><i class="icon iconfont">&#xe607;</i><br>首页</span>
+						</a>
+					</li>
+					<li>
+						<a href="ranking.html"><i class="icon iconfont">&#xe06;</i><br>投票排行</span>
+						</a>
+					</li>
+					<li>
+						<a href="ranking.html"><em>报名</em><i class="icon iconfont">&#xe604;</i><br>个人主页</span>
+						</a>
+					</li>
+					<li>
+						<a href="rule.html"><i class="icon iconfont">&#xe05;</i><br>活动规则</span>
+						</a>
+					</li>
+					<li>
+						<a href="gife.html"><i class="icon iconfont">&#xe09;</i><br>活动奖品</span>
+						</a>
+					</li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/iscroll/4.2.5/iscroll.js"></script>
+	<script type="text/javascript" src="js/layer/2.4/layer.js"></script>
+	<script type="text/javascript" src="js/pullToRefresh.js"></script>
+	<script src="js/vote.js"></script>
+	<script>
+		refresher.init({
+			id: "wrapper",
+			pullDownAction: Refresh,
+			pullUpAction: Load
+		});
+
+		var generatedCount = 0;
+
+		function Refresh() {
+			window.location.reload();
+		}
+
+		var i = 2; //初始化页码为2
+		function pullUpAction() {
+			上拉加载更多
+			var page = i++; // 每上拉一次页码加一次 （就比如下一页下一页）
+			Load(page); // 运行ajax 把2传过去告诉后台我上拉一次后台要加一页数据（当然 这个具体传什么还得跟后台配合）
+			myScroll.refresh(); // <-- Simulate network congestion, remove setTimeout from production!
+		}
+
+		function Load(page) {
+			$.ajax({
+				type: "post",
+				dataType: "JSON",
+				url: "/installerAjax", // 你请求的地址
+				data: {
+					'page': page // 传过去的页码
+				},
+				error: function() {
+					layer.msg('网络出错!');
+				},
+				success: function(data) {
+					data = eval(data.clientList);
+					if(data.length) { // 如果后台传过来有数据执行如下操作 ， 没有就执行else 告诉用户没有更多内容呢
+
+					} else {}
+				}
+			});
+		}
+	</script>
+
+</html>

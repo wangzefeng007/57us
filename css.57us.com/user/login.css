@@ -1,0 +1,51 @@
+body{background: #fff;}
+input:-webkit-autofill {-webkit-box-shadow: 0 0 0px 1000px white inset;}
+.Loinput i,.autoLogin label.cbt i,.ErroTip i{background:url(http://images.57us.com/img/user/Login3.png) no-repeat;}
+.LoginMain{background:url(http://images.57us.com/img/user/LoginBg3.0.jpg) 20px 30px no-repeat;height: 600px;overflow: hidden;}
+.LoginIns{background: url(http://images.57us.com/img/user/TourHeaderI1.png) no-repeat;width: 236px;height: 69px;float: left;margin-top: 24px;overflow: hidden;text-indent: -9999px !important;}
+/*底部*/
+.LoginFoot{ background:#fff; padding:35px 0; text-align:center; color:#999999}
+.LoginFoot a{ color:#999999}
+.LoginFoot a:hover{ color:#3996d5}
+
+.LoginBox{ padding: 30px; width: 352px; height: auto; min-height: 305px; overflow: hidden;border: 1px solid #efefef; margin: 40px 30px 0 0; box-shadow: 0 0 15px rgba(0,0,0,0.2); position: relative;}
+.LoginBox .hd{width: 100%;height:55px; overflow: hidden; position: absolute;top: 0;left: 0;z-index: 10;}
+.LoginBox .hd a{float: left; width: 50%; height: 55px;line-height: 55px; text-align: center; color: #666666;font-size: 18px;background: #efefef;}
+.LoginBox .hd a.on{background: #55b0ff; color: #fff;}
+.LoginBoxTit{font-size: 24px; color: #666666;}
+.Loinput{ width: 350px; height: 46px; line-height: 46px;overflow: hidden; position: relative;}
+.Loinput i{width: 44px; height: 44px; display: inline-block; position: absolute; top: 1px; left: 1px;z-index: 10;}
+.Loinput input{width:348px; height: 44px; line-height: 44px; border: 1px solid #d4d4d4; text-indent: 44px; font-size: 16px;}
+.LoginBox td{}
+.autoLogin label.cbt i{ background-position: -6px -228px;}
+.autoLogin label.checked i{background-position: -6px -257px;}
+.CodesInput{width: 188px;}
+.CodesInput input{width: 186px; text-indent: 7px;}
+.CodesImg img{width: 155px; height: 46px;}
+.UserInput i{ background-position:8px 0; }
+.WordInput i{ background-position:8px -42px; }
+.LoginBtn{background: #2b9cff; width: 352px; height: 46px; line-height: 46px; text-align: center; color: #ffffff;font-size: 18px; display: inline-block;border-radius: 4px;}
+.LoginBtn:hover{background:#1d94fd;color: #fff;}
+.ErroTip{display: none;}
+.ErroTip i,.YesIco{background-position: -6px -203px; width: 16px;height: 16px;display: inline-block; vertical-align: middle; margin-right: 5px;}
+.Erro input{border-color:#ff685d;}
+.Erro .ErroTip{display: inline-block;}
+.YesIco{background-position: -5px -284px !important;}
+.ErroTip .NoIco{background-position: -6px -174px;}
+.DynamicCodes{ width: 221px;}
+.DynamicCodes input{width: 219px; text-indent:10px;}
+.SendSms{width: 130px; height: 44px; line-height: 44px; text-align: center; border: 1px solid #d4d4d4; border-left: 0;}
+.SendSms input{color: #999999; font-size: 16px;border: 0px solid #000000; background-color:#ffffff }
+.SendSms input:hover{color: #2b9cff;}
+.SendSms span{color:#B7B6B6;}
+
+.LoginBlueBtn{color: #2b9cff;}
+.LoginBlueBtn:hover{color: #2b9cff;text-decoration: underline;}
+.PopSetp{padding:25px;}
+.StepPop .layui-layer-btn{padding: 0; text-align: center;}
+.StepPop .layui-layer-btn a{ width: 352px; height: 46px; line-height: 46px; text-align: center; color: #ffffff;font-size: 18px; display: inline-block;border-radius: 4px;padding: 0;border: 0;font-size: 18px; margin-bottom: 25px;}
+.StepPop .layui-layer-btn0{background: #2b9cff;}
+.StepPop .layui-layer-btn1{background: #d4d4d4;color: #666666 !important;}
+.LoginBtn,.SendSms a{cursor: pointer;}
+.CodesImg img{cursor: pointer;}
+

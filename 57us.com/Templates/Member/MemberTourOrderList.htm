@@ -1,0 +1,71 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberTourOrderLeft}
+    <div class="mRight cf fr">
+        <div class="mRight_v">
+            <div class="myNewsTit">
+                <div class="hd cf">
+                    <a href="/membertour/tourorderlist/" {if $Status==''}class="on"{/if}>全部订单</a>
+                    <a href="/membertour/tourorderlist/?S=1" {if $Status=='1'}class="on"{/if}>待付款</a>
+                    <a href="/membertour/tourorderlist/?S=2" {if $Status=='2'}class="on"{/if}>已付款</a>
+                    <a href="/membertour/tourorderlist/?S=3" {if $Status=='3'}class="on"{/if}>退款</a>
+                    <a href="/membertour/tourorderlist/?S=4" {if $Status=='4'}class="on"{/if}>待评价</a>
+                    <a href="/membertour/tourorderlist/?S=5" {if $Status=='5'}class="on"{/if}>已评价</a>
+                </div>
+            </div>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" class="orderList mt20">
+                <tr>
+                    <th class="tal" width="360">订单信息</th>
+                    <th width="90">产品类型</th>
+                    <th width="90">订单金额</th>
+                    <th width="90">订单状态</th>
+                    <th width="170">操作</th>
+                </tr>
+                {loop $Data['Data'] $lists}
+                <tr data-type="tour" data-id="{$lists[OrderID]}" {if  $list[ExpirationTime]>$CurrentTime} class="settime" endTime="{$list[ExpirationTime]}"{/if}>
+                    <div class="remain hidden"></div>
+                    <td class="order_t1 tal">
+                        <div class="orderHead"><span>订单号：{$lists[OrderNumber]}</span><span>下单时间：{$lists[AddTime]}</span></div>
+                        <span class="rLine"></span>
+                        <img src="{$lists[ImageUrl]}" width="150" height="94"/><span class="orderName">{$lists[Title]}</span>
+                    </td>
+                    <td>
+                        <span class="rLine"></span>
+                        <p>{$lists[CategoryName]}</p>
+                    </td>
+                    <td>
+                        <span class="rLine"></span>
+                        <p class="red">￥<em class="f18">{$lists[TotalAmount]}</em></p>
+                    </td>
+                    <td>
+                        <span class="rLine"></span>
+                        <p class="orderStatus">{$OrderStatus[$lists[Status]]}</p>
+                    </td>
+                    <td>
+                        {if $lists[Status]==1}
+                            <a href="{echo WEB_TOUR_URL}/{if $lists[CategoryID]==6 || $lists[CategoryID]==7 || $lists[CategoryID]==8 || $lists[CategoryID]==9}playorder{elseif $lists[CategoryID]==4 || $lists[CategoryID]==12}group{/if}/{$lists[OrderNumber]}.html" class="publicBtn2 orderBtn goPay">去支付</a>
+                        {elseif $lists[Status]==2 || $lists[Status]==3}
+                            <a href="javascript:void (0)" class="publicBtn2 orderBtn againGo cancelRefundOrderBtn" data-val="1">申请退款</a>
+                        {elseif $lists[Status]==4 && $lists[EvaluateDefault]==0}
+                            <a href="/membertour/evaluate/?NO={$lists[OrderNumber]}" class="publicBtn2 orderBtn gopj">评价</a>
+                        {elseif $lists[Status]==4 && $lists[EvaluateDefault]==1}
+                            <a href="javascript:void (0)" class="publicBtn3 orderBtn haspj">已评价</a>
+                        {/if}
+                        <a href="/tourorderdetail/{$lists[OrderNumber]}.html" class="moreDetail">查看详情</a>
+                    </td>
+                </tr>
+                {/loop}
+            </table>
+            {if $ShowPage}
+            <div class="orderPage mt20">
+                {$ShowPage}
+            </div>
+            {/if}
+        </div>
+    </div>
+</div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberTourPublic.js" type="text/javascript"></script>
+</body>
+</html>

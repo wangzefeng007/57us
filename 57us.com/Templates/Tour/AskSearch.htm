@@ -1,0 +1,112 @@
+{template 'Common/TourTop',1}
+<link rel="stylesheet" href="/Plugins/fonts/mobile/iconfont.css">
+<link href="{echo CssURL}/bbs/tour/style.css" rel="stylesheet" type="text/css" />
+<div class="w1200 BbsLocation">您当前位置：
+	<a href="{echo WEB_TOUR_URL}">首页</a><span>&gt;</span>
+	<a href="{echo WEB_TOUR_URL}/ask/">问答专区</a><span>&gt;</span><span class="Position"> 搜索‘{$Keyword}’结果</span></div>
+<div class="w1200 bbsHeadCont">
+	<div class="bbsheadMain">
+	</div>
+</div>
+<div class="w1200 cf mt10 Position">
+	<div class="w900 fl">
+		<div class="searchCont">
+			<p class="mainTit">
+				<span class="searchNum f16">为您搜索到 <span class="green">{if $Data['RecordCount']}{$Data['RecordCount']}{else}0{/if}</span> 条相关内容</span></p>
+			<ul class="questList">
+				{if $Data}
+					{loop $Data['Data'] $key $val}
+					<li>
+						<div class="listHead">
+							<span class="time fr">{$val['NowTime']}</span>
+							<p class="fl user"><img src="{echo ImageURLP2}{$val['Avatar']}" width="36" height="36" />{$val['NickName']}</p>
+						</div>
+						<div class="listCont">
+							<a href="/ask_section/{$val['AskID']}.html" target="_blank">{$val['AskInfo']}</a>
+						</div>
+						<div class="listBottom">
+							<p class="otherFun fr">
+								<span><i class="icon iconfont icon-yanjing"></i>{$val['BrowseNum']}次浏览</span>
+								<span><i class="icon iconfont icon-start"></i>{$val['FollowNum']}人关注</span>
+								<span><i class="icon iconfont icon-iconfont02"></i>{$val['AnswerNum']}人回答 </span></p>
+							<p class="tip fl">
+								{loop $val[Tags] $v}
+								<a href="/ask/topic?id={$v['TagID']}" target="_blank" class="bradius">{$v['TagName']}</a>
+								{/loop}
+							</p>
+						</div>
+						{if $val['Answer']}
+						<div class="listfeedbck">
+							<img src="{echo ImageURLP2}{$val['Answer']['Avatar']}" width="36" height="36" />
+							<p>{$val['Answer']['NickName']}</p>
+							<p class="nr mt5">{$val['Answer']['Answer']}</p>
+						</div>
+						{/if}
+					</li>
+					{/loop}
+				{else}
+					<div class="noProblem mt10">
+						<div class="noProblemTip">你还没有提过问题。敏而好学，不耻下问。
+							<a class="transition bradius nowAsk {if !$_SESSION['UserID']}_MustLogin{else}MyQuestions{/if}" href="JavaScript:void(0)" {if !$_SESSION['UserID']}data-type="tc_login"{/if}>马上提问题</a>
+						</div>
+					</div>
+				{/if}
+			</ul>
+			{if $Data['PageCount'] > 1}
+			<div class="page mt35" id="Page2">
+				<form action="" method="GET">
+					{$Listpage}
+					<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button"  name="" id="" value="确定" class="PageBtn" /></div>
+				</form>
+			</div>
+			{/if}
+		</div>
+	</div>
+	<div class="w280 mt40 fr sidebar autofix_sb">
+		{template AskMode}
+		<div class="hotTopic mt20">
+			<p class="mainTit">
+				<a href="javascript:void (0)" class="changeChan fr" id="changeTags" data-type="1">换一换<i class="icon iconfont icon-shuaxin"></i></a>
+				<span class="name fl">人气话题</span>
+			</p>
+			<div class="hotTopicM cf" id="changeChanHtml">
+				{loop $HotTagList $lists}
+				<a href="/ask/topic?id={$lists[TagID]}" class="bradius" title="{$lists['TagName']}" target="_blank">{$lists['TagName']}</a>
+				{/loop}
+			</div>
+		</div>
+		<ul class="adW280">
+			{loop $StudyAskADLists $lists}
+			<li>
+				<a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP4}{$lists[Picture]}" width="280" /></a>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+</div>
+<div class="w1200 mt25 cf">
+	<div class="adBox cf">
+		<a href="http://study.57us.com/studytour/" target="_blank"><img src="http://images.57us.com/l/up/2016/0930/201609300956368273.jpg" title="2017年寒假冬令营报名开始" height="90"></a>
+	</div>
+</div>
+<div class="cf mt20"></div>
+{template Footer}
+<!--问答公用js-->
+<script type="text/javascript" src="{echo JsURL}/bbs/tour/AskPublic.js"></script>
+<script>
+    $(".PageBtn").click(function(){
+        var gopage = $("#gopage").val();
+        var lastpage = {$Data['PageCount']};
+        if(!gopage){
+            alert("请输入页码");return false;
+        }
+        if( lastpage < gopage ){
+            alert("您输入的页码超过最大页数");return false;
+        }
+        var gourl = '{$GoPageUrl}';
+        window.location.href=gourl+'&p='+gopage;
+        return false;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt50 cf">
+	{template ConsultantManageClientManageLeftData}
+	<div class="w877 cf fr">
+		<div class="StudentInfor">
+			<div class="StudentInforT">
+				<span class="name">基本信息</span>
+			</div>
+			<input type="hidden" name="ID" value="{$StudentInfo['ID']}" id="InfoID">
+			<ul class="StudentInforList cf mt10">
+				<li>
+					<p class="left fl">学生姓名：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentName" id="StudentName" value="{$StudentInfo['StudentName']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">学生电话：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentTel" id="StudentTel" value="{$StudentInfo['Tel']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">QQ：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentQQ" id="StudentQQ" value="{$StudentInfo['QQ']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">电子邮箱：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentMail" id="StudentMail" value="{$StudentInfo['Mail']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">国籍：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentNationality" id="StudentNationality" value="{$StudentInfo['Nationality']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">出生年月：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentBirthday" id="StudentBirthday" value="{$StudentInfo['Birthday']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">家长姓名：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentParentsName" id="StudentParentsName" value="{$StudentInfo['PatriarchName']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">家长电话：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentParentsTel" id="StudentParentsTel" value="{$StudentInfo['PatriarchTel']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">其他电话：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentParentsOtherTel" id="StudentParentsOtherTel" value="{$StudentInfo['OtherTel']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">护照号码：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudentPassport" id="StudentPassport" value="{$StudentInfo['PassportNum']}" class="InsInput stuInput" />
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="StudentLine mt30 cf"></div>
+		<div class="StudentInfor mt30">
+			<div class="StudentInforT">
+				<span class="name">留学信息</span>
+			</div>
+			<ul class="StudentInforList cf mt10">
+				<li>
+					<p class="left fl">目前年级：</p>
+					<div class="inputBox fr">
+						<input type="text" name="CurrentGrade" id="CurrentGrade" value="{$StudentInfo['NowGrade']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">申请国家：</p>
+					<div class="inputBox fr">
+						<input type="text" name="ApplyCountry" id="ApplyCountry" value="{$StudentInfo['ApplyCountry']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">留学时间：</p>
+					<div class="inputBox fr">
+						<input type="text" name="StudyDate" id="StudyDate" value="{$StudentInfo['StudyAbroadTime']}" class="InsInput stuInput" onfocus="WdatePicker({maxDate:'%y-%M-%d'})" readonly="readonly"/>
+					</div>
+				</li>
+				<li>
+					<p class="left fl">就读学校：</p>
+					<div class="inputBox fr">
+						<input type="text" name="School" id="School" value="{$StudentInfo['School']}" class="InsInput stuInput" />
+					</div>
+				</li>
+				<li>
+					<p class="left fl">申请项目：</p>
+					<div class="inputBox fr">
+						<input type="text" name="ApplyItems" id="ApplyItems" value="{$StudentInfo['ApplyProject']}" class="InsInput stuInput" />
+					</div>
+				</li>
+
+			</ul>
+		</div>
+		<div class="StudentLine mt30 cf"></div>
+		<div class="StudentInfor cf mt30">
+			<div class="StudentInforT">
+				<span class="name">考试成绩</span>
+			</div>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%" class="langeScrol" id="LangeScrol">
+				<tbody>
+				<tr height="60">
+					<th>GPA</th>
+					<th>托福</th>
+					<th>雅思</th>
+					<th>GRE</th>
+					<th>GMAT</th>
+					<th>SAT</th>
+					<th>SSAT</th>
+					<th>ACT</th>
+				</tr>
+				<tr height="50">
+					<td><input type="text" name="GPA" id="GRA" value="{$StudentInfo['GRA']}"  class="studentScrol"/> </td>
+					<td><input type="text" name="TOEFL" id="TOEFL" value="{$StudentInfo['TOEFL']}"  class="studentScrol"/> </td>
+					<td><input type="text" name="IELTS" id="IELTS" value="{$StudentInfo['IELTS']}"  class="studentScrol"/> </td>
+					<td><input type="text" name="GRE" id="GRE" value="{$StudentInfo['GRE']}"  class="studentScrol"/> </td>
+					<td><input type="text" name="GMAT" id="GMAT" value="{$StudentInfo['GMAT']}"  class="studentScrol"/> </td>
+					<td><input type="text" name="SAT" id="SAT" value="{$StudentInfo['SAT']}"  class="studentScrol"/> </td>
+					<td><input type="text" name="SSAT" id="SSAT" value="{$StudentInfo['SSAT']}"  class="studentScrol"/> </td>
+					<td><input type="text" name="ACT" id="ACT" value="{$StudentInfo['ACT']}"  class="studentScrol"/> </td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="StudentInfor mt30">
+			<div class="StudentInforT">
+				<span class="name">留学备注</span>
+				<span class="pl20"></span><a href="JavaScript:void(0)" class="BeizhuAdd">添加</a>
+			</div>
+		</div>
+		<ul class="BeizhuList mt15" id="StudyRemarks">
+			{loop $StudentInfo['Remarks'] $val}
+			<li>
+				<p class="nr">{$val['text']}</p>
+				<p class="time mt10">{$val['date']}<span class="pl20">{$val['time']}</span></p>
+			</li>
+			{/loop}
+		</ul>
+		<div class="cf tac mt30"><a href="javascript:void(0)" class="studentInforBtn" id="studentInforBtn">保存</a></div>
+		<!--留学备注，模态窗口-->
+		<div class="PopTextarea hidden">
+			<textarea name="RemarksInfo" id="RemarksInfo" rows="" cols="" class="InforTextare" placeholder=""></textarea>
+		</div>
+	</div>
+</div>
+<div class="mt50"></div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageClientManageStudent.js"></script>
+</div>
+</body>
+</html>

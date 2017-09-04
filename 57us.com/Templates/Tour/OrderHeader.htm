@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$Title}</title>
+	<link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+	<link href="{echo CssURL}/common/TourPublic.css" rel="stylesheet" type="text/css" />
+	<link href="{echo CssURL}/tour/touline.css" rel="stylesheet" type="text/css" />
+	<script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+	<script src="{echo JsURL}/base/base.js"></script>
+</head>
+<body>
+  {template 'Common/RightNav',1}
+<div class="wrap">
+	<div class="OrderHeader">
+		<div class="w1200 cf">
+			<a href="{echo WEB_MAIN_URL}" class="NewsLogo" title="57美国网">57美国网</a>
+			<ul class="TourLineProcess">
+				<li {if $Step1 == 1}class="on"{/if}><span>填写信息</span><i>1</i><em></em></li>
+				<li {if $Step2 == 1}class="on"{/if}><span>支付</span><i>2</i><em></em></li>
+				<li {if $Step3 == 1}class="on"{/if}><span>完成</span><i>3</i><em></em></li>
+			</ul>
+		</div>
+	</div>

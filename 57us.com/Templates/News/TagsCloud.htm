@@ -1,0 +1,17 @@
+<div class="HotTip cf mt25">
+    <script src="{echo JsURL}/base/3dtags/1.0.0/tags.min.js"></script>
+    <link href="{echo CssURL}/common/tagslist.css" rel="stylesheet" type="text/css" />
+    <div id="tagsList"> 
+        {loop $TagsCloudList $key $list}
+        {if $key%3==0}
+        <a href="{$list[TagsUrl]}" title="{$list[TagsName]}" target="_blank" class="red">{$list[TagsName]}</a> 
+        {elseif $key%3==1}
+        <a href="{$list[TagsUrl]}" title="{$list[TagsName]}" target="_blank" class="blue">{$list[TagsName]}</a>         
+        {elseif $key%3==2}        
+        <a href="{$list[TagsUrl]}" title="{$list[TagsName]}" target="_blank" class="green">{$list[TagsName]}</a>   
+        {else}
+        <a href="{$list[TagsUrl]}" title="{$list[TagsName]}" target="_blank">{$list[TagsName]}</a>         
+        {/if}
+        {/loop}
+    </div>
+</div>  

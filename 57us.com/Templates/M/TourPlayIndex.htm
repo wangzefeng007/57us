@@ -1,0 +1,106 @@
+{template TourHeader}
+<div class="page page-current" id="playIndex">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <!--导航此版本暂时不做-->
+        <div class="pull-right hidden">
+            <p class="headerMenu">导航<i class="icon iconfont">&#xe005;</i></p>
+        </div>
+        <a class="back pull-right hidden"><i class="icon iconfont">&#xe607;</i></a>
+        <a href="{echo WEB_M_URL}/tour/search/" class="pull-right barSearch external"><i class="icon iconfont">&#xe6b5;</i></a>
+        <a class="pull-left" href="/tour/"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">当地玩乐</h1>
+    </header>
+    <div class="content">
+        <!--<div class="playSearch">
+            <input type="search" name="" id="" value="" placeholder="" />
+            <a href="{echo WEB_M_URL}/tour/search/" class="searchBtn external"><i class="icon iconfont">&#xe6b5;</i></a>
+        </div>-->
+        <div class="swiper-container ban">
+            <div class="swiper-wrapper">
+                {loop $WapTourIndexBaner $lists}
+                <div class="swiper-slide"><a href="{$lists[Link]}" class="external"><img src="{echo ImageURLP6}{$lists[Picture]}" width="100%" /></a></div>
+                {/loop}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Pagination -->
+        </div>
+        <ul class="playMenu disable-router">
+            <li>
+                <a href="/play/feature/">
+                    <span class="ico"><i class="icon iconfont">&#xe658;</i></span>
+                    <p class="tit">特色体验</p>
+                </a>
+            </li>
+            <li>
+                <a href="/play/daily/">
+                    <span class="ico"><i class="icon iconfont">&#xe614;</i></span>
+                    <p class="tit">一日游</p>
+                </a>
+            </li>
+            <li>
+                <a href="/play/ticket/">
+                    <span class="ico"><i class="icon iconfont">&#xe64f;</i></span>
+                    <p class="tit">门票</p>
+                </a>
+            </li>
+        </ul>
+        <div class="proBox mt10">
+            <p class="proBoxT">特价优惠</p>
+            <ul class="proList">
+                {loop $ListsR3 $lists}
+                <li>
+                    <a href="{echo WEB_M_URL}/play/{$lists[TourProductID]}.html">
+                        <img src="{echo ImageURLP4.$lists[ImageUrl]}"/>
+                        <p class="tit">{$lists[ProductName]}</p>
+                        <p class="fun"> <span class="pull-left fundate">{$lists[CnName]}</span>
+                            <span class="price pull-right"><i class="red">￥{$lists[LowPrice]}</i>/人起</span> </p>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="ad mt10"> {loop $WapTourIndexTJ $lists} <a href="{$lists[Link]}" class="external"><img src="{echo ImageURLP6}{$lists[Picture]}" width="100%" /></a> {/loop} </div>
+        <div class="proBox mt10">
+            <div class="hd">
+                <a href="">热门线路</a>
+            </div>
+            <div class="bd">
+                <ul class="proIndexList">
+                    {loop $ListsR4 $lists}
+                    <li> <a href="{echo WEB_M_URL}/play/{$lists[TourProductID]}.html">
+                        <p class="img"><span class="stylet">{$lists[CnName]}</span><img src="{echo ImageURLP2.$lists[ImageUrl]}"/></p>
+                        <p class="tit">{$lists[ProductName]}</p>
+                        <p class="tipspan">{if $lists[TagInfo][0]!=''}{loop $lists[TagInfo] $k $lis}{if $k<2}<span>{$lis}</span>{/if}{/loop}{/if}</p>
+                        <p class="ListBottom">
+                            {if $lists[Days]}
+                            <span class="pull-left">行程天数：<i class="green">{$lists[Days]}</i></span>
+                            {/if}
+                            {if $lists[Times]}
+                            <span class="pull-left">游玩时间：<i class="green">{$lists[Times]}</i></span>
+                            {/if}
+                            <span class="pull-right price"><i>¥{$lists[LowPrice]}</i>/人起</span>
+                        </p>
+                    </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{template TourFooter}
+<!--swiperjs滑动插件-->
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/dev/swiper.js" charset='utf-8'></script>
+<script type="text/javascript">
+    $(function() {
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            autoHeight: true, //enable auto height
+        });
+    })
+</script>
+</body>
+</html>

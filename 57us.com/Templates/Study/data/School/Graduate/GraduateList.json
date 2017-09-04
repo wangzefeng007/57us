@@ -1,0 +1,37 @@
+{
+  "ResultCode": 200,
+  "RecordCount": "233",
+  "PageSize": 6,
+  "PageCount": 39,
+  "Page": 1,
+  "Data": [
+    {
+      "Study_name": "野鸡大学1号", //学校名称
+      "Study_Englishname": "The University of Chicago", //学校英文名称
+      "StudyID": "10010", //对应id
+      "StudyLocation": "位于Massachusetts, Cambridge 属于City", //学位位置
+      "StudyMajor":"<span>专业</span><span class=\"pl20\">专业</span><span class=\"pl20\">专业</span>", //专业及相关联的专业
+      "StudyImg": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg", //对应图片url
+      "StudyUrl": "/graduateschool/details/" //对应详情页面url
+    },
+    {
+      "Study_name": "野鸡大学2号",
+      "Study_Englishname": "The University of Chicago",
+      "StudyID": "10010",
+      "StudyLocation": "位于Massachusetts, Cambridge 属于City",
+      "StudyMajor":"<span>专业</span><span class=\"pl20\">专业</span><span class=\"pl20\">专业</span>",
+      "StudyImg": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg",
+      "StudyUrl": "/graduateschool/details/"
+    }
+  ],
+  "NextPage": 2,
+  "LastPage": 39,
+  "PageNums": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6
+  }
+}

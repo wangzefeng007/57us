@@ -1,0 +1,146 @@
+{template Head}
+
+<div class="wrapper">
+    {template TourCityNav}
+    <div class="panel-body special-details-img">
+        <form action='/index.php?Module=TourCitySpecial&Action=SpecialCityContent&CitySpecialID={$CitySpecialID}'  method='post' enctype="multipart/form-data">
+            <table align="left" class="table table-bordered table-sExpContented table-hover">
+                <tbody>
+                <tr>
+                    <td width="150" class="t-r">城市标题图片：</td>
+                    <td>
+                        <div class="col-sm-10">
+                            <input type="file" name="TitleImage[0]" id="TitleImage" style="margin-bottom: 8px" />
+                            {if $NewContentArray[TitleImage][0]}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$NewContentArray[TitleImage][0]}" style="height:80px;" data-width="216" data-height="94"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为216*94px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="MusTitle[0]" value="{$NewContentArray[MusTitle][0]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="MusURL[0]" id="MusURL0" value="{$NewContentArray[MusURL][0]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="MusImage[0]" id="MusImage0" style="margin-bottom: 8px" />
+                            {if $NewContentArray[MusImage][0] != ''}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$NewContentArray[MusImage][0]}" style="height:80px;" data-width="669" data-height="448"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为669*448px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">简介1：</td>
+                    <td >
+                        <div class="col-sm-5">
+                            <textarea name="MusIntroduce[0]" rows="5" id="MusIntroduce0" class="form-control">{$NewContentArray[MusIntroduce][0]}</textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="MusTitle[1]" value="{$NewContentArray[MusTitle][1]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="MusURL[1]" id="MusURL1" value="{$NewContentArray[MusURL][1]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="MusImage[1]" id="MusImage1" style="margin-bottom: 8px" />
+                            {if $NewContentArray[MusImage][1] != ''}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$NewContentArray[MusImage][1]}" style="height:80px;" data-width="445" data-height="297"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为445*297px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">简介2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <textarea name="MusIntroduce[1]" rows="5" id="MusIntroduce1" class="form-control">{$NewContentArray[MusIntroduce][1]}</textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="MusTitle[2]" value="{$NewContentArray[MusTitle][2]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="MusURL[2]" id="MusURL2" value="{$NewContentArray[MusURL][2]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="MusImage[2]" id="MusImage2" style="margin-bottom: 8px" />
+                            {if $NewContentArray[MusImage][2] != ''}
+                            <a href="javascript:void(0)" target="_blank"><img src="{echo LImageURL}{$NewContentArray[MusImage][2]}" style="height:80px;" data-width="245" data-height="359"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为245*359px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">简介3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <textarea name="MusIntroduce[2]" rows="5" id="MusIntroduce2" class="form-control">{$NewContentArray[MusIntroduce][2]}</textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="MaterialRequested">
+                    <td></td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="hidden" name="CitySpecialID" id="CitySpecialID" value="{$TourCitySpecialInfo[CitySpecialID]}" />
+                            <input class="btn btn-danger" type='submit' value='提交保存'/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}

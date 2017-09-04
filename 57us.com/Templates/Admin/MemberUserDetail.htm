@@ -1,0 +1,71 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">会员中心管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=MemberUser&Action=Lists" class="position">会员管理</a>
+                </li>
+                <li class="active" id="modify">会员详情</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=HotelOrder&Action=Details'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <td colspan="3" class="t-h">会员详情：</td>
+                            </tr>
+                            <tr>
+                                <td>会员ID：{$UserInfo[UserID]}</td>
+                                <td>昵称：{$UserInfo[NickName]}</td>
+                                <td>手机号：{$User[Mobile]}</td>
+                            </tr>
+                            <tr>
+                                <td>邮箱：{$User['E-Mail']}</td>
+                                <td>真实姓名：{$UserInfo[RealName]}</td>
+                                <td>性别：{if $UserInfo[Sex]==0}女{elseif $UserInfo[Sex]==1}男{elseif $UserInfo[Sex]==2}保密{/if}</td>
+                            </tr>
+                            <tr>
+                                <td>证件类型：{$UserInfo[CheckInDate]}</td>
+                                <td>证件号码：{$UserInfo[CheckOutDate]}</td>
+                                <td>审核状态：{if $UserInfo[IdentityState]==0}未提交审核{elseif $UserInfo[IdentityState]==1}审核中{elseif $UserInfo[IdentityState]==2}审核通过{elseif $UserInfo[IdentityState]==3}审核不通过{/if}</td>
+                            </tr>
+                            <tr>
+                                <td>省份：{$UserInfo[Province]}</td>
+                                <td>城市：{$UserInfo[City]}</td>
+                                <td>地址：{$UserInfo[Area]}</td>
+                            </tr>
+                            <tr>
+                                <td>登录IP：{$UserInfo[IP]}</td>
+                                <td>留学身份：{if $UserInfo[Identity]==1}学生{elseif $UserInfo[Identity]==2}顾问{elseif $UserInfo[Identity]==3}老师{/if}</td>
+                                <td>qq：{$UserInfo[QQ]}</td>
+                            </tr>
+                            <tr>
+                                <td>详细地址：{$UserInfo[Address]}</td>
+                                <td>最后登录时间：{$UserInfo[LastLogin]}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <tr>
+                            <td height="35" width="500px"> <a class="right"  href="/index.php?Module=MemberUser&Action=Lists">返回列表</a></td>
+                        </tr>
+                    </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{template Foot}-->

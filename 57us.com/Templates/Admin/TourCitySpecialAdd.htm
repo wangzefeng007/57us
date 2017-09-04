@@ -1,0 +1,78 @@
+{template Head}
+
+<div class="wrapper">
+    {template TourCityNav}
+    <div class="panel-body special-details-img">
+        <form action='/index.php?Module=TourCitySpecial&Action=Add'  method='post' enctype="multipart/form-data">
+            <table  class="table table-bordered table-striped table-hover">
+                <tbody>
+                <tr>
+                    <td width="150" class="t-r">首页列表图片:</td>
+                    <td>
+                        <div class="col-sm-10">
+                            <input type="file" name="Image[]" id="Image" style="margin-bottom: 8px"/>
+                            {if $CitySpecialInfo[Image]}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$CitySpecialInfo[Image]}" style="height:80px;" data-width="350" data-height="262"/></a>
+                            {/if}
+                            <p class="help-block">（建议质量为100kb以内，尺寸为350*262px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">Banner图片:</td>
+                    <td>
+                        <div class="col-sm-10">
+                            <input type="file" name="BannerImage[]" id="BannerImage" style="margin-bottom: 8px"/>
+                            {if $CitySpecialInfo[BannerImage]}
+                            <a href="javascript:void(0)" target="_blank"><img src="{echo LImageURL}{$CitySpecialInfo[BannerImage]}" style="height:80px;" data-width="1920" data-height="800"/></a>
+                            {/if}
+                            <p class="help-block">（建议质量为500kb以内，尺寸为1920*800px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">旅游产品：</td>
+                    <td>
+                        <div class="col-sm-4">
+                            <textarea name="TourProductIDS" rows="5" id="TourProductIDS" class="form-control">{$CitySpecialInfo[TourProductIDS]}</textarea>
+                            <p class="help-block">规范：旅游产品ID用英文逗号隔开,如：67112,67113,67114。</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">酒店产品：</td>
+                    <td>
+                        <div class="col-sm-4">
+                            <textarea name="HotelIDS" rows="5" id="HotelIDS" class="form-control">{$CitySpecialInfo[HotelIDS]}</textarea>
+                            <p class="help-block">规范：酒店产品ID用英文逗号隔开,如：67112,67113,67114。</p>
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td width="150" class="t-r">上架/下架：</td>
+                    <td >
+                        <div class="col-sm-9 t-d">
+                            <input name="Status" type="checkbox" id="Status" value="1" {if $CitySpecialInfo[Status]==1}checked="checked"{/if}>
+                            是否上架
+                        </div>
+                    </td>
+                </tr>-->
+                <tr id="MaterialRequested">
+                    <td></td>
+                    <td>
+                        <div class="col-sm-2">
+                            <input type="hidden" name="AreaID" id="AreaID" value="{if $CitySpecialInfo[AreaID]}{$CitySpecialInfo[AreaID]}{else}{$AreaID}{/if}" />
+                            <input type="hidden" name="CitySpecialID" id="CitySpecialID" value="{$CitySpecialInfo[CitySpecialID]}" />
+                            <input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}

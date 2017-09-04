@@ -1,0 +1,23 @@
+{
+  "ResultCode": 200,
+  "RecordCount":3,
+  "Data": [
+    {
+      "StudyId": "1",
+      "StudyTitle": "57美国游学冬令营DAY1：凌晨四点的洛杉矶",
+      "StudyImg": "http://images.57us.com/img/m/study/pic.jpg",
+      "StudyEndDate": "2017年5月6日",
+      "StudyPrice":"2000",
+      "StudyOriginalPrice":"2300",
+      "StudyWTRecommend":"0"
+    },{
+      "StudyId": "2",
+      "StudyTitle": "57美国游学冬令营DAY1：凌晨四点的洛杉矶",
+      "StudyImg": "http://images.57us.com/img/m/study/pic.jpg",
+      "StudyEndDate": "2017年7月6日",
+      "StudyPrice":"2000",
+      "StudyOriginalPrice":"2300",
+      "StudyWTRecommend":"1"
+    }
+  ]
+}

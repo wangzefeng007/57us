@@ -1,0 +1,27 @@
+{template StudyHeader}
+<div class="page page-current" style="background: #fff;" id="mymatch">
+	<header class="bar bar-nav diybar">
+		<a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+		<h1 class="title">我的匹配</h1>
+	</header>
+	<div class="content pull-to-refresh-content infinite-scroll ConsultantList mt40">
+		<ul class="matchList contantList">
+		</ul>
+		<div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+		<!-- 加载提示符 -->
+		<div class="infinite-scroll-preloader" style="display: none">
+			<div class="preloader">
+			</div>
+		</div>
+	</div>
+	<div class="CustSerBox hidden">
+		<a href="">
+			<div class="custHead"><i class="icon iconfont">&#xe63e;</i></div>
+			<div class="custCont">在线客服</div>
+		</a>
+	</div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/user/StudyMuserMatching.js" charset='utf-8'></script>
+</body>
+</html>

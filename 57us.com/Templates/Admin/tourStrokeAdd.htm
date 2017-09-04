@@ -1,0 +1,85 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">旅游产品管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TourCategory&Action=TourStrokeList" class="position">旅游主站首页行程管理</a>
+                </li>
+                <li class="active" id="modify">编辑旅游主站首页行程</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=TourArea&Action=TourStrokeAdd'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td width="150px" class="t-r">标题：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Title" value="{$Info[Title]}" class="form-control"/>
+                                    </div>
+                                    <p class="help-block">（注：标题字数控制在15个字以内，如有特殊需要可适当放宽）</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">城市类别：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" name="CityCategory" id="CityCategory" onchange="GetNewAreaID(this.value)">
+                                            {if $Info[CityCategory] == 1}<option value="1"> 美东地区 </option>{{elseif  $Info[CityCategory] == 2}<option value="2"> 美西地区 </option>{/if}
+                                            <option value="0">其他地区</option>
+                                            <option value="1"> 美东地区 </option>
+                                            <option value="2"> 美西地区 </option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">产品Url: </td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="QuoteUrl" value="{$Info[QuoteUrl]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">推荐选择：</td>
+                                <td>
+                                    <div class="col-sm-5 t-d">
+                                        <input name="R1" type="checkbox" id="R1" value="1" {if $Info[R1]==1}checked="checked"{/if}>
+                                        热门推荐
+                                        <input type="text" name="S1" value="{if $Info[R1]}{$Info[S1]}{else}0{/if}">
+                                        （注意：推荐后面跟随着本推荐排序，排序数值越高越靠前。）
+                                    </div>
+                            </tr>
+                            <tr id="MaterialRequested">
+                                <td class="t-r"></td>
+                                <td>
+                                    <div class="col-sm-5">
+                                        <input type="hidden" name="ID" id="ID" value="{$Info[ID]}" />
+                                        <input class="btn btn-danger" type='submit' value='提交保存'/>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

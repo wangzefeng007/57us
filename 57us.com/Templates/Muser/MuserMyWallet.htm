@@ -1,0 +1,61 @@
+{template Header}
+<div class="page-group">
+	<div class="page" id="page">
+		<header class="bar bar-nav indexBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<p class="title">我的资产</p>
+		</header>
+		<div class="content pull-to-refresh-content infinite-scroll ListCont">
+			<!-- 默认的下拉刷新层 -->
+			<div class="pull-to-refresh-layer">
+				<div class="preloader"></div>
+				<div class="pull-to-refresh-arrow"></div>
+			</div>
+			<div class="moneyCont">
+				<p>账户余额（元）</p>
+				<p class="num">{$UserBank[TotalBalance]}</p>
+			</div>
+			<div class="moneyMenu">
+				<div class="row no-gutter">
+					<div class="col-50 tac">
+						<p>可提现余额（元）</p>
+						<p class="num">{$UserBank[FreeBalance]}</p>
+					</div>
+					<div class="col-50 tac">
+						<p>冻结金额（元）</p>
+						<p class="num">{$UserBank[FrozenBalance]}</p>
+					</div>
+				</div>
+			</div>
+			<div class="list-block txlist mt0">
+				<ul>
+					<li>
+						<a href="/member/withdraw/" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title"><i class="icon iconfont icon-qianbao"></i>提现</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="moneyList mt10">
+				<p class="tit">资产明细</p>
+				<ul id="list">
+				</ul>
+				<div class="noList tac" style="display: none">
+					<i class="icon iconfont icon-zichan"></i>暂无记录
+				</div>
+			</div>
+			<div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+			<!-- 加载提示符 -->
+			<div class="infinite-scroll-preloader" style="display: none">
+				<div class="preloader">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserMyWallet.js" charset='utf-8'></script>
+</body>
+</html>

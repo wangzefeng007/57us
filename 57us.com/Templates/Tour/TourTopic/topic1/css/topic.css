@@ -1,0 +1,58 @@
+.TourMenu a{color: #;}
+.WrapBox1{background:url(../images/top1.jpg) center top no-repeat; height: 205px;}
+.WrapBox2{background:url(../images/top2.jpg) center top no-repeat;height: 204px;}
+.WrapBox3{background:url(../images/top3.jpg) center top no-repeat;height: 205px;}
+.WrapBox4{background:url(../images/top4.jpg) center top no-repeat;height:135px;}
+.TopicMenu{width:831px; height: 121px;margin: 7px 0 0 255px;}
+.TopicMenu a{height: 121px;float: left; display:block; overflow: hidden;text-indent: -999px;}
+.TopicMenu a.i1{width: 305px;}
+.TopicMenu a.i2{width: 262px;}
+.TopicMenu a.i3{width: 264px;}
+.BoxMain1{background:url(../images/boxbg.jpg) repeat;height: 1394px;overflow: hidden;}
+.BoxMainTop{height: 312px;position: relative; }
+.BoxMainTop .title{width: 692px;height: 312px;display: block;text-indent: -999px;overflow: hidden;}
+
+.BoxMain2{background:#f2dd00;height: 1305px;overflow: hidden;}
+.BoxMain3{background:url(../images/boxbg.jpg) repeat;height: 1635px;overflow: hidden;}
+.TopicBottom{height: 382px;background:url(../images/boxbg1.jpg) repeat;overflow: hidden;}
+.TopFoot{background:url(../images/foot.jpg) center top no-repeat;height: 382px;}
+
+.BoxMain1 .BoxMainTop{background:url(../images/titlebg1.png) center 40px no-repeat;}
+.BoxMain1 .title{background:url(../images/title1.png) repeat;position: absolute;top: 0;left: 50%;margin-left: -300px;}
+.BoxMain2 .BoxMainTop{background:url(../images/titlebg2.png) center 20px no-repeat;margin-top: 17px;}
+.BoxMain2 .title{background:url(../images/title2.png) repeat;position: absolute;top: 0;left: 50%;margin-left: -357px;}
+.BoxMain3 .BoxMainTop{background:url(../images/titlebg3.png) center 20px no-repeat;margin-top: 17px;}
+.BoxMain3 .title{background:url(../images/title3.png) repeat;position: absolute;top: 0;left: 50%;margin-left: -345px;}
+
+.ProBoxMain{width: 1020px; margin: 0 auto;position: relative;}
+.ProBoxMain .ProBoxMainBd{height:830px;overflow: hidden;}
+.ProBoxMain .ProBoxMainBd ul{width: 1020px; height: 830px;overflow: hidden;}
+.ProBoxMain .ProBoxMainBd ul li{background:url(../images/LiBg.png) no-repeat;width: 335px;height: 397px; position: relative;float: left;margin:0 0px 18px 5px;}
+.ProBoxMain .ProBoxMainBd ul li img{width: 300px;height: 238px; margin:9px 0 0 9px;}
+.ProBoxMain .ProBoxMainBd ul li .tit{font-size: 18px; height:50px;line-height: 25px; overflow: hidden;color: #5e5e5e;margin: 5px 8px 0;width: 300px;line-height: 25px;}
+.ProBoxMain .ProBoxMainBd ul li .ProNum{height: 24px;overflow: hidden;color: #5e5e5e;padding:0 8px 0;}
+.ProBoxMain .ProBoxMainBd ul li .OldPrice{height: 24px; overflow: hidden; color: #fff; padding: 0 8px; text-decoration: line-through;}
+.ProBoxMain .ProBoxMainBd ul li .Price{font-size: 19px; color: #fff; padding: 0 8px;}
+.ProBoxMain .ProBoxMainBd ul li .Price span{font-size:12px}
+.ProBoxMain .ProBoxMainBd ul li .OrderBtn{background:url(../images/icon.png) no-repeat; width: 55px;height: 55px;display: inline-block; overflow: hidden;text-indent: -999px; position: absolute;bottom:25px;right:32px;}
+.ProBoxMain .ProBoxMainBd ul li .OrderBtn:hover{background-position:-55px 0;}
+.ProBoxMain .prev,.ProBoxMain .next{width: 88px;height: 95px;display: block; position: absolute; top: 50%;margin-top: -47px;}
+.ProBoxMain .prev{background:url(../images/prev.png) no-repeat; left: -120px;}
+.ProBoxMain .next{background:url(../images/next.png) no-repeat; right: -110px;}
+.ProBoxMain .prevStop,.ProBoxMain .nextStop{display: none;}
+.Instro{background:#fff;width: 1000px; height: 184px;box-shadow: 4px 4px 7px rgba(0,0,0,0.1);margin: 0 auto;}
+.InstroLeft{background:url(../images/icon.png) -110px 0 no-repeat;width: 156px;height: 184px; overflow: hidden;float: left;}
+.InstroRight{width:843px;height: 182px;border: 1px solid #0359b1;border-left: 0; float: left;overflow: hidden;font-size: 16px; color: #6a6a6a;}
+.InstroRight .tit{font-size: 18px;  color: #f87600;font-weight: bold;}
+.PicPagetion{width: 100%; text-align: center; position: absolute;bottom: -10px; left: 0;z-index: 10;}
+.PicPagetion li{background:#dcebfb;width: 12px;height: 12px;display: inline-block;margin: 0 4px;border: 1px solid #15508d;border-radius: 100%; overflow: hidden;text-indent: -999px;}
+.PicPagetion li.on{background: #3d9bff;border: 1px solid #3d9bff;}
+.Instro1{background:#fff;width: 998px; height: 58px;line-height: 58px; overflow: hidden;border: 1px solid #f26600; margin: 0 auto;color: #6a6a6a;font-size: 20px;}
+.Instro1Left{background:url(../images/icon.png) -100px -186px no-repeat;width: 166px;height: 58px;float: left; overflow: hidden;margin-right: 20px;}
+.Instro1 b{color: #db0101;}
+.reward{background:url(../images/reward.jpg) center center no-repeat;height: 388px;overflow: hidden;}
+#section2 .ProBoxMainBd ul li{background:url(../images/LiBg1.png) no-repeat;}
+#section2 .PicPagetion li{border:1px solid #f26600;background: #f2dd00;}
+#section2 .PicPagetion li.on{background: #f26600;border: 1px solid #f26600;}
+#section2 .zhek{background:url(../images/zhe.png) no-repeat;width: 152px;height: 137px;display: inline-block;position: absolute;top:0;left:0;z-index: 10;}
+#section2 .ProBoxMainBd ul li .OrderBtn{right: 33px;}

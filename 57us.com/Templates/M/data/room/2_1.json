@@ -1,0 +1,9 @@
+{
+  "ResultCode":200,
+  "Type":"1",
+  "PriceData":{
+    "checknum":"3",
+    "cost":"111",
+    "skuid":"2016"
+  }
+}

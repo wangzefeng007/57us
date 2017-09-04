@@ -1,0 +1,179 @@
+<a href="JavaScript:void(0)" class="asking {if !$_SESSION['UserID']}_MustLogin{else}MyQuestions{/if}" {if !$_SESSION['UserID']}data-type="tc_login"{/if}><span class="line transition"></span><span class="name transition">我要提问</span></a>
+<a href="JavaScript:void(0)" class="lineAskBtn mt10 {if !$_SESSION['UserID']}_MustLogin{else}StandTeam{/if}" {if !$_SESSION['UserID']}data-type="tc_login"{/if}><span class="line transition"></span><span class="name transition">发起站队</span></a>
+<div class="cf mt10">
+</div>
+<script type="text/javascript" src="{echo JsURL}/base/tc_login.js"></script>
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<!--<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" style="display:none;">-->
+    <!--<span class="bds_more">更多</span>-->
+<!--</div>-->
+<!--<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>-->
+<!--<script type="text/javascript" id="bdshell_js"></script>-->
+<!--<script type="text/javascript">-->
+    <!--document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();-->
+<!--</script>-->
+
+<!--我要提问弹窗 start-->
+<div class="popmask" id="askPop">
+    <div class="pop transition">
+        <span class="popClose transition"><i class="icon iconfont icon-guanbifuzhi"></i></span>
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+                <th width="100">问题详情：</th>
+                <td width="640">
+                    <div class="tjBox">
+                        <span class="tjnum" style="top: auto;bottom: 0;">1000/1000</span>
+                        <textarea type="text" maxlength="1000" name="QuestionText" id="QuestionText" rows="" cols="" placeholder="请尽可能详细的描述你的问题" class="askDetail bradius" onkeyup="checkLength($(this),1000);"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>问题分区：</th>
+                <td>
+                    <div name="areaSelect" type="selectbox" class="DiySelect" id="QuestionClass">
+                        <div class="opts">
+                            {loop $StudyCateInfos $lists}
+                            <a href="javascript:void(0);" value="{$lists[AskCategoryID]}">{$lists[AskCategoryName]}</a>
+                            {/loop}
+                            <a href="javascript:void(0);" value="18" class="selected">其他</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>贴标签：</th>
+                <td>
+                    <div class="tipGet">
+                        <em class="ostag hidden"></em>
+                        <span class="autoSpan">
+							<input type="text" name="tag" value="" placeholder="自定义" maxlength="8"/>
+							<em class="tipDete"><i class="icon iconfont icon-guanbifuzhi"></i></em>
+						</span>
+                        <a class="addBtn" id="addTag" href="JavaScript:void(0)"><i class="icon iconfont icon-jia"></i></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td align="right" class="tar">
+                    <a href="javascript:void(0)" class="submitBtn bradius" id="AskSubmit">提交</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--我要提问弹窗 End-->
+
+<!--发起站队 start-->
+<div class="popmask" id="teamPop">
+    <div class="pop transition">
+        <span class="popClose transition"><i class="icon iconfont icon-guanbifuzhi"></i></span>
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+                <th width="100">问题详情：</th>
+                <td width="640">
+                    <div class="tjBox">
+                        <span class="tjnum" style="top: auto;bottom: 0;">1000/1000</span>
+                        <textarea type="text" maxlength="1000" name="TeamText" id="TeamText" rows="" cols="" placeholder="请尽可能详细的描述你的问题" class="askDetail bradius" onkeyup="checkLength($(this),1000);"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>正方：</th>
+                <td>
+                    <div class="cf tjBox">
+                        <span class="tjnum">20/20</span>
+                        <input onkeyup="checkLength($(this),20);" type="text" name="TeamPositive" id="TeamPositive" value="" size="20" maxlength="20" class="teamInput" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>反方：</th>
+                <td>
+                    <div class="cf tjBox">
+                        <span class="tjnum">20/20</span>
+                        <input type="text" name="TeamAnti" id="TeamAnti" value="" size="20" maxlength="20" class="teamInput" onkeyup="checkLength($(this),20);" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td align="right" class="tar">
+                    <a href="javascript:void(0)" class="submitBtn bradius" id="TeamSubmit">提交</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--发起站队 end-->
+
+<!--我要站队 start-->
+<div class="popmask" id="standTeam">
+    <div class="pop transition" style="width: 600px;padding:20px 60px;">
+        <span class="popClose transition"><i class="icon iconfont icon-guanbifuzhi"></i></span>
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+                <td>
+                    <p>你支持：</p>
+                    <div class="support">
+                        <label name="rbt" type="radiobox" val="1" class="supportlab checked">正方：{$AskInfo['StandSquare']}<span class="okico"><i class="icon iconfont icon-ok"></i></span></label>
+                        <label name="rbt" type="radiobox" val="2" class="supportlab">反方：{$AskInfo['StandBack']}<span class="okico"><i class="icon iconfont icon-ok"></i></span></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>支持理由：</p>
+                    <div class="tjBox">
+                        <span class="tjnum" style="top: auto;bottom: 0;">200/200</span>
+                        <textarea type="text" maxlength="200" name="myTeamText" id="myTeamText" rows="" cols="" placeholder="请尽可能详细的描述你的问题" class="askDetail bradius" onkeyup="checkLength($(this),200);" style="width: 568px;"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" class="tar">
+                    <a href="javascript:void(0)" class="submitBtn bradius" id="myTeamSubmit">提交</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--我要站队 end-->
+
+<!--我来回答 start-->
+<div class="popmask" id="comeanswer">
+    <div class="pop transition" style="width: 640px;padding:10px 40px 20px">
+        <span class="popClose transition"><i class="icon iconfont icon-guanbifuzhi"></i></span>
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+                <td>
+                    <p>我的回答：</p>
+                    <div class="tjBox">
+                        <span class="tjnum" style="top: auto;bottom: 0;">1000/1000</span>
+                        <textarea type="text"  maxlength="1000" name="myReplyText" id="myReplyText" rows="" cols="" placeholder="请尽可能详细的描述你的问题" class="askDetail bradius" onkeyup="checkLength($(this),1000);"></textarea>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right" class="tar">
+                    <a href="javascript:void(0)" class="submitBtn bradius" id="myReplySubmit">提交</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--我来回答 end-->
+
+<!--分享到 start-->
+<div class="sharePop" id="sharePop">
+    <p class="tit">
+        <span class="close fr"><i class="icon iconfont icon-guanbifuzhi"></i></span>
+        <span class="fl fod">分享到：</span>
+    </p>
+    <div class="shareList">
+    </div>
+</div>
+<!--js写在这个文件下/bbs/study/AskPublic.js-->
+<!--分享到 end-->

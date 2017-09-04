@@ -1,0 +1,18 @@
+<nav class="bar bar-tab fixBottom">
+	<a class="tab-item {if $MyAction=='Index'}active{/if}" href="{echo WEB_M_URL}"> <i class="icon iconfont">&#xe6b4;</i> <span class="tab-label">首页</span> </a>
+	<a class="tab-item {if $MyAction=='Categories'}active{/if}" href="{echo WEB_M_URL}/news/class/"> <i class="icon iconfont">&#xe61b;</i> <span class="tab-label">分类</span> </a>
+	<a class="tab-item" href="{echo WEB_MUSER_URL}"> <i class="icon iconfont">&#xe606;</i> <span class="tab-label">我的</span> </a>
+</nav>
+<div class="hidden">
+<?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1256811158).'" width="0" height="0"/>';?>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?21f9def31aa89e3cd98d7b6b95068701";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>

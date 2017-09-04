@@ -1,0 +1,383 @@
+body{background:#f5f5f5}
+.moreicon,.px_box li i,.ins_fun span i,.scbtn i,.online_zx i,.sc1 i,.lange_list li .fun i,.lange_list li .img .map i,.service_scroll_main a,.xc_date_tit .icon{ background:url(http://images.57us.com/img/common/common.png) no-repeat}
+
+.blue{color:#00a5e3}
+.red{color:#ff5863}
+.more_btn{width:190px;height:36px;text-align:center;line-height:36px;background:#00a5e3;color:#fff;border-radius:3px 0 3px 0;display:block;}
+.more_btn:hover{color:#fff;background:#019dd8;}
+
+/*banner*/
+.ban{ width:1920px; height:399px; position:relative; left:50%; margin-left:-960px; overflow:hidden; position:relative}
+.ban .pic{ position:relative; z-index:0; }
+.ban .pic img { width:1920px; height:399px; display: block; }
+.ban .hd { width:100%; position: absolute; bottom: 10px; text-align: center; font-size:0; z-index:1; }
+.ban .hd li{ background:#d5d5d4; border-radius:100%; width:11px;height:11px;overflow: hidden;display:inline-block; *display:inline; zoom:1; cursor: pointer;margin: 0 5px; box-shadow:0 0 3px rgba(255,255,255,0.5)}
+.ban .hd .on{background:#00a5e3; }
+/*头部推荐*/
+.news_right{ background:#fff; width:710px; padding-left:30px; float: right;}
+.news_img{ width:286px; height:312px; overflow:hidden; position:relative}
+.news_img img{width:286px; height:312px;}
+.news_img .nr{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#99000000', endColorstr='#99000000');background:rgba(0,0,0,0.6); padding:20px 25px 0; height:70px; margin-top:-90px; color:#fff; position:relative; z-index:2}
+.news_box{ width:404px; height:auto; float:left;}
+.news_list{width:404px; float:left; margin-top:15px;}
+.news_list dt{ height:35px; line-height:35px; overflow:hidden; color:#00a5e3; font-weight:bold; font-size:20px;}
+.news_list dt a{color:#00a5e3;}
+.news_list dt i{background:url(http://images.57us.com/img/tour/hot.png) no-repeat; width:39px; height:20px; display:inline-block; vertical-align:middle; margin-right:8px;}
+.news_list dd{ height:96px; overflow:hidden; padding-top:7px;}
+.news_list dd a{ color:#999999; width:100%; height:24px; display:block; overflow:hidden;}
+.news_list dd a:hover{ color:#ff5863}
+/*共同标签*/
+.p_box{}
+.p_box_t{ padding:15px 0; height:40px; overflow:hidden; line-height:40px;  font-size:20px;}
+.p_box_t .name{ float:left; font-size:30px; color:#00a5e3;font-weight:bold;}
+.p_box_t .name i{ background:url(http://images.57us.com/img/tour/tit_01.png) no-repeat; width:31px; height:31px; display:inline-block; margin-right:10px; overflow:hidden; vertical-align:middle}
+.p_box_t .more{ color:#999999;font-weight:bold;}
+.p_box_t .more:hover{ color:#00a5e3}
+.p_box .hd{ margin-right:5px;color:#999999;}
+.p_box .hd a{ padding:0 10px; color:#999999;font-weight:bold;}
+.p_box .hd a.on,.zx .hd a:hover{ color:#00a5e3}
+.p_box .bd{ padding:20px 0; height:auto; overflow:hidden}
+
+/*精选点评*/
+.choice_pj{}
+.choice_pj .p_box_t .name i{ background-position:0 -165px;}
+/*品质精选*/
+.choice_quality{}
+.choice_quality .p_box_t .name i{ background-position:0 -132px;}
+/*海盗精选*/
+.choice_island{}
+.choice_island .p_box_t .name i{ background-position:0 -99px;}
+/*精选购物*/
+.choice_shoping{}
+.choice_shoping .p_box_t .name i{ background-position:0 -66px;}
+/*自驾精选*/
+.choice_car{}
+.choice_car .p_box_t .name i{ background-position:0 -33px;}
+/*精选推荐*/
+.choice_reco{}
+.choice_reco .p_box_t .name i{ background-position:0 0;}
+/*本月前十*/
+.choice_top{}
+.choice_top .p_box_t .name i{ background-position:0 -198px;}
+/*限时优惠*/
+.ChoiceTimeOffer{}
+.ChoiceTimeOffer .p_box_t .name i{ background-position:0 -231px;}
+/*品质精选list*/
+.jwlist{ width:1242px;}
+.jwlist li{ width:369px; height:186px; overflow:hidden; float:left; position:relative; margin:16px 45px 16px 0}
+.jwlist li img{ width:369px; height:186px;}
+.jwlist li .zz{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); width:349px; height:186px; text-align:center; line-height:186px; color:#fff; font-weight:bold; font-size:30px; display:block; position:absolute; top:0; left:0; z-index:10; padding: 0 10px;}
+.jwlist li .more_btn{ position:absolute; top:150%; left:50%; margin:-18px 0 0 -95px; z-index:1568 }
+
+ /*其他精选*/
+.lange_list{ width:1220px; height:308px; overflow:hidden}
+.lange_list li{ background:#fff; width:286px; height:308px; float:left; overflow:hidden; margin-right:18px;}
+.lange_list li .img{ width:286px; height:200px; position: relative; overflow:hidden; transition:all 0.3s ease-in-out;}
+.lange_list li .img .map{ filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); height:33px; line-height:33px; overflow:hidden; text-indent:15px; position:absolute; bottom:0; left:0; width:100%; color:#fff;}
+.lange_list li .img .map i{ background-position:-786px -62px; width:12px; height:17px; display:inline-block; overflow:hidden; vertical-align:middle; color:#fff; margin-right:6px;}
+.lange_list li .img .bgimg{width:286px; height:200px;}
+.lange_list li .img .tea_ins{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); width:286px; height:200px; position:absolute; top:0; left:0; z-index:5; display:none}
+.lange_list li .img .tea_ins p{ padding:58px 30px 0; height:120px; overflow:hidden; color:#fff;}
+.lange_list li .tit{ height:48px; line-height:24px; font-size:16px; font-weight:bold; color:#999999; padding:10px 20px 0;}
+.lange_list li .ins{ height:24px; overflow:hidden; color:#999999; padding:5px 20px 0;}
+.lange_list li .pj_star{ float:right}
+.lange_list li .pj_star i{ background-position:0 -480px; width:16px; height:16px; display:inline-block; margin:4px 3px 0 0;}
+.lange_list li .more_btn{  margin:32px auto 0;transition:all 0.3s ease-in-out;}
+.lange_list li:hover .img{ margin-top:-40px;}
+.lange_list li:hover .more_btn{margin-top:10px;}
+.lange_list li .nr,.lange_list li .fun{ height:48px; overflow:hidden; padding:10px 20px 0; color:#999}
+.lange_list li .fun{ height:24px; font-size:13px;}
+.lange_list li .fun i{width:15px; height:15px; display:inline-block; vertical-align:middle; margin-right:5px;}
+.lange_list li .fun_name{ color:#00a5e3}
+.lange_list li .fun i.i1{ background-position: -723px -63px;}
+.lange_list li .fun i.i2{ background-position: -560px -63px}
+.lange_list li .fun_price{ color:#ff5863}
+.lange_list li .fun_price b{ font-size:20px; font-weight:normal}
+ /*热门推荐*/
+.hot_tj_list{width:1220px; height:200px; overflow:hidden; display: none}
+.hot_tj_list li{ width:286px; height:200px; overflow:hidden; position: relative; float:left; margin-right:18px; }
+.hot_tj_list li img{width:286px; height:200px;filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */   -webkit-filter: blur(2px); /* Chrome, Opera */-moz-filter: blur(2px);-ms-filter: blur(2px);filter: blur(2px);filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=2, MakeShadow=false); /* IE6~IE9 */}
+.hot_tj_list li .more_btn{ position:absolute; left:50%; top:150%; margin:-18px 0 0 -95px;}
+.hot_tj_list li .circle_box{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#99000000', endColorstr='#99000000');background:rgba(0,0,0,0.6); width:138px; height:138px; overflow:hidden; border-radius:100%; text-align:center; position:absolute; top:50%; left:50%; margin:-69px 0 0 -69px;}
+.hot_tj_list li .tip_tit{ font-size:20px; font-weight:bold; color:#00a5e3; height:24px; overflow:hidden; padding:18px 10px 0}
+.hot_tj_list li .circle_nr{ height:38px; line-height:19px; overflow:hidden; color:#fff; padding:9px 20px 0;}
+.hot_tj_list li .circle_price{ color:#ff5863; font-size:16px; padding-top:7px;}
+.hot_tj_list li:hover img{filter:none; -webkit-filter: blur(0px); /* Chrome, Opera */-moz-filter: blur(0px);-ms-filter: blur(0px);filter: blur(0px);filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=0, MakeShadow=false);}
+.hot_tj_list li:hover .more_btn{ top:50%}
+.hot_tj_list li:hover .circle_box{ top:-50%}
+/*为什么选择旅游*/
+.why_tour{}
+.why_tour .tit{ height:80px; line-height:80px; overflow:hidden; color:#00a5e3; font-size:30px; font-weight:bold; text-align:center}
+.why_tour .tit a{ color:#00a5e3}
+.why_list{ width:1200px; padding-top:20px }
+.why_list li{ background:#fff;width:369px; height:201px; float:left; overflow:hidden; margin:22px 15px 0 16px; text-align:center;transition:box-shadow 0.3s linear; -moz-transition:box-shadow 0.3s linear; -webkit-transition:box-shadow 0.3s linear; -ms-transition:box-shadow 0.3s linear;-o-transition:box-shadow 0.3s linear;}
+.why_list li .icon{ background:url(http://images.57us.com/img/tour/why.png) no-repeat; width:96px; height:96px; display:inline-block; margin-top:20px; overflow:hidden; transition:transform 0.3s linear; -moz-transition:transform 0.3s linear; -webkit-transition:transform 0.3s linear; -ms-transition:transform 0.3s linear;-o-transition:transform 0.3s linear;}
+.why_list li.i1 .icon{ background-position:0 0;}
+.why_list li.i2 .icon{ background-position:0 -96px;}
+.why_list li.i3 .icon{ background-position:0 -192px;}
+.why_list li.i4 .icon{ background-position:0 -288px;}
+.why_list li.i5 .icon{ background-position:0 -384px;}
+.why_list li.i6 .icon{ background-position:0 -480px;}
+.why_list li.i7 .icon{ background-position:0 -576px;}
+.why_list li.i8 .icon{ background-position:0 -672px;}
+.why_list li p{ height:30px; line-height:30px; overflow:hidden; color:#999999; font-size:16px; padding:0 10px 0;transition:all 0.3s linear;}
+.why_list li p.title{ color:#00a5e3; font-size:16px; font-weight:bold}
+.why_list li a{ display:block}
+.why_nr{ color:#999999; font-size:16px; padding:40px 0 20px; height:auto; overflow:hidden; text-align:center; line-height:36px;}
+/*首页结束*/
+
+
+/*列表页开始*/
+/*排序*/
+.slide_l{ width:889px; }
+.px_box{ background:#fff; height:53px; line-height:53px; font-size:16px;color:#999999;}
+.px_box li{ float:left; position: relative;}
+.px_box li span{height:53px; width:150px; text-align:center; display:block; cursor:pointer;border:1px solid #fff; border-top:0; border-bottom:0}
+.px_box li.on span,.px_box li:hover span{ color:#00a5e3;border:1px solid #EFECEC; border-top:0; border-bottom:0}
+.px_box li.on span a{ color:#00a5e3;}
+.px_box li a{ color:#999}
+.px_box .hownum{ margin-right:15px;}
+.px_box li i{ background-position:-682px -1px; width: 15px; height:20px; vertical-align:middle; display:inline-block; overflow:hidden; margin-left:0;}
+.px_box li.on span i{ background-position:-702px -1px}
+.px_box li:hover span i{ background-position:-682px -21px}
+.px_box li .suv{background: #fff;width:150px; padding:5px 0; position: absolute;top: 53px;left: 0;z-index: 10;display:none; }
+.px_box li .suv a{ width: 100%;height:32px;line-height: 32px;overflow: hidden;display: block; text-indent:35px; font-size:15px; color:#999}
+.px_box li .suv a:hover{ color:#00a5e3;}
+.px_box li:hover .suv{ display:block;border:1px solid #EFECEC; border-top:0}
+
+/*筛选*/
+.gw_search_box{}
+.gw_search_box dl{ background:#fff; padding:12px 0 12px 110px; float:left; margin-top:20px; position:relative;font-size:16px;}
+.gw_search_box dt{ width:110px; height:30px; line-height:30px; color:#00a5e3;  text-align:center;  position:absolute; top:11px; left:0;}
+.gw_search_box dd{ padding-right:15px; height:27px; line-height:27px;}
+.gw_search_box dd a{ margin-right:3px; float:left;color:#999999; padding:0 8px 0 9px;display: inline-block; font-size:16px; position:relative}
+.gw_search_box dd a i{ width:10px; height:10px; text-align:center; line-height:10px; overflow:hidden; vertical-align:top; font-size:10px; position:absolute; top:0; right:0; z-index:8; display:none}
+.gw_search_box dd a:hover,.gw_search_box dd a.on{ background:#00a5e3; color:#fff;}
+.gw_search_box dd a.on i{ display:inline-block;}
+.moreicon{background-position: -740px 0; width:20px;height:20px; overflow: hidden; vertical-align: middle; display: inline-block; margin-left: 6px; position:absolute; top:18px; right:15px; cursor:pointer;}
+.more_div{ height:auto !important}
+.more_div a{ margin-bottom:10px;}
+.more_div .moreicon{background: url(http://images.57us.com/img/common/common.png) -540px -40px no-repeat;}
+
+.price_box{ margin-left:10px; position:relative;}
+.price_label{ position:relative; z-index:10}
+.price_label input{ width:71px; height:22px; line-height:22px; overflow:hidden; border:1px solid #999999;}
+.price_label span{ padding:0 8px;}
+.price_btn{ border:1px solid #ddd; background:#fff; width:179px; height:25px; padding-top:35px; text-align:center; position:absolute; top:-5px; left:-5px; z-index:2; display:none}
+.price_btn input{ border:0; width:60px; text-align:center; height:20px; line-height:20px; display:inline-block; margin:0 13px; overflow:hidden; vertical-align:top; cursor:pointer}
+.price_btn input.clear{ background:#e6e5e5}
+.price_btn input.define{ background:#00a5e3; color:#fff;}
+.price_btn input.clear:hover{background:#dddcdc}
+.price_btn input.define:hover{background:#0094cc}
+
+/*顾问列表*/
+.gw_list{ width:100%;}
+.gw_list li{ background:#fff; height:237px; overflow:hidden; margin-top:18px; color:#999;}
+.gw_list_cont{ width:623px;margin:20px 50px 0 0}
+.gw_list_cont .tit{ line-height:26px; max-height:52px; overflow:hidden;color:#00a5e3; font-size:16px;}
+.gw_list_cont .tit a{color:#00a5e3;}
+.gw_list_cont .tit .name{ font-weight:bold; font-size:20px; margin-right:18px;}
+.scbtn{ background:#00a5e3; width:57px; height:20px; text-align:center; line-height:18px; overflow:hidden; color:#fff !important; font-size:12px;}
+.scbtn i{ background-position:-744px -64px;  width:12px; height:12px; display:inline-block; vertical-align:middle}
+.scbtn:hover{background:#0299d2; color:#fff;}
+.gw_list_cont .ins{ height:30px; line-height:30px; overflow:hidden;}
+.gw_list_cont .goal{ color:#ff5863; font-size:16px; margin-left:4px;}
+.online_zx,.sc1{ color:#00a5e3}
+.online_zx i,.sc1 i{ background-position:-762px -62px; width: 16px; height: 16px;display: inline-block;vertical-align: middle; margin-right: 3px;}
+.sc1{ margin:0 40px; }
+.sc1 i{background-position:-743px -23px;}
+
+.ins_fun{ height:28px; line-height:28px; overflow:hidden}
+.ins_fun span{ float:left; margin-right:20px;}
+.ins_fun span i{ width:16px; height:16px; display:inline-block; vertical-align:middle; margin-right:3px;}
+.ins_fun span i.i1{ background-position:-720px -63px; }
+.ins_fun span i.i2{background-position:-560px -63px }
+.ins_fun span i.i3{ background-position:-682px -43px; }
+
+
+
+/*右边栏样式*/
+.blue_line{ height:8px; overflow:hidden; background:#00a5e3}
+.slide_r{ width:290px; height:auto; overflow:hidden}
+.white_box{ background:#fff; padding:5px 13px 10px; height:auto; overflow:hidden; }
+.white_box_top{ height:48px; line-height:48px; font-weight:bold; font-size:24px; color:#00a5e3}
+.white_box_top a{ color:#00a5e3}
+.tw_list{ width:100%; max-height:910px;overflow:hidden}
+.tw_list li{ width:100%; height:290px; float:left; overflow:hidden; border-bottom:1px dashed #e0e0e0; margin-bottom:20px; color:#999}
+.tw_list li img{ width:266px; height:182px;}
+.tw_list li .tit{ height:auto; max-height:46px; line-height:23px; overflow:hidden; font-size:16px; font-weight:bold; color:#00a5e3; padding-top:10px;}
+.tw_list li .price{ color:#ff5863; font-size:18px;}
+.tw_list li .price i{ font-size:26px;}
+.tw_list li a{ color:#999999}
+/*列表页结束*/
+
+/*tour——order*/
+/*预定页面*/
+.visa_ord_l{ background:#fff; width:848px; float:left; height:auto; overflow:hidden; padding:30px; color:#999 }
+.visa_ord_lc{padding-bottom:15px;}
+.visa_ord_r{ width:260px;float:right; color:#999;}
+.visa_ord_js{ width:260px;  height:auto; overflow:hidden; padding-bottom:20px;}
+.visa_ord_js .ord_box{ background:#fff;  padding:10px 20px; height:auto; overflow:hidden}
+.visa_ord_js .ord_box h3{ font-size:20px; border-bottom:1px solid #e4e4e4; color:#00a5e3; font-weight: normal; padding:10px 0}
+.ord_box table{ padding:8px 0}
+.unitprice{ color:#ff5863; }
+.all_price{ padding:15px 0; font-size:18px; color:#ff5863; border-top:1px solid #e4e4e4}
+.all_price span{ font-size:26px;}
+.visa_tk{ padding:15px 15px 8px; font-size:13px; line-height:35px;}
+.visa_tk label.check_box{ margin-top:0}
+
+.visaorder_btn{ background:#16b3ed; height:35px; border-radius:5px; line-height:35px; text-align: center; color:#fff; font-size:16px; padding:0 25px; display: inline-block; margin:15px auto 0}
+.visaorder_btn:hover{background:#12abe4;  color:#fff;}
+
+.visa_de_t{ font-size:25px; color:#00a5e3; line-height:28px; font-weight:normal }
+.visa_l_box{ border-bottom:1px solid #e4e4e4; padding:10px 0 20px;}
+.su_tit{ font-size:16px; color:#00a5e3; padding:10px 0}
+.su_tit span{ color:#999; font-size:14px;}
+.su_tit i{ background:#00a5e3; width:8px; height:8px; display:inline-block; overflow:hidden; border-radius:100%; vertical-align:middle; margin-right:6px;}
+.su_td{ padding-right:8px; padding-top:13px;}
+
+.fix_order{ position:fixed; left:50%; top:0; z-index:10; margin-left:338px;}
+.fix_visa_menu{ width:1200px; position:fixed; top:0; left:50%; margin-left:-600px; z-index:100}
+
+
+.order_num_list{ width:100%; height:auto; overflow:hidden}
+.order_num_list li{ height:28px; line-height:28px; overflow:hidden; padding-bottom:10px;}
+.linename{width:350px;}
+.lineprice {color: #ff5863;font-weight: 700;}
+
+.tour_add,.tour_charg{background:url(http://images.57us.com/img/common/common.png)  no-repeat;  width:16px; height:16px; overflow:hidden; display:inline-block; vertical-align:middle; cursor:pointer; margin:0 2px;}
+.tour_add{ background-position:0 -100px}
+.tour_charg{ background-position:0 -124px}
+.num_box{ margin-right:40px;}
+.num_box .p_input{ width:70px; height:26px; line-height:26px; margin:0 5px; text-align:center; text-indent:0}
+
+.tour_man_r{ width:100%;}
+.tour_man_r li{ padding:5px 0; height:auto;}
+.tour_man_r li p{ width:90px;}
+.tour_man_r .p_input{ width:260px;}
+.tour_man_r .en_name .p_input{ width:120px; margin-right:17px;}
+.tour_man_r li label{ margin-right:8px;}
+
+/*发票页面*/
+.invoice{ color:#999; border-top:1px solid #e4e4e4}
+.invoice td{ padding-right:15px;}
+.invoice_btn,.fp-cancel{background:#ff7800;height: 34px;border-radius: 5px;line-height: 34px;text-align: center;color: #fff; font-size: 16px; padding: 0 25px; display: inline-block; margin: 15px auto 0;}
+.invoice_btn:hover{ color:#fff;}
+.fp-cancel{background:#fff; border: 1px solid #ddd; color:#666; margin-left:15px;}
+
+/*旅游详细页*/
+.service_header{ height:315px; overflow:hidden; position:relative;}
+.service_class_pic{ width:401px; height:296px; position: absolute; top:0; left:0; overflow:hidden}
+
+.service_scroll_main{width:371px; height:266px; margin:15px auto 0; display:block; position:relative}
+.service_scroll,.service_scroll li,.service_scroll img{width:371px; height:266px; overflow:hidden;}
+.service_scroll_main a{ width:30px; height:30px; display:inline-block;overflow:hidden; text-indent:-9999px; position:absolute; top:50%; margin-top:-15px;filter:alpha(opacity:70); opacity:0.7; }
+.service_scroll_main a.prev{ background-position:-520px 0; left:10px;}
+.service_scroll_main a.next{ background-position:-480px 0; right:10px;}
+.service_class_pic span{ width:61px; height:32px; display:block; position:absolute;}
+.service_class_pic span.w_up{ background:url(http://images.57us.com/img/tour/w_up.png) no-repeat; left:0; top:0}
+.service_class_pic span.w_down{ background:url(http://images.57us.com/img/tour/w_down.png) no-repeat; right:0; bottom:0}
+.service_class_box{ background:#fff; padding:20px 274px 0 433px; height:258px; overflow:hidden; margin-top:37px; color:#999;}
+.service_class_box .tit{ max-height:70px; line-height:35px; overflow:hidden; }
+.service_class_box .tit .name{font-size:20px; font-weight:bold; color:#00a5e3; margin-right:30px;}
+.service_class_box .tit .pj_star{ margin:0 10px 0 0}
+.service_class_box .nr{ max-height:48px; overflow:hidden; padding-top:6px; }
+.service_price{ width:220px; height:auto; overflow:hidden; position: absolute; bottom:50px; right:30px;text-align:center}
+.service_price .btn{ background:#00a5e3; width:161px; height:45px; display:inline-block; text-align:center; line-height:45px; color:#fff; overflow:hidden; font-size:18px; margin-top:15px;}
+.service_price .btn:hover{background:#0099d2;}
+.service_price .list_price{ color:#ff5863; font-size:30px; line-height:35px; padding:10px 0 }
+.service_price .list_price span{ font-size:40px;}
+.service_price .chat_price{ color:#ff5863; font-size:18px;}
+.service_price .chat_price span{ text-decoration: line-through; font-size:16px;}
+
+.summary{}
+.sum_tit{ font-size:16px;}
+.summary ul{ width:96%; padding-top:9px; height:auto; overflow:hidden; max-height:124px;}
+.summary li,.summary li b,.summary li span,.summary li em{ float:left}
+.summary li{ margin:4px 0}
+.summary li b{ color:#00a5e3; margin-right:5px;}
+.summary li span{ border:1px solid #dddddd; padding:0 4px; height:20px; line-height:20px; border-radius:2px; display:none}
+.summary li em{background:url(http://images.57us.com/img/common/common.png) -722px -19px  no-repeat; width:16px; height:22px; overflow:hidden; display:none}
+.yx_list{}
+.yx_list li{ width:100%; float:left; height:182px; margin:12px 0}
+.yx_list li img{ width:266px; height:182px; float:left}
+.yx_list li .gw_list_cont{ width:580px; margin:12px 15px 0 0}
+.yx_list li .gw_list_cont .name{ font-size:16px;}
+
+.yx_list li .gw_list_cont{ width:580px; margin:12px 15px 0 0} 
+.yx_list li .gw_list_cont .name{ width:440px; font-size:16px;}
+.yx_list li .gw_list_cont .nr{ height:20px; line-height:20px; overflow:hidden; margin-bottom:5px; margin-top:5px;padding-right:50px;}
+.ins_fun .scbtn{ margin-top:10px;}
+.yx_list .tip_div{ border-top: 1px dashed #d6d6d6; padding-top:10px;}
+.yx_list .tip_div span{ background:#f8f8f8; float: left; width:68px; height:20px; text-align:center; line-height:20px; border:1px solid #dcdcdc; color:#bebebe; font-size:12px; margin-right:6px;}
+.yx_list li .price{ color:#ff5863; font-size:18px; margin-top:12px;}
+.yx_list li .price i{ font-size:26px;}
+.xc_gear{ padding:0 30px; height:auto; overflow:hidden}
+
+.xc_date_ul{}
+.xc_date_li{ padding-bottom:25px; height:auto; overflow:hidden}
+.xc_date_tit{background:#fff; height:50px;  line-height:50px; padding:0 40px 0 78px; overflow:hidden; border:1px solid #00a5e3; position:relative}
+.xc_date_tit .time_box{background:#00a5e3; width:78px; height:50px; text-align:center; line-height:50px; font-size:16px; color:#fff; display:inline-block; position:absolute; top:0; left:0;}
+.xc_date_tit .icon{ background-position:-620px -20px; width:20px;height:20px;display:inline-block; overflow:hidden; cursor:pointer; position:absolute; top:15px; right:20px;}
+.xc_date_tit .sutit{ color:#00a5e3; font-size:16px; padding:0 15px;}
+.xc_date_m{ padding-top:15px; height:auto; overflow:hidden; display: none}
+.xc_date_m_t{color:#a5a5a5;font-size:18px; font-weight:bold; padding:15px 0}
+.xc_date_li.on .xc_date_m{ display:inline-block}
+.xc_date_li.on .xc_date_tit .icon{ background-position:-600px 0;}
+
+.scenery_list{}
+.scenery_list li{ width:100%; height:auto; overflow:hidden; padding:10px 0;}
+.scenery_list li .tit{ color:#ff5863; width:100%; overflow:hidden; padding:10px 0}
+.scenery_list li img{ width:203px; height:139px; float:left; margin-right:10px;}
+
+.gw_menu{ width:100%;height:53px; }
+.gw_menu_box{background:#fff; height:53px; line-height:53px; font-size:16px;color:#999999;}
+.gw_menu_box ul{ margin-right:20px; }
+.gw_menu_box li{ float:left;}
+.gw_menu_box li a{height:53px; padding:0 45px;color:#999999; display:block}
+.gw_menu_box li.on a,.gw_menu_box li.on a:hover{ background:#00a5e3; color:#fff;}
+.gw_menu_box li a:hover{ background:#efefef;}
+.yx_menu li a{ padding:0 22px;}
+.fix_xc{ width:1200px; position:fixed; top:0; left:50%; margin-left:-600px; z-index:100; border:1px solid #ededed}
+
+.gw_box{ width:100%; height:auto;  margin-top:10px;}
+.gw_box_t{ height:50px; line-height:50px; color:#00a5e3; font-size:30px; font-weight:bold; padding:10px 0}
+.gw_su_nav{ font-size:16px; font-weight:bold; color:#444444}
+.gw_box_list{ height:auto;}
+.gw_box_list li{background:#fff; height:82px; padding:10px 142px 10px 20px; margin-top:15px; position:relative}
+.gw_box_list li .gw_box_r{ width:125px; padding-top:28px; position:absolute; top:0; right:0;}
+.gw_box_list li .price{ color:#ff5863; font-size:20px;}
+.gw_box_list li .tit{ color:#00a5e3; font-size:20px; font-weight:bold; height:35px; line-height:35px; overflow:hidden}
+.gw_box_list li .tit a{ color:#00a5e3;}
+.gw_box_list li .nr{ height:44px; line-height:22px; color:#999999}
+.gw_box_list li:hover{ box-shadow:0 0 3px rgba(0,0,0,0.2)}
+.service_ins{background: #fff; padding: 25px;height: auto;overflow: hidden;color: #999999;}
+.service_ins img{max-width: 100%;}
+.pack_tab{ background:#fff;}
+.pack_tab th{ background:#00a5e3; color:#fff; padding-left:50px; text-align: left; font-size:16px; font-weight:normal}
+.pack_tab td{ padding:10px 0 10px 50px;}
+.oldprice,.nowprice{ font-size:24px;}
+.pro_pri.orange{ color:#ff5863}
+.pack_tab .pricebtn a{ background:#00a5e3; width:75px; height:24px; text-align:center; color:#fff; display:inline-block; margin:0 4px;}
+.pack_tab .pricebtn a:hover{ background:#009dd8}
+
+.ins_img{ width:840px;}
+.ins_img li{ width:202px;height:138px; overflow:hidden; float:left; margin:8px 8px 0 0; }
+.ins_img li img{width:202px;height:138px;}
+
+.location{ height:30px; line-height:40px; overflow:hidden; color:#999; font-size:15px; margin:10px auto 0;}
+.location a{ color:#999; padding:0 6px;}
+.location a:hover{ color:#00a5e3}
+/*.tour_man_r{ border-bottom:1px dashed #ddd; padding:10px 0;}
+.tour_man_r:nth-last-child(1){ border:0px}*/
+
+.tipday em,.tipday span,.tipday b{ display:inline-block !important}
+.tipday em{background: url(http://images.57us.com/img/common/common.png) -723px -86px no-repeat;width: 16px;height: 22px;overflow: hidden; display:inline-block; vertical-align:middle}
+.imgTab img{padding: 0 10px 5px 0;}
+
+/*20160726cxb*/
+.playpic{width: 100%; height: auto;overflow: hidden;}
+.playpic li{ float: left; width: 50%;}
+.playpic li img{ padding:3px;}
+
+/*20170224*/

@@ -1,0 +1,36 @@
+{
+  "ResultCode": 200,
+  "WhetherData":1,
+  "StudentName": "傅朴权",
+  "StudentTel": "15880260627",
+  "StudentQQ": "591607560",
+  "StudentMail": "puquanbuai@gmail.com",
+  "StudentNationality": "中国",
+  "StudentBirthday": "1992-11-27",
+  "StudentParentsName": "老傅",
+  "StudentParentsTel": "13003975565",
+  "StudentParentsOtherTel": "12345678901",
+  "StudentPassport": "35052419",
+  "CurrentGrade": "大三",
+  "ApplyCountry": "美国",
+  "StudyDate": "2017-01-03",
+  "School": "野鸡大学",
+  "ApplyItems": "全程服务",
+  "LangeScrol": {
+    "GRA": "1",
+    "TOEFL": "2",
+    "IELTS": "3",
+    "GRE": "4",
+    "GMAT": "5",
+    "SAT": "6",
+    "SSAT": "7",
+    "ACT": "8"
+  },
+  "StudyRemarks": [
+    {
+      "StudyRemarks_Text": "的书法家说和福建省电话费加快速度福建省电话费开始的开发师傅好偶然的推广的健康的风格及地方和第三方科技的房价高对房价很高地方国际饭店是的豆腐干豆腐",
+      "StudyRemarks_Date": "2016-01-11",
+      "StudyRemarks_Time": "18:00"
+    }
+  ]
+}

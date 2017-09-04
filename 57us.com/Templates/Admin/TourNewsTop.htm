@@ -1,0 +1,57 @@
+{if $this->TopModule=='TourNews'}
+<span class="position hidden">旅游模块</span>
+<div class="panel-body special-details" style="padding-bottom: 0px">
+    <input class="{if $TopNavs=='ArticleLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="文章列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TourNewsArticle&Action=Lists'">
+    <input class="{if $TopNavs=='CategoryAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="添加分类"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TourNewsCategory&Action=Index'">
+    <input class="{if $TopNavs=='CategoryLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="分类列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TourNewsCategory&Action=Lists'">
+    <input class="{if $TopNavs=='ArticleAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="添加文章"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TourNewsArticle&Action=Add'">
+    <input class="{if $TopNavs=='TagLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="标签列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TourNewsArticle&Action=TagLists'">
+</div>
+{elseif $this->TopModule=='StudyAbroadNews'}
+<span class="position hidden">留学模块</span>
+<div class="panel-body special-details" style="padding-bottom: 0px">
+    <input class="{if $TopNavs=='ArticleLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="文章列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyAbroadNewsArticle&Action=Lists'">
+    <input class="{if $TopNavs=='CategoryAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="添加分类"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyAbroadNewsCategory&Action=Index'">
+    <input class="{if $TopNavs=='CategoryLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="分类列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyAbroadNewsCategory&Action=Lists'">
+    <input class="{if $TopNavs=='ArticleAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="添加文章"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyAbroadNewsArticle&Action=Add'">
+    <input class="{if $TopNavs=='TagLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="标签列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyAbroadNewsArticle&Action=TagLists'">
+</div>
+{elseif $this->TopModule=='ImmigrantNews'}
+<span class="position hidden">移民模块</span>
+<div class="panel-body special-details" style="padding-bottom: 0px">
+    <input class="{if $TopNavs=='ArticleLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="文章列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=ImmigrantNewsArticle&Action=Lists'">
+    <input class="{if $TopNavs=='CategoryAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="添加分类"
+           onclick="javascrtpt:window.location.href='/index.php?Module=ImmigrantNewsCategory&Action=Index'">
+    <input class="{if $TopNavs=='CategoryLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="分类列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=ImmigrantNewsCategory&Action=Lists'">
+    <input class="{if $TopNavs=='ArticleAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="添加文章"
+           onclick="javascrtpt:window.location.href='/index.php?Module=ImmigrantNewsArticle&Action=Add'">
+    <input class="{if $TopNavs=='TagLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="标签列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=ImmigrantNewsArticle&Action=TagLists'">
+</div>
+{elseif $this->TopModule=='TravelsNews'}
+<span class="position hidden">游记攻略</span>
+<div class="panel-body special-details" style="padding-bottom: 0px">
+    <input class="{if $TopNavs=='ArticleLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="文章列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TravelsNewsArticle&Action=Lists'">
+    <input class="{if $TopNavs=='CategoryAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="添加分类"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TravelsNewsCategory&Action=Index'">
+    <input class="{if $TopNavs=='CategoryLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="分类列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TravelsNewsCategory&Action=Lists'">
+    <input class="{if $TopNavs=='ArticleAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="添加文章"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TravelsNewsArticle&Action=Add'">
+    <input class="{if $TopNavs=='TagLists'}btn btn-info{else}btn btn-default{/if}" type="button" value="标签列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=TravelsNewsArticle&Action=TagLists'">
+</div>
+{/if}

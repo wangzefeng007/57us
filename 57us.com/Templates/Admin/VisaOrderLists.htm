@@ -1,0 +1,93 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">签证产品管理</a>
+                </li>
+                <li class="active">订单管理</li>
+            </ul>
+            <span class="position hidden">签证订单管理</span>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel breadcrumb">
+                <div class="panel-body">
+                    <span style="float: left;line-height: 36px;margin-left: -10px;padding-right: 10px">标题：</span>
+                    <form class="form-inline" role="form" action="/index.php" method="get">
+                        <input type="hidden" name="Module" value="VisaOrder">
+                        <input type="hidden" name="Action" value="Lists">
+                        <input type="text" class="form-control" placeholder="订单名称/订单号" name="Title" value="{$Title}">
+                        订单状态：
+                        <select name="Status" id="Status"  class="form-control" onchange="GetNewTourAreaID(this.value)">
+                            <option style="width:200px;"  value="{$Status}">{if !$StatusInfo[$Status]}请选择状态{else}{$StatusInfo[$Status]}{/if}</option>
+                            <option  value="">全部</option>
+                            {loop $StatusInfo $key $value}
+                            <option  value="{$key}">{$value}</option>
+                            {/loop}
+                        </select>
+                        <button class="btn btn-info">搜索</button>
+                    </form>
+                </div>
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>订单编号</th>
+                            <th>订单名称</th>
+                            <th>下单时间</th>
+                            <th>订单状态</th>
+                            <th>付款方式</th>
+                            <th>联系人</th>
+                            <th>联系电话</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $Data[Data] $lists}
+                        <tr height="35" align="center">
+                            <td>{$lists[OrderNumber]}</td>
+                            <td>{$lists[OrderName]}</td>
+                            <td>{$lists[CreateTime]}</td>
+                            <td>{$StatusInfo[$lists[Status]]}</td>
+                            <td>{if $lists[PaymentMethod]==1}支付宝{elseif $lists[PaymentMethod]==2}微信{elseif $lists[PaymentMethod]==3}网银{else}未付款{/if}</td>
+                            <td>{$lists[UserName]}</td>
+                            <td>{$lists[Phone]}</td>
+                            <td>
+                                <a href="/index.php?Module=VisaOrder&Action=Edit&ID={$lists[ID]}">订单管理</a>&nbsp;|&nbsp;<a href="/index.php?Module=VisaOrder&Action=Detail&ID={$lists[ID]}">详情</a>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    <form action="/index.php?Module=VisaOrder&Action=Lists{$PageUrl}" method="POST">
+                        <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                <li><a href="/index.php?Module=VisaOrder&Action=Lists&Page=1{$PageUrl}">首页</a></li>
+                                {if $Previous}
+                                <li><a href="/index.php?Module=VisaOrder&Action=Lists&Page={$Previous}{$PageUrl}">上一页</a></li>
+                                {/if}
+                                {loop $Data[PageNums] $page}
+                                <li><a href="/index.php?Module=VisaOrder&Action=Lists&Page={$page}{$PageUrl}" {if $Page == $page} class="on" {/if}>{$page}</a></li>
+                                {/loop}
+                                {if $Next}
+                                <li><a href="/index.php?Module=VisaOrder&Action=Lists&Page={$Next}{$PageUrl}">下一页</a></li>
+                                {/if}
+                                <li><a href="/index.php?Module=VisaOrder&Action=Lists&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+                                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

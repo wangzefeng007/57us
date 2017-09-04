@@ -1,0 +1,57 @@
+<!--{template Head}-->
+<!-- 顶部 -->
+
+<div id="middle">
+  <!--{template LeftMenu}-->
+  <div class="right"  id="mainFrame">
+    <div class="right_cont">
+      <ul class="breadcrumb">
+        当前位置： 旅游产品管理 <span class="divider"> > </span> <a href="/index.php?Module=TourLine&Action=TourLineList">跟团游</a> <span class="divider"> > </span> SKU管理
+      </ul>
+      <table class="table table-bordered table-striped table-hover">
+        <tbody>
+          <tr>
+            <td colspan="5"><h5>详细信息    &nbsp;&nbsp; <a class="bth" href="/Server.php?Module=TourProductSku&Action=TourPorductSkulist">设置价格</a></h5></td>
+          </tr>
+          <tr>
+            <td colspan="5"><h5> 价格设置：</h5></td>
+          </tr>
+        <br>
+        <br>
+        <tr height="35" align="center">
+          <td nowrap="nowrap"><strong>*产品名称 </strong></td>
+          <td nowrap="nowrap" center="left"><strong>SKU编号</strong></td>
+          <td nowrap="nowrap"><strong>销售属性</strong></td>
+          <td nowrap="nowrap"><strong> 状态</strong></td>
+          <td width="150" nowrap="nowrap"><strong> 操作 </strong></td>
+        </tr>
+        {loop $lists $list}
+        <tr height="35" align="center">
+          <td nowrap="nowrap">{$list[SKUName]}</td>
+          <td nowrap="nowrap">{$list[SkuNO]}</td>
+          <td nowrap="nowrap">{$list[0]}{$list[2]}</td>
+          <td nowrap="nowrap">{$list[Status]}</td>
+          <td nowrap="nowrap"><a class="getinfo"  href="/server.php?Module=TourProductSku&Action=TourProductSkuPriceList&ProductSkuID={$list[ProductSkuID]}">设置价格</a> <a class="getinfo"  href="/Server.php?Module=TourProductSku&Action=TourSkuEdit&ProductSkuID={$list[ProductSkuID]}">SKU设置</a> </td>
+        </tr>
+        {/loop}
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+</div>
+<!--<script type="text/javascript">
+    $(".getinfo").click(function(){
+        layer.open({
+        type: 1,
+        title: false,
+        closeBtn: 0,
+        shadeClose: true,
+        skin: 'yourclass',
+        content: '<input type="text"  id="startDate"  name="startDate" >到<input type="text"  id="endDate"  name="endDate" >均有效'
+    });
+
+    })
+</script>-->
+<!-- 底部 -->
+<!--{template Foot}-->

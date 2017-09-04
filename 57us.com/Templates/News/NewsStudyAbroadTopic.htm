@@ -1,0 +1,66 @@
+{template Header}
+<div class="wrap">
+	{template NewsStudyMenu}
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" target="_blank" title="57美国网">首页</a>><a href="/study/" title="留学资讯" target="_blank">留学资讯</a>><span>{$CateInfo[CategoryName]}</span></div>
+	<div class="w1200 cf ">
+		{loop $AdStudyTopic $value}
+		<div class="adBox cf"><a href="{$value[Link]}" target="_blank"><img src="{echo LImageURL}{$value[Picture]}" title="{$value[Title]}" height="90"/></a></div>
+		{/loop}
+	</div>
+	<div class="w1200 NewsStudyMain cf">
+		<div class="w1248 cf">
+		{loop $StrategyCate $key $val}
+		<div class="Examination fl">
+			<div class="ExaminationTit">
+				<a href="/study_{$val['Alias']}/" target="_blank" class="more fr">更多&gt;</a>
+				<span class="name fl">{$val['CategoryName']}</span>
+			</div>
+			<div class="ExamNewsbox cf">
+				<div class="ExamNewsCont">
+					<a href="/study/{$val['TopNews'][0]['StudyID']}.html" target="_blank"><img src="{echo ImageURLP2}{$val['TopNews'][0]['Image']}" class="transition lazy" width="204" height="154" alt="{$val['TopNews'][0]['Title']}" title="{$val['TopNews'][0]['Title']}"/></a>
+					<div class="ExamNewsContR fr">
+						<p class="tit"><a href="/study/{$val['TopNews'][0]['StudyID']}.html" target="_blank">{$val['TopNews'][0]['Title']}</a></p>
+						<p class="nr">{echo mb_substr($val['TopNews'][0]['Description'], 0, 55, 'utf-8')}…<a href="/study/{$val['TopNews'][0]['StudyID']}.html" target="_blank">【查看全部】</a></p>
+					</div>
+				</div>
+				<ul class="ExamNewsList mt10">
+					{loop $val['News'] $k $v}
+					<li><a href="/study/{$v['StudyID']}.html" target="_blank"><span class="fr date">{echo date("Y-m-d",strtotime($v['AddTime']))}</span><b>●</b>{$v['Title']}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		{if $Type != 'guide'}
+		{if $key == 0}
+		<div class="Examination fr" style="height: 535px;">
+			<div class="NewsStudyTeach tjcon mt40">
+				<a href="{echo WEB_STUDY_URL}/consultant/" target="_blank" class="more">更多></a>
+				<div class="NewsStudyTeachTit">顾问推荐</div>
+				<ul class="TeacherRlist">
+					{loop $Consultant $key $val}
+						<li><a href="{echo WEB_STUDY_URL}/consultant/{$val['UserID']}.html" target="_blank"><img src="{$val['Avatar']}" width="90" height="90" title="{$val['RealName']}" alt="{$val['RealName']}"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">顾问</span></a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="NewsStudyTeach mt45">
+				<a href="{echo WEB_STUDY_URL}/teacher/" target="_blank" class="more">更多></a>
+				<div class="NewsStudyTeachTit">教师推荐</div>
+				<ul class="TeacherRlist">
+					{loop $Teacher $key $val}
+					<li><a href="{echo WEB_STUDY_URL}/teacher/{$val['UserID']}.html" target="_blank"><img src="{$val['Avatar']}" width="90" height="90" title="{$val['RealName']}" alt="{$val['RealName']}"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		{/if}
+		{/if}
+		{/loop}
+		
+	</div>
+	</div>
+{template Footer}

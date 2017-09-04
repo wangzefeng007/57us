@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>{$Title}</title>
+  <meta name="keywords" content="{$Keywords}">
+  <meta name="description" content="{$Description}">
+  <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+  <link href="{echo CssURL}/www/newspublic.css" rel="stylesheet" type="text/css" />
+  <link href="{echo CssURL}/www/newsindex.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="index">
+<div class="wrap">
+  {template HeaderTop}
+  {template 'Common/RightNav',1}
+  <div class="IndexTopMain">
+    <div class="MaskUp"></div>
+    <div class="MaskDown"></div>
+    <a href="{echo WEB_MAIN_URL}" class="NewsLogo" title="57美国网">57美国网</a>
+    <ul class="IndexMenu">
+      <li> <a href="/tour/" target="_blank" class="a" title="旅游">旅游</a>
+        <div class="SeconMenu"> <em></em>
+          <div class="SeconMenuM"> <a href="/travels/" class="transition" target="_blank" title="美国游记">美国游记</a> <span class="line"></span> {loop $TourCate $key $val} <a href="/tour_{$val['Alias']}/" class="transition" target="_blank" title="{$val['CategoryName']}">{$val['CategoryName']}</a> <span class="line"></span> {/loop} </div>
+        </div>
+      </li>
+      <li> <a href="/study/" target="_blank" class="a" title="留学">留学</a>
+        <div class="SeconMenu"> <em></em>
+          <div class="SeconMenuM"> {loop $CateInfo $key $val} <a href="/studytopic_{$val['Alias']}/" class="transition" target="_blank" title="{$val['CategoryName']}">{$val['CategoryName']}</a> <span class="line"></span> {/loop} <a href="{echo WEB_STUDY_URL}/college/" class="transition" target="_blank" title="选校">选校</a> <span class="line"></span><a href="/topic/lecture/" target="_blank" title="留学讲堂">留学讲堂</a><span class="line"></span> </div>
+        </div>
+      </li>
+      <li> <a href="/immigrant/" target="_blank" class="a" title="移民">移民</a>
+        <div class="SeconMenu"> <em></em>
+          <div class="SeconMenuM"> {loop $Immigration $key $val} <a href="/immigtopic_{$val['Alias']}/" target="_blank" class="transition" title="{$val['CategoryName']}">{$val['CategoryName']}</a> <span class="line"></span> {/loop}<a href="/topic/eb5/" target="_blank" title="美国EB-5移民">美国EB-5移民</a><span class="line"></span>
+            <a href="/topic/eb5_2/" target="_blank" title="汤姆森教育EB-5">汤姆森教育EB-5</a><span class="line"></span> </div>
+        </div>
+      </li>
+      <li> <a href="/topic/cityagent1/" class="a" target="_blank">城市代理人</a> </li>
+      <li> <a href="/topic/xinchun2017/" class="a newsTopic" target="_blank"></a></li>
+    </ul>
+    <div class="NewsSearchBox fr">
+      <form action="/so.html" method="post" target="_blank">
+        <input type="submit" id="" value="" class="SearchBtn" />
+        <input type="hidden" name="t" value="{$this->SoType}" />
+        <input type="text" name="keyword" id="keyword" {if empty($Keyword)} value="极光" onFocus="this.value=''" onBlur="if(this.value==''){this.value='极光'}" {/if} class="input" autocomplete="off" placeholder="关键字" />
+      </form>
+    </div>
+    <div class="IndexBan"> <span class="prev">上一张</span> <span class="next">下一张</span>
+      <ul class="pic">
+        <li><a href="{$AdIndex[0]['Link']}" title="{$AdIndex[0]['Title']}" target="_blank"><img  src="{echo LImageURL}{$AdIndex[0]['Picture']}" alt="{$AdIndex[0]['Title']}" title="{$AdIndex[0]['Title']}" width="1920" height="782"/>
+          <p class="tit">{$AdIndex[0]['Title']}</p>
+        </a></li>
+
+        {loop $AdIndex $key $val}
+        {if $key>0}
+        <li><a href="{$val['Link']}" title="{$val['Title']}" target="_blank"><img  src="{echo LImageURL}{$val['Picture']}" alt="{$val['Title']}" title="{$val['Title']}" width="1920" height="782" class="transition lazy"/>
+          <p class="tit">{$val['Title']}</p>
+        </a></li>
+        {/if}
+        {/loop}
+      </ul>
+      <ul class="hd">
+        {loop $AdIndex $val}
+        <li></li>
+        {/loop}
+      </ul>
+    </div>
+  </div>
+  <div class="w1200 cf IndexTour mt50">
+    <div class="IndexTitle"><span class="name"></span></div>
+    <div class="TourBox mt30 cf">
+      <div class="TourBoxTitle"> <a href="/tour_tournews/" class="more fr" title="美国旅游新发现" target="_blank">更多></a> <span class="name">美国旅游新发现</span> </div>
+      <ul class="TourFind">
+        {loop $AdLyxfx $key $val}
+        {if $key == 0}<li class="i1"> <a href="{$val['Link']}" target="_blank" title="{$val['Title']}"><img  src="{echo ImageURLP6}{$val['Picture']}" title="{$val['Title']}" alt="{$val['Title']}" class="transition lazy" width="600" height="440" />
+        <p class="tit">{$val['Title']}</p>
+      </a> </li>
+        {else}
+        <li> <a href="{$val['Link']}" target="_blank" title="{$val['Title']}"><img  src="{echo ImageURLP4}{$val['Picture']}" title="{$val['Title']}" alt="{$val['Title']}" class="transition lazy" width="600" height="440" />
+          <p class="tit">{$val['Title']}</p>
+        </a> </li>
+        {/if}
+        {/loop}
+      </ul>
+    </div>
+    <div class="TourTravel cf fl">
+      <div class="TourBoxTitle"> <a href="/travels/" target="_blank" class="more fr" title="美国游记">更多></a> <span class="name">美国游记</span> </div>
+      <ul class="TourTravelList">
+        {loop $Mgyj $key $val}
+        <li>
+          <p class="fl"><a href="/travels/{$val['TravelsID']}.html" target="_blank" title="{$val['Title']}"><img  src="{echo ImageURLP4}{$val['Image']}" title="{$val['Title']}" alt="{$val['Title']}" class="transition lazy" width="260" height="195" /></a></p>
+          <div class="ContRight"> <em></em>
+            <p class="tit"><a href="/travels/{$val['TravelsID']}.html" target="_blank" title="{$val['Title']}">{$val['Title']}</a></p>
+            <p class="nr">{echo mb_substr($val['Description'], 0, 50, 'utf-8')}…</p>
+            <p class="fun mt35"><span class="view fr"><i></i>{$val['ViewCount']}</span><span class="fl">by {if $val[Redactor]}{$val[Redactor]}{else}57美国网{/if}</span></p>
+          </div>
+        </li>
+        {/loop}
+      </ul>
+    </div>
+    <div class="SeasonTj fr">
+      <div class="TourBoxTitle"> <a href="/tour_fengjing/" target="_blank" class="more fr" title="当季推荐">更多></a> <span class="name">当季推荐</span> </div>
+      <div class="Seasonbox fl cf">
+        <div class="SeasonCont"> <a href="/tour/{$Djtj[0]['TourID']}.html" target="_blank" class="ImgBlackBg" title="{$Djtj[0]['Title']}"><img title="{$Djtj[0]['Title']}" alt="{$Djtj[0]['Title']}" src="{echo ImageURLP2}{$Djtj[0]['Image']}" class="transition lazy" width="204" height="154" style="display: block;"></a>
+          <div class="SeasonContR fr">
+            <p class="tit"><a href="/tour/{$Djtj[0]['TourID']}.html" target="_blank" title="{$Djtj[0]['Title']}">{$Djtj[0]['Title']}</a></p>
+            <p class="nr">{echo mb_substr($Djtj[0]['Description'], 0, 18, 'utf-8')}…<a href="/tour/{$Djtj[0]['TourID']}.html" target="_blank" title="{$Djtj[0]['Title']}">【查看全部】</a></p>
+          </div>
+        </div>
+        <ul class="SeasonList mt10">
+          <li><a href="/tour/{$Djtj[1]['TourID']}.html" target="_blank" title="{$Djtj[1]['Title']}"><b>●</b>{$Djtj[1]['Title']}</a></li>
+          <li><a href="/tour/{$Djtj[2]['TourID']}.html" target="_blank" title="{$Djtj[2]['Title']}"><b>●</b>{$Djtj[2]['Title']}</a></li>
+        </ul>
+      </div>
+      <div class="Seasonbox fr cf">
+        <div class="SeasonCont"> <a href="/tour/{$Djtj[3]['TourID']}.html" class="ImgBlackBg" title="{$Djtj[3]['Title']}"><img src="{echo ImageURLP2}{$Djtj[3]['Image']}" alt="{$Djtj[3]['Title']}" title="{$Djtj[3]['Title']}" class="transition lazy" width="204" height="154" style="display: block;"></a>
+          <div class="SeasonContR fr">
+            <p class="tit"><a href="/tour/{$Djtj[5]['TourID']}.html" target="_blank" title="{$Djtj[3]['Title']}">{$Djtj[3]['Title']}</a></p>
+            <p class="nr">{echo mb_substr($Djtj[3]['Description'], 0, 18, 'utf-8')}…<a href="/tour/{$Djtj[3]['TourID']}.html" target="_blank" title="{$Djtj[3]['Title']}">【查看全部】</a></p>
+          </div>
+        </div>
+        <ul class="SeasonList mt10">
+          <li><a href="/tour/{$Djtj[4]['TourID']}.html" target="_blank" title="{$Djtj[4]['Title']}"><b>●</b>{$Djtj[4]['Title']}</a></li>
+          <li><a href="/tour/{$Djtj[5]['TourID']}.html" target="_blank" title="{$Djtj[5]['Title']}"><b>●</b>{$Djtj[5]['Title']}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="SeasonTj fr">
+      <div class="TourBoxTitle"> <a href="/tour_meishi/" target="_blank" class="more fr" title="美食购物">更多></a> <span class="name">美食购物</span> </div>
+      <div class="Seasonbox fl cf">
+        <div class="SeasonCont"> <a href="/tour/{$Msxh[0]['TourID']}.html" target="_blank" class="ImgBlackBg" title="{$Msxh[0]['Title']}"><img src="{echo ImageURLP2}{$Msxh[0]['Image']}" title="{$Msxh[0]['Title']}" alt="{$Msxh[0]['Title']}" class="transition lazy" width="204" height="154" style="display: block;"></a>
+          <div class="SeasonContR fr">
+            <p class="tit"><a href="/tour/{$Msxh[0]['TourID']}.html" target="_blank" title="{$Msxh[0]['Title']}">{$Msxh[0]['Title']}</a></p>
+            <p class="nr">{echo mb_substr($Msxh[0]['Description'], 0, 18, 'utf-8')}…<a href="/tour/{$Msxh[0]['TourID']}.html" target="_blank" title="{$Msxh[0]['Title']}">【查看全部】</a></p>
+          </div>
+        </div>
+        <ul class="SeasonList mt10">
+          <li><a href="/tour/{$Msxh[1]['TourID']}.html" target="_blank" title="{$Msxh[1]['Title']}"><b>●</b>{$Msxh[1]['Title']}</a></li>
+          <li><a href="/tour/{$Msxh[2]['TourID']}.html" target="_blank" title="{$Msxh[2]['Title']}"><b>●</b>{$Msxh[2]['Title']}</a></li>
+        </ul>
+      </div>
+      <div class="Seasonbox fr cf">
+        <div class="SeasonCont"> <a href="/tour/{$Msxh[3]['TourID']}.html" target="_blank" class="ImgBlackBg" title="{$Msxh[3]['Title']}"><img src="{echo ImageURLP2}{$Msxh[3]['Image']}" title="{$Msxh[3]['Title']}" alt="{$Msxh[3]['Title']}" class="transition lazy" width="204" height="154" style="display: block;"></a>
+          <div class="SeasonContR fr">
+            <p class="tit"><a href="/tour/{$Msxh[3]['TourID']}.html" target="_blank" title="{$Msxh[3]['Title']}">{$Msxh[3]['Title']}</a></p>
+            <p class="nr">{echo mb_substr($Msxh[3]['Description'], 0, 18, 'utf-8')}…<a href="/tour/{$Msxh[3]['TourID']}.html" target="_blank" title="{$Msxh[3]['Title']}">【查看全部】</a></p>
+          </div>
+        </div>
+        <ul class="SeasonList mt10">
+          <li><a href="/tour/{$Msxh[4]['TourID']}.html" target="_blank" title="{$Msxh[4]['Title']}"><b>●</b>{$Msxh[4]['Title']}</a></li>
+          <li><a href="/tour/{$Msxh[5]['TourID']}.html" target="_blank" title="{$Msxh[5]['Title']}"><b>●</b>{$Msxh[5]['Title']}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="w1200 ScrollPic fl mt45">
+      <div class="TearchScrollT">
+        <span class="fr"><a href="http://tour.57us.com/" target="_blank">更多&gt;</a></span>
+        <span class="fl name">行程推荐</span>
+      </div>
+      <a href="JavaScript:void(0)" class="prev transition mt20"><i>上一页</i></a>
+
+      <div class="ScrollMain mt20">
+        <ul>
+          {loop $AdGtycp $key $val}
+          <li><a href="{$val['Link']}" title="{$val['Title']}" target="_blank"><img  src="{echo ImageURLP4}{$val['Picture']}" title="{$val['Title']}" alt="{$val['Title']}" class="transition lazy" width="280" height="210"/>
+            <p class="tit">{$val['Title']}</p>
+          </a></li>
+          {/loop}
+          <li class="more"><a href="http://tour.57us.com/group/" target="_blank" title="美国跟团游">美国跟团游</a></li>
+        </ul>
+      </div>
+      <a href="JavaScript:void(0)" class="next transition mt20"><i>下一页</i></a> </div>
+  </div>
+  <div class="IndexStudy cf">
+    <div class="IndexStudyUp"></div>
+    <div class="cf w1200 mt50 tabBox ">
+      <div class="IndexTitle mt30"><span class="name"></span></div>
+      <div class="IndexStudyHd"> {loop $CateInfo $key $val} <a href="/studytopic_{$val['Alias']}/" target="_blank" class="transition {if $key == 0}on{/if}" title="{$val['CategoryName']}">{$val['CategoryName']}</a> {/loop} </div>
+      <div class="w280 cf mt15 fl">
+        <div class="cf SlideTourStudy">
+          <div class="TourBoxTitle"> <a href="{echo WEB_STUDY_URL}/studytour/" target="_blank" class="more fr" title="游学体验">更多&gt;</a> <span class="name">游学体验</span> </div>
+          <ul class="TourFind">
+            {loop $Adyxcp $val}
+            <li> <a href="{$val['Link']}" target="_blank" title="{$val['Title']}"><img class="transition lazy" width="280" height="210" src="{echo ImageURLP4}{$val['Picture']}" title="{$val['Title']}" alt="{$val['Title']}" style="display: inline;">
+              <p class="tit">{$val['Title']}</p>
+            </a> </li>
+            {/loop}
+          </ul>
+        </div>
+        <div class="StudyMenu"> {loop $CateInfo $key $val}
+          <dl class="i{echo $key+1} {if $key+1 == $CateInfoNum}last{/if}">
+            <i class="ico"></i>
+            <dt><a href="/studytopic_{$val['Alias']}/" target="_blank" title="{$val['CategoryName']}">{$val['CategoryName']}</a></dt>
+            <dd> {loop $val['Next'] $k $v} <a href="/study_{$v['Alias']}/" target="_blank" title="{$v['CategoryName']}">{$v['CategoryName']}</a> {/loop}{if $key==0}<a href="{echo WEB_STUDY_URL}/college/" target="_blank" title="选校库">选校库</a>{/if} </dd>
+          </dl>
+          {/loop} </div>
+      </div>
+      <div class="bd mt15 fr">
+        <div class="IndexStudyBdL HotProcess" style="display: block;">
+          <div class="cf">
+            <div class="TourBoxTitle"> <a href="/study_schoolinfo/" target="_blank" class="more fr" title="院校资讯">更多&gt;</a> <span class="name">院校资讯</span> </div>
+            <div class="RaidersCont"> <a href="/study/{$UscolegeYXZX['StudyID']}.html" target="_blank" title="{$UscolegeYXZX['Title']}">
+              <p class="img fr"><img class="transition lazy" width="400" height="300" src="{echo ImageURLP4}{$UscolegeYXZX['Image']}" title="{$UscolegeYXZX['Title']}" alt="{$UscolegeYXZX['Title']}"></p>
+            </a>
+              <p class="tit mt25"><a href="/study/{$UscolegeYXZX['StudyID']}.html" target="_blank" title="{$UscolegeYXZX['Title']}">{$UscolegeYXZX['Title']}</a></p>
+              <p class="nr mt30">{echo mb_substr($UscolegeYXZX['Description'], 0, 300, 'utf-8')}{if $UscolegeYXZX['Description']}…<a href="/study/{$UscolegeYXZX['StudyID']}.html" target="_blank" title="{$UscolegeYXZX['Title']}">【查看全部】</a>{/if}</p>
+            </div>
+          </div>
+          {loop $Uscolege $key $val}
+          <div class="IndexGuide mt20 f{if $key%2 == 0}l{else}r{/if}">
+            <div class="TourBoxTitle"> <a href="/study_{$val['Alias']}/" target="_blank" class="more fr" title="{$val['CategoryName']}">更多&gt;</a> <span class="name">{$val['CategoryName']}</span> </div>
+            <div class="Seasonbox cf">
+              <div class="SeasonCont"> <a href="/study/{$val['NewsImage']['StudyID']}.html" target="_blank" class="ImgBlackBg" title="{$val['NewsImage']['Title']}"><img class="transition lazy" width="204" height="154" style="display: block;" src="{echo ImageURLP2}{$val['NewsImage']['Image']}" title="{$val['NewsImage']['Title']}" alt="{$val['NewsImage']['Title']}"></a>
+                <div class="SeasonContR fr">
+                  <p class="tit"><a href="/study/{$val['NewsImage']['StudyID']}.html" target="_blank" title="{$val['NewsImage']['Title']}">{$val['NewsImage']['Title']}</a></p>
+                  <p class="nr">{echo mb_substr($val['NewsImage']['Description'], 0, 39, 'utf-8')}…<a href="/study/{$val['NewsImage']['StudyID']}.html" target="_blank" title="{$val['NewsImage']['Title']}">【查看全部】</a></p>
+                </div>
+              </div>
+              <ul class="SeasonList mt15" style="height:152px ;">
+                {loop $val['News'] $k $v}
+                <li><a href="/study/{$v['StudyID']}.html" target="_blank" title="{$v['Title']}"><b>●</b>{$v['Title']}</a></li>
+                {/loop}
+              </ul>
+            </div>
+          </div>
+          {/loop}
+        </div>
+        <div class="IndexStudyBdL IndexStudyN"> {loop $NewsInfos $key $val}
+          <div class="IndexGuide f{if $key%2 == 0}l{else}r{/if}">
+            <div class="TourBoxTitle"> <a href="/study_{$val['Alias']}/" target="_blank" class="more fr" title="{$val['CategoryName']}">更多&gt;</a> <span class="name">{$val['CategoryName']}</span> </div>
+            <ul class="SeasonList" style="height: 203px;">
+              {loop $val['News'] $k $v}
+              <li><a href="/study/{$v['StudyID']}.html" target="_blank" title="{$v['Title']}"><b>●</b>{$v['Title']}</a></li>
+              {/loop}
+            </ul>
+          </div>
+          {/loop}
+          <div class="IndexStudyLife fr">
+            <div class="TourBoxTitle"> <a href="/study_life/" target="_blank" class="more fr" title="留学生活">更多&gt;</a> <span class="name">留学生活</span> </div>
+            <div class="LifeHd"> {loop $NewsLXSH $key $val} <a href="/study_{$val['Alias']}/" target="_blank" title="{$val['CategoryName']}" {if $key == 0}class="on"{/if}>{$val['CategoryName']}</a> {/loop} </div>
+            <div class="LifeBd"> {loop $NewsLXSH $key $val}
+              <ul class="SeasonList" {if $key == 0}style="display: block;"{/if}>
+              {loop $val['News'] $k $v}
+              <li><a href="/study/{$v['StudyID']}.html" target="_blank" title="{$v['Title']}"><b>●</b>{$v['Title']}</a></li>
+              {/loop}
+              </ul>
+              {/loop} </div>
+          </div>
+        </div>
+        <div class="IndexStudyBdL" > {loop $ExamInfo $key $val}
+          {if $key < 2}
+          <div class="IndexGuide f{if $key == 0}l{else}r{/if}">
+            <div class="TourBoxTitle"> <a href="/study_{$val['Alias']}/" target="_blank" class="more fr" title="{$val['CategoryName']}">更多&gt;</a> <span class="name">{$val['CategoryName']}</span> </div>
+            <div class="IndexGuideImg"> <a href="/study/{$val['NewsIndexRecommend']['StudyID']}.html" target="_blank" title="{$val['NewsIndexRecommend']['Title']}"> <img class="transition lazy" width="414" height="310" src="{echo ImageURLP4}{$val['NewsIndexRecommend']['Image']}" title="{$val['NewsIndexRecommend']['Title']}" alt="{$val['NewsIndexRecommend']['Title']}" style="display: inline;">
+              <p class="tit">{$val['NewsIndexRecommend']['Title']}</p>
+            </a> </div>
+            <ul class="SeasonList mt20" style="height: 254px;">
+              {loop $val['News'] $k $v}
+              <li><a href="/study/{$v['StudyID']}.html" target="_blank" title="{$v['Title']}"><b>●</b>{$v['Title']}</a></li>
+              {/loop}
+            </ul>
+          </div>
+          {/if}
+          {/loop}
+          <div class="ExamTab fl mt20">
+            <div class="TabHd"> {loop $ExamInfo $key $val}
+              {if $key > 1} <a href="/study_{$val['Alias']}/" target="_blank" title="{$val['CategoryName']}" {if $key == 2}class="on"{/if}>{$val['CategoryName']}</a> {/if}
+              {/loop} </div>
+            <div class="TabBd"> {loop $ExamInfo $key $val}
+              {if $key > 1}
+              <div class="cf mt20 TabBdL" {if $key == 2}style="display: block;"{/if}>
+              <div class="Seasonbox fl cf">
+                <div class="SeasonCont"> <a href="/study/{$val['TopNews'][0]['StudyID']}.html" target="_blank" title="{$val['TopNews'][0]['Title']}"> <img src="{echo ImageURLP2}{$val['TopNews'][0]['Image']}" title="{$val['TopNews'][0]['Title']}" alt="{$val['TopNews'][0]['Title']}" class="transition lazy" width="204" height="154" style="display: block;"> </a>
+                  <div class="SeasonContR fr">
+                    <p class="tit"><a href="/study/{$val['TopNews'][0]['StudyID']}.html" target="_blank" title="{$val['TopNews'][0]['Title']}">{$val['TopNews'][0]['Title']}</a></p>
+                    <p class="nr">{echo mb_substr($val['TopNews'][0]['Description'], 0, 40, 'utf-8')}{if $val['TopNews'][0]['Description']}…<a href="/study/{$val['TopNews'][0]['StudyID']}.html" target="_blank">【查看全部】</a>{/if}</p>
+                  </div>
+                </div>
+                <ul class="SeasonList mt10" style="height:152px ;">
+                  {loop $val['News'] $k $v}
+                  {if  $k <3 }
+                  <li><a href="/study/{$v['StudyID']}.html" target="_blank" title="{$v['Title']}"><b>●</b>{$v['Title']}</a></li>
+                  {/if}
+                  {/loop}
+                </ul>
+              </div>
+              <div class="Seasonbox fr cf">
+                <div class="SeasonCont"> <a href="/study/{$val['TopNews'][1]['StudyID']}.html" target="_blank" title="{$val['TopNews'][1]['Title']}"> <img src="{echo ImageURLP2}{$val['TopNews'][1]['Image']}" title="{$val['TopNews'][1]['Title']}" alt="{$val['TopNews'][1]['Title']}" class="transition lazy" width="204" height="154" style="display: block;"> </a>
+                  <div class="SeasonContR fr">
+                    <p class="tit"><a href="/study/{$val['TopNews'][1]['StudyID']}.html" target="_blank" title="{$val['TopNews'][1]['Title']}">{$val['TopNews'][1]['Title']}</a></p>
+                    <p class="nr">{echo mb_substr($val['TopNews'][1]['Description'], 0, 40, 'utf-8')}{if $val['TopNews'][1]['Description']}…<a href="/study/{$val['TopNews'][1]['StudyID']}.html" target="_blank" title="{$val['TopNews'][1]['Title']}">【查看全部】</a>{/if}</p>
+                  </div>
+                </div>
+                <ul class="SeasonList mt10" style="height:152px ;">
+                  {loop $val['News'] $k $v}
+                  {if $k > 2}
+                  <li><a href="/study/{$v['StudyID']}.html" target="_blank" title="{$v['Title']}"><b>●</b>{$v['Title']}</a></li>
+                  {/if}
+                  {/loop}
+                </ul>
+              </div>
+            </div>
+            {/if}
+            {/loop} </div>
+        </div>
+      </div>
+      <div class="IndexStudyBdL">
+        <div class="cf">
+          <div class="TourBoxTitle"> <a href="/study_travelnotes/" target="_blank" class="more fr" title="游学须知">更多&gt;</a> <span class="name">游学须知</span> </div>
+          <div class="RaidersCont"> <a href="/study/{$LearningLXXZ['StudyID']}.html" target="_blank">
+            <p class="img fr"> <img class="transition lazy" width="400" height="300" src="{echo ImageURLP4}{$LearningLXXZ['Image']}" title="{$LearningLXXZ['Title']}" alt="{$LearningLXXZ['Title']}" style="display: inline;"> </p>
+          </a>
+            <p class="tit mt25"><a href="/study/{$LearningLXXZ['StudyID']}.html" target="_blank" title="{$LearningLXXZ['Title']}">{$LearningLXXZ['Title']}</a></p>
+            <p class="nr mt30">{echo mb_substr($LearningLXXZ['Description'], 0, 200, 'utf-8')}{if $LearningLXXZ['Description']}…<a href="/study/{$LearningLXXZ['StudyID']}.html" target="_blank" title="{$LearningLXXZ['Title']}">【查看全部】</a>{/if}</p>
+          </div>
+        </div>
+        <div class="IndexGuide mt25 fl">
+          <div class="TourBoxTitle"> <a href="/study_tourtravel/" target="_blank" class="more fr" title="游学游记">更多&gt;</a> <span class="name">游学游记</span> </div>
+          <div class="IndexGuideImg"> <a href="/study/{$LearningYXYJImages['StudyID']}.html" target="_blank" title="{$LearningYXYJImages['Title']}"> <img class="transition lazy" width="414" height="310" src="{echo ImageURLP4}{$LearningYXYJImages['Image']}" alt="{$LearningYXYJImages['Title']}" title="{$LearningYXYJImages['Title']}" style="display: inline;">
+            <p class="tit">{$LearningYXYJImages['Title']}</p>
+          </a> </div>
+          <ul class="SeasonList mt20" style="height: 203px;">
+            {loop $LearningYXYJ $key $val}
+            <li><a href="/study/{$val['StudyID']}.html" target="_blank" title="{$val['Title']}"><b>●</b>{$val['Title']}</a></li>
+            {/loop}
+          </ul>
+        </div>
+        <div class="IndexGuide mt25 fr">
+          <div class="TourBoxTitle"> <a href="/study_aq/" target="_blank" class="more fr" title="游学答疑">更多&gt;</a> <span class="name">游学答疑</span> </div>
+          <div class="IndexGuideImg"> <a href="/study/{$LearningYXDYImages['StudyID']}.html" target="_blank" title="{$LearningYXDYImages['Title']}"> <img class="transition lazy" width="414" height="310" src="{echo ImageURLP4}{$LearningYXDYImages['Image']}" title="{$LearningYXDYImages['Title']}" alt="{$LearningYXDYImages['Title']}" style="display: inline;">
+            <p class="tit">{$LearningYXDYImages['Title']}</p>
+          </a> </div>
+          <ul class="SeasonList mt20" style="height: 203px;">
+            {loop $LearningYXDY $key $val}
+            <li><a href="/study/{$val['StudyID']}.html" target="_blank" title="{$val['Title']}"><b>●</b>{$val['Title']}</a></li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+      <div class="IndexStudyBdL">
+        {loop $GuideInfo $key $val}
+        <div class="IndexGuide f{if $key%2 == 0}l{else}r{/if}">
+          <div class="TourBoxTitle"> <a href="/study_{$val['Alias']}/" target="_blank" class="more fr" title="{$val['CategoryName']}">更多&gt;</a> <span class="name">{$val['CategoryName']}</span> </div>
+          <div class="IndexGuideImg"> <a href="/study/{$val['NewsIndexRecommend']['StudyID']}.html" target="_blank" title="{$val['NewsIndexRecommend']['Title']}"> <img class="transition lazy" width="414" height="310" src="{echo ImageURLP4}{$val['NewsIndexRecommend']['Image']}" title="{$val['NewsIndexRecommend']['Title']}" alt="{$val['NewsIndexRecommend']['Title']}" style="display: inline;">
+            <p class="tit">{$val['NewsIndexRecommend']['Title']}</p>
+          </a>
+          </div>
+          <ul class="SeasonList mt20">
+            {loop $val['News'] $k $v}
+            <li><a href="/study/{$v['StudyID']}.html" target="_blank" title="{$v['Title']}"><b>●</b>{$v['Title']}</a></li>
+            {/loop}
+          </ul>
+        </div>
+        {/loop}
+      </div>
+    </div>
+  </div>
+  <div class="w1200 cf TearchScrollT mt20">
+    <span class="fr"><a href="http://study.57us.com/" target="_blank">更多></a></span>
+    <span class="fl name">马上咨询</span>
+  </div>
+  <div class="w1200 TearchScroll mt20"> <a href="JavaScript:void(0)" class="prev">上一页</a>
+    <div class="TearchScrMain">
+      <ul >
+        {loop $Consultant $key $val}
+        {if $key < 4 }
+        <li class="expert"><a href="{echo WEB_STUDY_URL}/consultant/{$val['UserID']}.html" target="_blank" title="{$val['RealName']}"><img src="{$val['Avatar']}" title="{$val['RealName']}" alt="{$val['RealName']}" width="110" height="110"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+        {/if}
+        {/loop}
+        {loop $Teacher $key $val}
+        {if $key < 4 }
+        <li><a href="{echo WEB_STUDY_URL}/teacher/{$val['UserID']}.html" target="_blank" title="{$val['RealName']}"><img src="{$val['Avatar']}" title="{$val['RealName']}" alt="{$val['RealName']}" width="110" height="110"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+        {/if}
+        {/loop}
+        {loop $Consultant $key $val}
+        {if $key > 3 }
+        <li class="expert"><a href="{echo WEB_STUDY_URL}/consultant/{$val['UserID']}.html" title="{$val['RealName']}" target="_blank"><img src="{$val['Avatar']}" title="{$val['RealName']}" alt="{$val['RealName']}" width="110" height="110"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+        {/if}
+        {/loop}
+        {loop $Teacher $key $val}
+        {if $key > 3 }
+        <li><a href="{echo WEB_STUDY_URL}/teacher/{$val['UserID']}.html" target="_blank" title={$val['RealName']}""><img src="{$val['Avatar']}" title="{$val['RealName']}" alt="{$val['RealName']}" width="110" height="110"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+        {/if}
+        {/loop}
+      </ul>
+    </div>
+    <a href="JavaScript:void(0)" class="next nextStop">下一页</a> </div>
+  <div class="IndexStudyDown mt45"></div>
+</div>
+<div class="IndexImmg cf">
+  <div class="cf w1200 tabBox mt50">
+    <div class="IndexTitle mt30"><span class="name"></span></div>
+    <div class="IndexStudyHd"> {loop $Immigration $key $val} <a href="/immigtopic_{$val['Alias']}/" target="_blank" title="{$val['CategoryName']}" class="transition {if $key == 0}on{/if}">{$val['CategoryName']}</a> {/loop} </div>
+    <div class="IndexStudyL mt40 cf fl">
+      <div class="ad2">
+        <div class="TourBoxTitle"><span class="name">移民专题</span> </div>
+        <a href="{$AdYm[0]['Link']}" target="_blank" title="{$AdYm[0]['Title']}"> <img src="{echo ImageURLP4}{$AdYm[0]['Picture']}" title="{$AdYm[0]['Title']}" alt="{$AdYm[0]['Title']}" class="transition lazy" width="386" height="405"/> </a>
+      </div>
+      <div class="IndexImmgClass mt20">
+        <ul>
+          {loop $Immigration $key $val}
+          <li {if $key == 0}class="on"{/if}> <span class="num fl">0{echo $key+1}</span>
+          <div class="cont fr">
+            <p class="tit"><a href="/immigrant_{$val['Alias']}/" target="_blank" title="{$val['CategoryName']}">{$val['CategoryName']}</a></p>
+            <p class="nr mt10"> {loop $val['Next'] $k $v} <a href="/immigrant_{$v['Alias']}/" target="_blank" title="{$v['CategoryName']}">{$v['CategoryName']}</a> {/loop} </p>
+          </div>
+          </li>
+          {/loop}
+        </ul>
+      </div>
+    </div>
+    <div class="bd mt40">
+      {loop $Immigration $key $val}
+      <div class="ImmgBox" {if $key == 0}style="display: block;{/if}"> {loop $val['Next'] $k $v}
+        {if $k == 0}
+        <div class="ImmgScroll fl">
+          <div class="TourBoxTitle"> <a href="/immigrant_{$v['Alias']}/" target="_blank" class="more fr" title="{$v['CategoryName']}">更多&gt;</a> <span class="name">{$v['CategoryName']}</span> </div>
+          <div class="ImmgScrollMain">
+            <ul>
+              {loop $v['NewsIndexRecommend'] $k1 $v1}
+              <li> <a href="/immigrant/{$v1['ImmigrationID']}.html" target="_blank" title="{$v1['Title']}"> <img src="{echo ImageURLP4}{$v1['Image']}" title="{$v1['Title']}" alt="{$v1['Title']}" class="transition lazy" width="386" height="218"/>
+                <p class="tit">{$v1['Title']}</p>
+              </a> </li>
+              {/loop}
+            </ul>
+          </div>
+          <ul class="Immghd mt10">
+            {loop $v['NewsIndexRecommend'] $k1 $v1}
+            <li><img src="{echo ImageURLP2}{$v1['Image']}" title="{$v1['Title']}" alt="{$v1['Title']}" class="transition lazy" width="122" height="69"/><em></em></li>
+            {/loop}
+          </ul>
+        </div>
+        {elseif $k == 1}
+        <div class="profession fr" style="height: 407px;">
+          <div class="TourBoxTitle"> <a href="/immigrant_{$v['Alias']}/" target="_blank" class="more fr" title="{$v['CategoryName']}">更多&gt;</a> <span class="name">{$v['CategoryName']}</span> </div>
+          <div class="SeasonCont"> <a href="/immigrant/{$v['NewsImage']['ImmigrationID']}.html" target="_blank" class="ImgBlackBg" title="{$v['NewsImage']['Title']}"> <img src="{echo ImageURLP2}{$v['NewsImage']['Image']}" title="{$v['NewsImage']['Title']}" alt="{$v['NewsImage']['Title']}" class="transition lazy" width="204" height="154" style="display: block;"> </a>
+            <div class="SeasonContR fr">
+              <p class="tit"><a href="/immigrant/{$v['NewsImage']['ImmigrationID']}.html" target="_blank" title="{$v['NewsImage']['Title']}">{$v['NewsImage']['Title']}</a></p>
+              <p class="nr">{echo mb_substr($v['NewsImage']['Description'], 0, 35, 'utf-8')}{if $v['NewsImage']['Description']}…<a href="/immigrant/{$v['News'][0]['ImmigrationID']}.html" target="_blank" title="{$v['News'][0]['Title']}">【查看全部】</a>{/if}</p>
+            </div>
+          </div>
+          <ul class="SeasonList">
+            {loop $v['News'] $k1 $v1}
+            <li><a href="/immigrant/{$v1['ImmigrationID']}.html" target="_blank" title="{$v1['Title']}"><b>●</b>{$v1['Title']}</a></li>
+            {/loop}
+          </ul>
+        </div>
+        {else}
+        <div class="profession mt20 f{if $k%2==0 }l{else}r{/if}">
+          <div class="TourBoxTitle"> <a href="/immigrant_{$v['Alias']}/" target="_blank" class="more fr" title="{$v['CategoryName']}">更多&gt;</a> <span class="name">{$v['CategoryName']}</span> </div>
+          <div class="ArticleImg"> <a href="/immigrant/{$v['NewsIndexRecommend']['ImmigrationID']}.html" target="_blank" title="{$v['NewsIndexRecommend']['Title']}"> <img class="transition lazy" width="386" height="289" src="{echo ImageURLP4}{$v['NewsIndexRecommend']['Image']}" title="{$v['NewsIndexRecommend']['Title']}" alt="{$v['NewsIndexRecommend']['Title']}">
+            <p class="tit">{$v['NewsIndexRecommend']['Title']}</p>
+          </a> </div>
+          <ul class="SeasonList" style="height: 50px;">
+            <li><a href="/immigrant/{$v['News']['ImmigrationID']}.html" target="_blank" title="{$v['News']['Title']}"><b>●</b>{$v['News']['Title']}</a></li>
+          </ul>
+        </div>
+        {/if}
+        {/loop} </div>
+      {/loop} </div>
+  </div>
+</div>
+<div class="w1200 cf mt40 TravelLink">
+  <p>
+    <b>美国旅游</b>
+    {loop $USTour $val}
+    <a href="{$val[TourFootTagUrl]}" target='_blank'>{$val[TourFootTagName]}</a>
+    {/loop}
+  </p>
+  <p>
+    <b>美国留学</b>
+    {loop $USStudy $val}
+    <a href="{$val[TourFootTagUrl]}" target='_blank'>{$val[TourFootTagName]}</a>
+    {/loop}
+  </p>
+  <p>
+    <b>美国移民</b>
+    {loop $USImmigrant $val}
+    <a href="{$val[TourFootTagUrl]}" target='_blank'>{$val[TourFootTagName]}</a>
+    {/loop}
+  </p>
+</div>
+<div class="smallAdBbox" id="smallAd" style="display: none"><div class="smallAd"></div><span class="smallClose">×</span></div>
+<script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+<script src="{echo JsURL}/base/base.js"></script>
+<script src="{echo JsURL}/base/jquery.SuperSlide/2.1/jquery.SuperSlide.2.1.js"></script>
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<script src="{echo JsURL}/www/newspublic.js"></script>
+<script src="{echo JsURL}/www/newsindex.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+{template IndexFooter}

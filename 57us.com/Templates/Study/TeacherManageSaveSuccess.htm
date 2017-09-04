@@ -1,0 +1,15 @@
+{template StudyTeacherManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 cf tac">
+    <div class="ServiceSave tal">
+        <span class="ico successIco"></span>
+        <p class="ServiceSaveT">{$CourseInfo[CourseName]}</p>
+        <p class="ServiceSaveSure mt15">保存成功！</p>
+        <p class="mt30">您可在 <a href="/teachermanage/courselist/?S=0">我的课程->服务草稿箱</a>查看 <a href="/teachermanage/couseadd/"> 继续添加课程</a></p>
+        <input class="hidden" value="/teacher_course/{$CourseID}.html" data-type="0" id="RedirectUrl"/>
+    </div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/study/StudyPublicSavePreview.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "ResultCode": 200,
+  "RecordCount": "233",
+  "PageSize": 6,
+  "PageCount": 39,
+  "Page": 1,
+  "Data": [
+    {
+      "Study_name": "野鸡大学1号", //学校名称
+      "StudyID": "10010", //对应id
+      "StudyLocation": "旧金山", //学校地点
+      "StudySAT": "不需要", //SAT成绩
+      "StudySchooRanking": "国家综合大学 - 1", //学校排名
+      "StudyAnnualCost":"$55500", //年总费用
+      "StudyAcceptanceRate":"11.00%", //录取率
+      "StudyTOEFL":"0", //托福成绩
+      "StudyImg": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg", //对应图片url
+      "StudyUrl": "/collegeschool/details/" //对应详情页面url
+    },{
+      "Study_name": "野鸡大学2号",
+      "StudyID": "10010",
+      "StudyLocation": "旧金山",
+      "StudySAT": "不需要",
+      "StudySchooRanking": "国家综合大学 - 1",
+      "StudyAnnualCost":"$55500",
+      "StudyAcceptanceRate":"11.00%",
+      "StudyTOEFL":"0",
+      "StudyImg": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg",
+      "StudyUrl": "/collegeschool/details/"
+    }
+  ],
+  "NextPage": 2,
+  "LastPage": 39,
+  "PageNums": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6
+  }
+}

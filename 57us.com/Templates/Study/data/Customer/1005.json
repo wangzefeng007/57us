@@ -1,0 +1,17 @@
+{
+  "ResultCode": 200,
+  "Intention": "DataTranslation",
+  "Data": [
+    {
+      "CustomerService_Id": "1001",
+      "CustomerService_OrderId": "22545465464625",
+      "CustomerService_Date": "2016-09-06",
+      "CustomerService_Progress": "办理中",
+      "CustomerService_Img": "http://images.57us.com/p8/up/2016/0928/201609281606086704.jpg",
+      "CustomerService_Name": "调查表",
+      "CustomerService_Price": "20000",
+      "CustomerService_WhetherPay": "已支付",
+      "CustomerService_PayManner": "在线支付"
+    }
+  ]
+}

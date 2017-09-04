@@ -1,0 +1,137 @@
+{template Head}
+<div class="wrapper">
+    {template TourCityNav}
+    <div class="panel-body special-details-img">
+        <form action='/index.php?Module=TourCitySpecial&Action=SpecialTopicContent&CitySpecialID={$CitySpecialID}'  method='post' enctype="multipart/form-data">
+            <table align="left" class="table table-bordered table-sExpContented table-hover">
+                <tbody>
+                <tr>
+                    <td class="t-r" width="150">标题1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="SpeTitle[0]" value="{$NewContentArray[SpeTitle][0]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="SpeURL[0]" id="SpeURL0" value="{$NewContentArray[SpeURL][0]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="SpeImage[0]" id="SpeImage0"  style="margin-bottom: 8px"/>
+                            {if $NewContentArray[SpeImage][0] != ''}
+                            <a href="javascript:void(0)" target="_blank"><img src="{echo LImageURL}{$NewContentArray[SpeImage][0]}" style="height:80px;" data-width="285" data-height="392"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为285*392px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="SpeTitle[1]" value="{$NewContentArray[SpeTitle][1]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="SpeURL[1]" id="SpeURL1" value="{$NewContentArray[SpeURL][1]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="SpeImage[1]" id="SpeImage1" style="margin-bottom: 8px"/>
+                            {if $NewContentArray[SpeImage][1] != ''}
+                            <a href="javascript:void(0)" target="_blank"><img src="{echo LImageURL}{$NewContentArray[SpeImage][1]}" style="height:80px;" data-width="285" data-height="392"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为285*392px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="SpeTitle[2]" value="{$NewContentArray[SpeTitle][2]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="SpeURL[2]" id="SpeURL2" value="{$NewContentArray[SpeURL][2]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="SpeImage[2]" id="SpeImage2" style="margin-bottom: 8px"/>
+                            {if $NewContentArray[SpeImage][2] != ''}
+                            <a href="javascript:void(0)" target="_blank"><img src="{echo LImageURL}{$NewContentArray[SpeImage][2]}" style="height:80px;" data-width="285" data-height="392"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为285*392px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题4：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="SpeTitle[3]" value="{$NewContentArray[SpeTitle][3]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址4：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="SpeURL[3]" id="SpeURL3" value="{$NewContentArray[SpeURL][3]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片4：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="SpeImage[3]" id="SpeImage3" style="margin-bottom: 8px"/>
+                            {if $NewContentArray[SpeImage][3] != ''}
+                            <a href="javascript:void(0)" target="_blank"><img src="{echo LImageURL}{$NewContentArray[SpeImage][3]}" style="height:80px;" data-width="285" data-height="392"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为285*392px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="MaterialRequested">
+                    <td class="t-r"></td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="hidden" name="CitySpecialID" id="CitySpecialID" value="{$TourCitySpecialInfo[CitySpecialID]}" />
+                            <input class="btn btn-danger" type='submit' value='提交保存'/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}

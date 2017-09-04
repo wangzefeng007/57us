@@ -1,0 +1,61 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt50 cf">
+	{template ConsultantManageClientManageLeftData}
+	<div class="w877 cf fr">
+		{$CommonData['ProgressTitle']}
+		<!--此处表示流程是否完成  3表示此步骤已经完成-->
+		<input value="{$Result['TransactVisaStatus']}" id="TransactVisaStatus" type="hidden">
+
+		<div class="choseSchool mt25 visa">
+			<div class="choseSchoolT">
+				<span class="name fl">办理签证</span>
+			</div>
+			<div class="EditeHeader mt25"><a href="JavaScript:void(0)" class="editeBtn ">编辑</a>请及时更新签证信息，以便学生确认。</div>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab mt25 SchoolTable">
+				<tbody>
+				<tr>
+					<td class="tabTime"> 递交签证日期：</td>
+					<td><p class="resultTex" style="text-align: left">{$Result['SubmitTime']}</p><input type="text" name="SubmitTime" class="SubmitTime" value="{$Result['SubmitTime']}" style="text-align: left" onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" placeholder="请选择递交签证日期" readonly/></td>
+					<td></td>
+					<td class="tabTime"> 签证结果日期：</td>
+					<td><p class="resultTex" style="text-align: left">{$Result['ResultTime']}</p><input type="text" name="ResultTime" class="ResultTime" value="{$Result['ResultTime']}" style="text-align: left" onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" placeholder="请选择签证结果日期" readonly/></td>
+				</tr>
+				<tr>
+					<th width="149">签证国家</th>
+					<th width="162">入读学校</th>
+					<th width="158">入学时间</th>
+					<th width="122">状态</th>
+					<th width="180">备注</th>
+				</tr>
+				<tr>
+					<td><p class="resultTex">{$Result['VisaState']}</p><input type="text" name="VisaState" class="VisaState" value="{$Result['VisaState']}" /></td>
+					<td><p class="resultTex">{$Result['AttendSchool']}</p><input type="text" name="AttendSchool" class="AttendSchool" value="{$Result['AttendSchool']}" /></td>
+					<td><p class="resultTex">{$Result['EntranceTime']}</p><input type="text" name="EntranceTime" class="EntranceTime" value="{$Result['EntranceTime']}" /></td>
+					<td>
+						<p class="resultTex">{$Result['Status']}</p>
+						<div name="style" type="selectbox" class="DiySelect sb" id="visaType" style="display: none;border:0px solid #000">
+							<div class="opts">
+								{loop $Status $key $val}
+								<a href="javascript:void(0);" value="{$key}" {if $Result['Status'] == $key }class="selected"{/if}>{$val}</a>
+								{/loop}
+							</div>
+						</div>
+					</td>
+					<td><p class="resultTex">{$Result['Remark']}</p><input type="text" name="Remark" class="Remark" value="{$Result['Remark']}" /></td>
+				</tr>
+				</tbody>
+			</table>
+			<div class="editeSchoolBtn mt30">
+				<a href="javascript:void(0)" id="VisaSave">保存并发送</a>
+			</div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageItemVisa.js"></script>
+</div>
+</body>
+</html>

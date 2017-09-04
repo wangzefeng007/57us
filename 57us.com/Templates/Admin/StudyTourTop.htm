@@ -1,0 +1,13 @@
+<span class="position hidden">游学产品管理</span>
+{if $YoosureID}
+<div class="panel-body special-details" style="padding-bottom: 0px">
+    <input class="{if $TopNavs=='StudyTourAdd'}btn btn-info{else}btn btn-default{/if}" type="button" value="产品详息"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyTour&Action=StudyTourAdd&YoosureID={$YoosureID}'">
+    <input class="{if $TopNavs=='SetStudyTourContent'}btn btn-info{else}btn btn-default{/if}" type="button" value="设置行程"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyTour&Action=SetStudyTourContent&YoosureID={$YoosureID}'">
+    <input class="{if $TopNavs=='SetStudyTourCost'}btn btn-info{else}btn btn-default{/if}" type="button" value="设置费用"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyTour&Action=SetStudyTourCost&YoosureID={$YoosureID}'">
+    <input class="{if $TopNavs=='StudyTourImages'}btn btn-info{else}btn btn-default{/if}" type="button" value="设置图片"
+           onclick="javascrtpt:window.location.href='/index.php?Module=StudyTour&Action=StudyTourImages&YoosureID={$YoosureID}'">
+</div>
+{/if}

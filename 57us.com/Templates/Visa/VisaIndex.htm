@@ -1,0 +1,219 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/visa/visa3.0.css" rel="stylesheet" type="text/css" />
+<div class="visaBan">
+	<ul class="pic">
+		{loop $visa_indexLists $lists}
+		<li><a href="{$lists['Link']}" target="_blank" title="{$lists[Title]}"><img src="{echo LImageURL}{$lists['Picture']}" alt="{$lists[Title]}" width="1920" height="650"></a></li>
+		{/loop}
+	</ul>
+	<ul class="hd">
+		{loop $visa_indexLists $key $lists}
+		<li class="{if $key==0}on{/if}"></li>
+		{/loop}
+	</ul>
+	<span class="prev"></span>
+	<span class="next"></span>
+</div>
+<div class="w1200 visaBox visaProcess mt50">
+	<div class="visaBoxT">
+		<span class="name">办理流程</span>
+	</div>
+	<ul class="processList mt50 cf">
+		<li class="i1"><span class="ico"></span><p class="tit">选择签证及付款</p></li>
+		<li class="i2"><span class="ico"></span><p class="tit">递交预约材料</p></li>
+		<li class="i3"><span class="ico"></span><p class="tit">审核材料及预约面试</p></li>
+		<li class="i4"><span class="ico"></span><p class="tit">领事馆面签</p></li>
+		<li class="i5"><span class="ico"></span><p class="tit">取签并返还材料</p></li>
+		<li class="i6"><span class="ico"></span><p class="tit">领取护照证件</p></li>
+	</ul>
+</div>
+<div class="w1200 areaList mt40">
+	<ul>
+		<li class="i1 on">
+			<div class="areaMain">
+				<p class="tit"><span>北京领区</span></p>
+				<img src="http://images.57us.com/img/Visa/pic/city1.jpg" width="444" height="474"/>
+				<div class="map">
+					{loop $City $key $value}
+					{if strstr ($key,'c')}
+					{if substr($key,1)<14}
+					<a href="{$MyUrl}{$key}/" target="_blank">{$value}</a>
+					{/if}
+					{/if}
+					{/loop}
+				</div>
+			</div>
+		</li>
+		<li class="i2">
+			<div class="areaMain">
+				<p class="tit"><span>上海领区</span></p>
+				<img src="http://images.57us.com/img/Visa/pic/city2.jpg" width="444" height="474"/>
+				<div class="map">
+					{loop $City $key $value}
+					{if strstr ($key,'c')}
+					{if substr($key,1)>13 && substr($key,1)<17}
+					<a href="{$MyUrl}{$key}/" target="_blank">{$value}</a>
+					{/if}
+					{/if}
+					{/loop}
+				</div>
+			</div>
+		</li>
+		<li class="i3">
+			<div class="areaMain">
+				<p class="tit"><span>成都领区</span></p>
+				<img src="http://images.57us.com/img/Visa/pic/city3.jpg" width="444" height="474"/>
+				<div class="map">
+					{loop $City $key $value}
+					{if strstr ($key,'c')}
+					{if substr($key,1)>22 && substr($key,1)<28}
+					<a href="{$MyUrl}{$key}/" target="_blank">{$value}</a>
+					{/if}
+					{/if}
+					{/loop}
+				</div>
+			</div>
+		</li>
+		<li class="i4">
+			<div class="areaMain">
+				<p class="tit"><span>沈阳领区</span></p>
+				<img src="http://images.57us.com/img/Visa/pic/city4.jpg" width="444" height="474"/>
+				<div class="map">
+					{loop $City $key $value}
+					{if strstr ($key,'c')}
+					{if substr($key,1)>27 && substr($key,1)<31}
+					<a href="{$MyUrl}{$key}/" target="_blank">{$value}</a>
+					{/if}
+					{/if}
+					{/loop}
+				</div>
+			</div>
+		</li>
+		<li class="i5">
+			<div class="areaMain">
+				<p class="tit"><span>广州领区</span></p>
+				<img src="http://images.57us.com/img/Visa/pic/city5.jpg" width="444" height="474"/>
+				<div class="map">
+					{loop $City $key $value}
+					{if strstr ($key,'c')}
+					{if substr($key,1)>16 && substr($key,1)<23}
+					<a href="{$MyUrl}{$key}/" target="_blank">{$value}</a>
+					{/if}
+					{/if}
+					{/loop}
+				</div>
+			</div>
+		</li>
+	</ul>
+	<a class="more" href="{$MyUrl}" target="_blank"><span>更多</span></a>
+</div>
+<div class="cf w1200">
+	<div class=" cf visaBox advantage">
+		<div class="visaBoxT">
+			<span class="name">常见问题</span>
+		</div>
+		<span class="tip"></span>
+		<div class="advantageM">
+			<ul class="advantageList">
+				<li><b>●</b>专注美国签证，出证速度快（专人领馆送签，顺丰快递寄还）</li>
+				<li><b>●</b>免费审核（帮您节省整理材料的时间）</li>
+				<li><b>●</b>信息安全保密（绝不泄露给第三方）</li>
+				<li><b>●</b>出签成功率高（全程指导，材料送审，翻译服务）</li>
+			</ul>
+		</div>
+	</div>
+	<div class="hasVisa fr">
+		<div class="hasVisaT">
+			<span class="red">356</span>人<br>正在57US办理签证
+		</div>
+		<div class="hasVisaScrol">
+			<ul>
+				{loop $OrderList $lists}
+				<li>
+					<img src="http://img3.100bt.com/upload/ttq/20130704/1372938266405_middle.jpg"/>
+					<p class="tit"><span class="fr">成功预订</span>{$lists[UserName]}</p>
+					<p class="nr"><span class="fr time">3小时前</span>{$lists[OrderName]}</p>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="w1200 visaBox SpecialVisa mt50">
+	<div class="visaBoxT">
+		<a href="/visalists/" class="more fr" target="_blank">更多&gt;</a>
+		<span class="name">特价签证</span>
+	</div>
+	<ul class="visaProList mt10 cf">
+		{loop $VisaR1 $lists}
+		<li>
+			<a href="/visadetail/{$lists[VisaID]}.html" target="_blank" title="{$lists[Title]}">
+				<span class="tip"></span>
+				<img src="{echo LImageURL}{$lists[Image]}" width="384" height="287" title="{$lists[Title]}" alt="{$lists[Title]}"/>
+				<p class="tit">{$lists[Title]}</p>
+				<p class="price">￥<span>{$lists[PresentPrice]}</span></p>
+			</a>
+		</li>
+		{/loop}
+	</ul>
+</div>
+<div class="w1200 visaBox recommend mt50">
+	<div class="visaBoxT">
+		<a href="/visalists/" class="more fr" target="_blank">更多&gt;</a>
+		<span class="name">精品推荐</span>
+	</div>
+	<ul class="visaProList mt10 cf">
+		{loop $VisaR2 $lists}
+		<li>
+			<a href="/visadetail/{$lists[VisaID]}.html" target="_blank" title="{$lists[Title]}">
+				<span class="tip"></span>
+				<img src="{echo LImageURL}{$lists[Image]}" width="384" height="287" title="{$lists[Title]}" alt="{$lists[Title]}"/>
+				<p class="tit">{$lists[Title]}</p>
+				<p class="price">￥<span>{$lists[PresentPrice]}</span></p>
+			</a>
+		</li>
+		{/loop}
+	</ul>
+</div>
+<div class="w1200 cf visaBox question mt50">
+	<div class="visaBoxT">
+		<span class="name">常见问题</span>
+	</div>
+	<ul class="questionList cf mt20">
+		{loop $VisaInfo['Problem']['Title'] $key $lists}
+		<li {if $key%2!=0}class="fr"{/if}>
+			<p class="ques"><span class="ico">{echo $key+1}</span>{$lists}</p>
+			<p class="answ">{$VisaInfo['Problem']['Content'][$key]}</p>
+		</li>
+		{/loop}
+	</ul>
+</div>
+<div class="w1200 visaBox commitment mt50">
+	<div class="visaBoxT">
+		<span class="name">我们承诺</span>
+	</div>
+	<ul class="commitList cf">
+		<li class="i1">
+			<span class="ico"></span>
+			<p class="tit">出证速度快</p>
+		</li>
+		<li class="i2">
+			<span class="ico"></span>
+			<p class="tit">免费审核</p>
+		</li>
+		<li class="i3">
+			<span class="ico"></span>
+			<p class="tit">信息安全保密</p>
+		</li>
+		<li class="i4">
+			<span class="ico"></span>
+			<p class="tit">出签成功率高</p>
+		</li>
+	</ul>
+</div>
+<div class="cf mt50"></div>
+{template VisaFooter}
+<script type="text/javascript" src="{echo JsURL}/visa/Index.js"></script>
+</body>
+</html>

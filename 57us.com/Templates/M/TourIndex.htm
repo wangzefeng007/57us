@@ -1,0 +1,79 @@
+{template TourHeader}
+<div class="page page-current" id="Index">
+  <!-- 标题栏 -->
+  <header class="bar bar-nav diybar">
+  	<a href="{echo WEB_M_URL}/tour/search/" class="pull-right barSearch external"><i class="icon iconfont">&#xe6b5;</i></a>
+    <div class="pull-right hidden">
+      <p class="headerMenu">导航<i class="icon iconfont">&#xe61e;</i></p>
+    </div>
+    <a class="pull-right hidden"><i class="icon iconfont">&#xe606;</i></a> <span class="pull-left indexLogo"> <img src="http://images.57us.com/img/m/tour/indexLogo.png"/> </span> </header>
+  <div class="content">
+    <!--<div class="playSearch">
+    	<a href="{echo WEB_M_URL}/tour/search/" class="external">
+      <input type="search" name="" id="" value="" placeholder="" readonly="readonly" />
+      <span class="searchBtn"><i class="icon iconfont">&#xe6b5;</i></span>
+      </a> 
+    </div>-->
+    <div class="swiper-container ban">
+      <div class="swiper-wrapper"> {loop $WapTourIndexBaner $lists}
+        <div class="swiper-slide"><a href="{$lists[Link]}" class="external"><img src="{echo ImageURLP6}{$lists[Picture]}" width="100%" /></a></div>
+        {/loop} </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Pagination -->
+    </div>
+    <ul class="playMenu ">
+      <li> <a href="/group/"> <span class="ico"><i class="icon iconfont">&#xe697;</i></span>
+        <p class="tit">跟团游</p>
+        </a> </li>
+      <li> <a href="/play/"> <span class="ico"><i class="icon iconfont">&#xe603;</i></span>
+        <p class="tit">当地玩乐</p>
+        </a> </li>
+        
+        
+        
+    </ul>
+    <div class="indexAd mt10">
+      <div class="indexAdL pull-left"><!--{$WapTourIndexTJ[0][Link]}-->
+        <p class="img"><a href="JavaScript:void(0)" class="external"><img src="{echo ImageURLP6}{$WapTourIndexTJ[0][Picture]}" width="100%" /></a></p>
+      </div>
+      <div class="indexAdR pull-right">
+        <p class="img"><a href="{$WapTourIndexTJ[1][Link]}" class="external"><img src="{echo ImageURLP6}{$WapTourIndexTJ[1][Picture]}" width="100%" /></a></p>
+        <p class="img"><a href="{$WapTourIndexTJ[2][Link]}" class="external"><img src="{echo ImageURLP6}{$WapTourIndexTJ[2][Picture]}" width="100%" /></a></p>
+      </div>
+    </div>
+    <div class="proBox mt10">
+      <div class="hd"> <a href="">推荐行程</a> </div>
+      <div class="bd">
+        <ul class="proIndexList">
+          {if count($ListsR2)>0}
+          {loop $ListsR2 $lists}
+          <li> <a href="{echo WEB_M_URL}/group/{$lists[TourProductID]}.html">
+          	<p class="img"><span class="stylet">{$lists[CnName]}</span><img src="{echo ImageURLP4.$lists[ImageUrl]}"/></p>
+            <p class="tit">{$lists[ProductName]}</p>
+            
+            <p class="tipspan">{if $lists[TagInfo][0]!=''}{loop $lists[TagInfo] $k $lis}{if $k<2}<span>{$lis}</span>{/if}{/loop}{/if}</p>
+            
+            <p class="ListBottom"> <span class="pull-left">行程天数：<i class="green">{$lists[Days]}天</i></span> <span class="pull-right price"><i>¥{$lists[LowPrice]}</i>/人起</span> </p>
+             </a> </li>
+          {/loop}
+          {/if}
+        </ul>
+      </div>
+    </div>
+    <footer class="tac">Copyright © 2016 57US.com 57美国网</footer>
+  </div>
+</div>
+{template TourFooter}
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/dev/swiper.js" charset='utf-8'></script>
+<script type="text/javascript">
+			$(function() {
+				var swiper = new Swiper('.swiper-container', {
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					autoHeight: true, //enable auto height
+				});
+			})
+		</script>
+</body></html>

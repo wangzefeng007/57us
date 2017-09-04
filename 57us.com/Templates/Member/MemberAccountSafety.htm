@@ -1,0 +1,57 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight cf fr">
+        <div class="mRight_v">
+            <div class="mRightit">
+                <span class="name">账户安全</span>
+            </div>
+            <div class="mUserSafe mt15" style="margin-left: 0;">
+                帐户安全：<span class="red">{if $SafeLevel==1}低{elseif $SafeLevel==2}中{elseif $SafeLevel==3}高{/if}</span>
+                <div class="safeLine">
+                    <span style="width: {if $SafeLevel==1}33.3{elseif $SafeLevel==2}66.6{elseif $SafeLevel==3}100{/if}%;"></span>
+                </div>
+                <span class="pl20">建议您启用全部安全设置，以保障账户安全。</span>
+            </div>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" class="saveTab">
+                <tr>
+                    <td width="85" class="tac"><i class="icon iconfont icon-ok1"></i></td>
+                    <td width="135">登陆密码</td>
+                    <td width="520">上次登录： <span class="green">{$UserInfo[LastLogin]}</span></td>
+                    <td width="160"><a href="/member/changepassword/" class="publicBtn2 btn">修改密码</a></td>
+                </tr>
+                <tr>
+                    {if $User['Mobile']==''}
+                    <td class="tac"><i class="icon iconfont icon-warning"></i></td>
+                    <td>手机验证</td>
+                    <td>您尚未绑定手机 , 手机可用与安全认证及接收系统消息</td>
+                    <td><a href="/member/changemobile/?do=b" class="publicBtn2 btn">绑定手机</a></td>
+                    {else}
+                    <td class="tac"><i class="icon iconfont icon-ok1"></i></td>
+                    <td>手机验证</td>
+                    <td>已绑定{$User[Mobile]}，可凭此手机直接登录，接收验证码</td>
+                    <td><a href="/member/changemobile/?do=c" class="publicBtn2 btn">更换手机</a></td>
+                    {/if}
+                </tr>
+                <tr>
+                    {if $User['E-Mail']==''}
+                    <td class="tac"><i class="icon iconfont icon-warning"></i></td>
+                    <td>邮箱验证</td>
+                    <td>您尚未绑定邮箱，邮箱可以用于安全认证及接受系统消息</td>
+                    <td><a href="/member/changemail/?do=b" class="publicBtn2 btn">绑定邮箱</a></td>
+                    {else}
+                    <td class="tac"><i class="icon iconfont icon-ok1"></i></td>
+                    <td>邮箱验证</td>
+                    <td>已绑定{$User['E-Mail']}，可凭此邮箱直接登录，接收验证码</td>
+                    <td><a href="/member/changemail/?do=c" class="publicBtn2 btn">更换邮箱</a></td>
+                    {/if}
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<script src="{echo JsURL}/member/MemberIndex.js" type="text/javascript"></script>
+{template MemberFooter}
+</body>
+</html>

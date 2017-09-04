@@ -1,0 +1,26 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current">
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">昵称</h2>
+		</header>
+		<div class="content">
+			<form id="editNick">
+				<div class="UserName mt10">
+					<span class="clear" style="display: none"><i class="icon iconfont icon-close"></i></span>
+					<input type="text" name="nickName" id="nickName" value="" />
+				</div>
+				<div class="textTip c9">昵称为3-15位中英文</div>
+				<div class="sendBox">
+					<a href="javascript:void(0)" class="button button-fill button-orange" id="saveBtn">保存</a>
+				</div>
+				<input type="submit" class="hidden">
+			</form>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserEditInformationNickName.js" charset='utf-8'></script>
+</body>
+</html>

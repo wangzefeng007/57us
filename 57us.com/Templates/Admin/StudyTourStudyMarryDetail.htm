@@ -1,0 +1,78 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">顾问匹配管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=StudyTour&Action=StudyMarryDetail&ID={$MarryID}" class="active">用户匹配顾问详情</a>
+                </li>
+                <span class="position hidden">顾问匹配管理</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <td colspan="3" class="t-h">详细信息：</td>
+                        </tr>
+                        <tr>                    <!--一行-->
+                            <td width="20%">姓名:{$StudyMarryInfo[MarryName]}</td>        <!--一列-->
+                            <td  width="40%">性别:{$StudyMarryInfo[MarrySex]}</td>
+                            <td  width="40%">预计出国时间:{$StudyMarryInfo[GoAbroadTime]}</td>
+                        </tr>
+                        <tr>                    <!--一行-->
+                            <td>联系方式:{$StudyMarryInfo[ContactWay]}</td>
+                            <td>匹配城市:{$StudyMarryInfo[MarryCity]}</td>
+                            <td>申请层次:{$TargetLevel[$StudyMarryInfo[MarryTargetLevel]]}</td>
+                        </tr>
+                        <tr>
+                            <td>服务类型:{$Type[$StudyMarryInfo[MarryServiceType]]}</td>
+                            <td>匹配年级:{$StudyMarryInfo[MarryGrade]}</td>
+                            <td>匹配时间:{echo date('Y-m-d H:i:s',$StudyMarryInfo[AddTime])}</td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <td colspan="6" class="t-h">匹配顾问详情：</td>
+                        </tr>
+                        <tr  style='text-align: center;'>
+                            <td width="16.6%">用户ID</td>
+                            <td width="16.6%">昵称</td>
+                            <td width="16.6%">姓名</td>
+                            <td width="16.6%">城市</td>
+                            <td width="16.6%">申请层次</td>
+                            <td width="16.6%">服务类型</td>
+                        </tr>
+                        {loop $ConsultantJson $value}
+                        <tr style='text-align: center;'>
+                            <td>{$value[UserID]}</td>
+                            <td>{$value[NickName]}</td>
+                            <td>{$value[RealName]}</td>
+                            <td>{$value[City]}</td>
+                            <td>{$TargetLevel[$value[TargetLevel]]}</td>
+                            <td>{$Type[$value[ServiceType]]}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+                    <tr>
+                        <td><a class="right" href="/index.php?Module=StudyTour&Action=StudyMarryList">返回列表</a></td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<!--{template Foot}-->
+

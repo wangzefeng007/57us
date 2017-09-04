@@ -1,0 +1,94 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li>
+          <a href="/index.php?Module=TourSupplier&Action=TourSupplierList">供应商管理</a>
+        </li>
+        <li class="active">编辑供应商信息</li>
+      </ul>
+      <span class="position hidden">供应商管理</span>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-body">
+          <form action='/index.php?Module=TourSupplier&Action=Add'  method='post'	enctype="multipart/form-data">
+            <table class="table table-bordered table-striped table-hover">
+              <tbody>
+              <tr>
+                <td class="t-r" width="150">供应商中文名：</td>
+                <input type="hidden" name="SupplierID" id="SupplierID" value="{$TourSupplierModules['SupplierID']}" />
+                <td>
+                  <div class="col-sm-4">
+                    <input type="text" name="CnName" value="{$TourSupplierModules['CnName']}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">供应商英文名：</td>
+                <td>
+                  <div class="col-sm-4">
+                    <input type="text" name="EnName" value="{$TourSupplierModules['EnName']}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">联系人：</td>
+                <td>
+                  <div class="col-sm-4">
+                    <input type="text" name="Contacts" value="{$TourSupplierModules['Contacts']}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">联系方式：</td>
+                <td>
+                  <div class="col-sm-4">
+                    <input type="text" name="ContactInfo" value="{$TourSupplierModules['ContactInfo']}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">备注：</td>
+                <td>
+                  <div class="col-sm-4">
+                    <input type="text" name="Remark" value="{$TourSupplierModules['Remark']}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">更新换成URL：</td>
+                <td>
+                  <div class="col-sm-5">
+                    <textarea name="CacheUrl" rows="5" class="form-control" id="CacheUrl">{$TourSupplierModules['CacheUrl']}</textarea>
+                  </div>
+                </td>
+              </tr>
+              <tr id="MaterialRequested">
+                <td class="t-r"></td>
+                <td>
+                  <div class="col-sm-4">
+                    <input class="btn btn-danger" type='submit' value='提交保存'/>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

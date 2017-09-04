@@ -1,0 +1,53 @@
+{
+  "ResultCode": 200,
+  "RecordCount": "233",
+  "PageSize": 6,
+  "PageCount": 39,
+  "Page": 1,
+  "Data": [
+    {
+      "Study_name": "【买2送1】旧金山、优胜美地豪华3天2夜游",
+      "StudyID": "10010",
+      "StudyLevel": "旧金山",
+      "StudyServiceType": "定校方案修改",
+      "StudyServiceRegion": "北京",
+      "StudyPicre": 1571,
+      "StudyImg": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg",
+      "StudyUrl": "/group/10010.html",
+      "StudyService": "<span>买二送一</span><span>中文导游</span><span>优胜美地</span>",
+      "StudyDepict": "哈佛老t哈佛学子担任助教，领教哈佛名师的风采，零距离感受哈佛学术氛围，深刻理解领导力的精髓世界名企参访：前往世界500强企业--英特尔公司，了解500强.."
+    },{
+      "Study_name": "【买2送1】旧金山、优胜美地豪华3天2夜游",
+      "StudyID": "10010",
+      "StudyLevel": "旧金山",
+      "StudyServiceType": "定校方案修改",
+      "StudyServiceRegion": "北京",
+      "StudyPicre": 1571,
+      "StudyImg": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg",
+      "StudyUrl": "/group/10010.html",
+      "StudyService": "<span>买二送一</span><span>中文导游</span><span>优胜美地</span>",
+      "StudyDepict": "哈佛老t哈佛学子担任助教，领教哈佛名师的风采，零距离感受哈佛学术氛围，深刻理解领导力的精髓世界名企参访：前往世界500强企业--英特尔公司，了解500强.."
+    },{
+      "Study_name": "【买2送1】旧金山、优胜美地豪华3天2夜游",
+      "StudyID": "10010",
+      "StudyLevel": "旧金山",
+      "StudyServiceType": "定校方案修改",
+      "StudyServiceRegion": "北京",
+      "StudyPicre": 1571,
+      "StudyImg": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg",
+      "StudyUrl": "/group/10010.html",
+      "StudyService": "<span>买二送一</span><span>中文导游</span><span>优胜美地</span>",
+      "StudyDepict": "哈佛老t哈佛学子担任助教，领教哈佛名师的风采，零距离感受哈佛学术氛围，深刻理解领导力的精髓世界名企参访：前往世界500强企业--英特尔公司，了解500强.."
+    }
+  ],
+  "NextPage": 2,
+  "LastPage": 39,
+  "PageNums": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6
+  }
+}

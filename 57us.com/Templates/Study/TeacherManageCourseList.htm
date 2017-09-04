@@ -1,0 +1,54 @@
+{template StudyTeacherManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<ul class="w1200 CenterCaseMenu mt20" id="CaseMenu">
+    <li {if $Status==3}class="on"{/if}><a href="javascript:void(0)" id="3">已上架</a><span class="line"></span></li>
+    <li {if $Status==1}class="on"{/if}><a href="javascript:void(0)" id="1">正在审核</a><span class="line"></span></li>
+    <li {if $Status==0}class="on"{/if}><a href="javascript:void(0)" id="0">课程草稿箱</a><span class="line"></span></li>
+</ul>
+<div class="w1200 AddCase mt15" id="AddCase" style="display: none">
+    <div class="ServiceSearchBox fr">
+        <input type="text" name="CourseSearch" id="CourseSearch" value="" placeholder="" class="input fl">
+        <input type="button" id="CourseSearchBtn" name="CourseSearchBtn" value="" class="SearchBtn transition fr">
+    </div>
+    <a href="/teachermanage/courseadd/" class="AddBtn transition">新增课程</a>
+</div>
+<!--目前没有服务-->
+<div class=" w1200 cf NoServiceBox" id="NoServiceBox" style="display: none">
+    <div class="NoService mt50" id="NoService">
+        <i class="noIco"></i>
+        <p class="tit">您还没有已上架的课程</p>
+        <a href="/teachermanage/courseadd/" class="Nbtn mt15">立即新建课程<i></i></a>
+    </div>
+</div>
+<!--目前没有服务 end-->
+<div class="cf w1200" id="List">
+    <ul class="ServiceList" id="CourseList">
+    </ul>
+    <div class="page mt35" id="Page" style="display: none">
+    </div>
+    <script type="text" id="pageDemo">
+
+			<a class="prve cupo" data-id="{{d.Page-1}}">上一页</a>
+
+			<a class="first cupo" data-id="1">1</a>
+
+			{{# for(var p in d.PageNums){ }}
+
+			<a class="cupo" data-id="{{d.PageNums[p]}}">{{d.PageNums [p] }}</a>
+
+			{{# } }}
+
+			<span class="lastEllipsis"href="javascript:void(0)">...</span>
+
+			<a class="cupo PageCount" data-id="{{d.PageCount}}">{{d.PageCount}}</a>
+
+			<a class="cupo next" data-id="{{d.NextPage}}">下一页</a>
+
+	</script>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/laytpl/1.1/laytpl.js"></script>
+<script src="{echo JsURL}/base/Page/1.0/Page.js"></script>
+<script src="{echo JsURL}/study/TeacherManageCourseList.js"></script>
+</body>
+</html>

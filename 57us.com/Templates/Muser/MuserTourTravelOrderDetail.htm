@@ -1,0 +1,142 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current" id="orderAll">
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">订单详情</h2>
+		</header>
+		<div class="content">
+			<div class="detailBox mt10">
+				<div class="deta-in detailHe">
+					<p>订单信息</p>
+					<p>订单号：{$OrderNumber}</p>
+					<p>预定时间：{$OrderInfo[AddTime]}</p>
+				</div>
+				<div class="deta-in detailBo cf">
+					<p class="pull-right">
+						{if $OrderInfo[Status]==1}
+						<span class="c9">待付款：<a href="{echo WEB_M_URL}/{$Type}/{$OrderNumber}.html" class="button button-orange gopay">去支付</a><!--<a href="#" class="button button-orange orderDete">取消订单</a>--></span>
+						{else}
+						<span class="c9">{$OrderStatus[$OrderInfo[Status]]}</span>
+						{/if}
+
+					</p>
+					<p class="pull-left c9"><span class="price">￥{$OrderInfo[TotalAmount]}</span></p>
+				</div>
+			</div>
+			<!-- 跟团游 -->
+			{if $Type=='group'}
+			<div class="detailBox mt10">
+				<div class="deta-in">
+					<p class="tit">{$LineInfo[ProductName]}</p>
+					<div class="row">
+						<div class="col-50">产品编号：{$LineInfo[TourProductID]}</div>
+						<div class="col-50">产品类型：{$CatecoryInfo[CnName]}</div>
+					</div>
+					<div class="row">
+						<div class="col-50">出发城市：{$OtherInfo[DepartureName]} </div>
+						<div class="col-50"></div>
+					</div>
+					<div class="row">
+						<div class="col-50">出发日期：{$ProductOrderInfo[Depart]}</div>
+						<div class="col-50">结束日期：{echo date('Y-m-d',$EndTime)}</div>
+					</div>
+					<div class="row">
+						<div class="col-50">房间数量：{$RoomNum}间</div>
+						<div class="col-50">旅客人数：{$PersonNum}人</div>
+					</div>
+				</div>
+			</div>
+			{else}
+			<div class="detailBox mt10">
+				<div class="deta-in">
+					<p class="tit">{$SkuInfo[SKUName]}</p>
+					<div class="row">
+						<div class="col-50">产品编号：{$ProductOrderInfo[TourProductID]}</div>
+						<div class="col-50">产品类型：{$CatecoryInfo[CnName]}</div>
+					</div>
+					<div class="row">
+						<div class="col-50">出发城市：{$OtherInfo[DepartureName]} </div>
+						<div class="col-50"></div>
+					</div>
+					<div class="row">
+						<div class="col-50">出发日期：{$ProductOrderInfo[Depart]}</div>
+						<div class="col-50">旅客人数：{$PersonNum}人</div>
+					</div>
+				</div>
+			</div>
+			{/if}
+			<div class="detailBox mt10">
+				<div class="deta-in">
+					<p class="tit">旅客信息</p>
+					{loop $TravelPeopleInfo $key $val}
+					<div class="traveIns{if $key>1} hidden{/if}">
+						<p class="sutit">旅客{echo $key+1}</p>
+						<div class="deteList">
+							<span class="detele">英文姓名：</span>
+							<p class="deteri">{$val[last]} {$val[name]}</p>
+						</div>
+						<div class="deteList">
+							<span class="detele">性别：</span>
+							<p class="deteri">{if $val[sex]==1}男{else}女{/if}</p>
+						</div>
+						<div class="deteList">
+							<span class="detele">护照号：</span>
+							<p class="deteri">{$val[hz]}</p>
+						</div>
+						<div class="deteList">
+							<span class="detele">出生日期：</span>
+							<p class="deteri">{$val[BirthTime]}</p>
+						</div>
+						{if $key==0}
+						<div class="deteList">
+							<span class="detele">联系电话：</span>
+							<p class="deteri">{$val[Tel]}</p>
+						</div>
+						<div class="deteList">
+							<span class="detele">微信号：</span>
+							<p class="deteri">{$val[Weixin]}</p>
+						</div>
+						{/if}
+					</div>
+					{/loop}
+					{if $PersonNum>2}
+					<div class="traveMore tac">展开<i class="icon iconfont icon-left"></i></div>
+					{/if}
+				</div>
+
+			</div>
+			<div class="detailBox mt10">
+				<div class="deta-in">
+					<p class="tit">联系信息</p>
+					<div class="deteList">
+						<span class="detele">姓名：</span>
+						<p class="deteri">{$OrderInfo[Contacts]}</p>
+					</div>
+					<div class="deteList">
+						<span class="detele">联系号码：</span>
+						<p class="deteri">{$OrderInfo[Tel]}</p>
+					</div>
+					<div class="deteList">
+						<span class="detele">联系邮箱：</span>
+						<p class="deteri">{$OrderInfo[Email]}</p>
+					</div>
+				</div>
+			</div>
+			<!--
+<div class="detailBox mt10">
+<div class="deta-in">
+    <p class="tit">取消规则</p>
+    <p>具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则</p>
+</div>
+</div>
+<div class="sendBox">
+<a href="#" class="button button-big detailBtn">删除</a>
+</div>
+            -->
+		</div>
+	</div>
+</div>
+{template Footer}
+</body>
+</html>

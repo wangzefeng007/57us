@@ -1,0 +1,33 @@
+{template StudyHeader}
+<div class="page-group">
+    <div class="page page-current" style="background: #fff;" id="">
+        <header class="bar bar-nav diybar">
+            <a class="pull-left back"><i class="icon iconfont icon-Left"></i></a>
+            <h1 class="title">支付</h1>
+        </header>
+        <div class="content">
+            <div class="djsBox tac">
+                <p>订单已经提交</p>
+                <div class="cf">
+                    请尽快于 <div class="downBox settime" endTime="{$OrderInfo[ExpirationTime]}"></div>可完成支付
+                </div>
+            </div>
+            <div class="payIns tac">
+                <p>订单号：{$OrderInfo['OrderNum']}</p>
+                <p>应付金额：<span class="red"><em>￥</em>{$OrderInfo['Money']}</span></p>
+            </div>
+            <div class="payStyChose mt10 cf">
+                <a href="{echo WEB_MUSER_URL}/studytour/pay/?Type=alipay&ID={$OrderNumber}"  class="external">支付宝支付</a>
+                <a href="{echo WEB_MUSER_URL}/studytour/pay/?Type=wxpay&ID={$OrderNumber}" class="external">微信钱包支付</a>
+            </div>
+            <div class="payStyins mt10">
+                温馨提示：如果您在支付过程中有任何疑惑，欢迎拨打电话400-018-5757，会有专人为您服务。
+            </div>
+        </div>
+
+    </div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/tour/TourCountdown.js" charset='utf-8'></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+body{background: #fff;}
+.section1{background:url("/Templates/Tour/Customize/images/section1.jpg") center no-repeat; background-size: cover;}
+.section2{background:url("/Templates/Tour/Customize/images/section2.jpg") center no-repeat; background-size: cover;}
+.section3{background:url("/Templates/Tour/Customize/images/section3.jpg") center no-repeat; background-size: cover;}
+
+#fp-nav ul li{margin-top: 30px;}
+#fp-nav ul li a span, .fp-slidesNav ul li a span{top:0;left: 0;width:13px;height: 13px; border:0;background:url("/Templates/Tour/Customize/images/tourmake.png") -11px -118px no-repeat ;}
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span{background:url("/Templates/Tour/Customize/images/tourmake.png") -11px -83px no-repeat;}
+
+.MakeFirstBox .input i,.MakeRightTop i,.MakeLeft .DateInput,.MakeAdjust label.cbt i,.HotelStart a i,.GoResult span i,.Attractions a i{background:url("/Templates/Tour/Customize/images/tourmake.png") no-repeat ;}
+.MakeMain{height: 100%;overflow: hidden; transition: all 0.3s ease-in;-webkit-transition: all 0.3s ease-in;-ms-transition: all 0.3s ease-in;-moz-transition: all 0.3s ease-in;-o-transition: all 0.3s ease-in;}
+.MakeMain.on{margin-top: -452px;}
+.MakeIndexHead{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#CCFFFFFF', endColorstr='#CCFFFFFF');background:rgba(255,255,255,0.8);width:100%;height:70px;position: absolute;top: 0;left: 0;z-index: 10;}
+.MakeIndexHead .logo{background:url(http://images.57us.com/img/common/logo.png) no-repeat;width:230px;height:70px;float:left;overflow:hidden;}
+.MakeIndexHead .logo a{width:100%;height:100%;text-indent:-999px;overflow:hidden;display:block}
+.MakeIndexHeadMenu{width:910px;height:70px;position: relative;z-index: 99;}
+.MakeIndexHeadMenu li{float:left;position:relative}
+.MakeIndexHeadMenu li .first_a{display:block;color:#333;padding:0 13px;line-height:70px;font-size:16px;}
+.MakeIndexHeadMenu li i{background: url(http://images.57us.com/img/common/common.png) -743px -4px no-repeat; width:15px;height:10px;overflow:hidden;vertical-align:middle;display:inline-block;margin-left:6px;}
+.MakeIndexHeadMenu li:hover{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#19000000', endColorstr='#19000000');background:rgba(0,0,0,0.1);}
+
+.MakeIndexHeadMenu li:hover i{background-position:-542px -47px;}
+.MakeIndexHeadMenu li .sunav{background:#fff;width:100%;height:auto;overflow:hidden;position:absolute;top:70px;left:0;z-index:100;display:none; padding:10px 0;}
+.MakeIndexHeadMenu li .sunav li{width:100%;margin:0 auto; float:none}
+.MakeIndexHeadMenu li .sunav li:hover{background: #fff;}
+.MakeIndexHeadMenu li .sunav li a{display:block;height:38px;line-height:38px;text-align: center;overflow:hidden;color:#3c3c3c;font-size:16px; position:relative}
+.MakeIndexHeadMenu li .sunav li a:hover{color:#55b0ff;text-decoration:underline;}
+.MakeIndexHeadMenu li:hover .sunav{display:block}
+
+.MakeFirstBox{width: 323px;height: 416px;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#26000000', endColorstr='#26000000');background:rgba(0,0,0,0.15); position: absolute;top: 70px;left: 50%;margin-left: 200px;border-radius: 0 0 10px 10px;padding: 0 38px;color: #fff; z-index: 10;}
+.MakeFirstBox .tit1,.MakeFirstBox .tit2{text-align: center;font-size: 30px; line-height:60px;}
+.MakeFirstBox .tit2{font-size: 37px;}
+.MakeFirstBox .input{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#33000000', endColorstr='#33000000');background:rgba(0,0,0,0.2);width: 323px;height: 50px;line-height:50px;border-radius: 50px;position: relative;margin-top: 20px;}
+.MakeFirstBox .input input{background:none;width: 270px;height: 50px;line-height: 50px; text-indent: 30px;border: 0;font-size: 16px;color: #fff;}
+
+.MakeFirstBox .input i{width: 36px;height: 36px;display: inline-block;vertical-align: middle; position: absolute;top:8px;right: 10px;}
+.MakeFirstBox .input.i1 i{ background-position: 0 0;}
+.MakeFirstBox .input.i2 i{ background-position: 0 -36px;}
+.MakeFirstBox .MakeBtn{width: 323px;height: 50px;line-height: 50px;background: #f9c03c;color: #fff;text-align: center;font-size: 18px;border: 0;border-radius: 50px;cursor: pointer;display: inline-block;}
+
+.TourFoot{background: #323232;color: #999999;}
+.TourFoot a{color: #999999;}
+.TourFootMeida{border-left: 1px dashed #999;}
+
+/*定制步骤*/
+.wrap{width: 100%; height: auto;overflow: hidden;}
+.StepProcess{height: 42px;overflow: hidden;}
+.Step1{background:url("/Templates/Tour/Customize/images/step1.png") no-repeat;}
+.Step2{background:url("/Templates/Tour/Customize/images/step2.png") no-repeat;}
+.Step3{background:url("/Templates/Tour/Customize/images/step3.png") no-repeat;}
+.Step4{background:url("/Templates/Tour/Customize/images/step4.png") no-repeat;}
+.MakeRight{background:#fff4d9;width: 336px; padding: 20px 30px;}
+.MakeLeft{width: 650px;}
+.MakeLeft1{width: 753px;}
+.MakeRightTop{height: 32px;line-height: 32px;color: #f08200;font-size: 18px;}
+.MakeRightTop i{background-position:-5px -150px; width: 26px;height: 26px;display: inline-block;vertical-align: middle;margin-right: 4px;}
+
+.MakeRightMid th{font-weight: normal;text-align: left;}
+.MakeRightMid td{text-align: right;}
+
+.MakeRightMid th,.MakeRightMid td{padding: 12px 0;}
+.destination li{ float: right; margin: 0 0 5px 5px; position: relative;}
+.DestBox{width: 391px; position: absolute; bottom: 30px; right: -40px; z-index: 10;text-align: left;display: none;}
+.destination li:hover .DestBox{display: inline-block;}
+.DestBoxT{background:url("/Templates/Tour/Customize/images/BoxTop.png") left top no-repeat;height: 21px; overflow: hidden;}
+.DestBoxB{background:url("/Templates/Tour/Customize/images/BoxBottom.png") left top no-repeat;height: 37px; overflow: hidden;}
+.DestBoxM{background:url("/Templates/Tour/Customize/images/BoxBg.png") left top repeat-y;height: auto;overflow: hidden;padding: 0 33px;}
+.DestBoxM td,.DestBoxM th{text-align: left; padding: 7px 0;font-weight: bold;}
+.DestBoxM th{color: #999999;}
+.DestBoxM td b{ color: #999999;padding-right: 12px; font-weight: normal;}
+.DestBoxM .tit{height: 50px;line-height: 50px;border-bottom: 1px solid #e0e0e0;font-size: 18px; color: #55b0ff;}
+.destination span{ padding: 0 15px; height: 28px;line-height: 28px;border: 1px solid #f08200;color: #f08200;font-weight: bold;display: inline-block;border-radius: 3px;margin-left:5px;margin-bottom: 5px}
+.MakeLeft th{font-weight: normal;text-align: left;margin-left: 75px;line-height: 36px;font-size: 16px; vertical-align: top;}
+.MakeLeft th,.MakeLeft td{padding: 15px 0;}
+.MakeLeft table{color: #999999;}
+.MakeLeft .input,.MakeLeft1 .input{ width: 187px;height: 34px;line-height: 34px;border: 1px solid #cccccc;text-indent:8px;}
+.HotCity a{padding:0 5px; color: #999999;}
+.HotCity a:hover{color: #3184ff;}
+.HotCity span{color: #ff9900;}
+.MakeLeft .DateInput{ background-position:right -216px;width: 150px; padding-right:30px;}
+.MakeAdjust{line-height:18px;}
+.MakeAdjust label.cbt i{background-position:-9px -296px;width: 18px;height: 18px; display: inline-block;vertical-align: top;overflow: hidden;margin-right: 5px;}
+.MakeAdjust label.checked i{background-position:-9px -332px;}
+.MakeRightMid{font-size:15px }
+.num_box{width: 115px;height: 34px;text-align: center;line-height: 34px;border: 1px solid #cccccc; color: #cccccc;display: inline-block;}
+.num_box a{width: 34px;height: 34px;display: inline-block;overflow: hidden;float: left;cursor: pointer;}
+.num_box input{width: 45px; height: 34px; line-height: 34px; border: 0;float: left;border-left: 1px solid #cccccc;border-right: 1px solid #cccccc;text-align: center; }
+.TravelNum span{ padding: 0 15px; line-height: 34px;}
+.HotelStart a,.Attractions a{padding: 0 15px;border: 1px solid #cccccc; height: 34px;line-height: 34px;float: left;margin:0 10px 10px 0;position: relative;}
+.HotelStart a i,.Attractions a i{background-position:-7px -258px;width:21px; height: 21px;display: inline-block;position: absolute;bottom: 0;right: 0;z-index: 10;display: none;}
+.HotelStart,.Attractions{line-height: 34px;}
+.Attractions li{float: left; position: relative;}
+.HotelStart span{ padding: 0 15px;}
+.HotelStart .input{width: 106px;}
+.HotelStart a.on,.Attractions a.on{border-color:#ff9900;}
+.HotelStart a.on i,.Attractions a.on i{display: inline-block;}
+.AttractionsBox p{line-height: 34px;font-size: 16px;}
+.GoResult span{background:#f7f7f7;float: left; padding: 0 10px;height: 34px;line-height: 34px;border: 1px solid #cccccc;margin: 0 8px 8px 0;}
+.GoResult span i{background-position:-7px -188px; width:20px;height: 20px;display: inline-block;margin: 6px 0 0 5px;vertical-align: top;cursor: pointer;}
+.CountryList{width: 411px; height: auto;overflow: hidden;}
+.CountryListHd{height: 40px;border-bottom: 1px solid #ccc;}
+.CountryListHd a{float: left;padding: 0 10px;margin-right: 10px;color: #666666;height: 39px;line-height: 39px;}
+.CountryListHd a.on{font-weight: bold;color: #ff9900;border-bottom: 2px solid #ff9900;}
+.CountryList a:hover{color: #ff9900;}
+.CountryListBd{padding: 15px 8px;height: auto;overflow: hidden;}
+.CountryListBd a{color: #999999;width: 25%;float: left;line-height: 38px;}
+.CountryListA{display: none;}
+
+.PageBtn{ }
+.PageBtn a,.PageBtn .next{width: 132px;height: 41px;line-height: 41px;display: inline-block;margin-right:20px;font-size: 18px;font-family: "微软雅黑";text-align:center;border-radius: 5px;}
+.PageBtn a.next,.PageBtn .next{background: #91d101;color: #fff;}
+.PageBtn .next{border: 0;cursor: pointer;}
+.PageBtn a.prev{background: #d1d1d1;color: #333333;}
+.PageBtn a.next:hover,.PageBtn .next:hover{background: #83bd00;color: #fff;}
+.SceneryBox{background:url("/Templates/Tour/Customize/images/box.png") left top no-repeat;width: 240px;height: 226px; padding:32px 31px 34px 33px; position: absolute;top: -288px; left: 50%; margin-left: -175px; z-index: 999;}
+.SceneryBox img{width: 240px;height: 160px;}
+.SceneryBox .nr{height: 48px;overflow: hidden; padding-top: 8px;line-height: 24px ;font-size: 14px;color: #666666;}
+.MakeRightMid table{margin-top: 14px;}
+
+.OkBox{border: 1px solid #91d101;background: #f6ffe2;text-align: center; height: 110px; line-height: 110px; font-size: 24px; font-weight: bold;color: #69b200;}
+
+.OkBox i{background:url("/Templates/Tour/Customize/images/ok.png") no-repeat;width:65px;height: 65px; display:inline-block;vertical-align: middle;margin-right: 15px;}
+.MakeLeft1 table{width:400px; margin: 60px auto 0;}
+.MakeLeft1 th{ font-weight: normal; text-align: left;}
+.MakeLeft1 .input{width:328px; height: 40px;line-height: 40px;}
+.CheckBtn{background:#91d101;width: 232px;height: 47px;text-align: center;line-height: 47px; color: #fff;border-radius: 3px;font-size: 18px;display:block;margin:40px auto 0;}
+.CheckBtn:hover{color: #fff;;}
+.DemoSureBox .layui-layer-title{background: #3184ff;color: #fff;font-size: 18px;}
+.DemoSureBox .layui-layer-title i{background:url("/Tour/Customize/images/tip.png") no-repeat;width: 28px; height: 28px;display: inline-block;vertical-align: middle;margin: 0 8px 0 -10px;}
+.SureBox{padding:30px 30px;font-size: 16px;}
+.SureBox span{color: #f08200;}
+
+
+/*获取动态验证码*/
+.SendSms{width: 127px; height: 40px; line-height: 40px; text-align: center; border: 1px solid #ccc; border-left: 0;}
+.SendSms img{
+    width: 129px;height: 42px;
+}
+.SendSms a{display: block;color: #999999; font-size: 16px;}
+.SendSms a:hover{color: #2b9cff;}
+.SendSms span{color:#B7B6B6;}
+.city_hot a,.PageBtn a,.Attractions a,.HotelStart a{
+    cursor:pointer;
+}
+
+#Customizatin b,#Demand b,#OtherDemand b{
+    padding-left: 8px;
+}
+
+
+#outer {width: 100%}
+#tab {height: 40px;border-bottom: 1px solid #ccc;}
+#tab li {float:left;cursor:pointer;color: #666666;height: 39px;line-height: 39px;padding: 0 20px;}
+#tab li.current {color:#000;color: #ff9900; border-bottom: 2px solid #ff9900;}
+#content {border-top-width:0;}
+ 
+#content .Gocity{line-height:25px;display:none;	margin:0 20px;padding:10px 0;}
+#content .Gocity li{width: 25%;float: left; position: relative;}
+#content .Gocity li a{ color: #999999;line-height: 38px;cursor:pointer;}
+.SceneryBoxMain{z-index: 200;}
+.Gocity li .SceneryBox{ top: auto; bottom: 25px; margin-left:-185px ;}
+#index_4 table{
+    width: 450px !important;
+}
+
+#index_4 table th{
+    text-align: right;
+    padding-right: 10px;
+}
+
+#SmsBtn{
+    border: 0px solid #000;
+    background-color: #FFFFFF;
+    color: #999999; font-size: 15px;
+    width: 127px;
+    height: 40px;
+}
+
+#SmsBtn:hover{color: #2b9cff;}
+
+
+#Scenic span{
+    padding-left: 8px;
+}
+
+.GoResult em,.destination em,#Customizatin em,#Demand em,#OtherDemand em{
+    display: none;
+}

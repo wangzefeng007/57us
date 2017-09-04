@@ -1,0 +1,48 @@
+body{background: url(../images/bg.jpg) center top repeat-y;}
+.head1,.head2,.head3{height: 253px;}
+.head1{background: url(../images/header1.jpg) center top no-repeat;}
+.head2{background: url(../images/header2.jpg) center top no-repeat;height: 252px;}
+.head3{background: url(../images/header3.jpg) center top no-repeat;}
+.tourCont{height: 2173px;position: relative;}
+.tour1,.tour2,.tour3,.tour4{ height: 543px;}
+.tour1{background: url(../images/tour1.jpg) center top no-repeat;}
+.tour2{background: url(../images/tour2.jpg) center top no-repeat; height: 544px;}
+.tour3{background: url(../images/tour3.jpg) center top no-repeat;}
+.tour4{background: url(../images/tour4.jpg) center top no-repeat;}
+.middle{ background: url(../images/middle.jpg) center top no-repeat; height: 224px;}
+.studyCont{height: 1442px;}
+.study1{ background: url(../images/studu1.jpg) center top no-repeat; height: 277px;}
+.study2{ background: url(../images/studu2.jpg) center top no-repeat; height:840px;}
+.study3{background: url(../images/studu3.jpg) center top no-repeat;height: 325px;}
+.title{width: 488px;height: 80px;display: block;text-indent: -9999px;overflow: hidden;margin: 0 auto;}
+.tourTit{background: url(../images/tit1.png) no-repeat;}
+.studyTit{background: url(../images/tit2.png) no-repeat;}
+
+.StudyProList{width: 807px; margin: 0 auto;}
+.StudyProList li{width: 100%; height: 253px; overflow: hidden;margin-top: 24px; float: left;}
+.StudyProList li img{width: 387px;height: 253px;}
+.StudyProList li .cont{width: 385px;padding-top: 10px;}
+.StudyProList li .cont .tit{ height: 30px; line-height: 30px;font-size: 26px;font-weight: bold;color: #333333;}
+.price{ height: 48px; line-height: 48px; overflow: hidden;}
+.nowprice{border-radius: 24px; color: #d82f36;background: #ffdc1c;font-size: 24px;padding: 0 18px;font-weight: bold;height: 48px; overflow: hidden;}
+.nowprice em{font-size: 30px;}
+.oldprice{color: #666666;font-size: 16px; padding-left: 20px;text-decoration: line-through;}
+.StudyProList li .cont .nr{height: 140px; line-height: 28px; overflow: hidden;font-size: 16px; font-weight: bold; color: #333333;}
+
+.TourProList{width: 1132px;position: absolute;top:182px;left: 50%; margin-left: -566px;z-index: 1;}
+.TourProList li{width: 546px;height: 471px;float: left;margin: 0 10px;overflow: hidden;}
+.TourProList li img{width: 546px;height: 288px;}
+.TourProList li .tit{ height:84px; line-height:42px;font-size: 26px;font-weight: bold;color: #333333;}
+.TourProList li a{display: block;}
+.TourProList li a:hover .tit{text-decoration: underline;}
+.newfoot{padding-top:155px; color: #666;}
+.newfoot a:hover{color: #d82f36;}
+.newfoot a{padding: 0 5px;}
+
+.fixEdMenu{ background: url(../images/speedmenu.png?20170123) no-repeat; width: 178px;height: 476px;position: fixed;top: 50%;right: 50px;z-index: 10;margin-top: -210px;}
+.fixEdMenu ul{width: 108px; height: 100px; margin:145px 0 0 35px;}
+.fixEdMenu ul li{height: 41px;line-height: 41px;width:100%;margin-top: 19px; overflow: hidden;}
+.fixEdMenu ul li a{font-size: 20px; color: #ff9c00;display: block; text-align: center;}
+.fixEdMenu ul li a:hover,.fixEdMenu ul li.backTop a:hover{color: #ffcc00;}
+.fixEdMenu ul li.backTop a{color: #981516;}
+.fixEdMenu ul li.backTop{margin-top:8px;}

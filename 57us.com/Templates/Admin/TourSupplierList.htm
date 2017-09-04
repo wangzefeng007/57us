@@ -1,0 +1,69 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li class="active position">供应商管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel breadcrumb">
+        <div class="panel-body">
+          <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">供应商：</span>
+          <form class="form-inline" role="form" action="/index.php" method="get">
+            <input type="hidden" name="Module" value="TourSupplier">
+            <input type="hidden" name="Action" value="TourSupplierList">
+            <input type="text" class="form-control" placeholder="中文名/英文名/联系人" name="CnName" value="{$CnName}">
+            <button class="btn btn-info">搜索</button>
+            <input type="button" onClick="location.href='/index.php?Module=TourSupplier&Action=Add'" value="添加" class="btn btn-danger">
+          </form>
+        </div>
+        <section id="unseen">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr align="center">
+              <th width="50px"><strong>ID</strong></th>
+              <th>供应商中文名</th>
+              <th>供应商英文名</th>
+              <th>联系人</th>
+              <th>联系方式</th>
+              <th>备注</th>
+              <th>更新时间</th>
+              <td>客户端IP</td>
+              <th width="100px" >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+              {loop $Data[Data] $lists}
+              <tr align="center">
+                <td>{$lists[SupplierID]}</td>
+                <td >{$lists[CnName]}</td>
+                <td >{$lists[EnName]}</td>
+                <td >{$lists[Contacts]}</td>
+                <td >{$lists[ContactInfo]}</td>
+                <td >{$lists[Remark]}</td>
+                <td >{$lists[UpdateTime]}</td>
+                <td >{$lists[FromIP]}</td>
+                <td ><a href="/index.php?Module=TourSupplier&Action=Add&SupplierID={$lists[SupplierID]}">修改</a></td>
+                <!--<a href="/index.php?Module=TourSupplier&Action=Delete&SupplierID={$lists[SupplierID]}">删除</a>&nbsp;&nbsp;&nbsp;-->
+                <!--<a href="{$lists[CacheUrl]}" target="_blank">更新缓存</a>-->
+              </tr>
+              {/loop}
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

@@ -1,0 +1,69 @@
+{template NewsHeader}
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <div class="content pd25 tourCont ListCont">
+            <!-- 标题栏 -->
+            <header class="bar bar-nav indexHeader"> <a class="pull-right searchBtn" href="{echo WEB_M_URL}/search.html"><i class="icon iconfont">&#xe6b5;</i></a>
+                <h1 class="title">美国旅游</h1>
+                <span class="logo pull-left"><img src="http://images.57us.com//img/m/www/logo.png" /></span> </header>
+            <div class="swiper-container ban">
+                <div class="swiper-wrapper">
+                    {loop $WapTourIndexBaner $lists}
+                    <div class="swiper-slide"><a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP6}{$lists[Picture]}" width="100%" /></a></div>
+                    {/loop}
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Pagination -->
+            </div>
+            <nav class="tourMune"> <a href="/news/travels/">美国游记</a> <a href="/news/tour_tournews/">旅游新发现</a> <a href="/news/tour_fengjing/">当季推荐</a> <a href="/news/tour_meishi/">美食购物</a> </nav>
+            <div class="diyCard">
+                <div class="diyCardHead"><span class="name">精彩活动</span></div>
+                {loop $WapTourIndexJingCai $lists}
+                <div class="diyCardCont"> <a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP6}{$lists[Picture]}"/>
+                    <p class="tit">{$lists[Title]}</p>
+                </a>
+                    <!--<p class="diyCardFun"><span>2016.10.18</span><span><i class="icon iconfont">&#xe18;</i>170</span></p>-->
+                </div>
+                {/loop}
+            </div>
+            {if 0}<div class="nstudyAd cf mt10">
+            <ul>
+                <li><a href="{echo WEB_M_URL}/group/local/"><img src="http://images.57us.com/img/m/www/adpic/nlad1.jpg"/></a></li>
+                <li><a href="{echo WEB_M_URL}/play/feature/"><img src="http://images.57us.com/img/m/www/adpic/nlad2.jpg"/></a></li>
+                <li><a href="{echo WEB_M_URL}/group/home/"><img src="http://images.57us.com/img/m/www/adpic/nlad3.jpg"/></a></li>
+                <li><a href="{echo WEB_M_URL}/play/ticket/"><img src="http://images.57us.com/img/m/www/adpic/nlad4.jpg"/></a></li>
+                {if 0}<!--<li><a href="{echo WEB_M_URL}/play/local/"><img src="http://images.57us.com/img/m/www/adpic/nlad5.jpg"/></a></li>
+        		<li><a href="{echo WEB_M_URL}/group/local/"><img src="http://images.57us.com/img/m/www/adpic/nlad6.jpg"/></a></li>-->{/if}
+            </ul>
+        </div>{/if}
+            <div class="diyCard tjCard">
+                <div class="diyCardHead"><span class="name">推荐</span></div>
+                <ul class="newsList">
+                    {loop $TourTuijian $lists}
+                    {if $lists[Image]!=''}
+                    <li class="onePic"><a href="{echo WEB_M_URL}/news/tour/{$lists[TourID]}.html">
+                        <p class="tit">{$lists[Title]}</p>
+                        <div class="cf">
+                            <p class="picImg"><img src="{echo ImageURLP4}{$lists[Image]}"  alt="{$lists[Title]}" title="{$lists[Title]}"></p>
+                            <p class="nr">{$lists[Description]}</p>
+                            <p class="diyCardFun"><span>{echo date("Y.m.d",strtotime($lists[AddTime]))}</span><span><i class="icon iconfont">&#xe620;</i>{$lists[ViewCount]}</span></p>
+                        </div>
+                    </a> </li>
+                    {else}
+                    <li><a href="{echo WEB_M_URL}/news/tour/{$lists[TourID]}.html">
+                        <p class="tit">{$lists[Title]}</p>
+                        <p class="nr">{$lists[Description]}</p>
+                        <p class="diyCardFun"><span>{echo date("Y.m.d",strtotime($lists[AddTime]))}</span><span><i class="icon iconfont">&#xe620;</i>{$lists[ViewCount]}</span></p>
+                    </a></li>
+                    {/if}
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+        {template NewsFoot}
+    </div>
+</div>
+</body>
+</html>

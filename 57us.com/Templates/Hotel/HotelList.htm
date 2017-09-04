@@ -1,0 +1,214 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/hotel/hotel.css" rel="stylesheet" type="text/css" />
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<div class="w1200 HotelListChoseBox mt20">
+	<div class="ChoseBoxFirst">
+		<dl>
+			<dt>目的地</dt>
+			<dd>
+				<input style="width: 150px; padding-right: 20px;" name="StartCity" type="text" class="" placeholder="请输入目的地" size="15" id="homecity_name" name="homecity_name" mod="address|notice" mod_address_source="hotel" mod_address_reference="cityid" mod_notice_tip="请输入目的地" value="夏威夷">
+				<input id="cityid" name="cityid" type="hidden" value="{$cityid}" />
+				<i class="ico"></i>
+			</dd>
+		</dl>
+		<dl>
+			<dt>入住时间</dt>
+			<dd>
+				<input style="width:105px;" type="text" name="startDate" id="startDate" value="" onFocus="var endDate=$dp.$('endDate');WdatePicker({onpicked:function(){endDate.focus();},doubleCalendar:true,dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d+0}'})" /><i class="ico"></i></dd>
+		</dl>
+		<dl>
+			<dt>退房时间</dt>
+			<dd>
+				<input style="width:105px;" type="text" name="endDate" id="endDate" value="" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'startDate\',{d:1});}',doubleCalendar:true,dateFmt:'yyyy-MM-dd'})" /><i class="ico"></i></dd>
+		</dl>
+		<dl>
+			<dt>入住天数</dt>
+			<dd class="days">2天</dd>
+		</dl>
+		<dl>
+			<dt>关键字</dt>
+			<dd>
+				<input style="width:105px;" type="text" name="keyword" id="keyword" class="keyword" value="" placeholder="请输入关键字">
+			</dd>
+		</dl>
+		<a class="cupo ChoseBoxBtn" href="javascript:void(0)">搜索</a>
+	</div>
+	<div class="ChoseBoxSecond mt20 cf">
+		<dl class="listIndex" type="starts">
+			<dt>星级:</dt>
+			<dd>
+				<label name="rbt" type="radiobox" value="0" class="checked"><i></i>不限</label>
+				<label name="rbt" type="radiobox" value="1"><i></i>经济型</label>
+				<label name="rbt" type="radiobox" value="2"><i></i>二星级（其它）</label>
+				<label name="rbt" type="radiobox" value="3"><i></i>三星级（舒适）</label>
+				<label name="rbt" type="radiobox" value="4"><i></i>四星级（高档）</label>
+				<label name="rbt" type="radiobox" value="5"><i></i>五星级（豪华）</label>
+			</dd>
+		</dl>
+		<dl class="listIndex" type="price">
+			<dt>价格:</dt>
+			<dd class="Ddcheckbox">
+				<label name="rbt1" type="radiobox" value="0" class="checked"><i></i>不限</label>
+				<label name="rbt1" type="radiobox" value="0-300"><i></i>300以下</label>
+				<label name="rbt1" type="radiobox" value="300-500"><i></i>300-500</label>
+				<label name="rbt1" type="radiobox" value="500-800"><i></i>500-800</label>
+				<label name="rbt1" type="radiobox" value="800-1000"><i></i>800-1000</label>
+				<label name="rbt1" type="radiobox" value="1000-1500"><i></i>1000-1500</label>
+				<label name="rbt1" type="radiobox" value="1500"><i></i>1500以上</label>
+				<div class="custom"><span>自定义</span>&nbsp;
+					<input class="input" name="" type="text" id="custext1" />&nbsp;-&nbsp;
+					<input class="input" name="" type="text" id="custext2" />
+					<input class="SureBtn" name="" type="button" id="cusbtn" value="确定" />
+				</div>
+			</dd>
+		</dl>
+		<dl class="listIndex" type="facilities">
+			<dt>设施:</dt>
+			<dd>
+				<label class="cbt all checked" name="check" type="checkbox" value="不限"><i></i>不限</label>
+				<label class="cbt" name="check" type="checkbox" value="35"><i></i>冰箱</label>
+				<label class="cbt" name="check" type="checkbox" value="59"><i></i>洗衣机</label>
+				<label class="cbt" name="check" type="checkbox" value="34"><i></i>空调</label>
+				<label class="cbt" name="check" type="checkbox" value="122"><i></i>酒吧</label>
+				<label class="cbt" name="check" type="checkbox" value="14"><i></i>无线网络</label>
+				<label class="cbt" name="check" type="checkbox" value="51"><i></i>健身房</label>
+				<label class="cbt" name="check" type="checkbox" value="186"><i></i>会议室</label>
+				<label class="cbt" name="check" type="checkbox" value="69"><i></i>商务中心</label>
+				<label class="cbt" name="check" type="checkbox" value="142"><i></i>SPA</label>
+				<label class="cbt" name="check" type="checkbox" value="16"><i></i>停车场</label>
+				<label class="cbt" name="check" type="checkbox" value="136"><i></i>美发沙龙</label>
+				<label class="cbt" name="check" type="checkbox" value="234"><i></i>免费机场交通服务24小时提供</label>
+				<label class="cbt" name="check" type="checkbox" value="123"><i></i>自动柜员机/银行服务</label>
+				<label class="cbt" name="check" type="checkbox" value="124"><i></i>礼品店/报摊</label>
+				<label class="cbt" name="check" type="checkbox" value="12"><i></i>干洗/洗衣服务</label>
+			</dd>
+		</dl>
+		<div class="hasBeenSelected clearfix">
+			<dl>
+				<dt>已选条件：</dt>
+				<dd class="clearDd">
+					<div class="clearList">
+						<div class="selectedInfor selectedShow" type="price"><span>价格：</span>
+							<label>不限</label><b>×</b></div>
+						<div class="selectedInfor selectedShow" type="starts"><span>星级：</span>
+							<label>不限</label><b>×</b></div>
+						<div class="selectedInfor selectedShow" type="facilities"><span>设施：</span>
+							<label>不限</label><b>×</b></div>
+					</div>
+					<script type="text/html" id="selectedDemo">
+						<div class="selectedInfor selectedShow" type="{{d.type}}"><span>{{d.chType}}</span>
+							<label>{{d.data}}</label><b>×</b></div>
+					</script>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div class="w1200 cf mt20">
+	<div class="SlideLeft">
+		<div class="px_box" id="px_box">
+			<div class="hownum fr">共有<span class="blue" id="productnum"></span>家酒店可供选择</div>
+			<ul class="fl">
+				<li class="on"><span><a class="cupo">综合排序</a></span></li>
+				<li>
+					<span>价格排序<i></i></span>
+					<div class="suv" type="LowPrice">
+						<a class="cupo" data-va="asc">价格上升</a>
+						<a class="cupo" data-va="desc">价格下降</a>
+					</div>
+				</li>
+				<li>
+					<span>酒店星级<i></i></span>
+					<div class="suv" type="StarRating">
+						<a class="cupo" data-va="asc">星级上升</a>
+						<a class="cupo" data-va="desc">星级下降</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<ul class="HotelList">
+		</ul>
+		<div class="noDataBox" style="margin-top: 20px;">
+
+		</div>
+		<script type="text" id="noDataDemo">
+			<div class="SearchNone">
+				<ul>
+					<li><i></i>确认要找酒店的类型，本频道只收录五星、豪华、经济酒店</li>
+					<li><i></i>看看输入的文字是否有误</li>
+					<li><i></i>调整关键字</li>
+				</ul>
+			</div>
+		</script>
+		<script type="text" id="hotelDemo">
+			{{# for(var i = 0, len = d.length; i
+			< len; i++){ }} <li>
+				<a data-hotelid="{{d[i].HotelID}}"><img src="{{d[i].hotel_img}}" /></a>
+				<div class="HoteListCont">
+					<p class="tit">
+						<a class="cupo" data-hotelid="{{d[i].HotelID}}" title='{{d[i].hotel_name}}'>{{d[i].hotel_name}}</a>
+					</p>
+					<div class="HoteListIns">
+						<p title="地址：{{d[i].address}}">地址：{{d[i].address}}</p>
+						<p>电话：{{# if (d[i].hotal_tel!=''){ }}{{d[i].hotal_tel}}{{# }else{ }}无{{# } }}</p>
+						<p>酒店星级： {{#if (d[i].hotel_star>0){ }}
+							<span class="pj_star">
+                                                    {{# for(var s=0;s<d[i].hotel_star;s++){ }}
+                                                    <i></i>
+                                                    {{# } }}
+                                                </span> {{# }else{ }} 无 {{# } }}</p>
+
+					</div>
+
+					<div class="HoteListFun">
+						{{# if(d[i].amenity!=''){ }}
+						<span>{{d[i].amenity}}</span> {{# } }}
+					</div>
+
+				</div>
+				<div class="HoteListRight">
+					<div class="HoteListPrice">¥<i>{{d[i].price}}</i><b>起</b></div>
+					<a class="HoteListBtn mt20 cupo" data-hotelid="{{d[i].HotelID}}">查看详情</a>
+				</div>
+				</li>
+				{{# } }}
+		</script>
+		<div class="HotePage mt30">
+		</div>
+	</div>
+	<div class="SlideRight fr">
+		<div class="white_box">
+			<div class="white_box_top">热门推荐</div>
+			<ul class="tw_list mt10">
+				{loop $hot_info $List}
+				<li>
+					<a href="/hotel/{$List[HotelID]}.html" target="_blank"><img src="{if $List.img}{$List.img}{else}http://images.57us.com/img/common/loadpic.jpg{/if}" alt="{$List[hotel_name]}" class="bgimg"></a>
+					<p class="tit">
+						<a href="/hotel/{$List[HotelID]}.html" target="_blank"><span class="blue"></span>{$List[hotel_name]}</a>
+					</p>
+					<div class="cf mt10">
+						<span class="price fr">¥<i>{$List[LowPrice]}</i></span>
+						<div class="fl">
+							酒店星级：
+							<span class="pj_star">
+                                {$star[$List[StarRating]]}
+                            </span>
+						</div>
+					</div>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="cf mt50"></div>
+<div id="jsContainer" class="jsContainer" style="height:0">
+	<div id="tuna_alert" style="display:none;position:absolute;z-index:999;overflow:hidden;"></div>
+	<div id="tuna_jmpinfo" style="visibility:hidden;position:absolute;z-index:120;"></div>
+</div>
+<script src="{echo JsURL}/base/CarCity/1.0.0/fixdiv.js"></script>
+<script src="{echo JsURL}/hotel/us_address.js"></script>
+<script src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="{echo JsURL}/base/laytpl/1.1/laytpl.js"></script>
+<script src="{echo JsURL}/hotel/hotellist.js"></script>
+{template 'Common/TourFooter',1}

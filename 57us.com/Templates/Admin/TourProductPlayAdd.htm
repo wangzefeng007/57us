@@ -1,0 +1,367 @@
+{template Head}
+<div class="wrapper">
+  {template TourProductPlayTop}
+  <div class="panel-body">
+    <form action='/index.php?Module=TourPlay&Action=Add'  method='post'  enctype="multipart/form-data">
+
+      <table class="table table-bordered table-striped table-hover ">
+        <tbody>
+        <tr>
+          <td colspan="2" class="t-h">编辑当地玩乐产品：&gt; 产品ID：{$ProductInfo[TourProductID]}</td>
+        </tr>
+        <tr>
+          <td width="150" class="t-r"><span class="red">*</span>&nbsp;产品名称：</td>
+          <td>
+            <div class="col-sm-4">
+              <textarea name="ProductName" rows="2" id="ProductName" class="form-control">{$ProductInfo[ProductName]}</textarea>
+            </div><br>
+            <p class="help-block">规范：控制56字符内，多余的会被隐藏。</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;SEO关键字：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="Keywords" value="{$ProductInfo[Keywords]}" class="form-control"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;产品特色：</td>
+          <td>
+            <div class="col-sm-4">
+              <textarea name="ProductSimpleName" rows="3" class="form-control">{$ProductInfo[ProductSimpleName]}</textarea>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">标签信息：</td>
+          <td>
+            <div class="col-sm-4">
+              <input name="TagInfo" type="text" id="TagInfo" class="form-control" value="{$ProductInfo[TagInfo]}" />
+            </div>
+            <p class="help-block">规范：如 送接,中文导游</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">经度：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="Longitude" value="{$ProductInfo[Longitude]}" class="form-control"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">纬度：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="Latitude" value="{$ProductInfo[Latitude]}" class="form-control"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;产品类别：</td>
+          <td>
+            <div class="col-sm-2">
+              <select class="form-control" name="Category" id="Category">
+                <option value="">&nbsp;&nbsp;|-选择类别</option>
+                {loop $Tourlist $list}
+                <option value="{$list[TourCategoryID]}" {if $ProductInfo[Category]==$list[TourCategoryID]}selected="selected"{/if}>{$list[CnName]}</option>
+                {loop  $list[parent] $value}
+                <option value="{$value[TourCategoryID]}" {if $ProductInfo[Category]==$value[TourCategoryID]}selected="selected"{/if}>&nbsp;&nbsp;|-{$value[CnName]}</option>
+                {/loop}
+                {/loop}
+              </select>
+            </div>
+          </td>
+        </tr>
+
+        <tr id="Features2" style="display: none">
+            <td class="t-r">特色体验主题特色</td>
+            <td>
+              <div class="col-sm-10">
+                {loop $ZuTi[4] $key $lists}
+                <input type="checkbox" name="Features[]" {if strstr($ProductInfo[Features],$lists[TourSpecialSubjectID])}checked="checked"{/if} value="{$lists[TourSpecialSubjectID]}" />{$lists[SpecialSubjectName]}
+                {/loop}
+                <p class="help-block">（规范：主题特色可以多选）</p>
+              </div>
+            </td>
+        </tr>
+        <tr id="Features3" style="display: none">
+          <td class="t-r">城市通票主题特色</td>
+          <td>
+            <div class="col-sm-10">
+              {loop $ZuTi[3] $key $lists}
+              <input type="checkbox" name="Features[]" {if strstr($ProductInfo[Features],$lists[TourSpecialSubjectID])}checked="checked"{/if}  value="{$lists[TourSpecialSubjectID]}" />{$lists[SpecialSubjectName]}
+              {/loop}
+              <p class="help-block">（规范：主题特色可以多选）</p>
+            </div>
+          </td>
+        </tr>
+        <tr id="Features4" style="display: none">
+          <td class="t-r">门票主题特色</td>
+          <td>
+            <div class="col-sm-10">
+              {loop $ZuTi[3] $key $lists}
+              <input type="checkbox" name="Features[]" {if strstr($ProductInfo[Features],$lists[TourSpecialSubjectID])}checked="checked"{/if}  value="{$lists[TourSpecialSubjectID]}" />{$lists[SpecialSubjectName]}
+              {/loop}
+              <p class="help-block">（规范：主题特色可以多选）</p>
+            </div>
+          </td>
+        </tr>
+        <tr id="Features5" style="display: none">
+          <td class="t-r">一日游主题特色</td>
+          <td>
+            <div class="col-sm-10">
+              {loop $ZuTi[2] $key $lists}
+              <input type="checkbox" name="Features[]" {if strstr($ProductInfo[Features],$lists[TourSpecialSubjectID])}checked="checked"{/if} value="{$lists[TourSpecialSubjectID]}" />{$lists[SpecialSubjectName]}
+              {/loop}
+              <p class="help-block">（规范：主题特色可以多选）</p>
+            </div>
+          </td>
+        </tr>
+        <tr id="Features6" style="display: none">
+          <td class="t-r">出发城市</td>
+          <td>
+            <div class="col-sm-10">
+              <select class="form-control" name="Departure" style="width: 200px">
+                <option value="">出发城市</option>
+                {loop $TourAreaLists $Lists}
+                <option value="{$Lists[AreaID]}" {if $ProductInfo[Departure]==$Lists[AreaID]}selected="selected"{/if}>{$Lists[CnName]}</option>
+                {loop $Lists[Province] $list}
+                <option value="{$list[AreaID]}" {if $ProductInfo[Departure]==$list[AreaID]}selected="selected"{/if}>&nbsp;&nbsp;|-{$list[CnName]}</option>
+                {loop $list[City] $value}
+                <option value="{$value[AreaID]}" {if $ProductInfo[Departure]==$value[AreaID]}selected="selected"{/if}>&nbsp;&nbsp;&nbsp;&nbsp;|-{$value[CnName]}</option>
+                {/loop}
+                {/loop}
+                {/loop}
+              </select>
+            </div>
+          </td>
+        </tr>
+
+        <tr id="Features7" style="display: none">
+          <td class="t-r">Wifi服务类型</td>
+          <td>
+            <div class="col-sm-10">
+              {loop $ZuTi[5] $key $lists}
+              <input type="checkbox" name="Features[]" {if strstr($ProductInfo[Features],$lists[TourSpecialSubjectID])}checked="checked"{/if} value="{$lists[TourSpecialSubjectID]}" />{$lists[SpecialSubjectName]}
+              {/loop}
+              <p class="help-block">（规范：主题特色可以多选）</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">所在城市</td>
+          <td>
+            <div class="col-sm-10">
+              <select class="form-control" name="City" style="width: 200px">
+                <option value="">所在城市</option>
+                {loop $TourAreaLists $Lists}
+                <option value="{$Lists[AreaID]}" {if $ProductInfo[City]==$Lists[AreaID]}selected="selected"{/if}>{$Lists[CnName]}</option>
+                {loop $Lists[Province] $list}
+                <option value="{$list[AreaID]}" {if $ProductInfo[City]==$list[AreaID]}selected="selected"{/if}>&nbsp;&nbsp;|-{$list[CnName]}</option>
+                {loop $list[City] $value}
+                <option value="{$value[AreaID]}" {if $ProductInfo[City]==$value[AreaID]}selected="selected"{/if}>&nbsp;&nbsp;&nbsp;&nbsp;|-{$value[CnName]}</option>
+                {/loop}
+                {/loop}
+                {/loop}
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;消费地址：</td>
+          <td>
+            <div class="col-sm-4">
+              <textarea name="Address" rows="3" class="form-control">{$ProductInfo[Address]}</textarea>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">团号：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="GroupNO" value="{$ProductInfo[GroupNO]}" class="form-control"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">产品状态：</td>
+          <td>
+            <div class="col-sm-5">
+              <input name="Status" type="radio" id="Status" value="1" {if $ProductInfo[Status]=='1'}checked="checked"{/if}/>
+              上架
+              <input type="radio" name="Status" id="Status2" value="0" {if $ProductInfo[Status]=='0'}checked="checked"{/if}/>
+              下架
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;供应商：</td>
+          <td>
+            <div class="col-sm-2">
+              <select class="form-control" name="SupplierID" id="SupplierID" onchange="GetNewTourAreaID(this.value)">
+                {loop $TourSupplierlist $value}
+                <option  value="{$value[SupplierID]}" style="width:300px;" {if $ProductInfo[SupplierID]==$value[SupplierID]}selected="selected"{/if}>{$value[CnName]}</option>
+                {/loop}
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">提前预定天数：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="AdvanceDays" value="{$ProductInfo[AdvanceDays]}" class="form-control"/>
+            </div>
+            <p style="margin-top: 7px">天</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">游玩时间：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="Times" value="{$ProductInfo[Times]}" class="form-control"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">服务语言：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="ServiceLanguage" value="{$ProductInfo[ServiceLanguage]}" class="form-control"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">推荐选择：</td>
+          <td>
+            <div class="col-sm-12 t-d">
+            <input name="R1" type="checkbox" id="R1" value="1"{if $ProductInfo[R1]} checked="checked"{/if} />
+            旅游首页热门推荐
+            <input type="text" name="S1" value="{$ProductInfo[S1]}"/>
+            &nbsp;
+            <input name="R2" type="checkbox" id="R2" value="1"{if $ProductInfo[R2]} checked="checked"{/if} />
+            类别列表推荐
+            <input type="text" name="S2" value="{$ProductInfo[S2]}"/>
+            &nbsp;
+            <input name="R3" type="checkbox" id="R3" value="1"{if $ProductInfo[R3]} checked="checked"{/if} />
+             手机站当地玩乐页面推荐特价产品
+            <input type="text" name="S3" value="{$ProductInfo[S3]}"/>
+            &nbsp;
+            <input name="R4" type="checkbox" id="R4" value="1"{if $ProductInfo[R4]} checked="checked"{/if} />
+             手机站当地玩乐页面推荐热门产品
+            <input type="text" name="S4" value="{$ProductInfo[S4]}"/>
+            &nbsp;（注意：推荐后面跟随着本推荐排序，排序数值越高越靠前。）
+            </div>
+          </td>
+        </tr>
+        {if $ProductInfo[TourProductID]}
+        <tr>
+          <td class="t-r">最低优惠价：</td>
+          <td>
+            <div class="col-sm-7">
+              ￥{$ProductInfo[LowPrice]}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">最低市场价：</td>
+          <td>
+            <div class="col-sm-7">
+              ￥{$ProductInfo[LowMarketPrice]}
+            </div>
+          </td>
+        </tr>
+        {/if}
+        <tr id="MaterialRequested">
+          <td class="t-r"></td>
+          <td>
+            <div class="col-sm-8">
+              <input type="hidden" name="TourProductID" value="{$ProductInfo[TourProductID]}" />
+              <input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}
+<script>
+  $(function () {
+    var CategoryId =$("#Category  option:selected").val();
+    if(CategoryId == 6){
+      var FeaturesId = 2
+    }else if(CategoryId == 7){
+      var FeaturesId = 3
+    }else if(CategoryId == 8){
+      var FeaturesId = 4
+    }else if(CategoryId == 9){
+      var FeaturesId = 5
+    }else if(CategoryId == 21){
+      var FeaturesId = 6
+    }else if(CategoryId == 22){
+      var FeaturesId = 7
+    }
+    $("#Features"+FeaturesId+"").show();
+    $('#Category').click(function () {
+      var type = $("#Category  option:selected").val();
+      if(type == '6'){
+        $("#Features2").show();
+        $("#Features3").hide();
+        $("#Features4").hide();
+        $("#Features5").hide();
+        $("#Features6").hide();
+        $("#Features7").hide();
+      }else if(type == '7'){
+        $("#Features2").hide();
+        $("#Features3").show();
+        $("#Features4").hide();
+        $("#Features5").hide();
+        $("#Features6").hide();
+        $("#Features7").hide();
+      }else if(type == '8'){
+        $("#Features2").hide();
+        $("#Features3").hide();
+        $("#Features4").show();
+        $("#Features5").hide();
+        $("#Features6").hide();
+        $("#Features7").hide();
+      }else if(type == '9'){
+        $("#Features2").hide();
+        $("#Features3").hide();
+        $("#Features4").hide();
+        $("#Features5").show();
+        $("#Features6").hide();
+        $("#Features7").hide();
+      }else if(type == '21'){
+        $("#Features2").hide();
+        $("#Features3").hide();
+        $("#Features4").hide();
+        $("#Features5").hide();
+        $("#Features6").show();
+        $("#Features7").hide();
+      }else if(type == '22'){
+        $("#Features2").hide();
+        $("#Features3").hide();
+        $("#Features4").hide();
+        $("#Features5").hide();
+        $("#Features6").hide();
+        $("#Features7").show();
+      }else {
+        $("#Features2").hide();
+        $("#Features3").hide();
+        $("#Features4").hide();
+        $("#Features5").hide();
+        $("#Features6").hide();
+        $("#Features7").hide();
+      }
+    })
+  })
+</script>

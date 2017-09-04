@@ -1,0 +1,184 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt50 cf">
+	{template ConsultantManageClientManageLeftData}
+	<div class="w877 cf fr" id="CustomerRight">
+		<div class="hidden">
+			{$CommonData['ProgressTitle']}
+		</div>
+		<div class="choseSchool">
+			<div class="choseSchoolT">
+				<span class="name fl">材料翻译</span>
+			</div>
+		</div>
+		{if $CommonData['ProgressStatus'] == 1}
+		<!--初始化状态 start-->
+		<div class="DataTranslationStatusA">等待学生上传材料</div>
+		<!--初始化状态 end-->
+		{elseif $CommonData['ProgressStatus'] == 2}
+		<!--处理中状态 start-->
+		<ul class="QuestionProcess mt30">
+			<li class="CounselorCB" style="display: none">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">我的反馈</p>
+					<p class="time mt5"></p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl QuestionRlB">
+						<p class="green" val=""></p>
+						<p class="Message">我的留言：<span></span></p>
+						<p>请将此反馈信息发给学生，请等待{$CommonData['ClienteleName']}学生的反馈</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="javascript:void(0)" class="delivery">发送</a>
+						<a href="javascript:void(0)" class="upbtn2" data-type="2">重新上传</a>
+					</div>
+				</div>
+			</li>
+			{if $Result['Data']}
+			<li class="QuestionnaireID" data-id="{$Result['Data']['QuestionnaireID']}">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">{$Result['Data']['Question_CoupleBackName']}</p>
+					<p class="time mt5">{$Result['Data']['Question_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$Result['Data']['Question_FileName']}</p>
+						<p>留言信息：{$Result['Data']['Question_Message']}</p>
+						<p>请下载查看学生上传的文件，若无问题，由学生确定定稿；若还有问题，请及时反馈给学生。</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$Result['Data']['Question_DownUrl']}">下载</a>
+						<a href="javascript:void(0)" class="upbtn CoupleBack" data-type="2">反馈</a>
+					</div>
+				</div>
+			</li>
+			{/if}
+			{loop $Result['Data2'] $val}
+			<li class="HistoryData" style="display: none">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">{$val['Question_CoupleBackName']}</p>
+					<p class="time mt5">{$val['Question_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$val['Question_FileName']}</p>
+						<p>{$val['Question_Message']}</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$val['Question_DownUrl']}" target="_blank">下载</a>
+					</div>
+				</div>
+			</li>
+			{/loop}
+			<li class="upquestion">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">初始文件</p>
+					<p class="time mt5">{$Result['UpQuestion']['UpQuestion_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$Result['UpQuestion']['UpQuestion_FileName']}</p>
+						<p>学生留言：{$Result['UpQuestion']['UpQuestion_Message']}</p>
+						<p>请下载查看学生上传需要翻译的文件，翻译后反馈给学生</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$Result['UpQuestion']['UpQuestion_DownUrl']}" target="_blank">下载</a>
+						<a href="javascript:void(0)" class="upbtn CoupleBack" data-type="1">反馈</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+		{elseif $CommonData['ProgressStatus'] == 3}
+		<!--处理中状态 end-->
+
+		<!--定稿状态 start-->
+		<ul class="QuestionProcess mt30">
+			{if $Result['DeadCopyData']}
+			<!--定稿文件-->
+			<li>
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">定稿</p>
+					<p class="time mt5">{$Result['DeadCopyData']['DeadCopyd_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$Result['DeadCopyData']['DeadCopyd_FileName']}</p>
+						<p>材料翻译已定稿</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$Result['DeadCopyData']['DeadCopyd_DownUrl']}" target="_blank">下载</a>
+					</div>
+				</div>
+			</li>
+			{/if}
+			<!--历史跟学生交互的信息-->
+			{loop $Result['Data2'] $val}
+			<li class="HistoryData" style="display: none">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">{$val['Question_CoupleBackName']}</p>
+					<p class="time mt5">{$val['Question_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$val['Question_FileName']}</p>
+						<p>{$val['Question_Message']}</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$val['Question_DownUrl']}" target="_blank">下载</a>
+					</div>
+				</div>
+			</li>
+			{/loop}
+			<!--学生第一次上传的文件-->
+			<li class="upquestion">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">初始文件</p>
+					<p class="time mt5">{$Result['UpQuestion']['UpQuestion_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$Result['UpQuestion']['UpQuestion_FileName']}</p>
+						<p>学生留言：{$Result['UpQuestion']['UpQuestion_Message']}</p>
+						<p>请下载查看学生上传需要翻译的文件，翻译后反馈给学生</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$Result['UpQuestion']['UpQuestion_DownUrl']}" target="_blank">下载</a>
+						<a href="javascript:void(0)" class="upbtn CoupleBack" data-type="1">反馈</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!--定稿状态 end-->
+		{/if}
+		<!--查看全部-->
+		{if $Result['Data2']}
+		<div class="QuestionMore">
+			<a href="javascript:void(0)" class="ExamineAll">查看全部<i></i></a>
+		</div>
+		{/if}
+	</div>
+</div>
+{template Footer}
+<!--顾问客户管理，上传模态窗口-->
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageCustomerUpModal.js"></script>
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageItemTranslate.js"></script>
+</div>
+</body>
+</html>

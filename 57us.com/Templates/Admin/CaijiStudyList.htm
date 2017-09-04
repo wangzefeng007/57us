@@ -1,0 +1,145 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=GetNews&Action=Lists">采集资讯模块</a>
+                </li>
+                <li class="active">留学资讯采集管理</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <!--{template CaijiNewsTop}-->
+                <div class="panel-body">
+                    <form class="form-inline" role="form" action="/index.php" method="get">
+                        标题:
+                        <input  class="form-control" type="text" value="{$Title}" name="Title" style="width: 300px"/>
+                        <select name="CategoryID" id="CategoryID" class="form-control">
+                            <option value="0">请选择类别选择</option>
+                            {loop $StudyCategory $Lists}
+                            <option value="{$Lists[CategoryID]}" {if $CategoryID ==$Lists[CategoryID]} selected="selected"{/if}>|-{$Lists[CategoryName]} </option>
+                            {loop $Lists[Parent] $PLists}
+                            <option value="{$PLists[CategoryID]}" {if $CategoryID ==$PLists[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;|- {$PLists[CategoryName]} </option>
+                            {loop $PLists[TwoCategory] $List}
+                            <option value="{$List[CategoryID]}" {if $CategoryID ==$List[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;  |- {$List[CategoryName]} </option>
+                            {/loop}
+                            {/loop}
+                            {/loop}
+                        </select>
+                        采集时间:
+                        <input type="text" class="form-control" name="AddTime" placeholder="{$AddTime}" value="{$AddTime}" id="AddTime" onclick="laydate({istime: AddTime, format: 'YYYY-MM-DD'})"/>
+                        <input type="hidden" name="Module" value="GetStudyAbroad">
+                        <input type="hidden" name="Action" value="Lists">
+                        <button class="btn btn-info">搜索</button>
+                    </form>
+                </div>
+                <section id="unseen">
+                    <form class="form-inline" role="form" action="/index.php?Module=GetStudyAbroad&Action=Delete" method="post">
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                            <tr>
+                                <th><input type="checkbox" id="checkAlls" name="checkAll"/></th>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>图片</th>
+                                <th>分类</th>
+                                <th>日期</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {loop $Data[Data] $list}
+                            <tr height="35" align="center">
+                                <td style="vertical-align: inherit;"><input type="checkbox" id="checkAll" name="ArticleID[]" value="{$list[ArticleID]}" /></td>
+                                <td style="vertical-align: inherit;">{$list[ArticleID]}</td>
+                                <td style="vertical-align: inherit;">{$list[Title]}</td>
+                                <td style="vertical-align: inherit;">{if $list[Image]}<a target="_blank" href="{echo ImageURLP2}{$list[Image]}"><img width="100px" height="80px" src="{echo ImageURLP2}{$list[Image]}"/></a>{/if}</td>
+                                <td style="vertical-align: inherit;">{$list[CategoryName]}</td>
+                                <td style="vertical-align: inherit;">{$list[AddTime]}</td>
+                                <td style="vertical-align: inherit;"><a href="/index.php?Module=GetStudyAbroad&Action=Edit&ArticleID={$list[ArticleID]}">编辑</a></td>
+                            </tr>
+                            <!--{/loop}-->
+                            </tbody>
+                        </table>
+                        <button class="btn btn-danger" name = "button" value="1">批量删除</button>
+                    </form>
+                    <form action="/index.php?Module=GetStudyAbroad&Action=Lists{$PageUrl}" method="POST">
+                        <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                <li><a href="/index.php?Module=GetStudyAbroad&Action=Lists&Page=1{$PageUrl}">首页</a></li>
+                                {if $Previous}
+                                <li><a href="/index.php?Module=GetStudyAbroad&Action=Lists&Page={$Previous}{$PageUrl}">上一页</a></li>
+                                {/if}
+                                {loop $Data[PageNums] $page}
+                                <li><a href="/index.php?Module=GetStudyAbroad&Action=Lists&Page={$page}{$PageUrl}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+                                {/loop}
+                                {if $Next}
+                                <li><a href="/index.php?Module=GetStudyAbroad&Action=Lists&Page={$Next}{$PageUrl}">下一页</a></li>
+                                {/if}
+                                <li><a href="/index.php?Module=GetStudyAbroad&Action=Lists&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+                                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}
+<script>
+    $(function(){
+        function initTableCheckbox() {
+            var $thr = $('table thead tr');
+            var $checkAllTh = $('<th><input type="checkbox" id="checkAll" name="checkAll" /></th>');
+            /*将全选/反选复选框添加到表头最前，即增加一列*/
+            /*“全选/反选”复选框*/
+            var $checkAll = $thr.find('input');
+            $checkAll.click(function(event){
+                /*将所有行的选中状态设成全选框的选中状态*/
+                $tbr.find('input').prop('checked',$(this).prop('checked'));
+                /*并调整所有选中行的CSS样式*/
+                if ($(this).prop('checked')) {
+                    $tbr.find('input').parent().parent().addClass('warning');
+                } else{
+                    $tbr.find('input').parent().parent().removeClass('warning');
+                }
+                /*阻止向上冒泡，以防再次触发点击操作*/
+                event.stopPropagation();
+            });
+            /*点击全选框所在单元格时也触发全选框的点击操作*/
+            $checkAllTh.click(function(){
+                $(this).find('input').click();
+            });
+            var $tbr = $('table tbody tr');
+            /*点击每一行的选中复选框时*/
+            $tbr.find('input').click(function(event){
+                /*调整选中行的CSS样式*/
+                $(this).parent().parent().toggleClass('warning');
+                /*如果已经被选中行的行数等于表格的数据行数，将全选框设为选中状态，否则设为未选中状态*/
+                $checkAll.prop('checked',$tbr.find('input:checked').length == $tbr.length ? true : false);
+                /*阻止向上冒泡，以防再次触发点击操作*/
+                event.stopPropagation();
+            });
+            /*点击每一行时也触发该行的选中操作*/
+            $tbr.click(function(){
+                $(this).find('input').click();
+            });
+        }
+        initTableCheckbox();
+    });
+</script>
+<script src="{echo JsURL}/admin/laydate/laydate.js"></script>

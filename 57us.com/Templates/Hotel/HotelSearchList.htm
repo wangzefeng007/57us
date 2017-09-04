@@ -1,0 +1,92 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/hotel/hotel.css" rel="stylesheet" type="text/css" />
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<div class="w1200 mt20 cf">
+	<div class="SlideLeft">
+		{if $SoWhere}
+		<div class="searchd">
+			<a href="{echo WEB_TOUR_URL}/tour/search/{$SoWhere}" {if $TagNav=="search"}class="on"{/if}>全部</a>
+			<a href="{echo WEB_TOUR_URL}/group/home/{$SoWhere}" {if $TagNav=='home'}class="on"{/if} title="国内参团">国内参团</a>
+			<a href="{echo WEB_TOUR_URL}/group/local/{$SoWhere}" {if $TagNav=='local'}class="on"{/if} title="当地参团">当地参团</a>
+			<a href="{echo WEB_TOUR_URL}/play/feature/{$SoWhere}" {if $TagNav=='feature'}class="on"{/if} title="特色体验">特色体验</a>
+			<a href="{echo WEB_TOUR_URL}/play/daily/{$SoWhere}" {if $TagNav=='daily'}class="on"{/if} title="一日游">一日游</a>
+			<a href="{echo WEB_TOUR_URL}/play/ticket/{$SoWhere}" {if $TagNav=='ticket'}class="on"{/if} title="门票">门票</a>
+			<a href="{echo WEB_TOUR_URL}/play/wifi/{$SoWhere}" {if $TagNav=='wifi'}class="on"{/if} title="WiFi" class="hidden">WiFi</a>
+			<a href="{echo WEB_TOUR_URL}/play/shuttle/{$SoWhere}" {if $TagNav=='shuttle'}class="on"{/if} title="接送机" class="hidden">接送机</a>
+			<a href="{echo WEB_HOTEL_URL}/hotel/hotelsearchlist/{$SoWhere}" {if $TagNav=='hotel'}class="on"{/if} title="酒店">酒店</a>
+			<a href="{echo WEB_VISA_URL}/visa/lists/{$SoWhere}" {if $TagNav=='visa'}class="on"{/if} title="签证">签证</a>
+		</div>
+		{/if}
+		<div class="px_box" id="px_box">
+			<div class="hownum fr">共有{$Rscount['Num']}</span>家酒店可供选择</div>
+			<ul class="fl">
+				<li class="on"><span><a class="cupo">综合排序</a></span></li>
+			</ul>
+		</div>
+		<ul class="HotelList">
+			{loop $Data[Data] $List}
+				<li>
+					<a href="/hotel/{$List[HotelID]}.html" target="_blank"><img src="{echo ImageURLP2}{$List['Image']}" title="{$List['Name']}({$List['Name_Cn']})" alt="{$List['Name']}({$List['Name_Cn']})" /></a>
+					<div class="HoteListCont">
+						<p class="tit"><a href="/hotel/{$List[HotelID]}.html" target="_blank">{$List['Name']}({$List['Name_Cn']})</a></p>
+						<div class="HoteListIns">
+							地址：{$List['Address']}<br> 电话：{$List['Phone']}
+							<br> 酒店星级：
+							{if $List['StarRating']}
+							<span class="pj_star">
+								{$List['Star']}
+							</span>
+							{/if}
+						</div>
+						<div class="HoteListFun">
+							{$List['Amenitys']}
+						</div>
+					</div>
+					<div class="HoteListRight">
+						<div class="HoteListPrice">¥<i>{$List['LowPrice']}</i><b>起</b></div>
+						<a href="/hotel/{$List[HotelID]}.html" target="_blank" class="HoteListBtn mt20">查看详情</a>
+					</div>
+				</li>
+			{/loop}
+		</ul>
+		{if $Data[PageCount]>0}
+                <div class="HotePage mt20 tac">
+                    {$ShowPage}
+                </div>
+		{/if}
+		<div class="noDataBox" style="margin-top: 20px;">
+		</div>
+	</div>
+	<div class="SlideRight fr">
+		<div class="white_box">
+			<div class="white_box_top">热门推荐</div>
+			<ul class="tw_list mt10">
+				{loop $hot_info $List}
+				<li>
+					<a href="/hotel/{$List[HotelID]}.html" target="_blank"><img src="{if $List.img}{$List.img}{else}http://images.57us.com/img/common/loadpic.jpg{/if}" alt="{$List[hotel_name]}" class="bgimg"></a>
+					<p class="tit"><a href="/hotel/{$List[HotelID]}.html" target="_blank"><span class="blue"></span>{$List[hotel_name]}</a></p>
+					<div class="cf mt10">
+						<span class="price fr">¥<i>{$List[LowPrice]}</i></span>
+						<div class="fl">
+							酒店星级：
+							<span class="pj_star">
+                                {echo $star[$List[StarRating]]}
+                            </span>
+						</div>
+					</div>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="cf mt50"></div>
+<div id="jsContainer" class="jsContainer" style="height:0">
+	<div id="tuna_alert" style="display:none;position:absolute;z-index:999;overflow:hidden;"></div>
+	<div id="tuna_jmpinfo" style="visibility:hidden;position:absolute;z-index:120;"></div>
+</div>
+<script src="{echo JsURL}/base/CarCity/1.0.0/fixdiv.js"></script>
+<script src="{echo JsURL}/hotel/us_address.js"></script>
+<script src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="{echo JsURL}/base/laytpl/1.1/laytpl.js"></script>
+{template 'Common/TourFooter',1}

@@ -1,0 +1,359 @@
+@charset "utf-8";
+*,
+:after,
+:before {
+  box-sizing: border-box
+}
+
+input:focus {
+  outline: 0
+}
+
+label {
+  margin: 0;
+  font-weight: 400
+}
+
+@font-face {
+  font-family: bootstrap;
+  src: url(../fonts/bootstrap.eot);
+  src: url(../fonts/bootstrap.eot?#iefix) format('embedded-opentype'), url(../fonts/bootstrap.woff) format('woff'), url(../fonts/bootstrap.ttf) format('truetype'), url(../fonts/bootstrap.svg#bootstrap) format('svg')
+}
+
+[class*=icon-],
+[class^=icon-] {
+  position: relative;
+  text-transform: none;
+  font-style: normal;
+  font-variant: normal;
+  font-family: bootstrap;
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+[class*=icon-]:after,
+[class^=icon-]:after {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.icon-jia:before,
+.icon-sucess:before,
+.icon-warn:before,
+/*icon-close:before {*/
+  /*content: "\e601"*/
+/*}*/
+
+.icon-closefill:before,
+.icon-jiafill:before,
+.icon-sucessfill:before,
+.icon-warnfill:before {
+  content: "\e605"
+}
+
+.icon-closefill:after,
+.icon-jiafill:after,
+.icon-sucessfill:after,
+.icon-warnfill:after {
+  color: #fff
+}
+
+.icon-close:after,
+.icon-closefill:after {
+  content: "\e608"
+}
+
+.icon-sucess:after,
+.icon-sucessfill:after {
+  content: "\e609"
+}
+
+.icon-warn:after,
+.icon-warnfill:after {
+  content: "\e602"
+}
+
+.icon-jia:after,
+.icon-jiafill:after {
+  content: "\e60e"
+}
+
+.icon-shang:before {
+  content: "\e60d"
+}
+
+.icon-xiabig:before {
+  content: "\e60c"
+}
+
+.icon-zuo:before {
+  content: "\e604"
+}
+
+.icon-you:before {
+  content: "\e606"
+}
+
+.icon-uparrow:before {
+  content: "\e603"
+}
+
+.icon-downarrow:before,
+.icon-xia:before {
+  content: "\e607"
+}
+
+.icon-smile:before {
+  content: "\e60a"
+}
+
+.icon-cry:before {
+  content: "\e60f"
+}
+
+.icon-down:before {
+  content: "\e610"
+}
+
+.f-fr {
+  float: right!important
+}
+
+.f-fl {
+  float: left!important
+}
+
+.hide {
+  display: none!important
+}
+
+.show {
+  display: block!important
+}
+
+.invisible {
+  visibility: hidden
+}
+
+.close {
+  float: right;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1;
+  opacity: .2;
+  filter: alpha(opacity=20)
+}
+
+.close:focus,
+.close:hover {
+  color: #000;
+  text-decoration: none;
+  opacity: .5;
+  cursor: pointer;
+  filter: alpha(opacity=50)
+}
+
+button.close {
+  padding: 0;
+  border: 0;
+  background: 0 0;
+  cursor: pointer;
+  -webkit-appearance: none
+}
+
+.txt03 {
+  float: none;
+  overflow: hidden;
+  padding: 9px 10px;
+  width: 218px;
+  border: 1px solid #ccc;
+  color: #999;
+  font-size: 14px;
+  /*font-family: arial, "宋体";*/
+  line-height: 1pc
+}
+
+.reg-box .item {
+  position: relative;
+  padding: 8px 0px;
+  z-index: 5;
+  /*height: 68px;*/
+  line-height: 34px
+}
+
+.reg-box .intelligent-label {
+  padding-right: 10px;
+  width: 75pt;
+  color: #666;
+  text-align: right;
+  font-size: 14px
+}
+
+.reg-box .intelligent-label b {
+  margin-right: 5px;
+  color: red;
+  font-weight: 400;
+}
+
+.reg-box .item .item-ifo {
+  position: relative;
+  width: 218px
+}
+
+.reg-box .txt02 {
+  float: none;
+  overflow: hidden;
+  padding: 9px 10px;
+  width: 270px;
+  border: 1px solid #ccc;
+  color: #999;
+  font-size: 14px;
+  font-family: arial, "宋体";
+  line-height: 1pc
+}
+
+.reg-box .txt03.v_error {
+  border-color: red
+}
+
+.reg-box .txt03:focus {
+  border-color: #1a97d7
+}
+
+.reg-box .blank {
+  position: absolute;
+  top: 6px;
+  left: 228px;
+  float: none;
+  width: 1pc;
+  height: 1pc;
+  color: #7abd54;
+  font-size: 1pc
+}
+
+.reg-box .close {
+  width: auto !important;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 24px
+}
+
+.reg-box .error,
+.reg-box .focus,
+.reg-box .focusa {
+  position: absolute;
+  top: 0;
+  left: 228px;
+  z-index: 3;
+  padding: 0 5px;
+  width: 270px;
+  height: 34px;
+  color: #999;
+  font-weight: 400;
+  font-size: 9pt;
+  line-height: 34px
+}
+
+.reg-box .error span,
+.reg-box .focus span {
+  display: block;
+  width: auto !important;
+  padding: 3px 0;
+  line-height: 1pc
+}
+
+.reg-box .focus {
+  color: #999
+}
+
+.reg-box .valid {
+  color: red
+}
+
+.reg-box .strength {
+  position: absolute;
+  top: 39px;
+  right: -9px;
+  float: none;
+  clear: both;
+  display: none;
+  padding-right: 10px;
+  color: #999;
+  line-height: 22px
+}
+
+.reg-box .strength b {
+  float: left;
+  overflow: hidden;
+  margin-top: 5px;
+  width: 81pt;
+  height: 1pc;
+  font-weight: 400
+}
+
+.reg-box .strength b i {
+  float: left;
+  display: inline-block;
+  margin-left: 1px;
+  width: 34px;
+  height: 1pc;
+  background: #dbdbdb;
+  color: #fff;
+  text-align: center;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 1pc
+}
+
+.reg-box .strength b i.on {
+  background: #ff6160
+}
+
+.reg-box .btn-blue {
+  padding: 0;
+  width: 270px;
+  height: 44px;
+  font-size: 18px;
+  line-height: 44px
+}
+
+.reg-box .btn-gray {
+  padding: 0 9pt;
+  height: 34px;
+  line-height: 34px
+}
+
+.reg-box .part1,
+.reg-box .part2,
+.reg-box .part3 {
+  padding-left: 150px
+}
+
+.showpwd {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  display: inline-block;
+  width: 1pc;
+  height: 1pc;
+  background: url(../img/showPwd.png) no-repeat center center;
+  background-size: 1pc 1pc;
+  cursor: pointer
+}
+
+.showpwd.hidepwd {
+  background-image: url(../img/hidePwd.png)
+}
+
+/*2016-9-1*/
+.reg-box .close,.icon-sucessfill{ background: url(http://images.57us.com/img/common/micon.png) 0 -48px no-repeat; width: 24px !important; height: 24px !important; display: inline-block; overflow: hidden;}
+.reg-box .close:hover{background-position: 0 -24px;}
+.reg-box .close:after{display: none;}
+.icon-sucessfill:after,.icon-sucessfill:before{display: none;}
+.icon-sucessfill{background-position: 0 0;}

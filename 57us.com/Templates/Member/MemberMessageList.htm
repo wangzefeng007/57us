@@ -1,0 +1,50 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight cf fr">
+        <div class="mRight_v cf">
+            <div class="myNewsTit">
+                <span class="name">消息中心</span>
+            </div>
+            <div class="newsTab mt15">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" id="messagesList">
+                    <tr>
+                        <th width="30"></th>
+                        <th width="540">标题</th>
+                        <th width="170" class="tac">发送时间</th>
+                        <th width="80"></th>
+                    </tr>
+                    <!--tr的data-id处绑定此条消息对应的id  tr遍历此状态下的5条信息-->
+                    {loop $Data['Data'] $key $val}
+                    <tr class="allMessage {if $val['Status'] == 1}noRead{/if}" data-id="{$val['SendID']}">
+                        <td class="tac"><label class="cbt" name="check" type="checkbox" ><i></i></label></td>
+                        <td>
+                            <p class="newsTit">
+                                <a href="javascript:void(0)" class="smstitle">{$val['Title']}</a>
+                            </p>
+                            <p class="newsIns mt5 c9 smstext"></p>
+                        </td>
+                        <td valign="top" class="tac"><span class="c9">{$val['AddTime']}</span></td>
+                        <td class="tac oneDel" valign="top"><span class="deteNews"><i class="icon iconfont icon-guanbifuzhi"></i></span></td>
+                    </tr>
+                    {/loop}
+                </table>
+                <div class="bottomFun cf">
+                    <label class="cbt all fl" name="checkAll" type="checkbox"><i></i>全选</label>
+                    <a href="javascript:void(0)" class="dete fl" id="multiDel"><i class="icon iconfont icon-shanchu"></i>删除</a>
+                    <a href="javascript:void(0)" class="biaoji fl" id="multiRead"><i class="icon iconfont icon-open-bookmarks"></i>标记为已读</a>
+                </div>
+                {if $ShowPage}
+                <div class="page mt10" id="Page2">
+                    {$ShowPage}
+                </div>
+                {/if}
+            </div>
+
+        </div>
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberMessageList.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<div class="w280 fr SlideRight">
+	<!--我要提问，发起站队，免费评估-->
+	{template AskMode}
+	<!--免费评估-->
+	<ul class="adW280 adList">
+		{loop $StudyAskADLists $lists}
+		<li>
+			<a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP4}{$lists[Picture]}" width="280" /></a>
+		</li>
+		{/loop}
+	</ul>
+	<div class="relatePro mt5">
+		<p class="mainTit">
+			<span class="name fl">热门站队</span>
+		</p>
+		<ul class="relateList">
+			{loop $HotTeamList $list}
+			<li>
+				<a href="/ask_team/{$list[AskID]}.html" target="_blank">{echo _substr($list[AskInfo],30)}</a>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="hotTopic mt5">
+		<p class="mainTit">
+			<a href="javascript:void (0)" class="changeChan fr" id="changeTags" data-type="2">换一换<i class="icon iconfont icon-shuaxin"></i></a>
+			<span class="name fl">人气话题</span>
+		</p>
+		<div class="hotTopicM cf" id="changeChanHtml">
+			{loop $HotTagList $lists}
+			<a href="/ask/topic?id={$lists[TagID]}" class="bradius" title="{$lists['TagName']}" target="_blank">{$lists['TagName']}</a>
+			{/loop}
+		</div>
+	</div>
+	<div class="wxShare mt20">
+		<img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99">
+
+		<p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+	</div>
+</div>

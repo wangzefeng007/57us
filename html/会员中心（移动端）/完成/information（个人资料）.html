@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>个人中心</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm-extend.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/lib/reset.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/member/v3.1/style.css">
+		<script type='text/javascript' src="http://js.57us.net/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+		<script type="text/javascript">
+		$.config = {routerFilter: function($link){return false;}}
+		</script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-city-picker.min.js" charset='utf-8'></script>
+		<script type="text/javascript" src="http://js.57us.net/m/member/v3.1/app.js"></script>
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current" id="information">
+				<header class="bar bar-nav suvBar">
+					<a href="" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+					<div class="title mangeList">个人资料</div>
+				</header>
+				<div class="content">
+					<div class="list-block mt0 inforList">
+						<ul>
+							<li>
+								<a href="JavaScript:void(0)" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">头像</div>
+										<div class="item-after tar">
+											<input id="upload" type="file" accept="image *;" capture="camera"  =""></input id="upload" type="file" accept="image">
+											<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1365184907,920260653&fm=23&gp=0.jpg" class="faceImg"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="stepName（修改设置昵称）.html" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">昵称</div>
+										<div class="item-after tar">
+											<input type="" name="" id="" value="韩尚萱" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="stepName（修改设置真实名字）.html" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">真实姓名</div>
+										<div class="item-after tar">
+											<input type="" name="" id="" value="陈小滨" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="changePhone（第一部）.html" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">手机号码</div>
+										<div class="item-after tar">
+											<input type="" name="" id="" value="15980751809" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="changeEmail（第一部）.html" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">邮箱</div>
+										<div class="item-after tar">
+											<input type="" name="" id="" value="1822130344@qq.com" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="list-block mt10 inforList">
+						<ul>
+							<li>
+								<a href="sex（性别）.html" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">性别</div>
+										<div class="item-after tar">
+											<input type="" name="" id="" value="男" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="JavaScript:void(0)" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">出生日期</div>
+										<div class="item-after tar">
+											<input type="" name="" id='birthday' data-toggle='date' value="1990-10-10" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="JavaScript:void(0)"  class="item-link item-content" value="">
+									<div class="item-inner">
+										<div class="item-title">详细地址</div>
+										<div class="item-after tar">
+											<input type="" name="" id='city-picker'  value="福建省厦门市" readonly="readonly" />
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="sendBox">
+							<a href="#" class="button button-fill button-orange">退出登录</a>
+						</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>

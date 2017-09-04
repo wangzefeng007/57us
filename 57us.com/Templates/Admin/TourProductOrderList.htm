@@ -1,0 +1,92 @@
+{template Head}
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-12">
+			<!--breadcrumbs start -->
+			<ul class="breadcrumb panel">
+				<li>
+					<a href="#"><i class="fa fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">旅游产品管理</a>
+				</li>
+				<li class="active position">旅游订单管理</li>
+			</ul>
+			<!--breadcrumbs end -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel breadcrumb">
+				<div class="panel-body">
+					<span style="float: left;line-height: 36px;margin-left: -10px;padding-right: 10px">订单号：</span>
+					<form class="form-inline" role="form" action="/index.php?Module=TourProductOrder&Action=TourProductOrderList" method="get">
+						<input type="hidden" name="Module" value="TourProductOrder">
+						<input type="hidden" name="Action" value="TourProductOrderList">
+						<input type="text" class="form-control" placeholder="订单号" name="OrderNumber" value="{$OrderNumber}">
+						订单状态：
+						<select name="Status" id="Status"  class="form-control" onchange="GetNewTourAreaID(this.value)">
+							<option style="width:200px;"  value="{$Status}">{if !$StatusInfo[$Status]}请选择状态{else}{$StatusInfo[$Status]}{/if}</option>
+							<option  value="">全部</option>
+							{loop $StatusInfo $key $value}
+							<option  value="{$key}">{$value}</option>
+							{/loop}
+						</select>
+						<button class="btn btn-info">搜索</button>
+					</form>
+				</div>
+				<section id="unseen">
+					<table class="table table-bordered table-striped table-condensed">
+						<thead>
+						<tr>
+							<th>订单编号</th>
+							<th>下单时间</th>
+							<th>联系人</th>
+							<th>订单状态</th>
+							<th>付款方式</th>
+							<th>是否付款</th>
+							<th>联系电话</th>
+							<th>操作</th>
+						</tr>
+						</thead>
+						<tbody>
+						{loop $Data[Data] $lists}
+						<tr height="35" align="center">
+							<td nowrap="nowrap">{$lists[OrderNumber]}</td>
+							<td nowrap="nowrap">{$lists[AddTime]}</td>
+							<td nowrap="nowrap">{$lists[Contacts]}</td>
+							<td nowrap="nowrap">{$StatusInfo[$lists[Status]]}</td>
+							<td nowrap="nowrap">{if $lists[PaymentMethod]==1}支付宝{elseif $lists[PaymentMethod]==2}微信{elseif $lists[PaymentMethod]==3}网银{/if}</td>
+							<td nowrap="nowrap"> {if $lists[PaymentMethod]>0}已付款{else}未付款{/if}</td>
+							<td nowrap="nowrap">{$lists[Tel]}</td>
+							<td nowrap="nowrap">
+								<a href="/index.php?Module=TourProductOrder&Action=TourProductOrderEdit&OrderID={$lists[OrderID]}">订单管理</a>&nbsp;|&nbsp;<a href="/index.php?Module=TourProductOrder&Action=TourProductOrderDetail&OrderID={$lists[OrderID]}">详情</a>
+						</tr>
+						{/loop}
+						</tbody>
+					</table>
+					<form action="/index.php?Module=TourProductOrder&Action=TourProductOrderList{$PageUrl}" method="POST">
+						<div class="text-center">
+							<ul class="pagination" data-id="{$Page}">
+								<li><a href="/index.php?Module=TourProductOrder&Action=TourProductOrderList&Page=1{$PageUrl}">首页</a></li>
+								{if $Previous}
+								<li><a href="/index.php?Module=TourProductOrder&Action=TourProductOrderList&Page={$Previous}{$PageUrl}">上一页</a></li>
+								{/if}
+								{loop $Data[PageNums] $page}
+								<li><a href="/index.php?Module=TourProductOrder&Action=TourProductOrderList&Page={$page}{$PageUrl}" {if $Page == $page} class="on" {/if}>{$page}</a></li>
+								{/loop}
+								{if $Next}
+								<li><a href="/index.php?Module=TourProductOrder&Action=TourProductOrderList&Page={$Next}{$PageUrl}">下一页</a></li>
+								{/if}
+								<li><a href="/index.php?Module=TourProductOrder&Action=TourProductOrderList&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+								<span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+								<button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+							</ul>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+{template Foot}

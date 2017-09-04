@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>收藏</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://cs.57us.net/m/msui/0.6.2/sm.min.css">
+		<link rel="stylesheet" href="http://cs.57us.net/m/msui/0.6.2/sm-extend.min.css">
+		<link rel="stylesheet" href="http://cs.57us.net/m/lib/reset.css">
+		<link rel="stylesheet" href="http://cs.57us.net/m/member/style.css">
+		<link rel="stylesheet" href="http://www.57us.net/Plugins/pfonts/iconfont.css">
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current">
+				<header class="bar bar-nav diyBar">
+					<a class="back pull-left">取消</a>
+					<h1 class="title">编辑常用地址</h1>
+					<a class="pull-right">完成</a>
+				</header>
+				<div class="content EditerAddressCont">
+					<ul class="EditeUl">
+						<li>
+							<span class="EditeUlL">收件人</span>
+							<div class="EditeUlR">
+								<input type="" name="" id="" value="陈小滨" />
+							</div>
+						</li>
+						<li>
+							<span class="EditeUlL">手机号码</span>
+							<div class="EditeUlR">
+								<input type="" name="" id="" value="15965546541" />
+							</div>
+						</li>
+						<li>
+							<span class="EditeUlL">所在地区</span>
+							<div class="EditeUlR">
+								<input type="" name="" id='city-picker' value="四川 内江 东兴区" />
+							</div>
+							<i class="icon iconfont">&#xe613;</i>
+						</li>
+						<li>
+							<span class="EditeUlL">详细地址</span>
+							<div class="EditeUlR">
+								<textarea name="" rows="" cols="" value="">配送地址：福建省厦门市思明区软件园2期望海路54号</textarea>	
+							</div>
+						</li>
+						<li>
+							<span class="EditeUlL">邮政编码</span>
+							<div class="EditeUlR">
+								<input type="" name="" id="" value="350000" />
+							</div>
+						</li>
+						<li>
+							<div class="EditeUlR">
+								<label class="label-checkbox">
+									<input type="checkbox" name="checkbox">
+						            <div class="item-media"><i class="icon icon-form-checkbox"></i>设为默认</div>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="bar bar-function">
+					<a href="#" class="button button-fill button-address">删除地址</a>
+				</div>
+			</div>
+		</div>
+		<script type='text/javascript' src="http://j.57us.net/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://j.57us.net/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://j.57us.net/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+		<script type="text/javascript" src="http://j.57us.net/m/lib/msui/0.6.2/sm-city-picker.min.js"  charset="utf-8"></script>
+		<script type="text/javascript">
+		  $("#city-picker").cityPicker({
+		    toolbarTemplate: '<header class="bar bar-nav diyCity">\
+		    <button class="button button-link pull-right close-picker">确定</button>\
+		    <h1 class="title">所在地区</h1>\
+		    </header>'
+		  });
+		</script>
+	</body>
+
+</html>

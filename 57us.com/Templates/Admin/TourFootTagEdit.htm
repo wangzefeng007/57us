@@ -1,0 +1,82 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">旅游产品管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TourFootTag&Action=TourFootTagList" class="position">旅游底部标签管理</a>
+                </li>
+                <li class="active" id="modify">标签添加/修改</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=TourFootTag&Action=TourFootTagEdit'  method='post'	enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td width="150" class="t-r">所属类别：</td>
+                                <td><input name="type" type="radio" id="type" value="1" {if $TourFootTagInfo[Type] ==1}checked="checked"{/if}/>
+                                    热门旅游目的地
+                                    <input type="radio" name="type" id="type2" value="2" {if $TourFootTagInfo[Type] ==2}checked="checked"{/if}/>
+                                    热门旅游景点
+                                    <input type="radio" name="type" id="type3" value="3" {if $TourFootTagInfo[Type] ==3}checked="checked"{/if}/>
+                                    美国旅游
+                                    <input type="radio" name="type" id="type4" value="4" {if $TourFootTagInfo[Type] ==4}checked="checked"{/if}/>
+                                    美国留学
+                                    <input type="radio" name="type" id="type5" value="5" {if $TourFootTagInfo[Type] ==5}checked="checked"{/if}/>
+                                    美国移民
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">标签名：</td>
+                                <td>
+                                    <div class="col-sm-2 cf">
+                                        <input type="text" name="TourFootTagName" value="{$TourFootTagInfo[TourFootTagName]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">URL：</td>
+                                <td>
+                                    <div class="col-sm-4 cf">
+                                        <textarea name="TourFootTagUrl" rows="2" class="form-control" id="TourFootTagUrl">{$TourFootTagInfo[TourFootTagUrl]}</textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">排序：</td>
+                                <td>
+                                    <div class="col-sm-2 cf">
+                                        <input type="text" name="Sort" value="{$TourFootTagInfo[Sort]}" class="form-control"/>
+                                    </div>
+                                    <p class="help-block">越大排越前</p>
+                                </td>
+                            </tr>
+                            <tr id="MaterialRequested">
+                                <td width="150" align="right"></td>
+                                <td>
+                                    <input type="hidden" name="ID" id="ID" value="{$TourFootTagInfo[TourFootTagID]}" />
+                                    <input class="btn btn-danger" type='submit' value='提交保存'/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

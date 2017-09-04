@@ -1,0 +1,276 @@
+{template StudyTeacherManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 cf InforBody">
+    <div class="InforImg" id="InforImg">
+        <img src="{if $UserInfo[Avatar]}{echo LImageURL}{$UserInfo[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="90" height="90" />
+        {if $UserInfo[IdentityState]==0}
+        <p class="mt10">
+            <a href="javascript:void(0)" class="UpBtn" id="UpAvatar">上传头像</a>
+            <input type="file" name="head_photo" id="head_photo" value="" accept="image/*" style="display: none">
+        </p>
+        {/if}
+    </div>
+    <ul class="InforProcess" id="InforProcess">
+        {if $UserInfo[IdentityState]==1}
+        <li class="on has"><span class="Proline"></span><i class="ico"></i>
+            <p class="text mt15">基本信息</p>
+        </li>
+        <li class="on has"><span class="Proline"></span><i class="ico"></i>
+            <p class="text mt15">背景资料</p>
+        </li>
+        <li class="on has"><span class="Proline"></span><i class="ico"></i>
+            <p class="text mt15">身份验证</p>
+        </li>
+        <li class="on"><i class="ico"></i>
+            <p class="text mt15">提交审核</p>
+        </li>
+        {else}
+        <li class="on"><span class="Proline"></span><i class="ico"></i>
+            <p class="text mt15">基本信息</p>
+        </li>
+        <li><span class="Proline"></span><i class="ico"></i>
+            <p class="text mt15">背景资料</p>
+        </li>
+        <li><span class="Proline"></span><i class="ico"></i>
+            <p class="text mt15">身份验证</p>
+        </li>
+        <li><i class="ico"></i>
+            <p class="text mt15">提交审核</p>
+        </li>        
+        {/if}
+    </ul>
+</div>
+<div class="w1200 cf" id="Index1" {if $UserInfo[IdentityState]==1}style="display: none;"{/if}>
+    <div class="InforList InforListStep cf">
+        <div class="InforListLi cf">
+            <p class="left">姓名：</p>
+            <div class="right">
+                <div class="inputBox">
+                    <input type="text" name="Name" id="Name" value="{$UserInfo[RealName]}" class="InsInput" />
+                </div>
+            </div>
+        </div>
+        <div class="InforListLi cf">
+            <p class="left">昵称：</p>
+            <div class="right">
+                <div class="inputBox">
+                    <input type="text" name="Nickname" id="Nickname" value="{$UserInfo[NickName]}" class="InsInput" placeholder="昵称将展示给用户" />
+                </div>
+            </div>
+        </div>
+        <div class="InforListLi cf" style="width:520px;">
+            <p class="left">所在城市：</p>
+            <div class="right" style="width:390px;">
+                <div type="selectbox" class="DiySelect fl" id="Country">
+                    <div class="opts">
+                        <a href="javascript:void(0);" value="中国" {if $UserInfo[Country] =='中国'|| $UserInfo[Country] =='cn'}class="selected"{/if}>中国</a>
+                        <a href="javascript:void(0);" value="美国"  {if $UserInfo[Country] =='美国'}class="selected"{/if}>美国</a>
+                    </div>
+                </div>
+                <div class="fl diyCitySelect" id="cnopts">
+                    <div class="gf-select" id="province">
+                    	<i class="icon-jt"><input type="hidden" name="province" value="{$UserInfo[Province]}"></i>
+                        <span><em>{if $UserInfo[Province]}{$UserInfo[Province]}{else}请选择省份{/if}</em></span>
+                        <ul>
+                            <li data-value="{$UserInfo[Province]}">{if $UserInfo[Province]}{$UserInfo[Province]}{else}请选择省份{/if}</li>
+                        </ul>
+                    </div>
+                    <div class="gf-select" id="city">
+                    	<i class="icon-jt"><input type="hidden" name="city" value="{$UserInfo[City]}"></i>
+                        <span><em>请选择城市</em></span>
+                        <ul>
+                            <li data-value="{$UserInfo[City]}">{if $UserInfo[City]}{$UserInfo[City]}{else}请选择城市{/if}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="inputBox" id="usopts" style="display: none; margin-left: 10px;">
+                    <input type="text" name="usinput" id="usinput" value="" class="InsInput" style="width: 101px;" />
+                </div>
+            </div>
+        </div>
+        <div class="InforListLi cf" style="width:270px;">
+            <p class="left">性别：</p>
+            <div class="right" style="width:140px;">
+                <div class="labelList fl" id="Sex">
+                    <label name="studyStyle" type="radiobox" val="1" class="cbt {if $UserInfo[Sex] ==1}checked{/if} rb" ><i></i>男</label>
+                    <label name="studyStyle" type="radiobox" val="0" class="cbt {if $UserInfo[Sex] ==0}checked{/if} rb" ><i></i>女</label>
+                </div>
+            </div>
+        </div>
+        <div class="InforListLi cf" style="width: 100%;">
+            <p class="left">服务宣言：<span class="c9 chos">（选填）</span></p>
+            <div class="right" style="width: 660px;">
+                <input type="text" name="ServiceManifesto" id="ServiceManifesto" value="{$TeacherInfo[ServiceDeclaration]}" class="InsInput" style="width: 604px;" />
+            </div>
+        </div>
+        <div class="InforListLi cf" style="width: 100%;">
+            <p class="left">我的标签<span class="c9 chos">（选填）</span><i class="tipIco" data-text="添加属于你自己的标签，让学生更加了解你。不超过6字"></i></p>
+            <div class="right" style="width: 660px;" id="MyTag">
+                {loop $Tags $value}<div class="inputBox"><span class="closeIco"></span><input type="text" name="" value="{$value}" class="InsInput TipInput Tag"></div>{/loop}
+                <span id="AddTag" class="AddTip"></span>
+            </div>
+        </div>
+        <div class="InforListLi cf">
+            <p class="left">&nbsp;</p>
+            <div class="right">
+                <a href="JavaScript:void(0)" class="publicBtn1 nextBtn" id="Index1Sava">下一步</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w1200 cf" id="Index2" style="display: none">
+    <div class="InforList">
+        <div class="InforListLi cf">
+            <p class="left">从业经验：</p>
+            <div class="right">
+                <div class="inputBox">
+                    <input type="text" name="Experience" id="Experience" value="{$TeacherInfo[WorkingAge]}" class="InsInput" style="width: 106px;" />
+                </div>
+                <span class="c9 f16 pl10">年</span>
+            </div>
+        </div>
+        <!--
+                        	作者：xiao15980751809@126.com
+                        	时间：2017-01-10
+                        	描述：2017-01-10新加
+                        -->
+        <div class="InforListLi hidden cf">
+            <p class="left">您服务的项目：</p>
+            <div class="right">                                                                                          
+                <div class="ItemLabelList fl" id="ItemChose">
+                    <label name="studyStyle" type="checkbox" val="1" class="cbt rb_active" ><i></i>托福</label>
+                    <label name="studyStyle" type="checkbox" val="2" class="cbt" ><i></i>雅思</label>
+                    <label name="studyStyle" type="checkbox" val="3" class="cbt" ><i></i>GRE</label>
+                    <label name="studyStyle" type="checkbox" val="4" class="cbt" ><i></i>GMAT</label>
+                    <label name="studyStyle" type="checkbox" val="5" class="cbt" ><i></i>SAT</label>
+                    <label name="studyStyle" type="checkbox" val="6" class="cbt" ><i></i>SSAT</label>
+                    <label name="studyStyle" type="checkbox" val="7" class="cbt" ><i></i>PTE</label>
+                </div>
+            </div>
+        </div>
+        <div class="InforListLi cf">
+            <p class="left">自我介绍：<span class="c9 chos">（300字以内）</span></p>
+            <div class="right">
+                <div class="inputBox">
+                    <textarea class="textare" name="Introduction" id="Introduction" rows="" cols="" placeholder="中英文不限" style="height: 167px;width: 628px;">{$TeacherInfo[Introduction]}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="InforListLi cf" id="WorkExperience">
+            <p class="left">从业经历：</p>
+            <div class="right">
+                {if count($PastExperience)==0}
+                <div class="rightBox cf">
+                    <i class="numIco">1</i>
+                    <div class="InforListLi cf">
+                        <p class="left">时间：</p>
+                        <div class="right">
+                            <div class="inputBox"><input placeholder="起始时间" type="text" name="StartDate" value="" class="InsInput tac StartDate" style="width: 116px;" onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" readonly/></div>
+                            <span class="fl pl10 f18 c9">—</span>
+                            <div class="inputBox pl10"><input placeholder="结束时间" type="text" name="EndDate" value="" class="InsInput tac EndDate" style="width: 116px;"  onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" readonly/></div>
+                        </div>
+                    </div>
+                    <div class="InforListLi cf">
+                        <p class="left">就职公司：</p>
+                        <div class="inputBox"><input placeholder="" type="text" name="Company" value="" class="InsInput Company" style="width:493px;" /></div>
+                    </div>
+                    <div class="InforListLi cf">
+                        <p class="left">从业经历：<span class="c9 chos">（300字以内）</span></p>
+                        <div class="inputBox"><textarea class="textare Undergo" name="Undergo" rows="" cols="" placeholder="简要描述您在该公司的工作经历等，有助于学生更好的了解你！" style="height: 151px;width:478px;"></textarea></div>
+                    </div>
+                </div>
+                {else}                
+                {loop $PastExperience $key $list}
+                <div class="rightBox cf">
+                    <i class="numIco">{echo $key+1}</i>
+                    <div class="InforListLi cf">
+                        <p class="left">时间：</p>
+                        <div class="right">
+                            <div class="inputBox"><input placeholder="起始时间" type="text" name="StartDate" value="{$list[startdate]}" class="InsInput tac StartDate" style="width: 116px;" onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" readonly/></div>
+                            <span class="fl pl10 f18 c9">—</span>
+                            <div class="inputBox pl10"><input placeholder="结束时间" type="text" name="EndDate" value="{$list[enddate]}" class="InsInput tac EndDate" style="width: 116px;"  onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" readonly/></div>
+                        </div>
+                    </div>
+                    <div class="InforListLi cf">
+                        <p class="left">就职公司：</p>
+                        <div class="inputBox"><input placeholder="" type="text" name="Company" value="{$list[company]}" class="InsInput Company" style="width:493px;" /></div>
+                    </div>
+                    <div class="InforListLi cf">
+                        <p class="left">从业经历：<span class="c9 chos">（300字以内）</span></p>
+                        <div class="inputBox"><textarea class="textare Undergo" name="Undergo" rows="" cols="" placeholder="简要描述您在该公司的工作经历等，有助于学生更好的了解你！" style="height: 151px;width:478px;">{echo str_replace('<br />',"\r\n",$list[undergo])}</textarea></div>
+                    </div>
+                </div>
+                {/loop}
+                {/if}
+                <span><a href="JavaScript:void(0)" class="AddExpr" id="AddExpr">+增加经历</a></span>                
+                <span class="pl20"><a href="JavaScript:void(0)" class="DelExpr red" id="DelExpr" {if count($PastExperience)<2}style="display: none"{/if}>-删除经历</a></span>
+                
+            </div>
+        </div>
+        <div class="InforListLi cf">
+            <p class="left">&nbsp;</p>
+            <div class="right">
+                <a href="JavaScript:void(0)" class="prevBtn publicBtn0" id="PrevIndex1">返回上一步</a>
+                <a href="JavaScript:void(0)" class="nextBtn publicBtn1" id="Index2Sava">下一步</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w1200 cf" id="Index3" style="display: none">
+    <div class="InforList">
+        <div class="InforListLi cf">
+            <p class="left">身份证号码：</p>
+            <div class="right">
+                <div class="inputBox">
+                    <input type="text" name="IdCard" id="IdCard" value="{$UserInfo[CardNum]}" class="InsInput" /><span class="c9 pl20 f14">57us保证您的信息只用作认证身份，不会挪作他用</span>
+                </div>
+            </div>
+        </div>
+        <div class="InforListLi cf">
+            <p class="left">添加身份证:</p>
+            <div class="right">
+                <p class="red f14">照片大小不要超过512kb</p>
+                <ul class="addPic cf mt10" id="PicPortraits">
+                    {if $UserInfo[CardPositive]}
+                    <li> <div class="OtherFun"><a href="javascript:void(0)" class="DelPortraits">删除</a>|<a href="javascript:void(0)" class="EditPortraits">替换</a></div>
+                    <img src="{$UserInfo[CardPositive]}" width="200" height="150">
+                    </li>
+                    {/if}
+                    <span class="AddBtn" id="AddPortraits"><i></i></span>
+                    <input type="file" id="addpreview" style="display: none"/>
+                </ul>
+            </div>
+        </div>
+        <div class="InforListLi cf">
+            <p class="left">&nbsp;</p>
+            <div class="right">
+                <a href="JavaScript:void(0)" class="publicBtn0 prevBtn" id="PrevIndex2">返回上一步</a>
+                <a href="JavaScript:void(0)" class="publicBtn1 nextBtn" id="Index3Sava">提交审核</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w1200 tac cf inforAudit" id="Index4" {if $UserInfo[IdentityState]!=1}style="display: none"{/if}>
+    <div class="ServiceSave">
+        <span class="ico auditIco"></span>
+        <p class="ServiceSaveT tal">您的身份正在审核中，请耐心等待。</p>
+        <p class="mt15 shenheBtn">
+        	<a href="JavaScript:void(0)" class="btn publicBtn1" id="checkInfor">查看个人资料</a>
+        	<a href="JavaScript:void(0)" class="aginEdite" id="" onclick="window.location='{echo WEB_STUDY_URL}/teachermanage/myinfosettings/?rs=1'">返回编辑</a>
+        </p>
+    </div>
+</div>
+{template Footer}
+<!--城市联动插件-->
+<script type="text/javascript" src="{echo JsURL}/study/inforCity.js"></script>
+<!--图片裁剪插件-->
+<link href="{echo JsURL}/base/cropper/2.3.2/cropper.css" rel="stylesheet">
+<script src="{echo JsURL}/base/cropper/2.3.2/cropper.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/TeacherManageMyInfoSettings.js"></script>
+</body>
+</html>

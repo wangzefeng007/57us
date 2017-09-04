@@ -1,0 +1,129 @@
+/*主站底部*/
+.NewsHeader{ background: #3c3c3c; height: 100px;}
+.NewsTop{height: 27px; line-height: 27px;color: #c6c6c6;}
+.NewsTop a{ padding: 0 9px; color: #c6c6c6;}
+.NewsTop a:hover{color: #fdb968;}
+.Newshead{ height: 73px; overflow: hidden;}
+.NewsLogo{background:url(http://images.57us.com/img/www/logo.png) no-repeat;width:193px;height:49px;float: left;margin-top:10px; overflow: hidden;text-indent: -9999px;}
+.NewsSearchBox{ background: #202020; width: 328px; height: 32px; padding: 2px; overflow: hidden;margin-top:15px; }
+.SearchBtn{background: url(http://images.57us.com/img/www/PublicIco.png) center -120px no-repeat;border:0;width:60px;height:32px; line-height:32px;float: right;cursor: pointer;}
+.NewsSearchBox .input{ background: #e9e9e9; border: 0; width: 267px; height: 32px; line-height: 32px; text-indent: 10px; float: left;}
+.NewsFoot{ background: #3c3c3c; padding: 15px 0 30px; height: auto;overflow: hidden; color: #8e8e8e;}
+.NewsFooter{border-top: 1px solid #454545; padding-top: 30px; position: relative;}
+.FootMeida{ width: 230px;}
+.FootMeida li{ background: url(http://images.57us.com/img/www/media.png) no-repeat; width: 100px; height: 100px; float: left;position: relative; margin-left:15px; cursor: pointer;}
+.FootMeida li.i1{background-position: 0 0;}
+.FootMeida li.i2{background-position: 0 -106px;}
+.FootMeida li.i1:hover{background-position: -103px 0;}
+.FootMeida li.i2:hover{background-position: -103px -106px;}
+.ChatCode{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); width:112px; height:112px; padding:7px; position:absolute; bottom:110px; left:50%; margin-left: -63px; display:none}
+.ChatCode em{background:url(http://images.57us.com/img/www/sj.png) no-repeat;  width:30px; height:7px; display:inline-block; position:absolute; bottom:-7px; left:50%; margin-left:-15px;}
+.FootMeida li:hover .ChatCode{display: block;}
+.FootLogo{ background: url(http://images.57us.com/img/www/flogo.png) no-repeat; width:236px; height:68px; float: left;display: inline-block;overflow: hidden; text-indent: -999px;}
+.FootCont{ width: 700px; margin: 10px 0 0 0; text-align: center; color: #8e8e8e;}
+.NewsFoot a{color: #8e8e8e; padding: 0 6px;}
+.NewsFoot a:hover{color: #eab66a;}
+.FootLink span{color: #dcdcdc;}
+.FootLink a{ padding-right: 15px;}
+.FootLink p{padding: 15px 0;}
+
+.ImgBlackBg{background: #000;}
+a:hover img.lazy{filter:alpha(opacity=80);opacity: 0.8;}
+a:hover{color: #eab66a;}
+/*公用的图片滚动*/
+.ScrollPic{ height: auto; overflow: hidden; position: relative;}
+.ScrollPic .prev,.ScrollPic .next{width: 33px; height: 201px; line-height: 201px; border: 1px solid #dddddd; background-color: #eeeeee; float: left; display: block; text-align: center; }
+.ScrollMain{width: 1120px; height: 203px; overflow: hidden; float: left; margin: 0 5px 0; line-height: 203px;}
+.ScrollMain li{width: 270px; height: 203px; overflow: hidden; float: left; margin: 0 5px;}
+.ScrollMain li img{width: 270px; height: 203px;filter:alpha(opacity=70);opacity: 0.7;}
+.ScrollMain li .tit{ padding: 0 15px; height: 42px; line-height: 21px; overflow: hidden; margin-top: -42px; position: relative; color: #fff; }
+.ScrollMain li a{display: block;background: #000;}
+.ScrollMain li a:hover img{filter:alpha(opacity=100);opacity:1;}
+.ScrollMain li.more a{background: url(http://images.57us.com/img/www/more.png) no-repeat; text-indent: -9999px;}
+
+.ScrollPic .prev i,.ScrollPic .next i{background: url(http://images.57us.com/img/www/indexicon.png) no-repeat; width:12px; height: 20px; display: inline-block;overflow: hidden;  vertical-align: middle; text-indent: -999px;}
+.ScrollPic .prev i{background-position: -230px -117px;}
+.ScrollPic .next i{background-position: -267px -117px;}
+.ScrollPic .nextStop,.ScrollPic .prevStop{background-color: #fcfbfb;}
+/*公用教师*/
+.TearchScroll{ height: 110px; padding:0 13px; overflow: hidden;}
+.TearchScroll .prev,.TearchScroll .next{background: url(http://images.57us.com/img/www/indexicon.png) no-repeat;width:25px; height: 32px;  float: left; display: block; text-align: center; text-indent: -999px; margin:39px 0 0 0 ; overflow: hidden; }
+.TearchScroll .prev{ background-position: -225px -70px;}
+.TearchScroll .next{ background-position: -264px -70px;}
+.TearchScrMain li,.TearchScrMain li img,.TearchScrMain li em{width: 110px; height: 110px;border-radius: 100%;}
+.TearchScrMain{width: 1120px; height: 110px; overflow: hidden; float: left; margin: 0 13px; }
+.TearchScrMain li{overflow: hidden;  float: left; margin:0 15px; position: relative; font-size: 16px; text-align: center;}
+.TearchScrMain li img,.TearchScrMain li em{filter:alpha(opacity=100);opacity:1.0;}
+.TearchScrMain li img{position: relative;z-index: 1;}
+.TearchScrMain li .name,.TearchScrMain li .Job{  width: 100%;height:24px; overflow: hidden;display: block; position: absolute; top: 50%; left: 0; z-index: 3; text-indent: 0;}
+.TearchScrMain li .name{font-weight: bold; color: #fff; margin-top: -25px; }
+.TearchScrMain li .Job{ color: #29beb5; margin-top:0px; }
+.TearchScrMain li em{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#99000000', endColorstr='#99000000');background:rgba(0,0,0,0.6); position: absolute; top: 0; left: 0;z-index: 2;}
+.TearchScrMain li a:hover em{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#00000000', endColorstr='#00000000');background:rgba(0,0,0,0);}
+.TearchScrMain li a:hover .name{ margin-top: -105px;}
+.TearchScrMain li a:hover .Job{ margin-top:105px;}
+.TearchScrMain li.expert .Job{color: #eab66a;}
+.TearchScroll .nextStop,.TearchScroll .prevStop{filter:alpha(opacity=30);opacity: 0.3;}
+
+.TearchScrollT{ height: 50px; line-height: 50px;border-bottom: 1px solid #cacaca; overflow: hidden;}
+.TearchScrollT .name{font-size: 24px; color: #3f3e3c;}
+/*旅游*/
+.TourBox{width: 100%;}
+.TourBoxTitle{ height: 32px; line-height: 32px; padding: 10px 0;}
+.TourBoxTitle .name{ float: left; font-size: 24px; color: #3f3e3c;}
+.TourBoxTitle .more{color: #666666;}
+.TourFind{ width: 1220px;}
+.TourFind li{width: 280px; height: 210px; float: left; margin:0 20px 20px 0; overflow: hidden;}
+.TourFind li.i1{width: 600px; height: 440px;}
+.TourFind li .tit{ padding: 0 15px; height: 40px; line-height: 40px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis; margin-top: -35px; position: relative; color: #fff;}
+.TourFind li.i1 .tit{ font-size: 20px; height: 48px; line-height: 48px; margin-top: -48px;}
+.TourFind li a,.TourTravelList li a{display: block;background: #000;}
+.TourFind li img{filter:alpha(opacity=70);opacity: 0.7;width: 280px; height: 210px; }
+.TourFind li a:hover img{filter:alpha(opacity=100);opacity:1;}
+.TourFind li.i1 img{width: 600px; height: 440px;}
+.safeBox a{padding: 0;padding-right: 4px;}
+
+/*新增快速导航到产品*/
+.TourSpeedMenu{background: url(http://images.57us.com/img/www/speedMenu.png) no-repeat; width: 145px; height: 522px; position: fixed;top:50%; margin-top: -300px; z-index: 99; left: 50%;margin-left: -760px;display: none;}
+.TourSpeedMenu ul{padding: 103px 7px 0 11px;height: auto; overflow: hidden;}
+.TourSpeedMenu ul li{ float: right;}
+.TourSpeedMenu ul li a{display: block; text-indent: -999px;width: 100%;height: 100%;}
+.TourSpeedMenu ul li.i1{width:112px;height: 46px;margin:0 6px 6px 0;}
+.TourSpeedMenu ul li.i2{width:117px;height: 41px;margin:0 8px 3px 0;}
+.TourSpeedMenu ul li.i3{width:119px;height: 47px;margin:0 8px 3px 0;}
+.TourSpeedMenu ul li.i4{width:112px;height: 36px;margin:0 8px 6px 0;}
+.TourSpeedMenu ul li.i5{width:120px;height: 42px;margin:0 3px 2px 0;}
+.TourSpeedMenu ul li.i6{width:118px;height: 38px;margin:0 1px 3px 0;}
+.TourSpeedMenu ul li.i7{width:119px;height: 38px;margin:0 1px 3px 0;}
+.TourSpeedMenu ul li.i8{width:124px;height: 46px;margin:0 1px 3px 0;}
+.TourSpeedMenu ul li:hover{background: url(http://images.57us.com/img/www/speedMenuHover.png) no-repeat;}
+.TourSpeedMenu ul li.i1:hover{background-position: -20px -103px;}
+.TourSpeedMenu ul li.i2:hover{background-position: -13px -155px;}
+.TourSpeedMenu ul li.i3:hover{background-position: -11px -199px;}
+.TourSpeedMenu ul li.i4:hover{background-position: -18px -249px;}
+.TourSpeedMenu ul li.i5:hover{background-position: -15px -291px;}
+.TourSpeedMenu ul li.i6:hover{background-position: -19px -335px;}
+.TourSpeedMenu ul li.i7:hover{background-position: -18px -376px;}
+.TourSpeedMenu ul li.i8:hover{background-position: -13px -417px;}
+
+
+.StudySpeedMenu{width: 137px; height: auto; overflow: hidden;position: fixed;top:50%; margin-top: -280px; z-index: 99; left: 50%;margin-left: -760px;display: none;}
+.StuSpMenuH{background: url(http://images.57us.com/img/www/studyMenuBg.png?20170120); height: 132px; overflow: hidden;}
+.StudySpeedMenu li{float: left;}
+.StudySpeedMenu li a{width: 87px;height: 33px; line-height: 33px; float: left;border: 1px solid #c7c7c7;border-right:0;border-bottom: 0;font-size: 16px;color: #666666;display: block; text-indent: 15px;}
+.StudySpeedMenu li.on a{color: #29beb5;}
+.StudySpeedMenu li a:hover{color:#fff;background: #29beb5;border-color: #29beb5;}
+.StudySpeedMenu li.i1{margin-left: 40px;}
+.StudySpeedMenu li.i2{margin-left: 30px;}
+.StudySpeedMenu li.i3{margin-left: 20px;}
+.StudySpeedMenu li.i4{margin-left: 10px;}
+.StudySpeedMenu li.i5{margin-left: 0;}
+.StudySpeedMenu li:hover{margin-left: 0;}
+
+
+/*留学新春活动入口*/
+.xinchun{width: 400px; height:405px;position:fixed;top: 50%;left: 50%; margin: -203px 0 0 -200px; z-index: 9999;}
+.xinchun .close{ background: url(http://images.57us.com/img/active/nclose.png?v2) no-repeat; width:28px;height: 28px;position: absolute;top: 0;right: 0; cursor: pointer;}
+.xinchunCont{width: 400px;height: 405px; background: url(http://images.57us.com/img/active/nactivePic.png?v2) no-repeat;}
+.xinchunCont a{width: 150px; height: 45px;display: block;position: absolute;left:125px;bottom:8px;}
+.maskmask{width: 100%;height: 100%;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5);position:fixed;top: 0;left: 0;z-index:9999;}

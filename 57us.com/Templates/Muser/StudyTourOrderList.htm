@@ -1,0 +1,55 @@
+{template StudyHeader}
+<div class="page-group">
+    <div class="page page-current" style="background: #fff;" id="">
+        <header class="bar bar-nav diybar">
+            <h2 class="title">{$Title}</h2>
+            <a class="pull-left back external" href="javascript:window.history.back();"><i class="icon iconfont icon-Left"></i></a>
+        </header>
+        <div class="buttons-tab commonTab">
+            <a href="/muserstudytour/studytourorderlist/" class="tab-link button {if $Status==1}active{/if}">全部订单</a>
+            <a href="/muserstudytour/studytourorderlist/?S=3" class="tab-link button {if $Status==3}active{/if}">未支付</a>
+            <a href="/muserstudytour/studytourorderlist/?S=2" class="tab-link button {if $Status==2}active{/if}">定金已交</a>
+            <a href="/muserstudytour/studytourorderlist/?S=4" class="tab-link button {if $Status==4}active{/if}">交易终止</a>
+        </div>
+        <div class="content">
+            <ul class="orderList">
+                {loop $Data[Data] $key $lists}
+                <li>
+                    <div class="cont">
+                        <a href="{echo WEB_MUSER_URL}/muserstudytour/studytourorderdetail/?ID={$lists[OrderID]}">
+                            <img src="{$lists['Image']}">
+                            <p class="tit">{$lists['OrderName']}</p>
+                            <p class="endtime">出发时间：{$lists['GoDate']}</p>
+                            <p class="goday">报名人数：{$lists['Num']}人</p>
+                            <p class="price">
+                                <span class="pull-right">{$OrderStatus[$lists['Status']]}</span>
+                                <span class="nPrice pull-left"><em>￥</em> {$lists['OneMoney']}/人</span>
+                            </p>
+                        </a>
+                    </div>
+                    {if $lists['Status']==1}
+                    <div class="bottonBox">
+                        <a href="{echo WEB_M_URL}/studytourorder/{$lists['OrderNum']}.html" class="button button-fill goPay">预付定金</a>
+                    </div>
+                    {/if}
+                </li>
+                {/loop}
+            </ul>
+            <!--
+                作者：xiao15980751809@126.com
+                时间：2017-02-22
+                描述：无订单
+            -->
+            <div class="noOrder mt40 tac {if $Rscount['Num']>0 || $Status!=1}hidden{/if}">
+                <p>暂时没有订单</p>
+                <p class="mt10">
+                    <a href="{echo WEB_M_URL}/study/studytourlist/" class="button button-fill goLook">去看看</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{template Footer}
+</body>
+</html>

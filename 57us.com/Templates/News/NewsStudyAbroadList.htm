@@ -1,0 +1,126 @@
+{template Header}
+<div class="wrap">
+	{template NewsStudyMenu}
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" title="57美国网" target="_blank">首页</a>><a href="/study/" title="留学资讯" target="_blank">留学资讯</a>>
+		{if $TopCateInfo}<a href="/studytopic_{$TopCateInfo['Alias']}/" title="{$TopCateInfo['CategoryName']}">{$TopCateInfo['CategoryName']}</a>><a href="/study{if $PrveCateInfo['ParentCategoryID'] == 0}topic{/if}_{$PrveCateInfo['Alias']}/" title="{$PrveCateInfo['CategoryName']}">{$PrveCateInfo['CategoryName']}</a>>{/if}
+		{if !$TopCateInfo && $PrveCateInfo}<a href="/study{if $PrveCateInfo['ParentCategoryID'] == 0}topic{/if}_{$PrveCateInfo['Alias']}/" title="{$PrveCateInfo['CategoryName']}">{$PrveCateInfo['CategoryName']}</a>>{/if}<span>{$CateInfo['CategoryName']}</span></div>
+	<div class="w1200 cf NewsTourMain">
+		<div class="NewsTourSlideR cf fr">
+			<div class="Teacher cf">
+				<div class="cf tjtearch">
+					<a href="{echo WEB_STUDY_URL}/teacher/" class="more fr" target="_blank">更多&gt;&gt;</a>
+					<div class="TeacherTit">教师推荐</div>
+					<ul class="TeacherRlist">
+						{loop $Teacher $key $val}
+						<li><a href="{echo WEB_STUDY_URL}/teacher/{$val['UserID']}.html" target="_blank" title="{$val['RealName']}"><img src="{$val['Avatar']}" width="90" height="90" title="{$val['RealName']}" alt="{$val['RealName']}"/><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+						{/loop}
+					</ul>
+				</div>
+				<div class="cf consultant mt15">
+					<a href="{echo WEB_STUDY_URL}/consultant/" class="more fr" target="_blank">更多&gt;&gt;</a>
+					<div class="TeacherTit">顾问推荐</div>
+					<ul class="TeacherRlist">
+						{loop $Consultant $key $val}
+						<li><a href="{echo WEB_STUDY_URL}/consultant/{$val['UserID']}.html" target="_blank" title="{$val['RealName']}"><img src="{$val['Avatar']}" width="90" height="90" title="{$val['RealName']}" alt="{$val['RealName']}"/><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">顾问</span></a></li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+                        {template TagsCloud}                   
+			<div class="HotTip cf mt25">
+				<div class="HotTipT"><i></i>热门标签</div>
+				<div class="HotTipM">
+					{loop $Keyhot $key $val}
+					<a href="/study/tags_{$val[Keyword]}.html" title="{$val['Keyword']}" target="_blank">{$val['Keyword']}</a>
+					{/loop}
+				</div>
+			</div>
+			<div class="NowNews mt25">
+				<div class="HotTipT"><i></i>热门文章</div>
+				<ul class="NewsList">
+					{loop $HotNews $key $val}
+						<li {if $key < 3}class="i{echo $key+1}{/if}"><a href="/study/{$val['StudyID']}.html" target="_blank" title="{$val['Title']}"><i>{echo $key+1}</i>{$val['Title']}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="NowNews LikeNews mt25">
+				<div class="HotTipT"><i></i>猜你喜欢</div>
+				<ul class="NewsList">
+					{loop $LikeNews $key $val}
+						<li><a href="/study/{$val['StudyID']}.html" target="_blank" title="{$val['Title']}"><i>{echo $key+1}</i>{$val['Title']}</a></li>
+					{/loop}
+				</ul>
+			</div>                    
+		</div>
+		<div class="NewsTourSlideL fl">
+			{if $NextCateInfo}
+			<div class="IeltsMenu">
+				{loop $NextCateInfos $key $val}
+				<a href="/study_{$Type}_{$val['Alias']}/" title="{$val['CategoryName']}" target="_blank" {if $val['Alias']==$NextType}class="on"{/if}>{$val['CategoryName']}</a>
+				{/loop}
+			</div>
+			{/if}
+			<ul class="NewsStudyList">
+				{loop $Data['Data'] $key $val}
+				<li>
+					<span class="date">{echo date("Y-m-d",strtotime($val['AddTime']))}</span>
+					<p class="tit"> <a href="/study/{$val['StudyID']}.html" target="_blank" title="{$val['Title']}">{$val['Title']}</a></p>
+					<p class="nr mt10">{echo mb_substr($val['Description'], 0, 100, 'utf-8')}{if $val['str']==''}……{/if}</p>
+					{if $val['ContentImage'] || $val['Biaoqian']}
+					<div class="ListFun cf mt10">
+						{if $val['ContentImage']}
+						<div class="ListImg">
+							{loop $val['ContentImage'] $k $Image}
+							{if $k < 3}
+								<p><a href="/study/{$val['StudyID']}.html" target="_blank" title="{$val['Title']}"><img  src="{if $Image}{echo ImageURLP2}{$Image}{/if}" class="transition lazy" width="90" height="67" title="{$val['Title']}" alt="{$val['Title']}"/></a></p>
+							{/if}
+							{/loop}
+						</div>
+						{/if}
+						<div class="fun cf">
+							<span class="viewTip fr"><i></i>{$val['ViewCount']}{if $val[ViewCount]==''}0{/if}</span>
+                                                        {if $val['Biaoqian'][0]}
+							<p class="TourTip fl">
+								{loop $val['Biaoqian'] $k1 $v1}{if $k1<2}
+								{if $v1[Keyword]}<span><i></i><a href="/study/tags_{$v1['Keyword']}.html" target="_blank" title="{$v1['Keyword']}">{$v1['Keyword']}</a></span>{/if}
+								{/if}
+								{/loop}
+							</p>
+                                                        {/if}
+						</div>
+					</div>
+					{/if}
+				</li>
+				{/loop}
+			</ul>
+			<div class="page mt50">
+				{echo $ShowPage}
+				{if $ShowPage}
+				<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button"  name="" id="" value="确定" class="PageBtn" /></div>
+				{/if}
+			</div>
+		</div>
+
+	</div>
+	<div class="cf mt50"></div>
+<script>
+	$(".PageBtn").click(function(){
+		var gopage = $("#gopage").val();
+		var lastpage = {$Data['PageCount']};
+		if(!gopage){
+			alert("请输入页码");return false;
+		}
+		if( lastpage < gopage ){
+			alert("您输入的页码超过最大页数");return false;
+		}
+		var gourl = '{$GoPageUrl}';
+		window.location.href=gourl+'_'+gopage+'/';
+		return false;
+	});
+</script>
+{template Footer}

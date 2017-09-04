@@ -1,0 +1,54 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 myProperty">
+    <div class="userData fl">
+        <img src="{echo LImageURL}{$UserInfo['Avatar']}" width="96" height="96">
+        <p class="tit">尊敬的顾问</p>
+        <p class="mt5">账户名 {$UserInfo['NickName']}</p>
+        <p>安全等级：<a href="{echo WEB_MEMBER_URL}/member/securitycenter/" target="_blank">{$SafeLeval}</a></p>
+    </div>
+    <div class="Amount fl">
+        <p>账户余额：</p>
+        <p class="price">￥<em>{$FreeBalance[FreeBalance]}{if !$FreeBalance[FreeBalance]}0.00{/if}</em></p>
+    </div>
+    <div class="Amount fl">
+        <p>冻结余额：</p>
+        <p class="price">￥<em>{$FreeBalance[FrozenBalance]}{if !$FreeBalance[FrozenBalance]}0.00{/if}</em></p>
+    </div>
+    <div class="reflect fr"><a href="JavaScript:void(0)" class="transition publicBtn0">提现</a></div>
+</div>
+<div class="w1200 MoneyBox mt25 cf">
+    <div class="cf MoneyHeader">
+        <p class="fl">近期收支明细</p>
+        <ul class="hd fl">
+            <li {if $T ==''}class="on"{/if}><a href="/consultantmanage/assets">全部</a><span class="line transition"></span></li>
+            <li {if $T == 4}class="on"{/if}><a href="/consultantmanage/assets?T=4">收入</a><span class="line"></span></li>
+            <li {if $T == 2}class="on"{/if}><a href="/consultantmanage/assets?T=2">支出</a><span class="line"></span></li>
+            <li {if $T == 3}class="on"{/if}><a href="/consultantmanage/assets?T=3">提现记录</a><span class="line"></span></li>
+        </ul>
+    </div>
+    <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab mt10">
+        <tr>
+            <th width="25%">交易时间</th>
+            <th width="25%">交易详情</th>
+            <th width="25%">操作金额</th>
+            <th width="25%">帐户余额</th>
+
+        </tr>
+        {loop $Data['Data'] $list}
+        <tr>
+            <td>{$list[AddTime]}</td>
+            <td>{$list[Remarks]}</td>
+            <td>{if $list[OperateType] ==4 || $list[OperateType] ==1 || $list[OperateType] ==5}+{elseif $list[OperateType]==3}-{/if}{$list[Amt]}</td>
+            <td>{$list[Amount]}</td>
+        </tr>
+        {/loop}
+    </table>
+    {if $ShowPage}
+    <div class="page mt50">{$ShowPage}</div>
+    {/if}
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageAssets.js"></script>
+</body>
+</html>

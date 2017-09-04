@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$Title}</title>
+    <meta name="keywords" content="{$Keywords}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="description" content="{$Description}">
+    <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{echo CssURL}/common/TourPublic.css" rel="stylesheet" type="text/css" />
+    <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{echo JsURL}/base/base.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <?php include SYSTEM_ROOTPATH . '/Templates/Common/NewCommonHtml.php'?>
+    <div class="NfixMenu">
+        <ul class="cf">
+            <li class="i1">
+                <a class="a transition" href="JavaScript:void(0)"><i></i></a>
+            </li>
+            <li class="i2">
+                <a class="a transition" href="JavaScript:void(0)"><i></i></a>
+                <div class="FixSecond FixQq">
+                    <em></em>
+                    <div class="FixSecondM">
+                        <p><a target="blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=747009028&amp;site=qq&amp;menu=yes"><img src="http://images.57us.com/img/common/qq.png" width="20">客服:747009028</a></p>
+                        <p><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1223534496&amp;site=qq&amp;menu=yes" target="_blank"><img src="http://images.57us.com/img/common/qq.png" width="20">客服:1223534496</a></p>
+                    </div>
+                </div>
+            </li>
+            <li class="i3" href="JavaScript:void(0)">
+                <a class="a transition" href=""><i></i></a>
+                <div class="FixSecond FixEwm">
+                    <em></em>
+                    <div class="FixSecondM">
+                        <p class="tit">57US旅游微信</p>
+                        <img src="http://images.57us.com/img/common/wxtravel.jpg" width="134"/>
+                    </div>
+                </div>
+            </li>
+            <li class="i4">
+                <a class="a transition" href="JavaScript:void(0)"><i></i></a>
+                <div class="FixSecond FixPhone">
+                    <em></em>
+                    <div class="FixSecondM">400-018-5757</div>
+                </div>
+            </li>
+            <li class="i5 backtop">
+                <a class="a transition" href="JavaScript:void(0)"><i></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="onlineBox" id="onlineBox" style="display: none">
+        <div class="onlineBoxT"><span class="close">×</span><span class="name">在线咨询</span></div>
+        <div class="onlineBoxM" id="onlineBoxM">
+        </div>
+    </div>
+    <div class="InHeader">
+        <div class="w1200 cf">
+            <div class="Insearch mt20 fr">
+                <form action="{echo WEB_VISA_URL}/so.html" method="post" target="_blank">
+                    <input type="" name="keyword" id="keyword" value="" class="input" autocomplete="off" placeholder="搜索国家、城市、产品" />
+                    <input type="submit" id="" value="" class="IsearchBtn" />
+                    <input id="t" name="t"  value="{$TagNav}"  type="hidden"/>
+                </form>
+            </div>
+            <a href="{echo WEB_TOUR_URL}" class="NewsLogo" title="57美国网">57美国网</a> </div>
+    </div>
+    <div class="TourMenu">
+        <ul class="w1200 cf">
+            <li> <a href="{echo WEB_TOUR_URL}" class="FirstA">首页</a> </li>
+            <li> <a href="{echo WEB_TOUR_URL}/dingzhi/#/question/" class="FirstA">高端定制<em class="HotIcon"></em></a> </li>
+            <li> <a href="{echo WEB_TOUR_URL}/group/local/" class="FirstA">跟团游<i></i></a>
+                <div class="SecondUl" style="width: 180px;margin-left: -90px;"> <em></em> <a href="{echo WEB_TOUR_URL}/group/local/">当地参团</a> <a href="{echo WEB_TOUR_URL}/group/home/">国内参团</a> </div>
+            </li>
+            <li> <a href="{echo WEB_TOUR_URL}/play/feature/" class="FirstA">当地玩乐<i></i></a>
+                <div class="SecondUl" style="width: 165px; margin-left: -82px;"> <em></em> <a href="{echo WEB_TOUR_URL}/play/feature/">特色体验</a> <a href="{echo WEB_TOUR_URL}/play/daily/">一日游</a> </div>
+            </li>
+            <li> <a href="{echo WEB_TOUR_URL}/play/ticket/" class="FirstA">门票</a> </li>
+            <li> <a href="{echo WEB_HOTEL_URL}" class="FirstA">酒店</a> </li>
+            <li> <a href="http://zuche.57us.com/" class="FirstA">租车</a> </li>
+            <li> <a href="{echo WEB_VISA_URL}" class="FirstA">签证</a> </li>
+            <!--<li> <a href="{echo WEB_TOUR_URL}/tour/topica/" class="FirstA">活动专区<em class="HotIcon"></em></a> </li>-->
+            <li> <a href="{echo WEB_MAIN_URL}/tour/" class="FirstA" target="_blank">旅游资讯</a> </li>
+            <li> <a href="{echo WEB_TOUR_URL}/city/" class="FirstA" target="_blank">城市专题</a> </li>
+        </ul>
+    </div>

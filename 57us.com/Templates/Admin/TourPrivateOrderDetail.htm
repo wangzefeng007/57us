@@ -1,0 +1,72 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li>
+          <a href="/index.php?Module=TourQuestionnaire&Action=TourPrivateOrderList" class="position">高端定制订单管理</a>
+        </li>
+        <li class="active" id="modify">订单详情信息</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-body">
+          <form action='/index.php?Module=CarRent&Action=CarRentEdit'  method='post'  enctype="multipart/form-data">
+            <table class="table table-bordered table-striped table-hover">
+              <tr>
+                <td class="t-h" colspan="3">订单详情：</td>
+              </tr>
+              <tr>
+                <td>订单号：{$OderInfo[OrderNo]}</td>
+                <td>下单时间：{$OderInfo[CreateTime]}</td>
+                <td>客户端IP：{$OderInfo[IP]}</td>
+              </tr>
+              <tr>
+                <td>订单金额：{$OderInfo[Money]}</td>
+                <td>订单状态：{$OderInfo[Status]}</td>
+                <td>支付方式：{$OderInfo[PayType]}</td>
+              </tr>
+              <tr>
+                <td>出发地：{$OderInfo[StartCity]}</td>
+                <td>目的地：{$OderInfo[EndCity]}</td>
+                <td>游玩景点：{$OderInfo[ScenicSpots]}</td>
+              </tr>
+              <tr>
+                <td>特色项目定制：{$OderInfo[Customizatin]}</td>
+                <td>特色定制需要：{$OderInfo[Demand]}</td>
+                <td>其他需求：{$OderInfo[OtherDemand]}</td>
+              </tr>
+              <tr>
+                <td>酒店星级：{$OderInfo[StarHotel]}</td>
+                <td>人员：成人{$Number[Addult]}儿童{$Number[Minor]}</td>
+                <td>出发时间是否可以跳转：{if $OderInfo[adjust]==1}可以{elseif $OderInfo[adjust]==2}不可以{/if}</td>
+              </tr>
+              <tr>
+                <td>姓名：{$OderInfo[Name]}</td>
+                <td>手机号：{$OderInfo[Phone]}</td>
+                <td>邮箱：{$OderInfo[Mail]}</td>
+              </tr>
+              <tr>
+            </table>
+            <tr>
+              <td height="35" width="500px"><a class="right"  href="/index.php?Module=TourQuestionnaire&Action=TourPrivateOrderList">返回高端订单列表</a></td>
+            </tr>
+            <input type="hidden" name="ID" value="{$OderInfo[ID]}" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

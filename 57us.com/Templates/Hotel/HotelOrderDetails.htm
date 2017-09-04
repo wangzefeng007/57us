@@ -1,0 +1,210 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/hotel/hotel.css" rel="stylesheet" type="text/css" />
+<script src="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.js"></script>
+<script src="<?php echo JsURL;?>/base/layer/2.4/layer.js"></script>
+    <div class="w1200 mt30 cf">
+    	<div class="OrderDetailMange">
+        	<div class="OrderDetailBox fl">
+                <div class="OrderDetailImg fl">
+                    <img src="{$HotelInfo[Img]}">
+                </div>
+                <div class="cont fl">
+                    <p class="tit">{$OrderInfo[HotelName]}</p>
+                    <p class="nr">
+                        <span>订单号：{$OrderInfo[OrderNo]}</span><span>下单时间：{$OrderInfo[AddTime]}</span><span>订单状态：{$OrderStatus}</span>
+                    </p>
+                </div>
+                <div class="price">¥<i>{$OrderInfo[Money]}</i></div>
+             </div>
+            {if $OrderInfo[Status]==5}
+            <div class="tkbox mt20 fl">
+            	<span class="red">正在处理退款申请</span>
+            </div>
+            {elseif $OrderInfo[Status]==3 || $OrderInfo[Status]==2 || ($OrderInfo[Status]==4 && $OrderInfo[PayType]>0)}
+            <div class="tkbox mt20 fl">
+            	<div class="FunBtnBox">
+            		<a href="javascript:void(0);" class="CanceBtn cid">申请退款</a>
+            	</div>
+            </div>            
+            {elseif $OrderInfo[Status]==1}
+            <div class="tkbox mt20 fl">
+            	<div class="FunBtnBox">
+            		<a href="{echo WEB_HOTEL_URL}/order/{$OrderInfo[OrderNo]}.html" class="GoPayBtn">去支付</a>
+            		<a href="{echo WEB_HOTEL_URL}/order/cancel/?ID={$OrderInfo[OrderNo]}" class="CanceBtn fid">取消订单</a>
+            	</div>
+            	剩余 <div class="red Countdown"><span class="days">0</span>天:<span class="hours">0</span>小时:<span class="minutes">0</span>分:<span class="seconds">0</span>秒</div>完成支付，逾期订单将自动取消
+            </div>
+            {/if}
+        </div>
+        <div class="OrderDetailMange mt20">
+        	<div class="cf">
+            	<div class="DetailBoxTit">订单信息 <!--<a href="" class="PrintOrder">打印订单</a>--></div>
+            	<div class="HotelOrderDetail mt20">
+            		<div class="ChatEwm"></div>
+            		<table border="0" cellspacing="0" cellpadding="0">
+            			<tr height="35">
+            				<td colspan="2">订单号：{$OrderInfo[OrderNo]}</td>
+            			</tr>
+            			<tr height="35">
+            				<td colspan="2">酒店名称：{$OrderInfo[HotelName]}</td>
+            			</tr>
+            			<tr height="35">
+            				<td colspan="2"><span>房型：{$OrderInfo[RoomName]}</span><span>床型：{$BedTypeInfo[Name_Cn]}</span><span>早餐：{if $OrderInfo[Breakfast]==1}不含早餐{elseif $OrderInfo[Breakfast]==2}含早餐{/if}</span><span>入住离店日期：{$OrderInfo[CheckInDate]} 至 {$OrderInfo[CheckOutDate]}</span><span>{$Days}晚</span></td>
+            			</tr>
+            			<tr height="35">
+            				<td width="80" valign="top">入住信息：</td>
+            				<td>
+            					<ul class="RoomManInsLis">
+                                                    {loop range(1,$OrderInfo[RoomNum]) $val}
+            						<li><i class="RoomTip">房间{$val}</i>
+                                                            <span>{$RoomPersonNum[$val-1][AdultCount]}成人 {$RoomPersonNum[$val-1][ChildCount]}儿童</span>
+                                                            {loop $GuestList[$val-1] $GuestInfo}
+                                                                <span>{$GuestInfo[Last]}  {$GuestInfo[First]}</span>
+                                                            {/loop}
+                                                        </li>
+                                                    {/loop}
+            					</ul>
+            				</td>
+            			</tr>
+            		</table>
+            	</div>
+            </div>
+        	<div class="line mt20"></div>
+        	<div class="cf mt30">
+            	<div class="DetailBoxTit">联系人信息</div>
+            	<table border="0" cellspacing="0" cellpadding="0" width="100%" class="mt20">
+            		<tbody><tr height="28"> 
+            			<td>姓名：{$OrderInfo[ContactFirstName]} {$OrderInfo[ContactLastName]}</td>
+            			<td>手机：{$OrderInfo[ContactPhone]}</td>
+            			<td>邮箱：{$OrderInfo[ContactEMail]}</td>
+            		</tr>
+            	</tbody></table>
+            </div>
+            <div class="line mt20"></div>
+        	<div class="cf mt30">
+            	<div class="DetailBoxTit">订单取消政策</div>
+            	<div class="cf mt20">
+                    {if isset($Cancel[CancellationPolicy])}
+                            {if isset($Cancel[CancellationPolicy][FromDate])}
+                                {if strtotime($Cancel[CancellationPolicy][FromDate])>time()}
+                                    <p>在 {echo date('Y-m-d',strtotime($Cancel[CancellationPolicy][FromDate]))} 之前可以免费取消，从 {echo date('Y-m-d',strtotime($Cancel[CancellationPolicy][FromDate]))} 开始取消订单,需缴纳罚金 ¥{echo ceil($Cancel[CancellationPolicy][Amount]*0.1+$Cancel[CancellationPolicy][Amount])}</p>                                                                
+                                {else}
+                                    <p>预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费</p>
+                                {/if}
+                            {else}
+                                {if strtotime($Cancel[CancellationPolicy][0][FromDate])>time()}
+                                        <p>在 {echo date('Y-m-d',strtotime($Cancel[CancellationPolicy][0][FromDate]))} 之前可以免费取消，从 {echo date('Y-m-d',strtotime($Cancel[CancellationPolicy][0][FromDate]))} 开始取消订单,需缴纳罚金 ¥{echo ceil($Cancel[CancellationPolicy][count($Cancel[CancellationPolicy])-1][Amount]*0.1+$Cancel[CancellationPolicy][count($Cancel[CancellationPolicy])-1][Amount])}</p>
+                                {else}
+                                    <p>预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费</p>
+                                {/if}
+                            {/if}
+                    {else}
+                        <p>预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费</p>
+                    {/if}        
+            	</div>
+            </div>
+        </div>
+        </div>
+ <div class="GetCancePop hidden" name='Cance'>
+	<div class="CancePop">
+		<p >取消原因：</p>
+		<p><label name="rbt" type="radiobox" class="rb_active" val="行程改变"><i></i>行程改变</label></p>
+                <p><label name="rbt" type="radiobox" val="订错入住日期/酒店房型"><i></i>订错入住日期/酒店房型</label></p>
+		<p><label name="rbt" type="radiobox" val="信息填写错误"><i></i>信息填写错误</label></p>
+		<p><label name="rbt" type="radiobox" val="其他"><i></i>其他</label></p>
+   </div>
+</div>
+<div class="GetCancePop hidden" name='Refund'>
+	<div class="CancePop">
+		<p >退款原因：</p>
+		<p><label name="rbt" type="radiobox" class="rb_active" val="行程改变"><i></i>行程改变</label></p>
+                <p><label name="rbt" type="radiobox" val="订错入住日期/酒店房型"><i></i>订错入住日期/酒店房型</label></p>
+		<p><label name="rbt" type="radiobox" val="信息填写错误"><i></i>信息填写错误</label></p>
+		<p><label name="rbt" type="radiobox" val="其他"><i></i>其他</label></p>
+   </div>
+</div>         
+    {if $OrderInfo[Status]==1}
+    <script type="text/javascript" src="{echo JsURL}/base/jquery.downCount/jquery.downCount.js"></script> 
+    <script class="source" type="text/javascript">
+    $('.Countdown').downCount({
+            date: '{$OrderInfo[ExpirationTime]}',
+            offset: +8
+    }, function () {
+            $.get('/order/cancel/',{No:'{$OrderInfo[OrderNo]}'},function(data){
+                window.location=window.location.href;
+            }); 
+            alert('倒计时结束!');
+    });
+    </script>
+    {/if}
+    <script type="text/javascript">
+    	//取消订单
+	$(".FunBtnBox .cid").click(function() {
+		var CancePop = $(".GetCancePop[name='Cance']").html();
+		layer.confirm(CancePop, {
+			skin: 'GetCancePop',
+			title: "订单取消",
+			btn: ['取消订单', '点错了'],
+			success: function(layero, index) {
+				$('[name="rbt"]').inputbox();
+			},
+			yes: function() {
+				var text = $('.GetCancePop label.rb_active').attr('val');
+				var ajaxData = {
+					'ID': '{$OrderInfo[OrderID]}',
+					'CancelReason': text
+				};
+				$.post('/order/cancel/', ajaxData, function(json) {
+					var icon;
+					if (json.ResultCode === 200) {
+						iconNum = 1;
+					} else {
+						iconNum = 2;
+					}
+					layer.msg(json.Message, {
+						skin: 'GetCancePopMsg',
+						icon: iconNum,
+						time: 1000,
+					});
+					setTimeout(window.location.reload(), 1000);
+				}, 'json');
+			}
+		});
+	});
+	$(".FunBtnBox .fid").click(function() {
+		var CancePop = "<div id='refundWin'>" + $(".GetCancePop[name='Refund']").html() + "</div>";
+		layer.confirm(CancePop,{
+			skin: 'GetCancePop',
+			title: "申请退款",
+			btn: ['申请退款', '点错了'],
+			success: function(layero, index) {
+				$('[name="rbt"]').inputbox();
+			},
+			yes: function() {
+				var text = $('#refundWin label.rb_active').attr('val');
+                                var ajaxData = {
+					'ID': '{$OrderInfo[OrderID]}',
+					'CancelReason': text
+                                    };
+				$.post('/order/cancel/', ajaxData, function(json) {
+				    var icon;
+				    if (json.ResultCode === 200) {
+				        iconNum = 1;
+				    } else {
+				        iconNum = 2;
+				    }
+				    layer.msg(json.Message, {
+				        skin: 'GetCancePopMsg',
+				        icon: iconNum,
+				        time: 1000,
+				    });
+				    setTimeout(window.location.reload(), 1000);
+				}, 'json');
+			}
+		});
+	});
+    </script>
+    <style type="text/css">
+	.CancePop{padding: 0;}
+</style>
+{template 'Common/TourFooter',1}

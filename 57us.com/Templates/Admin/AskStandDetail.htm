@@ -1,0 +1,74 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">问答专区管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=Ask&Action=Lists&Type={$Type}" class="active">留学站队模块</a>
+                </li>
+                <span class="position hidden">留学站队模块</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">问题:{$AskInfo['AskInfo']}</span>
+                </div>
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>哪一方</th>
+                            <th>回答</th>
+                            <th>状态</th>
+                            <th>回答时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $Data[Data] $lists}
+                        <tr height="35" align="center">
+                            <td nowrap="nowrap">{if $lists[StandInfo] == 1}正方{else}反方{/if}</td>
+                            <td nowrap="nowrap" width="200">{$lists[AnswerInfo]}</td>
+                            <td nowrap="nowrap">{if $lists['Status']==0}未审核{elseif $lists['Status']==1}审核通过{elseif $lists['Status']==2}审核不通过{/if}</td>
+                            <td nowrap="nowrap">{echo date("Y-m-d H:i:s",$lists[AddTime])}</td>
+                            <td nowrap="nowrap"><a href="/index.php?Module=Ask&Action=DeleteAnswer&ID={$lists[AnswerID]}" data-id="{$lists[AnswerID]}" class="del">删除</a>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    <form action="/index.php?Module=Ask&Action=AskDetail&ID={$AskID}" method="POST">
+                        <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                <li><a href="/index.php?Module=Ask&Action=AskDetail&ID={$AskID}&Page=1">首页</a></li>
+                                {if $Previous}
+                                <li><a href="/index.php?Module=Ask&Action=AskDetail&ID={$AskID}&Page={$Previous}">上一页</a></li>
+                                {/if}
+                                {loop $Data[PageNums] $page}
+                                <li><a href="/index.php?Module=Ask&Action=AskDetail&ID={$AskID}&Page={$page}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+                                {/loop}
+                                {if $Next}
+                                <li><a href="/index.php?Module=Ask&Action=AskDetail&ID={$AskID}&Page={$Next}">下一页</a></li>
+                                {/if}
+                                <li><a href="/index.php?Module=Ask&Action=AskDetail&ID={$AskID}&Page={$Data[PageCount]}">尾页</a></li>
+                                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

@@ -1,0 +1,7 @@
+{
+  "ResultCode":200,
+  "Date":"2016-12-26",
+  "TourProductID":"2016",
+  "Num":"2",
+  "CostList":"<div class=\"row freeDetailList\" data-id=\"3316\" data-value=\"3950\"><div class=\"col-50\">房间1：1成人，0儿童</div><div class=\"col-50\">费用：<span class=\"red\">￥<i>3950</i></span></div></div><div class=\"row freeDetailList\" data-id=\"3316\" data-value=\"3950\"><div class=\"col-50\">房间2：1成人，0儿童</div><div class=\"col-50\">费用：<span class=\"red\">￥<i>3950</i></span></div></div><div class=\"row freeDetailList\" data-id=\"3316\" data-value=\"3950\"><div class=\"col-50\">房间3：1成人，0儿童</div><div class=\"col-50\">费用：<span class=\"red\">￥<i>3950</i></span></div></div>"
+}

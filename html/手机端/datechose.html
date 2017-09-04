@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>日期选择</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm-extend.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/tour/style.css">
+		
+	</head>
+	<body>
+		<div class="page">
+			<!-- 标题栏 -->
+            <header class="bar bar-nav diybar">
+                <a class="icon icon-left back pull-left"></a>
+                <h1 class="title">选择出发日期</h1>
+            </header>
+            <section class="diyDatePick">
+            	<div class="diyMonth swiper-container" id="month">
+            		<div class="swiper-wrapper">
+            			<div class="swiper-slide on">01月</div>
+	            		<div class="swiper-slide">02月</div>
+	            		<div class="swiper-slide">03月</div>
+	            		<div class="swiper-slide">04月</div>
+	            		<div class="swiper-slide">05月</div>
+	            		<div class="swiper-slide">06月</div>
+	            		<div class="swiper-slide">07月</div>
+	            		<div class="swiper-slide">08月</div>
+	            		<div class="swiper-slide">09月</div>
+	            		<div class="swiper-slide">10月</div>
+	            		<div class="swiper-slide">11月</div>
+	            		<div class="swiper-slide">12月</div>
+            		</div>	
+            	</div>
+            	<div class="diyCont">
+        			<div class="weekDays bar-tab">
+        				<span class="tab-item">日</span>
+        				<span class="tab-item">一</span>
+        				<span class="tab-item">二</span>
+        				<span class="tab-item">三</span>
+        				<span class="tab-item">四</span>
+        				<span class="tab-item">五</span>
+        				<span class="tab-item">六</span>
+        			</div>
+        		</div>
+        		<div class="dateCont">
+        			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+        				<tr>
+        					<td><div class="day"></div></td>
+        					<td><div class="day"</div></td>
+        					<td><div class="day"</div></td>
+        					<td><div class="day"</div></td>
+        					<td><div class="day"</div></td>
+        					<td><div class="day"</div></td>
+        					<td><div class="day">1</div></td>
+        				</tr>
+        				<tr>
+        					<td class="has"><div class="day">2</div><p class="price">￥18999</p></td>
+        					<td><div class="day">3</div></td>
+        					<td class="has choseDay"><div class="day">4</div><p class="price">￥18999</p></td>
+        					<td><div class="day">5</div></td>
+        					<td><div class="day">6</div></td>
+        					<td><div class="day">7</div></td>
+        					<td><div class="day">8</div></td>
+        				</tr>
+        				<tr>887
+        					<td><div class="day">9</div></td>
+        					<td><div class="day">10</div></td>
+        					<td><div class="day">11</div></td>
+        					<td><div class="day">12</div></td>
+        					<td><div class="day">13</div></td>
+        					<td><div class="day">14</div></td>
+        					<td><div class="day">15</div></td>
+        				</tr>
+        				<tr>
+        					<td><div class="day">16</div></td>
+        					<td><div class="day">17</div></td>
+        					<td><div class="day">18</div></td>
+        					<td><div class="day">19</div></td>
+        					<td><div class="day">20</div></td>
+        					<td><div class="day">21</div></td>
+        					<td><div class="day">22</div></td>
+        				</tr>
+        				<tr>
+        					<td><div class="day">23</div></td>
+        					<td><div class="day">24</div></td>
+        					<td><div class="day">25</div></td>
+        					<td><div class="day">26</div></td>
+        					<td><div class="day">27</div></td>
+        					<td><div class="day">28</div></td>
+        					<td><div class="day">29</div></td>
+        				</tr>
+        				<tr>
+        					<td><div class="day">30</div></td>
+        					<td><div class="day">31</div></td>
+        					<td><div class="day"></div></td>
+        					<td><div class="day"></div></td>
+        					<td><div class="day"></div></td>
+        					<td><div class="day"></div></td>
+        					<td><div class="day"></div></td>
+        				</tr>
+        			</table>
+        		</div>
+            </section>
+		</div>
+		
+		<script type='text/javascript' src="http://js.57us.net/m/lib/zepto/1.2/zepto.js"  charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/dev/swiper.js" charset='utf-8'></script>
+		<script type="text/javascript">
+		$(function(){
+			var swiper = new Swiper('.swiper-container', {
+	        slidesPerView:5
+	    	});
+	    	$(".swiper-slide").on('click',function(){
+	    		$(this).addClass("on").siblings().removeClass("on");
+	    	})
+		})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>旅游首页</title>
+<script src="http://js.57us.cn/base/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://js.57us.cn/base/jquery.SuperSlide/2.1/jquery.SuperSlide.2.1.js"></script>
+<script src="http://js.57us.cn/base/delayLoading/lyz.delayLoading.min.js"></script>
+<link href="http://css.57us.cn/common/reset.css" rel="stylesheet" type="text/css" />
+<link href="http://css.57us.cn/www/newspublic.css" rel="stylesheet" type="text/css" />
+<link href="http://css.57us.cn/www/newsStyle.css" rel="stylesheet" type="text/css" />
+<script src="http://js.57us.cn/www/newspublic.js"></script>
+<script src="http://js.57us.cn/www/jquery.qrcode.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+	<div class="NewsHeader">
+		<div class="w1200 cf NewsTop">
+			<div class="fl">欢迎来到57美国网旅游平台!</div>
+			<div class="fr">|<a href="http://www.57us.com/about/xieyi.html">帮助中心</a></div>
+			<div class="fr">
+				<div class="UserStatus fr">
+					<div class="UserLogin hidden">
+						<a href="http://member.57us.com/member/login/">登录</a><span id="">|</span>
+                        <a href="http://member.57us.com/member/register/">免费注册</a>   
+					</div>
+					<div class="UserLogin">
+						<div class="UserMain">
+								<a href="">
+								<img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2069873511,207811596&amp;fm=80">
+								<span id="" class="UserName">57US_U54033888</span>
+								</a>
+								<div class="UserList">
+									<b class="ico"></b>
+									<table border="0" cellspacing="0" cellpadding="0">
+										<tbody><!--<tr>
+											<th width="80">全部订单</th>
+											<td><a href="">旅游订单</a><a href="">租车订单</a><a href="">酒店订单</a><a href="">签证订单</a></td>
+										</tr>-->
+										<tr>
+											<th width="80">账户管理</th>
+											<td><a href="http://member.57us.com">个人中心</a><a href="http://member.57us.com/member/securitycenter/">安全中心</a><a href="http://member.57us.com/member/address/">收货地址</a><a href="http://member.57us.com/member/signout/">安全退出</a></td>
+										</tr>
+									</tbody></table>
+								</div>
+						</div>
+						<a id="" class="letter" href=""></a><span id="">|</span><a href="http://member.57us.com/member/signout/">退出</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="Newshead cf w1200">
+			<div class="NewsSearchBox fr">
+				<input type="text" name="" id="" value="" class="input" placeholder="" />
+				<input type="button" id="" value="" class="SearchBtn" />
+			</div>
+			<a href="http://tour.57us.com" class="NewsLogo" title="57美国网">57美国网</a>
+		</div>
+	</div>
+	<div class="w1200 ModelHeader">
+		<ul>
+			<li class="i1">
+				<i class="ico"></i>
+				<p class="f16"><b>旅游：</b><a href="">旅游新发现</a><a href="">当季推荐</a><a href="">美国游记</a><a href="">美食购物</a><a href="">跟团游</a></p>
+			</li>
+			<li class="i2">
+				<i class="ico"></i>
+				<p class="f16"><b>留学：</b><a href="">院校</a><a href="">留学</a><a href="">考试</a><a href="">游学</a><a href="">签证</a></p>
+			</li>
+			<li class="i3">
+				<i class="ico"></i>
+				<p class="f16"><b>移民：</b><a href="">移民攻略</a><a href="">移民类别</a><a href="">生活指南</a><a href="">投资房产</a><a href="">移民百科</a></p>
+			</li>
+		</ul>
+	</div>
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="#">首页</a>><span>美国旅游</span></div>
+	<div class="w1200 NewsStudyMain cf">
+		<div class="TourFindBox cf mt10">
+			<div class="TourBoxTitle">
+				<a href="" class="more fr">更多></a>
+				<span class="name">旅游新发现</span>
+			</div>
+			<div class="TourFindBoxM cf">
+				<!--<div class="poster-main B_Demo">
+					<div class="poster-btn poster-prev-btn"></div>
+					<ul class="poster-list">
+						<li class="poster-item"><a href="#"><img src="http://img.57us.com/www/pic/img1.jpg" width="100%" ><p class="tit">解析美国移民L-1签证和H-1签证的各自优势</p></a></li>
+						<li class="poster-item"><a href="#"><img src="http://img.57us.com/www/pic/img1.jpg" width="100%" ><p class="tit">解析美国移民L-1签证和H-1签证的各自优势</p></a></li>
+						<li class="poster-item"><a href="#"><img src="http://img.57us.com/www/pic/img1.jpg" width="100%" ><p class="tit">解析美国移民L-1签证和H-1签证的各自优势</p></a></li>
+						<li class="poster-item"><a href="#"><img src="http://img.57us.com/www/pic/img1.jpg" width="100%" ><p class="tit">解析美国移民L-1签证和H-1签证的各自优势</p></a></li>
+						<li class="poster-item"><a href="#"><img src="http://img.57us.com/www/pic/img1.jpg" width="100%" ><p class="tit">解析美国移民L-1签证和H-1签证的各自优势</p></a></li>
+					</ul>
+					<div class="poster-btn poster-next-btn"></div>
+				</div>-->
+				<div id="top hidden">
+					<div class="small">
+    	<ul>
+
+        	<li class="" style="opacity: 0.64;"><img src="./images/01.jpg"></li>
+
+            <li class="hove" style="opacity: 0.76;"><img src="./images/02.jpg"></li>
+
+            <li style="opacity: 0.4;" class=""><img src="./images/03.jpg"></li>
+
+            <li style="opacity: 0.4;" class=""><img src="./images/04.jpg"></li>
+
+            <li style="opacity: 0.4;" class=""><img src="./images/05.jpg"></li>
+
+            <li style="opacity: 0.4;" class=""><img src="./images/06.jpg"></li>
+
+            <li style="opacity: 0.4;" class=""><img src="./images/07.jpg"></li>
+
+            <li style="opacity: 0.4;" class=""><img src="./images/08.jpg"></li>
+
+            <li style="opacity: 0.4;" class=""><img src="./images/09.jpg"></li>
+
+        </ul>
+
+    </div>
+    <div id="box">
+
+	<div class="bg"></div>
+
+    <div id="list">
+
+        <ul>
+
+            <li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+
+            <li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+            <li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+			<li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+
+            <li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+             <li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+
+            <li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+            <li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+			<li >
+            	<img src="./images/01(1).jpg"><p class="tit">test</p>
+            </li>
+
+
+        </ul>
+
+        <a href="javascript:;" class="prev"></a>
+
+        <a href="javascript:;" class="next"></a>
+
+    </div>
+
+</div>
+
+</div>
+			</div>
+		</div>
+		<div class="cf TourAd1 mt30"><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160422/20160422203636446.jpg" class="transition lazy" width="1200" height="90" /></a></div>
+		<div class="TourNoteBox mt10">
+			<div class="TourBoxTitle">
+				<a href="" class="more fr">更多></a>
+				<span class="name">美国游记</span>
+			</div>
+			<ul class="WaterFall cf">
+	    		<li>
+	    			<a href="" class="img"><img  data-original="http://www.jq22.com/demo/jQuery-pbl20160309/images/1.jpg" width="285" height="199" class="transition lazy"/></a>
+	    			<div class="WaterFallM">
+	    				<p class="tit"><a href="">美丽的宾夕法尼亚乡村公路乡村公路乡村公路</a></p>
+	    				<p class="nr">关于Crested Butte 的秋色和行程路原来的帖里介绍过，这次就给大家看看照片吧。今年科州六月了还下了雪，夏…</p>
+	    				<p class="fun mt10">
+	    					<span class="map fl"><i></i>纽约</span>
+	    					<span class="view fr"><i></i>593</span>
+	    				</p>
+	    			</div>
+	    			<div class="WaterFallB cf">
+	    				<span class="fl">by:Karen</span>
+	    				<span class="fr">2016-05-02</span>
+	    			</div>
+	    		</li>
+	    		<li>
+	    			<a href="" class="img"><img  data-original="http://www.jq22.com/demo/jQuery-pbl20160309/images/1.jpg" width="285" height="199" class="transition lazy"/></a>
+	    			<div class="WaterFallM">
+	    				<p class="tit"><a href="">美丽的宾夕法尼亚乡村公路乡村公路乡村公路</a></p>
+	    				<p class="nr">关于Crested Butte 的秋色和行程路原来的帖里介绍过，这次就给大家看看照片吧。今年科州六月了还下了雪，夏…</p>
+	    				<p class="fun mt10">
+	    					<span class="map fl"><i></i>纽约</span>
+	    					<span class="view fr"><i></i>593</span>
+	    				</p>
+	    			</div>
+	    			<div class="WaterFallB cf">
+	    				<span class="fl">by:Karen</span>
+	    				<span class="fr">2016-05-02</span>
+	    			</div>
+	    		</li>
+	    		<li>
+	    			<a href="" class="img"><img  data-original="http://www.jq22.com/demo/jQuery-pbl20160309/images/1.jpg" width="285" height="199" class="transition lazy"/></a>
+	    			<div class="WaterFallM">
+	    				<p class="tit"><a href="">美丽的宾夕法尼亚乡村公路乡村公路乡村公路</a></p>
+	    				<p class="nr">关于Crested Butte 的秋色和行程路原来的帖里介绍过，这次就给大家看看照片吧。今年科州六月了还下了雪，夏…</p>
+	    				<p class="fun mt10">
+	    					<span class="map fl"><i></i>纽约</span>
+	    					<span class="view fr"><i></i>593</span>
+	    				</p>
+	    			</div>
+	    			<div class="WaterFallB cf">
+	    				<span class="fl">by:Karen</span>
+	    				<span class="fr">2016-05-02</span>
+	    			</div>
+	    		</li>
+	    		<li>
+	    			<a href="" class="img"><img  data-original="http://www.jq22.com/demo/jQuery-pbl20160309/images/1.jpg" width="285" height="199" class="transition lazy"/></a>
+	    			<div class="WaterFallM">
+	    				<p class="tit"><a href="">美丽的宾夕法尼亚乡村公路乡村公路乡村公路</a></p>
+	    				<p class="nr">关于Crested Butte 的秋色和行程路原来的帖里介绍过，这次就给大家看看照片吧。今年科州六月了还下了雪，夏…</p>
+	    				<p class="fun mt10">
+	    					<span class="map fl"><i></i>纽约</span>
+	    					<span class="view fr"><i></i>593</span>
+	    				</p>
+	    			</div>
+	    			<div class="WaterFallB cf">
+	    				<span class="fl">by:Karen</span>
+	    				<span class="fr">2016-05-02</span>
+	    			</div>
+	    		</li>
+	    		<li>
+	    			<a href="" class="img"><img  data-original="http://www.jq22.com/demo/jQuery-pbl20160309/images/1.jpg" width="285" height="199" class="transition lazy"/></a>
+	    			<div class="WaterFallM">
+	    				<p class="tit"><a href="">美丽的宾夕法尼亚乡村公路乡村公路乡村公路</a></p>
+	    				<p class="nr">关于Crested Butte 的秋色和行程路原来的帖里介绍过，这次就给大家看看照片吧。今年科州六月了还下了雪，夏…</p>
+	    				<p class="fun mt10">
+	    					<span class="map fl"><i></i>纽约</span>
+	    					<span class="view fr"><i></i>593</span>
+	    				</p>
+	    			</div>
+	    			<div class="WaterFallB cf">
+	    				<span class="fl">by:Karen</span>
+	    				<span class="fr">2016-05-02</span>
+	    			</div>
+	    		</li>
+    		</ul>
+		</div>
+		<div class="ScrollPic mt30">
+			<a href="JavaScript:void(0)" class="prev transition"><i>上一页</i></a>
+			<div class="ScrollMain">
+				<ul>
+					<li><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png" class="transition lazy" width="280" height="210"/><p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p></a></li>
+					<li><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png" class="transition lazy" width="280" height="210"/><p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p></a></li>
+					<li><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png" class="transition lazy" width="280" height="210"/><p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p></a></li>
+					<li><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png" class="transition lazy" width="280" height="210"/><p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p></a></li>
+					<li><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png" class="transition lazy" width="280" height="210"/><p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p></a></li>
+					<li><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png" class="transition lazy" width="280" height="210"/><p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p></a></li>
+					<li><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png" class="transition lazy" width="280" height="210"/><p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p></a></li>
+					<li class="more"><a href="">更多产品（什么产品程序去掉）</a></li>
+				</ul>
+			</div>
+			<a href="JavaScript:void(0)" class="next transition"><i>下一页</i></a>
+		</div>
+		<div class="TourBox mt20 cf">
+			<div class="TourBoxTitle">
+				<a href="" class="more fr">更多></a>
+				<span class="name">当季推荐</span>
+			</div>
+			<ul class="TourFind">
+				<li class="i1">
+					<a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162519965.png" class="transition lazy" width="600" height="440" />
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png" class="transition lazy" width="280" height="210" />
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331163218630.png" class="transition lazy" width="280" height="210" />
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160422/20160422194758922.jpg" class="transition lazy" width="280" height="210" />
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160422/20160422203636446.jpg" class="transition lazy" width="280" height="210" />
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="cf TourAd1"><a href=""><img  data-original="http://tour.57us.com/Uploads/Tour/hty20160422/20160422203636446.jpg" class="transition lazy" width="1200" height="90" /></a></div>
+		<div class="TourBox mt10 cf">
+			<div class="TourBoxTitle">
+				<a href="" class="more fr">更多></a>
+				<span class="name">美食购物</span>
+			</div>
+			<ul class="TourFoodList">
+				<li>
+					<a href=""><img class="transition lazy" width="285" height="214" data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png">
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img class="transition lazy" width="285" height="214" data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png">
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img class="transition lazy" width="285" height="214" data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png">
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img class="transition lazy" width="285" height="214" data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png">
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img class="transition lazy" width="285" height="214" data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png">
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img class="transition lazy" width="285" height="214" data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png">
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img class="transition lazy" width="285" height="214" data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png">
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+				<li>
+					<a href=""><img class="transition lazy" width="285" height="214" data-original="http://tour.57us.com/Uploads/Tour/hty20160331/20160331162130462.png">
+						<p class="tit">美国旅游洛杉矶-羚羊彩穴-旧金山-西峡谷9天8晚跟团游</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="cf mt50"></div>
+	<div class="NewsFoot">
+		<div class="w1200 FootLink cf">
+			<p><span>热门搜索：</span><a href="">当季推荐</a><a href="">旅游新发现</a><a href="">美国游记</a><a href="">美食购物</a><a href="">高端定制</a><a href="">跟团游</a><a href="">当地玩乐</a><a href="">美国酒店</a><a href="">美国签证</a><a href="">美国租车</a><a href="">洛杉矶</a><a href="">旧金山当季推荐</a><a href="">旅游新发现</a><a href="">美国游记</a><a href="">美食购物</a><a href="">高端定制</a><a href="">跟团游</a><a href="">当地玩乐</a><a href="">美国酒店</a><a href="">美国签证</a><a href="">美国租车</a><a href="">洛杉矶</a><a href="">旧金山当季推荐</a><a href="">旅游新发现</a><a href="">美国游记</a> </p>
+			<p><span>友情链接：</span><a href="">当季推荐</a><a href="">旅游新发现</a><a href="">美国游记</a><a href="">美食购物</a><a href="">高端定制</a><a href="">跟团游</a><a href="">当地玩乐</a><a href="">美国酒店</a><a href="">美国签证</a><a href="">美国租车</a><a href="">洛杉矶</a><a href="">旧金山当季推荐</a><a href="">旅游新发现</a><a href="">美国游记</a><a href="">美食购物</a><a href="">高端定制</a><a href="">跟团游</a><a href="">当地玩乐</a><a href="">美国酒店</a><a href="">美国签证</a><a href="">美国租车</a><a href="">洛杉矶</a><a href="">旧金山当季推荐</a><a href="">旅游新发现</a><a href="">美国游记</a> </p>
+		</div>
+		<div class="w1200 cf mt15 NewsFooter">
+			<a class="FootLogo mt15" href="">57美国网</a>
+			<div class="FootCont fl">
+				<a href="">公司简介</a><a href="">|</a><a href="">联系我们</a><a href="">|</a><a href="">站点地图</a><a href="">|</a><a href="">使用条款</a><a href="">|</a><a href="">隐私保护</a><a href="">|</a><a href="">帮助中心</a><br>
+Copyright © 2015 57US.com <a href="">57美国网</a> All rights reserved. 闽ICP备15017345号  客服电话：400-018-5757
+			</div>
+			<ul class="FootMeida fr">
+				<li class="i1">
+					<div class="ChatCode"><img src="http://images.57us.com/img/common/wb.jpg" width="112" height="112"><em></em></div>
+				</li>
+				<li class="i2">
+					<div class="ChatCode"><img src="http://images.57us.com/img/common/wb.jpg" width="112" height="112"><em></em></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://js.57us.cn/base/PicCarousel/PicCarousel.js"></script>
+<script src="http://js.57us.cn/www/newstourindex.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

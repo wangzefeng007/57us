@@ -1,0 +1,185 @@
+/*城市专题css*/
+body{
+	background-color: #27272f;
+}
+.banner{
+	height: 800px;
+}
+
+.header{
+	height: 101px;
+	background-color: rgba(0,0,0,0.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#4C000000', endColorstr='#4C000000');
+}
+
+.header .top{
+	color: #c6c6c6;
+	font-size: 14px;
+	line-height: 30px;
+	height: 50px;
+}
+.header .top a{
+	color: #c6c6c6;
+}
+.header .top a:hover{
+	color: #939292;
+}
+.header .nav{
+	height: 51px;
+}
+
+.header .nav .fl .logo{
+	width: 160px;
+	height: 51px;
+}
+
+.header .nav .fr{
+	width: 982px;
+	height: 51px;
+	line-height: 47px;
+}
+.header .nav .TourMenu{background: none;border-bottom: 0;}
+.header .nav .TourMenu .FirstA{color: #fff; display: block;height: 51px;margin: 0; padding: 0 24px;}
+.header .nav .TourMenu li:hover .FirstA{color: #ffb901; height: 49px; border-bottom: 2px solid #fff;  }
+.header .nav .TourMenu ul li .SecondUl{ padding-top: 5px;  background-color: rgba(0,0,0,0.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#4C000000', endColorstr='#4C000000');width: 100%; min-width: 100%; border: 0;height: auto; overflow: hidden; top: 51px; left: 0; margin-left: 0;}
+.header .nav .TourMenu ul li .SecondUl a{width: 100%; height: 33px; line-height:33px; padding: 0; display: block; text-align: center; color: #fff; text-indent: -10px;}
+.header .nav .TourMenu ul li .SecondUl a:hover{color: #ffb901; background: none;}
+.header .nav .HotIcon{position: absolute;}
+
+.hotcityBox{position: relative;}
+.hotcity{
+	background: url(http://images.57us.com/img/tour/city/city_bg2.jpg) no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 1293px;
+	font-size: 17px;
+}
+
+.hotcity .hot{
+	text-align: center;
+	padding-top: 45px;
+	padding-bottom: 53px;
+}
+
+.hotcity .hot img{
+	border: 0px solid #FFFFFF !important;
+}
+
+.hotcity img{
+	border: 5px solid #FFFFFF;
+}
+
+.hotcity .pic1{width: 370px; height: 280px; position: relative;}
+.hotcity .pic1 .hotUl{top: 0; left: 390px;width: 260px;}
+.hotUl{ position: absolute;}
+.hotUl li{ color: #fefefe; line-height: 40px; height: 40px; overflow: hidden;}
+
+
+.hotcity .Triangle{
+	margin-top: -10px;
+	font-size: 20px;
+	color: #ffb901;
+}
+
+.hotcity .pic2{
+	position: absolute;top: 40px;left: 660px;
+	width: 280px; height: 212px;
+}
+
+.hotcity .pic2 .hotUl{
+	left: 300px;width: 227px;
+}
+
+.hotcity .pic3{
+	position: absolute;
+	width: 372px;height: 442px;
+	z-index: 2;
+	left: 366px;
+	top: 175px;
+}
+
+.hotcity .pic3 .hotUl{
+	width: 345px;right: 392px; text-align: right;top: 240px;
+}
+
+.hotcity .pic3 .Triangle,.hotcity .pic4 .Triangle,.hotcity .pic5 .Triangle{
+	margin-left: 70px !important;
+}
+
+.hotcity .pic4{
+	position: absolute;
+	width: 370px; height: 250px;
+	top: 654px; left:176px;
+}
+
+.hotcity .pic4 .hotUl{
+	right: 390px;width: 156px; text-align: right;
+}
+
+.hotcity .pic5{
+	position: absolute;
+	width: 320px;height: 460px; top: 417px; right: 92px;
+}
+
+.hotcity .pic5 .hotUl{
+	width: 200px;right: 340px; text-align: right;bottom: 20px;
+}
+
+.uscity{
+	background: url(http://images.57us.com/img/tour/city/city_bg3.jpg) no-repeat;
+	height: /*2110px*/ auto;
+}
+
+.uscity .hot{
+	text-align: center;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.uscity ul{width: 1230px; height: auto;overflow: hidden;}
+.uscity ul li{
+	width: 380px;
+	height: 412px;
+	float: left;
+	background-color: #FFFFFF;
+	color: #27272f;
+	margin: 0 30px 30px 0;
+}
+
+.uscity ul li img{
+	padding: 15px; width: 350px; height: 262px;
+}
+
+
+.uscity ul li span {
+    font-size: 17px;
+    padding: 0px 15px 0 15px;
+    display: block;
+    height: 24px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.footer{
+	margin-top: 20px;	
+	margin-bottom: 50px;
+}
+
+.footer .content{
+	border-top:1px solid #35353f;
+	padding-top: 65px;
+}
+
+.footer .TourFootCopy{
+	color: #FFFFFF !important;
+}
+
+.footer .TourFootCopy a{
+	color: #FFFFFF !important;
+}
+
+.footer .TourFootMeida a{
+	color: #FFFFFF !important;
+}
+.TourFoot{background: #27272f;}

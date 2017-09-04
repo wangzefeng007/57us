@@ -1,0 +1,80 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt50 cf">
+	{template ConsultantManageClientManageLeftData}
+	<div class="w877 cf fr">
+		{$CommonData['ProgressTitle']}
+		<!--此处表示流程是否完成  3表示此步骤已经完成-->
+		<input value="{$Result['ChooseSchoolStatus']}" id="ChooseSchoolStatus" type="hidden">
+		<!--选校定校，未推送数据 start-->
+		<div class="choseSchool mt25 new">
+			<div class="choseSchoolT">
+				<span class="name fl">选校定校</span>
+			</div>
+			<div class="EditeHeader mt25"><a href="JavaScript:void(0)" class="editeBtn ">编辑</a>请及时更新学校的录取信息，以便学生确认。</div>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab mt25 SchoolTable">
+				<tr>
+					<th width="149">学校名称</th>
+					<th width="119">开学时间</th>
+					<th width="80">学制</th>
+					<th width="92">语言要求</th>
+					<th width="136">链接</th>
+					<th width="117">备注</th>
+					<th width="70" class="white"></th>
+				</tr>
+				{loop $Result['SchoolSelectionNewData'] $val}
+				<tr class="NewData">
+					<td height="30px"><p class="resultTex">{$val['SchoolName']}</p><input type="text" name="SchoolName" class="SchoolName" value="{$val['SchoolName']}" /></td>
+					<td><p class="resultTex">{$val['SchoolTime']}</p><input type="text" name="SchoolTime" class="SchoolTime" value="{$val['SchoolTime']}" /></td>
+					<td><p class="resultTex">{$val['SchoolSystem']}</p><input type="text" name="SchoolSystem" class="SchoolSystem" value="{$val['SchoolSystem']}" /></td>
+					<td><p class="resultTex">{$val['LanguageRequirement']}</p><input type="text" name="LanguageRequirement" class="LanguageRequirement" value="{$val['LanguageRequirement']}" /></td>
+					<td><p class="resultTex">{$val['SchoolUrl']}</p><input type="text" name="SchoolUrl" class="SchoolUrl" value="{$val['SchoolUrl']}" /></td>
+					<td><p class="resultTex">{$val['Remark']}</p><input type="text" name="Remark" class="Remark" value="{$val['Remark']}" /></td>
+					<td class="white"><a href="javascript:void(0)" class="delete">删除</a></td>
+				</tr>
+				{/loop}
+			</table>
+			<div class="schoolAdd"><a href="javascript:void(0)" class="green" id="AddNewTr">+添加</a></div>
+			<div class="editeSchoolBtn mt30">
+				<a href="javascript:void(0)" id="SchoolSelectionSave">保存</a><a href="javascript:void(0)" class="sendBtn" id="sendBtn">发送</a>
+			</div>
+		</div>
+		<!--选校定校，未推送数据 end-->
+		<!--选样定校，推送历史 start-->
+		<div class="choseSchool History" style="margin-top: 150px;margin-bottom: 100px;display: none">
+			<div class="EditeHeader mt25">推送给学生历史学校</div>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab mt15">
+				<tr>
+					<th width="149">学校名称</th>
+					<th width="119">开学时间</th>
+					<th width="80">学制</th>
+					<th width="92">语言要求</th>
+					<th width="136">链接</th>
+					<th width="105">状态</th>
+					<th width="117">备注</th>
+					<th width="70" class="white"></th>
+				</tr>
+				<!--此循环输出推送历史-->
+				{loop $Result['SchoolSelectionHistoryData'] $val}
+				<tr>
+					<td>{$val['SchoolName']}</td>
+					<td>{$val['SchoolTime']}</td>
+					<td>{$val['SchoolSystem']}</td>
+					<td>{$val['LanguageRequirement']}</td>
+					<td>{$val['SchoolUrl']}</td>
+					<td>{$val['Status']}</td>
+					<td>{$val['Remark']}</td>
+					<td class="white"></td>
+				</tr>
+				{/loop}
+			</table>
+		</div>
+		<!--选样定校，推送历史 end-->
+	</div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageItemSchoolChoose.js"></script>
+</div>
+</body>
+</html>

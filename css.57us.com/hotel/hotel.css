@@ -1,0 +1,394 @@
+body{background: #f5f5f5;}
+.header_menu li .first_a{padding: 0 16px;}
+.blue_line{ height:8px; overflow:hidden; background:#00a5e3}
+.more_btn{width:190px; height:36px; text-align:center; line-height:36px; background:#00a5e3; color:#fff; border-radius:3px 0 3px 0; display:block; }
+.more_btn:hover{ color:#fff; background:#019dd8;}
+/*banner*/
+.HotelBan{width: 100%; height: 397px; overflow: hidden;position: relative;}
+.ban{ width:1920px; height:397px; position:relative; left:50%; margin-left:-960px; overflow:hidden; position:relative}
+.ban .pic{ position:relative; z-index:0; }
+.ban .pic img { width:1920px; height:397px; display: block; }
+.ban .hd { width:100%; position: absolute; bottom: 10px; text-align: center; font-size:0; z-index:1; }
+.ban .hd li{ background:#d5d5d4; border-radius:100%; width:11px;height:11px;overflow: hidden;display:inline-block; *display:inline; zoom:1; cursor: pointer;margin: 0 5px; box-shadow:0 0 3px rgba(255,255,255,0.5)}
+.ban .hd .on{background:#00a5e3; }
+
+/*首页搜索*/
+.SearchBox{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7);width:870px;height:83px;position: absolute;bottom: 42px;left: 50%;margin-left: -450px;z-index: 1;padding:10px 15px 0;}
+.SearchBox table th{text-align: left;font-weight: normal;color: #b9b9b9;}
+.SearchBoxInput{ width: 260px;height: 41px;background: #fff;line-height: 41px;border-radius: 3px;border: 0;text-indent: 10px;color: #999999;}
+.SearchBtn{background:url(http://images.57us.com/img/hotel/indexico.png) center -186px no-repeat #00a5e3;width: 60px;height: 55px;display:inline-block;border: 0;border-radius: 3px;vertical-align: middle;margin-top: 12px;cursor: pointer;}
+.DateIco{background:url(http://images.57us.com/img/hotel/indexico.png) right -140px no-repeat #fff;}
+.AddressIco{background:url(http://images.57us.com/img/hotel/indexico.png) right -90px no-repeat #fff;width: 225px;padding-right: 35px;}
+.PublicBox{}
+.PublicBoxTop{ padding:15px 0; height:40px; overflow:hidden; line-height:40px;  font-size:20px;}
+.PublicBoxTop .name{ float:left; font-size:30px; color:#00a5e3;font-weight:bold;}
+.PublicBoxTop .name i{ background:url(http://images.57us.com/img/tour/tit_01.png) no-repeat; width:31px; height:31px; display:inline-block; margin-right:10px; overflow:hidden; vertical-align:middle}
+.PublicBoxTop .more{ color:#999999;font-weight:bold;}
+.PublicBoxTop .more:hover{ color:#00a5e3}
+
+ /*其他精选*/
+.HotelTjList{ width:1220px; height:308px; overflow:hidden}
+.HotelTjList li{ background:#fff; width:286px; height:308px; float:left; overflow:hidden; margin-right:18px;}
+.HotelTjList li .img{ width:286px; height:200px; position: relative; overflow:hidden; transition:all 0.3s ease-in-out;}
+.HotelTjList li .img .bgimg{width:286px; height:200px;}
+.HotelTjList li .img .HotelInstro{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); width:286px; height:200px; position:absolute; top:0; left:0; z-index:5; display:none}
+.HotelTjList li .img .HotelInstro p{ padding:58px 30px 0; height:120px; overflow:hidden; color:#fff;}
+.HotelTjList li .tit{ height:48px; line-height:24px; font-size:16px; font-weight:bold; color:#999999; padding:10px 20px 0;font-family: arial; overflow: hidden;}
+.HotelTjList li .ins{ height:24px; overflow:hidden; color:#999999; padding:5px 20px 0;}
+.HotelTjList li .more_btn{  margin:32px auto 0;transition:all 0.3s ease-in-out;}
+.HotelTjList li:hover .img{ margin-top:-40px;}
+.HotelTjList li:hover .more_btn{margin-top:10px;}
+.HotelTjList li:hover .HotelInstro{display: block;}
+.HotelTjList li .nr,.HotelTjList li .fun{ height:48px; overflow:hidden; padding:10px 20px 0; color:#999}
+.HotelTjList li .fun{ height:24px; font-size:13px;}
+.HotelTjList li .fun i{width:15px; height:15px; display:inline-block; vertical-align:middle; margin-right:5px;}
+.HotelTjList li .fun_name{ color:#00a5e3}
+.HotelTjList li .fun i.i1{background:url(http://images.57us.com/img/common/common.png) -562px -63px no-repeat; }
+.HotelTjList li .fun_price{ color:#ff5863}
+.HotelTjList li .fun_price b{ font-size:20px; font-weight:normal}
+ /*热门城市*/
+.HotCity{}
+.HotCityList{width: 1215px;height: auto;overflow: hidden;}
+.HotCityList li{float: left; margin: 15px 15px 0 0;position: relative;height: 290px;overflow: hidden;}
+.HotCityList li.i1,.HotCityList li.i7{width: 793px;}
+.HotCityList li.i2,.HotCityList li.i3,.HotCityList li.i4,.HotCityList li.i5,.HotCityList li.i6{width: 390px;}
+.HotCityList li.i8,.HotCityList li.i9{ width:591px;}
+.HotCityList li .tit{font-size:35px;font-weight: bold; width: 90%;height:40px;text-align:center;color:#fff;line-height: 40px; overflow: hidden; position: absolute;top: 50%; left: 5%;margin-top: -20px;z-index: 1;}
+.CircleBox{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#99000000', endColorstr='#99000000');background:rgba(0,0,0,0.6); width:188px; height:188px;font-size: 20px; overflow:hidden; border-radius:100%; text-align:center; position:absolute; top:50%; left:50%; margin:-99px 0 0 -99px;z-index: 2;display: none;}
+.CircleBox .CircleTit{ font-size:30px; font-weight:bold; color:#00a5e3;overflow:hidden; padding:45px 10px 0}
+.CircleBox .CircleNr{ height:35px; line-height:35px; overflow:hidden; color:#fff; padding:9px 20px;}
+.CircleBox .CircleMore{color: #ff5863;font-size: 18px;}
+.HotCityList li:hover img{filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */   -webkit-filter: blur(2px); /* Chrome, Opera */-moz-filter: blur(2px);-ms-filter: blur(2px);filter: blur(2px);filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=2, MakeShadow=false); }
+.HotCityList li:hover .tit{display: none;}
+.HotCityList li:hover .CircleBox{display: block;}
+/*为什么酒店选择57*/
+.WhyHotel{}
+.WhyHotel .tit{ height:80px; line-height:80px; overflow:hidden; color:#00a5e3; font-size:30px; font-weight:bold; text-align:center}
+.WhyHotel .tit a{ color:#00a5e3}
+.WhyHotelList{background: url(http://images.57us.com/img/hotel/how.jpg) no-repeat; width: 1200px;height: 689px;}
+.WhyHotelList li.i1 .img{background-position: 0 0;}
+/*列表页筛选*/
+.HotelListChoseBox{ position: relative;z-index: 1;}
+.ChoseBoxFirst{background:#fff;height:30px; line-height: 30px;padding: 13px 25px;}
+.ChoseBoxFirst dl{float: left;border-right: 1px dotted #F0F0F0;margin-right: 15px;padding-right: 15px;}
+.ChoseBoxFirst dt{width: 80px;font-size: 16px; color: #00a5e3;font-weight: bold;float: left;}
+.ChoseBoxFirst dd{float: left; position: relative;}
+.ChoseBoxFirst dd input{ background: none; width:171px;height: 24px;border: 0;color: #777; position: relative;z-index: 999;}
+.ChoseBoxFirst dd .ico{background:url(http://images.57us.com/img/common/common.png) -684px -5px no-repeat;width: 15px;height: 10px;overflow: hidden; display: inline-block; z-index:1;position: absolute;right: 0; top: 50%; margin-top: -5px;}
+.ChoseBoxBtn{width:69px; height: 29px; text-align: center;line-height: 29px;color: #fff;background:#00a5e3;font-size: 16px;display: inline-block;margin-left: 10px;float: left;}
+.ChoseBoxBtn:hover{background: #029dd8;color: #fff;}
+.ChoseBoxSecond{background:#fff;padding: 13px 25px;}
+.ChoseBoxSecond dl{width: 100%;min-height:30px; position: relative; padding:3px 0;}
+.ChoseBoxSecond dt{width: 85px;font-size: 16px; color: #00a5e3;font-weight: bold;position: absolute;top: 0;left: 0;}
+.ChoseBoxSecond dd{padding-left: 88px; height: auto; overflow: hidden;}
+.ChoseBoxFirst .ui-datepicker-append{ right: 25px !important;}
+/*筛选*/
+.ChoseBoxSecond dd i,.RoomOther i{background:url(http://images.57us.com/img/hotel/indexico.png) -18px -287px no-repeat;width: 13px;height: 13px;display: inline-block;vertical-align:top;margin: 6px 5px 0 0;}
+.ChoseBoxSecond dd .rb_active i,.ChoseBoxSecond dd .checked i,.RoomOther .checked i{background:url(http://images.57us.com/img/hotel/indexico.png) 0 -250px no-repeat;}
+.listIndex label{margin-bottom: 3px;float: left; margin-right:10px;cursor: pointer;}
+.ChoseBoxSecond .custom{float: left;}
+.ChoseBoxSecond .custom .input{ width: 60px;height: 22px;line-height: 22px;border: 1px solid #999999;}
+.ChoseBoxSecond .custom .SureBtn{width:60px;height:24px;line-height: 24px;border: none; color: #fff;background: #ffa943;margin-left:7px;cursor: pointer;}
+
+.selectedInfor{border: 1px solid #00a5e3;padding: 0 20px 0 8px; position:relative;margin:0 10px 7px 0px;display:block;float:left;height: 30px; line-height: 30px;color: #00a5e3;}
+.selectedInfor b{background:url("../images/close.gif") no-repeat;cursor:pointer;display:block;height:15px; line-height:15px; overflow:hidden;position:absolute;right:3px;top:0;font-size: 16px;}
+/*右侧边栏*/
+.blue_line{ height:8px; overflow:hidden; background:#00a5e3}
+.SlideRight{ width:290px; height:auto; overflow:hidden}
+.white_box{ background:#fff; padding:5px 13px 10px; height:auto; overflow:hidden; }
+.white_box_top{ height:48px; line-height:48px; font-weight:bold; font-size:24px; color:#00a5e3}
+.white_box_top a{ color:#00a5e3}
+.tw_list{ width:100%; max-height:910px;overflow:hidden}
+.tw_list li{ width:100%; height:290px; float:left; overflow:hidden; border-bottom:1px dashed #e0e0e0; margin-bottom:20px; color:#999}
+.tw_list li img{ width:266px; height:182px;}
+.tw_list li .tit{ height:auto; max-height:46px; line-height:23px; overflow:hidden; font-size:16px; color:#00a5e3; padding-top:10px;}
+.tw_list li .price{ color:#ff5863;}
+.tw_list li .price i{ font-size:20px;}
+.tw_list li a{ color:#999999}
+.tw_list li a:hover{color: #00a5e3;}
+/*排序*/
+.SlideLeft{ width:889px;float: left; }
+.px_box{ background:#fff; height:53px; line-height:53px; font-size:16px;color:#999999;}
+.px_box li{ float:left; position: relative;}
+.px_box li span{height:53px; width:150px; text-align:center; display:block; cursor:pointer;border:1px solid #fff; border-top:0; border-bottom:0}
+.px_box li.on span,.px_box li:hover span{ color:#00a5e3;border:1px solid #EFECEC; border-top:0; border-bottom:0}
+.px_box li.on span a{color:#00a5e3;}
+.px_box .hownum{ margin-right:15px;}
+.px_box li i{ background:url(http://images.57us.com/img/common/common.png) -682px -1px no-repeat;width: 15px; height:20px; vertical-align:middle; display:inline-block; overflow:hidden; margin-left:0;}
+.px_box li.on span i{ background-position:-702px -1px}
+.px_box li:hover span i{ background-position:-682px -21px}
+.px_box li .suv{background: #fff;width:150px; padding:5px 0; position: absolute;top: 53px;left: 0;z-index: 10;display:none; }
+.px_box li .suv a{ width: 100%;height:32px;line-height: 32px;overflow: hidden;display: block; text-indent:35px; font-size:15px; color:#999}
+.px_box li .suv a:hover{ color:#00a5e3;}
+.px_box li:hover .suv{ display:block;border:1px solid #EFECEC; border-top:0}
+/*酒店列表*/
+.HotelList{}
+.HotelList li{background:#fff;height: 182px;overflow: hidden;margin-top: 20px;color: #999999;}
+.HotelList li img{width:266px ;height: 182px;float: left;margin-right: 20px; cursor: pointer;}
+.HoteListCont{width:410px;float: left;padding-top: 12px;}
+.HoteListCont .tit{ min-height: 48px; max-height: 72px;overflow: hidden;font-size: 16px;font-weight:bold;color: #00a5e3;}
+.HotelList li .HoteListCont .tit{ height: 48px; overflow: hidden;}
+.HoteListCont .tit a{color: #00a5e3;}
+.HoteListIns{height: 72px;overflow: hidden;padding-top: 6px;}
+.HoteListIns p{height: 24px; overflow: hidden;}
+/*通用星星*/
+.pj_star{ float:right}
+.pj_star i{background:url(http://images.57us.com/img/common/common.png) -762px -3px no-repeat;width:16px; height:16px; display:inline-block; margin:0 1px 0 0; vertical-align:middle}
+.HoteListIns .pj_star{float: none;}
+.HoteListFun{border-top: 1px dashed #d6d6d6;padding: 5px 0 0;margin-top: 5px; height: 24px; overflow: hidden;}
+.HoteListFun span{float: left;padding-right: 6px;}
+.HoteListFun span i{background: url(http://images.57us.com/img/hotel/service.png) no-repeat; width: 20px;height: 20px;display: inline-block;vertical-align: middle;overflow: hidden; margin-right: 4px;}
+.HoteListFun span.i1 i{background-position: 0 0;}
+.HoteListFun span.i2 i{background-position: 0 -20px;}
+.HoteListFun span.i3 i{background-position: 0 -40px;}
+.HoteListFun span.i4 i{background-position: 0 -60px;}
+.HoteListFun span.i5 i{background-position: 0 -80px;}
+.HoteListFun span.i6 i{background-position: 0 -100px;}
+.HoteListFun span.i7 i{background-position: 0 -120px;}
+.HoteListFun span.i8 i{background-position: 0 -140px;}
+.HoteListFun span.i9 i{background-position: 0 -160px;}
+.HoteListFun span.i10 i{background-position: 0 -180px;}
+.HoteListFun span.i11 i{background-position: 0 -200px;}
+.HoteListFun span.i12 i{background-position: 0 -220px;}
+.HoteListFun span.i13 i{background-position: 0 -240px;}
+.HoteListFun span.i14 i{background-position: 0 -260px;}
+.HoteListFun span.i15 i{background-position: 0 -280px;}
+.HoteListFun span.i16 i{background-position: 0 -300px;}
+.HoteListFun span.i17 i{background-position: 0 -320px;}
+.HoteListRight{width: 180px;text-align: center;float: right;padding-top: 50px; 
+}
+.HoteListPrice{color: #ff5863; font-size: 20px;}
+.HoteListPrice i{font-size: 25px;}
+.HoteListPrice b{font-size: 14px;font-weight: normal;}
+.HoteListBtn{background:#ffa943;width:104px;height:37px;line-height:37px;text-align: center;color: #fff;display: inline-block;}
+.HoteListBtn:hover{;color: #fff;background: #ffa439;}
+
+.HotePage{text-align: center;}
+.HotePage a{padding: 0 8px; display: inline-block; margin: 0 4px;border: 1px solid #c9c9c9;font-weight: bold;color: #999999;}
+.HotePage a.prev,.HotePage a.next{ padding:3px 20px; font-weight: normal;}
+.HotePage a.on,.HotePage a:hover{color: #00a5e3;border-color: #00a5e3;}
+.HotePage a.no{color: #d3d2d2;cursor: default;border-color:#d3d2d2;}
+
+/*酒店详情*/
+
+#tFocus{width:545px;height:280px;overflow:hidden; position: relative;}
+#tFocus-pic{width:433px;height:280px;position:relative;float: left;}
+#tFocus-pic li{width:433px;height:280px;position:absolute;left:0;top:0;filter:alpha(opacity:0);opacity:0;}
+
+#tFocusBtn{width:107px;height:280px;z-index:20;overflow:hidden;position: relative;float: right;}
+#tFocus-btn{width:107px;height:280px;position:relative;left:0;bottom:0;overflow:hidden;}
+#tFocus-btn ul{width:107px;height: 10000px; position:absolute;left:0;top:0;}
+#tFocus-btn li{width:107px;height:68px;display:block;float:left;position: relative;margin-bottom: 2px;overflow: hidden;}
+#tFocus-btn li img{width:107px;height:68px;}
+#tFocus-btn li i{width: 103px; height: 64px;border: 2px solid #ff5863; position: absolute;top: 0;left: 0;z-index: 5;display: none;}
+#tFocus-btn li.active i{display: block;}
+#tFocus-leftbtn,#tFocus-rightbtn{height:25px;width:100%;position: absolute;left: 0;z-index:40; overflow: hidden;text-indent: -999px; display: none;}
+#tFocus-leftbtn{top: 0; background:url(http://images.57us.com/img/hotel/leftbtn.png) no-repeat;}
+#tFocus-rightbtn{bottom: 0;background:url(http://images.57us.com/img/hotel/rightbtn.png) no-repeat;}
+#tFocus .prev,#tFocus .next{background:url(http://images.57us.com/img/common/common.png) no-repeat;width:30px; height:30px; display:inline-block;overflow:hidden; text-indent:-9999px; position:absolute;top: 50%; 
+margin-top:-15px;filter:alpha(opacity:70); opacity:0.7;z-index: 10; }
+#tFocus .prev{ background-position:-520px 0; left:10px;}
+#tFocus .next{ background-position:-480px 0; left:390px;}
+
+.HotelDetail{background: #fff;height: 279px; color: #666;}
+.HotelPic{width:545px; height: 279px;overflow: hidden; float: left;margin-right: 25px;}
+.HotelDetail .HoteListCont{width: 400px; margin-top: 20px;}
+.HotelDetail .HoteListIns{height: auto; max-height:104px;line-height: 26px;padding-top: 10px;}
+.HotelDetail .HoteListFun{padding: 10px 0 0; }
+.HotelDetail .HoteListRight{margin-right: 20px;padding-top: 70px;}
+.HotelDetail .HoteListPrice {font-size: 26px;}
+.HotelDetail .HoteListPrice i{font-size:35px;}
+.HotelDetail .HoteListPrice b{}
+.HotelDetail .CollectBtn,.HotelDetail .NowBook{background:#00a5e3;width:121px;height: 40px;text-align: center;line-height: 40px;color: #fff;font-size: 18px;display: inline-block;}
+.HotelDetail .CollectBtn:hover{background:#029ed9;color: #fff;}
+.HotelDetail .NowBook{background: #ffa943;}
+.HotelDetail .NowBook:hover{background:#ffa030;color: #fff;}
+.HotelDetailMenu{ width:100%;height:53px; }
+.HotelDetailMenuBox{background:#fff; height:53px; line-height:53px; font-size:16px;color:#999999;}
+.HotelDetailMenuBox ul{ margin-right:20px; }
+.HotelDetailMenuBox li{ float:left;}
+.HotelDetailMenuBox li a{height:53px; padding:0 65px;color:#999999; display:block}
+.HotelDetailMenuBox li.on a,.HotelDetailMenuBox li.on a:hover{ background:#00a5e3; color:#fff;}
+.HotelDetailMenuBox li a:hover{ background:#efefef;}
+.FixedMenu{ width:1200px; position:fixed; top:0; left:50%; margin-left:-600px; z-index:99999999; border:1px solid #ededed}
+.MapBox{width: 100%; background: #fff;height: auto;overflow: hidden;}
+.MapMain{width: 100%;height: 333px;overflow: hidden;}
+.MapBox .hd{background:#e7e7e7;height: 34px;line-height: 34px;padding: 0 8px;}
+.MapBox .hd a{position: relative;padding: 0 4px;color: #666; float: left;}
+.MapBox .hd a i{width:0; height:0; border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid #e7e7e7;position: absolute;bottom:-6px;left: 50%; margin-left: -6px; display: none;}
+.MapBox .hd a.on i{display: block;}
+.MapBox .bd{padding: 15px 8px;}
+.MapBox .bd ul{height: 96px; overflow: hidden;display: none;}
+.MapBox .bd ul li{height: 24px;overflow: hidden;}
+.MapBox .bd ul li a{color: #666;}
+
+.DetailBox,.HotelOrderBox {background: #fff;padding: 25px;height: auto;overflow: hidden;color: #999999;margin-top: 20px;}
+.HotelOrderBox{margin-top: 0;}
+.DetailBoxTit{height: 26px;border-left: 5px solid #00a5e3; color: #00a5e3;font-size: 25px;font-weight: bold;padding-left: 8px;line-height: 26px;}
+.DetailBoxNr{padding: 15px 0;height: auto;overflow: hidden;}
+.DetailBoxNr .suvtit{font-size: 18px;font-weight: bold;color:#999999}
+.HotelTab{background: #ececec;border: 1px solid #ececec;border-bottom: 0}
+.HotelTab th,.HotelTab td{text-align: center;padding: 8px;}
+.HotelTab th{font-weight: normal;}
+.HotelTab td{background: #fff;border-bottom: 1px solid #ececec;}
+.HotelTab i.question{background:#90c31f;width: 14px;height: 14px;font-size:12px;display: inline-block;border-radius: 100%;color: #fff;line-height: 13px;text-align: center;vertical-align: middle;cursor: pointer;}
+.OrderBtn{background:#ffa943;width: 72px;height: 28px;line-height: 28px;color: #fff;display: inline-block;text-align: center;}
+.OrderBtn:hover{background: #ffa030;color: #fff;}
+.HotelTab .TabPrice{color: #ff5863;}
+.HotelTab .TabPrice i{font-size: 24px;}
+.MorePluss{color: #00a5e3;}
+.MorePluss i{background: url(http://images.57us.com/img/common/common.png) -702px -1px no-repeat;width: 15px;height: 20px;vertical-align: middle;
+display: inline-block; overflow: hidden;}
+.MorePluss i.retract{background: url(http://images.57us.com/img/common/common.png) -702px -20px no-repeat;width: 15px;height: 20px;vertical-align: middle; display: inline-block; overflow: hidden;}  
+.MorePluss:hover{color: #00a5e3;}
+.TipDemo .layui-layer-content{background: #f3fafe !important;color: #666 !important;box-shadow:none !important;border: 1px solid #00a5e3;}
+.TipDemo i.layui-layer-TipsB{top: -10px !important;border-bottom-width:9px !important;border-top-width:0px !important }
+.TipDemo i.layui-layer-TipsT{bottom: -18px !important; border-top-width:9px !important;}
+.TipBox{padding:10px 15px; width: 300px; height: auto; overflow: hidden;}
+.TipBoxTit{color: #ffa943;border-bottom: 1px dashed #c9c9c9;height: 30px;line-height: 30px;}
+.TipBoxCont{padding: 6px 0; height: auto;}
+
+.DetailChoseTab{}
+.DetailChoseTab th,.DetailChoseTab td{text-align: left;font-weight: normal;}
+
+.ReSearchBtn{background:#00a5e3;width: 109px;height: 38px;text-align: center;line-height: 38px; color: #fff;display: inline-block;}
+.ReSearchBtn:hover{background:#029ed9;color: #fff;}
+
+.InputBox{width: 220px;height: 36px;line-height: 36px;border: 1px solid #c9c9c9;position: relative;}
+
+.DetailChoseInput{background: none; border:0;width: 220px;height: 36px;line-height: 36px;text-indent: 10px; color: #666; position: relative;z-index: 999;}
+.InputBox .ico{background: url(http://images.57us.com/img/common/common.png) -684px -4px no-repeat; width: 15px;height: 10px;overflow: hidden;vertical-align: middle; display: inline-block;margin-left: 6px; position:absolute; top:50%; margin-top:-5px; right:8px;}
+.CurrentOn .ico{ transform:rotate(180deg);-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);-o-transform:rotate(180deg);}
+.ChangeBtn{color: #00a5e3;}
+.ChangeBtn:hover{color: #00a5e3;}
+.HotelPopBox table{width: 400px;height: auto;overflow: hidden;padding: 10px 10px 10px 20px;}
+.HotelPopBox table td,.HotelPopBox table th{ padding-left: 20px;}
+.HotelPopBox th{font-weight: normal;text-align: left;}
+.HotelPopBox .opts{width:90px !important;}
+.PopBtn{text-indent: -20px;}
+.PopBtn a{width: 116px;height: 38px;line-height: 38px;text-align: center;border: 1px solid #c9c9c9;display: inline-block;margin: 0 10px;text-indent: 0;}
+.PopBtn a.SureBtn{background: #ffa943;border: 1px solid #ffa943; color: #fff;}
+.PopBtn a.CanceBtn{color: #666;}
+.HotelPopBox .num_box{margin: 0;}
+.ChildAge{margin: 6px 8px 77px 8px;}
+.diyselect{ background:#fff;width:90px;height: 26px; line-height:26px; text-indent:10px; border:1px solid #e5e5e5;position:relative;}
+.diyselect a{ width:100%; height:28px; line-height:28px; display:block; overflow:hidden}
+.diyselect a:hover{ background:#f5f5f5}
+.sb_active{border:1px solid #01a5e3 !important;}
+.diyselect *{color:#666666;cursor:pointer;background-color:#fff;}
+.diyselect .opts{border:1px solid #01a5e3;cursor:pointer;display:none;height:auto;left:0;max-height: 77px;overflow-x:hidden;overflow-y:auto;position:absolute;top:0;width:auto;z-index:99;}
+.diyselect > .selected{padding:0 15px 0 0;overflow:hidden;position:absolute;cursor:pointer;left:0;}
+.diyselect .sb_icon{ background:url(http://images.57us.com/img/common/TourPulicIcon.png) -8px -429px no-repeat; width:15px;height:8px;position:absolute;cursor:pointer;right:8px;}
+.sb_active .sb_icon{background-position:-9px -460px; }
+/*订单页面*/
+.HotelOrdHead{background:#fff;height: 126px;}
+.HotelLogo{background: url(http://images.57us.com/img/hotel/HotelLogo.png) no-repeat; width: 318px;height: 86px;display: inline-block;float: left;overflow: hidden;text-indent: -9999px;margin: 20px 0 0 0 ;}
+.process{ float:right;margin-top: 35px;}
+.process li{ width:112px; height:35px; float:left; border-bottom:9px solid #d9d9d9; position:relative; text-align:center;}
+.process li i{ background:#d9d9d9; width:25px; height:25px;text-indent: -2px; border-radius:100%; position:absolute; bottom:-17px; left:50%; margin-left:-12px; display:inline-block;font-style: italic;color: #fff;}
+.process li.on{ border-bottom-color:#00a5e3}
+.process li.on i{ background:#00a5e3}
+.process li.i2{width: 190px;}
+
+.HotelOrderIns{background:#fff;padding: 15px; height: auto;overflow: hidden;}
+.HotelOrderIns img{width: 260px;}
+.HotelOrderIns .tit{padding: 9px 0;font-size: 16px;}
+.HotelOrderInsCont{color: #999;line-height: 22px;}
+.HotelOrdercont,.HotelOrderPrice{border-top: 1px dashed #c9c9c9;color: #999;line-height: 30px;padding-top: 10px;}
+.HotelOrderPrice .price{color: #ff5863;font-size: 21px;}
+.HotelOrderPrice .price i{font-size: 28px;}
+.HotelOrderPrice{padding-top:20px;}
+.FixRight{width: 260px; position: fixed; top: 0; left: 50%; z-index: 10;margin-left:310px;}
+.FixMap{width: 290px; position: fixed; top:63px; left: 50%; z-index: 10;margin-left:310px;}
+.OrderInstroTab{color: #666;}
+.OrderInstroTab span{padding:0 4px;}
+.num_box{ background:#efefef;width: 132px; height:30px;  border:1px solid #e0e1e1; overflow:hidden; margin:12px 15px 0 0;}
+.num_box a.num_btn{ background:#f2f2f2 !important; width:30px; height:30px;line-height: 30px; text-align: center;  overflow:hidden; float:left; vertical-align:middle; cursor:pointer; color:#c9c9c9}
+.num_box a.num_btn:hover{ color:#333; background:#f4f4f4}
+.num_input{ border:none; border-right:1px solid #e0e1e1;border-left:1px solid #e0e1e1; background:#fff; color:#00a5e3; width:60px;height:30px; line-height: 30px; text-align:center; float:left; overflow:hidden}
+.AllFree span{color: #ffa943;}
+.AllFree{line-height: 56px;}
+.CustomInstr{background:#f3fafe;padding:0 0 15px 18px; height: auto;overflow: hidden; margin-top: 15px; color: #666;}
+.ChangeDate,.ChangeNum{color: #00a5e3;}
+.ChangeDate:hover,.ChangeNum:hover{color: #00a5e3;}
+.CustomInstrTop p{display: inline-block;padding: 0 10px;}
+.CustomMan{height: 89px;}
+.CustomManLi{width: 230px; float: left;margin: 10px 25px 0 0;}
+.CustomManLiB{width: 230px;height: 38px;background: #fff;position: relative;}
+.CustomManLiB i{width: 44px;height: 22px; float: left;text-align: center;border-right: 1px solid #c9c9c9;position: absolute;top: 7px;left: 0;}
+.CustomManLiB input{width: 180px; height: 36px;line-height: 36px;border: 0; float: left; text-indent: 10px;border: 1px solid #c9c9c9; padding-left: 48px;}
+.ErroB .CustomManLiB{border: 1px solid #ff5863;}
+.ErroTip{color: #ff5863; font-size: 12px; line-height: 35px;display: none;}
+.ErroB .ErroTip{display: block;}
+.CustomMan .AddBtn,.CustomMan .CloseBtn{ width: 15px;height: 15px; float: left;border: 1px solid #00a5e3;color: #00a5e3;text-align: center;line-height: 13px;margin-top: 20px;}
+
+.RoomOther{color: #666;}
+.RoomOther span{color: #999;}
+.RoomOtherLi{border-top: 1px solid #efefef;padding-top: 6px; height: auto; overflow: hidden;margin-top: 10px; padding-top: 10px;}
+.RoomOtherLi label{float: left;margin-right: 35px;}
+.NextOrderBtn{background:#ffa943;padding:0 30px;height: 55px; line-height: 55px; color: #fff;font-size: 18px; display:inline-block;}
+.NextOrderBtn:hover{background:#fe9e2c;color:#fff;}
+.PopInput{width: 165px; height: 30px;line-height: 30px;border: 1px solid #E2E2E2; text-indent: 10px;}
+.ContactInsP{position: relative;}
+.ContactIns input{width:150px;height: 28px;line-height: 28px;border: 1px solid #c9c9c9;background: #fff;margin-left: 10px; text-indent: 10px;}
+.HotelInsBox b{color: #00a5e3; font-size: 15px;background:url(http://images.57us.com/img/hotel/indexico.png) 0 -312px no-repeat;text-indent: 15px; display: inline-block;}
+.ContactInsP .erro_tip{position: absolute;top: 30px; left:30px;}
+.HotelFac li{background:url(http://images.57us.com/img/hotel/indexico.png) 0 -347px no-repeat; width: 25%; height: 24px; float: left; text-indent: 19px;margin-top: 4px;overflow: hidden;}
+.HotelInsBox p{margin-top: 8px;}
+.HotelPolicy{ margin-top: 15px;}
+.HotelPolicy table{width: 100%;}
+.HotelPolicy th{width: 120px;border-right: 1px solid #efefef;}
+.HotelPolicy th,.HotelPolicy td{padding: 10px 0; border-bottom: 1px solid #efefef;}
+.HotelPolicy td{ padding-left: 20px;}
+.suvtit{color: #777;}
+
+/*酒店确认函*/
+.HotelCert{width: 1080px;height: auto;overflow: hidden;background: #fff;padding-bottom: 10px;}
+.HotelCertMain{ padding:20px 60px; height: auto;overflow: hidden;}
+.HotelCertHead{background: url(http://images.57us.com/img/hotel/certificate.jpg) left top no-repeat; height: 287px;overflow: hidden;}
+.HotelCertList{color: #3c3c3c;}
+.HotelCertList li{width: 50%;float: left;}
+.HotelCertList li th{text-align: left;font-weight: normal;line-height: 20px;}
+.HotelCertList li .input{background:#fff;width: 250px;height: 26px;line-height: 26px; padding: 5px 10px;border: 1px solid #b7d1f5;}
+.HotelCertTit{height: 16px;line-height: 16px;border-left: 5px solid #55b0ff; padding-left: 6px;color: #55b0ff;font-size: 16px;font-weight: bold;}
+.HotelCertLi b{background: url(http://images.57us.com/img/hotel/style.png) left center no-repeat; display:block;text-indent: 11px;}
+.HotelCertLi li{margin-top: 15px;}
+/*搜索不到酒店*/
+.NoHotel{background: url(http://images.57us.com/img/hotel/NoHotel.jpg) center center no-repeat;width: 839px;height: 225px;overflow: hidden;position: relative; margin-top: 20px;}
+.NoHotelText{width: 345px; position: absolute;top: 135px;right: 35px;color: #595b57;}
+.NoHotelText span{padding: 0 3px;}
+.NoHotelText a{color: #ffa943;padding: 0 5px;}
+#loading_bg{background: url(http://images.57us.com/img/common/loading.gif) center center no-repeat;height: 300px;overflow: hidden;}
+
+.TimePop{background: #fff;border: 1px solid #ededed; width: 420px;height: 300px;overflow: hidden;padding: 15px;position:fixed;top: 50%;left: 50%;margin: -165px 0 0 -225px; z-index: 888;text-align: center;}
+.TimePop .ui-datepicker-append{display: none;}
+
+.limithide{
+    display: none;
+}
+.limitshow{
+    display: block;
+}
+
+.HotelOrderPsy th,.HotelOrderPsy td{ padding-right: 15px;}
+.SearchBox .ui-datepicker-append{ z-index: 1000 !important;}
+.autofix_sb.fixed {width: 290px; position: fixed !important;left: 50% !important; margin-left: 310px !important; top: auto; right: auto; bottom: auto;}
+.autofix_sb.fixed.bottom {bottom:0;position: absolute !important;}
+.study_header{position: relative;z-index: 2;}
+/*搜索不到产品页面*/
+.SearchNone{ background:url(http://images.57us.com/img/common/SearchNone.png) center center no-repeat #fff; width:100%; height:333px; overflow:hidden; text-align:center; position:relative}
+.SearchNone ul{ width:370px; height:auto; overflow:hidden; position:absolute; left:470px; top:190px;}
+.SearchNone ul li{ padding-left:6px; height:auto; overflow:hidden; text-align:left; font-size:12px; color:#595b57; line-height:22px;}
+.SearchNone ul li i{ background:#ff5863; width:4px; height:4px; border-radius:100%; display:inline-block; vertical-align:middle; margin-right:4px;}
+.TjBox{ background:#fff; padding:0 15px; height:42px; line-height:42px;}
+
+/*2016-9-20*/
+.TourMenu ul li:hover .FirstA{color:#00a5e3;}
+.NfixMenu li .a{background: #00a5e3;}
+.NfixMenu li .a:hover,.NfixMenu li:hover .a{background: #0094cc;}
+.more_btn{width:190px; height:36px; text-align:center; line-height:36px; background:#00a5e3; color:#fff; border-radius:3px 0 3px 0; display:block; }
+.more_btn:hover{ color:#fff; background:#019dd8;}
+
+.searchd{height: 34px;border-bottom: 2px solid #00a5e3;overflow: hidden;}
+.searchd a{float: left;height: 34px; line-height: 34px; float: left;padding: 0 17px;font-size: 16px;}
+.searchd a.on{background: #00a5e3;color: #fff;border-radius:4px 4px 0 0;}

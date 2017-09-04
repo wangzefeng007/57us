@@ -1,0 +1,30 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current">
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">性别</h2>
+		</header>
+		<div class="content">
+			<div class="sexChose" id="sex">
+				<label class="label-checkbox item-content">
+					<input type="radio" name="my-radio" {if $UserInfo[Sex]==1 || $UserInfo[Sex]==2}checked="checked"{/if}  data-val="1"/>
+					<div class="item-media pull-right"><i class="icon  iconfont icon-ok1"></i></div>
+					<div class="item-inner pull-left">男</div>
+				</label>
+				<label class="label-checkbox item-content">
+					<input type="radio" name="my-radio" {if $UserInfo[Sex]==0}checked="checked"{/if} data-val="0"/>
+					<div class="item-media pull-right"><i class="icon iconfont icon-ok1"></i></div>
+					<div class="item-inner pull-left">女</div>
+				</label>
+			</div>
+			<div class="sendBox">
+				<a href="javascript:void(0)" class="button button-fill button-orange" id="saveBtn">保存</a>
+			</div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserEditInformationSex.js" charset='utf-8'></script>
+</body>
+</html>

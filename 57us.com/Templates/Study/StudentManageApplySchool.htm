@@ -1,0 +1,117 @@
+{template StudyStudentManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css"/>
+<div class="w1200 studentBody cf mt30">
+    <div class="inforLeft fl">
+        {template StudentManageLeft}
+    </div>
+    <div class="w898 fr">
+        <div class="studentVisaT">
+            <span class="name">学校申请</span>
+        </div>
+        {loop $List $Key $Data}
+        <div class="stuconList cf">
+            <div class="stuconListBody">
+                <!--
+                    作者：xiao15980751809@126.com
+                    时间：2016-10-13
+                    描述：当确定稿后stuconListBody 加Class"on"
+                -->
+                <span class="FigureIndia">已定稿</span>
+                <!--<a href="" class="publicBtn1 sureBtn fr">确认定校？</a>-->
+                <img src="{if $Data['Avatar']}{$Data['Avatar']}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="60" height="60">
+                <p>顾问：{$Data[RealName]}</p>
+                <p>服务名称：{$Data['OrderName']}</p>
+            </div>
+
+            <div class="stuconListM">
+                <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab">
+                    <tr>
+                        <th width="41">序号</th>
+                        <th width="168">学校名称</th>
+                        <th width="107">课程/专业名称</th>
+                        <th width="113">递交申请时间</th>
+                        <th width="48">状态</th>
+                        <th width="202">备注</th>
+                    </tr>
+                    {loop $Data['Apply'] $K $lists}
+                    <tr>
+                        <td>
+                            <p class="resultTex">{echo $K+1}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists[SchoolName]}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists[MajorName]}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists['DeliveryTime']}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists[Status]}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists[Remark]}</p>
+                        </td>
+                    </tr>
+                    {/loop}
+                </table>
+
+            </div>
+            <div class="studentVisaT" style="border-bottom: 1px solid #e0e0e0;">
+                <span class="name pl20">录取确认</span>
+            </div>
+            <div class="stuconListM">
+                <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab" data-id="{$Data[OrderID]}">
+                    <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <p class="tabTime"><span>最终选择学校/专业：{$Data[SchoolName]}{if $Data[SchoolName]}/{/if}{$Data[SpecialtyName]}</span><span>学校申请进度：<em class="green" id="SelectionState">{if $Data[SchoolName]}已确定{/if}</em></span></p>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tbody>
+                    <tr>
+                        <th width="179">入读学校名称</th>
+                        <th width="121">入读专业名称</th>
+                        <th width="99">计划入学时间</th>
+                        <th width="77">Offer</th>
+                        <th width="224">操作</th>
+                    </tr>
+                    {loop $Data['Enroll'] $key $lists}
+                    <tr>
+                        <td><p class="resultTex">{$lists[AttendSchool]}</p></td>
+                        <td><p class="resultTex">{$lists[AttendMajor]}</p></td>
+                        <td><p class="resultTex">{$lists['PlanAttendDate']}</p></td>
+                        <td><p class="resultTex"><img src="{$lists['OfferImgUrl']}" width="100" height="75"/></p></td>
+                        <td>
+                            <div class="DownOffer">
+                                {if  !$Data[SchoolName]}
+                                <a href="{$lists['OfferImgUrl']}" class="publicBtn0" target="_blank"  download="{$lists['OfferImgName']}">下载Offer</a>
+                                <a href="javascript:void(0)" class="publicBtn0 applyschool" data-id="{$key}" data-title="{$lists[AttendSchool]}">选择学校</a>
+                                {elseif $Data[SchoolName]==$lists[AttendSchool]}
+                                <a href="{$lists['OfferImgUrl']}" target="_blank" class="publicBtn0" download="{$lists['OfferImgName']}">下载Offer</a>
+                                <span class="red">已选择</span>
+                                {elseif !empty($Data[SchoolName])&&$Data[SchoolName]!=$lists[AttendSchool]}
+                                <a href="{$lists['OfferImgUrl']}" target="_blank" class="publicBtn0" download="{$lists['OfferImgName']}">下载Offer</a>
+                                <span class="red">已拒绝</span>
+                                {/if}
+                            </div>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {/loop}
+    </div>
+</div>
+{template Footer}
+<!--图片裁剪插件-->
+<link href="{echo JsURL}/base/cropper/2.3.2/cropper.css" rel="stylesheet">
+<script src="{echo JsURL}/base/cropper/2.3.2/cropper.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/StudentManage.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/StudentManageApplySchool.js"></script>
+</body>
+</html>

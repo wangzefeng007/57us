@@ -1,0 +1,32 @@
+{template TourHeader}
+<div class="page page-current" id="choseroom">
+    <div class="content" id="content">
+        <input type="hidden" id="calendar" name="calendar" readonly="readonly" placeholder="点击选择时间"/>
+    </div>
+</div>
+<!--日期选择页面-->
+{template TourFooter}
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/dev/swiper.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/DatePicker/1.0.0/zlDate.js" charset='utf-8'></script>
+<script>
+    var ProductID = GetQueryString('TourProductID');
+    $.ajax({
+        type: "get",	//提交类型
+        dataType: "json",	//提交数据类型
+        url: "/group/getdate/",  //提交地址
+        data: {
+            'TourProductID':ProductID,
+        },
+        success: function(data) {	//函数回调
+            if(data.ResultCode == '200'){
+                pickerEvent.setPriceArr(data);
+                pickerEvent.setMonthArr(data);
+                pickerEvent.Init("calendar");
+            }else{
+                $.toast(data.Message)
+            }
+        }
+    });
+</script>
+</body>
+</html>

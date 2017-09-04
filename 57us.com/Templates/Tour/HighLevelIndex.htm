@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>定制旅游_美国定制旅游_美国定制游_美国私人定制旅游_美国高端定制旅游 - 57美国网</title>
+  <meta name="keywords" content="定制旅游,旅游定制,美国定制旅游,美国定制游,美国私人定制旅游,美国高端定制旅游,美国订制旅游,美国个性定制旅游">
+  <meta name="description" content="57美国网高端定制频道，为您量身定制专属行程，拥有中文私人导游，您的每一个要求,我们都帮您超值实现，让您的美国之旅独一无二。">
+  <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+  <link href="{echo CssURL}/common/TourPublic.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{echo JsURL}/base/fullPage/2.6.9/jquery.fullPage.css">
+  <link href="{echo WEB_TOUR_URL}/Templates/Tour/Customize/css/Customize.css" rel="stylesheet" type="text/css" />
+  <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+  <script src="{echo JsURL}/base/base.js"></script>
+</head>
+<body>
+<div class="MakeIndexHead">
+  <div class="w1200 cf">
+    <ul class="MakeIndexHeadMenu fr">
+      <li> <a href="{echo WEB_TOUR_URL}/" class="first_a">首页</a></li>
+      {template 'Common/TourNav',1}
+    </ul>
+    <div class="logo"><a href="{echo WEB_TOUR_URL}" title="57美国网">57美国网</a></div>
+  </div>
+</div>
+<div class="MakeFirstBox" id="MakeFirstBox">
+  <p class="tit1 mt20">高端定制</p>
+  <p class="tit2">让旅行更轻松</p>
+  <p class="input i1">
+    <input type="text" name="name" id="name" value="" placeholder="联系人姓名" autocomplete="off" maxlength="10" />
+    <i></i> </p>
+  <p class="input i2">
+    <input type="text" name="phone" id="phone" value="" placeholder="请填写手机号" autocomplete="off" />
+    <i></i> </p>
+  <input class="MakeBtn mt30" type="button" id="home_btn" value="开始定制行程" />
+</div>
+<div class="MakeMain">
+  <div id="dowebok">
+    <div class="section section1"> </div>
+    <div class="section section2"> </div>
+    <div class="section section3"> </div>
+  </div>
+</div>
+<div class="TourFoot cf">
+  <div class="w1200 cf">
+    <div class="mt20"><img src="<?php echo WEB_TOUR_URL;?>/Templates/Tour/Customize/images/makebottom.png"></div>
+    <ul class="TourFootMeida mt20 fr">
+      <li class="i1"><a href="javascript:void(0)"><i></i>关注微博平台</a>
+        <div class="ChatCode"><img src="<?php echo ImageURL;?>/img/common/wb.jpg" width="112" height="112"><em></em></div>
+      </li>
+      <li class="i2"><a href="javascript:void(0)"><i></i>关注微信平台</a>
+        <div class="ChatCode"><img src="<?php echo ImageURL;?>/img/common/wx.png" width="112" height="112"><em></em></div>
+      </li>
+    </ul>
+    <div class="TourFootBox mt20">
+      <div class="TourFootMenu"><a href="<?php echo WEB_MAIN_URL;?>/about/contacts.html" class="i1"><i></i>公司简介</a>|<a href="<?php echo WEB_MAIN_URL;?>/about/contact.html" class="i2"><i></i>联系我们</a>|<a href="<?php echo WEB_MAIN_URL;?>/about/map.html" class="i3"><i></i>站点地图</a>|<a href="<?php echo WEB_MAIN_URL;?>/about/privacy.html" class="i4"><i></i>隐私保护</a>|<a href="<?php echo WEB_MAIN_URL;?>/about/xieyi.html" class="i5"><i></i>用户协议</a>|<a href="<?php echo WEB_MAIN_URL;?>/about/xiugai.html" class="i6"><i></i>修改和取消</a>|<a href="<?php echo WEB_MAIN_URL;?>/about/zhifu.html" class="i7"><i></i>支付方式</a>|<a href="<?php echo WEB_MAIN_URL;?>/about/zhifu.html" class="i8"><i></i>帮助中心</a></div>
+      <div class="TourFootCopy">Copyright © 2016 57US.com <a href="<?php echo WEB_MAIN_URL;?>/">57美国网</a> All rights reserved. 闽ICP备15017345号 </div>
+    </div>
+    <div class="HotThing fl mt20 cf">
+      <p class="cf">热门旅游目的地：
+        <?php foreach($this->TourFootTagM as $Value){?>
+        <a href="<?php echo $Value['TourFootTagUrl'];?>" title="<?php echo $Value['TourFootTagName'];?>" target="_blank"><?php echo $Value['TourFootTagName'];?></a>|
+        <?php }?>
+      </p>
+      <p class="cf">热门旅游景点：
+        <?php foreach($this->TourFootTagJ as $Value){?>
+        <a href="<?php echo $Value['TourFootTagUrl'];?>" title="<?php echo $Value['TourFootTagName'];?>" target="_blank"><?php echo $Value['TourFootTagName'];?></a>|
+        <?php }?>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="{echo JsURL}/base/fullPage/2.6.9/jquery.fullPage.min.js"></script>
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<script>
+    $(function() {
+        var timer;
+        var flag = true;
+
+        function lock() {
+            clearTimeout(timer);
+            flag = false;
+            timer = setTimeout(function() {
+                flag = true;
+            }, 200);
+        }
+        $('#dowebok').fullpage({
+            'navigation': true,
+            'verticalCentered': false,
+            'resize': false,
+            'loopBottom': true,
+            'onLeave': function(index, nextIndex, direction) {
+                // 底部
+
+                if (index === 3 && nextIndex === 1) {
+                    $(".MakeMain").addClass("on");
+                    $(".MakeFirstBox").addClass("hidden");
+                    return false;
+                }
+                if (index === 3 && nextIndex === 2) {
+                    lock();
+                    $(".MakeMain").removeClass("on");
+                    $(".MakeFirstBox").removeClass("hidden");
+                    return true;
+                }
+                // 返回事件阻塞
+                return flag;
+            }
+        });
+        $(window).resize(function() {
+            autoScrolling();
+        });
+
+        function autoScrolling() {
+            var $ww = $(window).width();
+
+            if ($ww < 1024) {
+                $.fn.fullpage.setAutoScrolling(false);
+            } else {
+                $.fn.fullpage.setAutoScrolling(true);
+            }
+        }
+        autoScrolling();
+    });
+    //传参数给下一个页面
+    var host = window.location.protocol+"//"+window.location.hostname;
+    $("#home_btn").click(function() {
+        var Nname = $("#name").val();
+        var Phone = $("#phone").val();
+        if (Nname == "") {
+            layer.msg("请输入出游人员姓名(10个字以内)");
+            return
+        } else if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(Phone)){
+            layer.msg("请输入正确手机号码");
+            return
+        }
+        document.location.href = host + '/dingzhi_' + Nname + '_'+ + Phone;
+    });
+</script>
+<div class="hidden">
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?21f9def31aa89e3cd98d7b6b95068701";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256811158'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256811158' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>

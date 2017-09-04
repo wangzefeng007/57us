@@ -1,0 +1,71 @@
+{template StudyHeader}
+<div class="page-group">
+    <div class="page page-current" id="studyTourOrder">
+        <header class="bar bar-nav diybar">
+            <a class="pull-left back"><i class="icon iconfont icon-Left"></i></a>
+            <h1 class="title">提交订单</h1>
+        </header>
+        <div class="content pd25">
+            <div class="orderHead">
+                <img src="{$StudyYoosure[Image]}"/>
+                <p class="tit">{$StudyYoosure[Title]}</p>
+                <p class="c9"><i class="icon iconfont icon-shijian"></i>出发时间：<span class="date"></span></p>
+                <p class="c9"><i class="icon iconfont icon-renqun"></i>报名人数：<sapn class="num"></sapn>人</p>
+            </div>
+            <div class="goman mt10" id="list">
+                <div class="gomanT">
+                    <span class="name">出行人信息</span>
+                </div>
+            </div>
+            <div class="goman mt10 aa">
+                <div class="gomanT">
+                    <span class="name">联系人信息</span>
+                    <ul class="tabList">
+                        <li>
+                            <div class="tabL">
+                                姓名 <span class="red">*</span>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="name" id="name" value="" placeholder="怎么称呼您？" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tabL">
+                                手机号码 <span class="red">*</span>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="mobile" class="mobile" value="" placeholder="请输入电话号码" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tabL">
+                                邮箱 <span class="red">*</span>
+                            </div>
+                            <div class="input">
+                                <input type="text" name="mail" class="mail" value="" placeholder="请输入邮箱" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tabL">
+                                购买留言 <span class="red"> </span>
+                            </div>
+                            <div class="input">
+                                <textarea name="message" class="message" rows="" cols="" placeholder="如有特殊需求，请留言。"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bar bar-tab fixFun">
+            <p class="pull-left">
+                需付定金：
+                <span class="nPrice totalPrice"></span></p>
+            <a href="javascript:void(0)" class="pull-right payMone submitBtn">提交</a>
+        </div>
+    </div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/study/StudyTourOrder.js" charset='utf-8'></script>
+</body>
+</html>

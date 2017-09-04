@@ -1,0 +1,84 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">顾问匹配管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=StudyTour&Action=StudyMarryList" class="active">用户匹配顾问列表</a>
+                </li>
+                <span class="position hidden">顾问匹配管理</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel breadcrumb">
+                <div class="panel-body">
+                    <!--<form class="form-inline" role="form" action="/index.php?Module=StudyTour&Action=StudyMarryList" method="GET">-->
+                        <!--<input type="hidden" name="Module" value="StudyTour">-->
+                        <!--<input type="hidden" name="Action" value="StudyMarryList">-->
+                        <!--<span style="float: left;line-height: 36px;margin-left: -10px;padding-right: 10px">：</span>-->
+                        <!--<input type="text" class="form-control" name="Title" placeholder="" value="{$Title}" style="width:300px;">-->
+                        <!--<button class="btn btn-info">搜索</button>-->
+                    <!--</form>-->
+                </div>
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>姓名</th>
+                            <th>联系方式</th>
+                            <th>匹配城市</th>
+                            <th>申请层次</th>
+                            <th>服务类型</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $Data['Data'] $lists}
+                        <tr height="35" align="center">
+                            <td>{$lists[MarryID]}</td>
+                            <td>{$lists[MarryName]}</td>
+                            <td>{$lists[ContactWay]}</td>
+                            <td>{$lists[MarryCity]}</td>
+                            <td>{$TargetLevel[$lists[MarryTargetLevel]]}</td>
+                            <td>{$Type[$lists[MarryServiceType]]}</td>
+                            <td><a href="/index.php?Module=StudyTour&Action=StudyMarryDetail&ID={$lists[MarryID]}">详情</a>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    <form action="/index.php?Module=StudyTour&Action=StudyMarryList{$PageUrl}" method="POST">
+                        <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryList&Page=1{$PageUrl}">首页</a></li>
+                                {if $Previous}
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryList&Page={$Previous}{$PageUrl}">上一页</a></li>
+                                {/if}
+                                {loop $Data[PageNums] $page}
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryList&Page={$page}{$PageUrl}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+                                {/loop}
+                                {if $Next}
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryList&Page={$Next}{$PageUrl}">下一页</a></li>
+                                {/if}
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryList&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+                                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

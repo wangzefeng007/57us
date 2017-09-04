@@ -1,0 +1,47 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li class="active">途径城市/景点管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+      <span class="position hidden">途径城市/景点管理</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-body">
+          <ul class="list-inline">
+            {loop $Lists $lists}
+            <li style="margin-bottom: 10px">
+              [ <span {if $lists[R1]==1} style="color:#FF0000;"{/if}>{$lists[PassAttractionsName]}</span> |
+              <a href="javascript:void(0)" class="del" data-id="{$lists[TourPassAttractionsID]}">删除</a>/
+              <a href="/index.php?Module=TourPassAttractions&Action=SetHot&ID={$lists[TourPassAttractionsID]}&R1={$lists[R1]}">HOT</a> ]
+            </li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}
+<script>
+  $('.del').click(function () {
+    var tjid = $(this).attr('data-id');
+    var text = $(this).prev().text();
+    layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=TourPassAttractions&Action=Delete&ID='+tjid;
+      layer.close(index);
+    });
+  })
+</script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>支付页面</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm.min.css">
+	<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm-extend.min.css">
+	<link rel="stylesheet" href="http://www.57us.net/Plugins/mfonts/iconfont.css">
+	<link rel="stylesheet" href="http://css.57us.net/m/tour/style.css">
+
+</head>
+
+<body>
+<div class="page-group">
+	<div class="page page-current" id="payStyle">
+		<!-- 标题栏 -->
+		<header class="bar bar-nav diybar">
+			<a class="back pull-left"><i class="icon iconfont">&#xe001;</i></a>
+			<h1 class="title">支付方式</h1>
+		</header>
+		<div class="content">
+			<div class="paybox">
+				<div class="Plist tit">夏威夷两大岛豪华深度游，大岛(希洛)+科纳5天4夜豪华游</div>
+				<div class="Plist grid-demo">
+					<div class="row">
+						<div class="col-80">出发日期：<span class="green">2016-10-30</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="paybox mt10">
+				<div class="Plist grid-demo">
+					<div class="row">
+						<div class="col-80 tac"><span class="green" style="font-size: 0.78rem;">套餐</span></div>
+						<div class="col-20 tac"><span class="green" style="font-size: 0.78rem;">数量</span></div>
+					</div>
+				</div>
+				<div class="Plist grid-demo">
+					<div class="row">
+						<div class="col-80 tal">夏威夷两大岛豪华深度游，大岛(希洛)+科纳5天
+							4夜豪华</div>
+						<div class="col-20 tac"><span class="num">1</span></div>
+					</div>
+				</div>
+				<div class="Plist grid-demo">
+					<div class="row">
+						<div class="col-80 tal">夏威夷两大岛豪华深度游，大岛(希洛)+科纳5天
+							4夜豪华</div>
+						<div class="col-20 tac"><span class="num">1</span></div>
+					</div>
+				</div>
+				<div class="Plist tit">应付金额：<span class="price">¥<i>100000</i></span></div>
+			</div>
+			<div class="paybox mt10" style="padding-top: 1.4rem;">
+				<span class="PayOrderDe">订单详情</span>
+				<p class="prodetailShow">
+					收款方：<span>美华通（厦门）网络科技有限公司</span><br> 订单号：
+					<span>T201610129781</span><br> 产品编号：
+					<span>10010</span><br> 费用说明：
+				</p>
+				<p class="prodetailShow">
+					联系人：<span>XXX</span><br> 邮箱：
+					<span>568521588@qq.com</span><br> 手机号码：
+					<span>13888888888</span>
+				</p>
+			</div>
+			<div class="payBottomBg"></div>
+			<div class="paybox payBox mt20">
+				<div class="Plist payStyleChat" datd-tit="微信">
+					<img src="http://images.57us.com/img/m/tour/payStyleChat.png" height="100%" />微信支付
+				</div>
+				<div class="Plist payStyleAlpay" datd-tit="支付宝">
+					<img src="http://images.57us.com/img/m/tour/payStyleAlpay.png" height="100%" />支付宝支付
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type='text/javascript' src="http://js.57us.net/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+<script type="text/javascript">
+	$(function() {
+		$(".payBox .Plist").each(function() {
+			$(this).on("click", function() {
+				var Ltext = $(this).attr("datd-tit");
+				$.confirm('“57us”想要打开“' + Ltext + '”', function() {
+
+				});
+			})
+
+		})
+	})
+</script>
+</body>
+
+</html>

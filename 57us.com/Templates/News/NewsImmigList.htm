@@ -1,0 +1,85 @@
+{template Header}
+<div class="wrap">
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" target="_blank" title="57美国网">首页</a>><a href="/immigrant/" target="_blank" title="移民资讯">移民资讯</a>><a href="/immigtopic_{$ParentCategory[Alias]}/" target="_blank" title="{$ParentCategory[CategoryName]}">{$ParentCategory[CategoryName]}</a>>  <span>{$Info[CategoryName]}</span></div>
+	<div class="w1200 cf NewsTourMain">
+		<div class="NewsTourSlideR mt20 cf fr">
+	{loop $TopicTour $key $val}
+    <div class="NewsAd">
+	<a href="{$val['Link']}" target="_blank" title="{$val[Title]}"><img src="{echo LImageURL}{$val[Picture]}" class="transition lazy" alt="{$val[Title]}" title="{$val[Title]}" width="100%" /></a>
+    </div>{/loop}
+                        {template TagsCloud}    
+			<div class="HotTip cf mt25">
+				<div class="HotTipT"><i></i>热门标签</div>
+				<div class="HotTipM">
+					{loop $Keyhot $list}<a href="{echo WEB_MAIN_URL}/immigrant/tags_{$list[Keyword]}.html" target="_blank" title="{$list[Keyword]}">{$list[Keyword]}</a>{/loop}
+				</div>
+			</div>
+			<div class="NowNews mt25">
+				<div class="HotTipT"><i></i>热门文章</div>
+				<ul class="NewsList">
+					{loop $Tourhot $key $lists}
+					<li {if $key<3}class="i{echo $key+1}{/if}"><a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank" title="{$lists[Title]}"><i>{echo $key+1}</i>{$lists[Title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="NowNews LikeNews mt25">
+				<div class="HotTipT"><i></i>猜你喜欢</div>
+				<ul class="NewsList">
+					{loop $TourLike $key $lists}
+					<li><a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank" title="{$lists[Title]}"><i>{echo $key+1}</i>{$lists[Title]}</a></li>
+					{/loop}
+				</ul>
+			</div>    
+		</div>
+		
+		<div class="NewsTourSlideL fl">
+			<ul class="NewsStudyList">
+				{loop $Data[Data] $lists}
+				<li>
+					<span class="date">{$lists[AddTime]}</span>
+					<p class="tit"> <a href="/immigrant/{$lists[ImmigrationID]}.html" title="{$lists[Title]}" target="_blank">{$lists[Title]}</a></p>
+					<p class="nr mt10">{$lists[Description]}</p>
+					<div class="ListFun cf mt10">
+						{if $lists[Image] !=''}
+						<div class="ListImg">
+							<p><a  href="/immigrant/{$lists[ImmigrationID]}.html" title="{$lists[Title]}" target="_blank"><img  src="{echo ImageURLP2}{$lists[Image]}" alt="{$lists[Title]}" title="{$lists[Title]}" class="transition lazy" width="90" height="67"/></a></p>
+						</div>
+						{/if}
+						<div class="fun cf">
+							<span class="viewTip fr"><i></i>{$lists[ViewCount]}{if $lists[ViewCount]==''}0{/if}</span>
+							{if $lists[Keywords][0]}<p class="TourTip fr">{loop $lists[Keywords] $k $value}{if $k<2}<span><i></i><a href="{echo WEB_MAIN_URL}/immigrant/tags_{$value}.html" target="_blank" title="{$value}">{$value}</a></span>{/if}{/loop}</p>{/if}
+						</div>
+					</div>
+				</li>
+				{/loop}
+			</ul>
+			{if $listpage}
+			<div class="page mt50">
+				{$listpage}
+				<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button" name="" id="" value="确定" class="PageBtn" /></div>
+			</div>
+			{/if}
+		</div>
+	</div>
+	<script src="{echo JsURL}/www/newsimmgindex.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".PageBtn").click(function(){
+			var gopage = $("#gopage").val();
+			var lastpage = {$Data['PageCount']};
+			if(!gopage){
+				alert("请输入页码");return false;
+			}
+			if( lastpage < gopage ){
+				alert("您输入的页码超过最大页数");return false;
+			}
+			var gourl = '{$GoPageUrl}';
+			window.location.href=gourl+'_'+gopage+'/';
+			return false;
+		});
+	</script>
+	{template Footer}

@@ -1,0 +1,189 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 StudyLocation">您当前位置：
+	<a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+	<a href="{echo WEB_STUDY_URL}/studytour/">游学列表</a><span>&gt;</span>
+	<span class="Position">{$StudyYoosure['Title']}</span>
+</div>
+<div class="w1200 cf stutoDeBox">
+	<div class="stutoDePic fl">
+		<span class="prev"></span>
+		<span class="next"></span>
+		<ul class="pic">
+			{loop $StudyYoosureImage $lists}
+			<li><img src="{$lists['Image']}" width="600" height="377" /></li>
+			{/loop}
+		</ul>
+		<div class="hd">
+			<ul>
+				{loop $StudyYoosureImage $key $lists}
+				<li {if $key==0}class="on"{/if}></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+	<h1 class="title">{$StudyYoosure['Title']}</h1>
+	<p class="insGg mt10"><span>{$StudyYoosure['Description']}</span><em></em></p>
+	<div class="detailTab mt10">
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td colspan="2">产品编号：{$StudyYoosure['YoosureID']}</td>
+			</tr>
+			<tr>
+				<td width="250"><i class="i1"></i>游学主题：{$YoosureTitle[$StudyYoosure['YoosureTitle']]}</td>
+				<td width="250"><i class="i2"></i>出发地：{$DeparturePlace[$StudyYoosure['DeparturePlace']]}</td>
+			</tr>
+			<tr>
+				<td><i class="i3"></i>适合人群：{$Crowd[$StudyYoosure['Crowd']]}</td>
+				<td><i class="i4"></i>出行天数：{$StudyYoosure['Days']}天</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					出发时间：
+					<div name="timeItem" type="selectbox" class="DiySelect sb" id="Date">
+						<div class="opts">
+							{loop  $StudyYoosure['GoDate'] $key $lists}
+							<a href="javascript:void(0);" value="{$lists}" data-end="{$StudyYoosure['ApplyTime'][$key]}">{$lists}</a>
+							{/loop}
+							<a href="javascript:void(0);" value="请选择出发时间" class="selected" data-end="请选择出发时间">请选择出发时间</a>
+						</div>
+					</div>
+					<span style="display: none" class="endDate">截止报名时间：<span></span></span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					报名人数：
+					<div class="num_box">
+						<a class="num_btn change"></a>
+						<input name="numbers" class="num_input" id="num" value="1">
+						<a class="num_btn plus"></a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p class="price fl">总价：<span class="nowPrice red f20">&yen;<em id="price" data-price="{echo intval($StudyYoosure['Price'])}">{echo intval($StudyYoosure['Price'])}</em></span><span class="oldPrice">原价：{echo intval($StudyYoosure['OriginalPrice'])}/人</span></p>
+					<!--此处data-id绑定此产品的id-->
+					<a href="javascript:void(0)" class="nowBuy fr" id="nowBuy" data-id="{$StudyYoosure['YoosureID']}">立即预定</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="w1200 DetailCont cf mt20">
+	<div class="contMenu" id="contMenu">
+		<ul class="">
+			<li class="on">行程特色<span class="line"></span></li>
+			<li>行程详情<span class="line"></span></li>
+			<li>费用说明<span class="line"></span></li>
+			<li>预定须知<span class="line"></span></li>
+			<li>注意事项<span class="line"></span></li>
+			<a href="javascript:void(0)" id="oncebtn" style="display: none;">马上预定</a>
+		</ul>
+	</div>
+	<div class="cf stDetailContM">
+		<div class="contBox">
+			<p class="tit">行程特色</p>
+			<div class="contBoxM cf">
+				{$StudyYoosure['TravelPlan']}
+			</div>
+		</div>
+		<div class="contBox">
+			<p class="tit">行程安排</p>
+			<div class="DayBoxM">
+				<div class="DateMenu">
+					<ul class="">
+						{loop $StudyYoosure['Content'] $key $lists}
+						<li {if $key == 0}class="on"{/if}>第{echo $key+1}天</li>
+						{/loop}
+					</ul>
+				</div>
+				{loop $StudyYoosure['Content'] $key $lists}
+				<div class="DayBox">
+					<div class="DayBoxTit"><span class="dayIn">Day{echo $key+1}</span>{$lists['Title']}</div>
+					<div class="DayBoxNr">
+						<div class="line"></div>
+						<ul class="mt15">
+							<li>
+								<i class="ico1"></i>
+								<p class="f16 green">交通</p>
+								<div class="suNr">
+									<p>{$lists['Traffic']}</p>
+								</div>
+							</li>
+							<li>
+								<i class="ico3"></i>
+								<p class="f16 green">酒店住宿</p>
+								<div class="suNr">
+									<p>{$lists['Accommodation']}</p>
+								</div>
+							</li>
+							<li>
+								<i class="ico4"></i>
+								<p class="f16 green">行程简介</p>
+								<div class="suNr">
+                                    {$NewContent[Content][$key][Content]}
+                                    {$NewContent[ImagesArray][$key]}
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				{/loop}
+			</div>
+		</div>
+		<div class="contBox">
+			<p class="tit">费用说明</p>
+			{loop $StudyYoosure['CostDescription'] $key $lists}
+			<div class="FreeCont">
+				<div class="sunavTit">{$lists['Title']}</div>
+				<div class="FreeContNr mt10">
+					{$lists['Content']}
+				</div>
+				<div class="line"></div>
+			</div>
+			{/loop}
+		</div>
+		<div class="contBox">
+			<p class="tit">预订须知</p>
+			<div class="FreeCont">
+				<div class="FreeContNr">
+					{$StudyYoosure['BookingNotice']}
+				</div>
+				<div class="line"></div>
+			</div>
+		</div>
+		<div class="contBox">
+			<p class="tit">注意事项</p>
+			<div class="FreeCont">
+				<div class="FreeContNr">
+					{$StudyYoosure['Notice']}
+				</div>
+				<div class="line"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="w1200 cf mt20 relateTj">
+	<div class="tit"><span class="name fl">相关推荐</span></div>
+	<div class="ScrollPic">
+		<span class="prev"></span>
+		<div class="ScrollMain">
+			<ul class="pic">
+				{loop $StudyRelated $key $lists}
+				<li>
+					<a href="/studytour/{$lists['YoosureID']}.html" target="_blank" title="{$lists['Title']}"><img src="{$lists['Image']}" width="270" height="203">
+						<p class="tit">{$lists['Title']}</p>
+					</a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+		<span class="next"></span>
+	</div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/study/StudyTourDetail.js"></script>
+</body>
+</html>

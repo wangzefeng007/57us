@@ -1,0 +1,328 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/tour/touline.css" rel="stylesheet" type="text/css"/>
+<div class="w1200 TourLocation">您当前位置：
+    <a href="{echo WEB_TOUR_URL}">首页</a><span>&gt;</span><a href="{echo WEB_TOUR_URL}/play/{$CateInfo['Alias']}/">{$CateInfo['CnName']}</a><span>&gt;</span><span>{$TourPlayInfo['ProductName']}</span>
+</div>
+<div class="ProdetailBox cf">
+    <span class="noProIco {if $TourPlayInfo[Status]==1}hidden{/if}">无产品标识</span>
+    <div class="ProdetailBoxT">{$TourPlayInfo[ProductName]}</div>
+    <div class="PicScroll fl">
+        <div id="imgRolling">
+            <ul class="tra_pic" id="imagebg">
+                {loop $ProductImages $key $val}
+                <li><img src="{echo ImageURLP8}{$val['ImageUrl']}" title="{$TourPlayInfo['ProductName']}" alt="{$TourPlayInfo['ProductName']}" class="transition" width="600" height="450" /></li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="tra_small {if count($ProductImages) == 1}hidden{/if}">
+            <a id="left_btn" class="pre" href="javascript:void(0)"></a>
+            <div class="smallPic">
+                <ul id="small_pic">
+                    {loop $ProductImages $key $val}
+                    <li><img src="{echo ImageURLP2}{$val['ImageUrl']}" title="{$TourPlayInfo['ProductName']}" alt="{$TourPlayInfo['ProductName']}" class="transition" width="85" height="64" /></li>
+                    {/loop}
+                </ul>
+            </div>
+            <a id="right_btn" class="next" href="javascript:void(0)"></a>
+        </div>
+    </div>
+    <div class="procont fr procont1">
+        <div class="TitCont">
+            <p class="hPrice mt10 fl">
+                <span class="nowPrice"><em>￥</em><b id="initialprice">{echo
+                    ceil($TourPlayInfo['LowPrice'])}</b>/人起</span>
+                <span class="OldPrice">原价：￥{if $TourPlayInfo['LowMarketPrice']}{echo ceil($TourPlayInfo['LowMarketPrice'])}{else}{echo ceil($TourPlayInfo['LowPrice'] * 1.15)}{/if}</span>
+            </p>
+            {if $TagInfo}
+            <p class="searveList mt30" style="width: auto;float: inherit">{loop $TagInfo $val}<span>{$val}</span>{/loop}
+            </p>{/if}
+        </div>
+        <div class="cf">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr height="48">
+                    <td colspan="2">
+                        <div class=" Proins"><span>产品编号：{$TourPlayInfo['TourProductID']}</span><span>{if $CateInfo['TourCategoryID'] == 9 || $CateInfo['TourCategoryID']== 21}出发地：{$Departure}{else}目的地：{$City}{/if}</span><span>{if $CateInfo['TourCategoryID'] == 21}目的地：{$City}{elseif $CateInfo['TourCategoryID'] != 22}游玩时间：{if $TourPlayInfo['Times']}{$TourPlayInfo['Times']}{else}1{/if}{/if}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr height="48">
+                    <th>选择套餐：</th>
+                    <td>
+                        <div name="combo" id="combo" type="selectbox" class="diyselect">
+                            <div class="opts">
+                                {if $PlaySkuInfo}
+                                {loop $PlaySkuInfo $key $val}
+                                <a href="javascript:;" value="{$val['ProductSkuID']}" title="{$val['SKUName']}"
+                                   data-price="{echo ceil($val['NPrice'])}" data-id="{$val['ProductSkuID']}" {if $key==0
+                                   }class="selected" {/if}>{echo _StrtrString($val['SKUName'])}</a>
+                                {/loop}
+                                {else}
+                                <a href="javascript:;">此产品暂时没有套餐</a>
+                                {/if}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr height="48">
+                    <th>出行日期：</th>
+                    <td>
+                        <div class="dateIns"><input type="text" id="calendar" name="calendar" readonly="readonly" placeholder="点击选择时间"/><span class="c9">出发日期为当地时间</span></div>
+                    </td>
+                </tr>
+                <tr height="48">
+                    <th>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：</th>
+                    <td>
+                        <div class="num_box fl RoomNum">
+                            <a class="num_btn change"></a>
+                            <input name="RoomNum" class="num_input" value="1">
+                            <a class="num_btn plus"></a>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="display: none">
+                    <td id="productprice"></td>
+                </tr>
+            </table>
+            <div class="cf priceBox">
+                {if $TourPlayInfo[Status]==1}<a href="javascript:void(0)" class="NowOrderBtn fr" id="NowOrderBtn">马上预定</a>{/if}
+                <!--
+                	作者：xiao15980751809@126.com
+                	时间：2017-02-24
+                	描述：新增
+                -->
+				<div class="againTure fr">
+					<p class="againTureT">需二次确认</p>
+					<div class="tureBox">
+						需二次确认,建议付款之前与客服沟通，商家将在2个工作小时内(工作日9:00-18:00)核实是否有位。
+					</div>
+				</div>
+				
+                <p class="allPrice fl mt10">总价：<b>￥<i id="totalprice">{echo ceil($TourPlayInfo['LowPrice'])}</i></b></p>
+            </div>
+            <input type="hidden" id="TourProductID" value="{$TourPlayInfo['TourProductID']}">
+            <input type="hidden" id="ProductSkuID" value="{$PlaySkuInfo[0]['ProductSkuID']}">
+            <input type="hidden" id="DayPriceID" value="">
+            <input type="hidden" id="NoPrice" value="">
+            <ul class="procontIns mt10">
+                {$ProductSimpleName}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="w1200 DetailCont mt20">
+    <div class="contMenu">
+        <ul>
+            {if $Description1['DesContent'][0] || $TimeInfo['TimesContent'][0]}
+            <li class="on">产品详情</li>
+            {/if}
+            {if $BookingPolicy['BookContent'][0]}
+            <li>预定须知</li>
+            {/if}
+            {if $ConsumerNotice['ConContent'][0]}
+            <li>消费须知</li>
+            {/if}
+            {if $Explanation['ExpContent'][0]}
+            <li>费用说明</li>
+            {/if}
+            {if $EvaluateCountInfo[Times]>0}
+            <li class="Comments">用户点评（{$EvaluateCountInfo[Times]}）</li>
+            {/if}
+            <a href="javascript:void(0)" id="oncebtn">
+                马上预定
+            </a>
+        </ul>
+    </div>
+    <div class="cf DetailContM">
+        {if $Description1['DesContent'][0] || $TimeInfo['TimesContent'][0]}
+        <div class="contBox">
+            <div class="FreeCont">
+                {if $TourPlayInfo[AdvanceDays]!=''}提前预定天数：{$TourPlayInfo['AdvanceDays']}<br/>{/if}
+                {if $TourPlayInfo[ServiceLanguage]!=''}服务语言：{$TourPlayInfo['ServiceLanguage']}<br/>{/if}
+                {if $TourPlayInfo[Address]!=''}消费地址：{$TourPlayInfo['Address']}<br/>{/if}
+            </div>
+            <div class="contBoxT f16">
+                <i class="ico1"></i><br>产品详情
+            </div>
+            {loop $Description1['DesContent'] $key $val}
+            <div class="FreeCont">
+                {if $Description1[DesTitle][$key]}
+                <div class="sunavTit {$Description1[DesScc][$key]}">{$Description1[DesTitle][$key]}</div>
+                {/if}
+                {if $val}
+                <div class="FreeContNr mt15">{echo _StrtrString($val)}</div>
+                {/if}
+                <div class="line"></div>
+            </div>
+            {/loop}
+            {if $TimeInfo}
+            <ul class="TimeBox mt40">
+                {loop $TimeInfo['Times'] $key $val}
+                <li>
+                    <b class="line"></b>
+                    <b class="cirle"></b>
+
+                    <p class="tit"><span class="fl time">{$val}</span>{$TimeInfo['TimesTitle'][$key]}</p>
+
+                    <p class="nr">{echo $TimeInfo['TimesContent'][$key]}</p>
+                </li>
+                {/loop}
+            </ul>
+            {/if}
+        </div>
+        {/if}
+        {if $BookingPolicy['BookContent'][0]}
+        <div class="contBox">
+            <div class="contBoxT f16">
+                <i class="ico4"></i><br>预定须知
+            </div>
+            {loop $BookingPolicy['BookCss'] $key $val}
+            <div class="FreeCont">
+                {if $BookingPolicy['BookTitle'][$key]}
+                <div class="sunavTit {$val}">{$BookingPolicy['BookTitle'][$key]}</div>
+                {/if}
+                {if $BookingPolicy['BookContentPic'][$key]}
+                <div class="FreeContNr mt10">{echo _StrtrString($BookingPolicy['BookContentPic'][$key])}</div>
+                {/if}
+                <div class="line"></div>
+            </div>
+            {/loop}
+        </div>
+        {/if}
+        {if $ConsumerNotice['ConContent'][0]}
+        <div class="contBox">
+            <div class="contBoxT f16">
+                <i class="ico5"></i><br>消费须知
+            </div>
+            {loop $ConsumerNotice['ConCss'] $key $val}
+            <div class="FreeCont">
+                {if $ConsumerNotice['ConTitle'][$key]}
+                <div class="sunavTit">{$ConsumerNotice['ConTitle'][$key]}</div>
+                {/if}
+                <div class="FreeContNr mt25">
+                    {echo _StrtrString($ConsumerNotice['ConContentPic'][$key])}
+                </div>
+                <div class="line"></div>
+            </div>
+            {/loop}
+        </div>
+        {/if}
+        {if $Explanation['ExpContent'][0]}
+        <div class="contBox  {if $EvaluateCountInfo[Times]==0}last{/if}">
+            <div class="contBoxT f16">
+                <i class="ico3"></i><br>费用说明
+            </div>
+            {loop $Explanation['ExpCss'] $key $val}
+            <div class="FreeCont">
+                {if $Explanation['ExpTitle'][$key]}
+                <div class="sunavTit">{$Explanation['ExpTitle'][$key]}</div>
+                {/if}
+                <div class="FreeContNr mt25">
+                    {echo _StrtrString($Explanation['ExpContentPic'][$key])}
+                </div>
+                <div class="line"></div>
+            </div>
+            {/loop}
+        </div>
+        {/if}
+        {if $EvaluateCountInfo[Times]>0}
+        <!---------------------评价------------------------------>
+        <div class="contBox last">
+            <div class="contBoxT f16">
+                <i class="ico6"></i><br>用户点评
+            </div>
+            <div class="pjCont">
+                <div class="pjContHead">
+                    <div class="pjContLeft mt20 fl">
+                        <p>商品满意度</p>
+                        <p class="pjScore mt15"><span class="yellow">{$AllCount}</span>分</p>
+                        <p class="f12 mt15">来自{$CustomerNum}位买家的真实旅游感受</p>
+                    </div>
+                    <ul class="pjContRight tar fl">
+                        <li>
+                            <p class="fl pjl">导游服务</p>
+                            <p class="pjStart fl"><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=1}class="on"{/if}></i><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=2}class="on"{/if}></i><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=3}class="on"{/if}></i><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=4}class="on"{/if}></i><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=5}class="on"{/if}></i></p>
+                            <p class="pjScoreS fl">（<span class="yellow">{echo round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])}分</span>）</p>
+                        </li>
+                        <li>
+                            <p class="fl pjl">行程安排</p>
+                            <p class="pjStart fl"><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=1}class="on"{/if}></i><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=2}class="on"{/if}></i><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=3}class="on"{/if}></i><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=4}class="on"{/if}></i><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=5}class="on"{/if}></i></p>
+                            <p class="pjScoreS fl">（<span class="yellow">{echo round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])}分</span>）</p>
+                        </li>
+                        <li>
+                            <p class="fl pjl">宿餐饮住</p>
+                            <p class="pjStart fl"><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=1}class="on"{/if}></i><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=2}class="on"{/if}></i><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=3}class="on"{/if}></i><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=4}class="on"{/if}></i><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=5}class="on"{/if}></i></p>
+                            <p class="pjScoreS fl">（<span class="yellow">{echo round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])}分</span>）</p>
+                        </li>
+                        <li>
+                            <p class="fl pjl">出行交通</p>
+                            <p class="pjStart fl"><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=1}class="on"{/if}></i><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=2}class="on"{/if}></i><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=3}class="on"{/if}></i><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=4}class="on"{/if}></i><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=5}class="on"{/if}></i></p>
+                            <p class="pjScoreS fl">（<span class="yellow">{echo round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])}分</span>）</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hd cf" id="CommentsNav">
+                    <a href="javascript:void(0)" class="on" data-type="0">全部({$EvaluateCountInfo[Times]})</a><a href="javascript:void(0)" data-type="1">有图({$EvaluateCountInfo[ImagesTimes]})</a>
+                </div>
+                <div class="bd">
+                    <ul class="pjlist" id="pjlist">
+                    </ul>
+                    <div class="page mt35" id="Page" style="display: none" data-type="0">
+                    </div>
+                    <script type="text" id="pageDemo">
+                        <a class="prve cupo" data-id="{{d.Page-1}}">上一页</a>
+                        <a class="first cupo" data-id="1">1</a>
+                        {{# for(var p in d.PageNums){ }}
+                        <a class="cupo" data-id="{{d.PageNums[p]}}">{{d.PageNums [p] }}</a>
+                        {{# } }}
+                        <span class="lastEllipsis"href="javascript:void(0)">...</span>
+                        <a class="cupo PageCount" data-id="{{d.PageCount}}">{{d.PageCount}}</a>
+                        <a class="cupo next" data-id="{{d.NextPage}}">下一页</a>
+                    </script>
+                </div>
+            </div>
+        </div>
+        <!---------------------评价------------------------------>
+        {/if}
+    </div>
+</div>
+<div class="CityTjBox cf mt20">
+    <div class="CityTjBoxT">同城推荐</div>
+    <div class="ScrollPic">
+        <a href="JavaScript:void(0)" class="prev transition"><i>上一页</i></a>
+
+        <div class="ScrollMain">
+            <ul>
+                {loop $CityWideRecommend $key $val}
+                <li>
+                    <a href="/play/{$val['TourProductID']}.html" target="_blank" title="{$val['ProductName']}"><img
+                            src="{echo ImageURLP4}{$val['ImageUrl']}" title="{$val['ProductName']}"
+                            alt="{$val['ProductName']}" class="transition lazy" width="270" height="203"/>
+
+                        <p class="tit">{$val['ProductName']}</p>
+                    </a>
+                </li>
+                {/loop}
+                <li class="more">
+                    <a href="/play/{$CateInfo['Alias']}/" target="_blank">更多产品（什么产品程序去掉）</a>
+                </li>
+            </ul>
+        </div>
+        <a href="JavaScript:void(0)" target="_blank" class="next transition"><i>下一页</i></a>
+    </div>
+</div>
+<div style="display: none">
+    {loop $GoOutDate $key $val}
+    <p id="{$key}">
+        {$val}
+    </p>
+    {/loop}
+</div>
+<script type="text/javascript" src="{echo JsURL}/tour/PlayDetail.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/picTab/1.0.0/pic_tab.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/NewDatePicker/1.0.0/zlDate.js"></script>
+<script type="text/javascript" src="{echo JsURL}/tour/TourPublic.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/laytpl/1.1/laytpl.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/Page/1.0/Page.js"></script>
+{template Footer}
+</body>
+</html>

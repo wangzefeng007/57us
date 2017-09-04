@@ -1,0 +1,101 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li>
+          <a href="/index.php?Module=TourArea&Action=TourAreaList" class="position">特色内容定制管理</a>
+        </li>
+        <li class="active" id="modify">编辑特色内容定制</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-body">
+          <form action='/index.php?Module=TourQuestionnaire&Action=TourCustomFeaturesAdd'  method='post'  enctype="multipart/form-data">
+            <table class="table table-bordered table-striped table-hover">
+              <tbody>
+              <tr>
+                <td width="150px" class="t-r">特色名称：</td>
+                <td>
+                  <div class="col-sm-4">
+                    <input type="text" name="CustomName" value="{$TourCustomFeaturesInfo[CustomName]}" class="form-control"/>
+                  </div>
+                  <p class="help-block">（注：特色名称字数控制在10个字以内）</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">特色英文名：</td>
+                <td>
+                  <div class="col-sm-4">
+                    <input type="text" name="EnName" value="{$TourCustomFeaturesInfo[EnName]}" class="form-control"/>
+                  </div>
+                  <p class="help-block">（注：特色英文名需必填）</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">特色图片:</td>
+                <td>
+                  <div class="col-sm-2">
+                  <input type="file" name="Image[]" id="Image" />
+                    {if $TourCustomFeaturesInfo[Image]}
+                    <a href="{echo LImageURL}{$TourCustomFeaturesInfo[Image]}" target="_blank">
+                      <img src="{echo LImageURL}{$TourCustomFeaturesInfo[Image]}" style="height:80px; margin: 10px 0px" data-width="1920" data-height="800"/>
+                    </a>
+                    {/if}
+                    <p class="help-block">注：图片质量100kb以下，大小为240px*160px）</p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">特色描述:</td>
+                <td>
+                  <div class="col-sm-5">
+                    <textarea name="Description" rows="4" class="form-control">{$TourCustomFeaturesInfo[Description]}</textarea>
+                  </div><br><br><br>
+                  <p class="help-block">（注：特色描述字数尽量控制在30个字以内）</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r"><span class="red">*</span>&nbsp;特色介绍：</td>
+                <td>
+                  <div class="col-sm-10">
+                    <script id="Content" name="Content" type="text/plain"></script>
+                    <script>
+                      var ue = UE.getEditor('Content',{initialContent:'{$TourCustomFeaturesInfo[Content]}',initialFrameWidth :1024,initialFrameHeight:200,autoHeightEnabled:false});
+                    </script>
+                  </div>
+                </td>
+              </tr>
+              <tr id="MaterialRequested">
+                <td class="t-r"></td>
+                <td>
+                  <div class="col-sm-11">
+                    <input type="hidden" name="ID" id="ID" value="{$TourCustomFeaturesInfo[ID]}" />
+                    <input class="btn btn-danger" type='submit' value='提交保存'/>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

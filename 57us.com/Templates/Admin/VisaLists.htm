@@ -1,0 +1,146 @@
+{template Head}
+<style>
+  .form-inline select{
+    width:200px;padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+</style>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li>
+                <a href="#"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="#">签证产品管理</a>
+            </li>
+            <li class="active">签证列表</li>
+        </ul>
+        <span class="position hidden">签证列表</span>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-body">
+          <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px"></span>
+          <section id="unseen" style="position:relative;top:15px;">
+            <table class="table table-bordered table-striped table-condensed">
+              <thead>
+              <tr align="center">
+                <th>ID</th>
+                <th>文章标题</th>
+                <th>图片</th>
+                <th>年限</th>
+                <th>原价</th>
+                <th>现价</th>
+                <th>添加日期</th>
+                <th>到期时间</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tbody>
+              {loop $Data[Data] $list}
+              <tr align="center">
+                <td style="vertical-align: inherit;">{$list[VisaID]}</td>
+                <td style="vertical-align: inherit;" align="left"><a href="{echo WEB_VISA_URL}/visadetail/{$list[VisaID]}.html" target="_blank">{$list[Title]}</a></td>
+                <td style="vertical-align: inherit;"><a target="_blank" href="{echo LImageURL}{$list[Image]}"><img width="100px" height="80px" src="{echo LImageURL}{$list[Image]}"></a></td>
+                <td style="vertical-align: inherit;">{$list[Validity]}</td>
+                <td style="vertical-align: inherit;">{$list[OriginalPrice]}</td>
+                <td style="vertical-align: inherit;">{$list[PresentPrice]}</td>
+                <td style="vertical-align: inherit;">{$list[AddTime]}</td>
+                <td style="vertical-align: inherit;">{$list[ExpirationTime]}</td>
+                <td style="vertical-align: inherit;">
+                  <a class="getinfo"  href="/index.php?Module=Visa&Action=Details&ID={$list[VisaID]}">编辑</a> |
+                  <a class="getinfo del" href="javascript:void(0)" data-id="{$list[VisaID]}" data-text="{$list[Title]}">删除</a>
+                </td>
+              </tr>
+              {/loop}
+              </tbody>
+            </table>
+            <form action="/index.php?Module=Visa&Action=Lists" method="post">
+                    <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                    <li><a href="/index.php?Module=Visa&Action=Lists&Page=1">首页</a></li>
+                                    {if $Page-1>0}
+                                    <li><a href="/index.php?Module=Visa&Action=Lists&Page={echo $Page-1}">上一页</a></li>
+                                    {/if}
+                                    {loop $Data[PageNums] $page}
+                                    <li><a href="/index.php?Module=Visa&Action=Lists&Page={$page}" {if $Page == $page} class="on" {/if}>{$page}</a></li>
+                                    {/loop}
+                                    {if $Page<$Data[PageCount]}
+                                    <li><a href="/index.php?Module=Visa&Action=Lists&Page={echo $Page+1}">下一页</a></li>
+                                    {/if}
+                                    <li><a href="/index.php?Module=Visa&Action=Lists&Page={$Data[PageCount]}">尾页</a></li>
+                                    <span style="line-height: 27px;margin-right: 10px;margin-left:10px;">第{$Page}页&nbsp;共{$Data[PageCount]}页&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                    <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                    </div>
+            </form>
+        </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}
+<script>
+  $('.del').click(function () {
+    var delid = $(this).attr('data-id');
+    var text = $(this).attr('data-text');
+    layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=Visa&Action=Delete&ID='+delid;
+      layer.close(index);
+    });
+  })
+  
+  $(function(){
+    function initTableCheckbox() {
+      var $thr = $('table thead tr');
+      var $checkAllTh = $('<th><input type="checkbox" id="checkAll" name="checkAll" /></th>');
+      /*将全选/反选复选框添加到表头最前，即增加一列*/
+      /*“全选/反选”复选框*/
+      var $checkAll = $thr.find('input');
+      $checkAll.click(function(event){
+        /*将所有行的选中状态设成全选框的选中状态*/
+        $tbr.find('input').prop('checked',$(this).prop('checked'));
+        /*并调整所有选中行的CSS样式*/
+        if ($(this).prop('checked')) {
+          $tbr.find('input').parent().parent().addClass('warning');
+        } else{
+          $tbr.find('input').parent().parent().removeClass('warning');
+        }
+        /*阻止向上冒泡，以防再次触发点击操作*/
+        event.stopPropagation();
+      });
+      /*点击全选框所在单元格时也触发全选框的点击操作*/
+      $checkAllTh.click(function(){
+        $(this).find('input').click();
+      });
+      var $tbr = $('table tbody tr');
+      /*点击每一行的选中复选框时*/
+      $tbr.find('input').click(function(event){
+        /*调整选中行的CSS样式*/
+        $(this).parent().parent().toggleClass('warning');
+        /*如果已经被选中行的行数等于表格的数据行数，将全选框设为选中状态，否则设为未选中状态*/
+        $checkAll.prop('checked',$tbr.find('input:checked').length == $tbr.length ? true : false);
+        /*阻止向上冒泡，以防再次触发点击操作*/
+        event.stopPropagation();
+      });
+      /*点击每一行时也触发该行的选中操作*/
+      $tbr.click(function(){
+        $(this).find('input').click();
+      });
+    }
+    initTableCheckbox();
+  });
+</script>
+<script src="{echo JsURL}/admin/laydate/laydate.js"></script>

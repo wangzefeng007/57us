@@ -1,0 +1,88 @@
+{template StudyTop}
+<link rel="stylesheet" href="/Plugins/fonts/mobile/iconfont.css">
+<script src="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+<link href="{echo CssURL}/bbs/study/style.css" rel="stylesheet" type="text/css" />
+<div class="w1200 BbsLocation">您当前位置：
+        <a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span><a href="{echo WEB_STUDY_URL}/ask/">问答</a><span>&gt;</span><span class="Position"><a href="javascript:;">站队</a></span></div>
+<div class="w1200 cf">
+        <div class="w900 fl">
+                <div class="Teams">
+                        <ul class="hd">
+                                <li {if $Type==1}class="on"{/if}>
+                                        <a href="/ask/team/?t=1">最新</a>
+                                </li>
+                                <li {if $Type==2}class="on"{/if}>
+                                        <a href="/ask/team/?t=2">最热</a>
+                                </li>
+                                <li {if $Type==3}class="on"{/if}>
+                                        <a href="/ask/team/?t=3">待回答</a>
+                                </li>
+                                <li {if $Type==4}class="on"{/if}>
+                                        <a {if $_SESSION['UserID']}href="/ask/team/?t=4"{else}href="JavaScript:void(0)"{/if} class="{if !$_SESSION['UserID']}_MustLogin{/if}" {if !$_SESSION['UserID']}data-type="tc_login"{/if}>我的站队</a>
+                                </li>
+                        </ul>
+                        {if $Data[Data]}
+                        <ul class="teamList">
+                                {loop $Data[Data] $key $list}
+                                <li>
+                                        <p class="tit">
+                                                <a href="/ask_team/{$list[AskID]}.html" target="_blank">{echo _substr($list[AskInfo],84)}</a>
+                                        </p>
+                                        <div class="pieBox tac">
+                                                <div class="teamLi zf">
+                                                        <p class="f16 head">正方：<span class="c9">{$list[StandSquare]}</span></p>
+                                                        <p class="proportion mt15" data-num="{$list[SquareScale]}">{$list[SquareScale]}%</p>
+                                                </div>
+                                                <div class="piePicBox">
+                                                        <span class="vsIco"></span>
+                                                        <div id="main{echo $key+1}" data-text="{echo $key+1}" class="piePic"></div>
+                                                </div>
+                                                <div class="teamLi ff">
+                                                        <p class="f16 head">反方：<span class="c9">{$list[StandBack]}</span></p>
+                                                        <p class="proportion mt15" data-num="{$list[BackScale]}">{$list[BackScale]}%</p>
+                                                </div>
+                                        </div>
+
+                                        <div class="mt10 cf">
+                                                <p class="date fl">{echo date('Y-m-d H:i:s',$list[AddTime])}</p>
+                                                <p class="otherFun fr">
+                                                        <span><i class="icon iconfont icon-yanjing"></i>{$list[BrowseNum]}次浏览</span>
+                                                        <span><i class="icon iconfont icon-start"></i>{$list[FollowNum]}人关注</span>
+                                                        <span><i class="icon iconfont icon-iconfont02"></i>{$list[AnswerNum]}人回答 </span>
+                                                </p>
+                                        </div>
+                                </li>
+                                {/loop}
+                        </ul>
+                        {else}
+                        <div class="noProblem mt10">
+                                <div class="nosearch">
+                                        <p class="f16 mt15">三个臭皮匠顶个诸葛亮。
+                                                <a class="transition bradius nowAsk {if !$_SESSION['UserID']}_MustLogin{else}StandTeam{/if}" href="JavaScript:void(0)" {if !$_SESSION['UserID']}data-type="tc_login"{/if}>马上发起站队</a>
+                                        </p>
+                                </div>
+                        </div>
+                        {/if}
+                </div>
+                {if $Data['Data'] && $Rscount['Num']>$PageSize}
+                <div class="page mt35" id="Page2">
+                        <form action="/ask/team/" method="GET">
+                                {$listpage}
+                                <input type="hidden" value="{$Type}" name="t">
+                                <div class="GoPage">到 <input type="text" name="page" value="" class="input" maxlength="4"> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn"></div>
+                        </form>
+                </div>
+                {/if}
+        </div>
+        {template AskTeamRight}
+</div>
+{template Footer}
+<!--问答公用js-->
+<script type="text/javascript" src="{echo JsURL}/bbs/study/AskPublic.js"></script>
+<!--留学公用js-->
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<!--图表js-->
+<script type="text/javascript" src="{echo JsURL}/bbs/study/echarts.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/bbs/study/AskTeam.js"></script>
+</body>
+</html>

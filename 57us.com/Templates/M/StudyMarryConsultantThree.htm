@@ -1,0 +1,62 @@
+{template StudyHeader}
+<div class="page-group">
+	<div class="page page-current" style="background: #fff;" id="conmath3">
+		<header class="bar bar-nav diybar">
+			<a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+			<h1 class="title">顾问匹配</h1>
+		</header>
+		<div class="content ">
+			<ul class="matchProcess mt10">
+				<li class="on">
+					<p class="text">提交个人信息</p>
+					<span class="num">1</span>
+					<span class="line"></span>
+				</li>
+				<li class="on">
+					<p class="text">为您匹配顾问</p>
+					<span class="num">2</span>
+					<span class="line"></span>
+				</li>
+				<li class="on">
+					<p class="text">您挑选顾问</p>
+					<span class="num">3</span>
+					<span class="line"></span>
+				</li>
+			</ul>
+			<div class="tac hasChoseTip"><i class="icon iconfont">&#xe61f;</i>您已选择{$Info['NickName']}顾问</div>
+			<div class="evaluationMain">
+				<p>您想何时与顾问联系</p>
+				<ul class="howContact">
+					<li class="on" data-type="1">
+						<label class="label-checkbox item-content">
+							<input type="radio" name="my-radio" checked="checked">
+							<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+							<span>请尽快联系</span>
+						</label>
+					</li>
+					<li data-type="2">
+						<label class="label-checkbox item-content">
+							<input type="radio" name="my-radio">
+							<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+							<span>只工作日</span>
+						</label>
+					</li>
+					<li data-type="3">
+						<label class="label-checkbox item-content">
+							<input type="radio" name="my-radio">
+							<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+							<span>只双休日和节假日</span>
+						</label>
+					</li>
+				</ul>
+				<div class="cf mt20">
+					<a href="javascript:void(0)" class="button button-fill getSolution">确认</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/study/StudyMarryConsultantThree.js" charset='utf-8'></script>
+</body>
+</html>

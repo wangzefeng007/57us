@@ -1,0 +1,152 @@
+﻿{template StudyHeader}
+<div class="page-group">
+	<div class="page page-current" id="studyIndex">
+		<div class="content pd25">
+			<header class="bar indexHead">
+				<div class="pull-right">
+					<!--
+                        作者：xiao15980751809@126.com
+                        时间：2016-11-09
+                        描述：未登录
+                    -->
+					<div class="Nologin {if isset($_SESSION[UserID])}hidden{/if}">
+						<a href="{echo WEB_MUSER_URL}" class="external">登录</a>|
+						<a href="{echo WEB_MUSER_URL}/member/register/" class="external">注册</a>
+					</div>
+					<!--
+                        作者：xiao15980751809@126.com
+                        时间：2016-11-09
+                        描述：已登录
+                    -->
+					<div class="hasLogin {if !isset($_SESSION[UserID])}hidden{/if}">
+						<span class="LoginUser">
+							<a href="{echo WEB_MUSER_URL}/member/mycenter/" class="external"><em class="ico"><img src="{echo LImageURL}{$_SESSION[Avatar]}" /><i class="icon iconfont">&#xe6a2;</i></em>{$_SESSION[NickName]}</a>
+						</span>
+						<a href="{echo WEB_MUSER_URL}/member/signout/" class="external">退出</a>
+					</div>
+				</div>
+				<a href="" class="pull-left logo"><img src="http://images.57us.com/img/m/study/mstudy.png" /></a>
+			</header>
+			<div class="swiper-container ban">
+				<div class="swiper-wrapper">
+					{loop $AdInfo $val}
+					<div class="swiper-slide"><a href="{$val[Link]}"><img src="{echo LImageURL}{$val[Picture]}" width="100%" alt="{$val[Title]}"/></a></div>
+					{/loop}
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+				<!-- Add Pagination -->
+			</div>
+			<ul class="playMenu">
+				<li>
+					<!--此处 a标签链接 未登录绑定#popLogin  登录绑定对应跳转url-->
+					<a href="{if $_SESSION['UserID']}/study/marryconsultantone/{else}#popLogin{/if}" class="_MustLogin external" id="M_Study">
+						<span class="ico"><i class="icon iconfont icon-guwen"></i></span>
+						<p class="tit">匹配顾问</p>
+					</a>
+				</li>
+				<li>
+					<!--此处 a标签链接 未登录绑定#popLogin  登录绑定对应跳转url-->
+					<a href="/study/studytourlist/" class="external" >
+						<span class="ico"><i class="icon iconfont icon-liuxue1"></i></span>
+						<p class="tit">去游学</p>
+					</a>
+				</li>
+				<li>
+					<a href="/study/estimate/" class="external">
+						<span class="ico"><i class="icon iconfont icon-bianji1"></i></span>
+						<p class="tit">免费评估</p>
+					</a>
+				</li>
+			</ul>
+			<div class="indexCont mt10">
+				<p class="indexContT cf">
+					<span class="pull-left name">57美国推荐</span>
+				</p>
+				<ul class="tourStudyLi cf">
+					{loop $StudyYoosureLists $lists}
+					<li>
+						<a href="/study/studytourdetail/?ID={$lists[YoosureID]}.html"><img src="{$lists['Image']}" width="100%"/>
+						<p class="tit">{$lists['Title']}</p>
+						<p class="price">
+							<span class="nPrice"><em>￥</em> {echo intval($lists['Price'])}/人</span>
+							<span class="odPrice">￥{echo intval($lists['OriginalPrice'])}/人</span>
+						</p>
+						</a>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<!--<div class="indexCont mt10">
+				<p class="indexContT cf">
+					<a href="{echo WEB_M_URL}/study/consultantlist/" class="more pull-right external">更多<i class="icon iconfont">&#xe613;</i></a>
+					<span class="pull-left name">优秀顾问</span>
+				</p>
+				<ul class="contantList">
+					{loop $RecommendConsultant $val}
+					<li>
+						<a href="/study/consultant/{$val['UserID']}.html">
+							<img src="{echo LImageURL}{$val[Avatar]}" width="96" height="96">
+							<div class="listCont">
+								<div class="tit cf">
+									<p class="name pull-left">{$val['NickName']}</p>
+								</div>
+								<div class="fun cf">
+									<span><i class="icon iconfont">&#xe647;</i>{$val['City']}</span>
+									<span><i class="icon iconfont">&#xe62f;</i>从业{$val['WorkingAge']}年</span>
+								</div>
+								{if $val[Tags]}
+								<div class="tip cf">
+									{loop json_decode($val[Tags],true) $list}
+									<span>{$list}</span>
+									{/loop}
+								</div>
+								{/if}
+							</div>
+						</a>
+					</li>
+					{/loop}
+				</ul>
+			</div>-->
+			<div class="indexCont mt10">
+				<p class="indexContT cf">
+					<span class="pull-left name">57美国开讲啦</span>
+				</p>
+				<div class="cf">
+					<img src="http://images.57us.com/img/m/study/kj.jpg"/>
+				</div>
+				<!--<div class="classM">
+					<p><i class="icon iconfont">&#x3494;</i>每期都由不同的名师分享不同课题</p>
+					<p><i class="icon iconfont">&#x3495;</i>每周四20:00-21:00（节假日除外）</p>
+					<p><i class="icon iconfont">&#x3496;</i>微信群语音地点：微信群“57US讲堂”</p>
+					<p class="ClassEwm">
+						<img src="http://images.57us.com/img/common/wxstudy.jpg"/>
+						<span class="">扫一扫二维码，注明参加<br>讲座，班主任拉您进群</span>
+					</p>
+				</div>-->
+			</div>
+			<div class="indexCont">
+				<p class="indexContT cf">
+					<span class="pull-left name">联系我们</span>
+				</p>
+				<div class="indexContactM">
+					电话：400-018-5757<br>
+					公司地址：福建省厦门市思明区软件园二期观日路34号楼之一201Z<br>
+					联系客服：cs@57us.com<br>
+					投诉建议：info@57us.com<br>
+					商务合作：bd@57us.com<br>
+					市场合作：marketing@57us.com
+				</div>
+			</div>
+		</div>
+		{template StudyFooter}
+		<div class="fixBackTop" style="display: none"><i class="icon iconfont">&#xe60a;</i></div>
+		{template StudyCustomService}
+	</div>
+	{template Consulting}
+	{template LoginPop}
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/lib/Pop_Login.js" charset='utf-8'></script>
+</body>
+</html>

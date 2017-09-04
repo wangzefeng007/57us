@@ -1,0 +1,179 @@
+{template VoteHeader}
+<body class="home">
+<div class="body">
+    <div class="shareBox hidden">
+        <div class="share"></div>
+    </div>
+    <div class="op"></div>
+    <div class="attentionPop">
+        <div class="box">
+            <b>投票成功<br>扫一扫，有惊喜</b>
+            <p><img src="{echo ImageURL}/img/common/wxstudy.jpg" /></p>
+        </div>
+    </div>
+    <div class="wrap">
+        <header class="homeHeader">
+            <div class="userBox">
+                <p class="img"><img src="{$UserInfo['HeadImgUrl']}" /></p>
+                <p class="name">{if $UserInfo['RealName']}{$UserInfo['RealName']}{else}{$UserInfo['Nickname']}{/if}</p>
+                <p>编号：{$UserInfo['UserID']}</p>
+            </div>
+        </header>
+        <section>
+            <ul class="ViewsBox">
+                <li>总票数<br><b>{$CountInfo['VoteCount']}</b></li>
+                <li>当前排名<br><b>{$Ranking}</b></li>
+                <li>围观人次<br><b>{$CountInfo['Onlookers']}</b></li>
+            </ul>
+        </section>
+        <section class="chatvote">
+            <p>快来帮忙加油<br><b class="red">TA</b>已获得<b class="num">{$CountInfo['VoteCount']}</b>票，排名第<b class="num">{$Ranking}</b>名<br>分享给朋友，让大家来帮忙吧</p>
+            <div class="chatvoteBtn">
+                <a href="JavaScript:void(0)" class="voteing" data-subscribe="{$subscribe}" data-userid="{$UserID}" data-myid="{$MyUserID}">为他投票<i class="icon iconfont">&#xe03;</i></a>
+                <a href="JavaScript:void(0)" class="canvass">为自己拉票</a>
+                
+            </div>
+        </section>
+        <section class="sectionbg mt40">
+            <div class="instro">
+                <span>“{$UserInfo['Content']}”</span>
+            </div>
+            <ul class="imglist">
+                {loop $Images $key $val}
+                <li><img src="{echo LImageURL}{$val}"/></li>
+                {/loop}
+            </ul>
+        </section>
+        <!--<section class="attention">
+            <img src="{echo ImageURL}/img/common/wxstudy.jpg" />
+            <div class="text">
+                扫一扫 <br>更多惊喜等着你 ~
+            </div>
+        </section>-->
+        <section class="attention">
+			<div class="fl tac attenList">
+				<img src="{echo ImageURL}/img/chat/vote/logov3.png" />
+			</div>
+			<div class="fl tac attenList">
+				<img src="{echo ImageURL}/img/chat/vote/logov1.png" />
+			</div>
+			<div class="fl tac attenList">
+				<img src="{echo ImageURL}/img/chat/vote/logov2.png" />
+			</div>
+		</section>
+    </div>
+    {template VoteFooter}
+</div>
+<script type="text/javascript" src="<?php echo WEB_WECHAT_URL ?>/Templates/Wechat/Vote/js/layer/2.4/layer.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        debug: false,
+        appId: '{$SignPackage[appId]}',
+        timestamp: {$SignPackage[timestamp]},
+        nonceStr: '{$SignPackage[nonceStr]}',
+        signature: '{$SignPackage[signature]}',
+        jsApiList: [
+            // 所有要调用的 API 都要加到这个列表中
+            'checkJsApi',
+            'openLocation',
+            'getLocation',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
+        ]
+    });
+</script>
+<script>
+    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在 页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready 函数中。
+    wx.ready(function(){
+        wx.onMenuShareAppMessage({
+            title: '美腿女神总决赛| 57美国&不多不少&宜买车', // 分享标题
+            desc: '{$Title}正在参加美腿女神总决赛，快来帮她投票！',
+            imgUrl: '{echo ImageURL}/img/chat/vote/wechat_fx_logo.jpg',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                // alert('用户点击发送给朋友');
+            },
+            success: function (res) {
+                // alert('已分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: '{$Title}-正在参加美腿女神总决赛，快来帮她投票！【57美国网】',
+            imgUrl: '{echo ImageURL}/img/chat/vote/wechat_fx_logo.jpg',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                // alert('用户点击分享到朋友圈');
+            },
+            success: function (res) {
+                // alert('已分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+    });
+</script>
+<script>
+    $(function(){
+        $('.voteing').click(function(){
+            var subscribe = $(this).attr('data-subscribe');
+            var userid = $(this).attr('data-userid');
+            var myid = $(this).attr('data-myid');
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: "/vote/addvoting/",
+                data: {
+                    'userid':userid,
+                    'myid':myid,
+                },
+                success: function (data) {
+                    if(data.ResultCode == '200'){
+                        if(subscribe == 1){
+                            layer.msg('投票成功');
+                            setTimeout(function(){window.location.reload()},600);
+                        }else{
+                            if(data.IsThree == 1){
+                                $(".attentionPop").show();
+                                $(".op").show()
+                            }
+                            else {
+                                layer.msg('投票成功');
+                                setTimeout(function(){window.location.reload()},600);
+                            }
+                        }
+                    }else if(data.ResultCode == '101'){
+                        layer.msg('今天已经为他投过票了');
+                    }else{
+                        layer.msg(data.Message);
+                    }
+                },
+                error: function () {
+                    layer.msg('网络出错!');
+                },
+            });
+        });
+        $('.canvass').click(function(){
+            $('.shareBox').removeClass('hidden');
+            $(".op").show()
+        })
+    })
+    //弹出投票关注二维码
+    $(".op").click(function(){
+        $(this).hide();
+        $(".attentionPop").hide();
+        $('.shareBox').addClass('hidden');
+    });
+</script>
+</body>
+</html>

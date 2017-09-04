@@ -1,0 +1,397 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/common/animate.css" rel="stylesheet" type="text/css" />
+<link href="{echo CssURL}/tour/TourIndex.css" rel="stylesheet" type="text/css" />
+<ul class="SpeedMenu">
+  <li><a href="http://tour.57us.com/group/local/" target="_blank"><span class="ico ico1"></span><span class="text">跟团</span></a></li>
+  <li><a href="http://tour.57us.com/play/ticket/" target="_blank"><span class="ico ico2"></span><span class="text">门票</span></a></li>
+  <li><a href="http://tour.57us.com/play/feature/" target="_blank"><span class="ico ico3"></span><span class="text">玩乐</span></a></li>
+  <li><a href="http://zuche.57us.com/" target="_blank"><span class="ico ico4"></span><span class="text">租车</span></a></li>
+  <li><a href="http://hotel.57us.com/" target="_blank"><span class="ico ico5"></span><span class="text">酒店</span></a></li>
+  <li><a href="http://tour.57us.com/dingzhi/#/question/" target="_blank"><span class="ico ico6"></span><span class="text">定制</span></a></li>
+  <li class="last"><a href="http://visa.57us.com/" target="_blank"><span class="ico ico7"></span><span class="text">签证</span></a></li>
+</ul>
+<div class="TourMain">
+  <div class="TourBan">
+    <ul class="pic">
+      {loop $AdTourIndex $key $val}
+      <li><a href="{$val['Link']}" target="_blank" title="{$val['Title']}"><img  src="{echo LImageURL}{$val['Picture']}" title="{$val[Title]}" alt="{$val[Title]}" width="1920" height="399" /></a></li>
+      {/loop}
+    </ul>
+    <ul class="hd">
+      {loop $AdTourIndex $val}
+      <li class="on"></li>
+      {/loop}
+
+    </ul>
+  </div>
+  <div class="AllCity">
+    <div class="ClassShow">
+      <div class="ClassShowLi">
+        <dl class="ClassLeft transition">
+          <dt><a href="">美东地区</a></dt>
+          <dd class="mt10">{loop $CityEast $lists}<a href="/group/local/?K={$lists[CnName]}" target="_blank">{$lists[CnName]}</a>{/loop}</dd>
+        </dl>
+        <div class="ClassShowCont">
+          <div class="ClassShowMain"> {loop $CityEast $lists}
+            <dl>
+              <dt><a href="/group/local/?K={$lists[CnName]}" target="_blank">{$lists[CnName]}</a></dt>
+              <dd>{loop $lists[Attraction] $list}<a href="/group/local/?K={$list[AttractionsName]}" target="_blank" {if $list[H2]==1}class ="hot"{/if}>{$list[AttractionsName]}<i class="HotIcon"></i></a>{/loop}</dd>
+            </dl>
+            {/loop} </div>
+          <div class="Itinerary cf mt10">
+            <div class="ItineraryTop"></div>
+            <div class="ItineraryM mt10"> {loop $StrokeList1 $lists}<a href="{$lists[QuoteUrl]}" target="_blank">{$lists[Title]}</a>{/loop} </div>
+          </div>
+        </div>
+      </div>
+      <div class="ClassShowLi">
+        <dl class="ClassLeft transition">
+          <dt><a href="">美西地区</a></dt>
+          <dd class="mt10">{loop $CityWest $lists}<a href="/group/local/?K={$lists[CnName]}" target="_blank">{$lists[CnName]}</a>{/loop}</dd>
+        </dl>
+        <div class="ClassShowCont">
+          <div class="ClassShowMain"> {loop $CityWest $lists}
+            <dl>
+              <dt><a href="/group/local/?K={$lists[CnName]}" target="_blank">{$lists[CnName]}</a></dt>
+              <dd>{loop $lists[Attraction] $list}<a href="/group/local/?K={$list[AttractionsName]}" target="_blank" class ="{if $list[H2]==1}hot{/if}">{$list[AttractionsName]}<i class="HotIcon i"></i></a>{/loop}</dd>
+            </dl>
+            {/loop} </div>
+          <div class="Itinerary cf mt10">
+            <div class="ItineraryTop"></div>
+            <div class="ItineraryM mt10"> {loop $StrokeList2 $lists}<a href="{$lists[QuoteUrl]}" target="_blank">{$lists[Title]}</a>{/loop} </div>
+          </div>
+        </div>
+      </div>
+      <div class="ClassShowLi">
+        <dl class="ClassLeft transition">
+          <dt><a href="">热门景点</a></dt>
+          <dd class="mt10">{loop $AttractionsList $lists}<a href="/group/local/?K={$lists[AttractionsName]}" target="_blank">{$lists[AttractionsName]}</a>{/loop}</dd>
+        </dl>
+        <div class="ClassShowCont">
+          <div class="HotScenery">
+            <div class="HotSceneryTop"><a href="">热门景点</a></div>
+            <div class="HotSceneryM cf mt15"> {loop $AttractionsList $lists}<a href="/group/local/?K={$lists[AttractionsName]}" target="_blank" class ="{if $lists[H1]==1}hot{/if}">{$lists[AttractionsName]}<i class="HotIcon"></i></a>{/loop} </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="w1200 cf IndexBox">
+  <div class="IndexBoxTit"> <span class="name">跟团游推荐</span> <span class="TitNr">一心一意只做品质跟团游</span>
+    <div class="hd fr"> <a href="JavaScript:void(0)" class="on">本地参团</a><a href="JavaScript:void(0)">国内出发</a> </div>
+  </div>
+  <div class="bd">
+    <ul class="FlowTj">
+      {loop $local[Data] $lists}
+      <li class="{if $lists[key] == 0 }i1{/if}"> <a href="{echo WEB_TOUR_URL}/group/{$lists[TourProductID]}.html" target="_blank" title="{$lists[ProductName]}">
+        <p class="img"><img src="{echo ImageURLP6}{$lists[ImageUrl]}" width="452" height="315" alt="{$lists[ProductName]}" title="{$lists[ProductName]}" /></p>
+        {if $lists[key] != 0 }
+        <div class="FlowTjM">{/if}
+          <p class="tit">{$lists[ProductName]}</p>
+          {if $lists[key] == 0 }
+          <div class="Function mt20">{else}
+            <p class="Function mt10">{/if}
+              {if $lists[key] == 0 }
+            <p class="FunMap"><i></i>{$lists[CnName]}</p>
+            {else}<span class="FunPrice fr">¥<b>{echo ceil($lists[LowPrice])}</b></span>{/if}
+            {if $lists[key] == 0 }
+            <p class="FunPrice mt10">¥<b>{echo ceil($lists[LowPrice])}</b></p>
+            {else}<span class="FunMap fl"><i></i>{$lists[CnName]}</span>{/if}
+            {if $lists[key] == 0 }</div>
+          {else}
+          </p>
+          {/if}
+          {if $lists[key] != 0 }</div>
+        {/if} </a> </li>
+      {/loop}
+      <li> <a href="{echo WEB_TOUR_URL}/group/local/" class="more" target="_blank">
+        <p class="MoreTitle animated">点击查看更多<br>
+          当地参团推荐产品</p>
+        <em class="MoreIcon animated"></em> </a> </li>
+    </ul>
+    <ul class="FlowTj">
+      {loop $domestic['Data'] $lists}
+      <li class="{if $lists[key] == 0 }i1{/if}"> <a href="{echo WEB_TOUR_URL}/group/{$lists[TourProductID]}.html" title="{$lists[ProductName]}" target="_blank">
+        <p class="img"><img src="{echo ImageURLP4}{$lists[ImageUrl]}" width="452" height="315" alt="{$lists[ProductName]}" title="{$lists[ProductName]}"/></p>
+        {if $lists[key] != 0 }
+        <div class="FlowTjM">{/if}
+          <p class="tit">{$lists[ProductName]}</p>
+          {if $lists[key] == 0 }
+          <div class="Function mt20">{else}
+            <p class="Function mt10">{/if}
+              {if $lists[key] == 0 }
+            <p class="FunMap"><i></i>{$lists[CnName]}</p>
+            {else}<span class="FunPrice fr">¥<b>{echo ceil($lists[LowPrice])}</b></span>{/if}
+            {if $lists[key] == 0 }
+            <p class="FunPrice mt10">¥<b>{echo ceil($lists[LowPrice])}</b></p>
+            {else}<span class="FunMap fl"><i></i>{$lists[CnName]}</span>{/if}
+            {if $lists[key] == 0 }</div>
+          {else}
+          </p>
+          {/if}
+          {if $lists[key] != 0 }</div>
+        {/if} </a> </li>
+      {/loop}
+      <li> <a href="{echo WEB_TOUR_URL}/group/home/" class="more" target="_blank">
+        <p class="MoreTitle animated">点击查看更多<br>
+          国内参团推荐产品</p>
+        <em class="MoreIcon animated"></em> </a> </li>
+    </ul>
+  </div>
+</div>
+<div class="w1200 cf IndexBox Tickets">
+  <div class="IndexBoxTit"> <span class="name">特惠门票</span> <span class="TitNr">总有你想要的低价</span>
+    <div class="hd fr"> <a href="JavaScript:void(0)" class="on">景点门票</a><a href="JavaScript:void(0)">城市通票</a> </div>
+  </div>
+  <div class="bd">
+    <ul class="FlowTj">
+      {loop $Attractions['Data'] $lists}
+      <li> <a href="{echo WEB_TOUR_URL}/play/{$lists[TourProductID]}.html" target="_blank" title="{$lists[ProductName]}">
+        <p class="img"><img src="{echo ImageURLP4}{$lists[ImageUrl]}" width="288" height="199" alt="{$lists[ProductName]}" title="{$lists[ProductName]}"/></p>
+        <div class="FlowTjM">
+          <p class="tit">{$lists[ProductName]}</p>
+          <p class="Function mt10"> <span class="FunPrice fr">¥<b>{echo ceil($lists[LowPrice])}</b></span> <span class="FunMap fl"><i></i>{$lists[CnName]}</span> </p>
+        </div>
+      </a> </li>
+      {/loop}
+      <li> <a href="{echo WEB_TOUR_URL}/play/ticket/"  target="_blank" class="more" title="{$lists[ProductName]}">
+        <p class="MoreTitle animated">点击查看更多<br>
+          特惠门票产品</p>
+        <em class="MoreIcon animated"></em> </a> </li>
+    </ul>
+    <ul class="FlowTj">
+      {loop $CityPass['Data'] $lists}
+      <li> <a href="{echo WEB_TOUR_URL}/play/{$lists[TourProductID]}.html" target="_blank" title="{$lists[ProductName]}">
+        <p class="img"><img src="{echo ImageURLP4}{$lists[ImageUrl]}" width="288" height="199" alt="{$lists[ProductName]}" title="{$lists[ProductName]}"/></p>
+        <div class="FlowTjM">
+          <p class="tit">{$lists[ProductName]}</p>
+          <p class="Function mt10"> <span class="FunPrice fr">¥<b>{echo ceil($lists[LowPrice])}</b></span> <span class="FunMap fl"><i></i>{$lists[CnName]}</span> </p>
+        </div>
+      </a> </li>
+      {/loop}
+      <li> <a href="{echo WEB_TOUR_URL}/play/ticket/"  target="_blank" class="more">
+        <p class="MoreTitle animated">点击查看更多<br>
+          特惠门票产品</p>
+        <em class="MoreIcon animated"></em> </a> </li>
+    </ul>
+  </div>
+</div>
+<div class="w1200 cf IndexBox Features">
+  <div class="IndexBoxTit"> <span class="name">当地玩乐</span> <span class="TitNr">一起体验最本土的吃喝玩乐</span>
+    <div class="hd fr"> <a href="JavaScript:void(0)" class="on">特色体验</a><a href="JavaScript:void(0)">一日游</a> </div>
+  </div>
+  <div class="bd">
+    <ul class="FlowTj">
+      {loop $east['Data'] $lists}
+      <li> <a href="{echo WEB_TOUR_URL}/play/{$lists[TourProductID]}.html" target="_blank" title="{$lists[ProductName]}">
+        <p class="img"><img src="{echo ImageURLP4}{$lists[ImageUrl]}" width="288" height="199" alt="{$lists[ProductName]}" title="{$lists[ProductName]}"/></p>
+        <div class="FlowTjM">
+          <p class="tit">{$lists[ProductName]}</p>
+          <p class="Function mt10"> <span class="FunPrice fr">¥<b>{echo ceil($lists[LowPrice])}</b></span> <span class="FunMap fl"><i></i>{$lists[CnName]}</span> </p>
+        </div>
+      </a> </li>
+      {/loop}
+      <li> <a href="{echo WEB_TOUR_URL}/play/feature/" class="more" target="_blank">
+        <p class="MoreTitle animated">点击查看更多<br>
+          特色体验产品</p>
+        <em class="MoreIcon animated"></em> </a> </li>
+    </ul>
+    <ul class="FlowTj">
+      {loop $west['Data'] $lists}
+      <li> <a href="{echo WEB_TOUR_URL}/play/{$lists[TourProductID]}.html" target="_blank" title="{$lists[ProductName]}">
+        <p class="img"><img src="{echo ImageURLP4}{$lists[ImageUrl]}" width="288" height="199" alt="{$lists[ProductName]}" title="{$lists[ProductName]}"/></p>
+        <div class="FlowTjM">
+          <p class="tit">{$lists[ProductName]}</p>
+          <p class="Function mt10"> <span class="FunPrice fr">¥<b>{echo ceil($lists[LowPrice])}</b></span> <span class="FunMap fl"><i></i>{$lists[CnName]}</span> </p>
+        </div>
+      </a> </li>
+      {/loop}
+      <li><a href="{echo WEB_TOUR_URL}/play/daily/" class="more" target="_blank">
+        <p class="MoreTitle animated">点击查看更多<br>
+          一日游产品</p>
+        <em class="MoreIcon animated"></em> </a></li>
+    </ul>
+  </div>
+</div>
+{if 0}
+<div class="w1200 cf IndexBox Hotel ">
+  <div class="IndexBoxTit"> <span class="name">酒店推荐</span> <span class="TitNr">精选全球最优质的精品酒店</span> </div>
+  <div class="HotelLeft fl mt30"> </div>
+  <ul class="HotelList">
+    <li> <img src="{echo ImageURL}/img/tour/pic/HotelTj3.0-1.jpg" class="bgimg transition" alt="57美国网酒店推荐" title="57美国网酒店推荐">
+      <div class="CircleBox transition">
+        <p class="tip_tit">纽约</p>
+        <p class="CirclePrice">¥410.00<em>起</em></p>
+      </div>
+      <a href="http://testhotel.57us.com/hotel/hotellist?ct=178293" class="MoreBtn transition" title="纽约(及周边地区)酒店预订_纽约(及周边地区)酒店价格_纽约(及周边地区)酒店推荐-57美国网" target="_blank">查看详细</a> </li>
+    <li> <img src="{echo ImageURL}/img/tour/pic/HotelTj3.0-2.jpg" class="bgimg transition" alt="纽约(及周边地区)酒店预订_纽约(及周边地区)酒店价格_纽约(及周边地区)酒店推荐-57美国网" title="纽约(及周边地区)酒店预订_纽约(及周边地区)酒店价格_纽约(及周边地区)酒店推荐-57美国网">
+      <div class="CircleBox transition">
+        <p class="tip_tit">旧金山</p>
+        <p class="CirclePrice">¥535.00<em>起</em></p>
+      </div>
+      <a href="http://testhotel.57us.com/hotel/hotellist?ct=178305" class="MoreBtn transition" title="旧金山(及周边地区)酒店预订_旧金山(及周边地区)酒店价格_旧金山(及周边地区)酒店推荐-57美国网" target="_blank">查看详细</a> </li>
+    <li> <img src="{echo ImageURL}/img/tour/pic/HotelTj3.0-3.jpg" class="bgimg transition" title="旧金山(及周边地区)酒店预订_旧金山(及周边地区)酒店价格_旧金山(及周边地区)酒店推荐-57美国网" alt="旧金山(及周边地区)酒店预订_旧金山(及周边地区)酒店价格_旧金山(及周边地区)酒店推荐-57美国网">
+      <div class="CircleBox transition">
+        <p class="tip_tit">洛杉矶</p>
+        <p class="CirclePrice">¥298.00<em>起</em></p>
+      </div>
+      <a href="http://testhotel.57us.com/hotel/hotellist?ct=178280" class="MoreBtn transition" title="洛杉矶(及周边地区)酒店预订_洛杉矶(及周边地区)酒店价格_洛杉矶(及周边地区)酒店推荐-57美国网" target="_blank">查看详细</a> </li>
+    <li> <img src="{echo ImageURL}/img/tour/pic/HotelTj3.0-4.jpg" class="bgimg transition" title="洛杉矶(及周边地区)酒店预订_洛杉矶(及周边地区)酒店价格_洛杉矶(及周边地区)酒店推荐-57美国网" alt="洛杉矶(及周边地区)酒店预订_洛杉矶(及周边地区)酒店价格_洛杉矶(及周边地区)酒店推荐-57美国网">
+      <div class="CircleBox transition">
+        <p class="tip_tit">波士顿</p>
+        <p class="CirclePrice">¥433.00<em>起</em></p>
+      </div>
+      <a href="http://testhotel.57us.com/hotel/hotellist?ct=178239" class="MoreBtn transition" title="波士顿(及周边地区)酒店预订_波士顿(及周边地区)酒店价格_波士顿(及周边地区)酒店推荐-57美国网" target="_blank">查看详细</a> </li>
+    <li> <img src="{echo ImageURL}/img/tour/pic/HotelTj3.0-5.jpg" class="bgimg transition" title="波士顿(及周边地区)酒店预订_波士顿(及周边地区)酒店价格_波士顿(及周边地区)酒店推荐-57美国网" alt="波士顿(及周边地区)酒店预订_波士顿(及周边地区)酒店价格_波士顿(及周边地区)酒店推荐-57美国网">
+      <div class="CircleBox transition">
+        <p class="tip_tit">华盛顿</p>
+        <p class="CirclePrice">¥298.00<em>起</em></p>
+      </div>
+      <a href="http://testhotel.57us.com/hotel/hotellist?ct=171407" class="MoreBtn transition" title="华盛顿酒店预订_华盛顿酒店价格_华盛顿酒店推荐-57美国网" target="_blank">查看详细</a> </li>
+    <li> <a href="http://testhotel.57us.com/" class="more">
+      <p class="MoreTitle animated">点击查看更多酒店</p>
+      <em class="MoreIcon animated"></em> </a> </li>
+  </ul>
+</div>
+{/if}
+<div class="w1200 cf IndexBox CarRent">
+  <div class="IndexBoxTit"> <span class="name">租车推荐</span> <span class="TitNr">出境自驾游,远比想象中简单</span> </div>
+  <ul class="CarRentAd mt20">
+    <li><a><img src="{echo ImageURL}/img/tour/pic/TourAd3.0-1.jpg"/></a></li>
+    <li id="num2"><a><img src="{echo ImageURL}/img/tour/pic/TourAd3.0-2.jpg"/></a></li>
+  </ul>
+  <ul class="CarRentTj mt20">
+    {loop $CarRent[Data] $lists}
+    <li class="transition">
+      <p class="tit">{$lists[Title]}</p>
+      <p class="Function mt10"> <span class="FunPrice fr">¥<b>{echo ceil($lists[Money])}</b></span> <span class="FunMap fl"><i></i>{$lists[City]}</span> </p>
+      <img src="{echo ImageURLP2}{$lists[CarImg]}" class="transition" alt="{$lists[Title]}" title="{$lists[Title]}"/> <a href="{$lists[QuoteUrl]}" target="_blank" class="transition MoreBtn">查看详细</a> </li>
+    {/loop}
+    <li class="i6"> <a href="{echo WEB_ZUCHE_URL}"  target="_blank" class="more">
+      <p class="MoreTitle animated">点击查看更多<br>
+        租车产品</p>
+      <em class="MoreIcon animated"></em> </a> </li>
+  </ul>
+</div>
+</div>
+<div class="cf mt50"></div>
+<div class="cf mt30"></div>
+<div class="TourFoot cf">
+  <div class="w1200 cf">
+    <ul class="TourFootMeida fr">
+      <li class="i1"><a href="javascript:void(0)"><i></i>关注微博平台</a>
+        <div class="ChatCode"><img src="{echo ImageURL}/img/common/wb.jpg" width="112" height="112"><em></em></div>
+      </li>
+      <li class="i2"><a href="javascript:void(0)"><i></i>关注微信平台</a>
+        <div class="ChatCode"><img src="{echo ImageURL}/img/common/wxtravel.jpg" width="112" height="112"><em></em></div>
+      </li>
+    </ul>
+    <div class="TourFootBox">
+      <div class="TourFootMenu"><a href="{echo WEB_MAIN_URL}/about/contacts.html" class="i1" target="_blank"><i></i>公司简介</a>|<a href="{echo WEB_MAIN_URL}/about/contact.html" class="i2" target="_blank"><i></i>联系我们</a>|<a href="{echo WEB_MAIN_URL}/about/map.html" class="i3" target="_blank"><i></i>站点地图</a>|<a href="{echo WEB_MAIN_URL}/about/privacy.html" class="i4" target="_blank"><i></i>隐私保护</a>|<a href="{echo WEB_MAIN_URL}/about/xieyi.html" class="i5" target="_blank"><i></i>用户协议</a>|<a href="{echo WEB_MAIN_URL}/about/xiugai.html" class="i6" target="_blank"><i></i>修改和取消</a>|<a href="{echo WEB_MAIN_URL}/about/zhifu.html" class="i7" target="_blank"><i></i>支付方式</a>|<a href="{echo WEB_MAIN_URL}/about/zhifu.html" class="i8" target="_blank"><i></i>帮助中心</a></div>
+      <div class="TourFootCopy">Copyright © 2016 57US.com <a href="{echo WEB_MAIN_URL}/">57美国网</a> All rights reserved. 闽ICP备15017345号 </div>
+    </div>
+    <div class="HotThing fl mt20 cf">
+      <p class="cf">热门旅游目的地：
+        <?php foreach($this->TourFootTagM as $Value){?>
+        <a href="<?php echo $Value['TourFootTagUrl'];?>" title="<?php echo $Value['TourFootTagName'];?>" target="_blank"><?php echo $Value['TourFootTagName'];?></a>|
+        <?php }?>
+      </p>
+      <p class="cf">热门旅游景点：
+        <?php foreach($this->TourFootTagJ as $Value){?>
+        <a href="<?php echo $Value['TourFootTagUrl'];?>" title="<?php echo $Value['TourFootTagName'];?>" target="_blank"><?php echo $Value['TourFootTagName'];?></a>|
+        <?php }?>
+      </p>
+
+      <p class="cf">友情链接：
+        {loop $TblLinks $Value}
+        <a href="{$Value[Url]}" title="" target="_blank">{$Value[Name]}</a>|
+        {/loop}
+      </p>
+      <!--<p class="cf">热门搜索：<a href="##">拉斯维加斯</a>|<a href="#">大峡谷国家公园</a>|<a href="#">博尔德城</a>|<a href="#">旧金山</a>|<a href="#">盐湖城</a>|<a href="#">黄石国家公园</a>|<a href="#">圣巴巴拉郡</a>|<a href="#">圣地亚哥</a>|<a href="#">佩奇</a>|<a href="#">优胜美地国家公园</a>|<a href="#">蒙特雷</a>|<a href="#">棕榈泉</a>|<a href="#">亚利桑那州</a>|<a href="#">锡安国家公园</a></p>-->
+      <div class="cf partTab">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr height="35">
+            <td align="left">合作官方旅游局：</td>
+          </tr>
+          <tr>
+            <td>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part1.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part2.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part3.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part4.png"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part6.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part5.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part8.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part7.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part9.jpg"></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="cf partTab">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr height="35">
+            <td align="left">旅游合作：</td>
+          </tr>
+          <tr>
+            <td>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz1.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz2.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz3.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz4.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz5.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz6.jpg"></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="cf partTab safeBox">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr height="35">
+            <td align="left">网站认证：</td>
+          </tr>
+          <tr>
+            <td>
+              <p class="tac"><a href="http://www.isc.org.cn/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe1_3.0.png" ></a></p>
+              <p class="tac"><a href="http://wsgs.fjaic.gov.cn/creditpub/notice/view?uuid=1gM0nGULIzO5wVPW8xQpfwZUq0lfoM7X&amp;tab=01" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe2_3.0.png"></a></p>
+              <p class="tac"><a href="http://www.12377.cn/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe3_3.0.png"></a></p>
+              <p class="tac"><a href="http://www.cyberpolice.cn/wfjb/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe4_3.0.png"></a></p>
+              <p class="tac"><a href="https://ss.knet.cn/verifyseal.dll?sn=e16091435020064717vyo0000000&amp;comefrom=trust&amp;trustKey=dn&amp;trustValue=www.57us.com" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe5_3.0.png"></a></p>
+              <p class="tac"><a href="http://webscan.360.cn/index/checkwebsite/url/www.57us.com" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe6_3.0.png"></a></p>
+              <p class="tac"><a href="http://ec.eqixin.com/?sn=QX2066134012191473748886" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe7_3.0.png"></a></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--
+	作者：xiao15980751809@126.com
+	时间：2016-12-19
+	描述：右侧广告弹出
+-->
+
+<div class="smallAdBbox" id="smallAd" style="display: none"><div class="smallAd"></div><span class="smallClose">×</span></div>
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<script src="{echo JsURL}/base/jquery.SuperSlide/2.1/jquery.SuperSlide.2.1.js"></script>
+<script src="{echo JsURL}/tour/TourIndex.js"></script>
+<script src="{echo JsURL}/tour/TourPublic.js"></script>
+<div class="hidden">
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?21f9def31aa89e3cd98d7b6b95068701";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256811158'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256811158' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>
+
+

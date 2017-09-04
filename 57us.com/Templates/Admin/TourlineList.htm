@@ -1,0 +1,177 @@
+{template Head}
+<style>
+  .form-inline select{
+    width:200px;padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+</style>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li class="active position">跟团游管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel breadcrumb">
+        <div class="panel-body">
+          <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">关键字：</span>
+          <form class="form-inline" role="form" action="/index.php" method="get">
+            <input type="hidden" name="Module" value="Tourline">
+            <input type="hidden" name="Action" value="TourlineList">
+            <input type="text" class="form-control" placeholder="产品ID/产品名称/团号" name="ProductName" value="{$ProductName}">
+            <span style="position: absolute;float: left;">
+            <select name="Category" id="Category" onchange="GetNewTourAreaID(this.value)">
+              <option value="">请选择类别</option>
+              {loop $Tourlist $list}
+              <option style="width:300px;"  value="{$list[TourCategoryID]}" {if $Category==$list[TourCategoryID]}selected="selected"{/if}>{$list[CnName]}</option>
+              {/loop}
+            </select>
+            <select name="Status" id="Status" >
+              <option name="Status" value="">请选择状态</option>
+              <option name="Status" value="1" {if $Status=='1'}selected="selected"{/if}>上架</option>
+              <option name="Status" value="0" {if $Status=='0'}selected="selected"{/if}>下架</option>
+            </select>
+            <select name="SupplierID" id="SupplierID" onchange="GetNewTourAreaID(this.value)">
+              <option name="Status" value="">请选择供应商</option>
+              {loop $TourSupplierlist $value}
+              <option  value="{$value[SupplierID]}" style="width:200px;" {if $SupplierID==$value[SupplierID]}selected="selected"{/if}>{$value[CnName]}</option>
+              {/loop}
+            </select>
+            </span><br>
+            <div style="margin-top: 15px;padding-left: 58px">
+              <input name="R1" type="checkbox" id="R1" value="1" {if $R1} checked="checked"{/if} />
+              旅游首页行程推荐&nbsp;
+              <input name="R2" type="checkbox" id="R2" value="1"{if $R2} checked="checked"{/if} />
+              旅游首页跟团游推荐&nbsp;
+              <button class="btn btn-info">搜索</button>
+              <input type="button" onClick="location.href='/index.php?Module=TourLine&Action=Add'" value="添加线路信息" class="btn btn-danger" style="margin-left: 5px">
+            </div>
+          </form>
+        </div>
+        <section id="unseen">
+          <form class="form-inline" role="form" action="/index.php?Module=TourLine&Action=TourlineList" method="POST">
+            <table class="table table-bordered table-striped table-condensed">
+              <thead>
+              <tr align="center">
+                <th><input type="checkbox" id="checkAlls" name="checkAll"/></th>
+                <th>产品ID</th>
+                <th>产品名称</th>
+                <th>产品类别</th>
+                <th>产品状态</th>
+                <th>供应商</th>
+                <th>团号</th>
+                <th>最低优惠价</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tbody>
+              {loop $Data[Data] $list}
+              <tr align="center">
+                <th><input type="checkbox" id="checkAll" name="StatusAll[]" value="{$list[TourProductID]}" /></th>
+                <td>{$list[TourProductID]}</td>
+                <td align="left"><a href="http://tour.57us.com/group/{$list[TourProductID]}.html" target="_blank">{$list[ProductName]}</a> {if $list[IsRelation]}(关联产品ID：<a href="/index.php?Module=TourLine&Action=Add&TourProductID={$list[IsRelation]}" target="_blank">{$list[IsRelation]}</a>{loop $list[RelationProductInfo] $l} |　<a href="/index.php?Module=TourLine&Action=Add&TourProductID={$l[TourProductID]}" target="_blank">{$l[TourProductID]}</a>{/loop}){/if}</td>
+                <td>{$list[CnName]}</td>
+                <td>{if $list[Status]==1}上架{elseif $list[Status]==0}下架{/if}</td>
+                <td>{$list[SupplierName]}</td>
+                <td>{$list[GroupNO]}</td>
+                <td>￥{$list[LowPrice]}</td>
+                <td>
+                  <a class="getinfo"  href="/index.php?Module=TourLine&amp;Action=Add&amp;TourProductID={$list[TourProductID]}">编辑</a> |
+                  <a class="getinfo" href="javascript:if(confirm('确认复制产品吗?'))window.location='/index.php?Module=TourLine&Action=Copy&TourProductID={$list[TourProductID]}'" title="可以克隆一个新的相关联产品">克隆</a> |
+                  <a class="getinfo del" href="javascript:void(0)" data-id="{$list[TourProductID]}" data-text="{$list[ProductName]}">删除</a> |
+                  <a class="getinfo"  href="/index.php?Module=DoTourErverDayPrice&Action=DoOneTourPrice&TourProductID={$list[TourProductID]}">更新价格</a>
+                  <!--| <a class="getinfo"  href="/index.php?Module=TourLine&Action=PDFlist&TourProductID={$list[TourProductID]}">导出行程</a>-->
+                </td>
+              </tr>
+              {/loop}
+              </tbody>
+            </table>
+            <button class="btn btn-info" name = "button" value="1">上架</button>
+            <button class="btn btn-info" name = "button" value="0">下架</button>
+          </form>
+          <form action="/index.php?Module=TourLine&Action=TourlineList{$PageUrl}" method="POST">
+            <div class="text-center">
+              <ul class="pagination" data-id="{$Page}">
+                <li><a href="/index.php?Module=TourLine&Action=TourlineList&Page=1{$PageUrl}">首页</a></li>
+                {if $Previous}<li><a href="/index.php?Module=TourLine&Action=TourlineList&Page={$Previous}{$PageUrl}">上一页</a></li>{/if}
+                {loop $Data[PageNums] $page}
+                <li><a href="/index.php?Module=TourLine&Action=TourlineList&Page={$page}{$PageUrl}" {if $Page == $page} class="on" {/if}>{$page}</a></li>
+                {/loop}
+                {if $Next}<li><a href="/index.php?Module=TourLine&Action=TourlineList&Page={$Next}{$PageUrl}">下一页</a></li>{/if}
+                <li><a href="/index.php?Module=TourLine&Action=TourlineList&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+              </ul>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}
+<script>
+  $('.del').click(function () {
+    var delid = $(this).attr('data-id');
+    var text = $(this).attr('data-text');
+    layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=TourLine&Action=Delete&TourProductID='+delid;
+      layer.close(index);
+    });
+  })
+  $(function(){
+    function initTableCheckbox() {
+      var $thr = $('table thead tr');
+      var $checkAllTh = $('<th><input type="checkbox" id="checkAll" name="checkAll" /></th>');
+      /*将全选/反选复选框添加到表头最前，即增加一列*/
+      /*“全选/反选”复选框*/
+      var $checkAll = $thr.find('input');
+      $checkAll.click(function(event){
+        /*将所有行的选中状态设成全选框的选中状态*/
+        $tbr.find('input').prop('checked',$(this).prop('checked'));
+        /*并调整所有选中行的CSS样式*/
+        if ($(this).prop('checked')) {
+          $tbr.find('input').parent().parent().addClass('warning');
+        } else{
+          $tbr.find('input').parent().parent().removeClass('warning');
+        }
+        /*阻止向上冒泡，以防再次触发点击操作*/
+        event.stopPropagation();
+      });
+      /*点击全选框所在单元格时也触发全选框的点击操作*/
+      $checkAllTh.click(function(){
+        $(this).find('input').click();
+      });
+      var $tbr = $('table tbody tr');
+      /*点击每一行的选中复选框时*/
+      $tbr.find('input').click(function(event){
+        /*调整选中行的CSS样式*/
+        $(this).parent().parent().toggleClass('warning');
+        /*如果已经被选中行的行数等于表格的数据行数，将全选框设为选中状态，否则设为未选中状态*/
+        $checkAll.prop('checked',$tbr.find('input:checked').length == $tbr.length ? true : false);
+        /*阻止向上冒泡，以防再次触发点击操作*/
+        event.stopPropagation();
+      });
+      /*点击每一行时也触发该行的选中操作*/
+      $tbr.click(function(){
+        $(this).find('input').click();
+      });
+    }
+    initTableCheckbox();
+  });
+</script>

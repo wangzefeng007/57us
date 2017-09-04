@@ -1,0 +1,27 @@
+<div class="StudySpeedMenu">
+		<div class="StuSpMenuH"></div>
+		<ul>
+			<li class="i1 transition on"><a href="{echo WEB_STUDY_URL}/studytour/" target="_blank">去游学</a></li>
+			<li class="i2 transition"><a href="{echo WEB_STUDY_URL}/consultant/" target="_blank">找顾问</a></li>
+			<li class="i3 transition"><a href="{echo WEB_STUDY_URL}/teacher/" target="_blank">找教师</a></li>
+			<li class="i4 transition"><a href="{echo WEB_STUDY_URL}/highschool/" target="_blank">找学校</a></li>
+			<li class="i5 transition"><a href="{echo WEB_STUDY_URL}/consultant_service/" target="_blank">留学商城 </a></li>
+		</ul>
+	</div>
+<script type="text/javascript">
+	$(function(){
+		$(window).load(function(){
+			getIn();
+		})
+		$(window).resize(function(){
+			getIn()
+		})
+		function getIn(){
+			if($(window).width()<1600){
+				$(".StudySpeedMenu").hide()
+			}else{
+				$(".StudySpeedMenu").show()
+			}
+			}
+	})
+</script>

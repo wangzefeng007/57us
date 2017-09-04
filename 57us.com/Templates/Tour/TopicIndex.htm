@@ -1,0 +1,187 @@
+{template 'Common/TourTop',1}
+	<link href="{echo CssURL}/common/animate.css" rel="stylesheet" type="text/css" />
+	<link href="{echo WEB_TOUR_URL}/Templates/Tour/TourTopic/topic1/css/topic.css" rel="stylesheet" type="text/css" />
+	<div class="wrap">
+	<div class="WrapBox1"></div>
+	<div class="WrapBox2"></div>
+	<div class="WrapBox3"></div>
+	<div class="WrapBox4">
+		<div class="w1200">
+			<div class="TopicMenu fl">
+				<a href="#title1" class="i1">买二送一</a>
+				<a href="#title2" class="i2">五折专区</a>
+				<a href="#title3" class="i3">买就赠</a>
+			</div>
+		</div>
+	</div>
+	<div class="BoxMain BoxMain1" id="section1">
+		<div class="w1200 BoxMainTop mt5">
+			<span class="title animated" id="title1"></span>
+		</div>
+		<div class="ProBoxMain mt20">
+			<ul class="PicPagetion"></ul>
+			<a href="JavaScript:void(0)" class="prev"></a>
+			<a href="JavaScript:void(0)" class="next"></a>
+			<div class="ProBoxMainBd">
+				<div class="ulWrap">
+					<ul>
+						{loop $aa1 $list}
+						<li>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank"><img src="{echo ImageURLP4}{$list[3]}">
+								<p class="tit">{$list[1]}</p></a>
+							<p class="OldPrice mt15">原价:12500</p>
+							<p class="Price">现价:<b style="color:#ffeb04">￥{$list[2]}</b><span>起/人</span></p>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank" class="OrderBtn">现在预订</a>
+						</li>
+						{/loop}
+					</ul>
+
+					<ul>
+						{loop $aa2 $list}
+						<li>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank"><img src="{echo ImageURLP4}{$list[3]}">
+								<p class="tit">{$list[1]}</p></a>
+							<p class="OldPrice mt15">原价:12500</p>
+							<p class="Price">现价:<b style="color:#ffeb04">￥{$list[2]}</b><span>起/人</span></p>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank" class="OrderBtn">现在预订</a>
+						</li>
+						{/loop}
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="w1200 cf mt20">
+			<div class="Instro">
+				<div class="InstroLeft"></div>
+				<div class="InstroRight">
+					<p class="tit mt5">1.规则说明</p>
+					<p>同一团，3人同行1人免费</p>
+					<p class="tit">2.附加说明</p>
+					<p>第三、四人必须和第一、二人同一个居室，不能加床。<br>第三、四人必须和第一、二人同一个居室，不能加床。<br>免费者如不参团，必须要在出发前三天取消，当天如没出席其亲友必须在巴士/交通上<br>
+						缴交小孩的全额团费，敬请谅解。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="BoxMain BoxMain2" id="section2">
+		<div class="w1200 BoxMainTop">
+			<span class="title animated" id="title2"></span>
+		</div>
+		<div class="ProBoxMain mt20">
+			<ul class="PicPagetion"></ul>
+			<a href="JavaScript:void(0)" class="prev"></a>
+			<a href="JavaScript:void(0)" class="next"></a>
+			<div class="ProBoxMainBd">
+				<div class="ulWrap">
+					<ul>
+						{loop $bb1 $list}
+						<li>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank">
+								<img src="{echo ImageURLP4}{$list[3]}">
+								<p class="tit">{$list[1]}</p>
+							</a>
+							<p class="OldPrice mt15">原价:12500</p>
+							<p class="Price">现价:<b>￥{$list[2]}</b><span>起/人</span></p>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank" class="OrderBtn">现在预订</a>
+						</li>
+						{/loop}
+					</ul>
+					<ul>
+						{loop $bb2 $list}
+						<li>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank"><img src="{$list[3]}">
+								<p class="tit">{$list[1]}</p>
+							</a>
+							<p class="OldPrice mt15">原价:12500</p>
+							<p class="Price">现价:<b>￥{$list[2]}</b><span>起/人</span></p>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank" class="OrderBtn">现在预订</a>
+						</li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="w1200 mt25">
+			<div class="Instro1">
+				<div class="Instro1Left"></div>
+				立即预定，<b>享受五折优惠！</b>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="BoxMain BoxMain3" id="section3">
+		<div class="w1200 BoxMainTop">
+			<span class="title animated"  id="title3"></span>
+		</div>
+		<div class="ProBoxMain mt20">
+			<ul class="PicPagetion"></ul>
+			<a href="JavaScript:void(0)" class="prev"></a>
+			<a href="JavaScript:void(0)" class="next"></a>
+			<div class="ProBoxMainBd">
+				<div class="ulWrap">
+					<ul>
+						{loop $cc1 $list}
+						<li>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank"><img src="{echo ImageURLP4}{$list[3]}">
+								<p class="tit">{$list[1]}</p></a>
+							<p class="OldPrice mt15">原价:12500</p>
+							<p class="Price">现价:<b style="color:#ffeb04">￥{$list[2]}</b><span>起/人</span></p>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank" class="OrderBtn">现在预订</a>
+						</li>
+						{/loop}
+					</ul>
+					<ul>
+						{loop $cc2 $list}
+						<li>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank"><img src="{echo ImageURLP4}{$list[3]}">
+								<p class="tit">{$list[1]}</p></a>
+							<p class="OldPrice mt15">原价:12500</p>
+							<p class="Price">现价:<b style="color:#ffeb04">￥{$list[2]}</b><span>起/人</span></p>
+							<a href="{echo WEB_TOUR_URL}/group/{$list[0]}.html" target ="_blank" class="OrderBtn">现在预订</a>
+						</li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="w1200 reward mt40"></div>
+	</div>
+
+	<div class="TopicBottom"><div class="w1200 TopFoot"></div></div>
+	<div class="cf" style="margin-top: -40px;"></div>
+	
+</div>
+<script src="{echo JsURL}/base/jquery.SuperSlide/2.1/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript">
+	jQuery(".ProBoxMain").slide({titCell:".PicPagetion",mainCell:".ProBoxMainBd .ulWrap",autoPage:true,effect:"fold",autoPlay:false,vis:1,pnLoop:false});
+	$(".animated").each(function(){
+		$(this).hover(function(){
+			$(this).addClass("tada");
+		},function(){
+			$(this).removeClass("tada");
+		})
+	})
+	$(".TopicMenu a").click(function(){
+		scrooTop();
+	})
+	function scrooTop(){
+		$(".BoxMain").each(function(){
+			var wintop = $(window).scrollTop();
+			var boxtop = $(this).offset().top;
+			if(boxtop<wintop){
+				$(this).find(".title").addClass("tada");
+			}else{
+				$(this).find(".title").removeClass("tada");
+			}
+		})
+	}
+
+
+</script>
+{template Footer}
+</body>
+</html>

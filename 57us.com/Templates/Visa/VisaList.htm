@@ -1,0 +1,280 @@
+{template VisaHeader}
+<link href="{echo CssURL}/visa/visa3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 TourLocation">您当前位置： {if $Keyword!=''}
+	<a href="{echo WEB_VISA_URL}" target="_blank" title="57美国网">签证首页</a><span>&gt;</span><span><a href="{echo WEB_VISA_URL}/visalists/" title="签证列表">签证列表</a></span><span id="Search">&gt 搜索<span  style="color:red">“ {$Keyword}”</span><span>结果</span></span><span id="Position"></span> {else}
+	<a href="{echo WEB_VISA_URL}" target="_blank" title="57美国网">签证首页</a><span>&gt;</span><span>签证列表</span><span id="Position"></span> {/if}
+</div>
+<div class="w1200 cf">
+	<div class="sideRL">
+		{if $SoWhere}
+		<div class="searchd">
+			<a href="{echo WEB_TOUR_URL}/tour/search/{$SoWhere}" {if $TagNav=="search"}class="on"{/if}>全部</a>
+			<a href="{echo WEB_TOUR_URL}/group/home/{$SoWhere}" {if $TagNav=='home'}class="on"{/if} title="国内参团">国内参团</a>
+			<a href="{echo WEB_TOUR_URL}/group/local/{$SoWhere}" {if $TagNav=='local'}class="on"{/if} title="当地参团">当地参团</a>
+			<a href="{echo WEB_TOUR_URL}/play/feature/{$SoWhere}" {if $TagNav=='feature'}class="on"{/if} title="特色体验">特色体验</a>
+			<a href="{echo WEB_TOUR_URL}/play/daily/{$SoWhere}" {if $TagNav=='daily'}class="on"{/if} title="一日游">一日游</a>
+			<a href="{echo WEB_TOUR_URL}/play/ticket/{$SoWhere}" {if $TagNav=='ticket'}class="on"{/if} title="门票">门票</a>
+			<a href="{echo WEB_TOUR_URL}/play/wifi/{$SoWhere}" {if $TagNav=='wifi'}class="on"{/if} title="WiFi" class="hidden">WiFi</a>
+			<a href="{echo WEB_TOUR_URL}/play/shuttle/{$SoWhere}" {if $TagNav=='shuttle'}class="on"{/if} title="接送机" class="hidden">接送机</a>
+			<a href="{echo WEB_HOTEL_URL}/hotel/hotelsearchlist/{$SoWhere}" {if $TagNav=='hotel'}class="on"{/if} title="酒店">酒店</a>
+			<a href="{echo WEB_VISA_URL}/visa/lists/{$SoWhere}" {if $TagNav=='visa'}class="on"{/if} title="签证">签证</a>
+		</div>
+		{/if}
+		<div class="selectBox cf">
+			<div class="selectList cf">
+				<div class="selectListL"><i class="ico ico1"></i>签证类型：</div>
+				<dl class="selectListM">
+					<dt class="fl {if !$Type}on{/if}"><a href="{$MyUrl}{$Area}{$Price}" class="allBtn">不限</a></dt>
+					<dd class="fl">
+						<ul class="choseBox">
+							{loop $City $key $value} {if strstr ($key,'t')}
+							<li class="{if $Type==$key}on{/if} {if $key!=t01}hidden{/if}">
+								<a href="{$MyUrl}{$Area}{$key}{$Price}/">{$value}</a>
+							</li>
+							{/if} {/loop}
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="selectList cf hidden">
+				<div class="selectListL"><i class="ico ico2"></i>入境期限：</div>
+				<dl class="selectListM">
+					<dt class="fl on"><a href="JavaScript:void(0)" class="allBtn">不限</a></dt>
+					<dd class="fl">
+						<ul class="choseBox">
+							<li>
+								<a href="JavaScript:void(0)">单次入境</a>
+							</li>
+							<li>
+								<a href="JavaScript:void(0)">多次入境</a>
+							</li>
+							<li>
+								<a href="JavaScript:void(0)">领事馆</a>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="selectList cf">
+				<div class="selectListL"><i class="ico ico3"></i>受理地区：</div>
+				<dl class="selectListM">
+					<dt class="fl {if !$Area}on{/if}" id="RegionAll"><a href="{$MyUrl}{$Type}" class="allBtn">不限</a></dt>
+					<dd class="fl">
+						<ul class="choseBox" id="Region">
+							<li data-type="1" class="{if substr($Area,1)>0 && substr($Area,1)<14}on{/if}">
+								<a href="JavaScript:void(0)">北京领区</a>
+							</li>
+							<li data-type="2" class="{if substr($Area,1)>13 && substr($Area,1)<17}on{/if}">
+								<a href="JavaScript:void(0)">上海领区</a>
+							</li>
+							<li data-type="3" class="{if substr($Area,1)>16 && substr($Area,1)<23}on{/if}">
+								<a href="JavaScript:void(0)">广州领区</a>
+							</li>
+							<li data-type="4" class="{if substr($Area,1)>22 && substr($Area,1)<28}on{/if}">
+								<a href="JavaScript:void(0)">成都领区</a>
+							</li>
+							<li data-type="5" class="{if substr($Area,1)>27 && substr($Area,1)<31}on{/if}">
+								<a href="JavaScript:void(0)">沈阳领区</a>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="selectList last cf city" style="display: {if substr($Area,1)>0 && substr($Area,1)<14}block{else}none{/if}">
+				<div class="selectListL"><i class="ico ico4"></i>受理城市：</div>
+				<dl class="selectListM">
+					<dt class="fl {if empty(substr($Area,1)>0 && substr($Area,1)<14)}on{/if}"><a href="{$MyUrl}{$Type}" class="allBtn">不限</a></dt>
+					<dd class="fl">
+						<ul class="choseBox">
+
+							{loop $City $key $value} {if strstr ($key,'c')} {if substr($key,1)
+							<14} <li class="{if $Area==$key}on{/if}">
+								<a href="{$MyUrl}{$key}{$Type}{$Price}/">{$value}</a>
+								</li>
+								{/if} {/if} {/loop}
+
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="selectList last cf city" style="display: {if substr($Area,1)>13 && substr($Area,1)<17}block{else}none{/if}">
+				<div class="selectListL"><i class="ico ico4"></i>受理城市：</div>
+				<dl class="selectListM">
+					<dt class="fl {if empty(substr($Area,1)>13 && substr($Area,1)<17)}on{/if}"><a href="{$MyUrl}{$Type}{$Price}" class="allBtn">不限</a></dt>
+					<dd class="fl">
+						<ul class="choseBox">
+							{loop $City $key $value} {if strstr ($key,'c')} {if substr($key,1)>13 && substr($key,1)
+							<17} <li class="{if $Area==$key}on{/if}">
+								<a href="{$MyUrl}{$key}{$Type}{$Price}/">{$value}</a>
+								</li>
+								{/if} {/if} {/loop}
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="selectList last cf city" style="display: {if substr($Area,1)>16 && substr($Area,1)<23}block{else}none{/if}">
+				<div class="selectListL"><i class="ico ico4"></i>受理城市：</div>
+				<dl class="selectListM">
+					<dt class="fl {if empty(substr($Area,1)>16 && substr($Area,1)<23)}on{/if}"><a href="{$MyUrl}{$Type}{$Price}" class="allBtn">不限</a></dt>
+					<dd class="fl">
+						<ul class="choseBox">
+							{loop $City $key $value} {if strstr ($key,'c')} {if substr($key,1)>16 && substr($key,1)
+							<23} <li class="{if $Area==$key}on{/if}">
+								<a href="{$MyUrl}{$key}{$Type}{$Price}/">{$value}</a>
+								</li>
+								{/if} {/if} {/loop}
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="selectList last cf city" style="display: {if substr($Area,1)>22 && substr($Area,1)<28}block{else}none{/if}">
+				<div class="selectListL"><i class="ico ico4"></i>受理城市：</div>
+				<dl class="selectListM">
+					<dt class="fl {if empty(substr($Area,1)>22 && substr($Area,1)<28)}on{/if}"><a href="{$MyUrl}{$Type}{$Price}" class="allBtn">不限</a></dt>
+					<dd class="fl">
+						<ul class="choseBox">
+							{loop $City $key $value} {if strstr ($key,'c')} {if substr($key,1)>22 && substr($key,1)
+							<28} <li class="{if $Area==$key}on{/if}">
+								<a href="{$MyUrl}{$key}{$Type}{$Price}/">{$value}</a>
+								</li>
+								{/if} {/if} {/loop}
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div class="selectList last cf city" style="display: {if substr($Area,1)>27 && substr($Area,1)<31}block{else}none{/if}">
+				<div class="selectListL"><i class="ico ico4"></i>受理城市：</div>
+				<dl class="selectListM">
+					<dt class="fl {if empty(substr($Area,1)>27 && substr($Area,1)<31)}on{/if}"><a href="{$MyUrl}{$Type}{$Price}" class="allBtn">不限</a></dt>
+					<dd class="fl">
+						<ul class="choseBox">
+							{loop $City $key $value} {if strstr ($key,'c')} {if substr($key,1)>27 && substr($key,1)
+							<31} <li class="{if $Area==$key}on{/if}">
+								<a href="{$MyUrl}{$key}{$Type}{$Price}/">{$value}</a>
+								</li>
+								{/if} {/if} {/loop}
+						</ul>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="Sequence">
+			<ul class="SequenceUl f16" id="Ranking">
+				<li class="{if empty(strstr ($SoUrl,'u1') || strstr ($SoUrl,'u2'))}on{/if}">
+					<a href="{$MyUrl}" id="Default">综合排序</a>
+				</li>
+				<li>
+					{if $Price=='u1'}
+					<li class="on">
+						<a href="{$MyUrl}{$Area}{$Type}u1/" id="Asce">价格从低到高<i></i></a>
+						<div class="SequenceChose">
+							<a href="{$MyUrl}{$Area}{$Type}u1/" id="PicerAsce">价格从低到高</a>
+							<a href="{$MyUrl}{$Area}{$Type}u2/" id="PicerDown">价格从高到低</a>
+						</div>
+					</li>
+					{elseif $Price=='u2'}
+					<li class="on">
+						<a href="{$MyUrl}{$Area}{$Type}u2/" id="Down">价格从高到低<i></i></a>
+						<div class="SequenceChose">
+							<a href="{$MyUrl}{$Area}{$Type}u1/" id="PicerAsce">价格从低到高</a>
+							<a href="{$MyUrl}{$Area}{$Type}u2/" id="PicerDown">价格从高到低</a>
+						</div>
+					</li>
+					{else}
+					<a href="javascript:void(0)" id="PicerSort">价格排序<i></i></a>
+					<div class="SequenceChose">
+						<a href="{$MyUrl}{$Area}{$Type}u1/" id="PicerAsce">价格从低到高</a>
+						<a href="{$MyUrl}{$Area}{$Type}u2/" id="PicerDown">价格从高到低</a>
+					</div>
+					{/if}
+				</li>
+			</ul>
+		</div>
+		<div class="visaList">
+			<ul>
+				{loop $Data['Data'] $lists}
+				<li>
+					<div class="img">
+						<a href="/visadetail/{$lists[VisaID]}.html" target="_blank"><img src="{echo ImageURLP2}{$lists[Image]}" width="200" height="150" alt="{$lists[Title]}" title="{$lists[Title]}" /></a>
+						<p class="visaStyle">{$lists[Type]}</p>
+					</div>
+					<div class="cont">
+						<p class="tit">
+							<a href="/visadetail/{$lists[VisaID]}.html" target="_blank">{$lists[Title]}</a>
+						</p>
+						<p class="ins mt10">{$lists[Region]}</p>
+						<p class="condition"><span>面试：{$lists[Interview]}</span>|<span>受理天数：{$lists[Duration]}</span>|<span>受理地区：{$lists[Area]}</span><br><span>有效期：{$lists[Validity]}</span>|<span>入境次数：{$lists[Entries]}</span>|<span>停留天数：{$lists[Stay]}</span></p>
+					</div>
+					<div class="ListR tar">
+						<p class="price">¥{$lists[PresentPrice]}</p>
+						<p class="mt50">
+							<a href="javascript:void(0)" class="collect hidden"></a>
+							<a href="/visadetail/{$lists[VisaID]}.html" class="ListBuyBtn" target="_blank">查看详情</a>
+						</p>
+					</div>
+				</li>
+				{/loop}
+			</ul>
+			{if $ShowPage}
+			<div class="page mt35" id="Page2">
+				<form action="/visalists/{$Area}{$Type}{$Price}{if $Area||$Type||$Price}/{/if}" method="GET">
+					{$ShowPage}
+					<div class="GoPage">到 <input type="text" name="p" value="" class="input" maxlength="4"> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn"></div>
+				</form>
+			</div>
+			{/if}
+		</div>
+	</div>
+	<div class="sideR">
+		<div class="sideRBox committed">
+			<div class="committedT">我们承诺</div>
+			<ul class="committedList cf">
+				<li class="i1"><span class="ico"></span>
+					<p class="tit">出证速度快</p>
+				</li>
+				<li class="i2"><span class="ico"></span>
+					<p class="tit">免费审核</p>
+				</li>
+				<li class="i3"><span class="ico"></span>
+					<p class="tit">信息安全保密</p>
+				</li>
+				<li class="i4"><span class="ico"></span>
+					<p class="tit">出签成功率高</p>
+				</li>
+			</ul>
+		</div>
+		<div class="sideRBox mt20">
+			<div class="sideRBoxT">最新美国签证动态</div>
+			<ul class="visaNews">
+				{loop $Tuijian $lists}
+				<li>
+					<a href="{echo WEB_MAIN_URL}/study/{$lists[StudyID]}.html" target="_blank" title="{$lists[Title]}"><b>●</b>{$lists[Title]}</a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="sideRBox visaIns mt20">
+			<div class="sideRBoxT">办理说明</div>
+			<div class="visaInsM">
+				<p>1、赴美进行短期商务活动、探亲访友、 旅游观光，均可申请B1/B2类型签证</p>
+				<p>2、首次申请B1/B2类型签证者，均需亲 自前往使馆面试（符合免面试条件者 除外）</p>
+				<p>3、所有材料的原件请于面试时带齐，便 于签证官核查</p>
+				<p>4、凡申请过美国签证的客人（含移民签 证）无论申请是否被批准，都必须如 实说明</p>
+			</div>
+		</div>
+		<div class="sideRBox sideRQues mt20">
+			<div class="sideRBoxT">签证常见问题解答</div>
+			<ul class="sideRQues">
+				{loop $VisaInfo['Problem']['Title'] $key $lists}
+				<li>
+					<p class="tit">{$lists}</p>
+					<p class="nr">{$VisaInfo['Problem']['Content'][$key]}</p>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="cf mt50"></div>
+<script type="text/javascript" src="{echo JsURL}/visa/List.js"></script>
+{template 'Common/TourFooter',1}

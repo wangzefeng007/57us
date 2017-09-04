@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$Title}</title>
+    <meta name="keywords" content="{$Keywords}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="description" content="{$Description}">
+    <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{echo CssURL}/study/studypublic3.0.css" rel="stylesheet" type="text/css" />
+    <link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+    <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{echo JsURL}/base/base.js"></script>
+</head>
+<style type="text/css">
+    body{background: #f2f2f2;}
+</style>
+<body>
+<div class="wrap">
+    {template 'Common/TopLoginStatus',1}
+    {template 'Common/RightNav',1}
+    <div class="header">
+        <div class="w1200 cf">
+            <span class="fr HeaderTell">欢迎拨打电话咨询400-018-5757</span>
+            <a href="{echo WEB_STUDY_URL}" class="StudyLogo" title="57美国网">57美国网</a>
+        </div>
+    </div>
+    <div class="w1200 cf mt25 identityChose">
+        <p class="identityTit mt10">请先选择身份</p>
+        <ul class="identityList">
+            <li data-text='学生' data-type="1">
+                <p class="identityStyle">我是学生</p>
+                <img src="{echo ImageURL}/img/study/studentBg3.0.jpg" width="250" height="150"/>
+                <div class="identityM">
+                    <p class="f16 tac">申请成为57US的学生用户</p>
+                    <p class="identityStyleIns">我想免费使用文书神器<br>
+                        我想免费使用留学笔记<br>
+                        我想获取更多留学资讯<br>
+                        我想用院校库精准选校<br>
+                        我想获得专属于的留学方案</p>
+                </div>
+            </li>
+            <li data-text='顾问' data-type="2">
+                <p class="identityStyle">我是顾问</p>
+                <img src="{echo ImageURL}/img/study/countantBg3.0.jpg" width="250" height="150"/>
+                <div class="identityM">
+                    <p class="f16 tac">申请成为57US的留学顾问</p>
+                    <p class="identityStyleIns">我想要获得更多的生涯<br>
+                        我想要获得丰厚的待遇<br>
+                        我想要免费使用高效办公软件<br>
+                        我想要灵活自由的工作时间<br>
+                        我想拥有属于自己的展示页面</p>
+                </div>
+            </li>
+            <li data-text='教师' data-type="3">
+                <p class="identityStyle">我是教师</p>
+                <img src="{echo ImageURL}/img/study/tearch3.0.jpg" width="250" height="150"/>
+                <div class="identityM">
+                    <p class="f16 tac">申请成为57US的语言培训老师</p>
+                    <p class="identityStyleIns">我想获得更多的生源<br>
+                        我想要获得好的待遇<br>
+                        我想要免费使用数学软件<br>
+                        我想要灵活的工作时间<br>
+                        我想拥有属于自己的展示页面</p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div class="mask"></div>
+    <div class="identityChoseSure">
+        <span class="close">关闭</span>
+        <p class="f18 sureText">确认选择<span class="red">【<i class="identChose">顾问</i>】</span>身份<br>
+            温馨提示：一旦选择，身份无法更换</p>
+        <div class="btn tar">
+            <a href="javascript:void(0)" class="no fl" id="close">不，重新选择</a>
+            <a href="javascript:void(0)" class="sure fr" id="SureBtn">确认</a>
+        </div>
+    </div>
+    {template Footer}
+</div>
+<script src="{echo JsURL}/study/CommonControllerIdentitySelection.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+{template StudyTop}
+<link rel="stylesheet" href="/Plugins/fonts/mobile/iconfont.css">
+<script src="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+<link href="{echo CssURL}/bbs/study/style.css" rel="stylesheet" type="text/css" />
+<div class="w1200 BbsLocation">您当前位置：
+	<a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+	<a href="{echo WEB_STUDY_URL}/ask/">问答专区</a><span>&gt;</span><span class="Position"> 搜索‘{$Keyword}’结果</span></div>
+<div class="w1200 bbsHeadCont">
+	<div class="bbsheadMain">
+		<div class="bbsSeachbox fl">
+			<div class="bbsSeach"><input type="text" name="" id="" value="" class="bradius fl input" />
+				<a href="" class="btn"><i class="icon iconfont icon-sousuo-sousuo"></i></a>
+			</div>
+			<div class="bbsHotKey">
+				热搜关键词：
+				<a href="">酒店</a>
+				<a href="">签证</a>
+				<a href="">迪斯尼</a>
+				<a href="">极光</a>
+				<a href="">机票</a>
+			</div>
+		</div>
+		<a href="JavaScript:void(0)" class="askBtn fr">我要提问</a>
+	</div>
+</div>
+<div class="w1200 cf mt10 Position">
+	<div class="w900 fl">
+		<div class="questBox searchCont">
+			<p class="fr mt10"><span class="searchNum f16">为您搜索到 <span class="green">{if $Data['RecordCount']}{$Data['RecordCount']}{else}0{/if}</span> 条相关内容</span></p></p>
+			<div class="hd">
+				<a href="/ask/search/?K={$Keyword}&s=0" {if $IsStand == 0}class="on"{/if}>问题<span class="line"></span></a>
+				<a href="/ask/search/?K={$Keyword}&s=1" {if $IsStand == 1}class="on"{/if}>站队<span class="line"></span></a>
+			</div>
+				{if $IsStand == 0}
+					<ul class="questList">
+						{if $Data}
+							{loop $Data['Data'] $key $val}
+								<li>
+									<div class="listHead">
+										<span class="time fr">{$val['NowTime']}</span>
+										<p class="fl user"><img src="{echo ImageURLP2}{$val['Avatar']}" width="36" height="36" />{$val['NickName']}</p>
+									</div>
+									<div class="listCont">
+										<a href="/ask_section/{$val['AskID']}.html" target="_blank">{$val['AskInfo']}</a>
+									</div>
+									<div class="listBottom">
+										<p class="otherFun fr">
+											<span><i class="icon iconfont icon-yanjing"></i>{$val['BrowseNum']}次浏览</span>
+											<span><i class="icon iconfont icon-start"></i>{$val['FollowNum']}人关注</span>
+											<span><i class="icon iconfont icon-iconfont02"></i>{$val['AnswerNum']}人回答 </span></p>
+										<p class="tip fl">
+											{loop $val[Tags] $v}
+											<a href="/ask/topic?id={$v['TagID']}" target="_blank" class="bradius">{$v['TagName']}</a>
+											{/loop}
+										</p>
+									</div>
+									{if $val['Answer']}
+									<div class="listfeedbck">
+										<img src="{echo ImageURLP2}{$val['Answer']['Avatar']}" width="36" height="36" />
+										<p>{$val['Answer']['NickName']}</p>
+										<p class="nr mt5">{$val['Answer']['Answer']}</p>
+									</div>
+									{/if}
+								</li>
+							{/loop}
+						{else}
+						<div class="noProblem mt10">
+							<div class="noProblemTip">你还没有提过问题。敏而好学，不耻下问。
+								<a class="transition bradius nowAsk {if !$_SESSION['UserID']}_MustLogin{else}MyQuestions{/if}" href="JavaScript:void(0)" {if !$_SESSION['UserID']}data-type="tc_login"{/if}>马上提问题</a>
+							</div>
+						</div>
+						{/if}
+					</ul>
+				{else}
+				<ul class="teamList">
+					{if $Data}
+						{loop $Data['Data'] $val}
+							<li>
+								<p class="tit">
+									<a href="">{echo mb_substr($val['AskInfo'], 0, 80, 'utf-8')}</a>
+								</p>
+								<div class="pieBox tac">
+									<div class="teamLi zf">
+										<p class="f16 head">正方：<span class="c9">{$val['StandSquare']}</span></p>
+										<p class="proportion mt15" data-num="30">{$val['SquareScale']}%</p>
+									</div>
+									<div class="piePicBox">
+										<span class="vsIco"></span>
+										<div id="main1" data-text="1" class="piePic"></div>
+									</div>
+									<div class="teamLi ff">
+										<p class="f16 head">反方：<span class="c9">{$val['StandBack']}</span></p>
+										<p class="proportion mt15" data-num="60">{$val['BackScale']}%</p>
+									</div>
+								</div>
+
+								<div class="mt10 cf">
+									<p class="date fl">{echo date("Y-m-d H:i:s",$val['AddTime']);}</p>
+									<p class="otherFun fr">
+										<span><i class="icon iconfont icon-yanjing"></i>{$val['BrowseNum']}次浏览</span>
+										<span><i class="icon iconfont icon-start"></i>{$val['FollowNum']}人关注</span>
+										<span><i class="icon iconfont icon-iconfont02"></i>{$val['AnswerNum']}人回答 </span>
+									</p>
+								</div>
+							</li>
+						{/loop}
+					{else}
+					<div class="noProblem mt10">
+						<div class="nosearch">
+							<p class="f16 mt15">三个臭皮匠顶个诸葛亮。
+								<a class="transition bradius nowAsk {if !$_SESSION['UserID']}_MustLogin{else}StandTeam{/if}" href="JavaScript:void(0)" {if !$_SESSION['UserID']}data-type="tc_login"{/if}>马上发起站队</a>
+							</p>
+						</div>
+					</div>
+					{/if}
+				</ul>
+				{/if}
+			</ul>
+			{if $Data['PageCount'] > 1}
+			<div class="page mt35" id="Page2">
+				<form action="" method="GET">
+					{$Listpage}
+					<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button"  name="" id="" value="确定" class="PageBtn" /></div>
+				</form>
+			</div>
+			{/if}
+		</div>
+	</div>
+	<div class="w280 mt40 fr SlideRight">
+		{template AskMode}
+		<!--免费评估-->
+		<ul class="adW280 adList">
+		</ul>
+		<ul class="adW280">
+			{loop $StudyAskADLists $lists}
+			<li>
+				<a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP4}{$lists[Picture]}" width="280" /></a>
+			</li>
+			{/loop}
+		</ul>
+		<div class="hotTopic mt10">
+			<p class="mainTit">
+				<a href="javascript:void (0)" class="changeChan fr" id="changeTags" data-type="2">换一换<i class="icon iconfont icon-shuaxin"></i></a>
+				<span class="name fl">人气话题</span>
+			</p>
+			<div class="hotTopicM cf" id="changeChanHtml">
+				{loop $HotTagList $lists}
+				<a href="/ask/topic?id={$lists[TagID]}" class="bradius" title="{$lists['TagName']}" target="_blank">{$lists['TagName']}</a>
+				{/loop}
+			</div>
+		</div>
+		<div class="wxShare mt20">
+			<img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99">
+			<p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+		</div>
+	</div>
+</div>
+{template Footer}
+<!--留学公用js-->
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<!--问答公用js-->
+<script type="text/javascript" src="{echo JsURL}/bbs/study/AskPublic.js"></script>
+<script>
+    $(".PageBtn").click(function(){
+        var gopage = $("#gopage").val();
+        var lastpage = {$Data['PageCount']};
+        if(!gopage){
+            alert("请输入页码");return false;
+        }
+        if( lastpage < gopage ){
+            alert("您输入的页码超过最大页数");return false;
+        }
+        var gourl = '{$GoPageUrl}';
+        window.location.href=gourl+'&p='+gopage;
+        return false;
+    });
+</script>
+</body>
+</html>

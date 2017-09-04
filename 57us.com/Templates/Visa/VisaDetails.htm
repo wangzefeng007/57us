@@ -1,0 +1,263 @@
+{template VisaHeader}
+<link href="{echo CssURL}/visa/visa3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 TourLocation">您当前位置：
+	<a href="{echo WEB_VISA_URL}">签证首页</a><span>&gt;</span><a href="/visalists/" title="签证列表">签证列表</a><span> &gt; </span><span class="Position">{$VisaInfo[Title]}</span></div>
+<div class="w1200 cf ">
+	<div class="visaDetailBox cf">
+		<div class="img">
+			<span class="ico"></span>
+			<img src="{echo ImageURLP4}{$VisaInfo[Image]}" width="400" height="300" /></div>
+		<div class="detailR">
+			<!--<span class="noProIco ">无产品标识</span>-->
+			<p class="tit">{$VisaInfo[Title]}</p>
+			<div class="detailMain mt20">
+				<p class="Nprice">优惠价：<span>¥<em class="Price">{$VisaInfo[PresentPrice]}</em></span></p>
+				<p class="oldPrice">市场价 ：<span>￥{$VisaInfo[OriginalPrice]}</span></p>
+				<p>为你节省了：￥{echo $VisaInfo[OriginalPrice]-$VisaInfo[PresentPrice]}</p>
+				<p class="Accepted">受理范围<i class="ico"></i></p>
+			</div>
+			<div class="visaIns mt15">
+				<span>已办理人数：3056人</span>
+				<span>办理时间：{$VisaInfo[Duration]}</span>
+			</div>
+			<div class="cf mt15">
+				<div class="howMuch fl">
+					<span class="fl">出行日期</span>
+					<input type="text" name="startDate" value="" class="dataInput" id="startDate" onfocus="WdatePicker({minDate:'%y-%M-{%d+1}'})" />
+				</div>
+				<div class="howMuch fl">
+					<span class="fl">购买数量</span>
+					<div class="num_box fl">
+						<a class="num_btn">-</a>
+						<input name="numbers" class="num_input" id="num" value="1" readonly="readonly" maxlength="2">
+						<a class="num_btn">+</a>
+					</div>
+				</div>
+			</div>
+			<!--
+            	作者：xiao15980751809@126.com
+            	时间：2016-12-26
+            	描述：当没有产品的时候加class "noOrderBtn"
+            	<a href="javascript:void(0)" class="OrderBtn noOrderBtn" id="OrderBtn">立即预定</a>
+            -->
+			<a href="javascript:void(0)" class="OrderBtn" id="OrderBtn">立即预定</a>
+		</div>
+
+	</div>
+</div>
+<div class="w1200 cf visaBox package mt30">
+	<div class="visaBoxT">
+		<span class="name">套餐介绍</span>
+	</div>
+	<table border="0" cellspacing="1" cellpadding="0" class="detailTab mt40" width="100%">
+		{$VisaInfo[BaseInfo]}
+	</table>
+</div>
+<div class="w1200 visaBox visaDetailMain mt40">
+	<div class="visaBoxT">
+		<span class="name">产品详情</span>
+	</div>
+	<div class="VisaDetailMenu mt35">
+		<ul class="fl VisaDetailMenuLi">
+			<li>
+				<a href="javascript:void(0)">签证信息</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">办理流程</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">所需资料</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">预定须知</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">常见问题</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="w1200 cf">
+	<div class="VisaDetailList mt40">
+		<div class="VisaDetailListTit">签证信息</div>
+		<table border="0" cellspacing="1" cellpadding="0" class="detailTab mt20" width="100%">
+			<tr>
+				<th width="15%">是否需要面试</th>
+				<th width="15%">签证有效期</th>
+				<th width="15%">入境次数</th>
+				<th width="15%">可停留期限</th>
+				<th width="40%">办理要求</th>
+			</tr>
+			<tr>
+				<td>{$VisaInfo['Interview']}</td>
+				<td>{$VisaInfo['Validity']}</td>
+				<td>{$VisaInfo['Entries']}</td>
+				<td>{$VisaInfo['Stay']}</td>
+				<td>{$VisaInfo['Region']}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="VisaDetailList mt40">
+		<div class="VisaDetailListTit">办理流程</div>
+		<ul class="visaPro mt25">
+			<li class="i1">
+				<p class="stit">选择签证及付款</p>
+				<span class="upIco"></span>
+				<span class="ico"></span>
+				<span class="sline"></span>
+				<span class="sjIco"></span>
+				<div class="visaCont">
+					{loop  $VisaInfo['Procedure']['ProTitle'] $key $lists}
+					{if $key==0}
+					<p class="tit">{$lists}</p>
+					<div class="nr">{$VisaInfo['Procedure']['ProContent'][$key]}
+					</div>
+					{/if}
+					{/loop}
+				</div>
+			</li>
+			<li class="i2">
+				<p class="stit">递交预约材料</p>
+				<span class="upIco"></span>
+				<span class="ico"></span>
+				<span class="sline"></span>
+				<span class="sjIco"></span>
+				<div class="visaCont">
+					{loop  $VisaInfo['Procedure']['ProTitle'] $key $lists}
+					{if $key==1}
+					<p class="tit">{$lists}</p>
+					<div class="nr">{$VisaInfo['Procedure']['ProContent'][$key]}
+					</div>
+					{/if}
+					{/loop}
+				</div>
+			</li>
+			<li class="i3">
+				<p class="stit">审核材料及预约面试</p>
+				<span class="upIco"></span>
+				<span class="ico"></span>
+				<span class="sline"></span>
+				<span class="sjIco"></span>
+				<div class="visaCont">
+					{loop  $VisaInfo['Procedure']['ProTitle'] $key $lists}
+					{if $key==2}
+					<p class="tit">{$lists}</p>
+					<div class="nr">{$VisaInfo['Procedure']['ProContent'][$key]}
+					</div>
+					{/if}
+					{/loop}
+				</div>
+			</li>
+			<li class="i4">
+				<p class="stit">领事馆面签</p>
+				<span class="upIco"></span>
+				<span class="ico"></span>
+				<span class="sline"></span>
+				<span class="sjIco"></span>
+				<div class="visaCont">
+					{loop  $VisaInfo['Procedure']['ProTitle'] $key $lists}
+					{if $key==3}
+					<p class="tit">{$lists}</p>
+					<div class="nr">{$VisaInfo['Procedure']['ProContent'][$key]}
+					</div>
+					{/if}
+					{/loop}
+				</div>
+			</li>
+			<li class="i5">
+				<p class="stit">取签并返还材料</p>
+				<span class="upIco"></span>
+				<span class="ico"></span>
+				<span class="sline"></span>
+				<span class="sjIco"></span>
+				<div class="visaCont">
+					{loop  $VisaInfo['Procedure']['ProTitle'] $key $lists}
+					{if $key==4}
+					<p class="tit">{$lists}</p>
+					<div class="nr">{$VisaInfo['Procedure']['ProContent'][$key]}
+					</div>
+					{/if}
+					{/loop}
+				</div>
+			</li>
+			<li class="i6">
+				<p class="stit">领取护照证件</p>
+				<span class="ico"></span>
+				<span class="sline"></span>
+				<span class="sjIco"></span>
+				<div class="visaCont">
+					{loop  $VisaInfo['Procedure']['ProTitle'] $key $lists}
+					{if $key==5}
+					<p class="tit">{$lists}</p>
+					<div class="nr">{$VisaInfo['Procedure']['ProContent'][$key]}
+					</div>
+					{/if}
+					{/loop}
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="VisaDetailList mt10">
+		<div class="VisaDetailListTit">所需材料</div>
+		<div class="VisaInv mt20">
+			<ul class="hd">
+				{loop $VisaInfo['MaterialRequestedArray']['Title'] $key $lists}
+				<li {if $key==0}class="on"{/if}>{$lists}</li>
+				{/loop}
+			</ul>
+			<div class="bd">
+				{loop $VisaInfo['MaterialRequestedArray']['MaterialRequested'] $key $lists}
+				<div class="cf bdList mt10" {if $key==0}style="display: block;"{/if}>
+				{$lists}
+				</div>
+				{/loop}
+			</div>
+
+		</div>
+	</div>
+	<div class="VisaDetailList mt30">
+		<div class="VisaDetailListTit">预订需知</div>
+		<div class="cf xuzhiCont mt10">
+			{$VisaInfo[Attention]}
+		</div>
+	</div>
+	<div class="VisaDetailList visaBox question mt40">
+		<div class="visaBoxT">
+			<span class="name">常见问题</span>
+		</div>
+		<ul class="questionList cf mt20">
+			{loop $VisaInfo['Problem']['Title'] $key $lists}
+			<li>
+				<p class="ques"><span class="ico">{echo $key+1}</span>{$lists}</p>
+				<p class="answ">{$VisaInfo['Problem']['Content'][$key]}</p>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+</div>
+
+<!--
+    作者：xiao15980751809@126.com
+    时间：2016-11-28
+    描述：受理范围
+-->
+<div class="ReceiveArea hidden">
+	<table class="ReceiveAreaTab" cellspacing="1" border="0">
+		<thead>
+		<tr>
+			<th colspan="1" align="left">领区受理范围</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>{$VisaInfo[Region]}</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+<div class="cf mt50"></div>
+{template VisaFooter}
+<script src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="{echo JsURL}/visa/Detail.js"></script>
+</body>
+</html>

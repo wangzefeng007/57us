@@ -1,0 +1,118 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 cf Studylocation">当前位置：
+    <a href="/consultantmanage/myorder/">我的订单</a>><span>订单详情</span></div>
+<div class="w1200 cf">
+    <table border="0" cellspacing="1" cellpadding="0" width="100%" class="OrderDetailTab">
+        <tr>
+            <th colspan="6">
+                <div class="MyOrderBody">
+                    <img src="{$MemberInfo['Avatar']}" width="60" height="60">
+                    <p class="fl StudentName">{$MemberInfo[NickName]}</p>
+                    <span class="MyOrderStyle fl"><em></em>{$Status[$OrderInfo[Status]]}</span>
+                    <p class="MyOrderSe fl">服务名称：<span class="red">{$ServiceInfo[ServiceName]}</span></p>
+                    <p class="MyOrderSe fl">服务类型：{$ServiceType[$ServiceInfo[ServiceType]]}</p>
+                </div>
+            </th>
+        </tr>
+        <tr height="54">
+            {loop $OrderConsultant $key $lists}
+            <td>{$Part[$lists['Type']]['Title']}</td>
+            {/loop}
+            <td>总金额</td>
+        </tr>
+        <tr height="54">
+            {loop $OrderConsultant $key $lists}
+            <td><span class="red f16">¥ {$lists[Amt]}{if $lists[Status]==3}（已结算）{else}（待结算）{/if}</span></td>
+            {/loop}
+            <td><span class="red f16">¥ <em class="f22">{$CountMoney}</em></span></td>
+        </tr>
+    </table>
+    <div class="cf ProcessFlow mt30">
+        <div class="ProcessFlowT">
+            <span class="name fl">办理流程</span>
+        </div>
+        <ul class="QuestionProcess mt50">
+            <li class="{if $OrderInfo[IsHesitate]>=0}circle{else}carryOut{/if}">
+                <span class="carryOut"></span>
+                <div class="QuestionL">
+                    <p class="tit">支付成功</p>
+                    <p class="time mt5">{echo date("Y-m-d H:i",$OrderInfo[AddTime])}</p>
+                </div>
+                <div class="QuestionR cf">
+                    <em class="sj"></em>
+                    <div class="QuestionRl">
+                        <p>支付成功后，展开服务。</p>
+                    </div>
+                </div>
+            </li>
+            {loop $OrderConsultant $key $list}
+            {if $list[TypeName]=='Questionnaire'}
+            <li class="{if $list[Status]==3}circle{else}carryOut{/if}">
+                <span class="carryOut"></span>
+                <div class="QuestionL">
+                    <p class="tit">信息收集</p>
+                    <p class="time mt5">{echo date("Y-m-d H:i",$list[ConfirmTime])}</p>
+                </div>
+                <div class="QuestionR cf">
+                    <em class="sj"></em>
+                    <div class="QuestionRl">
+                        <p>发送信息收集表给学生填写。</p>
+                    </div>
+                </div>
+            </li>
+            {/if}
+            {/loop}
+            {loop $OrderConsultant $key $list}
+            {if $list[TypeName]=='Document'}
+            <li class="{if $list[Status]==3}circle{else}carryOut{/if}">
+                <span class="carryOut"></span>
+                <div class="QuestionL">
+                    <p class="tit">文书材料</p>
+                    <p class="time mt5">{echo date("Y-m-d H:i",$list[ConfirmTime])}</p>
+                    <p class="Settlement">结算100%</p>
+                </div>
+                <div class="QuestionR cf">
+                    <em class="sj"></em>
+                    <div class="QuestionRl">
+                        <p>上传CV给学生</p>
+                        <p>上传RL给学生</p>
+                        <p>上传PS给学生</p>
+                        <p>上传Essay给学</p>
+                    </div>
+                </div>
+            </li>
+            {/if}
+            {/loop}
+            <li class="{if $OrderInfo[Status]==3}circle{else}carryOut{/if}">
+                <span class="carryOut"></span>
+                <div class="QuestionL">
+                    <p class="tit">完成</p>
+                </div>
+                <div class="QuestionR cf">
+                    <em class="sj"></em>
+                    <div class="QuestionRl">
+                        <p>服务完成！</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{template Footer}
+<script type="text/javascript">
+    $(".MyOrderDown .helpIco").each(function() {
+        $(this).hover(function() {
+            var content = $(this).attr("data-text")
+            layer.tips(content, $(this), {
+                tips: [1, '#fff'],
+                skin: 'OrderTip',
+                time: 400000
+            });
+        }, function() {
+            layer.closeAll();
+        })
+    })
+</script>
+</body>
+</html>

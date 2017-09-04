@@ -1,0 +1,86 @@
+[
+  {
+    "name": "北京",
+    "AeraID":"1"
+  },
+  {
+    "name": "厦门",
+    "AeraID":"2"
+  },
+  {
+    "name": "福州",
+    "AeraID":"3"
+  },
+  {
+    "name": "上海",
+    "AeraID":"4"
+  },
+  {
+    "name": "杭州",
+    "AeraID":"5"
+  },
+  {
+    "name": "河南",
+    "AeraID":"6"
+  },
+  {
+    "name": "广州",
+    "AeraID":"7"
+  },
+  {
+    "name": "深圳",
+    "AeraID":"8"
+  },
+  {
+    "name": "重庆",
+    "AeraID":"9"
+  },
+  {
+    "name": "江苏",
+    "AeraID":"10"
+  },
+  {
+    "name": "合肥",
+    "AeraID":"11"
+  },
+  {
+    "name": "南昌",
+    "AeraID":"12"
+  },
+  {
+    "name": "苏州",
+    "AeraID":"13"
+  },
+  {
+    "name": "泉州",
+    "AeraID":"14"
+  },
+  {
+    "name": "西安",
+    "AeraID":"15"
+  },
+  {
+    "name": "海南",
+    "AeraID":"16"
+  },
+  {
+    "name": "漳州",
+    "AeraID":"17"
+  },
+  {
+    "name": "石家庄",
+    "AeraID":"18"
+  },
+  {
+    "name": "天津",
+    "AeraID":"19"
+  },
+  {
+    "name": "南京",
+    "AeraID":"20"
+  },
+  {
+    "name": "龙岩",
+    "AeraID":"20"
+  }
+]

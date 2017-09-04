@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信支付</title>
+<script src="{echo JsURL}/base/jquery/1.8.3/jquery.min.js"></script>
+<link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+<link href="{echo CssURL}/common/wxpay.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="paybody">
+<div class="wrap">
+	<div class="PayHeader"><span class="PayLogo"></span></div>
+	<div class="PayMain cf mt30">
+		<div class="PayMainTop"></div>
+		<div class="PayMainM cf">
+			<div class="PayEwmBox">
+				<div class="PayEwm">
+					<img alt="二维码" id="QRcode" src="{$WXPayUrl}" width="260" height="260">
+					<img src="{echo ImageURL}/img/common/payphone.png" width="221" height="320" class="Fphone transition"/>
+				</div>
+				<div class="MsgDetailBox">
+	              <i></i>
+	              <p>请使用微信扫描<br>二维码以完成支付</p>
+	            </div>
+			</div>
+			<div class="PayPrice">
+				<em></em>
+				<span class="price">￥{$_POST['Money']}</span>
+			</div>
+			<div class="PayThing f16">
+				产品名称：{$_POST['Subject']}
+			</div>
+			<div class="PayDetail">
+				<div class="cf">
+					订单号<span class="pl20">{$_POST['OrderNo']}</span>
+				</div>
+				<div class="cf mt5">请您在提交订单后<span class="red">15分钟</span>内完成支付，否则订单会自动取消。</div>
+			</div>
+		</div>
+		<div class="PayMainBottom"></div>
+	</div>
+	<div class="PayFooer mt40">
+    	<ul class="ewmbox">
+        	<li><img src="{echo ImageURL}/img/common/wb.jpg">微博</li>
+            <li><img src="{echo ImageURL}/img/common/wx.png">微信公众平台</li>
+        </ul>
+    	<div class="ins"><div class="w1200 cf"><img src="{echo ImageURL}/img/common/f_img.png"></div></div>
+        <div class="w1200 foot">©2016 美华通 版权所有<a href="{echo WEB_MAIN_URL}">网站首页</a><a href="{echo WEB_MAIN_URL}/about/map.html">网站地图</a><a href="{echo WEB_MAIN_URL}/about/xieyi.html">帮助</a></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+        setInterval(function(){
+            $.post('/pay/orderstatus/',{'NO':$('.PayDetail span.pl20').text()},function(data){
+                var jsonData=eval('('+data+')');
+                if(jsonData.Status==1){
+                    window.location=jsonData.Url;
+                }
+            });
+        },3000);
+</script>
+</html>

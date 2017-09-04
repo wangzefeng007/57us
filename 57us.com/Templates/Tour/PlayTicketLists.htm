@@ -1,0 +1,180 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/tour/touline.css" rel="stylesheet" type="text/css" />
+<div class="w1200 TourLocation">您当前位置：
+    {if $Keyword!=''}
+    <a href="{echo WEB_TOUR_URL}" target="_blank" title="57美国网">首页</a><span>&gt;</span><span><a href="{echo WEB_TOUR_URL}/play/ticket/" title="门票">门票</a></span><span id="Search">&gt 搜索<span  style="color:red">“ {$Keyword}”</span><span>结果</span></span><span id="Position"></span>
+    {else}
+    <a href="{echo WEB_TOUR_URL}" target="_blank" title="57美国网">首页</a><span>&gt;</span><span>门票</span><span id="Position"></span>
+    {/if}
+</div>
+<div class="w1200 cf selectBox" id="selectBox">
+    {template HeaderTagNav}
+    <div class="bd cf" id="Filter">
+        <div class="selectList cf">
+            <div class="selectListL"><i class="ico ico7"></i>目的地：</div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="Javascript:void(0)" class="allBtn" id="EndCityAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox" id="EndCity">
+                    </ul>
+                </dd>
+            </dl>
+            <div class="ChoseMore" id="EndCityChoseMore">
+                <a href="JavaScript:void(0)">更多<i></i></a>
+                <a href="JavaScript:void(0)" class="change">收起<i></i></a>
+            </div>
+        </div>
+        <div class="selectList cf">
+            <div class="selectListL"><i class="ico ico8"></i>票务类型：</div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="JavaScript:void(0)" class="allBtn" id="TicketTypeAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox" id="TicketType">
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="selectList cf">
+            <div class="selectListL"><i class="ico ico3"></i>特色主题：<span>（可多选）</span></div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="javascript:void(0)" class="allBtn" id="ThemeAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox" id="Theme">
+                    </ul>
+                </dd>
+            </dl>
+            <div class="ChoseMore"><a href="JavaScript:void(0)">更多<i></i></a><a href="JavaScript:void(0)" class="change">收起<i></i></a></div>
+        </div>
+        <div class="selectList last cf">
+            <div class="selectListL"><i class="ico ico9"></i>票务价格：</div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="javascript:void(0)" class="allBtn" id="TicketPriceAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox fl" id="TicketPrice">
+                    </ul>
+                    <div class="autoPrice on fl" id="TicketPriceCustom">
+                        <span>自定义</span>
+                        <input type="text" name="TicketPricemin" id="TicketPricemin" value="" maxlength="7"/>
+                        <span>-</span>
+                        <input type="text" name="TicketPricemax" id="TicketPricemax" value="" maxlength="7"/>
+                        <a href="JavaScript:void(0)" class="priceBtn" id="TicketPriceCustomSave">确定</a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="SearchResult" id="conditionpanel">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%" style="display: none">
+            <tr>
+                <th class="tar" width="100" valign="top">您的选择：</th>
+                <td>
+                    <div id="condition" style="padding-left: 23px">
+                        <a href="javascript:void(0)" class="clearAll" id="clearAll" style="display:inherit; display:inline-block;">清空</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="w1200" id="AjaxDom" style="display: none">
+    <div id="AjaxEndCity">
+        <span data-id="EndCityName">All</span>
+    </div>
+    <div id="AjaxTicketType">
+        <span data-id="TicketTypeName">All</span>
+    </div>
+    <div id="AjaxTheme">
+        <span data-id="ThemeName">All</span>
+    </div>
+    <div id="AjaxTicketPrice">
+        <span data-id="TicketPriceName">All</span>
+    </div>
+    <div id="AjaxSort">
+        Default
+    </div>
+    <div id="AjaxKeyword">
+    </div>
+</div>
+<div class="w1200 Sequence">
+    <ul class="SequenceUl f16" id="Ranking">
+        <li class="on">
+            <a href="javascript:void(0)" id="Default">综合排序</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" id="PicerSort">价格排序<i></i></a>
+            <div class="SequenceChose">
+                <a href="javascript:void(0)" id="PicerAsce">价格从低到高</a>
+                <a href="javascript:void(0)" id="PicerDown">价格从高到低</a>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0)" id="SalesSort">销量排序<i></i></a>
+            <div class="SequenceChose" style="width: 110px;">
+                <a href="javascript:void(0)" id="SalesAsce">销量上升</a>
+                <a href="javascript:void(0)" id="SalesDown">销量下降</a>
+            </div>
+        </li>
+    </ul>
+    <span class="fr allPro">为您找到<i class="green" id="ProductNum">{$Rscount['Num']}</i>份产品</span>
+</div>
+<div class="w1200 cf">
+    <div class="w1200 mt50 cf" id="NoProduct" style="display: {if $count==6}block{else}none{/if}">
+        <div class="Nosearch" id="Nosearch">很抱歉，暂时无法找到符合您要求的产品。</div>
+        <div class="TjListT"><span class="name">倾情推荐</span></div>
+    </div>
+    <ul class="CharacList mt15 cf" id="CharacList">
+        {loop $Data['Data'] $lists}
+        <li class="transition">
+            <span data-id="{$lists[TourRecommend]}" id="Recommend"  {if $lists[TourRecommend]}class="HotTj1"{/if}></span>
+            <a href="{$lists[TourUrl]}" target="_blank">
+                <p class="img"><img src="{$lists[TourImg]}" class="transition" width="370" height="277" title="{$lists[Tour_name]}"/></p>
+                <p class="destination f16"><span class="startcitytext">出发地：{$lists[TourEndCity]}</span></p>
+                <p class="tit" title="{$lists[Tour_name]}">{$lists[Tour_name]}</p>
+            </a>
+            <div class="CharacListB">
+                <p class="fr">
+                    <span class="fr oldPrice">￥{$lists[TourCostPrice]}</span>
+                    <span class="fl nowPrice"><em>￥</em><i>{$lists[TourPicre]}</i> 起</span>
+                </p>
+                <span class="fl playDate">游玩时间：{$lists[TouDate]}</span>
+            </div>
+        </li>
+        {/loop}
+    </ul>
+    {if $ShowPage}
+    <div class="page mt35" id="Page2">
+        <form action="/play/{$TagNav}/" method="GET">
+            {$ShowPage}
+            <div class="GoPage">到 <input type="text" name="p" value="" class="input" maxlength="4"/> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn" /></div>
+        </form>
+    </div>
+    {/if}
+    <div class="page mt35" id="Page" style="display: none" data-type="0">
+    </div>
+    <script type="text" id="pageDemo">
+
+			<a class="prve cupo" data-id="{{d.Page-1}}">上一页</a>
+
+			<a class="first cupo" data-id="1">1</a>
+
+			{{# for(var p in d.PageNums){ }}
+
+			<a class="cupo" data-id="{{d.PageNums[p]}}">{{d.PageNums [p] }}</a>
+
+			{{# } }}
+
+			<span class="lastEllipsis"href="javascript:void(0)">...</span>
+
+			<a class="cupo PageCount" data-id="{{d.PageCount}}">{{d.PageCount}}</a>
+
+			<a class="cupo next" data-id="{{d.NextPage}}">下一页</a>
+
+			<div class="GoPage">到 <input type="text" id="pagenum" value="" class="input" maxlength="4"/> 页 <input type="button" name="" id="pagebtn" value="确定" class="PageBtn" /></div>
+		</script>
+</div>
+<script src="{echo JsURL}/tour/TourListsPublic.js"></script>
+<script src="{echo JsURL}/base/laytpl/1.1/laytpl.js"></script>
+<script src="{echo JsURL}/tour/PlayTicketLists.js"></script>
+<script src="{echo JsURL}/tour/TourPublic.js"></script>
+{template Footer}</body>
+</html>

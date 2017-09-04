@@ -1,0 +1,46 @@
+{
+  "ResultCode": 200,
+  "CaseListData": [
+    {
+      "CaseID": "10010",
+      "StudentName":"小王",
+      "PicPortraits":"http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "TrainSubject":"雅思",
+      "TrainCategory":"听力",
+      "TrainPreScore":"0",
+      "TrainHouScore":"0"
+    },{
+      "CaseID": "10010",
+      "StudentName":"老王",
+      "PicPortraits":"http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "TrainSubject":"雅思",
+      "TrainCategory":"听力",
+      "TrainPreScore":"0",
+      "TrainHouScore":"0"
+    },{
+      "CaseID": "10010",
+      "StudentName":"老老王",
+      "PicPortraits":"http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "TrainSubject":"雅思",
+      "TrainCategory":"听力",
+      "TrainPreScore":"0",
+      "TrainHouScore":"0"
+    },{
+      "CaseID": "10010",
+      "StudentName":"小黄",
+      "PicPortraits":"http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "TrainSubject":"雅思",
+      "TrainCategory":"听力",
+      "TrainPreScore":"0",
+      "TrainHouScore":"0"
+    },{
+      "CaseID": "10010",
+      "StudentName":"老王",
+      "PicPortraits":"http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "TrainSubject":"雅思",
+      "TrainCategory":"听力",
+      "TrainPreScore":"0",
+      "TrainHouScore":"0"
+    }
+  ]
+}

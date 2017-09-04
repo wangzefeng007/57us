@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>签证</title>
+		<link href="http://cs.57us.net/common/reset.css" rel="stylesheet" type="text/css" />
+		<link href="http://cs.57us.net/common/TourPublic.css" rel="stylesheet" type="text/css" />
+		<script src="http://j.57us.net/base/jquery/1.8.3/jquery.min.js"></script>
+		<script src="http://j.57us.net/base/jquery.SuperSlide/2.1/jquery.SuperSlide.2.1.js"></script>
+		<script src="http://j.57us.net/tour/tourpublic3.0.js"></script>
+		<!--
+        	作者：xiao15980751809@126.com
+        	时间：2016-11-23
+        	描述：签证样式
+        -->
+		<link href="http://cs.57us.net/visa/visa3.0.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="MtopBar">
+				<div class="w1200 cf">
+					<div class="fl">欢迎来到我去美国网旅游平台!</div>
+					<div class="fr">|
+						<a href="#">帮助中心</a>
+					</div>
+					<div class="fr">
+						<div class="UserStatus fr">
+							<div class="UserLogin">
+								<div class="UserMain">
+									<a href="">
+										<img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2069873511,207811596&amp;fm=80">
+										<span id="" class="UserName">57美国网会员</span>
+									</a>
+									<div class="UserList">
+										<b class="ico"></b>
+										<div class="UserListM">
+											<table border="0" cellspacing="0" cellpadding="0">
+												<tbody>
+													<tr>
+														<th width="80">全部订单</th>
+														<td>
+															<a href="">旅游订单</a>
+															<a href="">租车订单</a>
+															<a href="">酒店订单</a>
+															<a href="">签证订单</a>
+														</td>
+													</tr>
+													<tr>
+														<th width="80">账户管理</th>
+														<td>
+															<a href="">我的资料</a>
+															<a href="">账户安全</a>
+															<a href="">修改密码</a>
+															<a href="">站内信息</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<a id="" class="letter" href=""></a><span id="">|</span>
+								<a href="">退出</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="InHeader">
+				<div class="w1200 cf">
+					<div class="Insearch mt20 fr">
+						<input type="" name="" id="" value="" class="input" placeholder="搜索国家、城市、产品" />
+						<input type="button" id="" value="" class="IsearchBtn" />
+					</div>
+					<a href="http://3w.57us.com" class="NewsLogo" title="57美国网">57美国网</a>
+				</div>
+			</div>
+			<div class="TourMenu">
+				<ul class="w1200 cf">
+					<li>
+						<a href="http://tour.57us.com" class="FirstA">首页</a>
+					</li>
+					<li>
+						<a href="http://tour.57us.com/dingzhi/#/question/" class="FirstA">高端定制<em class="HotIcon"></em></a>
+					</li>
+					<li>
+						<a href="http://tour.57us.com/group/local/" class="FirstA">跟团游<i></i></a>
+						<div class="SecondUl" style="width: 180px;margin-left: -90px;"> <em></em>
+							<a href="http://tour.57us.com/group/local/">当地参团</a>
+							<a href="http://tour.57us.com/group/home/">国内参团</a>
+						</div>
+					</li>
+					<li>
+						<a href="http://tour.57us.com/play/feature/" class="FirstA">当地玩乐<i></i></a>
+						<div class="SecondUl" style="width: 165px; margin-left: -82px;"> <em></em>
+							<a href="http://tour.57us.com/play/feature/">特色体验</a>
+							<a href="http://tour.57us.com/play/daily/">一日游</a>
+						</div>
+					</li>
+					<li>
+						<a href="http://tour.57us.com/play/ticket/" class="FirstA">门票</a>
+					</li>
+					<li>
+						<a href="http://hotel.57us.com" class="FirstA">酒店</a>
+					</li>
+					<li>
+						<a href="http://zuche.57us.com/" class="FirstA">租车</a>
+					</li>
+					<li>
+						<a href="http://visa.57us.com" class="FirstA">签证</a>
+					</li>
+					<!--<li> <a href="http://tour.57us.com/tour/topica/" class="FirstA">活动专区<em class="HotIcon"></em></a> </li>-->
+					<li>
+						<a href="http://www.57us.com/tour/" class="FirstA" target="_blank">旅游资讯</a>
+					</li>
+					<li>
+						<a href="http://tour.57us.com/city/" class="FirstA" target="_blank">城市专题</a>
+					</li>
+				</ul>
+			</div>
+			<div class="w1200 cf mt50">
+				<div class="sideRL">
+					<div class="selectBox cf">
+						<div class="selectList cf">
+							<div class="selectListL"><i class="ico ico1"></i>签证类型：</div>
+							<dl class="selectListM">
+								<dt class="fl on"><a href="JavaScript:void(0)" class="allBtn" id="TicketTypeAll">不限</a></dt>
+								<dd class="fl">
+									<ul class="choseBox">
+										<li><a href="JavaScript:void(0)">旅游签证</a></li>
+										<li><a href="JavaScript:void(0)">商务签证</a></li>
+										<li><a href="JavaScript:void(0)">探亲签证</a></li>
+										<li><a href="JavaScript:void(0)">工作签证</a></li>
+										<li><a href="JavaScript:void(0)">留学签证</a></li>
+										<li><a href="JavaScript:void(0)">其他签证</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="selectList cf">
+							<div class="selectListL"><i class="ico ico2"></i>入境期限：</div>
+							<dl class="selectListM">
+								<dt class="fl on"><a href="JavaScript:void(0)" class="allBtn" id="TicketTypeAll">不限</a></dt>
+								<dd class="fl">
+									<ul class="choseBox">
+										<li><a href="JavaScript:void(0)">单次入境</a></li>
+										<li><a href="JavaScript:void(0)">多次入境</a></li>
+										<li><a href="JavaScript:void(0)">领事馆</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="selectList cf">
+							<div class="selectListL"><i class="ico ico3"></i>受理地区：</div>
+							<dl class="selectListM">
+								<dt class="fl on"><a href="JavaScript:void(0)" class="allBtn" id="TicketTypeAll">不限</a></dt>
+								<dd class="fl">
+									<ul class="choseBox">
+										<li>
+											<a href="JavaScript:void(0)">北京领区</a>
+										</li>
+										<li>
+											<a href="JavaScript:void(0)">上海领区</a>
+										</li>
+										<li>
+											<a href="JavaScript:void(0)">广州领区</a>
+										</li>
+										<li>
+											<a href="JavaScript:void(0)">成都领区</a>
+										</li>
+										<li>
+											<a href="JavaScript:void(0)">沈阳领区</a>
+										</li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="selectList last cf">
+							<div class="selectListL"><i class="ico ico4"></i>受理城市：</div>
+							<dl class="selectListM">
+								<dt class="fl on"><a href="JavaScript:void(0)" class="allBtn" id="TicketTypeAll">不限</a></dt>
+								<dd class="fl">
+									<ul class="choseBox">
+										<li>
+											<a href="JavaScript:void(0)">北京</a>
+										</li>
+										<li>
+											<a href="JavaScript:void(0)">上海</a>
+										</li>
+										<li>
+											<a href="JavaScript:void(0)">广州</a>
+										</li>
+										<li>
+											<a href="JavaScript:void(0)">成都</a>
+										</li>
+										<li>
+											<a href="JavaScript:void(0)">沈阳</a>
+										</li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="Sequence">
+						<ul class="SequenceUl f16" id="Ranking">
+							<li class="on">
+								<a href="javascript:void(0)" id="Default">综合排序</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" id="PicerSort">价格排序<i></i></a>
+								<div class="SequenceChose">
+									<a href="javascript:void(0)" id="PicerAsce">价格从低到高</a>
+									<a href="javascript:void(0)" id="PicerDown">价格从高到低</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="visaList">
+						<ul>
+							<li>
+								<div class="img">
+									<img src="http://images.57us.com/p6/up/2016/0914/201609141436132485.jpg" width="200" height="150" />
+									<p class="visaStyle">旅游签证</p>
+								</div>
+								<div class="cont">
+									<p class="tit">商品名称</p>
+									<p class="ins mt10">适用于长期居住地为北京,天津,河北,山西,内蒙古,山东,河南,西藏,陕西,甘肃,青海,宁夏,新疆的申请人</p>
+									<p class="condition"><span>面试：需要</span>|<span>受理天数：9个工作日</span>|<span>受理地区：北京</span><br><span>有效期：180天</span>|<span>入境次数：多次</span>|<span>停留天数：90</span></p>
+								</div>
+								<div class="ListR tar">
+									<p class="price">¥2599.00</p>
+									<p class="mt50">
+										<a href="" class="collect"></a>
+										<a href="" class="ListBuyBtn">立即预订</a>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="img">
+									<img src="http://images.57us.com/p6/up/2016/0914/201609141436132485.jpg" width="200" height="150" />
+									<p class="visaStyle">旅游签证</p>
+								</div>
+								<div class="cont">
+									<p class="tit">商品名称</p>
+									<p class="ins mt10">适用于长期居住地为北京,天津,河北,山西,内蒙古,山东,河南,西藏,陕西,甘肃,青海,宁夏,新疆的申请人</p>
+									<p class="condition"><span>面试：需要</span>|<span>受理天数：9个工作日</span>|<span>受理地区：北京</span><br><span>有效期：180天</span>|<span>入境次数：多次</span>|<span>停留天数：90</span></p>
+								</div>
+								<div class="ListR tar">
+									<p class="price">¥2599.00</p>
+									<p class="mt50">
+										<a href="" class="collect on"></a>
+										<a href="" class="ListBuyBtn">立即预订</a>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="img">
+									<img src="http://images.57us.com/p6/up/2016/0914/201609141436132485.jpg" width="200" height="150" />
+									<p class="visaStyle">旅游签证</p>
+								</div>
+								<div class="cont">
+									<p class="tit">商品名称</p>
+									<p class="ins mt10">适用于长期居住地为北京,天津,河北,山西,内蒙古,山东,河南,西藏,陕西,甘肃,青海,宁夏,新疆的申请人</p>
+									<p class="condition"><span>面试：需要</span>|<span>受理天数：9个工作日</span>|<span>受理地区：北京</span><br><span>有效期：180天</span>|<span>入境次数：多次</span>|<span>停留天数：90</span></p>
+								</div>
+								<div class="ListR tar">
+									<p class="price">¥2599.00</p>
+									<p class="mt50">
+										<a href="" class="collect on"></a>
+										<a href="" class="ListBuyBtn">立即预订</a>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="img">
+									<img src="http://images.57us.com/p6/up/2016/0914/201609141436132485.jpg" width="200" height="150" />
+									<p class="visaStyle">旅游签证</p>
+								</div>
+								<div class="cont">
+									<p class="tit">商品名称</p>
+									<p class="ins mt10">适用于长期居住地为北京,天津,河北,山西,内蒙古,山东,河南,西藏,陕西,甘肃,青海,宁夏,新疆的申请人</p>
+									<p class="condition"><span>面试：需要</span>|<span>受理天数：9个工作日</span>|<span>受理地区：北京</span><br><span>有效期：180天</span>|<span>入境次数：多次</span>|<span>停留天数：90</span></p>
+								</div>
+								<div class="ListR tar">
+									<p class="price">¥2599.00</p>
+									<p class="mt50">
+										<a href="" class="collect"></a>
+										<a href="" class="ListBuyBtn">立即预订</a>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="img">
+									<img src="http://images.57us.com/p6/up/2016/0914/201609141436132485.jpg" width="200" height="150" />
+									<p class="visaStyle">旅游签证</p>
+								</div>
+								<div class="cont">
+									<p class="tit">商品名称</p>
+									<p class="ins mt10">适用于长期居住地为北京,天津,河北,山西,内蒙古,山东,河南,西藏,陕西,甘肃,青海,宁夏,新疆的申请人</p>
+									<p class="condition"><span>面试：需要</span>|<span>受理天数：9个工作日</span>|<span>受理地区：北京</span><br><span>有效期：180天</span>|<span>入境次数：多次</span>|<span>停留天数：90</span></p>
+								</div>
+								<div class="ListR tar">
+									<p class="price">¥2599.00</p>
+									<p class="mt50">
+										<a href="" class="collect on"></a>
+										<a href="" class="ListBuyBtn">立即预订</a>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="img">
+									<img src="http://images.57us.com/p6/up/2016/0914/201609141436132485.jpg" width="200" height="150" />
+									<p class="visaStyle">旅游签证</p>
+								</div>
+								<div class="cont">
+									<p class="tit">商品名称</p>
+									<p class="ins mt10">适用于长期居住地为北京,天津,河北,山西,内蒙古,山东,河南,西藏,陕西,甘肃,青海,宁夏,新疆的申请人</p>
+									<p class="condition"><span>面试：需要</span>|<span>受理天数：9个工作日</span>|<span>受理地区：北京</span><br><span>有效期：180天</span>|<span>入境次数：多次</span>|<span>停留天数：90</span></p>
+								</div>
+								<div class="ListR tar">
+									<p class="price">¥2599.00</p>
+									<p class="mt50">
+										<a href="" class="collect"></a>
+										<a href="" class="ListBuyBtn">立即预订</a>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="img">
+									<img src="http://images.57us.com/p6/up/2016/0914/201609141436132485.jpg" width="200" height="150" />
+									<p class="visaStyle">旅游签证</p>
+								</div>
+								<div class="cont">
+									<p class="tit">商品名称</p>
+									<p class="ins mt10">适用于长期居住地为北京,天津,河北,山西,内蒙古,山东,河南,西藏,陕西,甘肃,青海,宁夏,新疆的申请人</p>
+									<p class="condition"><span>面试：需要</span>|<span>受理天数：9个工作日</span>|<span>受理地区：北京</span><br><span>有效期：180天</span>|<span>入境次数：多次</span>|<span>停留天数：90</span></p>
+								</div>
+								<div class="ListR tar">
+									<p class="price">¥2599.00</p>
+									<p class="mt50">
+										<a href="" class="collect on"></a>
+										<a href="" class="ListBuyBtn">立即预订</a>
+									</p>
+								</div>
+							</li>
+						</ul>
+						<div class="page mt35" id="Page2">
+							<form action="" method="GET">
+								<a href="javascript:void(0);">上一页</a>
+								<a href="" class="on">1</a>
+								<a href="">2</a>
+								<a href="">3</a> ...
+								<a href="">6</a>
+								<a href="">下一页</a>
+								<div class="GoPage">到 <input type="text" name="p" value="" class="input" maxlength="4"> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn"></div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="sideR">
+					<div class="sideRBox committed">
+						<div class="committedT">我们的承诺</div>
+						<ul class="committedList cf">
+							<li class="i1"><span class="ico"></span>
+								<p class="tit">出证速度快</p>
+							</li>
+							<li class="i2"><span class="ico"></span>
+								<p class="tit">免费审核</p>
+							</li>
+							<li class="i3"><span class="ico"></span>
+								<p class="tit">信息安全保密</p>
+							</li>
+							<li class="i4"><span class="ico"></span>
+								<p class="tit">出签成功率高</p>
+							</li>
+						</ul>
+					</div>
+					<div class="sideRBox mt20">
+						<div class="sideRBoxT">最新美国签证动态</div>
+						<ul class="visaNews">
+							<li>
+								<a href=""><b>●</b>标题标题标题标题标题标题标题标题</a>
+							</li>
+							<li>
+								<a href=""><b>●</b>标题标题标题标题标题标题标题标题</a>
+							</li>
+							<li>
+								<a href=""><b>●</b>标题标题标题标题标题标题标题标题</a>
+							</li>
+							<li>
+								<a href=""><b>●</b>标题标题标题标题标题标题标题标题</a>
+							</li>
+							<li>
+								<a href=""><b>●</b>标题标题标题标题标题标题标题标题</a>
+							</li>
+							<li>
+								<a href=""><b>●</b>标题标题标题标题标题标题标题标题</a>
+							</li>
+						</ul>
+					</div>
+					<div class="sideRBox visaIns mt20">
+						<div class="sideRBoxT">办理说明</div>
+						<div class="visaInsM">
+							<p>1、赴美进行短期商务活动、探亲访友、 旅游观光，均可申请B1/B2类型签证</p>
+							<p>2、首次申请B1/B2类型签证者，均需亲 自前往使馆面试（符合免面试条件者 除外）</p>
+							<p>3、所有材料的原件请于面试时带齐，便 于签证官核查</p>
+							<p>4、凡申请过美国签证的客人（含移民签 证）无论申请是否被批准，都必须如 实说明</p>
+						</div>
+					</div>
+					<div class="sideRBox sideRQues mt20">
+						<div class="sideRBoxT">签证常见问题解答</div>
+						<ul class="sideRQues">
+							<li>
+								<p class="tit">Q:问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题</p>
+								<p class="nr">A:回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答</p>
+							</li>
+							<li>
+								<p class="tit">Q:问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题</p>
+								<p class="nr">A:回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答</p>
+							</li>
+							<li>
+								<p class="tit">Q:问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题</p>
+								<p class="nr">A:回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="TourFoot mt50 cf">
+				<div class="w1200 cf">
+					<ul class="TourFootMeida fr">
+						<li class="i2">
+							<a href="javascript:void(0)"><i></i>关注微信平台</a>
+							<div class="ChatCode"><img src="http://images.57us.com/img/common/wx.png" width="112" height="112"><em></em></div>
+						</li>
+						<li class="i1">
+							<a href="##"><i></i>关注微博平台</a>
+							<div class="ChatCode"><img src="http://images.57us.com/img/common/wb.jpg" width="112" height="112"><em></em></div>
+						</li>
+					</ul>
+					<div class="TourFootBox">
+						<div class="TourFootMenu">
+							<a href="##" class="i1"><i></i>公司简介</a>|
+							<a href="##" class="i2"><i></i>联系我们</a>|
+							<a href="##" class="i3"><i></i>站点地图</a>|
+							<a href="##" class="i4"><i></i>隐私保护</a>|
+							<a href="##" class="i5"><i></i>预定协议</a>|
+							<a href="##" class="i6"><i></i>修改和取消</a>|
+							<a href="##" class="i7"><i></i>支付方式</a>|
+							<a href="##" class="i8"><i></i>帮助中心</a>
+						</div>
+						<div class="TourFootCopy">Copyright © 2015 57US.com
+							<a href="#">我去美国网</a> All rights reserved. 闽ICP备15017345号 </div>
+					</div>
+					<div class="HotThing fl mt20 cf">
+						<p class="cf">热门旅游目的地：
+							<a href="##">拉斯维加斯</a>|
+							<a href="#">大峡谷国家公园</a>|
+							<a href="#">博尔德城</a>|
+							<a href="#">旧金山</a>|
+							<a href="#">盐湖城</a>|
+							<a href="#">黄石国家公园</a>|
+							<a href="#">圣巴巴拉郡</a>|
+							<a href="#">圣地亚哥</a>|
+							<a href="#">佩奇</a>|
+							<a href="#">优胜美地国家公园</a>|
+							<a href="#">蒙特雷</a>|
+							<a href="#">棕榈泉</a>|
+							<a href="#">亚利桑那州</a>|
+							<a href="#">锡安国家公园</a>
+						</p>
+						<p class="cf">热门旅游景点：
+							<a href="##">拉斯维加斯</a>|
+							<a href="#">大峡谷国家公园</a>|
+							<a href="#">博尔德城</a>|
+							<a href="#">旧金山</a>|
+							<a href="#">盐湖城</a>|
+							<a href="#">黄石国家公园</a>|
+							<a href="#">圣巴巴拉郡</a>|
+							<a href="#">圣地亚哥</a>|
+							<a href="#">佩奇</a>|
+							<a href="#">优胜美地国家公园</a>|
+							<a href="#">蒙特雷</a>|
+							<a href="#">棕榈泉</a>|
+							<a href="#">亚利桑那州</a>|
+							<a href="#">锡安国家公园</a>
+						</p>
+						<p class="cf">热门搜索：
+							<a href="##">拉斯维加斯</a>|
+							<a href="#">大峡谷国家公园</a>|
+							<a href="#">博尔德城</a>|
+							<a href="#">旧金山</a>|
+							<a href="#">盐湖城</a>|
+							<a href="#">黄石国家公园</a>|
+							<a href="#">圣巴巴拉郡</a>|
+							<a href="#">圣地亚哥</a>|
+							<a href="#">佩奇</a>|
+							<a href="#">优胜美地国家公园</a>|
+							<a href="#">蒙特雷</a>|
+							<a href="#">棕榈泉</a>|
+							<a href="#">亚利桑那州</a>|
+							<a href="#">锡安国家公园</a>
+						</p>
+					</div>
+					<div class="cf partTab">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tbody>
+								<tr height="35">
+									<td align="left">合作官方旅游局：</td>
+								</tr>
+								<tr>
+									<td>
+										<p class="tac"><img src="http://images.57us.com/img/common/part1.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/part2.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/part3.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/part4.png"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/part6.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/part5.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/part8.jpg"></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="cf partTab">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tbody>
+								<tr height="35">
+									<td align="left">旅游合作：</td>
+								</tr>
+								<tr>
+									<td>
+										<p class="tac"><img src="http://images.57us.com/img/common/hz1.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/hz2.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/hz3.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/hz4.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/hz5.jpg"></p>
+										<p class="tac"><img src="http://images.57us.com/img/common/hz6.jpg"></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="cf partTab safeBox">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tbody>
+								<tr height="35">
+									<td align="left">网站认证：</td>
+								</tr>
+								<tr>
+									<td>
+										<p class="tac">
+											<a href="http://www.isc.org.cn/" target="_blank" rel="nofollow"><img height="47" src="http://images.57us.com/img/common/safe1_3.0.png"></a>
+										</p>
+										<p class="tac">
+											<a href="http://wsgs.fjaic.gov.cn/creditpub/notice/view?uuid=1gM0nGULIzO5wVPW8xQpfwZUq0lfoM7X&amp;tab=01" target="_blank" rel="nofollow"><img height="47" src="http://images.57us.com/img/common/safe2_3.0.png"></a>
+										</p>
+										<p class="tac">
+											<a href="http://www.12377.cn/" target="_blank" rel="nofollow"><img height="47" src="http://images.57us.com/img/common/safe3_3.0.png"></a>
+										</p>
+										<p class="tac">
+											<a href="http://www.cyberpolice.cn/wfjb/" target="_blank" rel="nofollow"><img height="47" src="http://images.57us.com/img/common/safe4_3.0.png"></a>
+										</p>
+										<p class="tac">
+											<a href="https://ss.knet.cn/verifyseal.dll?sn=e16091435020064717vyo0000000&amp;comefrom=trust&amp;trustKey=dn&amp;trustValue=www.57us.com" target="_blank" rel="nofollow"><img height="47" src="http://images.57us.com/img/common/safe5_3.0.png"></a>
+										</p>
+										<p class="tac">
+											<a href="http://webscan.360.cn/index/checkwebsite/url/www.57us.com" target="_blank" rel="nofollow"><img height="47" src="http://images.57us.com/img/common/safe6_3.0.png"></a>
+										</p>
+										<p class="tac">
+											<a href="http://ec.eqixin.com/?sn=QX2066134012191473748886" target="_blank" rel="nofollow"><img height="47" src="http://images.57us.com/img/common/safe7_3.0.png"></a>
+										</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="http://j.57us.net/visa/visaIndex3.0.js"></script>
+	</body>
+
+</html>

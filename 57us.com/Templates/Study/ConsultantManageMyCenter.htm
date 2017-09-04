@@ -1,0 +1,45 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 centerHeader mt20">
+    <div class="centerUser">
+        <img src="{$UserInfo['Avatar']}" width="96" height="96"/>
+        <p class="name">{$UserInfo['NickName']}</p>
+        <p class="job">顾问</p>
+        <p class="">{if $UserInfo[IdentityState]==2}已审核{elseif $UserInfo[IdentityState] == 1}审核中{else}未提交审核{/if}</p>
+    </div>
+    <div class="centerOtherMenu mt40 {if $UserInfo[IdentityState]!=2}hidden{/if}"><a href="/consultantmanage/servicelist/">我的服务（{$ServiceAmount[Num]}）</a><a href="/consultantmanage/clientmanage/">我的在办客户（{$ServiceStudentAmount[Num]}）</a><a href="/consultantmanage/approvemyinfo/">修改个人信息</a></div>
+    <div class="noCheck mt35 {if $UserInfo[IdentityState]==2}hidden{/if}">你还没有审核顾问身份，请尽快填写个人信息并提交审核。>><a href="/consultantmanage/myinfosettings/">申请身份审核</a></div>
+</div>
+<div class="w1200 cf mt20 centerMyNews">
+    <div class="centerMyNewsT">我的消息</div>
+    <ul class="CenterCaseMenu">
+        <li {if $Status==1 && $WaitProcess==0}class="on"{/if}><a href="/consultantmanage/mycenter/">未读{if $Status==1 && $WaitProcess==0}（{echo intval($Data['RecordCount'])}）{/if}</a><span class="line"></span></li>
+        <li {if $WaitProcess==1}class="on"{/if}><a href="/consultantmanage/mycenter/?W_P=1">待处理{if $WaitProcess==1}（{echo intval($Data['RecordCount'])}）{/if}</a><span class="line"></span></li>
+        <li {if $Status==2}class="on"{/if}><a href="/consultantmanage/mycenter/?S=2">已读{if $Status==2}（{echo intval($Data['RecordCount'])}）{/if}</a><span class="line"></span></li>
+    </ul>
+    <!--第七个li后面，需要添加style="display: none"-->
+    <ul class="MyNewsList" id="message">
+        {loop $Data[Data] $list}
+        <li data-id="{$list['MessageID']}">
+            <div class="iconBox fl">
+                <i class="read {if $list[Status]==1}has{/if}">标记已读取读</i>
+                <i class="handle {if $list[WaitProcess]==1}has{/if}">标记待处理</i>
+            </div>
+            <img src="{$list[Avatar]}" width="96" height="96" class="fl">
+            <span class="name fl">{$list[NickName]}</span>
+            <!--data-type绑定0和1  0代表系统消息  1代表交互信息   data-id绑定此条信息的对应的id -->
+            <div class="newsNr fl"><span>{$list[Title]} <a href="javascript:void(0)" class="catinfo chatNewsMore" target="_blank" data-type="1">点击查看</a></span></div>
+            <span class="date fl">{echo date('Y-m-d',$list[SendTime])}   {echo date('H:i:s',$list[SendTime])}</span>
+        </li>
+        {/loop}
+    </ul>
+    {if $Data[PageCount]>1}
+    <div class="page MoreBox mt20">
+        {$PageHTML}
+    </div>
+    {/if}
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageMyCenter.js"></script>
+</body>
+</html>

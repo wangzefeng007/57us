@@ -1,0 +1,67 @@
+{template MemberLoginHeader}
+<div class="tac mt50"><a href="" class="loginLogo">57美国</a></div>
+<div class="loginBox mt20">
+    <div class="hd cf">
+        <a href="JavaScript:void(0)" class="on">普通登录</a>
+        <a href="JavaScript:void(0)">手机短信登录</a>
+    </div>
+    <div class="loginBoxM cf">
+        <p class="wecome">欢迎登录57美国网</p>
+        <div class="bd">
+            <div class="loginCont" style="display: block;" id="index1">
+                <form id="userLogin">
+                    <div class="erroTip" style="display: none">
+                        <i class="icon iconfont icon-close"></i><span class="erroIfno"></span>
+                    </div>
+                    <div class="inputBox cf">
+                        <i class="icon iconfont icon-user"></i>
+                        <input type="text" name="user" id="user" value="" class="input user" placeholder="请输入手机号码或者邮箱"/>
+                    </div>
+                    <div class="inputBox cf">
+                        <i class="icon iconfont icon-lock"></i>
+                        <input type="password" name="password" id="password" value="" class="input password" placeholder="请输入密码"/>
+                    </div>
+                    <!--此处后台需做做判断，当登录三次失败，用户刷新页面 要显示页面图形验证码窗口-->
+                    <div class="inputBox cf yzmBo x" style="display: none">
+                        <span class="yzmpic fr"><img src="/code/pic.jpg" class="img_yzm click_code" width="155" height="54"/></span>
+                        <input type="text" name="imgCode" value="" class="input fl imgCode" placeholder="请输入图形验证码"/>
+                    </div>
+                    <a href="javascript:void(0)" class="publicBtn1 mt50 loginBtn">登录</a>
+                    <div class="loginB mt20 cf">
+                        <p class="fr loginBr"><a href="/member/retrievepassword/">忘记密码？</a>|<a href="/member/register/">立即注册</a></p>
+                        <label class="cbt fl" name="check" id="autoLogin" type="checkbox"><span><i class="icon iconfont icon-ok1"></i></span>两周内自动登录</label>
+                    </div>
+                    <input type="submit" class="hidden">
+                </form>
+            </div>
+            <div class="loginCont" id="index2">
+                <form id="mobileLogin">
+                    <div class="erroTip" style="display: none">
+                        <i class="icon iconfont icon-close"></i><span class="erroIfno"></span>
+                    </div>
+                    <div class="inputBox cf">
+                        <i class="icon iconfont icon-dianhua"></i>
+                        <input type="text" name="user" value="" class="input user" placeholder="请输入手机号码"/>
+                    </div>
+                    <div class="inputBox cf yzmBox">
+                        <span class="yzmpic fr"><img src="/code/pic.jpg" class="img_yzm click_code" width="155" height="54"/></span>
+                        <input type="text" name="imgCode" value="" class="input fl imgCode" placeholder="请输入图形验证码"/>
+                    </div>
+                    <div class="inputBox cf dtyzmBox">
+                        <div class="SendSms fr">
+                            <input type="button" class="btnsms" id="smsBtn" value="获取动态密码">
+                        </div>
+                        <input type="text" name="code" value="" class="input fl code" placeholder="请输入短信验证码"/>
+                    </div>
+                    <a href="javascript:void(0)" class="publicBtn1 mt25 loginBtn">登录</a>
+                    <input type="submit" class="hidden">
+                </form>
+            </div>
+            <input type="hidden" name="ComeFrom" class="ComeFrom" value="1" />
+        </div>
+    </div>
+</div>
+{template MemberLoginFooter}
+<script src="{echo JsURL}/member/MemberLogin.js" type="text/javascript"></script>
+</body>
+</html>

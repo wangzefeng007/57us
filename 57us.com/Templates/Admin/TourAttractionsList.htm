@@ -1,0 +1,83 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li class="active position">景点管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel breadcrumb">
+        <div class="panel-body">
+          <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">标题：</span>
+          <form class="form-inline" role="form" action="/index.php" method="get">
+            <input type="hidden" name="Module" value="TourArea">
+            <input type="hidden" name="Action" value="AttractionsList">
+            <input type="text" class="form-control" placeholder="名称" name="Title" value="{$Title}">
+            <button class="btn btn-info">搜索</button>
+            <input type="button" onClick="location.href='/index.php?Module=TourArea&Action=AttractionsAdd'" value="添加" class="btn btn-danger">
+          </form>
+        </div>
+        <section id="unseen">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>城市地区</th>
+              <th>景点名称</th>
+              <th>景点简单描述</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $Data[Data] $lists}
+            <tr align="center">
+              <td>{$lists[ID]}</td>
+              <td>{$lists[City]}</td>
+              <td>{$lists[AttractionsName]}</td>
+              <td>{$lists[Description]}</td>
+              <td>
+                <a href="/index.php?Module=TourArea&Action=AttractionsAdd&ID={$lists[ID]}">修改</a> |
+                <a href="javascript:void(0)" class="del" data-id="{$lists[ID]}">删除</a>
+            </tr>
+            {/loop}
+            </tbody>
+          </table>
+        </section>
+        <div class="text-center">
+          <ul class="pagination" data-id="{$Page}">
+            <li><a href="/index.php?Module=TourArea&Action=AttractionsList&Page=1">首页</a></li>
+            {loop $Data[PageNums] $page}
+            <li><a href="/index.php?Module=TourArea&Action=AttractionsList&Page={$page}">{$page}</a></li>
+            {/loop}
+            <li><a href="/index.php?Module=TourArea&Action=AttractionsList&Page={$Data[PageCount]}">尾页</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}
+<script>
+  $('.del').click(function () {
+    var tjid = $(this).attr('data-id');
+    var text = $(this).parent().prev().prev().text();
+    layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=TourArea&Action=AttractionsDelete&ID='+tjid;
+      layer.close(index);
+    });
+  })
+</script>

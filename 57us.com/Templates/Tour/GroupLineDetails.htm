@@ -1,0 +1,395 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/tour/touline.css" rel="stylesheet" type="text/css" />
+<div class="w1200 TourLocation">您当前位置：
+	<a href="{echo WEB_TOUR_URL}">首页</a><span>&gt;</span>{if $TourProductLineInfo['Category']=='12'}<a href="{echo WEB_TOUR_URL}/group/local/">当地参团</a>{elseif $TourProductLineInfo['Category']=='4'}<a href="{echo WEB_TOUR_URL}/group/home/">国内参团</a>{/if}<span>&gt;</span><span class="Position">{$TourProductLineInfo[ProductName]}</span></div>
+<div class="ProdetailBox cf">
+	<span class="noProIco {if $TourProductLineInfo[Status]==1}hidden{/if}">无产品标识</span>
+	<div class="ProdetailBoxT">{$TourProductLineInfo[ProductName]}</div>
+	<div class="PicScroll fl">
+		<div id="imgRolling">
+			<ul class="tra_pic" id="imagebg">
+				{loop $TourImages $list}
+				<li><img src="{echo ImageURLP8}{$list[ImageUrl]}" class="transition" width="600" height="450" /></li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="tra_small tra_smallx {if count($TourImages) == 1}hidden{/if}">
+			<a id="left_btn" class="pre" href="javascript:void(0)"></a>
+			<div class="smallPic">
+				<ul id="small_pic">
+					{loop $TourImages $list}
+					<li>
+						<a href="javascript:void(0)">
+							<img src="{echo ImageURLP2}{$list[ImageUrl]}" class="transition" width="85" height="64" />
+						</a>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<a id="right_btn" class="next" href="javascript:void(0)"></a>
+		</div>
+	</div>
+	<div class="procont fr">
+		<div class="TitCont">
+			<p class="hPrice">
+				<span class="nowPrice"><em>￥</em><b>{echo ceil($TourProductLineInfo[LowPrice])}</b>/人起</span>
+				<span class="OldPrice">原价：￥{echo ceil($TourProductLineInfo[LowMarketPrice])}</span>
+			</p>
+			<p class="searveList cf mt15">
+				{if $TourProductLineInfo[TagInfo]!=''} {loop explode(',',$TourProductLineInfo[TagInfo]) $val}
+				<span>{$val}</span> {/loop} {/if}
+			</p>
+			{if $TourProductLineInfo[Status]==1}<a href="javascript:void(0)" class="orderBnt" id="startbtn">开始预定</a>{/if}
+			{if $TourProductLineInfo[Sales]>0}
+			<span class="buynum">已有 {$TourProductLineInfo[Sales]} 人出游</span>
+			{/if}
+
+		</div>
+		<div class="cf dateIns mt15">出行日期：<input type="text" id="calendar" name="calendar" readonly="readonly" placeholder="点击选择时间" />出发日期为当地时间</div>
+		<div class="cf Proins mt15"><span>产品编号：{$TourProductLineInfo[TourProductID]}</span><span>出发：{$TourProductLineInfo[Departure]}</span><span>行程天数：{$TourProductLineInfo[Days]}天</span></div>
+		<div class="summary cf mt15">
+			<p class="sum_tit fl">行程概要：</p>
+			<div class="xllist">
+				{loop $NewContent[City] $key $list}
+				<b>D{echo $key+1}</b>
+				{loop explode(',',$list) $key2 $val}
+				<span>{$val}</span>
+				{if $key2<(count(explode(',',$list))-1)}
+				<i></i>
+				{/if}
+				{/loop}
+				{if $key<(count($NewContent[City])-1)}
+				<i></i>
+				{/if}
+				{/loop}
+
+			</div>
+		</div>
+		<div class="tar cf summaryMore">
+			<a href="#contMenu">查看详情》</a>
+		</div>
+		<ul class="procontIns mt15">
+			{loop $TourProductLineInfo[ProductSimpleName] $val}
+			<li title="{$val}"><em>●</em>{$val}</li>
+			{/loop}
+		</ul>
+	</div>
+</div>
+<!--提交相关数据-->
+<input type="hidden" name="ProductId" id="ProductId" value="{$TourProductLineInfo[TourProductID]}"/>
+<input type="hidden" name="Date" id="Date" value=""/>
+<input type="hidden" name="Back" id="Back" value="0"/>
+
+<div class="RoomBox hidden">
+	<div id="RoomBox" style="display: none" class="hidden">
+		<div class="RoomBoxT">
+			<div class="dateIns">
+				<p class="fl">出行日期：<input type="text" id="calendarb" name="calendarb" readonly="readonly" placeholder="点击选择时间"/><span class="c9">出发日期为当地时间</span> </p>
+				{if 0}{if $PackageLists}
+				<div class="fl pl40">
+					选择套餐：<div name="city" type="selectbox" class="diyselect">
+					<div class="opts">
+						{loop $PackageLists $key $list}
+						<a href="/group/{$list[TourProductID]}.html" val="{$list[ProductPackage]}" {if $key==0}class="selected"{/if}>{$list[ProductPackage]}</a>
+						{/loop}
+					</div>
+				</div>
+				</div>
+				{/if}{/if}
+			</div>
+		</div>
+		<div class="RoomBoxM cf">
+			<ul class="RoomAdd fl" id="roomnum">
+				<span id="operate" class="operate">
+					<div class="addLi" style="float: left;width: 153px;height: 20px;line-height:22px;">
+						<a href="javascript:void(0)" id="addroom">+添加房间</a>
+					</div>
+					<div class="RemoveRoom" style="float:left;width: 150px;height: 20px;line-height:22px;">
+						<a href="javascript:void(0)" class="clear" style="display: none">移除该房间</a>
+					</div>
+				</span>
+			</ul>
+			<div class="RoomStyle fr">
+				<p class="tit">房型说明：此房型最多入住4人</p>
+				<p class="img">
+					<em data-id="roompimg1" class="roompimg1"><img src="http://images.57us.com/img/tour/room/roombox_1_1.jpg"></em>
+					<em data-id="roompimg2" class="roompimg2"><img src="http://images.57us.com/img/tour/room/roombox_2_1.jpg"></em>
+					<em data-id="roompimg3" class="roompimg3"><img src="http://images.57us.com/img/tour/room/roombox_3_1.jpg"></em>
+					<em data-id="roompimg4" class="roompimg4"><img src="http://images.57us.com/img/tour/room/roombox_4_1.jpg"></em>
+				</p>
+				<p class="styleList" id="styleList">
+					{$PriceHtml}
+				</p>
+			</div>
+		</div>
+		<div class="cf">
+			<ul class="RoomFree mt20 fl" id="roomprice">
+			</ul>
+			<div class="orderBoxM mt30 fr">
+				<a href="javascript:void(0)" class="orderBnt" id="NowOrderBtn">立即预定</a>
+				<p class="allPrice">总价：<b>￥<i id="TotalPrice"></i></b></p>
+				<p class="mt20">费用细则请看
+					<a href="#freeIns" class="priceDetail">费用说明</a>
+				</p>
+				<p class="mt5">{$TourProductLineInfo[SpecialNote]}</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="w1200 DetailCont mt20">
+	<div class="contMenu" id="contMenu">
+		<ul>
+			<li class="on">行程概要</li>
+			<li>行程详情</li>
+			<li>费用说明</li>
+			<li>预定须知</li>
+			<li>注意事项</li>
+			{if $EvaluateCountInfo[Times]>0}
+			<li class="Comments">用户点评（{$EvaluateCountInfo[Times]}）</li>
+			{/if}
+			<a href="javascript:void(0)" id="oncebtn">
+				马上预定
+			</a>
+		</ul>
+	</div>
+	<div class="cf DetailContM">
+		<div class="contBox">
+			<div class="contBoxT f16">
+				<i class="ico1"></i><br>行程概要
+			</div>
+			<div class="DayScroll">
+				<a href="JavaScript:void(0)" class="prev"></a>
+				<div class="DayScrollMain">
+					<ul>
+						{loop $NewContent[City] $key $list}
+						<li {if count($NewContent[City])-1 == $key}class="last"{/if}>
+						<span {if count($NewContent[City])-1 != $key}class="line"{/if}></span>
+						<p class="tit">DAY{echo $key+1}</p>
+						<i class="ico"></i>
+						<div class="screen">
+							{loop explode(',',$list) $val}
+							<p title="{$val}">{$val}</p>
+							{/loop}
+						</div>
+						</li>
+						{/loop}
+					</ul>
+				</div>
+				<a href="JavaScript:void(0)" class="next"></a>
+			</div>
+		</div>
+		<div class="contBox">
+			<div class="contBoxT f16">
+				<i class="ico2"></i><br>行程详情
+			</div>
+			<div class="DayBoxM cf">
+				<div class="DateMenu">
+					<ul>
+						{loop range(1,$TourProductLineInfo[Days],1) $val}
+						<li>第{$val}天<em></em></li>
+						{/loop}
+					</ul>
+				</div>
+				{loop range(1,$TourProductLineInfo[Days],1) $val}
+				<div class="DayBox">
+					<div class="DayBoxTit">
+						<span class="DayNum">D{echo $val}</span>
+						<p class="f16">第{echo $val}天</p>
+						<p class="DateTit">{$NewContent[TodayTitle][$val-1]}</p>
+					</div>
+					<div class="DayBoxNr">
+						<div class="line"></div>
+						<ul class="mt15">
+							<li>
+								<i class="ico1"></i>
+								<p class="f16 c6">交通</p>
+								<div class="suNr">
+									<p>{$NewContent[Traffic][$val-1]}</p>
+								</div>
+							</li>
+							<li>
+								<i class="ico5"></i>
+								<p class="f16 c6">前往景点</p>
+								<div class="suNr">
+									<p>{$NewContent[Spot][$val-1]}</p>
+								</div>
+							</li>
+							<li>
+								<i class="ico2"></i>
+								<p class="f16 c6">用餐安排</p>
+								<div class="suNr">
+									<p>{$NewContent[Diet][$val-1]}</p>
+								</div>
+							</li>
+							<li>
+								<i class="ico3"></i>
+								<p class="f16 c6">酒店住宿</p>
+								<div class="suNr">
+									<p>{$NewContent[Hotel][$val-1]}</p>
+								</div>
+							</li>
+							<li>
+								<i class="ico4"></i>
+								<p class="f16 c6">行程简介</p>
+								<div class="suNr">
+									{$NewContent[Trip][$val-1]}
+								</div>
+							</li>
+						</ul>
+						{$NewContent[TripPic][$val-1]}
+					</div>
+					{if $val==$TourProductLineInfo[Days]}
+					{/if}
+				</div>
+				{/loop}
+			</div>
+		</div>
+		<div class="contBox">
+			<div class="cf" id="freeIns" style="position: absolute;top: -50px;"></div>
+			<div class="contBoxT f16">
+				<i class="ico3"></i><br>费用说明
+			</div>
+			{loop $Explanation[ExpTitle] $key $val}
+			<div class="FreeCont">
+				{if $Explanation[ExpTitle][$key]}
+				<div class="sunavTit">{$Explanation[ExpTitle][$key]}</div>
+				{/if}
+				<div class="FreeContNr mt25">
+					{$Explanation[ExpContentPic][$key]}
+				</div>
+				<div class="line"></div>
+			</div>
+			{/loop}
+		</div>
+		<div class="contBox">
+			<div class="contBoxT f16">
+				<i class="ico4"></i><br>预定须知
+			</div>
+
+			{loop $Notice[NotTitle] $key $val}
+			<div class="FreeCont">
+				{if $Notice[NotTitle][$key]}
+				<div class="sunavTit">{$Notice[NotTitle][$key]}</div>
+				{/if}
+				<div class="FreeContNr mt25">
+					{$Notice[NotContentPic][$key]}
+				</div>
+				<div class="line"></div>
+			</div>
+			{/loop}
+		</div>
+		<div class="contBox {if $EvaluateCountInfo[Times]==0}last{/if}">
+			<div class="contBoxT f16">
+				<i class="ico5"></i><br>注意事项
+			</div>
+
+			{loop $Watch[WatTitle] $key $val}
+			<div class="FreeCont">
+				{if $Watch[WatTitle][$key]}
+				<div class="sunavTit">{$Watch[WatTitle][$key]}</div>
+				{/if}
+				<div class="FreeContNr mt25">
+					{$Watch[WatContentPic][$key]}
+				</div>
+				<div class="line"></div>
+			</div>
+			{/loop}
+		</div>
+		{if $EvaluateCountInfo[Times]>0}
+		<!---------------------评价------------------------------>
+		<div class="contBox last">
+			<div class="contBoxT f16">
+				<i class="ico6"></i><br>用户点评
+			</div>
+			<div class="pjCont">
+				<div class="pjContHead">
+					<div class="pjContLeft mt20 fl">
+						<p>商品满意度</p>
+						<p class="pjScore mt15"><span class="yellow">{$AllCount}</span>分</p>
+						<p class="f12 mt15">来自{$CustomerNum}位买家的真实旅游感受</p>
+					</div>
+					<ul class="pjContRight tar fl">
+						<li>
+							<p class="fl pjl">57美国服务</p>
+							<p class="pjStart fl"><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=1}class="on"{/if}></i><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=2}class="on"{/if}></i><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=3}class="on"{/if}></i><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=4}class="on"{/if}></i><i {if round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])>=5}class="on"{/if}></i></p>
+							<p class="pjScoreS fl">（<span class="yellow">{echo round($EvaluateCountInfo[ServerFractionAll]/$EvaluateCountInfo[Times])}分</span>）</p>
+						</li>
+						<li>
+							<p class="fl pjl">产品便捷</p>
+							<p class="pjStart fl"><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=1}class="on"{/if}></i><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=2}class="on"{/if}></i><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=3}class="on"{/if}></i><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=4}class="on"{/if}></i><i {if round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])>=5}class="on"{/if}></i></p>
+							<p class="pjScoreS fl">（<span class="yellow">{echo round($EvaluateCountInfo[ConvenientFractionAll]/$EvaluateCountInfo[Times])}分</span>）</p>
+						</li>
+						<li>
+							<p class="fl pjl">出游体验</p>
+							<p class="pjStart fl"><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=1}class="on"{/if}></i><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=2}class="on"{/if}></i><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=3}class="on"{/if}></i><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=4}class="on"{/if}></i><i {if round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])>=5}class="on"{/if}></i></p>
+							<p class="pjScoreS fl">（<span class="yellow">{echo round($EvaluateCountInfo[ExperienceFractionAll]/$EvaluateCountInfo[Times])}分</span>）</p>
+						</li>
+						<li>
+							<p class="fl pjl">性价比</p>
+							<p class="pjStart fl"><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=1}class="on"{/if}></i><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=2}class="on"{/if}></i><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=3}class="on"{/if}></i><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=4}class="on"{/if}></i><i {if round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])>=5}class="on"{/if}></i></p>
+							<p class="pjScoreS fl">（<span class="yellow">{echo round($EvaluateCountInfo[PerformanceFractionAll]/$EvaluateCountInfo[Times])}分</span>）</p>
+						</li>
+					</ul>
+				</div>
+				<div class="hd cf" id="CommentsNav">
+					<a href="javascript:void(0)" class="on" data-type="0">全部({$EvaluateCountInfo[Times]})</a><a href="javascript:void(0)" data-type="1">有图({$EvaluateCountInfo[ImagesTimes]})</a>
+				</div>
+				<div class="bd">
+					<ul class="pjlist" id="pjlist">
+					</ul>
+					<div class="page mt35" id="Page" style="display: none" data-type="0">
+					</div>
+					<script type="text" id="pageDemo">
+                        <a class="prve cupo" data-id="{{d.Page-1}}">上一页</a>
+                        <a class="first cupo" data-id="1">1</a>
+                        {{# for(var p in d.PageNums){ }}
+                        <a class="cupo" data-id="{{d.PageNums[p]}}">{{d.PageNums [p] }}</a>
+                        {{# } }}
+                        <span class="lastEllipsis"href="javascript:void(0)">...</span>
+                        <a class="cupo PageCount" data-id="{{d.PageCount}}">{{d.PageCount}}</a>
+                        <a class="cupo next" data-id="{{d.NextPage}}">下一页</a>
+                    </script>
+				</div>
+			</div>
+		</div>
+		<!---------------------评价------------------------------>
+		{/if}
+	</div>
+
+</div>
+<div class="CityTjBox cf mt20">
+	<div class="CityTjBoxT">同城推荐</div>
+	<div class="ScrollPic">
+		<a href="JavaScript:void(0)" class="prev transition"><i>上一页</i></a>
+		<div class="ScrollMain">
+			<ul>
+				{loop $CityRecommendedList $list}
+				<li>
+					<a href="/group/{$list[TourProductID]}.html" target="_blank"><img src="{$list[TourImg]}" class="transition lazy" width="270" height="203" />
+						<p class="tit">{$list[ProductName]}</p>
+					</a>
+				</li>
+				{/loop}
+				<li class="more">
+					<a href="{if $TourProductLineInfo[Category]==12}/group/local/{elseif $TourProductLineInfo[Category]==4}/group/home/{/if}">更多产品</a>
+				</li>
+			</ul>
+		</div>
+		<a href="JavaScript:void(0)" class="next transition"><i>下一页</i></a>
+	</div>
+</div>
+<div style="display: none">
+	<p id="DatePriceJson">
+		{$ErverJson}
+	</p>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/NewDatePicker/1.0.0/GroupzlDate.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/picTab/1.0.0/pic_tab.js"></script>
+<script src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script type="text/javascript" src="{echo JsURL}/tour/GroupLineDetails.js"></script>
+<script  type="text/javascript" src="{echo JsURL}/tour/TourPublic.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/laytpl/1.1/laytpl.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/Page/1.0/Page.js"></script>
+</body>
+</html>

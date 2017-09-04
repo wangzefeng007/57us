@@ -1,0 +1,263 @@
+{template StudyTeacherManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="cf w1200 AddServiceBox mt40">
+    <div class="AddServiceBoxT">
+        <a href="javascript:window.history.back()" class="backBtn transition fr">返回上一页</a>
+        <span class="name fl" data-id="{$CourseInfo[CourseID]}">新增课程</span>
+    </div>
+    <div class="cf AddServiceBoxM mt20">
+        <div class="AddInsList cf">
+            <p class="left fl">课程名称：</p>
+            <div class="right fl">
+                <div class="inputBox">
+                    <input type="text" name="CourseName" id="CourseName" value="{$CourseInfo[CourseName]}" placeholder="字数不超过28个字" class="InsInput" style="width: 540px;" />
+                    <div class="erroText"></div>
+                </div>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl">培训科目：</p>
+            <div class="right fl">
+                <div type="selectbox" class="DiySelect" id="TrainSubject">
+                    <div class="opts">
+                        <a href="javascript:void(0);" value="IELTS" {if $CourseInfo[CourseType]==1}class="selected"{/if}>雅思</a>
+                        <a href="javascript:void(0);" value="TOEFL" {if $CourseInfo[CourseType]==2}class="selected"{/if}>托福</a>
+                        <a href="javascript:void(0);" value="SAT" {if $CourseInfo[CourseType]==3}class="selected"{/if}>SAT</a>
+                        <a href="javascript:void(0);" value="ACT" {if $CourseInfo[CourseType]==4}class="selected"{/if}>ACT</a>
+                        <a href="javascript:void(0);" value="GMAT" {if $CourseInfo[CourseType]==5}class="selected"{/if}>GMAT</a>
+                        <a href="javascript:void(0);" value="GRE" {if $CourseInfo[CourseType]==6}class="selected"{/if}>GRE</a>
+                        <a href="javascript:void(0);" value="PTE" {if $CourseInfo[CourseType]==7}class="selected"{/if}>PTE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl">上课方式：</p>
+            <div class="right fl">
+                <div type="selectbox" class="DiySelect" id="FormClass">
+                    <div class="opts">
+                        <a href="javascript:void(0);" value="1" {if $CourseInfo[TeachType]==1}class="selected"{/if}>线上</a>
+                        <a href="javascript:void(0);" value="2" {if $CourseInfo[TeachType]==2}class="selected"{/if}>线下</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl">班级规模：</p>
+            <div class="right fl">
+                <div type="selectbox" class="DiySelect" id="ClassSize">
+                    <div class="opts">
+                        <a href="javascript:void(0);" value="1" {if $CourseInfo[ClassSize]==1}class="selected"{/if}>小班</a>
+                        <a href="javascript:void(0);" value="2" {if $CourseInfo[ClassSize]==2}class="selected"{/if}>大班</a>
+                        <a href="javascript:void(0);" value="3" {if $CourseInfo[ClassSize]==3}class="selected"{/if}>一对一</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl">课时单价：</p>
+            <div class="right fl addPrice">
+                <div class="inputBox">
+                    <input type="text" name="CoursePrice" id="CoursePrice" value="{$CourseInfo[CoursePrice]}" placeholder="" class="InsInput" style="width: 151px;" />
+                    <div class="erroText"></div>
+                    <span class="unit">元</span>
+                </div>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl">课程课时：</p>
+            <div class="right fl" id="CoursePeriod">
+
+                <ul class="classMont cf" id="Custom">
+                    {loop $CourseInfo[CoursePackage] $val}
+                    {if !in_array($val,array(10,20,30,40))}
+                    <li class="on"><i></i><input type="text" value="{$val}" placeholder="自定义套餐"><span class="closeIco"></span></li>
+                    {/if}
+                    {/loop}
+                    <input type="button" class="InsInput" id="CustomPackage" value="自定义套餐" style="width: 100px"/>
+                </ul>
+                <ul class="classMont cf">
+                    <li {if in_array(10,$CourseInfo[CoursePackage])}class="on"{/if}><i></i><a href="JavaScript:void(0)">10课时</a><input type="hidden" value="10"/></li>
+                    <li {if in_array(20,$CourseInfo[CoursePackage])}class="on"{/if}><i></i><a href="JavaScript:void(0)">20课时</a><input type="hidden" value="20"/></li>
+                    <li {if in_array(30,$CourseInfo[CoursePackage])}class="on"{/if}><i></i><a href="JavaScript:void(0)">30课时</a><input type="hidden" value="30"/></li>
+                    <li {if in_array(40,$CourseInfo[CoursePackage])}class="on"{/if}><i></i><a href="JavaScript:void(0)">40课时</a><input type="hidden" value="40"/></li>
+                </ul>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <div class="left fl" style="width: 180px;">允许用户自定义课时？</div>
+            <div class="labelList fl" id="WhetherCourse">
+                <label name="studyStyle" type="radiobox" val="1" class="cbt {if $CourseInfo[AllowCustom]==1}checked{/if} rb rb_active"><i></i>允许</label>
+                <label name="studyStyle" type="radiobox" val="2" class="cbt {if $CourseInfo[AllowCustom]==2}checked{/if} rb"><i></i>不允许</label>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl" style="width: 100px;">课程标签<i class="tipIco" data-text="简单描述课程的特性,不超过6个字"></i><span class="c9 chos">（选填）</span></p>
+            <div class="right fl" id="CourseTag">
+                {loop json_decode($CourseInfo[CourseTags],true) $list}
+                <div class="inputBox ServiceTagInput"><span class="closeIco"></span><input type="text" name="" value="{$list[CourseTag]}" placeholder="99.9%通过率" class="InsInput TipInput"></div>
+                {/loop}
+                <span id="AddTag" class="AddTip"></span>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl">课程简介：<span class="c9 chos">（90字以内）</span></p>
+            <div class="right fl">
+                <div class="inputBox">
+                    <textarea class="textare" name=CourseIntroduction" id="CourseIntroduction" rows="" cols="" placeholder="简洁有力的服务简介，让学生过目难忘……">{$CourseInfo[CourseDescription]}</textarea>
+                    <div class="erroText"></div>
+                </div>
+            </div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl" style="width: 120px;">添加课程图片：</span>
+            </p>
+            <div class="right fl">
+                <p class="mt10 c9">课程图片是门面，请上传最合适的图片，单张图片不能超过512kb</p>
+                <input type="file" name="head_photob" id="head_photob" value="" accept="image/*" style="display: none">
+                <ul class="addPic mt15" id="addPic">
+                    {loop json_decode($CourseInfo[ImagesJson],true) $key $val}
+                    <li {if $key==$CourseInfo[CoverImageKey]}class="on"{/if}><div class="OtherFun">
+                        <a href="javascript:void(0)" class="AddPicDelImg">删除</a>|<a href="javascript:void(0)" class="ChangeImg">替换</a>|<a href="javascript:void(0)" class="Cover">设置封面</a>
+                    </div><i class="choseIco"></i><img src="{if strpos($val,'http://')===false}{echo LImageURL}{/if}{$val}" width="200" height="150" class="webimg"><i class="upSucess"></i>
+                    </li>
+                    {/loop}
+                    <span class="AddBtn" id="AddBtn"><i></i></span>
+                </ul>
+            </div>
+            <div id="DefaultAvatar" style="display: none"></div>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left fl">课程详情：</p>
+            <div class="right fl">
+                <p class="mt10 c9">让学生更多了解您的课程</p>
+            </div>
+        </div>
+        <div class="EditeBox cf">
+            <script id="Content" name="Content" type="text/plain" style="width:810px;height:400px"></script>
+            <script>
+                var ue = UE.getEditor('Content',{initialContent:'{$CourseInfo[Content]}',initialFrameWidth:790,initialFrameHeight:400,autoHeightEnabled:false});
+            </script>
+        </div>
+        <div class="AddInsList cf">
+            <p class="left">服务保障：</p>
+            <div class="Protect">
+                在57美国网平台选择购买服务后的学生，将获得以下服务保障：<br><br>
+
+                1、依据教育部“留学中介服务合同”范本精神，并结合实际情况协助学生审核留学服务合同，规避陷阱。<br>
+                2、57美国网构建顾问服务反馈系统，管理留学申请进程。顾问提供的背景提升方案、选校定校方案、文书、offer等均上传到57美国网平台，美国留学过程中的8大关键环节提醒并需要学生确认，全程服务可视化。<br>
+                3、平台留学管家全程跟进服务商的办理情况，系统也会及时告知学生的办理进度，确保您的服务过程顺利进行。<br>
+                4、学生可通过电脑、移动端（手机等）查看自己的留学申请状态，时刻了解到留学中介办理的进度和情况。<br>
+                5、学生中介服务费支付到57美国网平台，先由平台代收托管，定校、文书、offer、签证等环节学生确认满意后平台再打款给服务商，资金安全，维权有保障。<br>
+                6、全程服务或院校申请服务，学生享有签约后3天（72小时）内无条件退款的犹豫期。<br>
+                7、服务不满意或未达承诺，57us先行调解，确实因为服务商主观原因导致拒录，中介费用依约先行赔付，为学生和家长争取最大利益。
+            </div>
+        </div>
+        <div class="AddInsList mt10 UsIns cf">
+            <p class="left" style="width: 100%;">57美国网说明：</p>
+            <div class="Protect">
+                1、购买服务后，学生需在3个工作日内进入"我的申请"填写个人基本信息。个人信息逾期未填写、填写不完整将会导致院校评估延期。<br>
+                2、确认服务可以开展后，学生须定期登陆电脑或移动端查看自己的留学申请状态，并及时响应或确认服务商提供的服务请求与反馈。<br>
+                3、所申请学校排名以购买产品当年的USNEWS 排名为准。<br>
+                4、申请成功以收到学校的录取通知书为准。包括有条件的录取通知书和无条件的录取通知书，通知书形式包括电子版录取通知书以及纸质版录取通知书。<br>
+                5、全程服务及申请院校院校的服务，学生享有签约后3天内（72小时）无条件退款的犹豫期。如果你在平台成功支付，72小时内你可在个人中心“我的订单”，点击“申请退款”，并附上退款缘由，我们将在48小时内与你联系处理退款事宜。<br>
+                6、如犹豫期内学生无异议，那么视为服务可以开展，一旦开始服务，将按合同约定执行。<br>
+                7、其他退款规定以学生与服务商签订的合同约定为准。所签订的服务合同须上传至平台备案。<br>
+                8、文书服务约定在三周内完成，学生有三次修改的权利。<br>
+                9、57美国网是中立的第三方平台，此项服务由进驻的独立留学顾问或留学工作室提供，其真实性、准确性和合法性由信息拥有者（机构）负责，本站不承担任何法律责任。
+            </div>
+        </div>
+        <div class="saveBox mt10 cf">
+            <div class="saveBoxR fr">
+                <a href="javascript:void(0)" class="submitChange publicBtn1 transition" id="SubmitAudit">提交审核</a>
+                <p class="tkchose"><label name="studyStyle" type="checkbox" val="中学" class="cbt checked rb"><i></i></label>我同意57US的
+                    <a href="javascript:void(0)">服务条款</a>
+                </p>
+
+            </div>
+            <div class="saveBoxL fl mt15">
+                <a href="javascript:void(0);" id="SaveView">保存并预览一下</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mask">
+    <div class="AddPicPop transition" id="AddPicPop">
+        <a href="JavaScript:void(0)" class="close"></a>
+        <div class="addBox" id="AddImgBox">
+            <input type="file" name="head_photo" id="head_photo" value="" accept="image/*" style="display: none">
+            <a href="javascript:void(0)" id="UpPicBtn" class="UpPicBtn transition">上传本地图片</a>
+            <ul class="addPicList" id="addPicList" style="display: none">
+                <span><a href="javascript:void(0)" class="continue" id="ContinueAddImg">继续添加+</a></span>
+            </ul>
+        </div>
+        <div class="tjUppic">
+            <p class="tjUppicT">推荐图片</p>
+            <div class="tjUppicList">
+                <a href="JavaScript:void(0)" class="prev"></a>
+                <a href="JavaScript:void(0)" class="next"></a>
+                <div class="ulWrap mt10" id="tjbox">
+                    <ul>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0922/201609221747357070.jpg" width="120" height="90" />
+                        </li>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0922/201609221439318992.jpg" width="120" height="90" />
+                        </li>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0922/201609221737411974.jpg" width="120" height="90" />
+                        </li>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0923/201609231047463484.jpg" width="120" height="90" />
+                        </li>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0923/201609231437201150.jpg" width="120" height="90" />
+                        </li>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0923/201609231721175511.jpg" width="120" height="90" />
+                        </li>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0926/201609261149437976.jpg" width="120" height="90" />
+                        </li>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0926/201609261626236176.jpg" width="120" height="90" />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0923/201609231048326494.jpg" width="120" height="90" />
+                        </li>
+                        <li>
+                            <i class="selectIco"></i>
+                            <img src="http://images.57us.com/p4/up/2016/0923/201609231638104689.jpg" width="120" height="90" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="popBtn mt15">
+                <a href="javascript:void(0)" class="canceBtn">取消</a>
+                <a href="javascript:void(0)" class="sureBtn" id="sureBtn">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script src="{echo JsURL}/study/TeacherManageCourseAdd.js"></script>
+<!--图片裁剪插件-->
+<link href="{echo JsURL}/base/cropper/2.3.2/cropper.css" rel="stylesheet">
+<script src="{echo JsURL}/base/cropper/2.3.2/cropper.js"></script>
+</body>
+</html>

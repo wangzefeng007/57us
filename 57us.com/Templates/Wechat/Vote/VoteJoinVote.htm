@@ -1,0 +1,201 @@
+{template VoteHeader}
+<body class="home">
+<script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if(isAndroid == true){
+        $("#backbtn").show();
+    }else if(isiOS == true){
+        $("#backbtn").hide();
+    }
+</script>
+<div class="body">
+    <div class="wrap">
+        <section class="AddActive">
+            <div class="backBar" id="backbtn"><a href="javascript:" onclick="history.back();"><i class="icon iconfont">&#xe602;</i>返回</a></div>
+            <div class="AddActivebox">
+                <p class="text">上传你最撩人的美腿照，让大家为你投票！</p>
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <th>用户姓名:</th>
+                        <td><input type="text" id="name" name="name" value="" class="input" placeholder="真实姓名" /></td>
+                    </tr>
+                    <tr>
+                        <th valign="top">参赛宣言:</th>
+                        <td>
+                        	<textarea id="Content" name="Content" rows="" cols="" class="input" placeholder="您的参赛宣言" style="height: 2.8rem; resize:none;"></textarea>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th valign="top">上传照片:</th>
+                        <td>
+                            <ul class="addList" id="addList">
+                                <li class="chooseImage"><i class="icon iconfont">&#xe02;</i></li>
+                                <li class="change" id="removeAll"><i class="icon iconfont">&#xe603</i></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <td colspan="2" align="center">
+                        <a href="javascript:void (0)" class="btn sureBtn" id="savebtn">确认上传</a>
+                        <a href="/vote/member?id={$_SESSION['UserInfo']['UserID']}" class="btn backBtn">返回首页</a>
+                    </td>
+                    </tr>
+                </table>
+                <div id="ajax" style="display: none"></div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="<?php echo WEB_WECHAT_URL ?>/Templates/Wechat/Vote/js/layer/2.4/layer.js"></script>
+<script>
+    wx.config({
+        debug: false,
+        appId: '{$SignPackage[appId]}',
+        timestamp: {$SignPackage[timestamp]},
+        nonceStr: '{$SignPackage[nonceStr]}',
+        signature: '{$SignPackage[signature]}',
+        jsApiList: [
+            'chooseImage',
+            'uploadImage'
+        ]
+    });
+    $('.chooseImage').click(function () {
+        chooseImage();
+    })
+    function chooseImage(obj){
+        var num  = {$DeviceTypeNum};
+        // 选择张片
+        wx.chooseImage({
+            count: num, //默认9
+            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            success: function (res) {
+                var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                layer.msg('已选择 ' + localIds.length + ' 张图片');
+                //uploadimgtoweChat(localIds); 解决ios上传多图问题，还没处理完
+                $.each(localIds, function (i, localId) {
+                    wx.uploadImage({
+                        localId: '' + localId,
+                        isShowProgressTips: 1,
+                        success: function(res) {
+                            serverId = res.serverId;
+                            html= '<li class="upimg removeimg" id="'+serverId+'">'+
+                                    '<span class="pichange"><i class="icon iconfont">&#xe603</i></span>'+
+                                    '<p class="img"><img src="'+localId+'"/></p>'+
+                                    '</li>';
+                            html2 = '<span>'+serverId+'</span>,';
+                            $('.chooseImage').before(html);
+                            $('#ajax').append(html2);
+                            $('#removeAll').click(function () {
+                                if ($("#addList").is('.on')) {
+                                    $("#addList").removeClass('on');
+                                }else {
+                                    $("#addList").addClass('on');
+                                }
+                            })
+                            $(".removeimg").on('click',function () {
+                                if($(this).parent('ul').is(".on")){
+                                    $(this).remove();
+                                    var a = $(this).attr('id');
+                                    $('#ajax span').each(function () {
+                                        var b = $(this).text();
+                                        if(a == b ){
+                                            $(this).remove();
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    });
+                })
+                $("#savebtn").click(function () {
+                    var name = $("#name").val();
+                    var content = $("#Content").val();
+                    if(name == ''){
+                        layer.msg('姓名不能为空');
+                        return false;
+                    }else if(content == ''){
+                        layer.msg('参赛宣言不能为空');
+                        return false;
+                    }else if(content.length > 30 ){
+                        layer.msg('参赛宣言不能超过30个字');
+                        return false;
+                    }else if($("#addList .upimg").length == '0'){
+                        layer.msg('上传的图片至少要一张')
+                        return false;
+                    } else if($("#addList .upimg").length == '10'){
+                        layer.msg('上传的图片不能大于9张')
+                        return false;
+                    }
+                    var imgData = $("#ajax").text();
+                    $.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: "/vote/savejoininfo/",
+                        data: {
+                            'name': name,
+                            'images':imgData,
+                            'content':content,
+                        },
+                        beforeSend: function () {
+                            layer.msg('上传图片中...');
+                        },
+                        success: function(data) {
+                            if(data.ResultCode == '200'){
+                                var Url = data.Url;
+                                layer.msg('上传成功');
+                                setTimeout(function(){window.location=Url;},600);
+                            }else if(data.ResultCode == '100'){
+                                layer.msg(data.Message)
+                            }else {
+                                layer.msg(data.Message)
+                            }
+                        }
+                    });
+                })
+            }
+        });
+    }
+    function uploadimgtoweChat(localIds) {
+        var localIds = localIds;
+        $.each(localIds, function (i, localId) {
+            alert(localId);
+        });
+        if (strs.length == 0) {
+            layer.msg("请拍照或选择相册照片");
+        } else {
+            var i = 0, length = localIds.length;
+            function upload() {
+                wx.uploadImage({
+                    localId: '' + localIds[i],
+                    isShowProgressTips: 1,
+                    success: function (res) {
+                        var serverId = res.serverId;
+                        var html;
+                        var html2;
+                        i++;
+                        if (i < length) {
+                            html= '<li class="upimg">'+
+                                    '<span class="pichange"><i class="icon iconfont removeimg">&#xe603</i></span>'+
+                                    '<p class="img"><img src="'+localId+'"/></p>'+
+                                    '</li>';
+                            html2 = '<span>'+serverId+'</span>,';
+                            $('.chooseImage').before(html);
+                            $('#ajax').append(html2);
+                            upload();
+                        }
+                    },
+                    fail: function (res) {
+                        layer.msg("稍后重试");
+                    }
+                });
+            };
+            upload();
+        };
+    };
+</script>
+</body>
+</html>

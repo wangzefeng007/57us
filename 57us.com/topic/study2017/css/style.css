@@ -1,0 +1,122 @@
+body{background: url(../images/bg.jpg) center top repeat-y;}
+.head{height: 737px; overflow: hidden;}
+.head1,.head3,.head4{height: 184px; overflow: hidden;}
+.head2{height: 185px;}
+.head1{background: url(../images/head_01.jpg) center top no-repeat;}
+.head2{background: url(../images/head_02.jpg) center top no-repeat;}
+.head3{background: url(../images/head_03.jpg) center top no-repeat;}
+.head4{background: url(../images/head_04.jpg) center top no-repeat;}
+.newsMenu{background: url(../images/menu.jpg) center top no-repeat;height: 220px;overflow: hidden;}
+.newsMenu ul{}
+.newsMenu ul li{width: 366px; height: 164px; float: left; margin: 17px 1px 0 0 ;}
+.newsMenu ul li a{height: 100%;}
+.newsMenu ul li.first{margin-left:50px;}
+.newsMenu ul li.second{width: 364px; height: 181px;margin: 0 1px 0 0;}
+.box{width: 100%;height: auto; overflow: hidden;}
+.newgitT{height: 135px;background: url(../images/bigTit.jpg) center top no-repeat;}
+.pro1{height: 767px; overflow: hidden;}
+.pro1T{height: 126px; overflow: hidden;background: url(../images/pro1tit.jpg) center top no-repeat;}
+.pro1Nr{height: 626px; overflow: hidden;background: url(../images/pro1Nr.jpg) center top no-repeat;}
+.pro2{height: 1258px; overflow: hidden;}
+.pro2T{height: 185px; overflow: hidden;background: url(../images/pro2tit.jpg) center top no-repeat;}
+.pro2Nr{height:1073px; overflow: hidden;background: url(../images/pro2Nr.jpg) center top no-repeat;}
+
+.pro3{height: 1018px; overflow: hidden;}
+.pro3T{height: 170px; overflow: hidden;background: url(../images/pro3tit.jpg) center top no-repeat;}
+.pro3Nr{height:848px; overflow: hidden;background: url(../images/pro3Nr.jpg) center top no-repeat;}
+
+.newsIns{height: 579px; overflow: hidden;background: url(../images/pro4.jpg) center top no-repeat;}
+.newsban{height: 601px; background: url(../images/bban.jpg) center top no-repeat;}
+
+
+.textIn{display: block;text-indent: -9999px; overflow: hidden;}
+.newsLogo{width: 275px; height: 80px;margin:20px 0 0 55px;}
+.newsTit{width: 680px;height: 160px;}
+.newsInsT{height: 130px; overflow: hidden;padding-top: 36px;}
+.newsInsList{padding: 28px 0 0 26px;}
+.newsInsList li{width:370px;height: 348px; float: left; margin-right: 17px;}
+.newsInsList li a{height: 100%;}
+
+.englishBox{}
+.engliIns{font-size: 31px; color: #8b160f;font-weight: bold; text-align: center;line-height: 54px;padding-top: 25px;}
+.engliIns span{color: #da2334;}
+.checkmore{width: 211px;height: 54px; background: url(../images/more.png) no-repeat; display: inline-block;}
+.teachIns{width: 775px;height: 294px;border: 2px solid #c61d2e;background: #fff9e7;}
+.teachIns img{width: 220px;height: 278px;float: left; border:8px solid #c61d2e;color: #414141;}
+.fod{font-weight: bold;}
+.teacCont{padding: 30px 0 0 84px;width: 453px;line-height: 31px;}
+.onlineBtn,.buynow{width: 240px;height: 58px;display: inline-block;margin: 0 4px 0 23px;}
+.btnbottom{padding:36px 0 0 0;}
+.otearchIns{margin-top: 17px;width: 1076px; margin: 0 auto;}
+.otearchIns .timg{width: 162px;height: 209px;float: left; border:6px solid #c61d2e;color: #414141;}
+.otearchcont{width: 417px;height: 179px; border:2px solid #c61d2e;border-left: 0;padding: 10px 8px;color: #414141;background: #fff9e7;margin-top: 18px;line-height: 31px;}
+.otearchClass{width: 466px;height: 203px; float: right;margin-top: 18px;}
+.classIns{border:2px solid #c61d2e;background: #fff9e7;width: 1042px; height: 382px;margin: 2px auto 0;line-height: 30px;padding: 15px;}
+.classIns span{color: #8b160f;font-weight: bold;}
+.classInsT{ background: url(../images/lession.png) no-repeat; width: 157px;height: 36px;}
+.pro2Nr .btnbottom{padding-top: 80px;width: 100%; float: left;}
+.pro1Nr .teachIns{width: 1066px; border: 0;background: none; margin: 0 auto;}
+.pro1Nr .teachIns img{position: relative;z-index: 1;margin-top: 17px;}
+.pro1Nr .teacCont{width: 795px; height: 273px;border: 2px solid #c61d2e;background: #fff9e7; padding: 20px 15px 0 63px;margin-left: -50px;}
+.cepingBtn{width: 295px;height: 58px;display: inline-block;margin: 12px 0 0 6px;}
+
+.BottomContact{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#E50F0F0F', endColorstr='#E50F0F0F');background:rgba(15,15,15,0.9); height: 264px; overflow: hidden;}
+.ContactFeek{ background: url(../images/bottom.png) no-repeat;  height: 220px; overflow: hidden;}
+.ContactList{ width: 406px; padding-top: 36px;}
+.ContactList li{height: 41px; line-height: 41px; overflow: hidden;border-bottom: 1px solid #fff; text-indent: 6px; font-size: 18px; color: #cacaca;}
+.ContactList li input{width: 340px; height: 41px; line-height: 41px;border: 0; background: none; color: #cacaca;font-size: 18px; }
+.ContactBtn{ background: #e65a53; width: 125px; height: 44px; text-align: center; line-height: 44px; color: #fff; border: 0; cursor: pointer; display: inline-block; font-size: 18px; margin-top: 12px;}
+.ContactBtn:hover{ background: #e1453d; color: #fff;}
+.w1113{width: 1113px; margin: 0 auto;}
+
+
+.ceshi{width: 1012px;position: relative;margin: 0 auto;padding-top:80px;}
+.ceshiT,.ceshiT1{width: 100%; height: 98px; overflow: hidden; background: url(../images/ceshit.png) center top no-repeat;position: absolute;top: 10px; left: 0;}
+.ceshiM{ background: url(../images/questionBg.png) no-repeat; padding: 45px 0 20px; height: 781px;overflow: hidden;}
+.ceshiIn{line-height: 30px;}
+.sutit{background: #d32132;width: 660px;height: 48px;line-height: 48px;text-align: center;font-size: 24px;font-weight: bold; color: #fff;border-radius: 48px;margin: 0 auto;}
+
+
+.smTit{width: 976px; position: relative;border-top: 2px solid #d32233;margin: 0 auto;}
+.smTit .name{width: 361px; height: 61px; text-align: center; line-height:57px; background: url(../images/ti1.png) no-repeat;left: 50%; top: 50%; margin: -30px 0 0 -180px;font-weight: bold; font-size: 28px; color: #feebc1;display: block;position: absolute;}
+
+.paBtn .nextBtn{ background: url(../images/next.png) no-repeat; width: 146px;height: 49px; margin: 0 auto; display: inline-block;}
+.questionList{width:980px; height: 407px; overflow: hidden;margin: 0 auto; padding-top: 50px;position: relative;}
+.questionList .line{width: 0;border-right: 1px solid #fff;border-left: 1px solid #ffd371; height: 80%;position:absolute;top:15%;left: 45%;margin-left: -1px;}
+.questionList li{width: 440px; height: 80px; float: left;margin:0 25px 0 25px;}
+.questionList li .tit{height: 40px; line-height: 40px;font-size: 16px; color: #3f3f3f;}
+.questionList li .choseBtn{padding-left: 50px;}
+.questionList li .choseBtn a{ background: url(../images/hover.png) no-repeat; width: 90px; text-align: center; line-height: 29px; height: 29px;display: inline-block; margin: 0 9px;color: #fff; overflow: hidden;vertical-align: top;}
+.questionList li .choseBtn a.on{background: url(../images/li.png) no-repeat;}
+.load{color: #3f3f3f;padding: 0 42px;}
+
+
+.reTab{width:713px; height: 221px;}
+.reTab table{background: #feebc1;font-size: 18px; color: #fff;text-align: center;font-weight: bold;}
+.borlt{border-top-left-radius: 50px;}
+.borrt{border-top-right-radius: 50px;}
+.borlb{border-bottom-left-radius: 50px;}
+.borrb{border-bottom-right-radius: 50px;}
+.reTab th,.reTab td{background: #d32132;}
+/*.reTabList{padding:1px 0 0 178px}
+.reTabList li{width: 92px;height: 45px; text-align: center; line-height: 45px;font-size: 20px; color: #fff;font-weight: bold;float: left; margin-right: 1px; background: rgba(0,0,0,0.2);}*/
+.regetBox{width: 343px;height:38px;background: #0b6a8f;padding: 2px; margin: 0 auto;}
+.regetBox .input{width: 266px;height: 38px; line-height: 38px; border: 0; background: #fff; padding: 0 6px; float: left;}
+.regetBox .btn{width: 64px;height: 38px;background: url(../images/sumbit.png) no-repeat;border: 0;cursor: pointer;}
+.ggbox{color: #1e1e1e;font-weight: bold;}
+.ggbox span{color: #da2334;}
+
+.ceMain{width: 900px; margin: 0 auto ;}
+.ceMain .ceMainR{width:180px;height: 200px; border-left: 1px solid #fff; padding: 0 15px; font-weight: bold;color: #414141;}
+.ceMain .ceMainR img{width: 118px; height: 150px;border: 2px solid #c61d2e;display: inline-block;margin-bottom: 3px;}
+.ceMain .ceMainL{width:648px;height: 185px;border-right: 1px solid #ffd371;line-height: 30px;padding:15px 40px 0 0; color: #1e1e1e;}
+
+.ceshiBtn a{width: 164px;height: 50px;display: inline-block; margin: 0 16px;}
+.faceBtn{background: url(../images/btn1.png) no-repeat;}
+.onlineBtn1{background: url(../images/btn2.png) no-repeat;}
+.onlineBuy{background: url(../images/btn3.png) no-repeat;}
+
+
+.ewmPop{ background: #fff; width:350px; height:388px; position: fixed;top: 50%; left: 50%; box-shadow: 0 0 20px rgba(0,0,0,0.4);padding: 10px;z-index: 55;margin:-204px 0 0 -185px; display: none;}
+.ewmPop img{width: 350px; height: 350px;}
+.ewmPop .close{ background: url(http://images.57us.com/img/active/nclose.png?v2) no-repeat; width:28px;height: 28px;position: absolute;top:-14px;right:-14px; cursor: pointer;}

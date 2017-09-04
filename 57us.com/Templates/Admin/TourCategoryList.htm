@@ -1,0 +1,67 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li class="active position">产品类别管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel breadcrumb">
+        <div class="panel-body">
+          <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">产品中文名：</span>
+          <form class="form-inline" role="form" action="/index.php" method="get">
+            <input type="hidden" name="Module" value="TourCategory">
+            <input type="hidden" name="Action" value="TourCategoryList">
+            <input type="text" class="form-control" placeholder="产品中文名/拼音" name="CnName" value="{$CnName}">
+            <button class="btn btn-info">搜索</button>
+            <input type="button" onClick="location.href='/index.php?Module=TourCategory&Action=Add'" value="添加" class="btn btn-danger">
+          </form>
+        </div>
+        <section id="unseen">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr align="center">
+              <th width="50px"><strong>ID</strong></th>
+              <th>产品中文名</th>
+              <th>拼音</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $TourCategoryList $list}
+            <tr align="center">
+              <td >{$list[TourCategoryID]}</td>
+              <td align="left">{$list[CnName]}</td>
+              <td >{$list[Alias]}</td>
+              <td ><a href="/index.php?Module=TourCategory&Action=Add&TourCategoryID={$list[TourCategoryID]}">修改</a>
+                <!--<a href="/index.php?Module=TourCategory&Action=Delete&TourCategoryID={$list[TourCategoryID]}">删除</a>&nbsp;&nbsp;&nbsp;-->
+            </tr>
+            {loop $list[parent] $Plist}
+            <tr align="center">
+              <td>{$Plist[TourCategoryID]}</td>
+              <td align="left"><div style="text-indent:1em">|-{$Plist[CnName]}</div></td>
+              <td >{$Plist[Alias]}</td>
+              <td ><a href="/index.php?Module=TourCategory&Action=Add&TourCategoryID={$Plist[TourCategoryID]}">修改</a>
+                <!--<a href="/index.php?Module=TourCategory&Action=Delete&TourCategoryID={$Plist[TourCategoryID]}">删除</a>&nbsp;&nbsp;&nbsp;-->
+            </tr>
+            {/loop}
+            {/loop}
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

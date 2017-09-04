@@ -1,0 +1,139 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 StudyLocation">您当前位置：
+	<a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+	<a href="{echo WEB_STUDY_URL}/graduateschool/">研究生院校</a><span>&gt;</span><a href="{echo WEB_STUDY_URL}/graduateschool/{$CollegeInfo['CollegeID']}.html">{$CollegeInfo['CollegeName']}</a><span>&gt;</span><span class="Position">项目详情</span>
+</div>
+<div class="w1200 po cf">
+	<div class="SchoolDetailLeft fl">
+		<div class="ItemBody">
+			<img src="{$CollegeInfo[LogoUrl]}" width="150" height="150" />
+			<p class="tit mt10">{$GrduateMajor['ProfessionName']}</p>
+			<p class="mt25">{$GrduateDetails['Ranking']}</p>
+			<p>学校地点：{$CollegeInfo['Seat']}     {$CollegeInfo['Region']}</p>
+		</div>
+		<div class="itemTab mt20">
+			<p class="itemTabT">项目信息</p>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					{loop $Information $key $value}
+					<th width="18%">{$key}</th>
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Information $key $value}
+					<td>{$value}</td>
+					{/loop}
+				</tr>
+			</table>
+		</div>
+		<div class="itemTab mt20">
+			<p class="itemTabT">成绩要求</p>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					{loop $Applicationkey $key $value}
+					{if $key<3}
+					<th width="33%">{$value}</th>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Applicationvalue $key $value}
+					{if $key<3}
+					<td>{$value}</td>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Applicationkey $key $value}
+					{if $key>=3}
+					<th width="33%">{$value}</th>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Applicationvalue $key $value}
+					{if $key>=3}
+					<td>{$value}</td>
+					{/if}
+					{/loop}
+				</tr>
+			</table>
+		</div>
+		<div class="itemTab mt20">
+			<p class="itemTabT">申请要求</p>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>{loop $Referencekey $key $lists}
+					{if $key<=1}
+					<th width="50%">{$lists}</th>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Referencevalue $key $lists}
+					{if $key<=1}
+					<td class="tac">{$lists}</td>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>{loop $Referencekey $key $lists}
+					{if $key>=2&&$key<=3}
+					<th>{$lists}</th>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Referencevalue $key $lists}
+					{if $key>=2&&$key<=3}
+					<td class="tac">{$lists}</td>
+					{/if}
+					{/loop}
+				</tr>
+				{loop $Referencekey $K $Val}
+				{if $K>=4}
+				<tr>{loop $Referencekey $key $lists}
+					{if $key>=4&&$key<=5}
+					<th>{$lists}</th>
+					{/if}
+					{/loop}
+					<th></th>
+				</tr>
+				{/if}
+				{/loop}
+				{loop $Referencevalue $K $Val}
+				{if $K>=4}
+				<tr>
+					{loop $Referencevalue $key $lists}
+					{if $key>=4&&$key<=5}
+					<td class="tac">{$lists}</td>
+					{/if}
+					{/loop}
+					<td class="tac"></td>
+				</tr>
+				{/if}
+				{/loop}
+			</table>
+		</div>
+	</div>
+	<div class="SlideRight fr">
+		<ul class="adList">
+			{loop $StudyRightADLists $lists}
+			<li>
+				<a href="{$lists['Link']}" target="_blank" class="ImgBlackBg" title="{$lists[Title]}"><img class="transition lazy" width="100%" src="{echo LImageURL}{$lists['Picture']}" alt="{$lists[Title]}"></a>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/schoolDetail.js"></script>
+<script type="text/javascript">
+    $(".contBoxT .hd a").hover(function(){
+        var num =$(this).index();
+        $(this).addClass("on").siblings().removeClass("on");
+        $(this).parents(".contBox").find(".tabList").addClass("hidden").eq(num).removeClass("hidden")
+    })
+</script>
+</body>
+</html>

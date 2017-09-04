@@ -1,0 +1,35 @@
+{template StudyOrderHeader}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt45 cf">
+    <div class="payCont cf">
+        <div class="payIns cf">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="25%">订单编号：<span>{$YoosureOrderInfo[OrderNum]}</span></td>
+                    <td width="40%">订单名称：{$YoosureOrderInfo[OrderName]}</td>
+                    <td width="10%">报名人数：{$YoosureOrderInfo[Num]}人</td>
+                    <td width="25%">应付金额：<span class="price">￥<em>{$YoosureOrderInfo[Money]}</em></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="cf payBox">
+            <p class="f22 mt20">订单已经提交，请尽快完成付款！</p>
+            <div class="f18">　</div>
+            <p class="payStyle mt30">
+                <label name="rbt" type="radiobox" val="alipay" class="cbt checked"><i></i><img src="http://images.57us.com/img/study/payimg_1_3.0.png"/></label>
+                <label name="rbt" type="radiobox" val="wxpay" class="cbt"><i></i><img src="http://images.57us.com/img/study/payimg_2_3.0.png"/></label>
+            </p>
+            <a href="javascript:void(0)" class="PayBtn mt40" data-order="{$YoosureOrderInfo[OrderNum]}">立即支付</a>
+        </div>
+        <div class="payDesc mt20">
+            温馨提示：<br>
+            ·多种支付方式，轻松解决支付问题<br>
+            ·请妥善保管您的账户信息，尽量避免在网吧等公共场所进行支付<br>
+            ·支付过程遇到任何问题，请拨打400-018-5757，9:00-18:00为您服务
+        </div>
+    </div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/study/StudyTourChoicePay.js"></script>
+</body>
+</html>

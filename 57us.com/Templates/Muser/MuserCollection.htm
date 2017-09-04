@@ -1,0 +1,46 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current" id="page">
+		<div class="collectMask"></div>
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<div class="title mangeList">
+				<p class="btn">我的收藏
+					<!--<i class="icon iconfont icon-left"></i>-->
+				</p>
+				<div class="headUp">
+					<a href="">全部</a>
+					<a href="">酒店</a>
+					<a href="">出游</a>
+					<a href="">签证</a>
+					<a href="">租车</a>
+					<a href="">高端定制</a>
+				</div>
+			</div>
+			<span class="pull-right mangeBtn">管理</span>
+		</header>
+		<input type="hidden" id="collectionType" value="{$Type}">
+		<div class="content pull-to-refresh-content infinite-scroll ListCont">
+			<!-- 默认的下拉刷新层 -->
+			<div class="pull-to-refresh-layer">
+				<div class="preloader"></div>
+				<div class="pull-to-refresh-arrow"></div>
+			</div>
+			<ul class="list-container collectList" id="list">
+			</ul>
+			<div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+			<!-- 加载提示符 -->
+			<div class="infinite-scroll-preloader" style="display: none">
+				<div class="preloader">
+				</div>
+			</div>
+		</div>
+		<div class="deteBox hidden">
+			<a href="javascript:void(0)" class="button button-fill button-orange newsdete delBtn">删除</a>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserCollection.js" charset='utf-8'></script>
+</body>
+</html>

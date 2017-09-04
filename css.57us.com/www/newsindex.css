@@ -1,0 +1,181 @@
+.index .NewsTop{color: #333333;}
+.index .NewsTop a{color: #333333;}
+.index .UserList .UserListM{border: 1px solid #c5c5c5;box-shadow: none; border-radius: 4px; }
+.index .UserLogin .UserList table{margin-top: 0;}
+.index .UserLogin .UserList th, .index .UserLogin .UserList td{border: 0;}
+.index  .UserList a:hover{color: #eab66a;}
+.index .UserLogin .UserList b.ico{background: url(http://images.57us.com/img/www/up.png) no-repeat;width: 20px; height: 10px; border: 0;}
+.IndexTopMain{ height: 782px; overflow: hidden; position: relative;}
+.MaskUp,.MaskDown{background: url(http://images.57us.com/img/www/mask.png) no-repeat;}
+.MaskUp,.MaskDown{ background-position: 0 -115px; width:1920px; height: 101px; position: absolute; top: 0; left:50%; margin-left:-960px;z-index: 2;}
+.MaskDown{ background-position: 0 0; height: 112px; top: auto;bottom: 0;}
+.index .NewsSearchBox{ position: absolute; top:15px; left: 50%; margin-left: 260px; z-index: 3; border-radius: 3px;}
+.index .NewsSearchBox .input{background: #fff;}
+.index .NewsLogo{ position: absolute; top: 40px; left:50%; margin-left: -600px; z-index: 3; width: 231px; height: 57px; background: url(http://images.57us.com/img/www/IndexLogo.png) no-repeat;}
+.IndexMenu{ position: absolute; top:63px; left: 50%; margin-left: -364px;  z-index: 3;}
+.IndexMenu li{ float: left; position: relative;}
+.IndexMenu li .a{ padding:0 10px;height: 30px; line-height: 30px; display: block; text-align: center; font-size: 16px; color: #ffffff;}
+.IndexMenu li .a:hover,.IndexMenu li:hover .a{color: #eab66a;}
+.IndexMenu li .newsTopic{width: 100px;height: 103px; display: block; overflow: hidden;background: url(http://images.57us.com/img/www/hb.gif?20170123) center top no-repeat;margin-top: -65px;padding: 0;}
+.SeconMenu{width: 157px; height: auto; overflow: hidden; padding-top: 9px; position: absolute; top: 30px; left: 50%; margin-left: -78px;display: none;}
+.SeconMenu em{width: 0;height: 0;border-left: 8px solid transparent;border-right: 8px solid transparent;border-bottom: 10px solid #fff; display: block; position: absolute; top: 0; left: 50%; margin-left: -8px;}
+.SeconMenuM{background: #ffffff; padding: 10px 0; height: auto; overflow: hidden; border-radius: 3px; }
+.SeconMenuM a{display: block;width: 100%; height: 36px; line-height: 36px; text-indent: 20px; font-size: 16px; color: #666666;}
+.SeconMenuM .line{width: 118px; height: 0; border-bottom: 1px solid #efefef; display: block; margin: 0 auto;}
+.SeconMenuM a:hover{ background: #f5f5f5;}
+.IndexMenu li:hover .SeconMenu{display: block;}
+
+/*banner*/
+.IndexBan{ width:1920px; height:782px; position:relative; left:50%; margin-left:-960px; overflow:hidden; position:relative;z-index: 1;}
+.IndexBan .pic{ position:relative; z-index:0; }
+.IndexBan .pic img { width:1920px; height:782px; display: block; }
+.IndexBan .hd { width:100%; position: absolute; bottom: 113px; text-align: center; font-size:0; z-index:1; }
+.IndexBan .hd li{ border-radius:100%; border: 1px solid #fff; width:14px;height:14px;overflow: hidden;display:inline-block; *display:inline; zoom:1; cursor: pointer;margin: 0 5px; box-shadow:0 0 3px rgba(255,255,255,0.5)}
+.IndexBan .hd .on{background:#fff; }
+.IndexBan .prev,.IndexBan .next{ background: url(http://images.57us.com/img/www/indexicon.png) no-repeat; width: 31px; height: 55px; display: block; overflow: hidden;text-indent: -999px; position: absolute; top: 50%; left: 50%; z-index: 3; cursor: pointer;filter:alpha(opacity=30);opacity: 0.3; display: none;}
+.IndexBan .prev{ background-position: -225px -4px; margin: -28px 0 0 -600px;}
+.IndexBan .next{ background-position: -269px -4px;margin: -28px 0 0 560px;}
+.IndexBan .prev:hover,.IndexBan .next:hover{filter:alpha(opacity=70) !important;opacity: 0.7 !important; }
+.IndexBan .pic a:hover img{opacity: 1;filter:alpha(opacity=100);}
+/*美国旅游*/
+.IndexTour{}
+.IndexTitle{ position: relative; border-bottom: 3px solid #3f3e3c;}
+.IndexTitle .name{ background: url(http://images.57us.com/img/www/indexicon.png) no-repeat; width: 215px; height: 55px; display: block; position: absolute; top:-27px; left:50%; margin-left: -107px;}
+.IndexTour .IndexTitle .name{ background-position: 0 -45px;}
+
+
+.TourTravel{width: 600px; height: auto; overflow: hidden;}
+.TourTravelList{ height: 409px; overflow: hidden;}
+.TourTravelList li{ background: #eeeeee; height: 194px; width: 100%; float:left; margin-bottom: 20px;}
+.TourTravelList li img{width: 260px; height: 195px;}
+.TourTravelList li .ContRight{width: 310px; float: right; margin: 10px 12px 0 0; position: relative;}
+.TourTravelList li .ContRight .tit{font-size: 18px; height:auto;max-height: 70px; font-weight: bold;  line-height: 35px;overflow: hidden;}
+.TourTravelList li .ContRight .tit a{color: #333333;background: none;}
+.TourTravelList li .ContRight .tit a:hover{color: #eab66a;}
+.TourTravelList li .ContRight .nr{height: 40px;line-height: 20px; overflow: hidden;padding-top: 10px;}
+.TourTravelList li .ContRight .fun{color: #333;}
+.TourTravelList li .ContRight .fun .view i{background: url(http://images.57us.com/img/www/PublicIco.png) -5px -368px no-repeat; width:22px; height: 14px; display: inline-block;vertical-align: middle;}
+.TourTravelList li .ContRight em{width: 0;height: 0;border-top: 10px solid transparent;border-right: 20px solid #eeeeee;border-bottom: 10px solid transparent; position: absolute; top:28px; left:-38px;}
+/*当季推荐*/
+.SeasonTj{ width: 580px; height: auto;overflow: hidden;}
+
+.Seasonbox{ width: 280px; height: auto;overflow: hidden;}
+.SeasonCont{ height:67px; overflow: hidden;}
+.SeasonCont img{width:90px; height: 67px; float: left;}
+.SeasonCont a{display: inline-block;}
+.SeasonContR{width:178px; }
+.SeasonContR .tit a{ width: 100%;height:24px; line-height:24px; color: #333333; font-size:16px;overflow: hidden;display: block; font-weight: bold;white-space: nowrap;text-overflow: ellipsis; }
+.SeasonContR .tit a:hover{color: #eab66a;}
+.SeasonContR .nr{height:40px; line-height:20px; overflow: hidden;color: #666666; padding-top:6px;font-size: 12px;}
+.SeasonList{height:101px; overflow: hidden; font-size: 16px;}
+.SeasonList li a{ width: 100%; height:50px; line-height: 50px; display: block; border-bottom: 1px dashed #d3d3d3; color: #666666;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.SeasonList li a:hover{color: #eab66a;}
+.SeasonList li b{ padding: 0 4px; display: inline-block; height:20px; line-height: 20px; vertical-align: top; margin-top:15px; color: #868686; font-weight: normal;font-size: 12px;}
+
+
+/*美国留学*/
+.IndexStudy{ background: #eeeeee; margin:70px auto 0 ;}
+.IndexStudyUp{background: url(http://images.57us.com/img/www/mask.png) center -219px no-repeat;  width: 100%; height:102px;}
+.IndexStudyDown{background: url(http://images.57us.com/img/www/mask.png) center -323px no-repeat;  width: 100%; height:112px;}
+.IndexStudy .IndexTitle .name{ background-position: 0 -101px;}
+.IndexStudyHd{ height: 35px; overflow: hidden;text-align: center; padding-top: 40px;}
+.IndexStudyHd a{ height: 31px; display: inline-block; line-height: 31px; border: 2px solid #eeeeee;border-left: 0;border-right: 0; margin: 0 13px;font-size: 18px; padding: 0 3px;}
+.IndexStudyHd a:hover,.IndexStudyHd a.on{color: #eab66a;}
+.IndexStudyHd a.on{border-color: #3f3f3d;}
+.w280{width: 280px; height: auto;overflow: hidden;}
+.IndexImmg{}
+.IndexImmg .IndexTitle .name{ background-position: 0 -158px;}
+.IndexImmg .IndexStudyHd a{border-color: #fff;}
+.IndexImmg .IndexStudyHd a.on{border-color: #3f3e3c;}
+
+.SlideTourStudy .TourFind{width: 100%; height: 450px;overflow: hidden;}
+.SlideTourStudy .TourFind li{margin: 0 0 20px 0;}
+.StudyMenu dl{ padding: 10px 0 10px 57px; height: auto;overflow: hidden; position: relative; border-bottom: 1px dashed #d3d3d3;}
+.StudyMenu dl i.ico{background: url(http://images.57us.com/img/www/indexicon.png) no-repeat; width: 44px; height: 44px; display: inline-block;position: absolute;top: 10px; left: 0;}
+.StudyMenu dl.i1 i.ico{background-position: 0 0;}
+.StudyMenu dl.i2 i.ico{background-position: -44px 0;}
+.StudyMenu dl.i3 i.ico{background-position: -88px 0;}
+.StudyMenu dl.i4 i.ico{background-position: -132px 0;}
+.StudyMenu dl.i5 i.ico{background-position: -176px 0;}
+.StudyMenu dl dt { color: #3f3e3c; font-size: 20px; font-weight: bold; height: 26px; line-height: 26px;}
+.StudyMenu dl.last{border-bottom: 0;}
+.StudyMenu dl dd{padding-top: 6px;}
+.StudyMenu dl dd a{ color: #666666; float: left; margin-right: 10px; line-height: 22px;} 
+.StudyMenu dl dd a:hover{color: #29beb5;}
+.IndexStudy .bd{width: 874px; float: right; height: auto;overflow: hidden;}
+.IndexGuide{width: 414px; height: auto;overflow: hidden;}
+.IndexGuideImg{width: 414px; height: 310px; overflow: hidden;background: #000;}
+.IndexGuideImg .tit{ padding: 0 15px; height: 40px; line-height: 40px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis; margin-top: -40px; position: relative; color: #fff; font-size: 16px;}
+.IndexGuideImg a{display: block;}
+.IndexGuideImg img{filter:alpha(opacity=70);opacity: 0.7;width: 414px; height: 310px;}
+.IndexGuideImg a:hover img{filter:alpha(opacity=100);opacity:1;}
+.IndexStudyBdL{display: none;}
+.RaidersCont{ height: 300px; background: #fff; padding-left: 35px; overflow: hidden;}
+.RaidersCont .img,.RaidersCont img{width: 400px; height: 300px;}
+.RaidersCont .img{margin-left: 35px;}
+.RaidersCont .tit{font-size: 20px; font-weight: bold;color:#3f3e3c; line-height: 35px; max-height: 70px;}
+.RaidersCont .nr{ height: 150px; line-height: 30px; overflow: hidden;color: #666666;}
+.ExamTab{ padding-top: 30px; height: auto;overflow: hidden;width: 100%;border-top:1px solid #dcdcdc;}
+.TabHd{ height:30px;}
+.TabHd a{ float: left;height: 30px; line-height:30px; padding: 0 13px; margin-right:5px; font-size: 16px;}
+.TabHd a.on{background: #eab66a; color: #fff; border-radius:15px;}
+.ExamTab .Seasonbox,.HotProcess .Seasonbox{width: 409px;}
+.ExamTab .SeasonContR,.HotProcess .SeasonContR{width: 300px;}
+.TabBdL{display: none;}
+.IndexStudyLife{width: 100%;}
+.IndexStudyN .SeasonList{margin-top: -10px;}
+.IndexStudyLife .SeasonList{width: 920px; height: 152px; display: none;}
+.IndexStudyLife .SeasonList li{width: 415px; margin-right: 45px; float: left;}
+.IndexStudyLife .LifeHd{ height: 30px; line-height: 30px; border-bottom: 2px solid #e0e0e0;}
+.IndexStudyLife .LifeHd a{float: left; height: 30px; margin-right:20px; color: #3f3e3c; font-size: 16px;}
+.IndexStudyLife .LifeHd a:hover{ color: #eab66a;}
+.IndexStudyLife .LifeHd a.on{ color: #eab66a; border-bottom: 2px solid #eab66a;}
+.Analytical .SeasonList{margin-top: 1px; display: none; height: 203px;}
+.Analytical .TabBd{ height: 203px;}
+.IndexStudyL{width: 386px; height: auto;overflow: hidden;}
+.IndexStudyL .ad2{width: 386px; height: 447px; overflow: hidden;}
+.IndexStudyL .ad2 a{display: block;}
+.IndexImmgClass{ background:#eeeeee;height: 325px; padding: 25px 20px 0;}
+.IndexImmgClass li{ padding: 10px 0; height: auto;overflow: hidden; border-bottom: 1px solid #e1e1e1;}
+.IndexImmgClass li .num{ background: #eab66a; height: 33px; width: 33px; text-align: center; line-height: 33px; color: #fff;border-radius: 3px;font-size: 18px; font-family: arial;font-style: italic;}
+.IndexImmgClass li .cont{width: 290px;}
+.IndexImmgClass li .cont .tit{font-size: 20px; font-weight: bold; color: #3f3e3c; height: 30px; line-height: 30px;}
+.IndexImmgClass li .cont .nr{ height: 64px; line-height: 32px; overflow: hidden; font-size: 16px; display: none;}
+.IndexImmgClass li .cont .nr a{float: left; margin-right: 15px; color: #666666;}
+.IndexImmgClass li .cont .nr a:hover{color: #eab66a;}
+.IndexImmgClass li.on .cont .nr{display: block;}
+.IndexImmgClass li.on .num{ height: 106px; line-height: 106px;}
+.IndexImmg .bd{width: 792px; height: auto;overflow: hidden; float: right;}
+.ImmgBox{display: none;}
+.ImmgScroll{ width: 386px; height: auto; overflow: hidden;}
+.ImmgScroll .ImmgScrollMain{width: 100%; height: 289px; overflow: hidden;}
+.ImmgScroll .ImmgScrollMain li{width: 386px; height: 289px; position: relative;}
+.ImmgScroll .ImmgScrollMain li img{width: 386px; height: 289px;}
+.ImmgScroll .ImmgScrollMain li .tit{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7);height: 40px; line-height: 40px; padding: 0 15px; margin-top: -40px; position: relative; color: #fff;}
+.ImmgScroll .Immghd{width:396px ; height: 66px; overflow: hidden;}
+.ImmgScroll .Immghd li{width: 89px; height: 66px; overflow: hidden; float: left; margin-right: 10px; position: relative; cursor: pointer;}
+.ImmgScroll .Immghd li img{filter:alpha(opacity=70);opacity: 0.7;}
+.ImmgScroll .Immghd li.on img{filter:alpha(opacity=100);opacity:1;}
+.ImmgScroll .Immghd em{width: 83px; height: 60px; border: 3px solid #eab66a; position: absolute; top: 0; left: 0; z-index: 1;display: none;}
+.ImmgScroll .Immghd li.on em{display: block;}
+.ImmgScroll a{display: block;}
+.ImmgBox .TourBoxTitle{padding: 0 0 10px 0;}
+.profession{width: 386px; height: 305px;overflow: hidden;}
+.profession .SeasonContR{width: 278px;}
+.profession .SeasonList{ height: 203px;}
+.ArticleImg{width: 386px; height: 289px; position: relative;overflow: hidden; padding-top: 5px;}
+.ArticleImg .tit{ padding: 0 15px; height: 40px; line-height: 40px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis; margin-top: -35px; position: relative; color: #fff;font-size: 16px;}
+.ArticleImg a{display: block;background: #000;}
+.ArticleImg img{filter:alpha(opacity=70);opacity: 0.7;}
+.ArticleImg a:hover img{filter:alpha(opacity=100);opacity:1;}
+/*旅游链接*/
+.TravelLink{border-top: 1px solid #eeeeee; padding: 25px 0 0;}
+.TravelLink p{ padding-bottom: 20px;}
+.TravelLink a{color: #999999; padding: 0 5px; margin: 4px 20px 4px 0; display: inline-block; }
+.TravelLink b{ margin: 4px 15px 4px 0;}
+.TravelLink a:hover{color: #eab66a;}
+
+
+.ImmgBox .profession{height: auto;}
+.ImmgBox .SeasonList{ height: 305px;} 
+.ad2 .TourBoxTitle{padding: 0 0 10px 0;}

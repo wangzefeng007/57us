@@ -1,0 +1,115 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+    {template TourProductPlayTop}
+    <div class="panel-body">
+        <form action='/index.php?Module=TourPlay&Action=SetPlayVisaInformation&TourProductID={$TourProductID}'  method='post' enctype="multipart/form-data">
+            <div class="tourlist">
+                {loop $NewContentArray[ExpTitle] $Key $Lists}
+                <table class="table table-bordered table-sExpContented table-hover" style="width: 80% !important;">
+                    <tbody>
+                    <tr>
+                        <td colspan="2"><strong class="red">标题\内容{echo $Key+1}</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="fl col-sm-8" style="padding: 0">
+                                <div class="t-l cf fl">标题：</div>
+                                <div class="col-sm-10 cf">
+                                    <input type="text" name="ExpTitle[]" value="{$Lists}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="fr col-sm-4" style="padding: 0">
+                                <div class="col-sm-7 fr" style="padding: 0px !important;">
+                                    <select nname="ExpCss{echo $Key}" id="ExpCss{echo $Key}" class="form-control">
+                                        <option value="">请选择标题样式</option>
+                                        <option value="1" {if $NewContentArray[ExpCss][$Key]=='1'}selected="selected"{/if}>1</option>
+                                        <option value="2" {if $NewContentArray[ExpCss][$Key]=='2'}selected="selected"{/if}>2</option>
+                                        <option value="3" {if $NewContentArray[ExpCss][$Key]=='3'}selected="selected"{/if}>3</option>
+                                        <option value="4" {if $NewContentArray[ExpCss][$Key]=='4'}selected="selected"{/if}>4</option>
+                                    </select>
+                                </div>
+                                <div class="t-l cf fr">标题样式：</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p class="help-block">内容：</p>
+                            <script id="ExpContent{echo $Key}" name="ExpContent{echo $Key}" type="text/plain"></script>
+                            <script>
+                                var ue = UE.getEditor('ExpContent{echo $Key}',{initialContent:'{$NewContentArray[ExpContent][$Key]}',initialFrameHeight:200,autoHeightEnabled:false});
+                            </script>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                {/loop}
+            </div>
+            <table class="table table-bordered table-striped table-hover toursave" style="width: 80% !important;">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <input type='button' value='添加标题\内容' data="name{$list[PropertyID]}[]" class="btn btn-warning appendBtn"/>
+                        <p class="help-block">填写须知：</p>
+                        <p class="help-block">1、如果增加了多余，内容置空就不会添加该内容！</p>
+                        <p class="help-block">2、如果不分标题显示，可以标题置空，内容填写在第一个编辑器即可。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r" width="150"></td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="hidden" name="TourProductID" id="TourProductID" value="{$TourProductID}" />
+                            <input class="btn btn-danger" type='submit' value='提交保存'/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}
+<script type="text/javascript">
+    var i={$I};
+    var j={$I}-1;
+    $('.appendBtn').on('click',function(){
+        var divDom = $('.tourlist:last');
+        $('<table class="table table-bordered table-sDesContented table-hover" style="width: 80% !important;">' +
+                '<tbody>' +
+                '<tr>' +
+                '<td colspan="2"><strong class="red">标题\内容'+i+'</strong></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td colspan="2">' +
+                '<div class="fl col-sm-8" style="padding: 0"><div class="t-l cf fl">标题：</div><div class="col-sm-10 cf"><input type="text" name="ExpTitle[]" value="" class="form-control"/></div></div>' +
+                '<div class="fr col-sm-4" style="padding: 0"><div class="col-sm-7 fr" style="padding: 0px !important;">'+
+                '<select name="ExpCss'+j+'" id="ExpCss'+i+'" class="form-control">'+
+                '<option value="">请选择标题样式</option>'+
+                '<option value="1">1</option>'+
+                '<option value="2">2</option>'+
+                '<option value="3">3</option>'+
+                '<option value="4">4</option>'+
+                '</select>'+
+                '</div>'+
+                '<div class="t-l cf fr">标题样式：</div>'+
+                '</div>'+
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td colspan="2"><p class="help-block">内容：</p>' +
+                '<script id="ExpContent'+i+'" name="ExpContent'+j+'" type="text/plain"><\/script>' +
+                '</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>').appendTo(divDom);
+        var ue = UE.getEditor('ExpContent'+i,{initialContent:"",initialFrameWidth :1000,initialFrameHeight:200,autoHeightEnabled:false});
+        i++;j++;
+    }){if $I==1}.trigger('click'){/if}
+</script>

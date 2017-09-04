@@ -1,0 +1,63 @@
+<!--{template Head}-->
+<div id="middle"><!--{template LeftMenu}--> 
+    <div class="right" id="mainFrame">
+    <div class="right_cont">
+    <ul class="breadcrumb">当前位置：
+  旅游产品 <span class="divider">
+</ul>
+  {if $TourProductID}
+      <table class="table table-bordered table-striped table-hover">
+        <tbody>
+          <tr>
+            <td colspan="2"><h5>
+                <input class="nobth" type="button" value="产品详息" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=TourlineAdd&TourProductID={$TourProductID}'">
+                &nbsp;&nbsp;
+                <input class="nobth" type="button" value="设置行程" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetLineContent&TourProductID={$TourProductID}'">
+ 				&nbsp;&nbsp;
+                <input class="nobth" type="button" value="设置图片" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=TourImages&TourProductID={$TourProductID}'">
+                &nbsp;&nbsp;
+                <input class="nobth" type="button" value="设置属性" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetProperty&TourProductID={$TourProductID}'">
+                &nbsp;&nbsp;
+                <input class="bth" type="button" value="设置价格" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=TourPorductSkulist&TourProductID={$TourProductID}'">
+              </h5></td>
+          </tr>
+        </tbody>
+      </table>
+      {/if}
+      <table class="table table-bordered table-striped table-hover">
+        <tbody>
+        <tr>
+          <td colspan="5"><h5> 设置价格：</h5></td>
+        </tr>
+        <tr height="35" align="center">
+          <td align="left" nowrap="nowrap"><strong>产品名称 </strong></td>
+          <td nowrap="nowrap" center="left"><strong>SKU编号</strong></td>
+          <td nowrap="nowrap"><strong>销售属性</strong></td>
+          <td nowrap="nowrap"><strong> 状态</strong></td>
+          <td width="150" nowrap="nowrap"><strong> 操作 </strong></td>
+        </tr>
+        {loop $SkuLists $list}
+        <tr height="35" align="center">
+          <td align="left" nowrap="nowrap">{$list[SKUName]}</td>
+          <td nowrap="nowrap">{$list[SkuNO]}</td>
+          <td nowrap="nowrap">{loop $list[ProductPropertyArray] $Val}{$Val[ProductIDInfo]} {/loop}</td>
+          <td nowrap="nowrap">{$list[Status]}</td>
+          <td nowrap="nowrap">
+          {if $list[IsMail]=='1'}主SKU</a>{else}<a class="getinfo"  href="/index.php?Module=TourLine&Action=SkuMail&ProductSkuID={$list[ProductSkuID]}">设置为主SKU</a>{/if} | 
+          {if $list[Status]=='禁用'}<a class="getinfo"  href="/index.php?Module=TourLine&Action=SkuStatus&ProductSkuID={$list[ProductSkuID]}&Status=启用">启用</a>{else}<a class="getinfo"  href="/index.php?Module=TourLine&Action=SkuStatus&ProductSkuID={$list[ProductSkuID]}&Status=禁用">禁用</a>{/if} |
+          <a class="getinfo"  href="/index.php?Module=TourLine&Action=TourProductSkuPriceList&ProductSkuID={$list[ProductSkuID]}">设置价格</a> |
+          <a class="getinfo"  href="/index.php?Module=TourLine&Action=TourSkuEdit&ProductSkuID={$list[ProductSkuID]}&TourProductID={$TourProductID}">SKU设置</a></td>
+        </tr>
+        {/loop}
+          </tbody>
+        
+      </table>
+    </div>
+  </div>
+</div>
+<!--{template Foot}-->

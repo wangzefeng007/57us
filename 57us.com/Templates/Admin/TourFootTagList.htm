@@ -1,0 +1,107 @@
+{template Head}
+<style>
+  .panel-body ul{
+    margin-bottom: 10px;
+  }
+  .panel-body ul li{
+    margin-bottom: 10px;
+  }
+</style>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">城市专题管理</a>
+        </li>
+        <li class="active">旅游底部标签管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+      <span class="position hidden">旅游底部标签管理</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel breadcrumb">
+        <div class="panel-body" style="border-bottom: 1px solid #dfdfdf">
+          <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px"><input type="button" onClick="location.href='/index.php?Module=TourFootTag&Action=TourFootTagEdit'" value="添加" class="btn btn-danger"></span>
+        </div>
+        <div class="panel-body">
+        <p style="color:#FF0000;">热门旅游目的地</p>
+          <ul class="list-inline" style="width:100%; height:auto; overflow:hidden">
+            {loop $MuDiDi $lists}
+            <li>
+              [<a href="{$lists[TourFootTagUrl]}" target="_blank">{$lists[TourFootTagName]}</a>&nbsp;
+              <a href="/index.php?Module=TourFootTag&Action=TourFootTagEdit&ID={$lists[TourFootTagID]}">修改</a>&nbsp;
+              <a href="javascript:void(0)" data-id="{$lists[TourFootTagID]}" class="del">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          <p style="color:#FF0000;">热门旅游景点</p>
+          <ul class="list-inline" style="width:100%; height:auto; overflow:hidden">
+            
+            {loop $JingDian $lists}
+            <li>
+              [<a href="{$lists[TourFootTagUrl]}" target="_blank">{$lists[TourFootTagName]}</a>&nbsp;
+              <a href="/index.php?Module=TourFootTag&Action=TourFootTagEdit&ID={$lists[TourFootTagID]}">修改</a>&nbsp;
+              <a href="javascript:void(0)" data-id="{$lists[TourFootTagID]}" class="del">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          <p style="color:#FF0000;">美国旅游</p>
+          <ul class="list-inline" style="width:100%; height:auto; overflow:hidden">
+            
+            {loop $USTour $lists}
+            <li>
+            [<a href="{$lists[TourFootTagUrl]}" target="_blank">{$lists[TourFootTagName]}</a>&nbsp;
+            <a href="/index.php?Module=TourFootTag&Action=TourFootTagEdit&ID={$lists[TourFootTagID]}">修改</a>&nbsp;
+            <a href="javascript:void(0)" data-id="{$lists[TourFootTagID]}" class="del">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          <p style="color:#FF0000;">美国留学</p>
+          <ul class="list-inline" style="width:100%; height:auto; overflow:hidden">
+            
+            {loop $USStudy $lists}
+            <li>
+            [<a href="{$lists[TourFootTagUrl]}" target="_blank">{$lists[TourFootTagName]}</a>&nbsp;
+            <a href="/index.php?Module=TourFootTag&Action=TourFootTagEdit&ID={$lists[TourFootTagID]}">修改</a>&nbsp;
+            <a href="javascript:void(0)" data-id="{$lists[TourFootTagID]}" class="del">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          <p style="color:#FF0000;">美国移民</p>
+          <ul class="list-inline" style="width:100%; height:auto; overflow:hidden">
+            
+            {loop $USImmigrant $lists}
+            <li>
+            [<a href="{$lists[TourFootTagUrl]}" target="_blank">{$lists[TourFootTagName]}</a>&nbsp;
+            <a href="/index.php?Module=TourFootTag&Action=TourFootTagEdit&ID={$lists[TourFootTagID]}">修改</a>&nbsp;
+            <a href="javascript:void(0)" data-id="{$lists[TourFootTagID]}" class="del">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}
+<script>
+  $('.del').click(function () {
+    var delid = $(this).attr('data-id');
+    var text = $(this).prev().prev().text();
+    layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=TourFootTag&Action=Delete&ID='+delid;
+      layer.close(index);
+    });
+  })
+</script>

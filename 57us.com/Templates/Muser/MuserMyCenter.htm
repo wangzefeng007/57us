@@ -1,0 +1,77 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current">
+		<header class="bar bar-nav indexBar">
+			<p class="pull-left">
+                            <span class="homeBtn"><a href="{echo WEB_M_URL}"<i class="icon iconfont icon-home"></i></a></span>
+			</p>
+			<p class="pull-right">
+				<span class="newsBtn">
+					{if $_SESSION['IsHaveMessage']}<em class="redTip"></em>{/if}
+					<a href="/member/messagelist/"><i class="icon iconfont icon-message"></i></a>
+				</span>
+			</p>
+		</header>
+		<div class="content ">
+			<div class="userCont tac">
+				<a href="/member/information/"><img src="{echo LImageURL}{$UserInfo[Avatar]}" />
+					<p class="mt10">{$UserInfo[NickName]}</p>
+				</a>
+			</div>
+			<div class="row no-gutter indexMenu cf">
+				<a href="{echo WEB_M_URL}/tour/" class="col-50">
+					<i class="icon iconfont icon-lvyou"></i>美国旅游
+				</a>
+				<a href="{echo WEB_M_URL}/study/" class="col-50">
+					<i class="icon iconfont icon-liuxue"></i>美国留学
+				</a>
+			</div>
+			<div class="list-block mt10">
+				<ul>
+					<li>
+						<a href="/member/mywallet/" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">我的资产</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/member/collection/?t=news" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">资讯收藏</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/member/editpassword/" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">修改密码</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="item-link item-content chat">
+							<div class="item-inner">
+								<div class="item-title">联系客服</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--百度商桥页面-->
+<div class="page" id="chat">
+	<!-- 标题栏 -->
+	<header class="bar bar-nav suvBar">
+		<a href="javascript:void(0)" class="pull-left back backBtn close"><i class="icon iconfont icon-left"></i></a>
+		<h2 class="title">在线咨询</h2>
+	</header>
+	<div class="content">
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserMyCenter.js" charset='utf-8'></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+{template VoteHeader}
+<div class="body">
+    <h3 class="RankingTit RankingTit1"><i class="icon iconfont">&#xe06;</i>投票排行榜</h3>
+    <div class="wrap" style="padding-top: 2.5rem;">
+        <div id="wrapper">
+            <section>
+                <ul class="rankList">
+                    {loop $DataInfo $key $val}
+                    <li>
+                        <a href="/vote/member?id={$val['UserID']}">
+                            <div class="{if $key<3}pmNum{else}{/if}">
+                                <span class="{if $key<3}num{else}Pnum{/if}">{echo $key+1}</span>
+                            </div>
+                            <div class="rankM">
+                                <span class="img"><img src="{$val['HeadImgUrl']}" /></span>
+                                <span class="name">{$val['RealName']}</span>
+                            </div>
+                            <div class="rankRight">
+                                <p class="ballot"><b>{$val['VoteCount']}</b>票</p>
+                                <span class="zanBtn vote">为<span>TA</span>投票<i class="icon iconfont">&#xe03;</i></span>
+                            </div>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </section>
+        </div>
+    </div>
+    {template VoteFooter}
+</div>
+</body>
+<script type="text/javascript" src="<?php echo WEB_WECHAT_URL ?>/Templates/Wechat/Vote/js/iscroll/4.2.5/iscroll.min.js"></script>
+<script type="text/javascript" src="<?php echo WEB_WECHAT_URL ?>/Templates/Wechat/Vote/js/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="<?php echo WEB_WECHAT_URL ?>/Templates/Wechat/Vote/js/pullToRefresh.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        debug: false,
+        appId: '{$SignPackage[appId]}',
+        timestamp: {$SignPackage[timestamp]},
+        nonceStr: '{$SignPackage[nonceStr]}',
+        signature: '{$SignPackage[signature]}',
+        jsApiList: [
+            // 所有要调用的 API 都要加到这个列表中
+            'checkJsApi',
+            'openLocation',
+            'getLocation',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
+        ]
+    });
+</script>
+<script>
+    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在 页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready 函数中。
+    wx.ready(function(){
+        wx.onMenuShareAppMessage({
+            title: '美腿女神总决赛|57美国&不多不少&宜买车', // 分享标题
+            desc: '美腿女神总决赛|57美国&不多不少&宜买车',
+            imgUrl: '{echo ImageURL}/img/chat/vote/wechat_fx_logo.jpg',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                // alert('用户点击发送给朋友');
+            },
+            success: function (res) {
+                // alert('已分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: '57美国网| 美腿女神评选赛',
+            imgUrl: '{echo ImageURL}/img/chat/vote/wechat_fx_logo.jpg',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                // alert('用户点击分享到朋友圈');
+            },
+            success: function (res) {
+                // alert('已分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+    });
+</script>
+<!--<script src="<?php echo WEB_WECHAT_URL ?>/Templates/Wechat/Vote/js/vote.js"></script>-->
+<script>
+    refresher.init({
+        id: "wrapper",
+        pullDownAction: Refresh,
+        pullUpAction: pullUpAction
+    });
+
+    function Refresh() {
+        window.location.reload();
+    }
+
+    var j = 2; //初始化页码为2
+    var generatedCount = 0;
+    function pullUpAction() {
+        //上拉加载更多
+        var page = j++; // 每上拉一次页码加一次 （就比如下一页下一页）
+        var num;
+        for (i=0; i<5; i++) {  //序号递增修改i<1
+            num = ++generatedCount;
+        }
+        Load(page,num); // 运行ajax 把2传过去告诉后台我上拉一次后台要加一页数据（当然 这个具体传什么还得跟后台配合）
+    }
+    function Load(page,num) {
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: "/vote/rankingloading/",
+            data: {
+                'page': page // 传过去的页码
+            },
+            error: function() {
+                layer.msg('网络出错!');
+            },
+            success: function(data) {
+                if(data.ResultCode == '200') {
+                    if(data.Data.length) {
+                        var item;
+                        $.each(data.Data, function (i, vote) {
+                            var HeadPortrait;
+                            var RealName;
+                            if(vote.HeadPortrait){
+                                HeadPortrait = '{echo LImageURL}' + vote.HeadPortrait;
+                            }
+                            else{
+                                HeadPortrait = vote.HeadImgUrl;
+                            }
+                            RealName = vote.RealName;
+                            item = '<li>' +
+                                    '<a href=" /vote/member?id='+vote.UserID+'">' +
+                                    '<span class="Pnum">' + ++num +
+                                    '</span>'+
+                                    '<div class="rankM">'+
+                                    '<span class="img"><img src="'+HeadPortrait+'" /></span>'+
+                                    '<span class="name">'+RealName+'</span></div>'+
+                                    '<div class="rankRight"><p class="ballot"><b>'+ vote.VoteCount + '</b>票</p>'+
+                                    '<span class="zanBtn vote">为<span>TA</span>投票<i class="icon iconfont">&#xe03;</i></span>'+
+                                    '</div></a></li>'
+                            $('.rankList').append(item);
+                        });
+                        myScroll.refresh();
+                    } else {
+                        $('.pullUpLabel').html('亲，没有更多内容了！');
+                    }
+                } else if(data.ResultCode == '100') {
+                    $('.loader').hide();
+                    $('.pullUpLabel').html('亲，没有更多内容了！');
+                }
+            }
+        });
+    }
+</script>
+</html>

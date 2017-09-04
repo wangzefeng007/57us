@@ -1,0 +1,114 @@
+{template StudyTop}
+<link rel="stylesheet" href="/Plugins/fonts/mobile/iconfont.css">
+<script src="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+<link href="{echo CssURL}/bbs/study/style.css" rel="stylesheet" type="text/css" />
+<div class="w1200 BbsLocation">您当前位置：
+	<a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span><a href="{echo WEB_STUDY_URL}/ask/">问答</a><span>&gt;</span><a href="{echo WEB_STUDY_URL}/ask/team/">站队</a><span>&gt;</span><span class="Position"><a href="javascript:;">问答详情</a></span>
+</div>
+<div class="w1200 cf">
+
+	<!--分享描述-->
+	<span data-cmd='depict' class="hidden"></span>
+	<!--
+        作者：xiao15980751809@126.com
+        时间：2016-12-27
+        描述：固定问题跟功能
+    -->
+	<input type="hidden" name="AskId" id="AskId" value="{$AskInfo[AskID]}">
+
+	<div class="transition fixedFun">
+		<a href="JavaScript:void(0)" class="fr bradius standTeam myTeam">我要站队</a>
+		<a href="javascript:void(0)" class="fr bradius red askshare"><i class="icon iconfont icon-fenxiang"></i>分享</a>
+		<a href="javascript:void(0)" class="fr bradius red {if !$_SESSION['UserID']}_MustLogin{else}AskAttention{/if}" {if !$_SESSION['UserID']}data-type="tc_login"{/if}><i class="icon iconfont {if $AskInfo[IsCollection]}icon-ok{else}icon-start{/if}"></i>{if $AskInfo[IsCollection]}已关注{else}关注{/if}</a>
+		<span class="fl f16 pl10 tit">问题：{echo _substr($AskInfo[AskInfo],45)}</span>
+	</div>
+	<div class="w900 fl">
+		<div class="cf proDetailBox">
+			<div class="proDetailHead cf">
+				<span class="time fr">{echo date("Y-m-d H:i:s",$AskInfo['AddTime'])}</span>
+				<p class="fl user"><img src="{echo ImageURLP2}{$AskInfo[UserInfo][Avatar]}" width="36" height="36">{$AskInfo[UserInfo][NickName]}</p>
+			</div>
+			<h1 class="prodetailCont mt15">{$AskInfo[AskInfo]}</h1>
+			<div class="mt5 cf bradius proDetailBottom">
+				<a href="JavaScript:void(0)" class="fr standTeam myTeam">我要站队</a>
+				<p class="fr funDiv">
+					<a href="JavaScript:void(0)" class="askshare"><i class="icon iconfont icon-fenxiang"></i>分享</a>|
+					<a href="JavaScript:void(0)" class="{if !$_SESSION['UserID']}_MustLogin{else}AskAttention{/if} {if $AskInfo[IsCollection]}on{/if}"{if !$_SESSION['UserID']}data-type="tc_login"{/if}><i class="icon iconfont {if $AskInfo[IsCollection]}icon-ok{else}icon-start{/if}"></i>{if $AskInfo[IsCollection]}已关注{else}关注{/if}</a>
+				</p>
+				<p class="otherFun fl">
+					<span><i class="icon iconfont icon-yanjing"></i>{$AskInfo[BrowseNum]}次浏览</span>
+					<span><i class="icon iconfont icon-start"></i><span class="AskAttentionNum" style="margin: 0!important;">{$AskInfo[FollowNum]}</span>人关注</span>
+					<span><i class="icon iconfont icon-iconfont02"></i>{$AskInfo[AnswerNum]}人站队 </span>
+				</p>
+			</div>
+			<div class="teamLoad mt20 cf">
+				<div class="teamLoadH f16 cf">
+					<span class="fr green">反方：{$AskInfo[StandBack]}</span>
+					<span class="fl red">正方：{$AskInfo[StandSquare]}</span>
+				</div>
+				<div class="teamLoadL mt10">
+					<span class="Noneed" style="width:{$AskInfo[SquareScale]}%">{if $AskInfo[BackScale] != 100}{$AskInfo[SquareScale]}%{/if}</span>
+					<span class="need" style="width:{$AskInfo[BackScale]}%">{if $AskInfo[SquareScale] != 100}{$AskInfo[BackScale]}%{/if}</span>
+				</div>
+			</div>
+		</div>
+		<div class="proDetailBoxM">
+			{if $Data[Data]}
+			<ul class="appendManList">
+				{loop $Data[Data] $list}
+				<li>
+					<img src="{echo ImageURLP2}{$list[UserInfo][Avatar]}" width="36" height="36">
+					<p class="tit cf"><span class="name fl">{$list[UserInfo][NickName]}</span>{if $list[UserInfo][Identity]>1}<span class="compeTip bluetip">{$this->Identity[$list[UserInfo][Identity]]}</span>{/if}</p>
+					<p class="nr">{$list[AnswerInfo]}
+					</p>
+					<p class="mt5 cf">
+						<a class="fr zan AskZan" href="JavaScript:void(0)" data-id="{$list[AnswerID]}"><i class="icon iconfont icon-zan"></i><em class="AskZanNum">{$list[PraiseNum]}</em></a>
+						<span class="time fl">{$list[AddTime]}</span>
+					</p>
+					{if $list[StandInfo] == 1}
+					<span class="tip fftip">反</span>
+					{else}
+					<span class="tip zftip">正</span>
+					{/if}
+				</li>
+				{/loop}
+			</ul>
+			{if $Data['Data'] && $Rscount['Num']>$PageSize}
+			<div class="page mt35" id="Page2">
+				<form action="/ask_team/{$AskInfo[AskID]}.html" method="GET">
+					{$listpage}
+					<div class="GoPage">到 <input type="text" name="page" value="" class="input" maxlength="4"> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn"></div>
+				</form>
+			</div>
+			{/if}
+			{else}
+			<div class="noProblem mt10">
+				<div class="">
+					<p class="f22 tac mt50">
+						暂时还没有人选择站队
+					</p>
+					<p class="f18 tac mt10"><a href="JavaScript:void(0);" class="green shafa myTeam">快来抢沙发！</a></p>
+				</div>
+			</div>
+			{/if}
+		</div>
+	</div>
+	{template AskTeamRight}
+</div>
+<div class="sharePop">
+	<p class="tit">
+		<span class="close fr"><i class="icon iconfont icon-guanbifuzhi"></i></span>
+		<span class="fl fod">分享到：</span>
+	</p>
+	<div class="shareList">
+		
+	</div>
+</div>
+{template Footer}
+<!--留学公用js-->
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<!--站队公用js-->
+<script type="text/javascript" src="{echo JsURL}/bbs/study/AskPublic.js"></script>
+<script type="text/javascript" src="{echo JsURL}/bbs/study/AskTeamDetail.js"></script>
+</body>
+</html>

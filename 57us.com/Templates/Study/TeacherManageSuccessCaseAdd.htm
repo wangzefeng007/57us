@@ -1,0 +1,116 @@
+{template StudyTeacherManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="cf w1200 AddServiceBox mt40">
+    <div class="AddServiceBoxT">
+        <a href="javascript:window.history.back()" class="backBtn transition fr">返回上一页</a>
+        <span class="name fl">添加成功案例</span>
+    </div>
+    <div class="cf AddCaseM mt20">
+        <div class="AddCaseList">
+            <p class="left fl">学生姓名：</p>
+            <div class="inputBox">
+                <input type="text" name="StudentName" id="StudentName" value="" placeholder="不方便留全名，可：刘同学或L同学" class="InsInput">
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl">培训科目：</p>
+            <div type="selectbox" class="DiySelect diytearch otherDiy fl" id="TrainSubject">
+                <div class="opts">
+                    <a href="javascript:void(0);" value="托福">托福</a>
+                    <a href="javascript:void(0);" value="雅思">雅思</a>
+                    <a href="javascript:void(0);" value="SAT">SAT</a>
+                    <a href="javascript:void(0);" value="ACT">ACT</a>
+                    <a href="javascript:void(0);" value="GRE">GRE</a>
+                    <a href="javascript:void(0);" value="GMAT">GMAT</a>
+                    <a href="javascript:void(0);" value="PTE">PTE</a>
+                    <a href="javascript:void(0);" value="其它">其它</a>
+                </div>
+            </div>
+            <div class="inputBox pl10 hidden">
+                <input type="text" name="TrainSubjectCustom" id="TrainSubjectCustom" value="" placeholder="" class="InsInput" style="width: 85px;">
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl">就读学校：<span class="c9 chos">（选填）</span></p>
+            <div class="inputBox">
+                <input type="text" name="AttendSchool" id="AttendSchool" value="" placeholder="" class="InsInput">
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl">培训类别：</p>
+            <div type="selectbox" class="DiySelect diytearch fl otherDiy" id="TrainCategory">
+                <div class="opts">
+                    <a href="javascript:void(0);" value="阅读">阅读</a>
+                    <a href="javascript:void(0);" value="口语">口语</a>
+                    <a href="javascript:void(0);" value="写作">写作</a>
+                    <a href="javascript:void(0);" value="听力">听力</a>
+                    <a href="javascript:void(0);" value="其它">其它</a>
+                </div>
+            </div>
+            <div class="inputBox pl10 hidden">
+                <input type="text" name="TrainCategoryCustom" id="TrainCategoryCustom" value="" placeholder="" class="InsInput" style="width: 85px;">
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl" style="width: 96px;">培训前成绩：<span class="c9 chos">（选填）</span></p>
+            <div class="inputBox">
+                <input type="text" name="TrainPreScore" id="TrainPreScore" value="" placeholder="" class="InsInput" style="width: 230px">
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl" style="width: 96px;">培训后成绩：</p>
+            <div class="inputBox">
+                <input type="text" name="TrainHouScore" id="TrainHouScore" value="" placeholder="" class="InsInput" style="width: 230px;">
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl" style="width: 112px;">添加学生头像：<span class="c9 chos">（必填）</span></p>
+            <div class="right fl">
+                <p class="mt10 red">如果没有学生照片，可以添加录取学校的校徽，请尽量清晰，不能超过 5M</p>
+                <ul class="addPic addPic1 mt15" id="PicPortraits">
+                    <span class="AddBtn" id="AddPortraits"><i></i></span>
+                    <input type="file" id="addpreview" style="display: none"/>
+                </ul>
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl" style="width: 120px;">添加学生成绩：<span class="c9 chos">（选填）</span></p>
+            <div class="right fl">
+                <p class="mt10 red"></p>
+                <ul class="addPic mt15" id="PicOffer">
+                    <span class="AddBtn" id="AddOfferImg"><i></i></span>
+                    <input type="file" id="addOfferpreview" style="display: none"/>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="cf AddCaseM">
+        <div class="AddCaseList mt20 cf" style="width: 100%;">
+            <p class="left fl">学生反馈：<span class="c9 chos">（选填）<b class="pl20"></b></span></p>
+            <div class="right fl">
+                <textarea class="textare" name="StudentSurvey" id="StudentSurvey" rows="" cols="" placeholder="总体介绍服务该学生的过程或者遇到的问题并如何解决。"></textarea>
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl">案例描述：</p>
+            <div class="right fl">
+                <textarea class="textare" name="CaseDescription" id="CaseDescription" rows="" cols="" placeholder="简单介绍学生的优势，让有同样优势的学生看到。"></textarea>
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl"></p>
+            <div class="right fl">
+                <a href="javascript:void(0)" id="SubmitAudit" class="submitChange publicBtn0 fr">立即发布</a>
+                <div class="saveBoxL fl mt15">
+                    <a href="javascript:void(0)" id="SaveView">保存并预览一下</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/plupload/1.0.0/plupload.full.min.js"></script>
+<script src="{echo JsURL}/study/TeacherManageSucceedCaseAdd.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+{template Header}
+<div class="wrap">
+	{template NewsStudyMenu}
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" title="57美国网" target="_blank">首页</a>><a href="/study/" title="留学资讯" target="_blank">留学资讯</a>><span>{$CateInfo[CategoryName]}</span></div>
+		
+		<div class="w1200  cf">
+			{loop $AdStudyTopic $value}
+			<div class="adBox cf"><a href="{$value[Link]}" target="_blank"><img src="{echo LImageURL}{$value[Picture]}" title="{$value[Title]}" alt="{$value[Title]}" height="90"/></a></div>
+			{/loop}
+			<div class="w1248 cf">
+			{loop $StrategyCate $key $val}
+			{if $key < 2}
+			<div class="Examination fl">
+				<div class="ExaminationTit">
+					<a href="/study_{$val['Alias']}/" target="_blank" class="more fr">更多&gt;</a>
+					<span class="name fl">{$val['CategoryName']}</span>
+				</div>
+				<div class="hd mt5">
+					{loop $val['Two'] $k $v}
+					<a href="/study_{$v['Alias']}/" {if $k == 0}class="on"{/if}>{$v['CategoryName']}</a>
+					{/loop}
+				</div>
+				<div class="bd">
+					{loop $val['Two'] $k $v}
+					{if $v['News']}
+					<div class="ExamNewsbox cf" {if $key == 0}style="display: block;{/if}">
+						{if $v['TopNews'][0]}
+						<div class="ExamNewsCont">
+							<a href="/study/{$v['TopNews'][0]['StudyID']}.html" target="_blank"><img src="{echo ImageURLP2}{$v[TopNews][0]['Image']}" title="{$v[TopNews][0]['Title']}" alt="{$v[TopNews][0]['Title']}" class="transition lazy" width="204" height="154"/></a>
+							<div class="ExamNewsContR fr">
+								<p class="tit"><a href="/study/{$v['TopNews'][0]['StudyID']}.html" target="_blank">{$v[TopNews][0]['Title']}</a></p>
+								<p class="nr">{echo mb_substr($v['TopNews'][0]['Description'], 0, 55, 'utf-8')}…<a href="/study/{$v['TopNews'][0]['StudyID']}.html" target="_blank">【查看全部】</a></p>
+							</div>
+						</div>
+						{else}
+						<div class="ExamNewsCont">
+							<a href="/study/{$v['News'][0]['StudyID']}.html" target="_blank"><img src="{echo ImageURLP2}{$v['News'][0]['Image']}" src="{echo LImageURL}{$v[News][0]['Image']}" title="{$v[News][0]['Title']}" alt="{$v[News][0]['Title']}" class="transition lazy" width="204" height="154"/></a>
+							<div class="ExamNewsContR fr">
+								<p class="tit"><a href="/study/{$v['News'][0]['StudyID']}.html" target="_blank">{$v[News][0]['Title']}</a></p>
+								<p class="nr">{echo mb_substr($v['News'][0]['Description'], 0, 55, 'utf-8')}…<a href="/study/{$v['News'][0]['StudyID']}.html" target="_blank">【查看全部】</a></p>
+							</div>
+						</div>
+						{/if}
+						<ul class="ExamNewsList mt10">
+								{loop $v['News'] $k1 $v1}
+									<li><a href="/study/{$v1['StudyID']}.html"><span class="fr date">{echo date("Y-m-d",strtotime($v1['AddTime']))}</span><b>●</b>{$v1['Title']}</a></li>
+								{/loop}
+						</ul>
+					</div>
+					{/if}
+					{/loop}
+				</div>
+			</div>
+			{/if}
+			{/loop}
+			<div class="w1200 cf TearchScrollT mt20 fl">
+			  	<span class="fr"><a href="http://study.57us.com/" target="_blank">更多></a></span>
+			  	<span class="fl name">马上咨询</span>
+			  </div>
+			<div class="w1200 TearchScroll mt20 fl">
+				<a href="JavaScript:void(0)" class="prev">上一页</a>
+				<div class="TearchScrMain">
+					<ul class="cf">
+						{loop $Consultant $key $val}
+						{if $key < 4 }
+						<li class="expert"><a href="{echo WEB_STUDY_URL}/consultant/{$val['UserID']}.html" target="_blank"><img src="{$val['Avatar']}" alt="{$val['RealName']}" title="{$val['RealName']}" width="110" height="110"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+						{/if}
+						{/loop}
+						{loop $Teacher $key $val}
+						{if $key < 4 }
+						<li class="expert"><a href="{echo WEB_STUDY_URL}/teacher/{$val['UserID']}.html" target="_blank"><img src="{$val['Avatar']}" alt="{$val['RealName']}" title="{$val['RealName']}" width="110" height="110"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+						{/if}
+						{/loop}
+						{loop $Consultant $key $val}
+						{if $key > 3 }
+						<li class="expert"><a href="{echo WEB_STUDY_URL}/consultant/{$val['UserID']}.html" target="_blank"><img src="{$val['Avatar']}" title="{$val['RealName']}" alt="{$val['RealName']}" width="110" height="110"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+						{/if}
+						{/loop}
+						{loop $Teacher $key $val}
+						{if $key > 3 }
+						<li class="expert"><a href="{echo WEB_STUDY_URL}/teacher/{$val['UserID']}.html" target="_blank"><img src="{$val['Avatar']}" alt="{$val['RealName']}" title="{$val['RealName']}" width="110" height="110"><em class="transition"></em><span class="name transition">{$val['RealName']}</span><span class="Job transition">{$val['Grade']}</span></a></li>
+						{/if}
+						{/loop}
+					</ul>
+				</div>
+				<a href="JavaScript:void(0)" class="next">下一页</a>
+			</div>
+			{loop $StrategyCate $key $val}
+			{if $key >1 }
+			<div class="Examination mt25 fl">
+				<div class="ExaminationTit">
+					<a href="/study_{$val['Alias']}/" target="_blank" class="more fr">更多&gt;</a>
+					<span class="name fl">{$val['CategoryName']}</span>
+				</div>
+				<div class="hd mt5">
+					{loop $val['Two'] $k $v}
+					<a href="/study_{$v['Alias']}/" {if $k == 0}class="on"{/if}>{$v['CategoryName']}</a>
+					{/loop}
+				</div>
+				<div class="bd">
+					{loop $val['Two'] $k $v}
+					{if $v['News']}
+					<div class="ExamNewsbox cf" {if $key == 0}style="display: block;{/if}">
+						{if $v['TopNews'][0]}
+						<div class="ExamNewsCont">
+							<a href="/study/{$v['TopNews'][0]['StudyID']}.html" target="_blank"><img src="{echo ImageURLP2}{$v[TopNews][0]['Image']}" src="{echo LImageURL}{$v[TopNews][0]['Image']}" class="transition lazy" width="204" height="154" title="{$v[TopNews][0]['Title']}" alt="{$v[TopNews][0]['Title']}"/></a>
+							<div class="ExamNewsContR fr">
+								<p class="tit"><a href="/study/{$v['TopNews'][0]['StudyID']}.html" target="_blank">{$v[TopNews][0]['Title']}</a></p>
+								<p class="nr">{echo mb_substr($v['TopNews'][0]['Description'], 0, 55, 'utf-8')}…<a href="/study/{$v['TopNews'][0]['StudyID']}.html" target="_blank">【查看全部】</a></p>
+							</div>
+						</div>
+						{else}
+						<div class="ExamNewsCont">
+							<a href="/study/{$v['News'][0]['StudyID']}.html" target="_blank"><img src="{echo ImageURLP2}{$v[News][0]['Image']}" src="{echo LImageURL}{$v[News][0]['Image']}" class="transition lazy" width="204" height="154" title="{$v[News][0]['Title']}" alt="{$v[News][0]['Title']}"/></a>
+							<div class="ExamNewsContR fr">
+								<p class="tit"><a href="/study/{$v['News'][0]['StudyID']}.html" target="_blank">{$v[News][0]['Title']}</a></p>
+								<p class="nr">{echo mb_substr($v['News'][0]['Description'], 0, 55, 'utf-8')}…<a href="/study/{$v['News'][0]['StudyID']}.html" target="_blank">【查看全部】</a></p>
+							</div>
+						</div>
+						{/if}
+						<ul class="ExamNewsList mt10">
+							{loop $v['News'] $k1 $v1}
+							<li><a href="/study/{$v1['StudyID']}.html"><span class="fr date">{echo date("Y-m-d",strtotime($v1['AddTime']))}</span><b>●</b>{$v1['Title']}</a></li>
+							{/loop}
+						</ul>
+					</div>
+					{/if}
+					{/loop}
+				</div>
+			</div>
+			{/if}
+			{/loop}
+			<!--<div class="w1200 cf mt25 fl">
+				<div class="ExaminationTit"><span class="name fl">游学推荐</span></div>
+				<div class="ScrollPic mt20">
+					<a href="JavaScript:void(0)" class="prev transition"><i>上一页</i></a>
+					<div class="ScrollMain">
+						<ul>
+							{loop $AdStudyTour $key $val}
+							<li><a href="{$val[Link]}" target="_blank" title="{$val['Title']}"><img src="{echo LImageURL}{$val['Picture']}" src="{echo LImageURL}{$val['Picture']}" class="transition lazy" width="280" height="210" alt="{$val['Title']}" title="{$val['Title']}"/><p class="tit">{$val['Title']}</p></a></li>
+							{/loop}
+						</ul>
+					</div>
+					<a href="JavaScript:void(0)" class="next transition"><i>下一页</i></a>
+				</div>
+			</div>-->
+		</div>
+		</div>
+		<script src="{echo JsURL}/www/newsexam.js" type="text/javascript" charset="utf-8"></script>
+{template Footer}

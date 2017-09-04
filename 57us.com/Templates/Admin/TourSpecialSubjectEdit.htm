@@ -1,0 +1,82 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">旅游产品管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TourSpecialSubject&Action=TourSpecialSubjectList" class="position">旅游特色主题管理</a>
+                </li>
+                <li class="active" id="modify">添加主题</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=TourSpecialSubject&Action=Edit'  method='post'	enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td width="150" class="t-r">所属类别：</td>
+                                <td>
+                                    <input type="radio" name="Category" id="Category1" {if $TourSpecialSubjectInfo[Category]==1}checked="checked"{/if} value="1" />
+                                    跟团游
+                                    <input type="radio" name="Category" id="Category2" {if $TourSpecialSubjectInfo[Category]==2}checked="checked"{/if} value="2" />
+                                    一日游
+                                    <input type="radio" name="Category" id="Category3" {if $TourSpecialSubjectInfo[Category]==3}checked="checked"{/if} value="3" />
+                                    票务
+                                    <input type="radio" name="Category" id="Category4" {if $TourSpecialSubjectInfo[Category]==4}checked="checked"{/if} value="4" />
+                                    特色体验
+                                    <input type="radio" name="Category" id="Category5" {if $TourSpecialSubjectInfo[Category]==5}checked="checked"{/if} value="5" />
+                                    Wifi
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">主题名：</td>
+                                <td>
+                                    <div class="col-sm-2 cf">
+                                        <input type="text" name="SpecialSubjectName" value="{$TourSpecialSubjectInfo[SpecialSubjectName]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">排序：</td>
+                                <td>
+                                    <div class="col-sm-2 cf">
+                                        <input type="text" name="Sort" value="{$TourSpecialSubjectInfo[Sort]}" class="form-control"/>
+                                    </div>
+                                    <p class="help-block">越大排越前</p>
+                                </td>
+                            </tr>
+                            <tr id="MaterialRequested">
+                                <td class="t-r"></td>
+                                <td>
+                                    <input type="hidden" name="TourSpecialSubjectID" id="TourSpecialSubjectID" value="{$TourSpecialSubjectInfo[TourSpecialSubjectID]}" />
+                                    <input class="btn btn-danger" type='submit' value='提交保存'/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}
+<script>
+    var href = window.location.search.split('&');
+    var u = href[2].split('=')[0];
+    if(u == 'TourSpecialSubjectID'){
+        $("#modify").text('修改主题');
+    }
+</script>

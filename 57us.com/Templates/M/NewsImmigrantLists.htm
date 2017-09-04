@@ -1,0 +1,44 @@
+{template NewsHeader}
+<body>
+<div class="page-group">
+<div class="page page-current">
+  <div class="content pd25">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav contBar"> <a class="pull-left back" href="javascript:history.go(-1)"><i class="icon iconfont">&#xe604;</i></a>
+      <h1 class="title">{$Info[CategoryName]}</h1><a class="pull-right searchBtn" href="{echo WEB_M_URL}/search.html"><i class="icon iconfont">&#xe6b5;</i></a>
+    </header>
+    <div class="content ListCont">
+      <ul class="newsList">
+        {loop $Data[Data] $key $lists}
+        {if $lists[Image]!=''}
+        <li class="onePic gun{if $key>$this->OnePageSize} hidden{/if}"><a href="{echo WEB_M_URL}/news/immigrant/{$lists[ImmigrationID]}.html">
+          <p class="tit">{$lists[Title]}</p>
+          	<div class="cf">
+          		<p class="picImg"><img src="{echo ImageURLP4}{$lists[Image]}"  alt="{$lists[Title]}" title="{$lists[Title]}"></p>
+          		<p class="nr">{$lists[Description]}</p>
+            	<p class="diyCardFun"><span>{echo date("Y.m.d",strtotime($lists[AddTime]))}</span><span><i class="icon iconfont">&#xe620;</i>{$lists[ViewCount]}</span></p>
+          	</div>
+          </a></li>
+        {else} <a href="{echo WEB_M_URL}/news/immigrant/{$lists[ImmigrationID]}.html">
+        <li class="gun{if $key>$this->OnePageSize} hidden{/if}">
+          <p class="tit">{$lists[Title]}</p>
+          <p class="nr">{$lists[Description]}</p>
+          <p class="diyCardFun"><span>{echo date("Y.m.d",strtotime($lists[AddTime]))}</span><span><i class="icon iconfont">&#xe620;</i>{$lists[ViewCount]}</span></p>
+        </li>
+        </a> {/if}
+        {/loop}
+      </ul>
+      <!-- 加载提示符 -->
+      <div class="infinite-scroll-preloader {if $Data['RecordCount'] < 8}hidden{/if}">
+        <div class="preloader"></div>
+      </div>
+      <div class="pageBox" style="display: none;" id="nextpage">
+        {if $page>1}<a href="/news/immigrant_{$Alias}_{echo $page-1}/" class="prevbtn">上一页</a>{/if}
+        {if $page<$Data[PageCount]}<a href="/news/immigrant_{$Alias}_{$Data[NextPage]}/" class="nextbtn">下一页</a>{/if}
+        </div>
+    </div>
+     </div>
+</div>
+<script type='text/javascript' src="{echo JsURL}/m/news/NewTourListlib.js" charset='utf-8'></script>
+</body>
+</html>

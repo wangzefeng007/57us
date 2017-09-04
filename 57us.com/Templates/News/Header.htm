@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>{$Title}</title>
+ <meta name="keywords" content="{$Keywords}">
+ <meta name="description" content="{$Description}">
+ <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+ <link href="{echo CssURL}/www/newspublic.css" rel="stylesheet" type="text/css" />
+ <link href="{echo CssURL}/www/newsStyle.css" rel="stylesheet" type="text/css" />
+ <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+ <script src="{echo JsURL}/base/base.js"></script>
+ <script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+ <script src="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+ <script src="{echo JsURL}/base/jquery.SuperSlide/2.1/jquery.SuperSlide.2.1.js"></script>
+ <script src="{echo JsURL}/www/newspublic.js"></script>
+</head>
+<body>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+{template 'Common/RightNav',1}

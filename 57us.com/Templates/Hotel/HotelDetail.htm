@@ -1,0 +1,309 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/hotel/hotel.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo JsURL;?>/base/layer/2.4/layer.js"></script>
+<div class="w1200 HotelDetail mt20">
+	<div class="HotelPic">
+		<div id="tFocus">
+			<a class="prev" href="javascript:void(0)" id="prev"></a>
+			<a class="next" href="javascript:void(0)" id="next"></a>
+			<ul id="tFocus-pic">
+				{if $img_info} {loop $img_info $key $list}
+                                {if $key==0}
+				<li class="active"><img src="{echo ImageURLP6.$list['MyImageURL']}" width="433" height="280" alt="{$hotel_info['Name']}" /></li>
+                                {/if}
+				{/loop} 
+                                {else}
+				<li><img src="http://images.57us.com/img/common/loadpic.jpg" width="433" height="280" alt="" /></li>
+				{/if}
+			</ul>
+			<div id="tFocusBtn">
+				<a href="javascript:void(0);" id="tFocus-leftbtn">上一张</a>
+				<div id="tFocus-btn">
+					<ul>
+						{if $img_info} {loop $img_info $key $list}
+                                                {if $key<4}
+						<li {if $key==0}class="active" {/if}><img src="{echo ImageURLP2.$list['MyImageURL']}" width="107" height="68" alt="{$hotel_info['Name']}" /><i></i></li>
+                                                {/if}
+						{/loop} {else}
+						<li class="active"><img src="http://images.57us.com/img/common/loadpic.jpg" width="107" height="68" alt="" /><i></i></li>
+						{/if}
+					</ul>
+				</div>
+				<a href="javascript:void(0);" id="tFocus-rightbtn">下一张</a>
+			</div>
+		</div>
+	</div>
+	<div class="HoteListCont">
+		<p class="tit" data-tit="{echo $hotel_info[hotel_name]}">{echo $hotel_info[hotel_name]}</p>
+		<div class="HoteListIns">
+			{if $hotel_info[Address]}地址：{echo $hotel_info[Address]}{/if}
+			<br>电话：{if $hotel_info[Phone]}{echo $hotel_info[Phone]}{else}无{/if}
+			<br>酒店星级：
+			<span class="pj_star">{if $hotel_info[StarRating]}{echo $star[ceil($hotel_info[StarRating])]}{else}无{/if}</span>
+		</div>
+		<div class="HoteListFun mt20">
+			{if $amenity} {$amenity} {/if}
+		</div>
+
+	</div>
+	<div class="HoteListRight">
+		<div class="HoteListPrice">¥<i>{echo ceil($hotel_info[LowPrice])}</i><b>起</b></div>
+		<a href="javascript:;" id="" rel="sidebar" class="NowBook mt20 GoBooking">立即预定</a>
+		<a href="javascript:;" id="shouchang" rel="sidebar" class="CollectBtn mt20">添加收藏</a>
+	</div>
+</div>
+<div class="w1200 cf mt20" style="position: relative;">
+	<div class="SlideLeft">
+		<div class="HotelDetailMenu">
+			<div class="HotelDetailMenuBox">
+				<ul class="fl">
+					<li class="on">
+						<a href="JavaScript:void(0)">预定房型</a>
+					</li>
+					{if $hotel_info[Introduce]}
+					<li>
+						<a href="JavaScript:void(0)">酒店介绍</a>
+					</li>{/if} {if $room}
+					<li>
+						<a href="JavaScript:void(0)">酒店设施</a>
+					</li>{/if} {if $hotel_info[Policy]}
+					<li>
+						<a href="JavaScript:void(0)">酒店政策</a>
+					</li>{/if}
+				</ul>
+			</div>
+		</div>
+		<div class="DetailBox">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%" class="DetailChoseTab">
+				<tr height="35">
+					<th width="242">入住时间</th>
+					<th width="242">退房时间</th>
+					<th width="96">入住天数</th>
+					<th width="150">客房及住客数量</th>
+					<th width="109"></th>
+				</tr>
+				<tr height="40">
+					<td>
+						<div class="InputBox">
+							<input type="text" name="startDate" id="startDate" class="DetailChoseInput" value="" onFocus="var endDate=$dp.$('endDate');WdatePicker({onpicked:function(){endDate.focus();},doubleCalendar:true,dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d+0}'})" />
+						</div>
+					</td>
+					<td>
+						<div class="InputBox">
+							<input type="text" name="endDate" id="endDate" class="DetailChoseInput" value="" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'startDate\',{d:1});}',doubleCalendar:true,dateFmt:'yyyy-MM-dd'})" />
+						</div>
+					</td>
+					<td><span class="days"></span></td>
+					<td>
+						<span class="personNum" data-adultcount="2" data-childcount="0" data-childage="">2成人，0儿童</span>
+						<a href="javascript:void(0)" class="ChangeBtn">修改</a>
+					</td>
+
+					<td>
+						<a class="cupo ReSearchBtn" id="btn" data-id="{$hotel_info[HotelID]}">重新搜索</a>
+					</td>
+				</tr>
+			</table>
+			<div id="loading_bg" class="hidden"></div>
+			<div class="NoHotel hidden"></div>
+			<div id="changes">
+			</div>
+		</div>
+		{if $hotel_info[Introduce]}
+		<div class="DetailBox">
+			<div class="DetailBoxTit">酒店介绍</div>
+			<div class="DetailBoxNr">
+				<div class="cf HotelInsBox">
+					{echo $hotel_info[Introduce]}
+				</div>
+			</div>
+		</div>
+		{/if} {if $room}
+		<div class="DetailBox">
+			<div class="DetailBoxTit">酒店设施</div>
+			<h3 class="suvtit mt20">客房信息</h3>
+			<div class="DetailBoxNr">
+				<ul class="HotelFac">
+					{loop $room $list}
+					<li title="{$list}">{$list}</li>
+					{/loop}
+
+				</ul>
+
+			</div>
+			<div class="line mt10">
+
+			</div>
+			<h3 class="suvtit mt20">酒店信息</h3>
+			<div class="DetailBoxNr">
+				<ul class="HotelFac">
+					{loop $hotel $list}
+					<li title="{$list}">{$list}</li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		{/if} {if $hotel_info[Policy]}
+		<div class="DetailBox">
+			<div class="DetailBoxTit">酒店政策</div>
+			<div class="HotelPolicy">
+				{echo $hotel_info[Policy]}
+			</div>
+		</div>
+		{/if}
+	</div>
+	<style type="text/css">
+		.autofix_sb.fixed {
+			top: 60px !important;
+		}
+		
+		.autofix_sb.fixed.bottom {
+			top: auto !important;
+		}
+	</style>
+	<div class="SlideRight sidebar fr">
+		<div class="MapBox">
+			<div class="MapMain" data-log="{$hotel_info[Longitude]}" data-lat="{$hotel_info[Latitude]}">
+				<div id="map_canvas" style="width:100%; height:100%"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="cf mt50"></div>
+<div class="HotelPop hidden">
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr height="34">
+			<th>成人</th>
+			<th>孩童</th>
+		</tr>
+		<tr height="40">
+			<td>
+				<div class="num_box fl adultNum">
+					<a class="num_btn">-</a>
+					<input name="adultNum" class="num_input" value="2" readonly="">
+					<a class="num_btn">+</a>
+				</div>
+			</td>
+			<td>
+				<div class="num_box fl childrenNum">
+					<a class="num_btn">-</a>
+					<input name="childrenNum" class="num_input" value="0" readonly="">
+					<a class="num_btn">+</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="fl ChildAge hidden">
+					<p>儿童1</p>
+					<div name="city" type="selectbox" class="diyselect">
+						<div class="opts">
+							<a href="javascript:;" value="1">1岁</a>
+							<a href="javascript:;" value="2">2岁</a>
+							<a href="javascript:;" value="3">3岁</a>
+							<a href="javascript:;" value="4">4岁</a>
+							<a href="javascript:;" value="5">5岁</a>
+							<a href="javascript:;" value="6">6岁</a>
+							<a href="javascript:;" value="7">7岁</a>
+							<a href="javascript:;" value="8">8岁</a>
+							<a href="javascript:;" value="9">9岁</a>
+							<a href="javascript:;" value="10">10岁</a>
+							<a href="javascript:;" value="11">11岁</a>
+							<a href="javascript:;" value="12">12岁</a>
+							<a href="javascript:;" value="13">13岁</a>
+							<a href="javascript:;" value="14">14岁</a>
+							<a href="javascript:;" value="15">15岁</a>
+							<a href="javascript:;" value="16">16岁</a>
+							<a href="javascript:;" value="17">17岁</a>
+						</div>
+					</div>
+				</div>
+				<div class="fl ChildAge hidden">
+					<p>儿童2</p>
+					<div name="city" type="selectbox" class="diyselect">
+						<div class="opts">
+							<a href="javascript:;" value="1">1岁</a>
+							<a href="javascript:;" value="2">2岁</a>
+							<a href="javascript:;" value="3">3岁</a>
+							<a href="javascript:;" value="4">4岁</a>
+							<a href="javascript:;" value="5">5岁</a>
+							<a href="javascript:;" value="6">6岁</a>
+							<a href="javascript:;" value="7">7岁</a>
+							<a href="javascript:;" value="8">8岁</a>
+							<a href="javascript:;" value="9">9岁</a>
+							<a href="javascript:;" value="10">10岁</a>
+							<a href="javascript:;" value="11">11岁</a>
+							<a href="javascript:;" value="12">12岁</a>
+							<a href="javascript:;" value="13">13岁</a>
+							<a href="javascript:;" value="14">14岁</a>
+							<a href="javascript:;" value="15">15岁</a>
+							<a href="javascript:;" value="16">16岁</a>
+							<a href="javascript:;" value="17">17岁</a>
+						</div>
+					</div>
+				</div>
+				<div class="fl ChildAge hidden">
+					<p>儿童3</p>
+					<div name="city" type="selectbox" class="diyselect">
+						<div class="opts">
+							<a href="javascript:;" value="1">1岁</a>
+							<a href="javascript:;" value="2">2岁</a>
+							<a href="javascript:;" value="3">3岁</a>
+							<a href="javascript:;" value="4">4岁</a>
+							<a href="javascript:;" value="5">5岁</a>
+							<a href="javascript:;" value="6">6岁</a>
+							<a href="javascript:;" value="7">7岁</a>
+							<a href="javascript:;" value="8">8岁</a>
+							<a href="javascript:;" value="9">9岁</a>
+							<a href="javascript:;" value="10">10岁</a>
+							<a href="javascript:;" value="11">11岁</a>
+							<a href="javascript:;" value="12">12岁</a>
+							<a href="javascript:;" value="13">13岁</a>
+							<a href="javascript:;" value="14">14岁</a>
+							<a href="javascript:;" value="15">15岁</a>
+							<a href="javascript:;" value="16">16岁</a>
+							<a href="javascript:;" value="17">17岁</a>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<!--右侧地图的google地图插件-->
+<script src='http://maps.google.cn/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM' type="text/javascript"></script>
+<script src="<?php echo JsURL;?>/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script src="<?php echo JsURL;?>/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="<?php echo JsURL;?>/hotel/hotelpic.js"></script>
+<script src="<?php echo JsURL;?>/hotel/hoteldetail.js"></script>
+{template 'Common/TourFooter',1}
+	<div class="HotelPic2" style="display:none;">
+		<div id="tFocus">
+			<a class="prev" href="javascript:void(0)" id="prev"></a>
+			<a class="next" href="javascript:void(0)" id="next"></a>
+			<ul id="tFocus-pic">
+				{if $img_info} {loop $img_info $key $list}
+				<li {if $key==0}class="active"{/if}><img src="{echo ImageURLP6.$list['MyImageURL']}" width="433" height="280" alt="{$hotel_info['Name']}" /></li>         
+				{/loop} 
+                                {else}
+				<li><img src="http://images.57us.com/img/common/loadpic.jpg" width="433" height="280" alt="" /></li>
+				{/if}
+			</ul>
+			<div id="tFocusBtn">
+				<a href="javascript:void(0);" id="tFocus-leftbtn">上一张</a>
+				<div id="tFocus-btn">
+					<ul>
+						{if $img_info} {loop $img_info $key $list}
+						<li {if $key==0}class="active"{/if}><img src="{echo ImageURLP2.$list['MyImageURL']}" width="107" height="68" alt="{$hotel_info['Name']}" /><i></i></li>
+						{/loop} {else}
+						<li class="active"><img src="http://images.57us.com/img/common/loadpic.jpg" width="107" height="68" alt="" /><i></i></li>
+						{/if}
+					</ul>
+				</div>
+				<a href="javascript:void(0);" id="tFocus-rightbtn">下一张</a>
+			</div>
+		</div>
+	</div>
+<script>
+    $('.HotelPic').html($('.HotelPic2').html());
+</script>

@@ -1,0 +1,50 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current" id="orderAll">
+		<div class="collectMask"></div>
+		<header class="bar bar-nav suvBar">
+			<div class="headUp" id="shaixuan">
+				<a href="javascript:void(0);" data-id="0" class="on">全部</a>
+				<a href="javascript:void(0);" data-id="1">待付款</a>
+				<a href="javascript:void(0);" data-id="2">已付款</a>
+				<a href="javascript:void(0);" data-id="3">已取消</a>
+				<a href="javascript:void(0);" data-id="4">待评价</a>
+				<a href="javascript:void(0);" data-id="5">已完成</a>
+                                <a href="javascript:void(0);" data-id="6">退款中</a>
+                                <a href="javascript:void(0);" data-id="7">已退款</a>
+			</div>
+			<!--<div class="headUp" id="orderSty">-->
+			<!--<a href="">全部</a>-->
+			<!--<a href="">酒店</a>-->
+			<!--<a href="">出游</a>-->
+			<!--<a href="">签证</a>-->
+			<!--<a href="">租车</a>-->
+			<!--<a href="">高端定制</a>-->
+			<!--</div>-->
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<div class="title mangeList">
+				<!-- class="btn"--><span>出游订单<!--<i class="icon iconfont icon-left"></i>--></span>
+			</div>
+			<div class="pull-right sxbtn">筛选</div>
+		</header>
+		<div class="content pull-to-refresh-content infinite-scroll ListCont">
+			<!-- 默认的下拉刷新层 -->
+			<div class="pull-to-refresh-layer">
+				<div class="preloader"></div>
+				<div class="pull-to-refresh-arrow"></div>
+			</div>
+			<ul class="orderList" id="list">
+			</ul>
+			<div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+			<!-- 加载提示符 -->
+			<div class="infinite-scroll-preloader" style="display: none">
+				<div class="preloader">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserTourMyOrder.js" charset='utf-8'></script>
+</body>
+</html>

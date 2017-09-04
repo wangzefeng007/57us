@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title>公寓详情页</title>
+		<link href="http://css.57us.net/common/reset.css" rel="stylesheet" type="text/css" />
+		<script src="http://js.57us.net/base/jquery/1.8.3/jquery.min.js"></script>
+		<link href="http://css.57us.net/house/v3.1/style.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="MtopBar">
+				<div class="w1200 cf">
+					<div class="fl">欢迎来到57美国网旅游平台!</div>
+					<div class="fr">|
+						<a href="http://www.57us.com/about/zhifu.html" target="_blank">帮助中心</a>
+					</div>
+					<div class="fr">
+						<div class="UserStatus fr">
+							<div class="UserLogin">
+								<a href="http://member.57us.com/member/login/">登录</a><span id="">|</span>
+								<a href="http://member.57us.com/member/register/">免费注册</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header">
+				<div class="w1200 cf">
+					<span class="fr HeaderTell">欢迎拨打电话咨询400-018-5757</span>
+					<div class="StudySearch fr">
+						<div class="StudySearchTool">
+
+						</div>
+						<div class="StudySearchBox">
+							<form action="http://study.57us.com/so.html" method="post" target="_blank">
+								<input type="text" name="keyword" id="keyword" placeholder="" class="input">
+								<input type="submit" id="" value="搜索" class="SearchBtn transition">
+								<input id="t" name="t" value="service" type="hidden">
+							</form>
+						</div>
+					</div>
+					<a href="http://study.57us.com" class="StudyLogo" title="57美国网">57美国网</a>
+				</div>
+			</div>
+			<div class="StudyMenu">
+				<ul class="w1200 cf">
+					<li>
+						<a href="http://study.57us.com" class="FirstA">首页</a><span class="line"></span></li>
+					<li>
+						<a href="/consultant/" class="FirstA">找顾问</a><span class="line"></span></li>
+					<li>
+						<a href="/teacher/" class="FirstA">找教师</a><span class="line"></span></li>
+					<li>
+						<a href="/consultant_service/" class="FirstA">留学商城<i></i></a><span class="line"></span>
+						<div class="SeconMenu" style="width:488px; margin-left: -245px;">
+							<em></em>
+							<div class="SeconMenuM1">
+								<dl class="fl">
+									<dt><a href="/consultant_service/">所有服务</a></dt>
+									<dd style="border-right: 1px solid #e5e5e5;">
+										<a href="/consultant_service/?t=1">全程服务</a>
+										<a href="/consultant_service/?t=2">申请学校</a>
+										<a href="/consultant_service/?t=3">文书服务</a>
+										<a href="/consultant_service/?t=4">定校方案修改</a>
+										<a href="/consultant_service/?t=7">背景提升</a>
+										<a href="/consultant_service/?t=6">材料翻译</a>
+										<a href="/consultant_service/?t=5">签证培训</a>
+									</dd>
+								</dl>
+								<dl class="fr" style="width: 180px;">
+									<dt><a href="/teacher_course/">所有课程</a></dt>
+									<dd>
+										<a href="/teacher_course/?t=1">雅思</a>
+										<a href="/teacher_course/?t=2">托福</a>
+										<a href="/teacher_course/?t=3">SAT</a>
+										<a href="/teacher_course/?t=4">ACT</a>
+										<a href="/teacher_course/?t=5">GMAT</a>
+										<a href="/teacher_course/?t=6">GRE</a>
+										<a href="/teacher_course/?t=7">PTE</a>
+
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="/highschool/" class="FirstA">院校库<i></i></a><span class="line"></span>
+						<div class="SeconMenu"> <em></em>
+							<div class="SeconMenuM">
+								<a href="/highschool/">高中</a>
+								<a href="/college/">本科</a>
+								<a href="/graduateschool/">研究生</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="/studytour/" class="FirstA">去游学</a><span class="line"></span>
+					</li>
+					<li>
+						<a href="http://www.57us.com/study/" class="FirstA" target="_blank">留学资讯<i></i></a><span class="line"></span>
+						<div class="SeconMenu">
+							<em></em>
+							<div class="SeconMenuM">
+								<a href="http://www.57us.com/studytopic_uscolege/" target="_blank">院校</a>
+								<a href="http://www.57us.com/studytopic_news/" target="_blank">留学</a>
+								<a href="http://www.57us.com/studytopic_exam/" target="_blank">考试</a>
+								<a href="http://www.57us.com/studytopic_guide/" target="_blank">签证</a>
+								<a href="http://www.57us.com/topic/lecture/" target="_blank">留学讲堂</a>
+							</div>
+						</div>
+					</li>
+					<li class="on">
+						<a href="/studytour/" class="FirstA">留学公寓</a><span class="line"></span>
+					</li>
+				</ul>
+			</div>
+			<div class="w1200 StudyLocation">您当前位置：
+				<a href="http://study.57us.com">首页</a><span>&gt;</span>
+				<span class="Position">院校库</span>
+				<span id="Position"></span>
+			</div>
+			<div class="w1200 cf">
+				<div class="detailHead">
+					<div class="flatPic">
+						<a href=""><img src="http://images.57us.com/p4/up/2017/0228/201702281446412974.jpeg" width="584" height="310" /></a>
+						<span class="picNum">205张图片</span>
+					</div>
+					<div class="detailHeadR fr">
+						<p class="detit">里约热内卢科帕卡巴纳度假公寓里约热内卢科帕卡巴纳度假公寓</p>
+						<p class="ListService mt25">
+							<span>接送机</span>
+							<span>中文服务</span>
+							<span>中文服务</span>
+						</p>
+						<div class="flatCs mt20">
+							<p><span class="c9">房源编号：</span>XXX</p>
+							<p><span class="c9">公寓地址：</span>521 West 48th Street New York NY 10036</p>
+						</div>
+						<div class="flatDetaFun mt25">
+							<div class="flatMoney fr">
+								租金：<span class="price">$<i>10000</i><em class="f18">/月</em></span>
+							</div>
+							<a href="" class="checkMap fl">查看地图</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="w1200 mt30 cf">
+				<div class="SlideLeft1 fl">
+					<div class="DetailCont cf">
+						<div class="contMenu">
+							<ul>
+								<li class="on">公寓概况<span class="line"></span></li>
+								<li>公寓设施<span class="line"></span></li>
+								<li>房租包含<span class="line"></span></li>
+								<li>安全保障<span class="line"></span></li>
+							</ul>
+						</div>
+						<div class="cf DetailContM">
+							<div class="contBox">
+								<p class="contBoxT"><i></i>公寓简介</p>
+								<div class="contBoxCont">
+									公寓能够满足您高层次的入住需求，提供门禁服务，提供全套公寓。全新电梯大楼，对讲系统， 可方便到达城市各个地方。全套家具，设备齐全的厨房、浴室。屋顶可欣赏曼哈顿美景。附近有 餐馆、影剧院、购物商店、时代广场，步行至福特汉姆大学。公寓能够满足您高层次的入住需求，提供门禁服务，提供全套公寓。全新电梯大楼，对讲系统， 可方便到达城市各个地方。全套家具，设备齐全的厨房、浴室。屋顶可欣赏曼哈顿美景。附近有 餐馆、影剧院、购物商店、时代广场，步行至福特汉姆大学。公寓能够满足您高层次的入住需求，提供门禁服务，提供全套公寓。全新电梯大楼，对讲系统， 可方便到达城市各个地方。全套家具，设备齐全的厨房、浴室。屋顶可欣赏曼哈顿美景。附近有 餐馆、影剧院、购物商店、时代广场，步行至福特汉姆大学。
+								</div>
+							</div>
+							<div class="contBox">
+								<p class="contBoxT"><i></i>公寓设施</p>
+								<div class="contBoxCont">
+									<ul class="stepList">
+										<li><i class="ico ico1_1"></i>电</li>
+										<li><i class="ico ico1_2"></i>水</li>
+										<li><i class="ico ico1_3"></i>网络</li>
+										<li><i class="ico ico1_4"></i>煤气</li>
+										<li><i class="ico ico1_5"></i>暖气</li>
+										<li><i class="ico ico1_6"></i>电梯</li>
+										<li><i class="ico ico1_7"></i>空调</li>
+										<li><i class="ico ico1_8"></i>洗衣房</li>
+									</ul>
+								</div>
+							</div>
+							<div class="contBox">
+								<p class="contBoxT"><i></i>房租包含</p>
+								<div class="contBoxCont">
+									<ul class="stepList">
+										<li><i class="ico ico2_1"></i>家具</li>
+										<li><i class="ico ico2_2"></i>暖气</li>
+										<li><i class="ico ico2_3"></i>电费</li>
+										<li><i class="ico ico2_4"></i>水费</li>
+										<li><i class="ico ico2_5"></i>煤气费</li>
+									</ul>
+								</div>
+							</div>
+							<div class="contBox">
+								<p class="contBoxT"><i></i>安全保障</p>
+								<div class="contBoxCont">
+									<ul class="stepList">
+										<li><i class="ico ico3_1"></i>安全门禁</li>
+										<li><i class="ico ico3_2"></i>视频监控</li>
+										<li><i class="ico ico3_3"></i>礼宾处</li>
+										<li><i class="ico ico3_4"></i>维修维护团队</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="otherFlat cf">
+						<div class="titl">
+							<span class="name">该公寓其它房型</span>
+						</div>
+						<ul class="tjList">
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="276" height="188">
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪森酒店</p>
+									<div class="boFun">
+										<p class="fl price">$<em>3,920.00</em>/月</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="276" height="188">
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪森酒店</p>
+									<div class="boFun">
+										<p class="fl price">$<em>3,920.00</em>/月</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="276" height="188">
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪森酒店</p>
+									<div class="boFun">
+										<p class="fl price">$<em>3,920.00</em>/月</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="otherFlat cf">
+						<div class="titl">
+							<span class="name">该公寓其它房型</span>
+						</div>
+						<ul class="tjList">
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="276" height="188">
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪森酒店</p>
+									<div class="boFun">
+										<p class="fl price">$<em>3,920.00</em>/月</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="276" height="188">
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪森酒店</p>
+									<div class="boFun">
+										<p class="fl price">$<em>3,920.00</em>/月</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="276" height="188">
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪森酒店</p>
+									<div class="boFun">
+										<p class="fl price">$<em>3,920.00</em>/月</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="SlideRight1 fr">
+					<div class="flatNeed">
+						<p class="flatNeedT">租房需求</p>
+						<div class="feedbackTab mt10">
+							<table border="0" cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<th>公寓名或地点：</th>
+								</tr>
+								<tr>
+									<td><input type="text" name="" id="" value="" /></td>
+								</tr>
+								<tr>
+									<th>入住时间：</th>
+								</tr>
+								<tr>
+									<td><input type="text" name="" id="" value="" class="time" /></td>
+								</tr>
+								<tr>
+									<th>租期：</th>
+								</tr>
+								<tr>
+									<td><input type="text" name="" id="" value="" /></td>
+								</tr>
+								<tr>
+									<th>其他要求：</th>
+								</tr>
+								<tr>
+									<td><input type="text" name="" id="" value="" /></td>
+								</tr>
+								<tr>
+									<td>
+										<a href="" class="zxBtn">立即咨询</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="flatMap mt20">
+						<img src="http://images.57us.com/img/hotel/pic/map.jpg" />
+					</div>
+					<div class="hostoryFlat mt10">
+						<p class="title">您最近浏览过的</p>
+						<ul class="hostoryList">
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="120" height="80px" />
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪</p>
+									<p class="price">$<em>3,920.00</em>/月</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="120" height="80px" />
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪</p>
+									<p class="price">$<em>3,920.00</em>/月</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="http://images.57us.com/l/up/2016/1116/201611161808208404.jpg" width="120" height="80px" />
+									<p class="tit">洛杉磯機場拉迪森飯店洛杉矶机场拉迪</p>
+									<p class="price">$<em>3,920.00</em>/月</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="cf mt40"></div>
+			<div class="StudyFoot">
+				<div class="w1200 mt10 cf">
+					<a class="FootLogo mt10" href="http://www.57us.com" title="57美国网">57美国网</a>
+					<div class="FootCont fl">
+						<a href="http://www.57us.com/about/contacts.html" target="_blank" title="公司简介" style="padding-left: 0;">公司简介</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/about/contact.html" target="_blank" title="联系我们">联系我们</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/about/map.html" target="_blank" title="站点地图">站点地图</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/about/tiaokuan.html" target="_blank" title="使用条款">使用条款</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/about/privacy.html" target="_blank" title="隐私保护">隐私保护</a>
+						<a href="JavaScript:void(0)">|</a>
+						<!--<a href="http://www.57us.com/about/zhifu.html" target="_blank" title="帮助中心">帮助中心</a>-->
+						<span class="wecome">欢迎拨打电话咨询</span>
+						<br> 地址：厦门市思明区软件园二期观日路34号之一201Z&nbsp;&nbsp;&nbsp;电话：0592-5919203
+						<span class="FootTell">400-018-5757</span><br> Copyright © 2016 57US.com
+						<a href="http://www.57us.com" title="57美国网">57美国网</a>&nbsp;&nbsp;&nbsp;美华通（厦门）网络科技有限公司&nbsp;&nbsp;&nbsp;闽ICP备15017345号
+					</div>
+					<ul class="FootMeida fr">
+						<li class="i1">
+							<div class="ChatCode transition"><img src="http://images.57us.com/img/common/wxstudy.jpg" width="112" height="112"><em></em></div>
+						</li>
+						<li class="i2">
+							<div class="ChatCode transition"><img src="http://images.57us.com/img/common/wb.jpg" width="112" height="112"><em></em></div>
+						</li>
+					</ul>
+				</div>
+				<div class="w1200 safeBox mt10 cf">
+					<a href="http://www.isc.org.cn/" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe1_3.0.png" height="47"></a>
+					<a href="http://wsgs.fjaic.gov.cn/creditpub/notice/view?uuid=1gM0nGULIzO5wVPW8xQpfwZUq0lfoM7X&amp;tab=01" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe2_3.0.png" height="47"></a>
+					<a href="http://www.12377.cn/" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe3_3.0.png" height="47"></a>
+					<a href="http://www.cyberpolice.cn/wfjb/" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe4_3.0.png" height="47"></a>
+					<a href="http://webscan.360.cn/index/checkwebsite/url/www.57us.com" rel="nofollow" target="_blank"><img border="0" src="http://images.57us.com/img/common/safe6_3.0.png" height="47"></a>
+					<a href="https://ss.knet.cn/verifyseal.dll?sn=e16091435020064717vyo0000000&amp;comefrom=trust&amp;trustKey=dn&amp;trustValue=www.57us.com" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe5_3.0.png" height="47"></a>
+					<a href="http://ec.eqixin.com/?sn=QX2066134012191473748886" rel="nofollow" target="_blank"><img src="http://images.57us.com/img/common/safe7_3.0.png" height="47"></a>
+				</div>
+			</div>
+
+		</div>
+		<!--
+        	作者：xiao15980751809@126.com
+        	时间：2017-03-01
+        	描述：在线留言
+        -->
+		<div class="popMask">
+			<div class="flatPop feedPop">
+				<div class="popbox">
+					<span class="close"></span>
+					<p class="popboxT">租房需求</p>
+					<div class="feedbackTab mt10">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<th>公寓名或地点：</th>
+							</tr>
+							<tr>
+								<td><input type="text" name="" id="" value="" /></td>
+							</tr>
+							<tr>
+								<th>入住时间：</th>
+							</tr>
+							<tr>
+								<td><input type="text" name="" id="" value="" class="time" /></td>
+							</tr>
+							<tr>
+								<th>租期：</th>
+							</tr>
+							<tr>
+								<td><input type="text" name="" id="" value="" /></td>
+							</tr>
+							<tr>
+								<th>其他要求：</th>
+							</tr>
+							<tr>
+								<td><input type="text" name="" id="" value="" /></td>
+							</tr>
+							<tr>
+								<td>
+									<a href="" class="zxBtn">立即咨询</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--
+        	作者：xiao15980751809@126.com
+        	时间：2017-03-01
+        	描述：地图
+        -->
+        <div class="popMask"id="mapPop" >
+        	<div class="flatPop mapop">
+        		<div class="popbox">
+        			<span class="close"></span>
+        			<p class="popboxT">公寓地图</p>
+        			<div class="mapCont">
+        				
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <!--
+        	作者：xiao15980751809@126.com
+        	时间：2017-03-01
+        	描述：咨询留下电话
+        -->
+        <div class="popMask" id="contactPop" >
+        	<div class="flatPop contact">
+        		<div class="popbox">
+        			<span class="close"></span>
+        			<p class="popboxT">联系方式</p>
+        			<div class="feedbackTab mt25">
+        				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+        					<tr>
+        						<td><input type="text" name="" id="" value="" placeholder="如何称呼您？" /></td>
+        					</tr>
+        					<tr>
+        						<td><input type="text" name="" id="" value="" placeholder="电话号码" /></td>
+        					</tr>
+        					<tr>
+        						<td>
+        							<div class="other">
+        								<span class="line"></span>
+        								<span class="name">或</span>
+        							</div>
+        						</td>
+        					</tr>
+        					<tr>
+        						<td><input type="text" name="" id="" value="" placeholder="电子邮箱" /></td>
+        					</tr>
+        					<tr>
+        						<td><a href="" class="zxBtn">提交</a></td>
+        					</tr>
+        				</table>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        
+		<script type="text/javascript" charset="utf-8">
+			
+			ScrollFixed()
+			//定位锚点
+			function ScrollFixed() {
+				var naviTop = jQuery(".contMenu").offset().top;
+				jQuery('.contMenu ul li').click(function() {
+					var $dayLi = jQuery(this).index();
+					var dInfor = jQuery(".contBox").eq($dayLi).offset().top - 50;
+					jQuery('html, body').animate({
+						scrollTop: dInfor
+					}, 5);
+				});
+				function checkScroll(forcon, forli, wtop) {
+					var next = forcon.size() - 1;
+					while(next > -1) {
+						var itemTop = forcon.eq(next).offset().top - 70;
+						if(wtop >= itemTop) {
+							forli.eq(next).addClass("on").siblings().removeClass("on");
+							return false;
+						}
+						next--;
+					};
+				}
+				jQuery(window).scroll(function() {
+
+					var wintop = jQuery(window).scrollTop();
+					if(naviTop >= wintop) {
+						$(".contMenu ul").removeClass("fix_xc");
+					} else {
+						$(".contMenu ul").addClass("fix_xc");
+					}
+					checkScroll(jQuery('.contBox'), jQuery('.contMenu ul li'), wintop);
+
+				});
+
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$Title}</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="{echo CssURL}/wechat/likeactive/style.css?20161223v1">
+</head>
+<body>
+<div class="body">
+    <!--
+        作者：xiao15980751809@126.com
+        时间：2016-12-23
+        描述：弹窗二维码
+    -->
+    <div class="popMask">
+        <div class="popBox">
+            <span class="popclose"></span>
+            <p class="text">长按识别二维码<br>进入公众号领取专属标签</p>
+            <img src="{echo ImageURL}/img/common/wxtravel.jpg" class="mt10"/>
+        </div>
+    </div>
+    <div class="conter">
+        <header>
+            <img src="{$ToUserInfo['HeadImgUrl']}" class="fl"/>
+            <p>【{$ToUserInfo['NickName']}】的专属标签<br>&nbsp;我有这么好小伙伴们知道吗？</p>
+        </header>
+        <section>
+            <ul class="list">
+                {loop $TagInfo $key $val}
+                <li>
+                    <div class="listCont">
+                        <p class="tit">{$val['TagName']}</p>
+                        {if count($val['LikeUser'])}
+                        <p class="userFace">
+                            {loop $val['LikeUser'] $val1}
+                            <i><img src="{$val1['OperateUserHeadImgUrl']}"/></i>
+                            {/loop}
+                            {if count($val['LikeUser'])>5}
+                            <a href="JavaScript:void(0)" class="more morem"></a>
+                            {/if}
+                        </p>
+                        {else}
+                        <p class="text">还没有人赞同该标签</p>
+                        {/if}
+                    </div>
+                    <div class="listRight">
+                        <span class="icon {if $val[IsLike]}on{/if}" data-type="{if $val[IsLike]}2{else}1{/if}" data-id="{$val['TagID']}"></span>
+                        <p>赞同（<em>{echo count($val['LikeUser'])}</em>）</p>
+                    </div>
+                </li>
+                {/loop}
+            </ul>
+        </section>
+        <footer class="mt20"><a href="{if $IsJudge}/tag/index/{else}JavaScript:void(0){/if}" class="appendActive" {if !$IsJudge} id="appendActive"{/if}>看看我在好友心目中的形象</a></footer>
+    </div>
+</div>
+<script type='text/javascript' src="{echo JsURL}/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/lib.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/layer.mobile/2.0/layer.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/wechat/likeactive/app.js" charset='utf-8'></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        debug: false,
+        appId: '{$SignPackage[appId]}',
+        timestamp: {$SignPackage[timestamp]},
+        nonceStr: '{$SignPackage[nonceStr]}',
+        signature: '{$SignPackage[signature]}',
+        jsApiList: [
+            // 所有要调用的 API 都要加到这个列表中
+            'checkJsApi',
+            'openLocation',
+            'getLocation',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
+        ]
+    });
+</script>
+<script>
+    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在 页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready 函数中。
+    wx.ready(function(){
+        wx.onMenuShareAppMessage({
+            title: '{$ShareTitle}', // 分享标题
+            desc: '{$ShareDesc}',
+            imgUrl: '{$ShareImg}',
+            link:'{$ShareUrl}',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                // alert('用户点击发送给朋友');
+            },
+            success: function (res) {
+                // alert('已分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: '{$ShareTitle}', // 分享标题
+            imgUrl: '{$ShareImg}',
+            link:'{$ShareUrl}',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                // alert('用户点击分享到朋友圈');
+            },
+            success: function (res) {
+                // alert('已分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+    });
+</script>
+</body>
+</html>

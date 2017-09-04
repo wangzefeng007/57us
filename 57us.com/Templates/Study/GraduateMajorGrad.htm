@@ -1,0 +1,107 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 StudyLocation">您当前位置：
+	<a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+	<a href="{echo WEB_STUDY_URL}/graduateschool/">研究生院校</a><span>&gt;</span><a href="{echo WEB_STUDY_URL}/graduateschool/{$CollegeInfo['CollegeID']}.html">{$CollegeInfo['CollegeName']}</a><span>&gt;</span><span class="Position">专业详情</span>
+</div>
+<div class="w1200 po cf">
+	<div class="SchoolDetailLeft fl">
+		<div class="ItemBody">
+			<img src="{$CollegeInfo['LogoUrl']}" width="150" height="150" />
+			<p class="tit mt10">{$GrduateMajor['ProfessionName']}</p>
+			<p class="mt10">所属学院：{$ParentMajor['ProfessionName']}</p>
+			<p>{$GrduateDetails['Ranking']}</p>
+			<p>学校地点：{$CollegeInfo['Seat']}     {$CollegeInfo['Region']}</p>
+		</div>
+		<div class="itemTab mt20">
+			<p class="itemTabT">专业信息</p>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					{loop $Information $key $value}
+					<th width="25%">{$key}</th>
+					<td width="25%">{$value}</td>
+					{/loop}
+				</tr>
+			</table>
+		</div>
+		<div class="itemTab mt20">
+			<p class="itemTabT">申请信息</p>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					{loop $Application $key $value}
+					{if $key=='TOEFL要求' || $key=='IELTS要求'}
+					<th width="25%">{$key}</th>
+					<td width="25%">{$value}</td>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Application $key $value}
+					{if $key=='GPA要求' || $key=='GRE要求'}
+					<th width="25%">{$key}</th>
+					<td width="25%">{$value}</td>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Application $key $value}
+					{if $key=='GRE Subject' || $key=='TOEFL单项要求'}
+					<th width="25%">{$key}</th>
+					<td width="25%">{$value}</td>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Application $key $value}
+					{if $key=='IELTS单项要求' || $key=='学费'}
+					<th width="25%">{$key}</th>
+					<td width="25%">{$value}</td>
+					{/if}
+					{/loop}
+				</tr>
+				<tr>
+					{loop $Application $key $value}
+					{if $key=='申请截止日期' || $key=='可申请学期'}
+					<th width="25%">{$key}</th>
+					<td width="25%">{$value}</td>
+					{/if}
+					{/loop}
+				</tr>
+			</table>
+		</div>
+		<div class="itemTab mt20">
+			<p class="itemTabT">参考资料</p>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					<td>
+						<div class="tal cankao">
+							{$GrduateDetails['References']}
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+	<div class="SlideRight fr">
+		<ul class="adList">
+			{loop $StudyRightADLists $lists}
+			<li>
+				<a href="{$lists['Link']}" target="_blank" class="ImgBlackBg" title="{$lists[Title]}"><img class="transition lazy" width="100%" src="{echo LImageURL}{$lists['Picture']}" alt="{$lists[Title]}"></a>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/schoolDetail.js"></script>
+<script type="text/javascript">
+    $(".contBoxT .hd a").hover(function(){
+        var num =$(this).index();
+        $(this).addClass("on").siblings().removeClass("on");
+        $(this).parents(".contBox").find(".tabList").addClass("hidden").eq(num).removeClass("hidden")
+    })
+</script>
+</body>
+</html>

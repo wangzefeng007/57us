@@ -1,0 +1,260 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<style>
+    .sddate .GoDate,.sddate .ApplyTime{
+        width: 40%;display: inline;
+    }
+    .sddate .text{
+        padding: 0 5px 0 20px
+    }
+    .sddate .delDate{
+        position: relative;top:8px;left: 15px
+    }
+</style>
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">留学管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=StudyTour&Action=Lists">游学产品管理</a>
+                </li>
+                <li class="active">编辑游学产品</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <!--{template StudyTourTop}-->
+                <div class="panel-body">
+                    <form action='/index.php?Module=StudyTour&Action=StudyTourAdd'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td class="t-r" width="150"><span class="red"></span> 产品编号：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" disabled="disabled" value="{$ProductInfo[YoosureID]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" width="150"><span class="red">*</span> 产品名称：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Title" value="{$ProductInfo[Title]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r"><span class="red">*</span>&nbsp;SEO关键字：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="SeoKeywords" value="{$ProductInfo[SeoKeywords]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r"><span class="red">*</span> 产品简称：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Description" value="{$ProductInfo[Description]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">游学主题：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" name="YoosureTitle" id="YoosureTitle">
+                                            <option value="0" style="width:300px;">-- Top --</option>
+                                            {loop $YoosureTitle $key $val}
+                                            <option value="{$key}" {if $ProductInfo[YoosureTitle] ==$key}selected="selected"{/if}>{$val}</option>
+                                            {/loop}
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r"><span class="red">*</span>&nbsp;价格：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Price" value="{$ProductInfo[Price]}" class="form-control"/>
+
+                                    </div>
+                                    <p class="help-block">元</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r"><span class="red">*</span>&nbsp;原价：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="OriginalPrice" value="{$ProductInfo[OriginalPrice]}" class="form-control"/>
+
+                                    </div>
+                                    <p class="help-block">元</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r"><span class="red">*</span>&nbsp;出行天数：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Days" value="{$ProductInfo[Days]}" class="form-control"/>
+                                    </div>
+                                    <p class="help-block">天</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">适合人群:</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" name="Crowd" id="Crowd">
+                                            <option value="0" style="width:300px;">-- Top --</option>
+                                            {loop $Crowd $key $val}
+                                            <option value="{$key}" {if $ProductInfo[Crowd] ==$key}selected="selected"{/if}>{$val}</option>
+                                            {/loop}
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            {loop $ProductInfo['GoDate'] $Key $lists}
+                            <tr class="sddate">
+                                <td class="t-r">出发日期：</td>
+                                <td>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="GoDate[]" class="form-control GoDate" value="{$lists}">
+                                        <span class="text">截止日期</span>
+                                        <input type="text" name="ApplyTime[]" class="form-control ApplyTime" value="{$ProductInfo[ApplyTime][$Key]}">
+                                    </div>
+                                    <span  style="position: relative;top:8px;">填写内容范例：2016年07月24日</span>
+                                    <a href="javascripv:void(0)" class="delDate">删除</a>
+                                </td>
+                            </tr>
+                            {/loop}
+                            <tr>
+                                <td class="t-r"></td>
+                                <td>
+                                    <div class="col-sm-6">
+                                        <input type="button" value="添加出发日期" class="btn btn-danger" id="addDate">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">出发地:</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" name="DeparturePlace" id="DeparturePlace">
+                                            <option value="0" style="width:300px;">-- Top --</option>
+                                            {loop $DeparturePlace $key $val}
+                                            <option value="{$key}" {if $ProductInfo[DeparturePlace] ==$key}selected="selected"{/if}>{$val}</option>
+                                            {/loop}
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r"><span class="red">*</span>行程特色：</td >
+                                <td>
+                                    <div class="col-sm-2" style="width: 300px">
+                                        <script id="TravelPlan" name="TravelPlan" type="text/plain" style="width:1024px;height:400px"></script>
+                                        <script>
+                                            var ue = UE.getEditor('TravelPlan',{initialContent:'{$ProductInfo[TravelPlan]}',initialFrameWidth:1024,initialFrameHeight:400,autoHeightEnabled:false});
+                                        </script>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r"><span class="red">*</span>预定须知：</td >
+                                <td>
+                                    <div class="col-sm-2" style="width: 300px">
+                                        <script id="BookingNotice" name="BookingNotice" type="text/plain" style="width:1024px;height:400px"></script>
+                                        <script>
+                                            var ue = UE.getEditor('BookingNotice',{initialContent:'{$ProductInfo[BookingNotice]}',initialFrameWidth:1024,initialFrameHeight:400,autoHeightEnabled:false});
+                                        </script>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">注意事项：</td >
+                                <td>
+                                    <div class="col-sm-2" style="width: 300px">
+                                        <script id="Notice" name="Notice" type="text/plain" style="width:1024px;height:400px"></script>
+                                        <script>
+                                            var ue = UE.getEditor('Notice',{initialContent:'{$ProductInfo[Notice]}',initialFrameWidth:1024,initialFrameHeight:400,autoHeightEnabled:false});
+                                        </script>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">产品状态：</td>
+                                <div class="col-sm-2">
+                                    <td><input name="Status" type="radio" id="Status" value="1" {if $ProductInfo[Status]==1}checked="checked"{/if}/>
+                                        上架
+                                        <input type="radio" name="Status" id="Status2" value="2" {if $ProductInfo[Status]==2}checked="checked"{/if}/>
+                                        下架</td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <td  class="t-r">推荐选择：</td>
+                                <div class="col-sm-2">
+                                    <td>
+                                        <input name="R1" type="checkbox" id="R1" value="1"{if $ProductInfo[R1]==1}checked="checked"{/if} />热门推荐&nbsp;
+                                    </td>
+                                </div>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr id="MaterialRequested">
+                                <td class="t-r"></td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="hidden" name="YoosureID" value="{$ProductInfo[YoosureID]}" />
+                                        <input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}
+<script>
+    //添加增加出行截止日期
+    $("#addDate").on('click',function () {
+       $(this).parents('tr').before(html);
+    })
+
+    //删除出行截止日期
+    $(document).on('click','.delDate',function () {
+        $(this).parents('tr').remove();
+    })
+
+    var html = '<tr class="sddate">' +
+        '<td class="t-r">出发日期：</td>' +
+        '<td>' +
+        '<div class="col-sm-6">' +
+        '<input type="text" name="GoDate[]" class="form-control GoDate" value=""> ' +
+        '<span class="text">截止日期</span> ' +
+        '<input type="text" name="ApplyTime[]" class="form-control ApplyTime" value="">' +
+        '</div>' +
+        '<span style="position: relative;top:8px;">填写内容范例：2016年07月24日</span>' +
+        '<a href="javascripv:void(0)" class="delDate">删除</a>' +
+        '</td>' +
+        '</tr>';
+</script>

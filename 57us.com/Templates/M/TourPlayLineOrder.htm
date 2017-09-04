@@ -1,0 +1,79 @@
+{template TourHeader}
+<div class="page page-current" id="choseroom">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">填写旅客信息</h1>
+    </header>
+    <div class="content pd25">
+        <p class="choseRoomT">填写旅客信息</p>
+        <div class="travelersM TravellerInfo" id="TravellerInfo">
+        </div>
+        <p class="choseRoomT">请填写联系人信息</p>
+        <div class="travelersM">
+            <ul class="traveContact">
+                <li>
+                    <p class="listLeft">姓名：</p>
+                    <p class="listRight"><input class="input" type="text" name="ZhName" id="ZhName" value="" placeholder="请填写中文姓名" maxlength="12"/></p>
+                </li>
+                <li class="">
+                    <p class="listLeft">手机：</p>
+                    <p class="listRight"><input class="input" type="number" name="phone" id="phone" value="" placeholder="用于接收预定信息" /></p>
+                </li>
+                <li class="i1" style="display: none;" id="piccode">
+                    <p class="listLeft">验证码：</p>
+                    <p class="listRight"><input class="input" type="text" name="code" id="code" value="" placeholder="" /></p>
+                    <p class="listLast">
+                        <input type="button" name="codebtn" id="codebtn" value="获取验证码" class="GetYzm" />
+                        <!--
+                            作者：xiao15980751809@126.com
+                            时间：2016-11-03
+                            描述：以下是验证码输入正确
+                        -->
+                        <i class="icon iconfont yzmsuccess" style="display: none;">&#xe860;</i>
+                    </p>
+                </li>
+                <li class="has" style="display: none" id="yesphone">
+                    <p class="listLeft"></p>
+                    <p class="listRight">您的号码已注册，可立即 <a href="#popLogin" class="green _MustLogin" id="TourOrder">登录</a></p>
+                </li>
+                <li>
+                    <p class="listLeft">邮箱：</p>
+                    <p class="listRight"><input class="input" type="text" name="mail" id="mail" value="" placeholder="用于接收预定信息" /></p>
+                </li>
+            </ul>
+        </div>
+        <p class="choseRoomT">预定留言</p>
+        <div class="travelersM">
+            <textarea class="textarea" name="Message" id="Message" rows="" cols="" style="resize: none;" placeholder="请填写预定留言"></textarea>
+        </div>
+    </div>
+    <div class="freeDetaBox transition">
+        <p class="freeDetaBoxT">
+            <span class="pull-left name">费用明细</span>
+            <span class="pull-right close"><i class="icon iconfont">&#xe601;</i></span>
+        </p>
+        <div class="freeDetaBoxM grid-demo">
+            <div class="row freeDetailList">
+                <div class="col-25">套餐<i></i></div>
+                <div class="col-25 red tac">x<span class="num"></span></div>
+                <div class="col-50 tar">单价：<span class="red">￥<i></i></span></div>
+            </div>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <div class="bar bar-tab OrderBottom">
+        <div class="pull-left ObottomLeft">
+            <p class="allPrice pull-left ">总价：<span class="red">¥<i class="Pricenum"></i></span></p>
+            <span class="green pull-right freeDetails">费用明细</span>
+        </div>
+        <a href="javascript:void(0);" class="nextBtn pull-right" id="paybtn">去支付</a>
+    </div>
+</div>
+{template LoginPop}
+{template TourFooter}
+<script type='text/javascript' src="{echo JsURL}/m/lib/Pop_Login.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/tour/TourOrderPublic.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/tour/PlayLineOrder.js" charset='utf-8'></script>
+</body>
+</html>

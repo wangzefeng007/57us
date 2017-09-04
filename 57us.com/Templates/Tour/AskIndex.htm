@@ -1,0 +1,124 @@
+{template 'Common/TourTop',1}
+<link rel="stylesheet" href="/Plugins/fonts/mobile/iconfont.css">
+<link href="{echo CssURL}/bbs/tour/style.css" rel="stylesheet" type="text/css" />
+<div class="w1200 BbsLocation">您当前位置：
+	<a href="{echo WEB_TOUR_URL}">首页</a><span>&gt;</span>
+	<a href="{echo WEB_TOUR_URL}/ask/">问答专区</a></div>
+<div class="w1200 cf">
+	{loop $StudyAskindexADLists $lists}
+	<a href="{$lists[Link]}" target="_blank"><img src="{echo LImageURL}{$lists[Picture]}" height="230" width="1200"></a>
+	{/loop}
+</div>
+<div class="w1200 cf mt10 Position">
+	<div class="w900 fl">
+		<div class="bbsArea">
+			<p class="mainTit"><span class="name">问答专区</span></p>
+			<ul class="bbsAreaList">
+				{loop $TourCateInfos $key $val}
+				<li>
+					<a href="/ask/section?id={$val[AskCategoryID]}" target="_blank" title="{$val['AskCategoryName']}"><img src="{echo LImageURL}{$val['Images']}" width="210" height="130" class="transition" />
+						<p class="tit transition">{$val['AskCategoryName']}</p>
+					</a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="questBox mt10">
+			<div class="hd">
+				<a href="/ask/" {if $Type=='1'}class="on"{/if}>最新问题<span class="line"></span></a>
+				<a href="/ask/?t=2" {if $Type=='2'}class="on"{/if}>最热问题<span class="line"></span></a>
+				<a href="/ask/?t=3" {if $Type=='3'}class="on"{/if}>待回答问题<span class="line"></span></a>
+				<a {if $_SESSION['UserID']}href="/ask/?t=4"{else}href="JavaScript:void(0)"{/if} class="mmkmskd {if !$_SESSION['UserID']}_MustLogin{/if} {if $Type=='4'}on{/if}" {if !$_SESSION['UserID']}data-type="tc_login"{/if}>我的问题<span class="line"></span></a>
+			</div>
+			<!--
+                作者：xiao15980751809@126.com
+                时间：2016-12-27
+                描述：问题列表
+            -->
+			{if $Data['Data']}
+			<ul class="questList">
+				{loop $Data['Data'] $key $val}
+				<li>
+					<div class="listHead">
+						<span class="time fr">{$val['NowTime']}</span>
+						<p class="fl user"><img src="{echo ImageURLP2}{$val['Avatar']}" width="36" height="36" />{$val['NickName']}{if $val['Identity']!=1}<span class="compeTip {if $val['Identity']== 4}redtip{elseif $val['Identity'] == 3 || $val['Identity']== 2}bluetip{/if}">{$val['IdentityName']}</span>{/if}</p>
+					</div>
+					<div class="listCont">
+						<a href="/ask_section/{$val['AskID']}.html" target="_blank">{$val['AskInfo']}</a>
+					</div>
+					<div class="listBottom">
+						<p class="otherFun fr">
+							<span><i class="icon iconfont icon-yanjing"></i>{$val['BrowseNum']}次浏览</span>
+							<span><i class="icon iconfont icon-start"></i>{$val['FollowNum']}人关注</span>
+							<span><i class="icon iconfont icon-iconfont02"></i>{$val['AnswerNum']}人回答 </span></p>
+						<p class="tip fl">
+							{loop $val[Tags] $v}
+							<a href="/ask/topic?id={$v['TagID']}" class="bradius" target="_blank">{$v['TagName']}</a>
+							{/loop}
+						</p>
+					</div>
+					{if $val['Answer']}
+					<div class="listfeedbck">
+						<img src="{echo ImageURLP2}{$val['Answer']['Avatar']}" width="36" height="36" />
+						<p>{$val['Answer']['NickName']}</p>
+						<p class="nr mt5">{$val['Answer']['Answer']}</p>
+					</div>
+					{/if}
+				</li>
+				{/loop}
+			</ul>
+			{if $Data['PageCount'] > 1}
+			<div class="page mt35" id="Page2">
+				<form action="" method="GET">
+					{$Listpage}
+					<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button"  name="" id="" value="确定" class="PageBtn" /></div>
+				</form>
+			</div>
+			{/if}
+			{else}
+			<div class="noProblem mt10">
+				<div class="noProblemTip">{if $Type != 3}你还没有提过问题。敏而好学，不耻下问。{else}所有问题都有人回答了{/if}
+					<a class="transition bradius nowAsk {if !$_SESSION['UserID']}_MustLogin{else}MyQuestions{/if}" href="JavaScript:void(0)" {if !$_SESSION['UserID']}data-type="tc_login"{/if}">马上提问题</a>
+				</div>
+			</div>
+			{/if}
+			<input type="hidden" id="AskPageCount" name="AskPageCount" value="{$Data['PageCount']}">
+			<input type="hidden" id="AskGoPageUrl" name="AskGoPageUrl" value="{$GoPageUrl}">
+		</div>
+	</div>
+	<div class="w280 mt40 fr sidebar autofix_sb">
+		{template AskMode}
+		<div class="hotTopic mt20">
+			<p class="mainTit">
+				<a href="javascript:void (0)" class="changeChan fr" id="changeTags" data-type="1">换一换<i class="icon iconfont icon-shuaxin"></i></a>
+				<span class="name fl">人气话题</span>
+			</p>
+			<div class="hotTopicM cf" id="changeChanHtml">
+				{loop $HotTagList $lists}
+				<a href="/ask/topic?id={$lists[TagID]}" class="bradius" title="{$lists['TagName']}" target="_blank">{$lists['TagName']}</a>
+				{/loop}
+			</div>
+		</div>
+		<ul class="adW280">
+			{loop $StudyAskADLists $lists}
+			<li>
+				<a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP4}{$lists[Picture]}" width="280" /></a>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+</div>
+<div class="w1200 mt25 cf">
+	<div class="adBox cf">
+		<a href="http://study.57us.com/studytour/" target="_blank"><img src="http://images.57us.com/l/up/2016/0930/201609300956368273.jpg" title="2017年寒假冬令营报名开始" height="90"></a>
+	</div>
+</div>
+<div class="cf mt20"></div>
+{template Footer}
+<!--问答公用js-->
+<script type="text/javascript" src="{echo JsURL}/bbs/tour/AskPublic.js"></script>.
+<!--右侧固定js-->
+<script src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script type="text/javascript" src="{echo JsURL}/bbs/tour/AskIndex.js"></script>
+</body>
+</html>

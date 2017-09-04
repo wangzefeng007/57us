@@ -1,0 +1,12 @@
+<?php
+    $RouteArr=array(
+        //'控制器小写@方法小写'=>'真实控制器名@真实方法名'
+        'member@index'=>'Member@Index',
+        'member@orderinfo'=>'Member@OrderInfo',
+        'visa@index'=>'Visa@Index',
+        'visa@lists'=>'Visa@Lists',
+        'visa@detail'=>'Visa@Detail',
+        'visa@order'=>'Visa@Order',
+        'visa@ajax'=>'Visa@Ajax',
+        'visa@visapay'=>'Visa@Pay',
+    );

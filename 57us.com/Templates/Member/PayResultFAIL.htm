@@ -1,0 +1,21 @@
+{template 'Common/TourTop',1}
+	<div class="w1200 PayMain cf">
+    	<div class="PayFail">
+            <div class="PayInstro">很遗憾，您此次操作的订单未能完成支付，请重新尝试<br>如有疑问，请联系我们网站的工作人员！
+            </div>
+            <a href="{echo WEB_MEMBER_URL}" class="PayCheckBtn mt30" target="_blank">重新支付</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(window).load(function(){
+        IndexMain();
+    })
+    $(window).resize(function(e) {
+        IndexMain();
+    });
+    function IndexMain(){
+        $(".PayMain").height($(window).height()-$(".top_bar").height()-$(".study_header").height()-$(".blue_line").height()-$(".TourFoot").outerHeight()-30)
+    }
+</script>
+{template 'Common/TourFooter',1}

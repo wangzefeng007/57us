@@ -1,0 +1,53 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 StudyLocation">您当前位置：
+    <a href="http://tour.57us.com">首页</a><span>&gt;</span><span class="Position">GPA计算器</span>
+</div>
+<div class="w1200 cf">
+    <div class="gpaBox">
+        <div class="gpaBoxL fl">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" id="GPA">
+                <tr>
+                    <th width="110"></th>
+                    <th width="215">百分制成绩</th>
+                    <th width="215">学分</th>
+                </tr>
+                <tr>
+                    <td align="center">科目<span class="num">1</span></td>
+                    <td><input type="text" name="Score" value="" class="input Score" /></td>
+                    <td><input type="text" name="Credit" value="" class="input Credit" /></td>
+                </tr>
+                <tr>
+                    <td align="center">科目<span class="num">2</span></td>
+                    <td><input type="text" name="Score" value="" class="input Score" /></td>
+                    <td><input type="text" name="Credit" value="" class="input Credit" /></td>
+                </tr>
+                <tr>
+                    <td align="center">科目<span class="num">3</span></td>
+                    <td><input type="text" name="Score" value="" class="input Score" /></td>
+                    <td><input type="text" name="Credit" value="" class="input Credit" /></td>
+                </tr>
+                <tr>
+                    <td align="center">科目<span class="num">4</span></td>
+                    <td><input type="text" name="Score" value="" class="input Score" /></td>
+                    <td><input type="text" name="Credit" value="" class="input Credit" /></td>
+                </tr>
+                <tr id="AddTr">
+                    <td align="center"></td>
+                    <td><input type="button" name="AddSubject" id="AddSubject" value="+ 增加科目" class="botton" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="center"></td>
+                    <td><input type="button" name="Calculation" id="Calculation" value="计算结果" class="botton result" /></td>
+                    <td><input type="text" name="Result" id="Result" value="" class="input" /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="gpaBoxR fr"></div>
+    </div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/study/ToolsGPA.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "ResultCode": 200,
+  "RecordCount": "3",
+  "PageSize": 6,
+  "PageCount": 39,
+  "Page": 1,
+  "Data": [
+    {
+      "Study_ID": "10010",
+      "Study_Name": "美国东海岸常春藤名校游学冬令营1",
+      "Study_Recommend":"1",
+      "Study_Date": "2017-8-1",
+      "Study_OriginalPrice":3000,
+      "Study_Picre": 1571,
+      "Study_Img": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg",
+      "Study_Url": "/group/10010.html"
+    },{
+      "Study_ID": "10010",
+      "Study_Name": "美国东海岸常春藤名校游学冬令营2",
+      "Study_Recommend":"0",
+      "Study_Date": "2017-8-1",
+      "Study_OriginalPrice":3000,
+      "Study_Picre": 1571,
+      "Study_Img": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg",
+      "Study_Url": "/group/10010.html"
+    },{
+      "Study_ID": "10010",
+      "Study_Name": "美国东海岸常春藤名校游学冬令营3",
+      "Study_Recommend":"1",
+      "Study_Date": "2017-8-1",
+      "Study_OriginalPrice":3000,
+      "Study_Picre": 1571,
+      "Study_Img": "http://images.57us.com/p4/Uploads/Tour/20160725/201607251514592970.jpg",
+      "Study_Url": "/group/10010.html"
+    }
+  ],
+  "NextPage": 2,
+  "LastPage": 39,
+  "PageNums": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6
+  }
+}

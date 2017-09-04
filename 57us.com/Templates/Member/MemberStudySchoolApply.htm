@@ -1,0 +1,126 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberStudyLeft}
+    <div class="mRight MyOrderBox cf fr">
+        {loop $List $Key $Data}
+        <div class="myNewsTit">
+            <span class="name">学校申请</span>
+        </div>
+        <div class="mRight_v mt10 cf">
+            <div class="stuconListBody">
+                <!--
+                    作者：xiao15980751809@126.com
+                    时间：2016-10-13
+                    描述：当确定稿后stuconListBody 加Class"on"
+        -->
+                <span class="FigureIndia">已定稿</span>
+                <img src="{if $Data['Avatar']}{$Data['Avatar']}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="60" height="60">
+                <p>顾问：{$Data[RealName]}</p>
+                <p>服务名称：{$Data['OrderName']}</p>
+            </div>
+            <div class="stuconListM cf mt35 ">
+                <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab">
+                    <tbody>
+                    <tr>
+                        <th width="41">序号</th>
+                        <th width="189">学校名称</th>
+                        <th width="160">课程/专业名称</th>
+                        <th width="130">递交申请时间</th>
+                        <th width="50">状态</th>
+                        <th width="203">备注</th>
+                    </tr>
+                    {loop $Data['Apply'] $K $lists}
+                    <tr>
+                        <td>
+                            <p class="resultTex">{echo $K+1}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists[SchoolName]}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists[MajorName]}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists['DeliveryTime']}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists[Status]}</p>
+                        </td>
+                        <td>
+                            <p class="resultTex">{$lists[Remark]}</p>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="myNewsTit mt10">
+            <span class="name">录取确认</span>
+        </div>
+        <div class="mRight_v mt10 cf content">
+            <!--此处绑定此订单对应的id -->
+            <input type="hidden" class="orderId" value="{$Data['OrderID']}">
+            <div class="stuconListBody {if $Data['Status'] == 2}on{/if}">
+                <span class="FigureIndia"></span>
+                <img src="{if $Data['Avatar']}{$Data['Avatar']}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="60" height="60">
+                <p>顾问：{$Data[RealName]}</p>
+                <p>服务名称：{$Data['OrderName']}</p>
+            </div>
+            <div class="stuconListM mt35">
+                <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab" data-id="{$Data[OrderID]}">
+                    <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <p class="tabTime"><span>最终入读学校/专业名称：{$Data[SchoolName]}{if $Data[SchoolName]}/{/if}{$Data[SpecialtyName]}</span></p>
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <td colspan="5">
+                            <p class="tabTime"><span>已投递：7所</span><span>录取：2所</span></p>
+                        </td>
+                    </tr>-->
+                    </tbody>
+                    <tbody>
+                    <tr>
+                        <th width="189">入读学校名称 </th>
+                        <th width="160">入读专业名称</th>
+                        <th width="130">计划入学时间</th>
+                        <th width="99">Offer</th>
+                        <th width="216">操作</th>
+                    </tr>
+                    {loop $Data['Enroll'] $key $lists}
+                    <!--此处绑定这条记录对应的id-->
+                    <tr data-id="{$key}">
+                        <td><p class="resultTex">{$lists[AttendSchool]}</p></td>
+                        <td><p class="resultTex">{$lists[AttendMajor]}</p></td>
+                        <td><p class="resultTex">{$lists['PlanAttendDate']}</p></td>
+                        <td><p class="resultTex"><img src="{$lists['OfferImgUrl']}" width="100" height="75"/></p></td>
+                        <td>
+                            <div class="DownOffer">
+                                {if  !$Data[SchoolName]}
+                                <a href="{$lists['OfferImgUrl']}" class="publicBtn0" target="_blank"  download="{$lists['OfferImgName']}">下载Offer</a>
+                                <a href="javascript:void(0)" class="publicBtn0 applySchool" >选择学校</a>
+                                {elseif $Data[SchoolName]==$lists[AttendSchool]}
+                                <a href="{$lists['OfferImgUrl']}" target="_blank" class="publicBtn0" download="{$lists['OfferImgName']}">下载Offer</a>
+                                <span class="red">已选择</span>
+                                {elseif !empty($Data[SchoolName])&&$Data[SchoolName]!=$lists[AttendSchool]}
+                                <a href="{$lists['OfferImgUrl']}" target="_blank" class="publicBtn0" download="{$lists['OfferImgName']}">下载Offer</a>
+                                <span class="red">已拒绝</span>
+                                {/if}
+                            </div>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {/loop}
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberStudySchoolApply.js" type="text/javascript"></script>
+</body>
+</html>

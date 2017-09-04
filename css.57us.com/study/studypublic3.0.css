@@ -1,0 +1,175 @@
+/*针对重置样式做的修改*/
+body{background: #f2f2f2;}
+a:hover,.MtopBar a:hover,.UserLogin .UserList a:hover,.pcolor{color: #ff6767;}
+.StudySearchBox .SearchBtn,.payMoreBtn i,.payBox label i,.currentIco{background:url(http://images.57us.com/img/study/studypublic3.0.png) no-repeat;}
+.c9{color: #999999;}
+h1,h2,h3{font-weight: normal;}
+
+.line{ background: #ff6767; width:0;height: 3px; overflow: hidden; display: inline-block;position: absolute;bottom: -2px; left: 50%;transition:all ease-in-out .6s;
+	-o-transition:all ease-in-out .6s;
+	-ms-transition:all ease-in-out .6s;
+	-moz-transition:all ease-in-out .6s;
+	-webkit-transition:all ease-in-out .6s;}
+li:hover .line,li.on .line{width: 100%; left: 0;}	
+.po{position: relative;}
+.green{color: #29beb5 !important;}
+/*头部*/
+.MtopBar{ background: #242424;  height: 30px; line-height: 30px;}
+.header{ background: #313131; height: 80px;}
+.StudyLogo{background:url(http://images.57us.com/img/www/logo.png) center center no-repeat;width:193px;height:80px;float: left;overflow: hidden;text-indent: -9999px;}
+.HeaderTell{background:url(http://images.57us.com/img/study/headerTell3.0.png) no-repeat;width:343px; height: 80px; text-indent: -999px; overflow: hidden;}
+.StudySearch{width: 368px; margin:6px 160px 0 0;font-size: 14px;}
+.StudySearchTool{ height: 25px; line-height: 25px; overflow: hidden;}
+.StudySearchTool a{color: #9e9e9e; margin-right:9px;}
+.StudySearchTool a:hover{color: #ff6767;}
+.StudySearchBox{ background: #6d6d6d;border-radius: 3px; height: 36px; line-height: 36px;overflow: hidden;}
+.StudySearchBox input{float: left;}
+.StudySearchBox .input{width: 320px;height: 36px;line-height: 36px;border: 0;background: none;overflow: hidden;text-indent: 10px;color: #fff;}
+.StudySearchBox .SearchBtn{ background-position: center -2px; width: 48px; height: 36px;border: 0; text-indent: -999px;overflow: hidden; cursor: pointer;}
+.StudySearchBox .SearchBtn:hover{background-color: #646464;}
+/*导航*/
+.StudyMenu{background: #fff; height: 57px;line-height: 57px;border-bottom: 2px solid #e5e5e5; position: relative;z-index: 100;}
+.StudyMenu ul{}
+.StudyMenu ul li{float: left;position: relative; margin-right: 10px;}
+.StudyMenu ul li .FirstA{padding: 0 28px;font-size: 16px;color: #666666;display: inline-block; margin: 0 10px;}
+.StudyMenu ul li .FirstA i{background:url(http://images.57us.com/img/common/TourPulicIcon.png) -4px -423px no-repeat;width:20px; height: 20px;display: inline-block;vertical-align: middle;}*/
+.StudyMenu ul li:hover .FirstA{color: #ff6767;}
+.StudyMenu ul li:hover .FirstA i{ background-position:-4px -455px;}
+.StudyMenu ul li.on .FirstA{color:#ff6767;}
+.StudyMenu ul li.on .line{display: none;}
+/*.StudyMenu ul li:hover .SecondUl{display: block;}*/
+.SeconMenu{width: 157px; height: auto;  padding-top:20px; position: absolute; top: 50px; left: 50%; margin-left: -78px; display: none;}
+.SeconMenu em{width: 0;height: 0;border-left: 8px solid transparent;border-right: 8px solid transparent;border-bottom: 10px solid #fff; display: block; position: absolute; top: 11px; left: 50%; margin-left: -8px;}
+.SeconMenuM,.SeconMenuM1{background: #ffffff;height: auto; overflow: hidden; border-radius: 3px;box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+.SeconMenuM a{display: block;width: 100%; height: 40px; line-height: 40px;  font-size: 16px; color: #666666; text-align: center;border-bottom: 1px solid #e5e5e5;}
+.SeconMenuM .line{width: 118px; height: 0; border-bottom: 1px solid #efefef; display: block; margin: 0 auto;}
+.SeconMenuM a:hover{ background: #f5f5f5;}
+.StudyMenu li:hover .SeconMenu{display: block;}
+.SeconMenuM1{padding: 15px 25px; line-height: 30px;}
+.SeconMenuM1 dl{width:230px; float: left;}
+.SeconMenuM1 dl dt{color: #29beb5; font-size: 16px;}
+.SeconMenuM1 dl dd{height: auto; overflow: hidden;}
+.SeconMenuM1 dl dd a{width: 50%; float: left; height: 35px; line-height: 35px; margin: 5px 0;}
+.SeconMenuM1 dl dd a:hover{color: #ff6767; text-decoration: underline;}
+/*面包屑*/
+.StudyLocation{}
+.StudyLocation{height:47px;line-height:47px;color:#999999;overflow:hidden;}
+.StudyLocation a,.StudyLocation span{margin:0 5px;}
+.StudyLocation a{color:#999999;display:inline-block;}
+.StudyLocation a:hover,.StudyLocation span.Position{color:#ff6767;}
+/*底部*/
+.StudyFoot{ background: #3c3c3c; padding: 45px 0; color: #8e8e8e;}
+.FootMeida{ width: 230px;}
+.FootMeida li{background: url(http://images.57us.com/img/www/media.png) no-repeat; width: 100px; height: 100px; float: left;position: relative; margin-left:15px; cursor: pointer;}
+.FootMeida li.i1{background-position: 0 0;}
+.FootMeida li.i2{background-position: 0 -106px;}
+.FootMeida li.i1:hover{background-position: -206px 0;}
+.FootMeida li.i2:hover{background-position: -206px -106px;}
+.ChatCode{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); width:112px; height:112px; padding:7px; position:absolute; bottom:140px; left:50%; margin-left: -63px;opacity:0;filter:alpha(opacity=0); visibility: hidden;}
+.ChatCode em{background:url(http://images.57us.com/img/www/sj.png) no-repeat;  width:30px; height:7px; display:inline-block; position:absolute; bottom:-7px; left:50%; margin-left:-15px;}
+
+.FootMeida li:hover .ChatCode{ visibility: visible; opacity: 1;filter:alpha(opacity=100);bottom:110px;}
+.FootLogo{ background: url(http://images.57us.com/img/www/flogo.png) no-repeat; width:236px; height:68px; float: left;display: inline-block;overflow: hidden; text-indent: -999px;}
+.FootCont{ width: 700px; margin: 10px 0 0 15px; color: #8e8e8e;}
+.StudyFoot a{color: #8e8e8e; padding: 0 4px;}
+.StudyFoot a:hover{color: #ff5863;}
+.FootTell{font-size: 24px; padding-left: 15px;}
+.wecome{padding-left:10px;}
+.safeBox a{ padding: 0; margin-right: 4px;}
+/*翻页*/
+.page{text-align:center;font-size:16px;}
+.page a{display:inline-block;height:30px;line-height:30px;margin:0 5px;border:1px solid #b8b8b8;padding:0px 10px;border-radius:3px;font-family:arial, "微软雅黑";color:#666;}
+.page a.prve,.page a.next{padding:0px 10px;}
+.page a.on{background:#ff5863;border:1px solid #ff5863;color:#fff;}
+.page a.on:hover{color:#fff;}
+.page a:hover{color:#ff5863;}
+.page .prvestop,.page .prvestop:hover,.page .nextstop,.page .nextstop:hover{color:#d3d2d2 !important;cursor:default !important;
+    border-color:#d3d2d2 !important;}
+.GoPage{display:inline-block;font-size:16px;color:#9e9e9e;margin-left:10px;vertical-align:top;line-height:32px;}
+.GoPage .input{background:none;width:40px;height:30px;line-height:30px;display:inline-block;border:1px solid #b8b8b8;border-radius:3px;text-align:center;color:#ff5863;font-weight:bold;vertical-align:top;}
+.GoPage .PageBtn{background:#f3f3f3;width:72px;height:32px;line-height:32px;display:inline-block;border:1px solid #b8b8b8;border-radius:3px;color:#666666;cursor:pointer;font-size:18px;margin:0 5px;}
+/*支付页面*/
+.OrderProcess{ float:right;margin-top: 32px;}
+.OrderProcess li{ width:102px; height:53px; line-height:53px;float:left;  position:relative; text-align:center; color: #818181;}
+.OrderProcess li i{ background:#272727; width:22px; height:22px;  text-align:center;line-height: 22px; font-style: normal; text-indent: -2px; border-radius:100%; position:absolute; top:-14px; left:50%; margin-left:-11px; display:inline-block;color: #4f4f4f;z-index: 2;}
+.OrderProcess li.on{ color: #ff6767;}
+.OrderProcess li.on i{ background:#ff6767; color: #fff;}
+.OrderProcess li em{ background: #272727; width: 100%; height: 5px; display: inline-block;  position: absolute; top: -5px; left: 0; z-index: 1;}
+.OrderProcess li.on em{ background: #ff6767;}
+
+.payCont{background: #fff; padding: 10px 50px 20px; min-height: 400px;}
+.payDesc{border-top: 1px solid #dfdfdf; padding-top: 20px;color: #999999;}
+.payIns{border-bottom: 1px solid #dfdfdf; position: relative;padding: 5px 0; height: 47px; overflow: hidden;}
+.payIns td{padding: 8px 10px 8px 0;}
+.payIns .price{color: #ff6767;font-size: 24px; display: inline-block;vertical-align: middle; margin-top: -10px;}
+.payIns .price em{font-size: 30px;}
+.payMoreBtn{ background: #b5b5b5; color: #fff; width: 93px;height: 27px; line-height: 27px; display:block; text-align: center; margin-right: 23px;overflow: hidden;text-indent: 3px;}
+.payMoreBtn:hover{background: #b0b0b0;color: #fff;}
+.payMoreBtn i{ background-position: -10px -285px; width:20px; height:27px; display: inline-block; vertical-align: top; }
+.payMoreBtn.on i{ background-position: -10px -325px;}
+.payBox{width: 490px; margin: 0 auto; color: #666666;padding: 40px 0;}
+.payBox .f22{font-size: 22px; color: #666666;}
+.payBox .PayBtn{ background: #ff6767; font-size: 20px; width: 390px; height: 49px;line-height: 49px;text-align: center; color: #fff;display: inline-block;border-radius: 4px;}
+.payBox .PayBtn:hover{background: #f96060; }
+.payBox label{float: left; margin-right:25px;}
+.payBox label i{background-position:-10px -408px; width:22px; height:22px; display: inline-block; vertical-align: middle; margin-right: 10px;cursor:pointer; }
+.payBox label img{vertical-align: middle; }
+.payBox label.rb_active i{background-position: -10px -368px;}
+.Countdown{color: #ff6767;font-size: 24px;display: inline-block;}
+
+/*错误提示*/
+.ErroBox{}
+.ErroBox input,.ErrBox .textare{border-color: #ff6767;}
+.erroText{display: none;color: #ff6767;position: absolute; left: 0; bottom: -24px; line-height: 24px;font-size: 14px;width: 200%;}
+.ErroBox .erroText,.ErrBox .erroText{display: block;}
+.InsInput{}
+.currentBox{}
+.currentIco{ background-position: -9px -889px; width: 20px; height: 20px; display: inline-block;position: absolute;bottom: 0; right: -24px;display: none;}
+.currentBox .currentIco{display: block;}
+/*保存成功*/
+.ServiceSave{width: 390px; height: auto; min-height:70px;overflow: hidden;position: relative; padding: 0 0 0 100px; margin: 140px 0; display: inline-block;}
+.ServiceSave .ico{width: 70px; height: 70px;position: absolute; top: 0;left: 0; display: block;overflow: hidden;}
+.ServiceSaveT{color: #666666; font-size: 20px;}
+.ServiceSaveSure{color: #29beb5;font-size: 30px; line-height: 35px;}
+.ServiceSave a{color: #ff6767;text-decoration: underline; margin: 0 3px;}
+.ServiceSave .successIco{background: url(http://images.57us.com/img/study/success3.0.png) no-repeat; }
+.ServiceSave .auditIco{background: url(http://images.57us.com/img/study/audit3.0.png) no-repeat; }
+
+/*自定义下拉*/
+.DiySelect{width: 217px; height: 41px;border-radius: 5px;border: 1px solid #c5c5c5;position: relative;display: inline-block; vertical-align: middle;}
+.DiySelect .selected{padding:0 15px 0 10px;overflow:hidden;position:absolute;cursor:pointer;left:0;}
+.DiySelect .opts{ background: #fff; border:1px solid #c5c5c5;cursor:pointer;display:none;height:auto;left:0;max-height:121px;overflow-x:hidden;overflow-y:auto;position:absolute;top:0;width:auto;z-index:99;}
+.DiySelect .opts a{width:auto;height:30px;line-height:30px;padding:0 10px;cursor:default;outline:none;white-space:nowrap;text-decoration:none;display:block;cursor:pointer;overflow: hidden;}
+.DiySelect .opts a.selected,.DiySelect .opts a.selected:hover{background:#29beb5; color: #fff;}
+.DiySelect .opts a.selected{width: 100%; padding: 0; text-indent: 10px;position: relative;}
+.DiySelect .opts a:hover{background:#f9f8f8;cursor:pointer;}
+.DiySelect .sb_icon{background:url(http://images.57us.com/img/study/center3.0.png) no-repeat;width:15px;height:10px;position:absolute;cursor:pointer;right:8px;}
+.DiySelect .arrow{background-position:-13px -175px;}
+.sb_active .arrow{background-position:-13px -376px;	}
+
+/*固定右边栏2016-11-17*/
+/*.NfixMenu.studyFixMenu{right: 35px;padding-top: 111px;width:60px;}*/
+.NfixMenu.studyFixMenu{right: 35px;padding-top:75px;width:60px;}
+.NfixMenu.studyFixMenu li{position: relative;z-index: 2; }
+.NfixMenu.studyFixMenu li .a{background: #e6e6e6;border-top: 1px solid #c8c8c8;width: 60px;height: 60px;}
+.NfixMenu.studyFixMenu li i{ background: url(http://images.57us.com/img/study/studyFix3.0_01.png) no-repeat; width: 60px ;height: 60px;}
+.NfixMenu.studyFixMenu li.i1 .a{border-top: 0;border-radius: 3px 3px 0 0;}
+.NfixMenu.studyFixMenu li.i5 .a{border-radius: 0 0 3px 3px;}
+.NfixMenu.studyFixMenu li.i1 .a i{background-position: 0 0;}
+.NfixMenu.studyFixMenu li.i4 .a i{background-position: 0 -60px;}
+.NfixMenu.studyFixMenu li.i3 .a i{background-position: 0 -120px;}
+.NfixMenu.studyFixMenu li.i5 .a i{background-position: 0 -180px;}
+.NfixMenu.studyFixMenu li:hover .a{ background: #bf181a;}
+.NfixMenu.studyFixMenu li:hover i{background: url(http://images.57us.com/img/study/studyFix3.0_02.png) no-repeat;}
+.NfixMenu.studyFixMenu li.i3{z-index: 5;}
+/*.NfixMenu.studyFixMenu li.i6{background: url(http://images.57us.com/img/study/studyLine3.1.png) no-repeat;position: absolute;top: 0; left:50%; width: 103px; height: 117px;margin-left: -57px;z-index: 1;}*/
+.NfixMenu.studyFixMenu li.i6{background: url(http://images.57us.com/img/study/yuandan.png) no-repeat;position: absolute;top: 0; left:50%; width: 103px; height:107px;margin-left: -54px;z-index: 5;}
+.NfixMenu.studyFixMenu li.i1 .a{padding-top: 15px;}
+
+
+/*留学新春活动入口*/
+.xinchun{width: 400px; height:405px;position:fixed;top: 50%;left: 50%; margin: -203px 0 0 -200px; z-index: 9999;}
+.xinchun .close{ background: url(http://images.57us.com/img/active/nclose.png?v2) no-repeat; width:28px;height: 28px;position: absolute;top: 0;right: 0; cursor: pointer;}
+.xinchunCont{width: 400px;height: 405px; background: url(http://images.57us.com/img/active/nactivePic.png?v2) no-repeat;}
+.xinchunCont a{width: 150px; height: 45px;display: block;position: absolute;left:125px;bottom:8px;}
+.maskmask{width: 100%;height: 100%;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5);position:fixed;top: 0;left: 0;z-index:9999;}

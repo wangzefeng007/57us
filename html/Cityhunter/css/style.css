@@ -1,0 +1,69 @@
+
+.index .NewsTop{color: #333333;height: 27px; line-height: 27px;}
+.index .NewsTop a{color: #333333; padding: 0 10px;}
+.index .NewsTop a:hover{color: #fdb968;}
+.index .UserList{border: 1px solid #c5c5c5;box-shadow: none; border-radius: 4px; }
+.index .UserLogin .UserList table{margin-top: 0;}
+.index .UserLogin .UserList th, .index .UserLogin .UserList td{border: 0;}
+.index .UserList a:hover{color: #eab66a;}
+.index .UserLogin .UserList b.ico{background: url(http://images.57us.cn/img/www/up.png) no-repeat;width: 20px; height: 10px; border: 0;}
+.IndexTopMain{ height:630px; overflow: hidden; position: relative;}
+.MaskUp{ background: url(http://images.57us.cn/img/www/mask.png) 0 -114px no-repeat;width:1920px; height: 101px; position: absolute; top: 0; left:50%; margin-left:-960px;z-index: 2;}
+.NewsSearchBox{ position: absolute; top:15px; left: 50%; margin-left: 260px; z-index: 3; border-radius: 3px;background: #202020;width: 328px; height: 32px; padding: 2px; overflow: hidden;margin-top:15px;}
+.NewsSearchBox .input{ background: #fff; border: 0; width: 267px; height: 32px; line-height: 32px; text-indent: 10px; float: left;}
+.SearchBtn{background: url(http://images.57us.cn/img/www/PublicIco.png) center -120px no-repeat;border:0;width:60px;height:32px; line-height:32px;float: right;cursor: pointer;}
+.NewsLogo{ position: absolute; top: 40px; left:50%; margin-left: -600px; z-index: 3; width: 231px; height: 57px; background:url(../images/logo.png) no-repeat; overflow: hidden;text-indent: -9999px; margin-top: 10px;}
+
+.IndexMenu{ position: absolute; top:68px; left: 50%; margin-left: -364px; width:189px; z-index: 3;}
+.IndexMenu li{ float: left; position: relative;}
+.IndexMenu li .a{ width: 63px; height: 30px; line-height: 30px; display: block; text-align: center; font-size: 16px; color: #ffffff; text-shadow: 0 0 3px #C5C5C5;}
+.IndexMenu li .a:hover,.IndexMenu li:hover .a{color: #fff29d;}
+.SeconMenu{width: 157px; height: auto; overflow: hidden; padding-top: 9px; position: absolute; top: 30px; left: 50%; margin-left: -78px;display: none;}
+.SeconMenu em{width: 0;height: 0;border-left: 8px solid transparent;border-right: 8px solid transparent;border-bottom: 10px solid #fff; display: block; position: absolute; top: 0; left: 50%; margin-left: -8px;}
+.SeconMenuM{background: #ffffff; padding: 10px 0; height: auto; overflow: hidden; border-radius: 3px; }
+.SeconMenuM a{display: block;width: 100%; height: 36px; line-height: 36px; text-indent: 20px; font-size: 16px; color: #666666;}
+.SeconMenuM .line{width: 118px; height: 0; border-bottom: 1px solid #efefef; display: block; margin: 0 auto;}
+.SeconMenuM a:hover{ background: #f5f5f5;}
+.IndexMenu li:hover .SeconMenu{display: block;}
+
+/*banner*/
+.IndexBan{ width:1920px; height:630px; position:relative; left:50%; margin-left:-960px; overflow:hidden; position:relative;z-index: 1;}
+.IndexBan .pic{ position:relative; z-index:0; }
+.IndexBan .pic img { width:1920px; height:630px; display: block; }
+.IndexBan .hd { width:100%; position: absolute; bottom: 10px; text-align: center; font-size:0; z-index:1; }
+.IndexBan .hd li{ border-radius:100%; border: 1px solid #fff; width:14px;height:14px;overflow: hidden;display:inline-block; *display:inline; zoom:1; cursor: pointer;margin: 0 5px; box-shadow:0 0 3px rgba(255,255,255,0.5)}
+.IndexBan .hd .on{background:#06af98; }
+
+.main{ background:url(../images/wrap.jpg) center top no-repeat #001c2a;width: 100%; height: auto; overflow: hidden;}
+/*关于我们*/
+.w1100{width: 1100px;padding: 0 50px;margin: 0 auto;}
+.allMenu{background:url(../images/aboutbg1.jpg) no-repeat;height: 220px; overflow: hidden;}
+.about{background:url(../images/aboutbg2.jpg) no-repeat;height: 403px; padding-top: 120px;}
+.aboutNr{ padding: 30px 390px 0 0; font-size: 26px; line-height: 50px; color: #7d7d7d;}
+.Ptit{height: 54px; overflow: hidden;text-indent: -9999px;}
+.tit1{background: url(../images/tit1.png)  left top no-repeat;}
+.tit2{background: url(../images/tit2.png)  left top no-repeat;}
+.tit3{background: url(../images/tit3.png)  left top no-repeat;}
+.tit4{background: url(../images/tit4.png)  left top no-repeat;}
+.tit5{background: url(../images/tit5.png)  center top no-repeat;}
+/*我们的优势*/
+.advantage{ background: url(../images/AdvantageBg.png) left top repeat-x; height: 609px; padding-top: 22px;}
+.advantageNr{ background: url(../images/Advantage.png) no-repeat; height: 483px; margin-top: 34px;}
+/*理由*/
+.reason{height: 970px; background: #fff; padding-top: 39px;}
+.reason .tab1{background: #dedede;}
+.reason .tab1 th{color: #7f7f7f; font-size: 28px; text-align: left;}
+.reason .tab1 td{ background: #fff; font-size: 22px; color: #9e9e9e; line-height: 36px; vertical-align: top; padding: 20px 0;}
+.reason .t1{padding-left: 30px !important;}
+.reason .t0{padding-left: 65px !important;}
+.reason .t2{padding-left: 10px !important;}
+.reason .t3{padding-top: 20px !important;}
+.reason .tab2{background: #f16862;}
+.reason .tab2 th{color: #fff; font-size: 28px; text-align: left;}
+.reason .tab2 td{ background: #fff; font-size: 20px; color: #f16862; line-height: 36px; vertical-align: top;  padding: 5px 0;}
+/*加入我们*/
+.join{ height: 492px; background: #fff; }
+.joinM{ background: url(../images/condition.png)  no-repeat; height: 364px;}
+
+.ad{height: 502px; background: url(../images/ad.jpg) center top no-repeat;}
+.contactm{height: 271px; background: url(../images/contact.png) center top no-repeat;}

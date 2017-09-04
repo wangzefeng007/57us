@@ -1,0 +1,95 @@
+{template Header}
+<div class="wrap">
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 f16 cf">
+		<div class="NewsLocation fl">您当前位置：<a href="{echo WEB_MAIN_URL}" title="57美国网">首页</a>><a href="/immigrant/" target="_blank" title="移民资讯">移民资讯</a> ><span>{$Keyword}</span></div>
+		<span class="immigrantTip mt10 fr"><i></i>含“{$Keyword}”标签的结果 有{$Rscount[Num]}条</span>
+	</div>
+
+    
+    
+	<div class="w1200 cf NewsimmigrantMain mt10">
+		<div class="NewsTourSlideR  fr">
+			
+            {loop $TopicTour $key $val}
+    <div class="NewsAd">
+	<a href="{$val['Link']}" target="_blank" title="{$val[Title]}"><img src="{echo LImageURL}{$val[Picture]}" class="transition lazy" alt="{$val[Title]}" title="{$val[Title]}" width="100%" /></a>
+    </div>{/loop}
+    
+			<div class="HotTip cf mt25">
+				<div class="HotTipT"><i></i>热门标签</div>
+				<div class="HotTipM">
+					{loop $Keyhot $list}<a href="/immigrant/tags_{$list[Keyword]}.html" target="_blank" title="{$list[Keyword]}">{$list[Keyword]}</a>{/loop}
+				</div>
+			</div>
+			<div class="NowNews mt25">
+				<div class="HotTipT"><i></i>最新文章</div>
+				<ul class="HotNewsList">
+					{loop $TimeArticle $key $lists}
+					<li {if $key ==0}class="on"{/if}>
+						<p class="date">{echo date("Y-m-d",strtotime($lists[AddTime]))}</p>
+						<a href="/immigrant/{$lists[ImmigrationID]}.html" class="FirstCont" target="_blank" title="{$lists[Title]}"><b>●</b>{$lists[Title]}</a>
+						<div class="SecondCont">
+							<a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank" title="{$lists[Title]}"><img src="{echo ImageURLP2}{$lists[Image]}" class="transition lazy" width="90" height="67"/></a>
+							<p class="tit"><a href="/immigrant/{$lists[ImmigrationID]}.html" title="{$lists[Title]}" target="_blank">{$lists[Title]}</a></p>
+							<p class="nr">{$lists[Description]}<a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank">【查看全部】</a></p>
+						</div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="NowNews mt25">
+				<div class="HotTipT"><i></i>热门文章</div>
+				<ul class="NewsList">
+					{loop $hotarticle $key $lists}
+					<li {if $lists[key]<3}class="i{echo $key+1}"{/if}><a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank" title="{$lists[Title]}"><i>{echo $key+1}</i>{$lists[Title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		<div class="NewsTourSlideL fl">
+			<ul class="NewsTourList">
+				{loop $Data[Data] $lists}
+				<li>
+					<a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank" title="{$lists[Title]}"><img src="{echo ImageURLP2}{$lists[Image]}" class="transition lazy" width="204" height="154" title=""/></a>
+					<div class="NewsTourCont fr">
+						<span class="date">{echo date("Y-m-d",strtotime($lists[AddTime]))}</span>
+						<p class="tit"> <a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank" title="{$lists[Title]}">{$lists[Title]}</a></p>
+						<p class="nr mt10">{$lists[Description]}</p>
+						<div class="fun cf mt15">
+							<span class="viewTip fr"><i></i>{$lists[ViewCount]}{if $lists[ViewCount]==''}0{/if}</span>
+							<div class="TourTip  fl">
+								{if count($lists[Keywords])>0}{loop $lists[Keywords] $key $value}{if $key<2}<span><i></i><a href="/immigrant/tags_{$value}.html" target="_blank" title="{$value}">{$value}</a></span>{/if}{/loop}{/if}
+							</div>
+						</div>
+					</div>
+				</li>
+				{/loop}
+			</ul>
+			{if $listpage}
+			<div class="page mt50">{$listpage}<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button" name="" id="" value="确定" class="PageBtn" /></div>
+			</div>
+			{/if}
+		</div>
+    </div>
+    <script>
+	$(".PageBtn").click(function(){
+		var gopage = $("#gopage").val();
+		var lastpage = {$Data['PageCount']};
+		if(!gopage){
+			alert("请输入页码");return false;
+		}
+		if( lastpage < gopage ){
+			alert("您输入的页码超过最大页数");return false;
+		}
+		var gourl = '{$GoPageUrl}';
+			window.location.href=gourl+'_'+gopage+'.html';
+			return false;
+	});
+</script>
+
+	{template Footer}

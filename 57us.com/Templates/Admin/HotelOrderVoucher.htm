@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>酒店确认函</title>
+		<link href="http://css.57us.com/common/reset.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			body{min-width:790px;color: #595757;}
+			.conBody{width: 790px; }
+			.sHeader{height: 287px;}
+			.conM{padding:15px 15px 15px 25px; height: auto; overflow: hidden;}
+			.conTab_cxb th,.conTab_cxb td{ padding: 11px 0;}
+			.conTab_cxb th{line-height: 19px; color: #595757;font-weight: normal;text-align: left;}
+			.conTab_cxb input,.conTab_cxb textarea{width: 210px; height: 36px;border: 1px solid #b7d1f5; line-height: 36px; padding: 0 10px; font-family: "微软雅黑";}
+			.conTab_cxb textarea{height: 50px; line-height: 25px; resize: none; padding: 5px 10px;}
+			.conTabT{color: #55b0ff; height:18px; line-height: 18px;border-left: 5px solid #55b0ff;font-weight: bold;padding-left: 5px;font-size: 16px;}
+			.conList{padding: 10px 0; height: auto;overflow:hidden;}
+			.conList .tit{color: #3c3c3c;}
+			.voucheTab table{width: 100%;}
+.voucheTab th{width: 120px;border-right: 1px solid #efefef;}
+.voucheTab th,.HotelPolicy td{padding: 10px 0; border-bottom: 1px solid #efefef;}
+.voucheTab td{ padding-left: 20px;}
+		</style>
+	</head>
+
+	<body>
+		<div class="conBody">
+				<div class="sHeader"><img src="http://images.57us.com/img/hotelConfir/HotelVoucher.jpg"/></div>
+				<div class="conM">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%" class="conTab_cxb">
+						<tr>
+							<th width="120">
+								<p>订单号<br>Order NO.</p>
+							</th>
+							<td width="265"><input type="" name="" id="" value="{$OrderInfo[OrderNo]}" readonly="readonly" /></td>
+							<th width="120">
+								<p>客户姓名<br>Client</p>
+							</th>
+							<td width="245"><input type="" name="" id="" value="{$OrderInfo[ContactLastName]}{$OrderInfo[ContactFirstName]}" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<th>
+								<p>国家<br>Country</p>
+							</th>
+							<td><input type="" name="" id="" value="美国" readonly="readonly" /></td>
+							<th>
+								<p>联系电话<br>Tell</p>
+							</th>
+							<td><input type="" name="" id="" value="{$HotelInfo[Phone]}" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<th>
+								<p>酒店名称<br>Hotel</p>
+							</th>
+							<td colspan="3"><input type="" name="" id="" value="{$OrderInfo[HotelName]}" readonly="readonly" style="width:595px ;" /></td>
+
+							
+						</tr>
+                                                <tr>
+                                                         <th>
+								<p>房间型号<br>Room Type</p>
+							</th>
+							<td colspan="3"><input type="" name="" id="" value="{$OrderInfo[RoomName]}" readonly="readonly" style="width:595px ;"/></td>
+                                                </tr>
+						<tr>
+							<th>
+								<p>酒店地址<br>Address</p>
+							</th>
+							<td colspan="3"><input type="" name="" id="" value="{$HotelInfo[Address]},{$HotelInfo[StateCode]},{$HotelInfo[CountryCode]}" readonly="readonly" style="width:595px ;" /></td>
+						</tr>
+						<tr>
+							<th>
+								<p>入住时间<br>Check-in Time</p>
+							</th>
+							<td><input type="" name="" id="" value="{$OrderInfo[CheckInDate]}" readonly="readonly" /></td>
+							<th>
+								<p>退房时间<br>Check-out Time</p>
+							</th>
+							<td><input type="" name="" id="" value="{$OrderInfo[CheckOutDate]}" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<th>
+								<p>早餐<br>Breakfast</p>
+							</th>
+							<td><input type="" name="" id="" value="{if $OrderInfo[Breakfast]==1}带早餐{else}不带早餐{/if}" readonly="readonly"/></td>
+							<th>
+								<p>房间数量<br>Room Number</p>
+							</th>
+							<td><input type="" name="" id="" value="{$OrderInfo[RoomNum]}" readonly="readonly" /></td>
+							
+						</tr>
+						
+						<tr>
+							<th>
+								<p>儿童数量<br>Child</p>
+							</th>
+							<td><input type="" name="" id="" value="{$ChildNum}" readonly="readonly" /></td>
+							<th>
+								<p>成人数量<br>Adult</p>
+							</th>
+							<td><input type="" name="" id="" value="{$AdultNum}" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<th>
+								<p>备注<br>Remarks</p>
+							</th>
+							<td colspan="3">
+								<textarea readonly="readonly" style="width: 595px;">{$VoucherRemark}</textarea>
+							</td>
+						</tr>
+						
+					</table>
+                                        {if $HotelInfo[Policy]}
+					<div class="cf">
+						<p class="conTabT mt20">酒店政策</p>
+						<div class="voucheTab">
+							 {$HotelInfo[Policy]}
+						</div>
+                                               
+					</div>
+                                        {/if}
+					<div class="cf">
+						<p class="conTabT mt20">取消政策</p>
+						<div class="conList">
+                                                    {if isset($Cancel[CancellationPolicy])}
+                                                            {if isset($Cancel[CancellationPolicy][FromDate])}
+                                                                {if strtotime($Cancel[CancellationPolicy][FromDate])>time()}
+                                                                在 <em class="red">{echo date('Y-m-d',strtotime($Cancel[CancellationPolicy][FromDate]))}</em> 之前可以免费取消，从 <em class="red">{echo date('Y-m-d',strtotime($Cancel[CancellationPolicy][FromDate]))}</em> 开始取消订单,需缴纳罚金 <em class="red">¥{echo ceil($Cancel[CancellationPolicy][Amount]*0.1+$Cancel[CancellationPolicy][Amount])}</em>                                                             
+                                                                {else}
+                                                                    预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费
+                                                                {/if}
+                                                            {else}
+                                                                {if strtotime($Cancel[CancellationPolicy][0][FromDate])>time()}
+                                                                        在 <em class="red">{echo date('Y-m-d',strtotime($Cancel[CancellationPolicy][0][FromDate]))}</em> 之前可以免费取消，从 <em class="red">{echo date('Y-m-d',strtotime($Cancel[CancellationPolicy][0][FromDate]))}</em> 开始取消订单,需缴纳罚金<em class="red"> ¥{echo ceil($Cancel[CancellationPolicy][count($Cancel[CancellationPolicy])-1][Amount]*0.1+$Cancel[CancellationPolicy][count($Cancel[CancellationPolicy])-1][Amount])}</em>
+                                                                {else}
+                                                                    预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费
+                                                                {/if}
+                                                            {/if}
+                                                    {else}
+                                                        预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费
+                                                    {/if}
+						</div>
+					</div>
+				<div class="cf foot tac mt20">
+						美华通（厦门）网络科技有限公司<br>
+Meihuatong （Xiamen）Network Technology Co. Ltd.
+					</div>
+				</div>
+				
+			</div>
+	</body>
+</html>

@@ -1,0 +1,7 @@
+<div class="SlideRight fr">
+        {loop $this->TourGroupADLists $list}
+        <div class="tourRad">
+            <a href="{$list[Link]}" target="_blank"><img src="{echo LImageURL}{$list[Picture]}" class="transition lazy" width="100%" /></a>
+        </div>
+        {/loop}
+</div>

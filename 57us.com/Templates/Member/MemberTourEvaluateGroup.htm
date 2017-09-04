@@ -1,0 +1,78 @@
+{template MemberHeader}
+<div class="w1200 mt20 cf">
+	<div class="pjdetailTit tac">
+		<p class="fbd f16">评价订单</p>
+		<p class="otherIns mt5"><span>订单号：<em class="c6">{$OrderInfo[OrderNumber]}</em></span><span>{$OrderInfo[AddTime]}</span></p>
+	</div>
+	<div class="pjbody mt20 cf">
+		<div class="pjhead cf">
+			<img src="{echo ImageURLP4}{$ImageInfo['ImageUrl']}" width="400" height="300">
+			<p class="tit mt10">{$LineInfo[ProductName]}</p>
+			<div class="nr mt10">
+				<p>产品编号：{$LineInfo[TourProductID]}</p>
+				<p class="tar">价格：<span class="red">￥<em class="f18">{$OrderInfo[TotalAmount]}</em></span></p>
+				<p>出行时间：{$OrderOrderInfo[Depart]}</p>
+				<p class="tar">出发地：{$OtherInfo[DepartureName]}</p>
+				<p>行程天数：{$LineInfo[Days]}天</p>
+			</div>
+		</div>
+		<div class="pjcont cf">
+			<div class="pjbox">
+				<p class="pjboxt">产品评分</p>
+				<ul class="pjboxList cf">
+					<li>
+						<p class="fl pjname">57美国服务</p>
+						<p class="fl star" id="ServerFraction"></p>
+						<p class="fl startscro"></p>
+					</li>
+					<li>
+						<p class="fl pjname">产品便捷</p>
+						<p class="fl star" id="ConvenientFraction"></p>
+						<p class="fl startscro"></p>
+					</li>
+					<li>
+						<p class="fl pjname">出游体验 </p>
+						<p class="fl star" id="ExperienceFraction"></p>
+						<p class="fl startscro"></p>
+					</li>
+					<li>
+						<p class="fl pjname">性价比</p>
+						<p class="fl star" id="PerformanceFraction"></p>
+						<p class="fl startscro"></p>
+					</li>
+				</ul>
+			</div>
+			<div class="pjbox mt20">
+				<p class="pjboxt">评价晒单</p>
+				<textarea type="text" name="evaluationText" id="evaluationText" rows="" cols="" class="pjtext" placeholder="写下你此次旅行的真实感受，不少于20个字。"></textarea>
+				<ul class="pjPicAdd cf mt15" id="pjPicAdd">
+					<!--<li><img src="http://images.57us.com/p6/up/2016/0902/201609021419295807.jpg" width="80" height="60"></li>-->
+					<li class="addPic" id="AddOfferImg"></li>
+					<li class="last"><span>共<em class="red" id="zNum">0</em>张,还能上传<em class="red" id="sNum">5</em>张</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="pjbottom mt20">
+		<a href="javascript:void(0)" class="publicBtn3 btn" id="evaluationSubmit" data-id="{$LineInfo[TourProductID]}" data-order="{$OrderInfo[OrderNumber]}" data-type="0">提交评价</a>
+	</div>
+</div>
+{template MemberFooter}
+</div>
+<script src="{echo JsURL}/base/jquery.raty/2.5.2/jquery.raty.min.js"></script>
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/plupload/1.0.0/plupload.full.min.js"></script>
+<script src="{echo JsURL}/user/TourMemberEvaluation.js"></script>
+<script type="text/javascript">
+	$(".star").raty({
+		score:function(){
+			return $(this).attr("data-num");},
+		starOn:'{echo ImageURL}/img/user/star-on-big.png',
+		starOff:'{echo ImageURL}/img/user/star-off-big.png',
+		readOnly:false,
+		halfShow:true,
+		size:34
+	})
+</script>
+</body>
+</html>

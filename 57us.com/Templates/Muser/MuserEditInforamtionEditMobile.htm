@@ -1,0 +1,78 @@
+{template Header}
+{if $Type=='bindmobile'}
+<div class="page-group">
+	<div class="page page-current" id="binding">
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">绑定手机</h2>
+		</header>
+		<div class="content">
+			<ul class="changePhone">
+				<li>
+					<div class="input">
+						<input type="text" name="newMobile" class="newMobile" placeholder="请输入手机号码"/>
+					</div>
+				</li>
+				<li>
+					<div class="input">
+						<input type="text" name="newCode" value="" class="newCode" placeholder="请输入短信验证码"/>
+					</div>
+					<input type="button" name="newCodeBtn" value="获取手机验证码" class="sendyam newCodeBtn" />
+				</li>
+			</ul>
+			<div class="sendBox">
+				<a href="javascript:void(0)" class="button button-fill button-orange nextBtn1">保存</a>
+			</div>
+		</div>
+	</div>
+</div>
+{else}
+<div class="page-group">
+	<div class="page page-current" id="amend">
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">更改手机</h2>
+		</header>
+		<div class="content index1">
+			<ul class="changePhone">
+				<li>
+					<div class="input">
+						<input type="text" value="{$User[Mobile]}" readonly/>
+					</div>
+				</li>
+				<li>
+					<div class="input">
+						<input type="text" name="oldCode" value="" class="oldCode" placeholder="请输入短信验证码"/>
+					</div>
+					<input type="button" name="oldCodeBtn" value="获取短信验证码" class="sendyam oldCodeBtn"/>
+				</li>
+			</ul>
+			<div class="sendBox">
+				<a href="javascript:void(0)" class="button button-fill button-orange nextBtn1">下一步</a>
+			</div>
+		</div>
+		<div class="content index2" style="display: none">
+			<ul class="changePhone">
+				<li>
+					<div class="input">
+						<input type="text" name="newMobile" class="newMobile" placeholder="请输入新的手机号码"/>
+					</div>
+				</li>
+				<li>
+					<div class="input">
+						<input type="text" name="newCode" value="" class="newCode" placeholder="请输入短信验证码"/>
+					</div>
+					<input type="button" name="newCodeBtn" value="获取手机验证码" class="sendyam newCodeBtn" />
+				</li>
+			</ul>
+			<div class="sendBox">
+				<a href="javascript:void(0)" class="button button-fill button-orange nextBtn2">保存</a>
+			</div>
+		</div>
+	</div>
+</div>
+{/if}
+{template Footer}
+<script src="{echo JsURL}/m/muser/MuserEditInforamtionEditMobile.js" type="text/javascript"></script>
+</body>
+</html>

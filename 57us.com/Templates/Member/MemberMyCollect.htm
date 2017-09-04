@@ -1,0 +1,48 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight cf fr">
+        <div class="proBox cf">
+            <div class="proBoxT">
+                <div class="hd">
+                    <a href="/member/mycollect/" {if $Type==''}class="on"{/if}>全部</a>
+                    <a href="/member/mycollect/?t=travel" {if $Type=='travel'}class="on"{/if}>出游</a>
+                    <a href="/member/mycollect/?t=ticket" {if $Type=='ticket'}class="on"{/if}>门票</a>
+                    <a href="/member/mycollect/?t=hotel" {if $Type=='hotel'}class="on"{/if}>酒店</a>
+                    <!--<a href="/member/mycollect/?t=carrent" {if $Type==''}class="on"{/if}>租车</a>-->
+                    <a href="/member/mycollect/?t=visa" {if $Type=='visa'}class="on"{/if}>签证</a>
+                    <a href="/member/mycollect/?t=news" {if $Type=='news'}class="on"{/if}>资讯</a>
+                    <a href="/member/mycollect/?t=service" {if $Type=='service'}class="on"{/if}>服务</a>
+                    <a href="/member/mycollect/?t=course" {if $Type=='course'}class="on"{/if}>课程</a>
+                    <a href="/member/mycollect/?t=yoosure" {if $Type=='yoosure'}class="on"{/if}>游学</a>
+                    <a href="/member/mycollect/?t=school" {if $Type=='school'}class="on"{/if}>学校</a>
+                </div>
+            </div>
+            <ul class="proList cf mt20">
+                <!--cancelColl里面的data-id绑定此条记录对应的id  此处循环输出9个收藏的产品-->
+                {loop $Data['Data'] $lists}
+                <li>
+                    <span class="canceColl cancelColl" data-id="{$lists[CollectionID]}">取消<br>收藏</span>
+                    <a href="{$lists['Url']}" target="_blank" title="{$lists['ProductName']}">
+                        <span class="tip">{$lists['Type']}</span>
+                        <img src="{$lists['ImageUrl']}" width="276" height="172" title="{$lists['ProductName']}" alt="{$lists['ProductName']}"/>
+                        <p class="title">{$lists['ProductName']}</p>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        {if $ShowPage}
+        <div class="page mt35" id="Page2">
+            <form action="/member/mycollect/" method="GET">
+                {$ShowPage}
+                <div class="GoPage">到 <input type="text" name="p" value="" class="input" maxlength="4"/> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn" /></div>
+            </form>
+        </div>
+        {/if}
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberMyCollect.js" type="text/javascript"></script>
+</body>
+</html>

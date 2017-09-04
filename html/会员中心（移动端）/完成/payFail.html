@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>支付失败</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm-extend.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/lib/reset.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/member/v3.1/style.css">
+		<script type='text/javascript' src="http://js.57us.net/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+		<script type="text/javascript">
+		$.config = {routerFilter: function($link){return false;}}
+		</script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-city-picker.min.js" charset='utf-8'></script>
+		<script type="text/javascript" src="http://js.57us.net/m/member/v3.1/app.js"></script>
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current" id="orderAll">
+				<div class="collectMask"></div>
+				<header class="bar bar-nav suvBar">
+					<a href="" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+					<p class="title">支付失败</p>
+				</header>
+				<div class="content">
+					<div class="payIns mt10">
+						<div class="payInsD">
+							订单信息<br>
+							订单号：12345678<br>
+							预定时间：2016-12-02 14:32:07
+						</div>
+						<div class="payPrice">￥2000</div>
+					</div>
+					<div class="payStyle payfail mt10">
+						<i class="icon iconfont icon-nanguo"></i>
+						<p class="tit">支付失败</p>
+						<p class="payI mt10">订很遗憾，您此次操作的订单未能完成支付，请重新尝试，如有疑问，请联系我们网站的工作人员！</p>
+						<p class="mt10"><a href="#" class="button againPay">重新支付</a></p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>

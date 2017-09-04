@@ -1,0 +1,65 @@
+{template Header}
+<div class="page-group">
+    <input type="hidden" name="study" class="study" value="{$ComeFrom}"/>
+    <div class="page page-current loginPage" id="index1">
+        <header class="bar bar-nav loginBar">
+            <a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+            <h2 class="title">短信登录</h2>
+        </header>
+        <div class="content">
+            <div class="loginCont">
+                <form id="mobileIndex1">
+                    <p class="loginLogo">57美国</p>
+                    <div class="erroTip" style="display: none">
+                        <i class="icon iconfont icon-close"></i><span class="erroIfno"></span>
+                    </div>
+                    <div class="mt30 cf">
+                        <div class="loginInput">
+                            <div class="input"><input type="text" name="user" class="user" value="" placeholder="请输入手机号" /></div>
+                        </div>
+                    </div>
+                    <div class="mt20">
+                        <a href="javascript:void(0)" class="button button-fill loginBtn smsBtn">获取手机验证码</a>
+                    </div>
+                    <div class="loginFun">
+                        <a href="/muser/resetpassword/" class="pull-left">登录遇到问题</a>
+                        <a href="/muser/login/" class="pull-right">普通登录</a>
+                    </div>
+                </form>
+            </div>
+            <div class="speedResi"><a href="/member/register/">快速注册</a></div>
+        </div>
+    </div>
+    <div class="page page-current loginPage" id="index2" style="display: none">
+        <header class="bar bar-nav loginBar">
+            <a href="javascript:void(0)" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+            <h2 class="title">验证短信</h2>
+        </header>
+        <div class="content">
+            <div class="loginCont">
+                <form id="mobileIndex2">
+                <div class="sendNum tac">
+                    已发送验证码短信到<br><span class="num tel"></span>
+                </div>
+                <div class="erroTip" style="display: none">
+                    <i class="icon iconfont icon-close"></i><span class="erroIfno"></span>
+                </div>
+                <div class="mt30 cf">
+                    <div class="loginInput">
+                        <div class="input"><input type="text" name="code" class="code" value="" placeholder="请输入动态验证码" /></div>
+                        <input type="button" class="sendSm smsBtn" id="smsBtn" value="获取动态密码">
+                    </div>
+                </div>
+                <div class="mt20">
+                    <a href="javascript:void(0)" class="button button-fill loginBtn">登录</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserMobileLogin.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserLoginPublic.js" charset='utf-8'></script>
+</body>
+</html>

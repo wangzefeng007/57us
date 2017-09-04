@@ -1,0 +1,106 @@
+{template Header}
+<div class="wrap">
+	{template Newstourmenu}
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" title="57美国网" target="_blank">首页</a>><a href="/tour/" title="旅游资讯" target="_blank">旅游资讯</a>><span>{$Info[CategoryName]}</span></div>
+    <div class="w1200 cf">
+    	<ul class="TourBan">
+			{loop $HeadList $lists}
+    		<li class="ImgBlackBg {if $lists[key]==0}i1{/if}"><a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}">
+            {if $lists[key]==0}
+            <img src="{echo ImageURLP8}{$lists[Image]}" class="transition" alt="{$lists[Title]}" title="{$lists[Title]}" width="800" height="400"/>
+            {else} 
+            <img src="{echo ImageURLP4}{$lists[Image]}" class="transition" alt="{$lists[Title]}" title="{$lists[Title]}" width="400" height="200"/>
+            {/if}
+            <p class="tit">{$lists[Title]}</p></a></li>
+			{/loop}
+    	</ul>
+    </div>
+	<div class="w1200 cf NewsTourMain">
+		<div class="NewsTourSlideL fl">
+			<ul class="NewsTourList">
+				{loop $Data[Data] $lists}
+				<li>
+					<a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"><img class="transition lazy" src="{echo ImageURLP2}{$lists[Image]}" width="204" height="154" title="{$lists[Title]}" alt="{$lists[Title]}"/></a>
+					<div class="NewsTourCont fr">
+						<span class="date">{echo date("Y-m-d",strtotime($lists[AddTime]))}</span>
+						<p class="tit"> <a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}">{$lists[Title]}</a></p>
+						<p class="nr mt10">{$lists[Description]}</p>
+						<div class="fun cf mt15">
+							<span class="viewTip fr"><i></i>{$lists[ViewCount]}{if $lists[ViewCount]==''}0{/if}</span>
+							<div class="TourTip fl">
+								{if $lists[Keywords][0]}{loop $lists[Keywords] $key $value}{if $key<2}<span><i></i><a href="/tour/tags_{$value}.html" target="_blank" title="{$value}">{$value}</a></span>{/if}{/loop}{/if}
+							</div>
+						</div>
+					</div>
+				</li>
+				{/loop}
+			</ul>
+			{if $listpage}
+			<div class="page mt50">{$listpage}<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button" name="" id="" value="确定" class="PageBtn" /></div>
+			</div>
+			{/if}
+		</div>	
+		<div class="NewsTourSlideR fr">
+			{loop $AdHotel $key $lists}
+			{if $key==0}
+			<div class="TourAd mt20"><a href="{$lists[Link]}" target="_blank" title="{$lists[Title]}"><img src="{echo ImageURLP4}{$lists[Picture]}" title="{$lists[Title]}" alt="{$lists[Title]}" width="100%" class="transition"/></a></div>
+			{/if}
+			{/loop}
+			<ul class="TjTourList">
+				{loop $AdTour $key $lists}
+				{if $key<2}
+				<li>
+					<a href="{$lists[Link]}" target="_blank" title="{$lists[Title]}">
+						<p class="ImgBlackBg"><img src="{echo ImageURLP4}{$lists[Picture]}" title="{$lists[Title]}" alt="{$lists[Title]}" width="320" height="208" class="transition"/></p>
+						<p class="tit">{$lists[Title]}</p>
+					</a>
+				</li>
+				{/if}
+				{/loop}
+			</ul>
+                        {template TagsCloud}
+			<div class="HotTip cf mt25">
+				<div class="HotTipT"><i></i>热门标签</div>
+				<div class="HotTipM">
+					{loop $Keyhot $list}<a href="/tour/tags_{$list[Keyword]}.html" target="_blank" title="{$list[Keyword]}">{$list[Keyword]}</a>{/loop}
+				</div>
+			</div>
+			<div class="NowNews mt25">
+				<div class="HotTipT"><i></i>热门文章</div>
+				<ul class="NewsList">
+					{loop $Tourhot $key $lists}
+					<li {if $key<3}class="i{echo $key+1}{/if}"><a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"><i>{echo $key+1}</i>{$lists[Title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="NowNews LikeNews mt25">
+				<div class="HotTipT"><i></i>猜你喜欢</div>
+				<ul class="NewsList">
+					{loop $TourLike $key $lists}
+					<li><a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"><i>{echo $key+1}</i>{$lists[Title]}</a></li>
+					{/loop}
+				</ul>
+			</div>                        
+		</div>
+	</div>
+	<script>
+		$(".PageBtn").click(function(){
+			var gopage = $("#gopage").val();
+			var lastpage = {$Data['PageCount']};
+			if(!gopage){
+				alert("请输入页码");return false;
+			}
+			if( lastpage < gopage ){
+				alert("您输入的页码超过最大页数");return false;
+			}
+			var gourl = '{$GoPageUrl}';
+			window.location.href=gourl+'_'+gopage+'/';
+			return false;
+		});
+	</script>
+{template Footer}

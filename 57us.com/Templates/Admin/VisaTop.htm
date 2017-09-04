@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li>
+                <a href="#"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="#">签证产品管理</a>
+            </li>
+            <li class="active">产品编辑</li>
+        </ul>
+        <span class="position hidden">签证列表</span>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-body special-details" style="padding-bottom: 0px">
+                {if $VisaID}
+                <input class="{if $Nav=='Details'}btn btn-info{else}btn btn-default{/if}" type="button" value="产品详息"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=Details&ID={$VisaID}'">
+                <input class="{if $Nav=='SetMeal'}btn btn-info{else}btn btn-default{/if}" type="button" value="套餐介绍"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetMeal&ID={$VisaID}'">
+                <input class="{if $Nav=='SetProcess'}btn btn-info{else}btn btn-default{/if}" type="button" value="办理流程"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetProcess&ID={$VisaID}'">
+                <input class="{if $Nav=='SetMaterial'}btn btn-info{else}btn btn-default{/if}" type="button" value="所需材料"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetMaterial&ID={$VisaID}'">
+                <input class="{if $Nav=='SetNotice'}btn btn-info{else}btn btn-default{/if}" type="button" value="预定须知"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetNotice&ID={$VisaID}'">
+                <input class="{if $Nav=='SetProblem'}btn btn-info{else}btn btn-default{/if}" type="button" value="常见问题"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=Visa&Action=SetProblem&ID={$VisaID}'">
+                {/if}
+            </div>

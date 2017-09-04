@@ -1,0 +1,141 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    {if $Do == 'b'}
+    <!--绑定手机号码页面-->
+    <div class="mRight cf fr" id="binding">
+        <div class="mRight_v">
+            <div class="mRightit">
+                <span class="name">绑定手机</span>
+            </div>
+            <div class="funLoading">
+                <ul class="schedule">
+                    <li class="col-50 on"><span class="stepNum">1</span><span class="text">验证手机号码</span></li>
+                    <li class="col-50"><span class="stepNum">2</span><span class="text">完成</span></li>
+                </ul>
+            </div>
+            <div class="yzCont index1">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <th>我的手机：</th>
+                        <td>
+                            <div class="posDiv">
+                                <input type="text" name="newMobile" class="tabInput newMobile" style="width: 311px;" placeholder="请输入手机号码"/>
+                                <p class="currtip"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>手机验证码：</th>
+                        <td>
+                            <div class="yzInBox">
+                                <input type="text" name="newCode" value="" class="input fl newCode" placeholder="请输入短信验证码"/>
+                                <input type="button" name="newCodeBtn" value="获取手机验证码" class="getYzm fl newCodeBtn" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a href="javascript:void(0)" class="publicBtn2 nextBtn nextBtn1">下一步</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="yzCont index2" style="display: none">
+                <div class="yzSeccess tac">
+                    <i class="icon iconfont icon-circle-ok-copy"></i>
+                    <div class="SeccTip tal">
+                        <p class="f22">恭喜，您的手机验证成功！</p>
+                        <p class="mt10 f18 c9">手机为：<span class="mobileShow"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomIns mt30">
+                为什么要进行身份验证？<br>
+                为保障您的账户信息安全，在变更账户中的重要信息时需要进行身份验证，感谢您的理解和支持。
+            </div>
+        </div>
+    </div>
+    {else}
+    <!--更换手机号码页面-->
+    <div class="mRight cf fr" id="amend">
+        <div class="mRight_v">
+            <div class="mRightit">
+                <span class="name">更换手机号码</span>
+            </div>
+            <div class="funLoading">
+                <ul id="schedule">
+                    <li class="on"><span class="stepNum">1</span><span class="text">验证身份</span></li>
+                    <li><span class="stepNum">2</span><span class="text">输入新手机号码</span></li>
+                    <li><span class="stepNum">3</span><span class="text">完成</span></li>
+                </ul>
+            </div>
+            <div class="yzCont index1">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <th>已验证手机：</th>
+                        <td><span class="c9">{$UserInfo['Mobile']}</span></td>
+                    </tr>
+                    <tr>
+                        <th>已验证手机：</th>
+                        <td>
+                            <div class="yzInBox">
+                                <input type="text" name="oldCode" value="" class="input fl oldCode" placeholder="请输入短信验证码"/>
+                                <input type="button" name="oldCodeBtn" value="获取手机验证码" class="getYzm fl oldCodeBtn"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a href="javascript:void(0)" class="publicBtn2 nextBtn nextBtn1">下一步</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="yzCont index2" style="display: none">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <th>新手机号码：</th>
+                        <td>
+                            <div class="posDiv">
+                                <input type="text" name="newMobile" class="tabInput newMobile" style="width: 311px;" placeholder="请输入手机号码"/>
+                                <p class="currtip"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>手机验证码：</th>
+                        <td>
+                            <div class="yzInBox">
+                                <input type="text" name="newCode" value="" class="input fl newCode" placeholder="请输入短信验证码"/>
+                                <input type="button" name="newCodeBtn" value="获取手机验证码" class="getYzm fl newCodeBtn" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><a href="javascript:void(0)" class="publicBtn2 nextBtn nextBtn2">下一步</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="yzCont index3" style="display: none">
+                <div class="yzSeccess tac">
+                    <i class="icon iconfont icon-circle-ok-copy"></i>
+                    <div class="SeccTip tal">
+                        <p class="f22">恭喜，您的手机号码已更换成功！</p>
+                        <p class="mt10">新的手机号码为：<span class="mobileShow"></span></p>
+                        <p class="">您可以到<a href="/member/accountsafety/">安全中心</a>查看</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomIns mt30">
+                为什么要进行身份验证？<br>
+                为保障您的账户信息安全，在变更账户中的重要信息时需要进行身份验证，感谢您的理解和支持。
+            </div>
+        </div>
+    </div>
+    {/if}
+</div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberChangeMobile.js" type="text/javascript"></script>
+</body>
+</html>

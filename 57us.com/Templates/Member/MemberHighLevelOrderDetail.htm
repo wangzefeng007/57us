@@ -1,0 +1,138 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberTourOrderLeft}
+    <div class="mRight cf fr">
+        <div class="mRight_v">
+            <div class="mRightit">
+                <a href="" class="fr abackList">返回订单列表 ></a>
+                <span class="name">订单信息</span>
+            </div>
+            <div class="orderDetailM">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" class="orderDetTab">
+                    <tr data-type="dingzhi" data-id="{$PrivateOrderInfo[OrderID]}" {if  $PrivateOrderInfo[ExpirationTime]>$CurrentTime} class="settime" endTime="{$PrivateOrderInfo[ExpirationTime]}"{/if}>
+                        <td width="90">订单编号：</td>
+                        <td width="180">{$PrivateOrderInfo[OrderNo]}</td>
+                        <td width="90">预定时间：</td>
+                        <td width="180">{$PrivateOrderInfo[CreateTime]}</td>
+                        <td rowspan="2" class="tac">
+                            {if $PrivateOrderInfo[Status]==1}
+                            <a href=" {echo WEB_TOUR_URL}/highorderpay/{$PrivateOrderInfo[OrderNo]}.html" class="publicBtn2 btn applyTk">去支付</a>
+                            <a href="javascript:void (0)" class="publicBtn2 btn applyTk">取消订单</a>
+                            {elseif $PrivateOrderInfo[Status]==2 || $PrivateOrderInfo[Status]==3 || $PrivateOrderInfo[Status]==4}
+                            <a href="javascript:void (0)" class="publicBtn2 btn applyTk">申请退款</a>
+                            {/if}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>总金额：</td>
+                        <td><span class="red">￥<em class="f22">{$PrivateOrderInfo[Money]}</em></span></td>
+                        <td>订单状态：</td>
+                        <td><span class="red">{$OrderStatus[$PrivateOrderInfo[Status]]}</span></td>
+                    </tr>
+                </table>
+            </div>
+            {if $PrivateOrderInfo[Status]==5 || $PrivateOrderInfo[Status]==6 || $PrivateOrderInfo[Status]==7 ||$PrivateOrderInfo[Status]==8 ||$PrivateOrderInfo[Status]==9}
+            <div class="tkBox">
+                <div class="fr mt20">
+                    退款申请已通过审核，客服将在<span class="green">3</span>个工作日内将金额退至付款账户
+                </div>
+                <div class="tkLoading fl">
+                    <span class="sline"></span>
+                    <ul>
+                        <li class="{if $PrivateOrderInfo[Status]==5 || $PrivateOrderInfo[Status]==6 || $PrivateOrderInfo[Status]==7 || $PrivateOrderInfo[Status]==8 ||$PrivateOrderInfo[Status]==9}on{/if}">
+                            <span class="cirle">1</span>
+                            <p class="tit">申请退款</p>
+                        </li>
+                        <li class="{if $PrivateOrderInfo[Status]==5 || $PrivateOrderInfo[Status]==6}i2{elseif $PrivateOrderInfo[Status]==7 || $PrivateOrderInfo[Status]==8 ||$PrivateOrderInfo[Status]==9}on{/if}">
+                            <span class="cirle">2</span>
+                            <p class="tit">{if $PrivateOrderInfo[Status]==7}审核不通过{elseif $PrivateOrderInfo[Status]==8}审核通过{/if}</p>
+                        </li>
+                        <li class="{if $PrivateOrderInfo[Status]==5 || $PrivateOrderInfo[Status]==6 || $PrivateOrderInfo[Status]==7 || $PrivateOrderInfo[Status]==8}i3{elseif $PrivateOrderInfo[Status]==9}on{/if}">
+                            <span class="cirle"><i class="icon iconfont icon-ok1"></i></span>
+                            <p class="tit">退款</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {/if}
+        </div>
+        <div class="mRight_v mt20">
+            <div class="mRightit">
+                <span class="name">出游清单</span>
+            </div>
+            <div class="orderDetailM proIns">
+                <p class="proInsTit mt10">{$PrivateOrderInfo[Money]}</p>
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" class="contactTab mt15">
+                    <tbody><tr>
+                        <th>出发城市：</th>
+                        <td>{$PrivateOrderInfo[StartCity]}</td>
+                    </tr>
+                    <tr>
+                        <th>出行时间：</th>
+                        <td>{$PrivateOrderInfo[StartDate]}</td>
+                    </tr>
+                    <tr>
+                        <th>返回时间：</th>
+                        <td>{$PrivateOrderInfo[EndDate]}</td>
+                    </tr>
+                    <tr>
+                        <th>出游人数：</th>
+                        <td>{if $PrivateOrderInfo[Number][Addult]>0}{$PrivateOrderInfo[Number][Addult]}成人{/if}{if $PrivateOrderInfo[Number][Minor]>0}{$PrivateOrderInfo[Number][Minor]}小孩{/if}</td>
+                    </tr>
+                    <tr>
+                        <th>酒店：</th>
+                        <td>{$PrivateOrderInfo[StarHotel]}</td>
+                    </tr>
+                    <tr>
+                        <th>目的地：</th>
+                        <td><span>{$PrivateOrderInfo[EndCity]}</span></td>
+                    </tr>
+                    <tr>
+                        <th>景点：</th>
+                        <td>{$PrivateOrderInfo[ScenicSpots]}</td>
+                    </tr>
+                    <tr>
+                        <th>特色定制：</th>
+                        <td><span>{$PrivateOrderInfo[Customizatin]}</span></td>
+                    </tr>
+                    <tr>
+                        <th>需要：</th>
+                        <td>{$PrivateOrderInfo[Demand]}</td>
+                    </tr>
+                    <tr>
+                        <th>其他需求：</th>
+                        <td><span>{$PrivateOrderInfo[OtherDemand]}</span></td>
+                    </tr>
+                    </tbody></table>
+            </div>
+        </div>
+        <div class="mRight_v mt20">
+            <div class="mRightit">
+                <span class="name">联系信息</span>
+            </div>
+            <div class="orderDetailM">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" class="contactTab mt15">
+                    <tr>
+                        <th>姓名：</th>
+                        <td>{$PrivateOrderInfo[Name]}</td>
+                    </tr>
+                    <tr>
+                        <th>联系号码：</th>
+                        <td>{$PrivateOrderInfo[Phone]}</td>
+                    </tr>
+                    <tr>
+                        <th>联系邮箱：</th>
+                        <td>{$PrivateOrderInfo[Mail]}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="cf mt20 tac">
+            <a href="" class="publicBtn2 backList">返回订单列表</a>
+        </div>
+    </div>
+</div>
+<script src="{echo JsURL}/member/MemberTourPublic.js" type="text/javascript"></script>
+{template MemberFooter}
+</body>
+</html>

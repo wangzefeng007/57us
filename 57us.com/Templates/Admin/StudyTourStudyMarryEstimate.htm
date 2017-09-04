@@ -1,0 +1,71 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">免费评估管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=StudyTour&Action=StudyMarryEstimate" class="active">评估列表</a>
+                </li>
+                <span class="position hidden">免费评估管理</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel breadcrumb">
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>申请项目</th>
+                            <th>目前就读</th>
+                            <th>国内平均成绩</th>
+                            <th>联系方式</th>
+                            <th>申请时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $Data['Data'] $lists}
+                        <tr height="35" align="center">
+                            <td>{$lists[ApplyProject]}</td>
+                            <td>{$lists[AttendSchool]}</td>
+                            <td>{$lists[Average]}</td>
+                            <td>{$lists[Mobile]}</td>
+                            <td>{$lists[Addtime]}</td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    <form action="/index.php?Module=StudyTour&Action=StudyMarryEstimate{$PageUrl}" method="POST">
+                        <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryEstimate&Page=1{$PageUrl}">首页</a></li>
+                                {if $Previous}
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryEstimate&Page={$Previous}{$PageUrl}">上一页</a></li>
+                                {/if}
+                                {loop $Data[PageNums] $page}
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryEstimate&Page={$page}{$PageUrl}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+                                {/loop}
+                                {if $Next}
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryEstimate&Page={$Next}{$PageUrl}">下一页</a></li>
+                                {/if}
+                                <li><a href="/index.php?Module=StudyTour&Action=StudyMarryEstimate&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+                                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

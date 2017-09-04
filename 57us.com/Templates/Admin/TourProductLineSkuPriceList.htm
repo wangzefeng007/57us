@@ -1,0 +1,180 @@
+{template Head}
+<style>
+  iframe{padding: 0px !important;}
+  .panel-body table thead th{text-align: center}
+  .radio{padding-left: 0px !important;padding-right: 10px !important;}
+</style>
+<link href="{echo JsURL}/admin/common/iCheck/skins/flat/green.css" rel="stylesheet">
+<div class="wrapper">
+  {template TourLineTop}
+  <div class="panel-body">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+      <tr>
+        <th>售卖时间</th>
+        <th>售卖星期</th>
+        <th>优惠价</th>
+        <th>市场价</th>
+        <th>采购价</th>
+        <th>销售价</th>
+        <th>利润</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      {loop $SKUPriceList $list}
+      <tr align="center">
+        <td>{$list[StartDate]} 到{$list[EndDate]}</td>
+        <td>{if $list[Monday]}一{/if}&nbsp;{if $list[Tuesday]}二{/if}&nbsp;{if $list[Wednesday]}三{/if}&nbsp;{if $list[Thursday]}四{/if}&nbsp;{if $list[Friday]}五{/if}&nbsp;{if $list[Saturday]}六{/if}&nbsp;{if $list[Sunday]}日{/if}</td>
+        <td>￥{$list[Price]}</td>
+        <td>￥{$list[MarketPrice]}</td>
+        <td>￥{$list[PurchasePrice]}</td>
+        <td>￥{$list[SellPrice]}</td>
+        <td>￥{$list[Profit]}</td>
+        <td><a class="getinfo"  href="/index.php?Module=TourLine&Action=TourProductLineSkuPriceList&ProductSkuID={$list[ProductSkuID]}&TourPricetID={$list[TourPricetID]}">编辑</a> | <a class="getinfo" href="javascript:if(confirm('确认删除吗?'))window.location='/index.php?Module=TourLine&Action=DeleteTourProductLineSkuInfo&ProductSkuID={$list[ProductSkuID]}&TourPricetID={$list[TourPricetID]}'">删除</a></td>
+      </tr>
+      {/loop}
+      </tbody>
+    </table>
+    <form action='/index.php?Module=TourLine&Action=TourProductLineSkuPriceList&ProductSkuID={$ProductSkuID}'  method='post' enctype="multipart/form-data">
+      <table class="table table-bordered table-striped table-hover">
+        <tbody>
+        <tr>
+          <td colspan="2" class="t-h">设置价格：</td>
+        </tr>
+        <tr>
+          <td width="150px" class="t-r"><span class="red">*</span>&nbsp;起始时间： </td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="startDate" value="{$SkuPriceInfo[StartDate]}" id="startDate" class="form-control" onFocus="WdatePicker({minDate:'%y-%M-{%d+1}',maxDate:'#F{$dp.$D(\'endDate\')}'})"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;终止时间：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="endDate" value="{$SkuPriceInfo[EndDate]}" id="endDate" class="form-control" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'startDate\')}'})"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;选择星期：</td>
+          <td>
+            <div class="icheck" style="padding-left: 15px">
+              <div class="flat-green">
+                <div class="radio">
+                  <input type="checkbox" id="Monday" name="Monday" value="1" {if $SkuPriceInfo[Monday] == 1}checked="checked"{/if}>
+                  <label>一</label>
+                </div>
+              </div>
+                <div class="flat-green">
+                  <div class="radio">
+                    <input type="checkbox" id="Tuesday" name="Tuesday" value="1" {if $SkuPriceInfo[Tuesday] == 1}checked="checked"{/if}>
+                    <label>二</label>
+                  </div>
+                </div>
+                <div class="flat-green">
+                  <div class="radio">
+                    <input type="checkbox" id="Wednesday" name="Wednesday" value="1" {if $SkuPriceInfo[Wednesday] == 1}checked="checked"{/if}>
+                    <label>三</label>
+                  </div>
+                </div>
+                <div class="flat-green">
+                  <div class="radio">
+                    <input type="checkbox" id="Thursday" name="Thursday" value="1" {if $SkuPriceInfo[Thursday] == 1}checked="checked"{/if}>
+                    <label>四</label>
+                  </div>
+                </div>
+                <div class="flat-green">
+                  <div class="radio">
+                    <input type="checkbox" id="Friday" name="Friday" value="1" {if $SkuPriceInfo[Friday] == 1}checked="checked"{/if}>
+                    <label>五</label>
+                  </div>
+                </div>
+                <div class="flat-green">
+                  <div class="radio">
+                    <input type="checkbox" id="Saturday" name="Saturday" value="1" {if $SkuPriceInfo[Saturday] == 1}checked="checked"{/if}>
+                    <label>六</label>
+                  </div>
+                </div>
+                <div class="flat-green">
+                  <div class="radio">
+                    <input type="checkbox" id="Sunday" name="Sunday" value="1" {if $SkuPriceInfo[Sunday] == 1}checked="checked"{/if}>
+                    <label>日</label>
+                  </div>
+                </div>
+              </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;优惠价：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="Price" value="{$SkuPriceInfo[Price]}" class="form-control"/>
+            </div>
+            <p class="help-block">元</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">市场价：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="MarketPrice" value="{$SkuPriceInfo[MarketPrice]}" class="form-control"/>
+            </div>
+            <p class="help-block">元</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">采购价：</td>
+          <td>
+            <div class="col-sm-4">
+              <input type="text" name="PurchasePrice" value="{$SkuPriceInfo[PurchasePrice]}" class="form-control"/>
+            </div>
+            <p class="help-block">元</p>
+          </td>
+        </tr>
+        {if $TourPricetID}
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;每日库存： </td>
+          <td>{if $SkuPriceInfo[ErveryDayInventory]=='-1'}不限库存{else}{$SkuPriceInfo[ErveryDayInventory]}{/if} (库存不能更改！)</td>
+        </tr>
+        {else}
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;每日库存： </td>
+          <td>
+            <div class="col-sm-1">
+              <input type="text" name="ErveryDayInventory" value="{if $SkuPriceInfo[ErveryDayInventory]>0}{$SkuPriceInfo[ErveryDayInventory]}{/if}" class="form-control"/>
+            </div>
+            <p class="help-block">
+              <input name="InventoryType" type="checkbox" id="InventoryType" value="1" {if $SkuPriceInfo[ErveryDayInventory]=='-1'}checked="checked"{/if} />
+              不限库存（如果不存在库存直接选择不限库存即可，注意，库存添加后不能更改！）
+            </p>
+          </td>
+        </tr>
+        {/if}
+        <tr id="MaterialRequested">
+          <td class="t-r"></td>
+          <td>
+            <div class="col-sm-12">
+              <input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+              &nbsp;&nbsp;
+              <input type="button" class="btn btn-success" onClick="javascript:history.go(-1)" value="返回"/>
+              <input type="hidden" name="TourPricetID" id="TourPricetID" value="{$TourPricetID}" />
+              <input type="hidden" name="ProductSkuID" id="ProductSkuID" value="{$ProductSkuID}" />
+              <input type="hidden" name="TourProductID" id="TourProductID" value="{$TourProductID}" />
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}
+<!--icheck -->
+<script src="{echo JsURL}/admin/common/iCheck/jquery.icheck.js"></script>
+<script src="{echo JsURL}/admin/common/icheck-init.js"></script>

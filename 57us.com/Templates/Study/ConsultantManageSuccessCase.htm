@@ -1,0 +1,28 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 CenterCaseMenu mt20">
+    <div class="AddCase mt10 fr">
+        成功案例是您的另一张名片<span class="pl20"><a href="/consultantmanage/addsuccesscase/" class="AddBtn transition">新增成功案例</a></span>
+    </div>
+    <ul class="fl" id="CaseColumn">
+        <li class="on" id="Show" data-type="2">
+            <a href="javascript:void(0)">已展示的成功案例</a><span class="line"></span>
+        </li>
+        <li id="Draft" data-type="1">
+            <a href="javascript:void(0)">案例草稿箱</a><span class="line"></span>
+        </li>
+    </ul>
+</div>
+<div class="cf mt30 w1200" id="CaseView">
+    <ul class="CaseList fl cf" id="CaseLeft">
+    </ul>
+    <div class="w877 fr" id="CaseRight">
+    </div>
+</div>
+<div class=" w1200 cf NoServiceBox" id="NoServiceBox" style="display: none">
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/plupload/1.0.0/plupload.full.min.js"></script>
+<script src="{echo JsURL}/study/ConsultantManageSuccessCase.js"></script>
+</body>
+</html>

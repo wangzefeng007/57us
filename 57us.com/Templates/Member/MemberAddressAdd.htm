@@ -1,0 +1,87 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight_v cf fr" id="rightContent">
+        <div class="mRightit">
+            <span class="name">邮寄地址</span>
+        </div>
+        <div class="addTab mt20">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <th><em class="red">*</em>所在地区：</th>
+                    <td>
+                        <div class="posDiv">
+                            <i class="icon iconfont icon-up1-copy"></i>
+                            <input class="tabInput"  type="text" name="CitySet" id="CitySet" value="{if $AddressInfo[Province]}{$AddressInfo[Province]}-{$AddressInfo[City]}-{$AddressInfo[Area]}{/if}" class="input" placeholder="请选择所在地区" readonly/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><em class="red">*</em>详细地址：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="address" id="address" value="{$AddressInfo[Address]}" class="tabInput" style="width: 392px;" placeholder="不需要重复填写省市区" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><em class="red">*</em>邮编：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="postcode" id="postcode" value="{$AddressInfo[Postcode]}" class="tabInput" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><em class="red">*</em>收件人：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="recipients" id="recipients" value="{$AddressInfo[Recipients]}" class="tabInput" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><em class="red">*</em>手机号码：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="mobile" id="mobile" value="{$AddressInfo[Mobile]}" class="tabInput" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>电话号码：</th>
+                    <td>
+
+                        <div class="posDiv">
+                            <input type="text" name="telArea" id="telArea" value="{$AddressInfo[TelArea]}" class="tabInput" style="width: 126px;" placeholder="区号"/>
+                        </div>
+                        <div class="posDiv">
+                            <input type="text" name="tel" id="tel" value="{$AddressInfo[Tel]}" class="tabInput" style="width: 126px;" placeholder="电话号码 "/>
+                        </div>
+                        <div class="posDiv">
+                            <input type="text" name="telExtension" id="telExtension" value="{$AddressInfo[TelExtension]}" class="tabInput" style="width: 126px;" placeholder="分机"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <td>
+                        <input type="hidden" name="ShippingAddressID" id="ShippingAddressID"  value="{$AddressInfo[ShippingAddressID]}"/>
+                        <a href="JavaScript:void(0)" class="publicBtn2 sureBtn" id="save">保存</a>
+                        <a href="JavaScript:history.go(-1)" class="publicBtn2 canceBtn">取消</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{template MemberFooter}
+<!--三级城市选择联动-->
+<script type="text/javascript" src="{echo JsURL}/base/Citys/1.0.0/Popt.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/Citys/1.0.0/cityJson.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/Citys/1.0.0/citySet.js"></script>
+<link href="{echo JsURL}/base/Citys/1.0.0/citys.css" rel="stylesheet" type="text/css" />
+<!--邮寄地址js-->
+<script src="{echo JsURL}/member/MemberAddressAdd.js" type="text/javascript"></script>
+</body>
+</html>

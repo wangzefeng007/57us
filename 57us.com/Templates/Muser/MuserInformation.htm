@@ -1,0 +1,113 @@
+{template Header}
+<div class="page-group">
+			<div class="page page-current" id="information">
+				<header class="bar bar-nav suvBar">
+					<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+					<div class="title mangeList">个人资料</div>
+				</header>
+				<div class="content">
+					<div class="list-block mt0 inforList">
+						<ul>
+							<li>
+								<a href="JavaScript:void(0)" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">头像</div>
+								<div class="item-after tar" id="portrait">
+									<input type="file" id="file">
+											<img src="{echo ImageURLP2}{$UserInfo[Avatar]}" class="faceImg"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="/member/editinformation/?t=nickname" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">昵称</div>
+										<div class="item-after tar">
+									<input type="text" name="" value="{$UserInfo[NickName]}" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="/member/editinformation/?t=realname" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">真实姓名</div>
+										<div class="item-after tar">
+									<input type="text" value="{$UserInfo[RealName]}" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="/member/editinformation/?t={if $User[Mobile]!=''}verifymobile{else}bindmobile{/if}" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">手机号码</div>
+										<div class="item-after tar">
+									<input type="text" value="{$User[Mobile]}" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="/member/editinformation/?t={if $User['E-Mail']!=''}verifymail{else}bindmail{/if}" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">邮箱</div>
+										<div class="item-after tar">
+									<input type="text" value="{$User['E-Mail']}" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="list-block mt10 inforList">
+						<ul>
+							<li>
+								<a href="/member/editinformation/?t=sex" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">性别</div>
+										<div class="item-after tar">
+									<input type="text" value="{$SexArr[$UserInfo[Sex]]}" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="JavaScript:void(0)" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title">出生日期</div>
+										<div class="item-after tar">
+									<input type="text" name="birthDay" id='birthDay' data-toggle='date' value="{$UserInfo[BirthDay]}" readonly="readonly"/>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="JavaScript:void(0)"  class="item-link item-content" value="">
+									<div class="item-inner">
+										<div class="item-title">详细地址</div>
+										<div class="item-after tar">
+									<input type="text" name="city" id="city" value="{if $UserInfo[Province]}{$UserInfo[Province]} {$UserInfo[City]} {$UserInfo[Area]} {$UserInfo[Address]}{/if}" readonly="readonly" />
+								</div>
+							</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="sendBox">
+							<a href="/member/signout/" class="button button-fill button-orange">退出登录</a>
+						</div>
+				</div>
+			</div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/m/lib/msui/0.6.2/sm-city-picker.min.js" charset="utf-8"></script>
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserInformation.js" charset='utf-8'></script>
+<!--头像裁剪插件-->
+<script src="{echo JsURL}/m/lib/photoclip/iscroll-zoom.js" type='text/javascript'></script>
+<script src="{echo JsURL}/m/lib/photoclip/hammer.min.js" type='text/javascript'></script>
+<script src="{echo JsURL}/m/lib/photoclip/lrz.all.bundle.js" type='text/javascript'></script>
+<script src="{echo JsURL}/m/lib/photoclip/PhotoClip.min.js" type='text/javascript'></script>
+</body>
+</html>

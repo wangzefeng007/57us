@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{$Title}</title>
+<meta name="keywords" content="{$Keywords}">
+<meta name="description" content="{$Description}">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no, email=no" name="format-detection">
+<link rel="stylesheet" href="{echo CssURL}/m/msui/0.6.2/sm.min.css">
+<link rel="stylesheet" href="{echo CssURL}/m/msui/0.6.2/sm-extend.min.css">
+<link rel="stylesheet" href="{echo CssURL}/m/lib/reset.css">
+<link rel="stylesheet" href="{echo CssURL}/m/www/style.css">
+<link rel="stylesheet" href="/Plugins/fonts/mobile/iconfont.css">
+<script type='text/javascript' src="{echo JsURL}/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+<script type="text/javascript">
+$.config = {
+        
+        routerFilter: function($link) {     
+            return false;
+        }
+      }
+//$(function(){
+//	var rem = remfix();
+//  	function remfix (minwidth,size) {
+//			if (!minwidth) { minwidth = 320; };
+//			if (!size) { size = 20; };
+//			var width = $(window).width();
+//			width = minwidth>width?minwidth:width;
+//			width = 640<width?640:width;
+//			var tosize =  size*width/minwidth;
+//			tosize = tosize<40?tosize:40;
+//			$("html").css("font-size",tosize-2);
+//			window.onresize = function(){
+//				rem = remfix(minwidth,size);
+//			}
+//			return tosize;
+//		}
+//})
+</script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/dev/swiper.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/news/news.js" charset='utf-8'></script>
+{if $TourInfo[Image]!=''}
+<script type="text/javascript">
+	$(function() {
+			//显示头部
+		scrollShow();
+		function scrollShow(){
+			$(".detailCont").on('scroll',function(){
+				//显示头部
+				if($(".detailCont").scrollTop()>$(".detailBody").offset().top){
+					$(".contBar").removeClass("deContBar");
+				}
+				else{
+					$(".contBar").addClass("deContBar");
+				};	
+		   });
+		}
+	})
+</script>
+{/if}
+</head>

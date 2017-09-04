@@ -1,0 +1,46 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current" id="withdraw">
+		<div class="secondMenu">
+			<a href="">首页</a>
+			<a href="">我的</a>
+			<a href="/member/signout/">退出</a>
+		</div>
+		<div class="popmask"></div>
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<p class="title">提现</p>
+			<div class="pull-right headMenu">
+				<i class="icon iconfont icon-caidan"></i>
+			</div>
+		</header>
+		<div class="content ">
+			<div class="hasTx">
+				<p class="pull-left c9">可提现金额</p>
+				<p class="pull-right maxMoney" data-val="{$UserBank[FreeBalance]}">￥{$UserBank[FreeBalance]}</p>
+			</div>
+			<div class="cf mt10 txBox">
+				<div class="changeList">
+					<div class="listInput">
+						<input type="text" name="account" class="account" value="" placeholder="请输入支付宝账号">
+					</div>
+				</div>
+				<div class="changeList">
+					<div class="listInput">
+						<input type="number" name="money" class="money" value="" placeholder="请输入提现金额">
+					</div>
+				</div>
+			</div>
+			<div class="cf c9 txIns">
+				预计1-3个工作日到帐
+			</div>
+			<div class="sendBox">
+				<a href="JavaScript:void(0)" class="button button-fill button-orange withdrawBtn">提现</a>
+			</div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserWithdraw.js" charset='utf-8'></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!--
+    	作者：xiao15980751809@126.com
+    	时间：2017-01-20
+    	描述：快速导航
+    -->
+<div class="TourSpeedMenu">
+	<ul>
+		<li class="i1"><a href="{echo WEB_TOUR_URL}/dingzhi/#/question/" target="_blank">高端定制</a></li>
+		<li class="i2"><a href="{echo WEB_TOUR_URL}/group/local/" target="_blank">跟团游</a></li>
+		<li class="i3"><a href="{echo WEB_TOUR_URL}/play/feature/" target="_blank">当地玩乐</a></li>
+		<li class="i4"><a href="{echo WEB_TOUR_URL}/play/ticket/" target="_blank">门票</a></li>
+		<li class="i5"><a href="{echo WEB_HOTEL_URL}" target="_blank">酒店</a></li>
+		<li class="i6"><a href="{echo WEB_ZUCHE_URL}" target="_blank">租车</a></li>
+		<li class="i7"><a href="{echo WEB_VISA_URL}" target="_blank">签证</a></li>
+		<li class="i8"><a href="{echo WEB_TOUR_URL}/city/" target="_blank">城市专题</a></li>
+	</ul>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$(window).load(function(){
+			getIn();
+		})
+		$(window).resize(function(){
+			getIn()
+		})
+		function getIn(){
+			if($(window).width()<1600){
+				$(".TourSpeedMenu").hide()
+			}else{
+				$(".TourSpeedMenu").show()
+			}
+			}
+	})
+</script>

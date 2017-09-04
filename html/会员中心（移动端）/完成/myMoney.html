@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>个人中心</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm-extend.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/lib/reset.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/member/v3.1/style.css">
+		<script type='text/javascript' src="http://js.57us.net/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+		<script type="text/javascript">
+		$.config = {routerFilter: function($link){return false;}}
+		</script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-city-picker.min.js" charset='utf-8'></script>
+		<script type="text/javascript" src="http://js.57us.net/m/member/v3.1/app.js"></script>
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current">
+				<header class="bar bar-nav indexBar">
+					<a href="" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+					<p class="title">我的资产</p>
+				</header>
+				<div class="content ">
+					<div class="moneyCont">
+						<p>账户余额（元）</p>
+						<p class="num">10000</p>
+					</div>
+					<div class="moneyMenu">
+						<div class="row no-gutter">
+							<div class="col-50 tac">
+								<p>账户余额（元）</p>
+								<p class="num">5000</p>
+							</div>
+							<div class="col-50 tac">
+								<p>已提现金额（元）</p>
+								<p class="num">10</p>
+							</div>
+						</div>
+					</div>
+					<div class="list-block txlist mt0">
+						<ul>
+							<li>
+								<a href="getMoney.html" class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title"><i class="icon iconfont icon-qianbao"></i>提现</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="moneyList mt10">
+						<p class="tit">资产明细</p>
+						<ul class="hidden">
+							<li class="row no-gutter">
+								<div class="col-50">
+									<p>提现</p>
+									<p>2016-01-03 14:50:36</p>
+								</div>
+								<div class="col-25 tac moneyNum">-2000</div>
+								<div class="col-25 tac moneyStyle"><span class="orange">提现中</span></div>
+							</li>
+							<li class="row no-gutter">
+								<div class="col-50">
+									<p>提现</p>
+									<p>2016-01-03 14:50:36</p>
+								</div>
+								<div class="col-25 tac moneyNum">-2000</div>
+								<div class="col-25 tac moneyStyle"><span class="green">已提现</span></div>
+							</li>
+						</ul>
+						<div class="noList tac">
+							<i class="icon iconfont icon-zichan"></i>暂无记录
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>

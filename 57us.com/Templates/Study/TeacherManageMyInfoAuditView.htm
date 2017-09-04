@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>预览</title>
+	<link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+	<link href="{echo CssURL}/study/studypublic3.0.css" rel="stylesheet" type="text/css" />
+	<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+	<script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+	<script src="{echo JsURL}/base/base.js"></script>
+	<style type="text/css">
+		body{min-width: 800px;}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="InforView">
+		<ul class="CenterCaseMenu">
+			<li class="on">
+				<a href="JavaScript:void(0)">基本信息</a><span class="line"></span></li>
+			<li>
+				<a href="JavaScript:void(0)">背景资料</a><span class="line"></span></li>
+			<li>
+				<a href="JavaScript:void(0)">身份验证</a><span class="line"></span></li>
+		</ul>
+		<div class="bd">
+			<div class="InforViewM">
+				<div class="InforList InforListStep cf">
+					<div class="InforListLi cf">
+						<p class="left">姓名：</p>
+						<div class="right">
+							<div class="inputBox">
+								<input type="" name="" id="" value="{$UserInfo[RealName]}" class="InsInput" readonly="readonly" />
+							</div>
+						</div>
+					</div>
+					<div class="InforListLi cf">
+						<p class="left">昵称：</p>
+						<div class="right">
+							<div class="inputBox">
+								<input type="" name="" id="" value="{$UserInfo[NickName]}" class="InsInput" readonly="readonly" />
+							</div>
+						</div>
+					</div>
+					<div class="InforListLi cf">
+						<p class="left">所在城市：</p>
+						<div class="right">
+							<div class="inputBox">
+								<input type="" name="" id="" value="{$UserInfo[Province]}-{$UserInfo[City]}" class="InsInput" readonly="readonly" />
+							</div>
+						</div>
+					</div>
+					<div class="InforListLi cf">
+						<p class="left">性别：</p>
+						<div class="right">
+							<div class="inputBox">
+								<input type="" name="" id="" value="{if $UserInfo[Sex] ==1}男{elseif $UserInfo[Sex] ==0}女{/if}" class="InsInput" readonly="readonly" />
+							</div>
+						</div>
+					</div>
+					<div class="InforListLi cf" style="width: 100%;">
+						<p class="left">服务宣言：</p>
+						<div class="right" style="width: 660px;">
+							<input type="" name="" id="" value="{$TeacherInfo[ServiceDeclaration]}" class="InsInput" style="width: 604px;" readonly="readonly" />
+						</div>
+					</div>
+					<div class="InforListLi cf" style="width: 100%;">
+						<p class="left">我的标签：</p>
+						<div class="right" style="width: 660px;">
+							{loop $Tags $value}
+							<div class="inputBox">
+								<input type="text" name="" id="" value="{$value}" placeholder="99.9%通过率" class="InsInput TipInput" readonly="readonly">
+							</div>
+							{/loop}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="InforViewM hidden">
+				<div class="InforList">
+					<div class="InforListLi cf">
+						<p class="left">从业经验：</p>
+						<div class="right">
+							<div class="inputBox">
+								<input type="" name="" id="" value="{$TeacherInfo[WorkingAge]}" class="InsInput" style="width: 106px;" readonly="readonly">
+							</div>
+							<span class="c9 f16 pl10">年</span>
+						</div>
+					</div>
+					<div class="InforListLi cf">
+						<p class="left">自我介绍：</p>
+						<div class="right">
+							<div class="inputBox">
+								<textarea class="textare" name="" rows="" cols="" placeholder="中英文不限" style="height: 167px;width: 628px;" readonly="readonly">{$TeacherInfo[Introduction]}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="InforListLi cf">
+						<p class="left">从业经历：</p>
+						<div class="right">
+							{loop $PastExperience $key $list}
+							<div class="rightBox cf">
+								<i class="numIco">{echo $key+1}</i>
+								<div class="InforListLi cf">
+									<p class="left">时间：</p>
+									<div class="right">
+										<div class="inputBox"><input type="" name="" id="" value="{$list[startdate]}" class="InsInput tac" style="width: 116px;" readonly="readonly"></div>
+										<span class="fl pl10 f18 c9">—</span>
+										<div class="inputBox pl10"><input type="" name="" id="" value="{$list[enddate]}" class="InsInput tac" style="width: 116px;" readonly="readonly"></div>
+									</div>
+								</div>
+								<div class="InforListLi cf">
+									<p class="left">就职公司：</p>
+									<div class="inputBox"><input  type="" name="" id="" value="{$list[company]}" class="InsInput" style="width:493px;" readonly="readonly"></div>
+								</div>
+								<div class="InforListLi cf">
+									<p class="left">从业经历：</p>
+									<div class="inputBox"><textarea class="textare" name="" rows="" cols="" style="height: 151px;width:478px;"  readonly="readonly">{$list[undergo]}</textarea></div>
+								</div>
+							</div>
+							{/loop}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="InforViewM hidden">
+				<div class="InforList">
+					<div class="InforListLi cf">
+						<p class="left">身份证号码：</p>
+						<div class="right">
+							<div class="inputBox">
+								<input type="" name="" id="" value="{$UserInfo[CardNum]}" class="InsInput" readonly="readonly">
+							</div>
+						</div>
+					</div>
+					<div class="InforListLi cf">
+						<p class="left">身份证照片</p>
+						<div class="right">
+							<ul class="addPic cf mt10">
+								<li><img src="{$UserInfo[CardPositive]}" width="200" height="150"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    $(".CenterCaseMenu li").click(function(){
+        var num = $(this).index();
+        $(this).addClass("on").siblings().removeClass("on");
+        $(this).parent().siblings(".bd").find(".InforViewM").addClass("hidden").eq(num).removeClass("hidden")
+    })
+</script>
+</body>
+</html>

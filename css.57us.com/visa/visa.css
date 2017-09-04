@@ -1,0 +1,221 @@
+body{ background:#f5f5f5}
+.blue_line{ height:8px; overflow:hidden; background:#00a5e3}
+.header_menu li .first_a{padding: 0 16px;}
+/*底部*/
+.VisaFoot{ background:#fff; padding:35px 0; text-align:center; color:#5a5a5a}
+.VisaFoot a{ color:#5a5a5a}
+.VisaFoot a:hover{ color:#3996d5}
+/*首页*/
+.VisaBan{ width:100%; height:824px; position:relative;  overflow:hidden;}
+.VisaBan img{ width:1920px; height:824px; left:50%; top:50%; margin:-412px 0 0 -960px; position:absolute}
+.VisaBanBtn{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#E5FFFFFF', endColorstr='#E5FFFFFF');background:rgba(255,255,255,0.9); width:444px; height:80px; display:block; text-align:center; line-height:80px; font-size:20px; font-weight:bold; color:#00a6e9;  position:absolute; left:50%; top:50%; margin:210px 0 0 -520px; overflow:hidden; transition:background 0.3s linear;-webkit-transition:background 0.3s linear; }
+.VisaBanBtn:hover{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#E500A6E9', endColorstr='#E500A6E9');background:rgba(0,166,233,0.9); color:#fff;}
+.ltie9 .VisaBan{ height:624px;}
+.ltie9 .VisaBan img{ margin:-382px 0 0 -960px;}
+.ltie8 .VisaBan{ height:586px;}
+.ltie8 .VisaBan img{width:1482px; height:636px;margin:-338px 0 0 -741px}
+.ltie8 .VisaBanBtn{ width:333px; height:60px; line-height:60px; margin:120px 0 0 -400px;}
+/*签证筛选*/
+.VisaSx{ background:#fff; height:auto; overflow:hidden; padding:0 30px 10px;font-size:16px;}
+.VisaSx dl{padding:12px 0 12px 60px; position:relative;}
+.VisaSx dt{ width:60px; height:30px; line-height:30px; color:#00a5e3; font-weight:bold;position:absolute;top:11px;left:0;}
+.VisaSx dd{ height:27px; line-height:27px;}
+.VisaSx a{ color:#999; padding:0 15px; margin:0 10px; float:left}
+.VisaSx a:hover,.VisaSx a.on{ color:#00a5e3}
+.VisaSxSuv{ width:100%;}
+.VisaSxSuvList{padding-left:60px; height:auto; overflow:hidden; border-bottom:1px solid #eeeeee}
+.VisaSxSuvList a{ margin:0 10px 8px;}
+.VisaSxSuvList a.on,.VisaSxSuvList a:hover{ color:#00a5e3}
+.SxResult{ width:100%; height:auto; overflow:hidden}
+.SxResult a{margin:0 8px 20px 0; float: left;color: #999999; padding: 0 20px 0 15px; display: inline-block;font-size: 16px;position: relative;background: #00a5e3;color: #fff; line-height:28px;}
+.SxResult a i{ width:15px; height:15px; text-align:center; line-height:15px; overflow:hidden; vertical-align:top; position:absolute; top:0; right:0; z-index:8;}
+/*签证LIST*/
+.SlideLeft{width: 889px;}
+.SlideRight{width: 290px; margin-top:20px;}
+.VisaList{ }
+.VisaList li{ background:#fff; width:863px; height:215px; overflow:hidden; padding-right:26px; position:relative; color:#999; float:left; margin:10px 0}
+.VisaList li .ListLeft{width:267px; height:215px; position:relative; float: left; margin-right:26px;}
+.VisaList li .ListLeft img{ width:267px; height:215px;}
+.VisaList li .ListLeft .tit{ width:100%; height:30px; text-align:center; font-size:30px; font-weight:bold; color:#fff; position:absolute; top:50%; margin-top:-15px; z-index:10; padding:}
+.VisaList li .ListContain{ padding:15px 129px 8px 0; height:auto; overflow:hidden; border-bottom:1px dashed #d6d6d6; position:relative}
+.VisaList li .ListContain .tit{ height:28px; overflow:hidden; font-size:16px; font-weight:bold; color:#00a5e3}
+.VisaList li .ListContain .tit a{ color:#00a5e3}
+.VisaList li .ListContain .nr{ height:auto; overflow:hidden; max-height:66px; line-height:22px; padding-top:5px;}
+.VisaList li .TimeDiv{ height:24px; overflow:hidden; margin-top:5px;}
+.VisaList li .TimeDiv i{ width:16px; height:16px; display:inline-block; background:url(http://images.57us.com/img/Visa/dateicon.png) center center no-repeat; vertical-align:middle; margin:0 6px 0 0;}
+.VisaList li .PriceBox{ position:absolute; top:20px; right:15px; color:#ff5863; font-size:20px;}
+.VisaList li .PriceBox i{ font-size:25px;}
+.VisaList li .ListBottom{ padding-top:13px;}
+.VisaList li .ListBottom .ListOrderBtn{ background:#00a5e3; color:#fff; width:108px; height:34px; text-align:center; line-height:34px; display:inline-block; float:right}
+.VisaList li .ListBottom .ListOrderBtn:hover{ background:#009eda}
+.VisaList li .ListBottom .SpanBox{}
+.VisaList li .ListBottom .SpanBox span{ float:left; border:2px solid #dcdcdc; font-size:13px; padding:0 5px; margin-right:8px;}
+.PublicBox{ background:#fff; padding:15px; height:auto; overflow:hidden}
+.PublicBoxTop{ height:24px; font-weight:bold; font-size:20px; color:#00a5e3}
+.PublicBoxNr{ padding-top:10px; height:auto; overflow:hidden}
+.PublicBoxNr p{ padding-top:6px; color:#999999}
+.PublicBoxNr p i{ background:#ff5863; border-radius:100%; width:16px; height:16px; line-height:16px; font-size:10px; font-family:Arial;text-align:center; display:inline-block; color:#fff; margin-right:5px;}
+.CommitMiddle{ height:230px; background:url(http://images.57us.com/img/Visa/commit.png) center bottom no-repeat;}
+/*签证DETAIL*/
+.VisaDetail{ background:#fff; padding:25px 40px; height:auto; overflow:hidden; color:#999}
+.VisaDetail .tit{ font-size:16px; font-weight:bold; color:#00a5e3}
+.Instro{ border-bottom:1px dashed #cacaca; padding-bottom:15px;}
+.Instro span{ padding:10px 40px 0 0; display: inline-block}
+.VisaDetailIns{ width:730px; float:left; margin-top:20px;}
+.VisaDetailIns .TimeInput{ background:url(http://images.57us.com/img/Visa/timeicon.png) right center no-repeat; width:265px; height:36px; border:1px solid #c9c9c9; text-indent:10px;}
+.VisaDetailInsRight{ width:300px; height:222px; border-left:1px dashed #cacaca; padding-left:25px; float:right; margin-top:40px; text-align:center}
+.VisaPackage{ width:123px; height:36px; line-height:36px; text-align:center; border:1px solid #00a5e3; color:#00a5e3; position:relative; display:inline-block}
+.VisaPackage i{ background:url(http://images.57us.com/img/Visa/chose.png) no-repeat; width:18px; height:18px; display:inline-block; position:absolute; bottom:0; right:0; z-index:1}
+.VisaDetailIns .ui-datepicker-append{ display:none}
+.num_box{ background:#efefef; height:36px;line-height:36px;  border:1px solid #e0e1e1; overflow:hidden; margin-right:0}
+.num_box a.num_btn{ background:#f2f2f2 !important; width:42px; height:36px;  text-align: center;overflow:hidden; float:left; font-size:22px; vertical-align:middle; cursor:pointer; color:#c9c9c9}
+.num_box a.num_btn:hover{ color:#00a5e3; background:#f4f4f4}
+.num_input{ border:none; border-right:1px solid #e0e1e1;border-left:1px solid #e0e1e1; background:#fff; color:#00a5e3; width:79px;height:36px;text-align:center; float:left; overflow:hidden}
+.slins{ padding-top:10px;}
+.slins .tipico{ background:url(http://images.57us.com/img/Visa/tipico.png) no-repeat; width:12px; height:12px; display:inline-block; vertical-align:middle; margin:0 4px;}
+.OrderBtn{ background:#00a5e3; width:250px; height:58px; text-align:center; line-height:58px; overflow:hidden; color:#fff; font-size:16px; display:inline-block; margin-top:15px;}
+.OrderBtn:hover{ background:#009eda; color:#fff;}
+.VisaDetailInsRight .price{ color:#ff5863; font-size:30px; text-align:center; padding-top:25px;}
+.VisaDetailInsRight .price i{ font-size:55px;}
+.VisaDetailInsRight .PriceIns{ color:#999999; padding:20px 0 15px}
+
+.VisaDetailMenu{ width:100%;height:53px; }
+.VisaDetailMenuLi{background:#fff; height:53px; line-height:53px; font-size:16px;color:#999999;}
+.VisaDetailMenuLi ul{ margin-right:20px; }
+.VisaDetailMenuLi li{ float:left;}
+.VisaDetailMenuLi li a{height:53px; padding:0 70px;color:#999999; display:block}
+.VisaDetailMenuLi li.on a,.VisaDetailMenuLi li.on a:hover{ background:#00a5e3; color:#fff;}
+.VisaDetailMenuLi li a:hover{ background:#efefef;}
+.FixMenu{ width:1200px; position:fixed; top:0; left:50%; margin-left:-600px; z-index:100; box-shadow:0 0 2px rgba(0,0,0,0.2); }
+.FixMenu li a{padding:0 30px;}
+.FixMenuRight{ float:right; text-align:center}
+.FixMenuRight .Price{ float:right; line-height:53px; margin-right:25px;}
+.FixMenuRight .Price b{ font-size:24px;}
+.NextBorderBtn{ background:#00a5e3; width:200px; height:53px; line-height:53px; font-size:16px; text-align:center; color:#fff; font-weight:bold; display:inline-block;}
+.NextBorderBtn:hover{  background:#009eda;color:#fff;}
+.VisaDetailList{ width:100%; height:auto;  margin-top:10px;}
+.VisaDetailListTit{ height:50px; line-height:50px; color:#00a5e3; font-size:30px; font-weight:bold; padding:10px 0}
+.VisaDetailListNr{ background:#fff; padding:25px 35px; height:auto; overflow:hidden; color:#999}
+.PublicTit{ color:#00a5e3; line-height:22px; padding:0 0 10px}
+.VisaTable th,.VisaTable td{ text-align:left; padding-left:50px;}
+.VisaTable th{color:#fff;}
+.VisaTable td{ background:#fff;}
+.VisaTable{ background:#00a5e3}
+.VisaTable .tableins{ padding:18px 0;}
+.VisaInv{ width:100%; height:auto; overflow:hidden}
+.VisaInv .hd{ height:44px; overflow:hidden;}
+.VisaInv .hd li{ float:left; margin-right:60px; padding:0 10px; line-height:40px; cursor:pointer; font-size:16px; font-weight:bold; border-bottom:4px solid #fff}
+.VisaInv .hd li.on{ border-bottom:4px solid #00a5e3; color:#00a5e3}
+.VisaInv .bd{}
+.VisaInv .bd .InvList{ width:100%; height:auto; overflow:hidden; display: none }
+.SetWord{ background:#00a5e3; width:307px; height:68px; text-align:center; line-height:68px; color:#fff; display:block; margin:0 auto;}
+.SetWord:hover{background:#00a0dc; color:#fff;}
+
+/*弹窗*/
+.VisaPopBox{ padding:10px; height:auto; overflow:hidden}
+.CheckBox{ width:100%; height:auto; overflow:hidden}
+.CheckBox label{ line-height:33px; margin-right:10px; float: left}
+.VisaPopBox input{ width:160px; height:24px; border:1px solid #999; margin-left:10px; text-indent:10px;}
+/*受理范围*/
+.ReceiveArea{}
+.ReceiveAreaTab{ background:#00a5e3; width:600px; color:#666 !important; font-size:14px;}
+.ReceiveAreaTab th{ height:35px; color:#fff; padding-left:20px; font-size:16px}
+.ReceiveAreaTab td{ background:#fff; padding:15px}
+.TipicoClass .layui-layer-content{ background:none !important; box-shadow:none}
+.TipicoClass .layui-layer-TipsG{ border:0 !important}
+/*订单页面*/
+.Inventory{}
+.InventoryBox{ width:248px; height:auto; overflow:hidden; margin:0 auto;}
+.InventoryBoxTop{ background:#00a5e3; height:11px; overflow:hidden; border-radius:6px;}
+.InventoryBoxMi{ background:url(http://images.57us.com/img/CarRent/InventoryBoxMi.png) left top repeat-y; width:198px; padding:12px; height:auto; overflow:hidden; margin:0 auto;}
+.InventoryBoxMiT{ font-size:20px; text-align:center; font-weight:bold; color:#00a5e3;}
+.InventoryBoxMi .list{  margin:10px 5px 5px; height:auto; overflow:hidden}
+.InventoryBoxMi .list li{height:32px; line-height:32px; border-bottom:1px dashed #ebebeb; color:#999999}
+.InventoryBoxMi .list li:last-child{ border-bottom:0}
+.InventoryBoxMi .btn{ background:#00a5e3; width:134px; height:26px; line-height:26px; text-align:center; color:#fff; display:block; margin:0 auto;}
+.InventoryBoxb{ background:url(http://images.57us.com/img/CarRent/bottom.png) 1px 0 no-repeat; height:27px; margin:0 auto}
+.InventoryBox .Instr{ color:#ff5863; padding:10px 0 0; height:auto; overflow:hidden; line-height:18px; font-size:10px;}
+.FixInvent{ position:fixed; top:20px; left:50%; margin-left:334px;}
+.InvoiceResult{}
+.VisaOrderDetail{ background:#fff; padding:30px; height:auto; overflow:hidden; color:#999}
+.VisaOrderDetail .tit {font-size: 16px;font-weight: bold;color: #00a5e3;}
+.CarRentOrderTit {font-size: 30px;font-weight: bold;color: #00a5e3;padding: 10px 0;}
+.OrderInput { width:445px;height: 38px;line-height: 38px;text-indent: 10px;border: 1px solid #c9c9c9;}
+.OrderDiv {width: 100%;}
+.InvoiceTab .OrderInput{ width:340px;}
+.InvoiceTab p{ padding-top:5px;}
+.labelBox p{ padding:6px 0}
+.SureBtn{background:#00a5e3; width:140px; height:45px; display: inline-block; text-align:center; line-height:45px; color:#fff; font-size:20px; margin-top:15px;}
+.SureBtn:hover{ background:#019dd7; color:#fff;}
+.PayAll{}
+.PayAll .GoPayBtn{ background:#00a5e3; width:215px; height:53px; float:right; text-align:center; line-height:53px; color:#fff; font-size:20px;}
+.PayAll .GoPayBtn:hover{ background:#019dd7;}
+.PayLabel{ margin-right:30px; line-height:35px; padding-top:7px;}
+.OrderPayPrice{ color:#00a5e3; font-size:20px; font-weight:bold; margin-top:10px;}
+.OrderPayPrice i{ font-size:44px;}
+
+.inputbox .diyselect{background: #f2f2f2; width: 101px; margin-right: 5px;}
+.inputbox .opts{ background: #f2f2f2;}
+.inputbox .opts a:hover{background: #e8e6e6; color: #666;}
+.inputbox.erro .OrderInput{border:solid 1px #ff6767 !important;}
+.inputbox.erro .errotip{ display: block;}
+.inputbox .errotip{display: none;color: #ff6767;line-height: 27px; position: absolute; top:39px; left: 0; }
+
+.GoLogin{color: #29beb5; padding: 0 3px;}
+.GoLogin:hover{color: #29beb5; text-decoration: underline; }
+
+.yzmInput{background: #eaeaea;width: 130px; height: 38px;border: 1px solid #a8a8a8; line-height: 38px;border-radius: 3px; text-align: center; margin-left: 5px; color: #666666;cursor: pointer;}
+.yzmInput[disabled]{
+    background:#e3e2e2;
+    cursor:auto;
+}
+
+/*全站弹窗登录*/
+.LoginPop{ padding: 30px;height: auto; min-height: 305px; overflow: hidden;position: relative;}
+.LoginPop .hd{width: 100%;height:55px; overflow: hidden; position: absolute;top: 0;left: 0;}
+.LoginPop .hd a{float: left; width: 50%; height: 55px;line-height: 55px; text-align: center; color: #666666;font-size: 22px;background: #efefef;}
+.LoginPop .hd a.on{background: #29beb5; color: #fff;}
+.LoginBoxTit{font-size: 24px; color: #666666;}
+.LoginPop .Loinput{ width: 350px; height: 46px; line-height: 46px;overflow: hidden; position: relative;}
+.LoginPop .Loinput i{ background: url(http://images.57us.com/img/user/Login3.png) no-repeat; width: 44px; height: 44px; display: inline-block; position: absolute; top: 1px; left: 1px;z-index: 10;}
+.LoginPop .Loinput input{width:348px; height: 44px; line-height: 44px; border: 1px solid #d4d4d4; text-indent: 44px; font-size: 16px;}
+.LoginPop .LoginPop td{}
+.LoginPop .autoLogin label.cbt i{ background: url(http://images.57us.com/img/user/Login3.png)  -6px -228px no-repeat; }
+.LoginPop .autoLogin label.checked i{background: url(http://images.57us.com/img/user/Login3.png)  -6px -257px no-repeat;}
+.LoginPop .CodesInput{width: 188px;}
+.LoginPop .CodesInput input{width: 186px; text-indent: 7px;}
+.LoginPop .CodesImg img{width: 155px; height: 46px;}
+.LoginPop .UserInput i{ background-position:8px 0; }
+.LoginPop .WordInput i{ background-position:8px -42px; }
+.LoginPop .LoginBtn{background: #eab66a; width: 352px; height: 46px; line-height: 46px; text-align: center; color: #ffffff;font-size: 18px; display: inline-block;border-radius: 4px;}
+.LoginPop .LoginBtn:hover{background:#e3ac5b;color: #fff;}
+.LoginPop .ErroTip{display: none;}
+.LoginPop .ErroTip i{background: url(http://images.57us.com/img/user/Login3.png) -6px -203px no-repeat;width: 16px;height: 16px;display: inline-block; vertical-align: middle; margin-right: 5px;}
+.LoginPop .Erro input{border-color:#ff685d;}
+.LoginPop .Erro .ErroTip{display: inline-block;}
+.LoginPop .ErroTip .NoIco{background-position: -6px -174px;}
+.LoginPop .DynamicCodes{ width: 211px;}
+.LoginPop .DynamicCodes input{width: 209px; text-indent:10px;}
+.LoginPop .SendSms{width: 140px; height: 44px; line-height: 44px; text-align: center; border: 1px solid #d4d4d4; border-left: 0;}
+.LoginPop .SendSms a{display: block;color: #999999; font-size: 16px;}
+.LoginPop .SendSms a:hover{color: #2b9cff;}
+.LoginPop .SendSms span{color:#B7B6B6;}
+.LoginPop .SendSms input{width: 100%;height: 100%;border: 0;background: none;cursor: pointer;color: #999999; font-size: 16px;}
+.LoginPop .SendSms input[disabled]{ background: #eeeded; }
+.LoginPop .LoginBlueBtn{color: #2b9dff;}
+/*2016-9-21*/
+.TourMenu ul li:hover .FirstA{color:#00a5e3;}
+.NfixMenu li .a{background: #00a5e3;}
+.NfixMenu li .a:hover,.NfixMenu li:hover .a{background: #0094cc;}
+.page{text-align:center;font-size:16px;}
+.page a{display:inline-block;height:30px;line-height:30px;margin:0 5px;border:1px solid #b8b8b8;padding:0px 10px;border-radius:3px;font-family:arial;color:#666;}
+.page a.prve,.page a.next{padding:0px 10px;}
+.page a.on{background:#00a5e3;border:1px solid #00a5e3;color:#fff;}
+.page a.on:hover{color:#fff;}
+.page a:hover{color:#00a5e3;}
+.page .prvestop,.page .prvestop:hover,.page .nextstop,.page .nextstop:hover{color:#d3d2d2 !important;cursor:default !important;
+    border-color:#d3d2d2 !important;}
+.GoPage{display:inline-block;font-size:16px;color:#9e9e9e;margin-left:10px;vertical-align:top;line-height:32px;}
+.GoPage .input{background:none;width:40px;height:30px;line-height:30px;display:inline-block;border:1px solid #b8b8b8;border-radius:3px;text-align:center;color:#eab66a;font-weight:bold;vertical-align:top;}
+.GoPage .PageBtn{background:#f3f3f3;width:72px;height:32px;line-height:32px;display:inline-block;border:1px solid #b8b8b8;border-radius:3px;color:#666666;cursor:pointer;font-size:18px;margin:0 5px;}
+

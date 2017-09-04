@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>选择房型</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm-extend.min.css">
+		<link rel="stylesheet" href="http://www.57us.net/Plugins/mfonts/iconfont.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/tour/style.css">
+
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current" id="choseroom">
+				<!-- 标题栏 -->
+				<header class="bar bar-nav diybar">
+					<a class="back pull-left"><i class="icon iconfont">&#xe001;</i></a>
+					<h1 class="title">填写旅客信息</h1>
+				</header>
+				<div class="content">
+					<p class="choseRoomT">填写旅客信息</p>
+					<div class="travelersM">
+						<div class="everyOne">
+							<p class="everyOneT">房间1：</p>
+							<div class="row">
+								<div class="col-50"><input type="" name="" id="" value="" placeholder="姓：英文/拼音" /></div>
+								<div class="col-50"><input type="" name="" id="" value="" placeholder="名：英文/拼音" /></div>
+							</div>
+						</div>
+						<div class="everyOne">
+							<p class="everyOneT">房间2：</p>
+							<div class="row">
+								<div class="col-50"><input type="" name="" id="" value="" placeholder="姓：英文/拼音" /></div>
+								<div class="col-50"><input type="" name="" id="" value="" placeholder="名：英文/拼音" /></div>
+							</div>
+						</div>
+						<div class="everyOne">
+							<p class="everyOneT">房间3：</p>
+							<div class="row">
+								<div class="col-50"><input type="" name="" id="" value="" placeholder="姓：英文/拼音" /></div>
+								<div class="col-50"><input type="" name="" id="" value="" placeholder="名：英文/拼音" /></div>
+							</div>
+						</div>
+					</div>
+					<p class="choseRoomT">请填写联系人信息</p>
+					<div class="travelersM">
+						<ul class="traveContact">
+							<li>
+								<p class="listLeft">姓名：</p>
+								<p class="listRight"><input class="input" type="text" name="" id="" value="" placeholder="请填写中文姓名" /></p>
+							</li>
+							<li class="i0">
+								<p class="listLeft">手机：</p>
+								<p class="listRight"><input class="input" type="text" name="" id="" value="" placeholder="用于接收预定信息" /></p>
+							</li>
+							<!--
+                            	作者：xiao15980751809@126.com
+                            	时间：2016-11-03
+                            	描述：以下是验证码显示
+                            -->
+							<li class="i1" style="display: block;">
+								<p class="listLeft">验证码：</p>
+								<p class="listRight"><input class="input" type="text" name="" id="" value="" placeholder="" /></p>
+								<p class="listLast">
+									<input type="button" name="" id="" value="获取验证码" class="GetYzm" />
+									<!--
+                                    	作者：xiao15980751809@126.com
+                                    	时间：2016-11-03
+                                    	描述：以下是验证码输入正确
+                                    -->
+									<i class="icon iconfont yzmsuccess" style="display: none;">&#xe860;</i>
+								</p>
+							</li>
+							<li class="has">
+								<p class="listLeft"></p>
+								<p class="listRight">您的号码已注册，可立即 <a href="" class="green">登录</a></p>
+							</li>
+							<li>
+								<p class="listLeft">邮箱：</p>
+								<p class="listRight"><input class="input" type="text" name="" id="" value="" placeholder="用于接收预定信息" /></p>
+							</li>
+						</ul>
+					</div>
+					<p class="choseRoomT">预定留言</p>
+					<div class="travelersM">
+						<textarea class="textarea" name="" rows="" cols="" style="resize: none;" placeholder="请填写预定留言"></textarea>
+					</div>
+				</div>
+				<!--
+                	作者：xiao15980751809@126.com
+                	时间：2016-11-01
+                	描述：费用明细弹窗
+                -->
+				<div class="freeDetaBox transition">
+					<p class="freeDetaBoxT">
+						<span class="pull-left name">费用明细</span>
+						<span class="pull-right close"><i class="icon iconfont">&#xe633;</i></span>
+					</p>
+					<div class="freeDetaBoxM grid-demo">
+						<div class="row freeDetailList">
+							<div class="col-50">房间一：2人</div>
+							<div class="col-50">费用：<span class="red">￥<i>2244</i></span></div>
+						</div>
+						<div class="row freeDetailList">
+							<div class="col-50">房间一：2人</div>
+							<div class="col-50">费用：<span class="red">￥<i>2244</i></span></div>
+						</div>
+						<div class="row freeDetailList">
+							<div class="col-50">房间一：2人</div>
+							<div class="col-50">费用：<span class="red">￥<i>2244</i></span></div>
+						</div>
+					</div>
+				</div>
+				<!--
+                	作者：xiao15980751809@126.com
+                	时间：2016-11-01
+                	描述：遮罩透明层
+                -->
+                <div class="mask"></div>
+				<!--
+                	作者：xiao15980751809@126.com
+                	时间：2016-11-01
+                	描述：底部
+                -->
+				<div class="bar bar-tab OrderBottom">
+					<div class="pull-left ObottomLeft">
+						<p class="allPrice pull-left ">总价：<span class="red">¥<i class="Pricenum">100000</i></span></p>
+						<span class="green pull-right freeDetails">费用明细</span>
+					</div>
+					<a class="nextBtn pull-right">去支付</a>
+				</div>
+			</div>
+		</div>
+
+		<script type='text/javascript' src="http://js.57us.net/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+		<script type="text/javascript">
+		//明细弹出
+	    	$(".freeDetails").on("click",function(){
+	    		$(".freeDetaBox").addClass("on");
+	    		$(".mask").show();
+	    	})
+	    	$(".freeDetaBox .close").on("click",function(){
+	    		$(".freeDetaBox").removeClass("on");
+	    		$(".mask").hide();
+	    	})
+		</script>
+	</body>
+
+</html>

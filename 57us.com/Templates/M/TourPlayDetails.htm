@@ -1,0 +1,179 @@
+{template TourHeader}
+<div class="page page-current" id="prodetail">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar detailBar transition" id="diybar" style="z-index: 101">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">产品详情</h1>
+    </header>
+    <div class="content detailCont">
+        <div class="detailMain pd25">
+            <div class="detailImg">
+                <a class="back"><i class="icon iconfont">&#xe604;</i></a>
+                <!--此处data-id绑定当前产品的id-->
+                {loop $ProductImages $key $val}
+                {if $key==0}
+                <a href="#pagePhoto" data-id="{$TourPlayInfo['TourProductID']}" class="pagePhoto"><img src="{echo ImageURLP6}{$val['ImageUrl']}" title="{$TourPlayInfo['ProductName']}" alt="{$TourPlayInfo['ProductName']}" width="100%"></a>
+                {/if}
+                {/loop}
+            </div>
+            <div class="ProFun">
+                {if $City}<span class="pull-left">{if $CateInfo['TourCategoryID'] == 9}出发地{else}目的地{/if}：{$City}</span>{/if}
+                <span class="pull-right">产品编号：{$TourPlayInfo['TourProductID']}</span>
+            </div>
+            <div class="ProdetailBox">
+                <p class="tit">{$TourPlayInfo['ProductName']}</p>
+                <p class="price"><span class="red">¥<i>{echo
+                    ceil($TourPlayInfo['LowPrice'])}</i></span>/人起</p>
+                <div class="Dbottom">
+                    <p class="pull-left">{loop $TagInfo $k $val}{if $k<2}<span>{$val}</span>{/if}{/loop}</p>
+                    <p class="pull-right DbottomDay">游玩时间：{if $TourPlayInfo['Times']}{$TourPlayInfo['Times']}{else}1{/if}</p>
+                </div>
+            </div>
+            <div class="ProdetailBox mt10">
+                <p class="sutit">产品特色</p>
+                <article class="nr">{$ProductSimpleName}</article>
+            </div>
+            <div class="ProdetailBox mt10">
+                <p class="sutit">产品概要</p>
+                <article class="nr">{if $TourPlayInfo[AdvanceDays]!=''}提前预定天数：{$TourPlayInfo['AdvanceDays']}天<br/>{/if}
+                    {if $TourPlayInfo[ServiceLanguage]!=''}服务语言：{$TourPlayInfo['ServiceLanguage']}<br/>{/if}
+                    {if $TourPlayInfo[Address]!=''}消费地址：{$TourPlayInfo['Address']}<br/>{/if}
+                </article>
+
+            </div>
+            <div class="proTab native-scroll mt10">
+                <div class="buttons-tab">
+                    {if $Description1['DesContent'][0]}<a href="#tab1" class="tab-link active button">产品详情</a>{/if}
+                    {if $ConsumerNotice['ConContent'][0]}<a href="#tab2" class="tab-link button">消费须知</a>{/if}
+                    {if $Explanation['ExpContent'][0]}<a href="#tab3" class="tab-link button">费用说明</a>{/if}
+                    {if $BookingPolicy['BookCss']}<a href="#booking" class="button">预定须知</a>{/if}
+                </div>
+                <div class="tabs">
+                    <div id="tab1" class="tab active">
+                        <div class="detailBox">
+                            <h3 class="sutit">产品详情</h3>
+                            <div id="DetailsText">
+                                {loop $Description1['DesContent'] $key $val}
+                                <article>
+                                    {if $Description1[DesTitle][$key]}
+                                    {$Description1[DesTitle][$key]}
+                                    {/if}
+                                    {if $val}
+                                    {echo _StrtrString($val)}
+                                    {/if}
+                                </article>
+                                {/loop}
+                            </div>
+                            <div  id="DetailsPic" style="display: none">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab">
+                        <div class="detailBox">
+                            <h3 class="sutit">消费须知</h3>
+                            {loop $Description1['DesContent'] $key $val}
+                            <article>
+                                {loop $ConsumerNotice['ConCss'] $key $val}
+                                {echo _StrtrString($ConsumerNotice['ConContentPic'][$key])}
+                                {/loop}
+                            </article>
+                            {/loop}
+                        </div>
+                    </div>
+                    <div id="tab3" class="tab">
+                        {if $Explanation['ExpContent'][0]}
+                        {loop $Explanation['ExpCss'] $key $val}
+                        <div class="detailBox">
+                            {if $Explanation['ExpTitle'][$key]}
+                            <h3 class="sutit">{$Explanation['ExpTitle'][$key]}</h3>
+                            {/if}
+                            <article>
+                                {echo _StrtrString($Explanation['ExpContentPic'][$key])}
+                            </article>
+                        </div>
+                        {/loop}
+                        {/if}
+
+                    </div>
+                </div>
+            </div>
+            {if $BookingPolicy['BookCss']}
+            <div class="list-block diyList">
+                <ul>
+                    <li>
+                        <a href="#booking" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">预定须知</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            {/if}
+        </div>
+    </div>
+    {if $PicI>0}
+    <span class="PhotoBtn" id="PhotoBtn" data-id="0" data-type="0">图文<br>详情</span>
+    {/if}
+    <span class="BackTop" id="gotop"><i class="icon iconfont">&#xe60a;</i></span>
+    <nav class="bar bar-tab fixFun">
+        <a class="col-50 online chat" href="#chat"><i class="icon iconfont">&#xe649;</i>在线咨询</a>
+        <a class="col-50 nowOrder" href="/play/chosecombo/?ID={$TourPlayInfo['TourProductID']}">马上预定</a>
+    </nav>
+</div>
+<!--预定需知页面-->
+<div class="page" id="booking" style="background: #fff;">
+
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">预定须知</h1>
+    </header>
+    <div class="content">
+        <div class="detailBox pd25">
+            {loop $BookingPolicy['BookCss'] $key $val}
+            <article>
+                {if $BookingPolicy['BookContentPic'][$key]}
+                {echo _StrtrString($BookingPolicy['BookContentPic'][$key])}<br>
+                {/if}
+            </article>
+            {/loop}
+        </div>
+    </div>
+    <nav class="bar bar-tab fixFun">
+        <a class="col-50 online chat" href="#chat" ><i class="icon iconfont">&#xe649;</i>在线咨询</a>
+        <a class="col-50 nowOrder" href="/play/chosecombo/?ID={$TourPlayInfo['TourProductID']}">马上预定</a>
+    </nav>
+</div>
+</div>
+<!--图片列表页面-->
+<div class="page" id="pagePhoto" style="background: #fff;">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">景点图片</h1>
+    </header>
+    <div class="content">
+        <ul class="picList">
+        </ul>
+    </div>
+    <nav class="bar bar-tab fixFun">
+        <a class="col-50 online chat" href="#chat"><i class="icon iconfont">&#xe649;</i>在线咨询</a>
+        <a class="col-50 nowOrder" href="/play/chosecombo/?ID={$TourPlayInfo['TourProductID']}">马上预定</a>
+    </nav>
+</div>
+<!--百度商桥页面-->
+<div class="page" id="chat">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">在线咨询</h1>
+    </header>
+    <div class="content">
+    </div>
+</div>
+{template TourFooter}
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/dev/photo-browser.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/tour/PlayDetails.js" charset='utf-8'></script>
+</body>
+</html>

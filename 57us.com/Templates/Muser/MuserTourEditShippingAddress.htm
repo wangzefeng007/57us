@@ -1,0 +1,61 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current" id="editeAddress">
+		<header class="bar bar-nav suvBar">
+			{if $AddressInfo}<span class="pull-right delAddress">删除</span>{/if}
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<div class="title mangeList">编辑常用地址</div>
+		</header>
+		<div class="content">
+			<div class="changPass mt10">
+				<div class="changeList">
+					<span class="listName">收件人</span>
+					<div class="listInput">
+						<input type="text" name="recipients" id="recipients" value="{$AddressInfo[Recipients]}" placeholder="请输入收件人姓名" />
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">手机号</span>
+					<div class="listInput">
+						<input type="text" name="mobile" id="mobile" value="{$AddressInfo[Mobile]}" placeholder="请输入手机号码" />
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">所在地区</span>
+					<div class="listInput">
+						<input type="text" name="city" id='city' value="{if $AddressInfo[Province]}{$AddressInfo[Province]}/{$AddressInfo[City]}/{$AddressInfo[Area]}{/if}" placeholder="请选择所在地区" readonly/>
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">详细地址</span>
+					<div class="listInput">
+						<input type="text" name="address" id="address" value="{$AddressInfo[Address]}" placeholder="请用输入详细地址不需要输入省市区" />
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">邮政编码</span>
+					<div class="listInput">
+						<input type="text" name="postcode" id="postcode" value="{$AddressInfo[Postcode]}" placeholder="请输入邮政编码" />
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">设为默认</span>
+					<div class="listInput">
+						<div class="label-switch" id="isDefault">
+							<input type="checkbox" {if $AddressInfo[IsDefault]==1}checked="checked"{/if}>
+							<div class="checkbox"></div>
+						</div>
+					</div>
+				</div>
+				<div class="sendBox">
+					<a href="javascript:void(0)" class="button button-fill button-orange" id="saveBtn">保存</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserTourEditShippingAddress.js" charset='utf-8'></script>
+<script type="text/javascript" src="{echo JsURL}/m/lib/msui/0.6.2/sm-city-picker.min.js" charset="utf-8"></script>
+</body>
+</html>

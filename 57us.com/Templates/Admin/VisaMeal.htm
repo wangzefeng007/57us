@@ -1,0 +1,38 @@
+{template Head}
+
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+    {template VisaTop}
+    <div class="panel-body">
+        <form action='/index.php?Module=Visa&Action=SetMeal'  method='post'  enctype="multipart/form-data">
+            <table class="table table-bordered table-striped table-hover">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <p class="help-block">套餐介绍：</p>
+                        <script id="BaseInfo" name="BaseInfo" type="text/plain"></script>
+                        <script>
+                            var ue = UE.getEditor('BaseInfo',{initialContent:'{$VisaDetails[BaseInfo]}',initialFrameHeight:200,autoHeightEnabled:false});
+                        </script>
+                    </td>
+                </tr>
+                <tr id="MaterialRequested">
+                    <td width="150" class="t-h"></td>
+                    <td>
+                        <div class="col-sm-2">
+                            <input type="hidden" name="ID" id="ID" value="{$VisaID}" />
+                            <input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}

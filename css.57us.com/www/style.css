@@ -1,0 +1,103 @@
+
+
+.StyleLeft{background: #01a5e3;width: 226px;height: auto;overflow: hidden;float: left;padding:0 0 8px 8px;}
+.StyleRight{ width:854px; height:auto; overflow:hidden; margin-right:20px;}
+.StyleRightTop{ height:76px; line-height:76px; overflow:hidden; border-bottom:1px dashed #acdff2; font-size:20px; font-weight:bold; color:#00a5e3}
+.StyleMenu,.HelpMenu,.NewHelpMenu{width: 100%;height: auto !important;min-height: 505px;overflow: hidden;background: url(http://images.57us.com/img/common/LeftMenuBg.png) left bottom no-repeat #eefaff;}
+.StyleMenu li{ position:relative; border-bottom:1px dashed #d7eef6; }
+.StyleMenu li .a{ padding-left:45px; display:block; font-size:16px; height:50px; line-height:50px; overflow:hidden;color:#4ac5fc; position:relative;}
+.StyleMenu li .ico{ background:url(http://images.57us.com/img/www/MainSiteIcon.png) no-repeat; width:24px; height:24px; display:inline-block; overflow:hidden; position:absolute; left:-100px; top:50%; margin-top:-12px; transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;-moz-transition:all 0.3s ease-in;-ms-transition:all 0.3s ease-in;-o-transition:all 0.3s ease-in;}
+.StyleMenu li .a:hover,.StyleMenu li.on .a{ color:#ff5863; background:#fff;padding-left:70px; }
+.StyleMenu li.on .a .ico,.StyleMenu li .a:hover .ico{left:45px;}
+.StyleMenu li.i1 .ico{ background-position:-24px 0}
+.StyleMenu li.i2 .ico{ background-position:-48px 0}
+.StyleMenu li.i3 .ico{ background-position:-120px 0}
+.StyleMenu li.i4 .ico{ background-position:-72px 0}
+.StyleMenu li.i5 .ico{ background-position:0 0}
+.StyleMenu li.i6 .ico{background-position:-144px 0}
+.AboutEdite{ font-size:16px; color:#999; line-height:28px;}
+.ContactList{}
+.ContactList li{ float:left; margin-right:20px;}
+.ContactList li.i1{ background:url(http://images.57us.com/img/www/china.png) no-repeat; width:248px; height:41px;}
+.ContactList li.i2{ background:url(http://images.57us.com/img/www/english.png) no-repeat; width:309px; height:41px;}
+.ContactList li .num{ font-size:37px; font-weight:bold; color:#00a5e3; font-family:Arial}
+.MapFirst{font-size:20px; font-weight:bold; color:#00a5e3; padding:15px 0}
+.MapFirst a,.MapSecond a{ color:#00a5e3;}
+.MapSecondBox{ border-top:1px dashed #d2d2d2; padding-top:10px;}
+.MapSecond{ font-size:16px; color:#00a5e3; font-weight:normal}
+.MapThird{ font-size:16px;}
+.MapThird a{ color:#999; margin:8px 20px 0 0; display:inline-block}
+.MapThird a:hover{color:#00a5e3;}
+.MapFirst i{background:url(http://images.57us.com/img/www/MainSiteIcon.png) no-repeat; width:24px; height:24px; display:inline-block; overflow:hidden; vertical-align:middle; margin-right:5px;}
+.MapNews i{ background-position:-72px -24px}
+.MapTour i{ background-position:-96px -24px}
+.MapStudy i{ background-position:-48px -24px}
+.StyleLeftTop{ padding-left:74px; background:#fff; font-size:18px; font-weight:bold; color:#ff5863; line-height:50px; position:relative}
+.HelpMenu{ padding-top:15px;}
+.HelpMenu li{ position:relative; border-bottom:1px dashed #d7eef6; }
+.HelpMenu li .a{ padding-left:45px; display:block; font-size:16px; height:50px; line-height:50px; overflow:hidden;color:#4ac5fc; position:relative;}
+.HelpMenu li.on .a,.HelpMenu li:hover .a{ font-weight:bold}
+.HelpMenuSecond{ padding-bottom:10px;}
+.HelpMenuSecond li{ border-bottom:0}
+.HelpMenuSecond li a{ padding-left:70px; display:block;height:32px; font-size:16px; line-height:32px; overflow:hidden;color:#4ac5fc; position:relative;}
+.HelpMenuSecond li .ico,.StyleLeftTop .ico{background:url(http://images.57us.com/img/www/MainSiteIcon.png) no-repeat; width:24px; height:24px; display:inline-block; overflow:hidden; position:absolute; left:45px; top:50%; margin-top:-12px; transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;-moz-transition:all 0.3s ease-in;-ms-transition:all 0.3s ease-in;-o-transition:all 0.3s ease-in;}
+.StyleLeftTop .ico{ margin-top:-10px}
+.StyleLeftTop .ico{ background-position:-144px 0}
+.HelpMenuSecond li.i1 .ico{ background-position:-168px -24px}
+.HelpMenuSecond li.i2 .ico{ background-position:-120px -24px}
+.HelpMenuSecond li.i3 .ico{ background-position:0 -48px}
+.HelpMenuSecond li.i4 .ico{ background-position:-48px -48px}
+.HelpMenuSecond li.i5 .ico{ background-position:-96px -48px}
+.HelpMenuSecond li a:hover,.HelpMenuSecond li.on a{ color:#ff5863}
+.HelpMenuSecond li.i1 a:hover .ico,.HelpMenuSecond li.i1.on a .ico{ background-position:-192px -24px}
+.HelpMenuSecond li.i2 a:hover .ico,.HelpMenuSecond li.i2.on a .ico{ background-position:-144px -24px}
+.HelpMenuSecond li.i3 a:hover .ico,.HelpMenuSecond li.i3.on a .ico{ background-position:-24px -48px}
+.HelpMenuSecond li.i4 a:hover .ico,.HelpMenuSecond li.i4.on a .ico{ background-position:-72px -48px}
+.HelpMenuSecond li.i5 a:hover .ico,.HelpMenuSecond li.i5.on a .ico{ background-position:-120px -48px}
+
+.PayStyle li{ float:left; margin-right:22px;}
+.RefundTab{ background:#00a5e3;}
+.RefundTab th{ color:#fff; font-weight:normal;}
+.RefundTab td{ background:#fff; text-align:center}
+/*2016-8-31*/
+.header_menu li .first_a{padding: 0 18px;}
+.NewsFoot{ background: #3c3c3c; padding: 15px 0 30px; height: auto; color: #8e8e8e;}
+.NewsFooter{ padding-top: 20px; position: relative;}
+.FootMeida{ width: 230px;}
+.FootMeida li{ background: url(http://images.57us.com/img/www/media.png) no-repeat; width: 100px; height: 100px; float: left;position: relative; margin-left:15px; cursor: pointer;}
+.FootMeida li.i1{background-position: 0 0;}
+.FootMeida li.i2{background-position: 0 -100px;}
+.FootMeida li.i1:hover{background-position: -100px 0;}
+.FootMeida li.i2:hover{background-position: -100px -100px;}
+.ChatCode{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); width:112px; height:112px; padding:7px; position:absolute; bottom:110px; left:50%; margin-left: -63px; display:none}
+.ChatCode em{background:url(http://images.57us.com/img/www/sj.png) no-repeat;  width:30px; height:7px; display:inline-block; position:absolute; bottom:-7px; left:50%; margin-left:-15px;}
+.FootMeida li:hover .ChatCode{display: block;}
+.FootLogo{ background: url(http://images.57us.com/img/www/flogo.png) no-repeat; width:236px; height:68px; float: left;display: inline-block;overflow: hidden; text-indent: -999px;}
+.FootCont{ width: 700px; margin: 10px 0 0 0; text-align: center; color: #8e8e8e;}
+.NewsFoot a{color: #8e8e8e; padding: 0 6px;}
+.NewsFoot a:hover{color: #eab66a;}
+
+/*2016-9-14*/
+.NewHelpMenu{padding-top: 20px;}
+.NewHelpMenu li a{ padding-left:70px; display:block;height:35px; font-size:16px; line-height:35px; overflow:hidden;color:#4ac5fc; position:relative;}
+.NewHelpMenu li .ico{background:url(http://images.57us.com/img/www/nMainSiteIcon.png) no-repeat; width:24px; height:24px; display:inline-block; overflow:hidden; position:absolute; left:45px; top:50%; margin-top:-12px; transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;-moz-transition:all 0.3s ease-in;-ms-transition:all 0.3s ease-in;-o-transition:all 0.3s ease-in;}
+.NewHelpMenu li a:hover,.NewHelpMenu li.on a{color:#ff5863}
+.NewHelpMenu li.i1_1 .ico{ background-position:0 0}
+.NewHelpMenu li.i1_2 .ico{ background-position:0 -24px}
+.NewHelpMenu li.i1_3 .ico{ background-position:0 -48px}
+.NewHelpMenu li.i1_4 .ico{ background-position:0 -72px}
+.NewHelpMenu li.i1_5 .ico{ background-position:0 -96px}
+.NewHelpMenu li.i1_6 .ico{ background-position:0 -120px}
+.NewHelpMenu li.i1_7 .ico{ background-position:0 -144px}
+.NewHelpMenu li.i1_8 .ico{ background-position:0 -168px}
+.NewHelpMenu li.i1_9 .ico{ background-position:0 -192px}
+.NewHelpMenu li.i1_10 .ico{ background-position:0 -216px}
+.NewHelpMenu li.on .ico,.NewHelpMenu li a:hover .ico{background-image:url(http://images.57us.com/img/www/nMainSiteIconHover.png) ;}
+.f16{font-size: 16px;}
+.f18{font-size: 18px;}
+.OlList li{ padding-left: 2em;}
+.fod{font-weight: bold;}
+.styletab{background: #efefef; margin-top: 15px;}
+.styletab th{font-size: 16px; font-weight: normal;}
+.styletab td,.styletab th{background: #fff;padding: 10px;}
+.textIn{text-indent: 2em;}

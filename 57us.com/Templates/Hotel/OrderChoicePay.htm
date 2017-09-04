@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$Title}</title>
+	<link href="{echo CssURL}/common/common.css" rel="stylesheet" type="text/css" />
+	<link href="{echo CssURL}/common/TourCommon.css" rel="stylesheet" type="text/css" />
+	<link href="{echo CssURL}/hotel/hotel.css" rel="stylesheet" type="text/css" />
+	<script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+	<script src="{echo JsURL}/base/base.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+<div class="fix_menu">
+    <ul class="cf">
+        <li class="i1">
+            <a class="a"><i class="transition"></i><span class="transition">联系<br>电话</span></a>
+            <div class="hotline transition">
+                <p class="num"><b></b>400-018-5757</p>
+            </div>
+        </li>
+        <li class="i2">
+            <a class="a"><i class="transition"></i><span class="transition">在线<br>QQ</span></a>
+            <div class="online_qq">
+                <p class="online_qq_t">在线客服</p>
+                <div class="online_qq_list">
+                    <span><a target=blank href="http://wpa.qq.com/msgrd?v=3&uin=747009028&site=qq&menu=yes" target="_blank"><img src="{echo ImageURL}/img/common/qq.png" width="20">QQ客服1</a></span>
+
+                    <span><a href="http://wpa.qq.com/msgrd?v=3&uin=1223534496&site=qq&menu=yes" target="_blank"><img src="{echo ImageURL}/img/common/qq.png" width="20">QQ客服2</a></span>
+                </div>
+            </div>
+        </li>
+        <li class="i3"><a class="a" href="http://wpa.qq.com/msgrd?v=3&uin=280612744&site=qq&menu=yes"><i class="transition"></i><span class="transition">意见<br>反馈</span></a></li>
+        <li class="i4"><a class="a"><i class="transition"></i><span class="transition">手机<br>扫码</span></a><div class="fix_ewm"><img src="{echo ImageURL}/img/common/wxtravel.jpg"></div></li>
+        <!--<li class="i5"><a class="a"><i class="transition"></i><span class="transition">添加<br>收藏</span></a></li>-->
+        <li class="i6"><a class="a"><i class="transition"></i><span class="transition">在线<br>分享</span></a>
+            <div class="share transition"></div></li>
+        <li class="i7 backtop"><a class="a"><i class="transition"></i><span class="transition">返回<br>顶部</span></a></li>
+    </ul>
+</div>
+<div class="top_bar">
+    <div class="w1200 cf">
+        <p class="fr"><a href="{echo WEB_MAIN_URL}/about/xieyi.html" target="_blank">帮助中心</a></p>
+        {if $_SESSION[UserID] && !empty($_SESSION[UserID])}
+            <div class="has_login fr">
+                <div class="my_user">
+                    <span class="name">{$_SESSION[NickName]}</span><i class="ico"></i>
+                    <ul class="su_user">
+                        <li><a href="{echo WEB_MEMBER_URL}">个人中心</a></li>
+                        <li><a href="{echo WEB_MEMBER_URL}/member/securitycenter/">安全中心</a></li>
+                        <li><a href="{echo WEB_MEMBER_URL}/tourmember/address/">收货地址</a></li>
+                        <li><a href="{echo WEB_MEMBER_URL}/member/signout/">安全退出</a></li>
+                    </ul>
+                </div>
+                <a href="{echo WEB_MEMBER_URL}/member/wallet/">我的钱包</a>|</div>
+        {else}
+            <div class="fr no_login"><a href="{echo WEB_MEMBER_URL}/member/login/">登录</a>|<a href="{echo WEB_MEMBER_URL}/member/register/">免费注册</a></div>
+        {/if}
+        <p class="fl">欢迎来到57美国网!</p>
+    </div>
+</div>
+	<div class="TourOrdHead">
+		<div class="w1003 cf">
+			<ul class="Tourprocess">
+				<li class="on"><span>提交订单</span><i>1</i></li>
+				<li class="i2 on"><span>酒店确认</span><i>2</i></li>
+				<li><span>支付成功</span><i>3</i></li>
+			</ul>
+			<a href="{echo WEB_TOUR_URL}" class="TourOrdLogo">57美国网</a>
+		</div>
+	</div>
+	<div class="w1003 cf">
+		<div class="DetailBox">
+			<div class="SurplusPay">
+				剩余<div class="Countdown"><span id="RemainD" style="display: none">天</span><span class="hours" id="RemainH"></span>小时:<span class="minutes" id="RemainM"></span>分:<span class="seconds" id="RemainS"></span>秒<span id="RemainU" style="display: none"></span></div>完成支付，逾期订单将自动取消
+				<span id="numb" style="display: none"></span>
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0" width="100%" class="HotelOrderPsy">
+				<tr height="35">
+					<td>订单号：{$OrderInfo[OrderNo]}</td>
+				</tr>
+				<tr height="35">
+					<td>酒店：{$OrderInfo[HotelName]}</td>
+				</tr>
+				<tr height="35">
+					<td valign="top">房型：{$OrderInfo[RoomName]} </td>
+				</tr>
+				<tr height="35">
+					<td valign="top">床型：{$BedTypeInfo[Name_Cn]}({$BedTypeInfo[Name]}) </td>
+				</tr>
+				<tr height="35">
+					<td valign="top">入住离店日期：{$OrderInfo[CheckInDate]}至{$OrderInfo[CheckOutDate]}  {$Days}晚 </td>
+				</tr>
+			</table>
+		</div>
+		<div class="PayStyleBox mt20">
+			<div class="hd"><a href="JavaScript:void(0)" class="on">微信支付</a><a href="JavaScript:void(0)">支付宝支付</a></div>
+			<div class="bd">
+				<div class="BdTab" style="display: block;">
+					<div class="ChatPay"></div>
+					<div class="PayPrice mt30">
+						<a href="/wxpay/{$OrderInfo['OrderNo']}/" class="PayImmedBtn fr">立即支付</a>
+						<div class="PayNum fr">
+							应付金额：<span class="price">¥<i>{$OrderInfo[Money]}</i></span>
+						</div>
+					</div>
+				</div>
+				<div class="BdTab">
+					<div class="Alipay"></div>
+					<div class="PayPrice mt30">
+						<a href="/alipay/{$OrderInfo['OrderNo']}/" class="PayImmedBtn fr">立即支付</a>
+						<div class="PayNum fr">
+							应付金额：<span class="price">¥<i>{$OrderInfo[Money]}</i></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cf mt50"></div>
+	<script src="{echo JsURL}/hotel/hotelpay.js"></script>
+	{if strtotime($OrderInfo[ExpirationTime])>time()}
+	<script type="text/javascript" language="JavaScript">
+		var ExpirationTime = '{$OrderInfo[ExpirationTime]}'; //倒计时终止时间
+		var ServerTime = '{echo date("Y-m-d H:i:s",time())}'; //服务器时间
+	</script>
+	<script type="text/javascript" src="{echo JsURL}/base/Countdown/1.0/Countdown.js"></script>
+	{/if}
+	{template 'Common/TourFooter',1}

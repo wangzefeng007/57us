@@ -1,0 +1,27 @@
+.paybody{background: url(../images/paybg.png) left top repeat;}
+.PayHeader{ background: url(../images/paytopbg.png) left top repeat-x; height: 66px; overflow: hidden; text-align: center;}
+.PayLogo{ background: url(../images/paylogo.png) center center no-repeat; width: 120px; height: 66px; display: inline-block; overflow: hidden;}
+.PayFooer{ background:#595b57; height:auto; overflow:hidden; position:relative}
+.PayFooer .ins{ padding:35px 0; border-bottom:1px solid #6e6f6e}
+.PayFooer .foot{ padding:12px 0 12px 100px; color:#8c8c8c;}
+.PayFooer a{ color:#8c8c8c; padding-left:15px;}
+.PayFooer a:hover{ color:#f7534c;}
+.PayFooer .ewmbox{ background:#595b57; width:225px; height:132px; position:absolute; bottom:0; right:50%; margin-right:-480px;}
+.PayFooer .ewmbox li{ width:100px; height:132px; float:left; margin-left:10px; line-height:32px; text-align:center; color:#999999}
+.PayFooer .ewmbox li img{ width:100px; height:100px; vertical-align:top; display:block; }
+.PayMain{width: 700px;}
+.PayMainTop{ background: url(../images/mainbg.png) 0 top no-repeat; height: 25px; overflow: hidden;}
+.PayMainM{background: #fff; width: 653px; padding: 15px; margin: 0 auto;}
+.PayMainBottom{width: 683px; background: url(../images/mainbottom.png) center top repeat-x; height:30px; overflow: hidden; margin: 0 auto;}
+.PayEwmBox{ width:260px; height: auto; margin: 0 auto;}
+.PayEwm{position: relative; width: 260px; height: 260px;}
+.Fphone{position: absolute; top: 50%; left:20px;width: 221px; height: 320px; margin-top: -100px; filter:alpha(opacity=0);  opacity: 0;}
+.PayEwm:hover .Fphone{ left: 240px;filter:alpha(opacity=100);  opacity:1;}
+.MsgDetailBox{padding: 12px 0;border: 1px solid #2b4d69;background-color: #445f85;border-radius: 3px;text-align: center;letter-spacing: 6px;color: #fff; margin:5px 17px 0;}
+.MsgDetailBox i{background:url(../images/icon60_qr15b813.png) 0 -60px no-repeat;display: inline-block;width: 60px;height: 60px;vertical-align: middle;}
+.MsgDetailBox p {display: inline-block;vertical-align: middle;letter-spacing: normal;text-align: left;font-size: 16px; }
+.PayPrice{width: 420px; border-top: 3px solid #e0e3eb; text-align: center;margin: 77px auto 0; position: relative;}
+.PayPrice .price{font-size: 36px; color: #666666; padding: 40px 0; display: inline-block;}
+.PayPrice em{ background: url(../images/paycar.png) center center no-repeat #fff; width: 70px; height: 60px; display: inline-block;  position: absolute; left: 50%; top: -35px; margin-left: -30px;}
+.PayThing,.PayDetail{width: 420px;border-top: 1px solid #e0e3eb; padding: 20px 0; height: auto;overflow: hidden; margin: 0 auto; line-height: 30px;}
+.PayDetail{ color: #999;}

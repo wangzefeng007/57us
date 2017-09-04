@@ -1,0 +1,126 @@
+{template TourHeader}
+<div class="page"  id="page">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="pull-left" href="/play/"><i class="icon iconfont">&#xe604;</i></a>
+        <a href="{echo WEB_M_URL}/tour/search/" class="pull-right barSearch external"><i class="icon iconfont">&#xe6b5;</i></a>
+        <h1 class="title">门票</h1>
+    </header>
+    <div class="content-padded grid-demo diyTab">
+        <div class="row">
+            <a href="/play/feature/{$SoWhere}" class="col-33">特色体验</a>
+            <a href="/play/daily/{$SoWhere}" class="col-33">一日游</a>
+            <a href="/play/ticket/{$SoWhere}" class="col-33 active">门票</a>
+        </div>
+    </div>
+    <div id="ajaxDom" style="display:none;">
+        <div id="ajaxEndCity">All</div>
+        <div id="ajaxTicketPrice">All</div>
+        <div id="ajaxTicketType">All</div>
+        <div id="ajaxTheme"><span>All</span></div>
+        <div id="ajaxSort">Default</div>
+    </div>
+    <br>
+    <div id="Buffer" style="display: none">
+        <div id="EndCity"></div>
+    </div>
+    <div class="content pull-to-refresh-content infinite-scroll ListCont">
+        <!-- 默认的下拉刷新层 -->
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <!--列表内容-->
+        <div class="list-block inner">
+            <ul class="PlayList">
+            </ul>
+        </div>
+        <div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader" style="display: none">
+            <div class="preloader">
+            </div>
+        </div>
+    </div>
+    <nav class="bar bar-tab diyBottom">
+        <a class="tab-item external" href="JavaScript:void(0)" date-id="PlayFoth">
+            <i class="icon iconfont">&#x3481;</i>
+            <span class="tab-label">目的地</span>
+        </a>
+        <a class="tab-item external" href="JavaScript:void(0)" date-id="TickStyle">
+            <i class="icon iconfont">&#xe61c;</i>
+            <span class="tab-label">票务选择</span>
+        </a>
+        <a class="tab-item external" href="JavaScript:void(0)" date-id="FeaPlay">
+            <i class="icon iconfont">&#xe677;</i>
+            <span class="tab-label">特色筛选</span>
+        </a>
+        <a class="tab-item external" href="JavaScript:void(0)" date-id="Ranking">
+            <i class="icon iconfont">&#xe600;</i>
+            <span class="tab-label">综合排序</span>
+        </a>
+    </nav>
+    <div class="tabMain">
+        <div class="tabBox" id="PlayFoth">
+            <div class="tabBoxHead">
+                <a class="pull-left close">取消</a>
+                <a class="pull-right SureBtn test">确定</a>
+                <a class="pull-right sxDete Clear"><i class="icon iconfont">&#xe607;</i>清空筛选</a>
+            </div>
+            <div class="tabBoxCity">
+                <div class="tabBoxCityl">
+                    <a href="javascript:void(0)" data-id="EndCity" data-toggle="scroller" data-type='auto'>目的地</a>
+                </div>
+                <div class="tabBoxCityR swiper-city" data-toggle="scroller" data-type='auto'>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tabBox" id="TickStyle">
+            <div class="tabBoxHead">
+                <a class="pull-left close">取消</a>
+                <a class="pull-right SureBtn">确定</a>
+                <a class="pull-right sxDete Clear"><i class="icon iconfont">&#xe607;</i>清空筛选</a>
+            </div>
+            <div class="tabBoxBody">
+                <p class="tit">票务价格</p>
+                <div class="tabBoxBodyM">
+                </div>
+            </div>
+            <div class="tabBoxBody">
+                <p class="tit">票务类型</p>
+                <div class="tabBoxBodyM">
+                </div>
+            </div>
+        </div>
+        <div class="tabBox" id="FeaPlay">
+            <div class="tabBoxHead">
+                <a class="pull-left close">取消</a>
+                <a class="pull-right SureBtn">确定</a>
+                <a class="pull-right sxDete Clear"><i class="icon iconfont">&#xe607;</i>清空筛选</a>
+            </div>
+            <div class="tabBoxBody">
+                <p class="tit">特色主题</p>
+                <div class="tabBoxBodyM">
+                </div>
+            </div>
+        </div>
+        <div class="tabBox" id="Ranking">
+            <div class="tabBoxHead">
+                <a class="pull-left close">取消</a>
+                <a class="pull-right SureBtn">确定</a>
+                <a class="pull-right sxDete Clear"><i class="icon iconfont">&#xe607;</i>清空筛选</a>
+            </div>
+            <div class="tabBoxBody">
+                <ul class="tabBoxPx">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{template TourFooter}
+<script type='text/javascript' src="{echo JsURL}/m/tour/TourListslib.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/tour/PlayTicket.js" charset='utf-8'></script>
+</body>
+</html>

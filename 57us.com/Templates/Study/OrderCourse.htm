@@ -1,0 +1,122 @@
+{template StudyOrderHeader}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt45 cf">
+    <div class="sureOrder">
+        <div class="sureOrderL fl">
+            <div class="sureOrderBox">
+                <div class="sureOrderBoxT"><span class="name">订单信息</span></div>
+                <div class="sureOrderBoxM">
+                    <!--课程详情页面，传过来的产品id-->
+                    <input type="hidden" name="ProductId" id="ProductId" value="{$CourseInfo[CourseID]}">
+                    <input type="hidden" name="ProductNum" id="ProductNum" value="{$CourseNum}">
+                    <ul class="deoferDetailList">
+                        <li>课程名称：{$CourseInfo[CourseName]}
+                            {loop json_decode($CourseInfo[CourseTags],true) $list}
+                            <span class="tipCLass">{$list[CourseTag]}</span>
+                            {/loop}
+                        </li>
+                        <li>培训科目： {$CourseType[$CourseInfo[CourseType]]}</li>
+                        <li>授课教师： {$UserInfo[NickName]}</li>
+                        <li>上课方式： {$TeachType[$CourseInfo[TeachType]]}</li>
+                        <li>班级规模： {$ClassSize[$CourseInfo[ClassSize]]}</li>
+                        <li>课时数量： <span class="ProductNum">{$CourseNum}</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sureOrderBox mt15">
+                <div class="sureOrderBoxT"><span class="name">联系人信息</span></div>
+                <div class="sureOrderBoxM">
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%" class="contactTab">
+                        <tr>
+                            <th width="120">姓名：</th>
+                            <td>
+                                <div class="inputBox">
+                                    <input type="text" name="zhname" id="zhname" value="" class="InsInput" placeholder="请输入中文姓名"/>
+                                    <div class="erroText"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>手机号码：</th>
+                            <td>
+                                <div class="inputBox">
+                                    <input type="text" name="phone" id="phone" value="" data-type="phone" class="InsInput" placeholder="请输入手机号码" autocomplete="off" />
+                                    <div class="erroText"></div>
+                                </div>
+                                <span id="yesphone" style="display: none" class="c9 f14">您的号码已注册，可立即<a href="javascript:void(0)" class="GoLogin _MustLogin" data-type="order">登录</a></span>
+                            </td>
+                        </tr>
+                        <tr id="piccode" style="display: none">
+                            <th>验证码</th>
+                            <td>
+                                <div class="inputbox">
+                                    <input type="text" name="code" id="code" value="" class="InsInput" placeholder="请输入6位验证码" style="width: 160px;"/>
+                                    <input type="button" id="codebtn" value="获取验证码" class="yzmInput"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>留学目标：</th>
+                            <td>
+                                <div type="selectbox" class="DiySelect" id="Goal">
+                                    <div class="opts">
+                                        <a href="javascript:void(0);" value="本科">本科</a>
+                                        <a href="javascript:void(0);" value="高中">高中</a>
+                                        <a href="javascript:void(0);" value="研究生">研究生</a>
+                                        <a href="javascript:void(0);" value="转学">转学</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>计划留学时间：</th>
+                            <td>
+                                <div class="inputBox">
+                                    <input type="text" name="StudyTime" id="StudyTime" value="" placeholder="2017年春季" class="InsInput" maxlength="10"/>
+                                    <div class="erroText"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="sureOrderBox mt15">
+                <div class="sureOrderBoxT"><span class="name">购买留言</span><span class="c9 f16">（选填）</span></div>
+                <div class="sureOrderBoxM">
+                    <textarea name="message" id="message" rows="" cols="" class="feedback" placeholder="如您有什么特殊需要，请留言。"></textarea>
+                </div>
+            </div>
+            <div class="orderFoot mt20">
+                <a href="javascript:void(0)" class="nextPay fr" id="paybtn">去支付</a>
+                <p class="allPrice  fr">总价：<b>￥<i class="TotalPrice">{$Money}</i></b></p>
+                <a href="javascript:window.history.back()" class="prevStep">返回上一步</a>
+            </div>
+            <div class="protocol">
+                <label name="rbt2" id="protocol" type="checkbox" val="" class="cbt cb checked"><i></i></label>我已阅读并接受《
+                <a href="{echo WEB_MAIN_URL}/about/xieyi.html" target="_blank"><span>用户协议</span></a>》
+            </div>
+        </div>
+        <div class="OrderRight mt40 sidebar fr autofix_sb">
+            <div class="orderIns">
+                <div class="orderInsTop"></div>
+                <div class="orderInsM">
+                    <div class="OrderRightTit">
+                        <span class="name">订单详情</span>
+                        <div class="OrderRightP f20 mt15">{$CourseInfo[CourseName]}</div>
+                        <div class="OrderRightP f16 mt10">授课教师：{$UserInfo[NickName]}</div>
+                        <div class="OrderRightP f16">课时数量：<span class="ProductNum">{$CourseNum}</span></div>
+                        <p class="allPrice cf mt25">总价：<b>￥<i class="TotalPrice">{$Money}</i></b></p>
+                    </div>
+                </div>
+                <div class="orderInsB"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/tc_login.js"></script>
+<script src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script src="{echo JsURL}/study/StudyOrderPublic.js"></script>
+<script src="{echo JsURL}/study/OrderCourse.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{template TourHeader}
+<div class="page page-current" id="choseroom">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">选择套餐</h1>
+    </header>
+    <div class="content">
+        <p class="choseRoomT">请选择套餐</p>
+        <input type="hidden" name="dateprice" id="dateprice" value="">
+        <div class="roomStyleBox">
+            <div class="list-block media-list radioList ComboList">
+                <ul>
+                    <!--data-price,绑定此套餐最近可选的价格,data-id,绑定此套餐的产品ID,data-value为有几个套餐从1从开始往下排序  -->
+                    {loop $PlaySkuInfo $key $lists}
+                    <li data-price="{$lists[NPrice]}" data-id="{$lists[ProductSkuID]}" data-value="{echo $key+1}" data-date="{echo date('Y-m-d',strtotime($lists[Date]))}">
+                        <label class="label-checkbox item-content">
+                            <input type="radio" name="my-radio">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                            <div class="item-inner">
+                                【<span>套餐{echo $key+1}</span>】{$lists[SKUName]}
+                            </div>
+                        </label>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+        <p class="choseRoomT">请选择出发日期</p>
+        <a class="resultDate" href="#pageDate" id="choseDate">
+            <span class="pull-right"><i class="icon iconfont">&#xe613;</i></span>
+            <span class="pull-left dateChose"></span>
+        </a>
+        <p class="choseRoomT">请选择套餐数量</p>
+        <div class="roomStyleBox">
+            <div class="num_box RoomNum">
+                <a class="num_btn minus" unselectable="on" onselectstart="return false;" style="-webkit-user-select: none;" data-type="-">-</a>
+                <input name="RoomNum" class="num_input" value="1" readonly="readonly">
+                <a class="num_btn plus" unselectable="on" onselectstart="return false;" style="-webkit-user-select: none;" data-type="+">+</a>
+            </div>
+        </div>
+    </div>
+    <div class="bar bar-tab OrderBottom disable-router" style="display: none" >
+        <div class="pull-left ObottomLeft">
+            <p class="allPrice pull-left ">总价：<span class="red">¥<i class="Pricenum"></i></span></p>
+            <span class="green pull-right freeDetails"><a href="" class="green">费用明细</a></span>
+        </div>
+        <a class="nextBtn pull-right">填写旅客信息</a>
+    </div>
+    <!--
+        作者：xiao15980751809@126.com
+        时间：2016-11-01
+        描述：费用明细弹窗
+    -->
+    <div class="freeDetaBox transition">
+        <p class="freeDetaBoxT">
+            <span class="pull-left name">费用明细</span>
+            <span class="pull-right close"><i class="icon iconfont">&#xe601;</i></span>
+        </p>
+        <div class="freeDetaBoxM grid-demo">
+            <div class="row freeDetailList">
+                <div class="col-25"></div>
+                <div class="col-25 red tac">x<span class="num">1</span></div>
+                <div class="col-50 tar">单价：<span class="red">￥<i></i></span></div>
+            </div>
+        </div>
+    </div>
+    <!--
+        作者：xiao15980751809@126.com
+        时间：2016-11-01
+        描述：遮罩透明层
+    -->
+    <div class="mask"></div>
+</div>
+<!--//日期选择页面-->
+<div class="page" id="pageDate">
+</div>
+{template TourFooter}
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/dev/swiper.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/tour/PlayChoseCombo.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/DatePicker/1.0.0/PlayDate.js" charset='utf-8'></script>
+</body>
+</html>

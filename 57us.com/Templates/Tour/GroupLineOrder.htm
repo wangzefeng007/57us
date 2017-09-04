@@ -1,0 +1,278 @@
+{template OrderHeader}
+<div class="cf w1200 ordermain mt45">
+	<div class="OrderLeft fl">
+		<div class="cf orderDetailBox">
+			<div class="OrderLeftTit">
+				<i class="ico ico1"></i><span class="name">预定信息</span>
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0" width="640" class="orderInstab fl mt25">
+				<tr>
+					<th>产品编号：</th>
+					<td>{$TourProductID}</td>
+				</tr>
+				<tr>
+					<th>产品名称：</th>
+					<td>
+						<p class="orT">{$TourProductLineInfo[ProductName]}</p>
+						{if !empty($TourProductLineInfo[TageInfo])}
+						<p class="searveList mt15">
+							{loop explode(',',$TourProductLineInfo[TagInfo]) $val}
+							<span>{$val}</span>
+							{/loop}
+						</p>
+						{/if}
+					</td>
+				</tr>
+				{if $TourProductLineInfo[ProductPackage]}
+				<tr>
+					<th>套餐名称：</th>
+					<td>
+						{$TourProductLineInfo[ProductPackage]}
+					</td>
+				</tr>
+				{/if}
+				<tr>
+					<th>出发城市：</th>
+					<td>{$StartTourAreaInfo[CnName]}</td>
+				</tr>
+				{if $TourProductLineInfo[Category]==12}
+				<tr>
+					<th>结束城市：</th>
+					<td>{$EndTourAreaInfo[CnName]}</td>
+				</tr>
+				{/if}
+				<tr>
+					<th>出发日期：</th>
+					<td>{echo date('Y-m-d', strtotime($DateStr))}</td>
+				</tr>
+				<tr>
+					<th>结束日期：</th>
+					<td>{$EndDate}</td>
+				</tr>
+			</table>
+		</div>
+		<!--返回上一页面参数-->
+		<input type="hidden" name="Date" id="Date" value="{echo date('Y-m-d', strtotime($DateStr))}" />  <!--帮我绑定下出行时间,还有产品编号-->
+		<input type="hidden" name="ProductId" id="ProductId" value="{$TourProductID}"/>
+		<input type="hidden" name="PeopleNum" id="PeopleNum" value="{$PeopleNum}">
+		<!--填写旅客信息-->
+		<div class="cf orderDetailBox lastname">
+			<div class="OrderLeftTit">
+				<i class="ico ico2"></i><span class="name">填写旅客信息</span>
+			</div>
+			<div class="tourManList mt25" id="tourManList">
+			</div>
+		</div>
+		<!--酒店信息-->
+		<!--如果此酒店信息，后台没有设置必填 则隐藏-->
+		<div class="cf orderDetailBox HotelInfo" style="display:{if $TourProductLineInfo[IsNeedHotel]==1}block{else}none{/if}">
+			<div class="OrderLeftTit">
+				<i class="ico ico5"></i><span class="name">酒店信息</span>
+			</div>
+			<div class="tourManList">
+				<table border="0" cellspacing="0" cellpadding="0" class="lvkeTab ">
+					<tbody>
+					<tr>
+						<th valign="top" width="110"><span class="red">*</span>接送酒店名称:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="hotelname" maxlength="27" value="" class="OrderInput hotelname" placeholder="请填写酒店英文名称" style="width: 300px;"/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th valign="top"><span class="red">*</span>接送酒店地址:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="hoteladdress" maxlength="27" value="" class="OrderInput hoteladdress" placeholder="请填写酒店英文地址" style="width: 300px;"/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th valign="top"><span class="red">*</span>接送酒店电话:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="hoteltel" maxlength="27" value="" class="OrderInput hoteltel" placeholder="请填写酒店电话" style="width: 300px;"/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--航班信息-->
+		<!--如果此航班信息，后台没有设置必填 则隐藏-->
+		<div class="cf orderDetailBox FlightInfo" style="display: {if $TourProductLineInfo[IsNeedGiveAirport]==1||$TourProductLineInfo[IsNeedSendAirport]==1}block{else}none{/if}">
+			<div class="OrderLeftTit">
+				<i class="ico ico6"></i><span class="name">航班信息</span>
+			</div>
+			<div class="tourManList">
+				<table border="0" cellspacing="0" cellpadding="0" class="lvkeTab">
+					<!--如果此接航班信息，后台没有设置必填 则隐藏-->
+					<tbody class="FlightJoin" style="display: {if $TourProductLineInfo[IsNeedGiveAirport]==1}block{else}none{/if}">
+					<tr>
+						<th valign="top" width="110"><span class="red">*</span>航班抵达日期:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="FlightJoinDate" maxlength="27" value="" class="OrderInput FlightJoinDate" placeholder="请选择航班抵达日期" onfocus="WdatePicker({minDate:'%y-%M-{%d+0}'})" style="width: 300px;" readonly/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th valign="top"><span class="red">*</span>接机航班号:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="FlightJoinCourse" maxlength="27" value="" class="OrderInput FlightJoinCourse" placeholder="请填写接机航班号" style="width: 300px;"/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th valign="top"><span class="red">*</span>航班抵达时间:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="FlightJoinTime" maxlength="27" value="" class="OrderInput FlightJoinTime" placeholder="请选择航班抵达时间" onfocus="WdatePicker({dateFmt:'HH:mm:ss'})" style="width: 300px;" readonly/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+					<!--如果此送航班信息，后台没有设置必填 则隐藏-->
+					<tbody class="FlightDeliver" style="display: {if $TourProductLineInfo[IsNeedSendAirport]==1}block{else}none{/if}">
+					<tr>
+						<th valign="top"><span class="red">*</span>航班出发日期:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="FlightDeliverDate" maxlength="27" value="" class="OrderInput FlightDeliverDate" placeholder="请选择航班出发日期" onfocus="WdatePicker({minDate:'%y-%M-{%d+1}'})" style="width: 300px;" readonly/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th valign="top"><span class="red">*</span>出发航班号:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="FlightDeliverCourse" maxlength="27" value="" class="OrderInput FlightDeliverCourse" placeholder="请填写出发航班号" style="width: 300px;"/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th valign="top"><span class="red">*</span>航班出发时间:</th>
+						<td>
+							<div class="inputbox">
+								<input type="text" name="FlightDeliverTime" maxlength="27" value="" class="OrderInput FlightDeliverTime" placeholder="请选择航班出发时间" onfocus="WdatePicker({dateFmt:'HH:mm:ss'})" style="width: 300px;" readonly/>
+								<p class="errotip"></p>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="cf orderDetailBox Linkman">
+			<div class="OrderLeftTit">
+				<i class="ico ico3"></i><span class="name">联系人信息</span>用于接收预定函及预定过程中的联络事宜
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0" width="100%" class="contTab mt35">
+				<tr height="78">
+					<th>姓名</th>
+					<td>
+						<div class="inputbox">
+							<input type="text" name="zhname" id="zhname" value="" class="OrderInput" placeholder="请输入中文姓名" />
+							<p class="errotip">只能输入中文</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>邮箱</th>
+					<td>
+						<div class="inputbox">
+							<input type="text" name="mail" id="mail" value="" class="OrderInput" placeholder="请输入邮箱" />
+							<p class="errotip">只能输入中文</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>手机号码</th>
+					<td>
+						<div class="inputbox">
+							<div name="phone" type="selectbox" class="diyselect" id="country">
+								<div class="opts">
+									<a href="javascript:void(0);" value="cn" class="selected">+86(中国)</a>
+									<a href="javascript:void(0);" value="us">+001(美国)</a>
+								</div>
+							</div>
+							<input type="text" name="phone" id="phone" value="" class="OrderInput" data-type="phone" placeholder="请输入手机号码" autocomplete="off" style="width: 187px;margin-right: 10px" />
+							<p class="errotip">只能输入中文</p>
+							<span id="yesphone" style="display: none">您的号码已注册，可立即<a href="javascript:void(0)" data-type="order" class="GoLogin _MustLogin" >登录</a></span>
+						</div>
+					</td>
+				</tr>
+				<tr id="piccode" style="display: none">
+					<th>验证码</th>
+					<td>
+						<div class="inputbox">
+							<input type="text" name="code" id="code" value="" class="OrderInput" placeholder="请输入6位验证码" style="width: 160px;" />
+							<input type="button" id="codebtn" value="获取验证码" class="yzmInput" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="cf orderDetailBox">
+			<div class="OrderLeftTit">
+				<i class="ico ico4"></i><span class="name">预定留言</span><span>（选填）</span>
+			</div>
+			<textarea name="message" id="message" rows="" cols="" class="feedback mt25" placeholder="如您预订的产品含酒店接送服务，请留言备注您入住的酒店名称及地址；如您预定的产品含机场接送服务，请留言备注您往返的航班号，谢谢。"></textarea>
+		</div>
+		<div class="orderFoot">
+			<a href="javascript:void(0)" class="nextPay fr" id="paybtn">去支付</a>
+			<p class="allPrice  fr">总价：<b>￥<i>{$TotalPrice}</i></b></p>
+			<a href="javascript:void(0)" class="prevStep" id="BackBtn">
+				< 返回上一步</a>
+		</div>
+		<div class="protocol">
+			<label name="rbt2" id="protocol" type="checkbox" val="" class="cbt checked"><i></i></label>我已阅读并接受《<a href="{echo WEB_MAIN_URL}/about/xieyi.html" target="_blank"><span>用户协议</span></a>》
+		</div>
+	</div>
+	<div class="OrderRight sidebar fr">
+		<div class="orderIns">
+			<div class="orderInsTop"></div>
+			<div class="orderInsM">
+				<div class="OrderRightTit">
+					<span class="name">订单详情</span>
+					<div class="OrderRightP mt15">产品编号：{$TourProductID}</div>
+					<div class="OrderRightP">{$TourProductLineInfo[ProductName]}</div>
+					{if $TourProductLineInfo[ProductPackage]}
+					<div class="OrderRightP">套餐名称：{$TourProductLineInfo[ProductPackage]}</div>
+					{/if}
+					<div class="OrderRightP">
+						<ul class="RoomFree">
+							{loop $SkuidArr $val}
+							<li data-id="{$val[sku]}"><span class="fr">费用：￥{$val[Price]}</span><span class="fl">房间{$val[sort]}：{if $TourProductLineInfo[SkuType]==1}{$val[AdultNum]}成人，{$val[ChildNum]}儿童 {else}{$val[AdultNum]}人{/if}</span></li>
+							{/loop}
+						</ul>
+					</div>
+					<p class="allPrice cf mt25">总价：<b>￥<i>{$TotalPrice}</i></b></p>
+				</div>
+			</div>
+			<div class="orderInsB"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+<script type="text/javascript" src="{echo JsURL}/tour/TourOrderPublic.js"></script>
+<script type="text/javascript" src="{echo JsURL}/tour/GroupLineOrder.js"></script>
+<script src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/tc_login.js"></script>
+<!--日期选择插件-->
+<script type="text/javascript" src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+{template Footer}
+</body>
+</html>

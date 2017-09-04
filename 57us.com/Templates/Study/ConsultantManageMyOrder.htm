@@ -1,0 +1,39 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 MyOrderBox mt25 cf">
+    <ul class="hd" id="OrderNav">
+        <li class="on" data-id="OrderAll" data-type="1"><a href="javascript:void(0)"><span class="line"></span>全部订单</a></li>
+        <li data-id="OrderInService" data-type="2"><a href="javascript:void(0)"><span class="line"></span>服务中</a></li>
+        <li data-id="OrderCompleted" data-type="3"><a href="javascript:void(0)"><span class="line"></span>已完成</a></li>
+        <li data-id="OrderNoPay" data-type="4"><a href="javascript:void(0)"><span class="line"></span>未支付</a></li>
+        <li data-id="OrderStopPay" data-type="5"><a href="javascript:void(0)"><span class="line"></span>已终止</a></li>
+    </ul>
+    <ul class="MyOrderList" id="OrderList">
+    </ul>
+    <div class="page mt35" id="Page" style="display: none">
+    </div>
+    <script type="text" id="pageDemo">
+
+			<a class="prve cupo" data-id="{{d.Page-1}}">上一页</a>
+
+			<a class="first cupo" data-id="1">1</a>
+
+			{{# for(var p in d.PageNums){ }}
+
+			<a class="cupo" data-id="{{d.PageNums[p]}}">{{d.PageNums [p] }}</a>
+
+			{{# } }}
+
+			<span class="lastEllipsis"href="javascript:void(0)">...</span>
+
+			<a class="cupo PageCount" data-id="{{d.PageCount}}">{{d.PageCount}}</a>
+
+			<a class="cupo next" data-id="{{d.NextPage}}">下一页</a>
+
+	</script>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/laytpl/1.1/laytpl.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageMyOrder.js"></script>
+</body>
+</html>

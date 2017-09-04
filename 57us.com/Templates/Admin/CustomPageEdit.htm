@@ -1,0 +1,86 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=CustomPage&Action=Lists" class="position">自定义页面</a>
+                </li>
+                <li class="active" id="modify">自定义页面</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=CustomPage&Action=Save'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <td height="35" colspan="3"><h5>&nbsp;&nbsp;自定义页面详情：</h5></td>
+                            </tr>
+                            <tr>
+                                <td height="35" width="200px" class="t-r">标题</td>
+                                <td>
+                                    <input type="text" class="form-control" name="Title" value="{$CustomPage[Title]}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="35" width="200px" class="t-r">别名</td>
+                                <td>
+                                    <input type="text" class="form-control" name="Alias" value="{$CustomPage[Alias]}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="35" width="200px" class="t-r">关键字</td>
+                                <td>
+                                    <input type="text" class="form-control" name="Keywords" value="{$CustomPage[Keywords]}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">详细内容</td >
+                                <td>
+                                    <textarea name="Content" style="width: 900px;height: 300px;">{$CustomPage[Content]}</textarea>
+                                    <!--<div class="col-sm-12">
+                                        <script id="Content" name="Content" type="text/plain" style="width:1024px;height:400px"></script>
+                                        <script>
+                                            var ue = UE.getEditor('Content',{initialContent:'{$CustomPage[Content]}',initialFrameWidth:1024,initialFrameHeight:400,autoHeightEnabled:false});
+                                        </script>
+                                    </div>-->
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <form action='/index.php?Module=CustomPage&Action=Save'  method='post'  enctype="multipart/form-data">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="PageID" value="{$CustomPage[PageID]}" />
+                                        <input class="btn btn-danger" type="submit" name="submit" value="保存">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                        <tr>
+                            <td height="35" width="500px"> <a class="right"  href="/index.php?Module=Tags&Action=Lists">返回列表</a></td>
+                        </tr>
+                    </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{template Foot}-->

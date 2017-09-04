@@ -1,0 +1,44 @@
+{template NewsHeader}
+<body>
+<div class="page-group">
+  <div class="page page-current" style="background: #fff;">
+    <div class="content pd25 tourCont">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav indexHeader"> <a class="pull-right searchBtn" href="{echo WEB_M_URL}/search.html"><i class="icon iconfont">&#xe6b5;</i></a>
+        <h1 class="title">分类</h1>
+        <span class="logo pull-left"><img src="http://images.57us.com//img/m/www/logo.png" /></span> </header>
+      <div class="sortMain">
+        <dl class="sortList">
+          <dt class="sortListL">
+            <div class="firstmenu">
+              <p class="tit"><a href="/news/tour/">美国旅游</a></p>
+              <p class="mt10"><i class="icon iconfont">&#xe603;</i></p>
+            </div>
+          </dt>
+          <dd> <span class="secondTd"><a href="/news/travels/">美国游记</a></span> {loop $TblTourCategoryLists $lists}<span class="secondTd"><a href="/news/tour_{$lists[Alias]}/">{$lists[CategoryName]}</a></span> {/loop} </dd>
+        </dl>
+        <dl class="sortList">
+          <dt class="sortListL">
+            <div class="firstmenu">
+              <p class="tit"><a href="/news/study/">美国留学</a></p>
+              <p class="mt10"><i class="icon iconfont">&#x3480;</i></p>
+            </div>
+          </dt>
+          <dd> {loop $TblStudyAbroadCategoryLists $lists}<span class="secondTd"><a href="/news/studytopic_{$lists[Alias]}/">{$lists[CategoryName]}</a></span> {/loop} </dd>
+        </dl>
+        <dl class="sortList">
+          <dt class="sortListL">
+            <div class="firstmenu">
+              <p class="tit"><a href="/news/immigrant/">美国移民</a></p>
+              <p class="mt10"><i class="icon iconfont">&#xe609;</i></p>
+            </div>
+          </dt>
+          <dd> {loop $TblImmigrationCategoryLists $lists}<span class="secondTd"><a href="/news/immigtopic_{$lists[Alias]}/">{$lists[CategoryName]}</a></span> {/loop} </dd>
+        </dl>
+      </div>
+    </div>
+    {template NewsFoot} </div>
+</div>
+
+</body>
+</html>

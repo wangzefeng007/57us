@@ -1,0 +1,165 @@
+{template Head}
+<div class="wrapper">
+    {template TourCityNav}
+    <div class="panel-body special-details-img">
+        <form action='/index.php?Module=TourCitySpecial&Action=SpecialPlayContent&CitySpecialID={$CitySpecialID}'  method='post' enctype="multipart/form-data">
+            <table align="left" class="table table-bordered table-sExpContented table-hover">
+                <tbody>
+                <tr>
+                    <td width="150" class="t-r">标题1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewTitle[0]" value="{$NewContentArray[NewTitle][0]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewURL[0]" id="NewURL0" value="{$NewContentArray[NewURL][0]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片1：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="NewImage[0]" id="NewImage0" style="margin-bottom: 8px"/>
+                            {if $NewContentArray[NewImage][0] != ''}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$NewContentArray[NewImage][0]}" style="height:80px;" data-width="320" data-height="200"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为320*200px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewTitle[1]" value="{$NewContentArray[NewTitle][1]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewURL[1]" id="NewURL1" value="{$NewContentArray[NewURL][1]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片2：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="NewImage[1]" id="NewImage1" style="margin-bottom: 8px"/>
+                            {if $NewContentArray[NewImage][1] != ''}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$NewContentArray[NewImage][1]}" style="height:80px;" data-width="570" data-height="300"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为570*300px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewTitle[2]" value="{$NewContentArray[NewTitle][2]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewURL[2]" id="NewURL2" value="{$NewContentArray[NewURL][2]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片3：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="NewImage[2]" id="NewImage2" style="margin-bottom: 8px"/>
+                            {if $NewContentArray[NewImage][2] != ''}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$NewContentArray[NewImage][2]}" style="height:80px;" data-width="299" data-height="300"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为299*300px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题4：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewTitle[3]" value="{$NewContentArray[NewTitle][3]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址4：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewURL[3]" id="NewURL3" value="{$NewContentArray[NewURL][3]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片4：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="NewImage[3]" id="NewImage3"style="margin-bottom: 8px" />
+                            {if $NewContentArray[NewImage][3] != ''}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$NewContentArray[NewImage][3]}" style="height:80px;" data-width="320" data-height="280"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为320*280px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">标题5：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewTitle[4]" value="{$NewContentArray[NewTitle][4]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">链接地址5：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="text" name="NewURL[4]" id="NewURL4" value="{$NewContentArray[NewURL][4]}" class="form-control"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t-r">图片5：</td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="file" name="NewImage[4]" id="NewImage4" style="margin-bottom: 8px"/>
+                            {if $NewContentArray[NewImage][4] != ''}
+                            <a href="javascript:void(0)"><img src="{echo LImageURL}{$NewContentArray[NewImage][4]}" style="height:80px;" data-width="875" data-height="180"/></a>
+                            {/if}
+                            <p class="help-block">（建议尺寸为875*180px）</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="MaterialRequested">
+                    <td></td>
+                    <td>
+                        <div class="col-sm-5">
+                            <input type="hidden" name="CitySpecialID" id="CitySpecialID" value="{$TourCitySpecialInfo[CitySpecialID]}" />
+                            <input class="btn btn-danger" style="width:100px;" type='submit' value='提交保存'/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}

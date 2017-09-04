@@ -1,0 +1,98 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">租车产品管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TourQuestionnaire&Action=TourPrivateOrderList" class="position">租车订单管理</a>
+                </li>
+                <li class="active" id="modify">订单管理</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=TourCarRent&Action=TourCarRentEdit'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <td colspan="3" class="t-h">订单详情：</td>
+                            </tr>
+                            <tr>
+                                <td>订单号：{$OderInfo[OrderNum]}</td>
+                                <td>会员ID：{$OderInfo[UserID]}</td>
+                                <td>驾驶人：{$OderInfo[driverSurname]}{$OderInfo[driverGivenname]}</td>
+                            </tr>
+                            <tr>
+                                <td>国籍：{$OderInfo[contractNationality]}</td>
+                                <td>下单时间：{$OderInfo[CreateTime]}</td>
+                                <td>客户端IP：{$OderInfo[IP]}</td>
+                            </tr>
+                            <tr>
+                                <td>订单金额：{$OderInfo[Money]}</td>
+                                <td>订单状态：{$StatusInfo[$OderInfo[Status]]}</td>
+                                <td>支付方式：{if $OderInfo[PayType] ==''}无{elseif $OderInfo[PayType] == 1}支付宝{elseif $OderInfo[PayType] == 2}微信{elseif $OderInfo[PayType] == 3}网银{/if}</td>
+                            </tr>
+                            <tr>
+                                <td>联系人：{$OderInfo[contractGivenname]}</td>
+                                <td>手机号：{$OderInfo[contractPhone]}</td>
+                                <td>邮箱：{$OderInfo[contractEmail]}</td>
+                            </tr>
+                            <tr>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <form action='/index.php?Module=TourCarRent&Action=TourCarRentEdit'  method='post'  enctype="multipart/form-data">
+                                <tbody>
+                                <tr>
+                                    <td class="t-r" width="150">订单状态：</td>
+                                    <td>
+                                        <select name="Status" id="Status" class="form-control" style="width:200px;float:left;margin-right: 10px" onchange="GetNewTourAreaID(this.value)">
+                                            <option style="width:200px;"  value="{$OderInfo[Status]}">{$StatusInfo[$OderInfo[Status]]}</option>
+                                            {loop $StatusInfo $key $value}
+                                            <option  value="{$key}">{$value}</option>
+                                            {/loop}
+                                        </select>
+                                        <input type="hidden" name="OrderID" value="{$OderInfo[OrderID]}" />
+                                        <input class="btn btn-danger" type="submit" name="submit" value="修改">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <form action='/index.php?Module=TourCarRent&Action=TourCarRentEdit'  method='post'  enctype="multipart/form-data">
+                                <tbody>
+                                <tr>
+                                    <td width="150px" class="t-r">备注：</td>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <textarea type="text" rows="2" name="Remarks" class="form-control">{$OderInfo[Remarks]}</textarea>
+                                        </div><br>
+                                        <input type="hidden" name="ID" value="{$OderInfo[ID]}" />
+                                        <input class="btn btn-danger" type="submit" name="submit" value='保存'/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                        <tr>
+                            <td><a class="right"  href="/index.php?Module=TourCarRent&Action=TourCarRentList">返回列表</a></td>
+                        </tr>
+                        <input type="hidden" name="ID" value="{$OderInfo[ID]}" />
+                    </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--{template Foot}-->

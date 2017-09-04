@@ -1,0 +1,97 @@
+{template Head}
+<style>
+  .panel-body ul{
+    margin-bottom: 10px;
+  }
+  .panel-body ul li{
+    margin-bottom: 10px;
+  }
+</style>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">城市专题管理</a>
+        </li>
+        <li class="active">旅游特色主题管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+      <span class="position hidden">旅游特色主题管理</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel breadcrumb">
+        <div class="panel-body" style="border-bottom: 1px solid #dfdfdf">
+          <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px"><input type="button" onClick="location.href='/index.php?Module=TourSpecialSubject&Action=Edit'" value="添加" class="btn btn-danger"></span>
+        </div>
+        <div class="panel-body">
+          <ul class="list-inline">
+            <p style="color:#FF0000;">跟团游</p>
+            {loop $GenTuanYou $lists}
+            <li>
+              [{$lists[SpecialSubjectName]}&nbsp;<a href="/index.php?Module=TourSpecialSubject&Action=Edit&TourSpecialSubjectID={$lists[TourSpecialSubjectID]}">修改</a>&nbsp;
+              <a href="javascript:void(0)" data-id="{$lists[TourSpecialSubjectID]}" class="del" data-text="{$lists[SpecialSubjectName]}">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          <ul class="list-inline">
+            <p style="color:#FF0000;">一日游</p>
+            {loop $YiRiYou $lists}
+            <li>
+              [{$lists[SpecialSubjectName]}&nbsp;<a href="/index.php?Module=TourSpecialSubject&Action=Edit&TourSpecialSubjectID={$lists[TourSpecialSubjectID]}">修改</a>&nbsp;
+              <a href="javascript:void(0)" data-id="{$lists[TourSpecialSubjectID]}" class="del" data-text="{$lists[SpecialSubjectName]}">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          <ul class="list-inline">
+            <p style="color:#FF0000;">票务</p>
+            {loop $YiRiYou $lists}
+            <li>
+              [{$lists[SpecialSubjectName]}&nbsp;<a href="/index.php?Module=TourSpecialSubject&Action=Edit&TourSpecialSubjectID={$lists[TourSpecialSubjectID]}">修改</a>&nbsp;
+              <a href="javascript:void(0)" data-id="{$lists[TourSpecialSubjectID]}" class="del" data-text="{$lists[SpecialSubjectName]}">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          <ul class="list-inline">
+            <p style="color:#FF0000;">特色体验</p>
+            {loop $YiRiYou $lists}
+            <li>
+              [{$lists[SpecialSubjectName]}&nbsp;<a href="/index.php?Module=TourSpecialSubject&Action=Edit&TourSpecialSubjectID={$lists[TourSpecialSubjectID]}">修改</a>&nbsp;
+              <a href="javascript:void(0)" data-id="{$lists[TourSpecialSubjectID]}" class="del" data-text="{$lists[SpecialSubjectName]}">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+          <ul class="list-inline">
+            <p style="color:#FF0000;">Wifi</p>
+            {loop $Wifi $lists}
+            <li>
+              [{$lists[SpecialSubjectName]}&nbsp;<a href="/index.php?Module=TourSpecialSubject&Action=Edit&TourSpecialSubjectID={$lists[TourSpecialSubjectID]}">修改</a>&nbsp;
+              <a href="javascript:void(0)" data-id="{$lists[TourSpecialSubjectID]}" class="del" data-text="{$lists[SpecialSubjectName]}">删除</a> ]
+            </li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}
+<script>
+  $('.del').click(function () {
+    var delid = $(this).attr('data-id');
+    var text = $(this).attr('data-text');
+    layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=TourSpecialSubject&Action=Delete&TourSpecialSubjectID='+delid;
+      layer.close(index);
+    });
+  })
+</script>

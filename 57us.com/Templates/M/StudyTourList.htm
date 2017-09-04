@@ -1,0 +1,76 @@
+{template StudyHeader}
+<div class="page-group">
+    <div class="page page-current" style="background: #fff;" id="page">
+        <header class="bar bar-nav diybar">
+            <a class="pull-right searchBtn"><i class="icon iconfont">&#xe6b5;</i></a>
+            <h1 class="title">美国游学</h1>
+        </header>
+        <ul class="yxshaixuan">
+            <li>
+                <span>游学主题<i class="icon iconfont icon-down"></i></span>
+            </li>
+            <li>
+                <span>适合人群<i class="icon iconfont icon-down"></i></span>
+            </li>
+            <li>
+                <span>出行天数<i class="icon iconfont icon-down"></i></span>
+            </li>
+            <li>
+                <span>出发地<i class="icon iconfont icon-down"></i></span>
+            </li>
+        </ul>
+        <div class="sxMask"></div>
+        <div class="sxboxBd" id="filtrate">
+            <div class="sxbox" id="theme">
+                <div class="hd cf">
+                </div>
+                <div class="bd cf"><a href="javascript:void(0)" class="sure confirmBtn">确定</a></div>
+            </div>
+            <div class="sxbox" id="crowd">
+                <div class="hd cf">
+                </div>
+                <div class="bd cf"><a href="javascript:void(0)" class="sure confirmBtn">确定</a></div>
+            </div>
+            <div class="sxbox" id="tripDate">
+                <div class="hd cf">
+                </div>
+                <div class="bd cf"><a href="javascript:void(0)" class="sure confirmBtn">确定</a></div>
+            </div>
+            <div class="sxbox" id="tripPlace">
+                <div class="hd cf">
+                </div>
+                <div class="bd cf"><a href="javascript:void(0)" class="sure confirmBtn">确定</a></div>
+            </div>
+        </div>
+        <div class="content pd25 pull-to-refresh-content infinite-scroll">
+            <!-- 默认的下拉刷新层 -->
+            <div class="pull-to-refresh-layer">
+                <div class="preloader"></div>
+                <div class="pull-to-refresh-arrow"></div>
+            </div>
+            <ul class="tourStudyList" id="list">
+            </ul>
+            <div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+            <!-- 加载提示符 -->
+            <div class="infinite-scroll-preloader" style="display: none">
+                <div class="preloader">
+                </div>
+            </div>
+        </div>
+        <div class="searchbar diySearch">
+            <span class="close"><i class="icon iconfont">&#xe601;</i></span>
+            <div class="search-input">
+                <form id="search-input">
+                    <label class="icon icon-search" for="search"></label>
+                    <input type="search" id="search" placeholder="输入关键字...">
+                    <input type="submit" value="Submit" style="display: none"/>
+                </form>
+            </div>
+        </div>
+        {template StudyFooter}
+    </div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/study/StudyTourList.js" charset='utf-8'></script>
+</body>
+</html>

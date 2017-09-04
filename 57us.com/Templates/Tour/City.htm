@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <title>{$Title}</title>
+  <meta name="keywords" content="{$Keywords}">
+  <meta name="description" content="{$Description}">
+  <!--common-->
+  <link href="{echo CssURL}/common/reset.css" rel="stylesheet">
+  <link href="{echo CssURL}/common/TourPublic.css" rel="stylesheet">
+  <!--城市专题css-->
+  <link href="{echo CssURL}/tour/city.css" rel="stylesheet">
+  <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+  <script src="{echo JsURL}/base/base.js"></script>
+</head>
+<body>
+  {template 'Common/RightNav',1}
+<div class="banner" style="background: url(http://images.57us.com/img/tour/city/city_bg1.jpg) no-repeat center top;">
+  <div class="header">
+    <div class="w1200 cf">
+      <div class="top"> <span class="fl">欢迎来到57美国网旅游平台!</span> <span class="fr"> <a href="{echo WEB_MEMBER_URL}/member/register/" style="padding-right: 5px;" target="_blank">免费注册</a> | <a href="{echo WEB_MAIN_URL}/about/zhifu.html" style="padding-left: 5px;" target="_blank">帮助中心</a> </span> </div>
+      <div class="nav"> <a href="{echo WEB_MAIN_URL}" class="fl logo"><img src="{echo ImageURL}/img/tour/city/logo.png"/></a>
+        <div class="TourMenu fr">
+          <ul class="cf">
+            <li> <a href="<?php echo WEB_TOUR_URL;?>" class="FirstA">首页</a> </li>
+            <li> <a href="<?php echo WEB_TOUR_URL;?>/dingzhi/#/question/" class="FirstA">高端定制<em class="HotIcon"></em></a> </li>
+            <li> <a href="<?php echo WEB_TOUR_URL;?>/group/local/" class="FirstA">跟团游<i></i></a>
+              <div class="SecondUl"> <em></em> <a href="<?php echo WEB_TOUR_URL;?>/group/local/">当地参团</a> <a href="<?php echo WEB_TOUR_URL;?>/group/home/">国内出发</a> </div>
+            </li>
+            <li> <a href="<?php echo WEB_TOUR_URL;?>/play/feature/" class="FirstA">自由行<i></i></a>
+              <div class="SecondUl"> <em></em> <a href="<?php echo WEB_TOUR_URL;?>/play/feature/">特色体验</a> <a href="<?php echo WEB_TOUR_URL;?>/play/daily/">一日游</a> </div>
+            </li>
+            <li> <a href="<?php echo WEB_TOUR_URL;?>/play/ticket/" class="FirstA">门票</a> </li>
+            <li> <a href="<?php echo WEB_HOTEL_URL;?>" class="FirstA">酒店</a> </li>
+            <li> <a href="http://zuche.57us.com/" class="FirstA">租车</a> </li>
+            <li> <a href="<?php echo WEB_VISA_URL;?>" class="FirstA">签证</a> </li>
+            <!--<li> <a href="<?php echo WEB_TOUR_URL;?>/tour/topica/" class="FirstA">活动专区</a> </li>-->
+            <li> <a href="<?php echo WEB_MAIN_URL;?>/tour/" class="FirstA">旅游资讯</a> </li>
+            <li> <a href="<?php echo WEB_TOUR_URL;?>/city/" class="FirstA">城市专题</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hotcity">
+  <div class="w1200 cf">
+    <div class="hot"> <img src="{echo ImageURL}/img/tour/city/hot_1.png" /> </div>
+    <div class="hotcityBox cf">
+      <div class="pic1"> <a  href="/city/newyork/" class="fl" target="_blank" title="纽约"><img src="{echo ImageURL}/img/tour/city/img_1.jpg" alt="纽约" title="纽约"/></a>
+        <ul class="hotUl">
+          <li>New York</li>
+          <li>纽约</li>
+          <li>美国及世界最大的城市之一</li>
+          <li class="Triangle">◀</li>
+        </ul>
+      </div>
+      <div class="pic2"> <a class="fl" href="/city/losangeles/" target="_blank" title="洛杉矶"><img src="{echo ImageURL}/img/tour/city/img_3.jpg" title="洛杉矶" alt="洛杉矶" /></a>
+        <ul class="hotUl">
+          <li>Los Angeles</li>
+          <li>洛杉矶</li>
+          <li>天使之城，一望无垠的沙滩和明媚的阳光</li>
+          <li class="Triangle">◀</li>
+        </ul>
+      </div>
+      <div class="pic3"> <a class="fl" href="/city/lasvegas/" target="_blank" title="拉斯维加斯"><img src="{echo ImageURL}/img/tour/city/img_2.jpg" alt="拉斯维加斯" title="拉斯维加斯"  /></a>
+        <ul class="hotUl">
+          <li>Las Vegas</li>
+          <li>拉斯维加斯</li>
+          <li>世界知名的度假圣地之一，是“世界娱乐之都”和“结婚之都”</li>
+          <li class="Triangle">▶</li>
+        </ul>
+      </div>
+      <div class="pic4"> <a class="fl" href="/city/miami/" target="_blank" title="迈阿密"><img src="{echo ImageURL}/img/tour/city/img_5.jpg" title="迈阿密" alt="迈阿密" /></a>
+        <ul class="hotUl">
+          <li>Miami</li>
+          <li>迈阿密</li>
+          <li>有着“阳光之州”(SunshineState)之称的佛罗里达以其宜人、和煦的天气及美丽的海滩闻名于世</li>
+          <li class="Triangle">▶</li>
+        </ul>
+      </div>
+      <div class="pic5"> <a class="fl" href="/city/sanfrancisco/" target="_blank" title="旧金山"><img src="{echo ImageURL}/img/tour/city/img_4.jpg" title="旧金山" alt="旧金山"/></a>
+        <ul class="hotUl">
+          <li>San Francisco</li>
+          <li>旧金山</li>
+          <li>拥有独一无二的旧金山湾区、金门大桥和渔人码头，怀旧依然</li>
+          <li class="Triangle ">▶</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="uscity">
+  <div class="w1200 cf">
+    <div class="hot"> <img src="{echo ImageURL}/img/tour/city/hot_2.png" /> </div>
+    <ul>
+      {loop $Data[Data] $list}
+      <li> <a href="{echo WEB_TOUR_URL}/city/{$list[Alias]}/" target="_blank"><img src="{echo LImageURL}{$list[Image]}" /></a><br />
+        <span class="text">{$list[EnName]}</span> <span class="text">{$list[CnName]}</span> <span class="text">{$list[Description]}</span> </li>
+      {/loop}
+    </ul>
+  </div>
+</div>
+<div class="TourFoot cf">
+  <div class="w1200 cf">
+    <ul class="TourFootMeida fr">
+      <li class="i1"><a href="javascript:void(0)"><i></i>关注微博平台</a>
+        <div class="ChatCode"><img src="{echo ImageURL}/img/common/wb.jpg" width="112" height="112"><em></em></div>
+      </li>
+      <li class="i2"><a href="javascript:void(0)"><i></i>关注微信平台</a>
+        <div class="ChatCode"><img src="{echo ImageURL}/img/common/wxtravel.jpg" width="112" height="112"><em></em></div>
+      </li>
+    </ul>
+    <div class="TourFootBox">
+      <div class="TourFootMenu"><a href="{echo WEB_MAIN_URL}/about/contacts.html" class="i1" target="_blank"><i></i>公司简介</a>|<a href="{echo WEB_MAIN_URL}/about/contact.html" class="i2" target="_blank"><i></i>联系我们</a>|<a href="{echo WEB_MAIN_URL}/about/map.html" class="i3" target="_blank"><i></i>站点地图</a>|<a href="{echo WEB_MAIN_URL}/about/privacy.html" class="i4" target="_blank"><i></i>隐私保护</a>|<a href="{echo WEB_MAIN_URL}/about/xieyi.html" class="i5" target="_blank"><i></i>用户协议</a>|<a href="{echo WEB_MAIN_URL}/about/xiugai.html" class="i6" target="_blank"><i></i>修改和取消</a>|<a href="{echo WEB_MAIN_URL}/about/zhifu.html" class="i7" target="_blank"><i></i>支付方式</a>|<a href="{echo WEB_MAIN_URL}/about/zhifu.html" class="i8" target="_blank"><i></i>帮助中心</a></div>
+      <div class="TourFootCopy">Copyright © 2016 57US.com <a href="{echo WEB_MAIN_URL}/">57美国网</a> All rights reserved. 闽ICP备15017345号 </div>
+    </div>
+    <div class="HotThing fl mt20 cf">
+      <p class="cf">热门旅游目的地：
+        <?php foreach($this->TourFootTagM as $Value){?>
+        <a href="<?php echo $Value['TourFootTagUrl'];?>" title="<?php echo $Value['TourFootTagName'];?>" target="_blank"><?php echo $Value['TourFootTagName'];?></a>|
+        <?php }?>
+      </p>
+      <p class="cf">热门旅游景点：
+        <?php foreach($this->TourFootTagJ as $Value){?>
+        <a href="<?php echo $Value['TourFootTagUrl'];?>" title="<?php echo $Value['TourFootTagName'];?>" target="_blank"><?php echo $Value['TourFootTagName'];?></a>|
+        <?php }?>
+      </p>
+      <!--<p class="cf">热门搜索：<a href="##">拉斯维加斯</a>|<a href="#">大峡谷国家公园</a>|<a href="#">博尔德城</a>|<a href="#">旧金山</a>|<a href="#">盐湖城</a>|<a href="#">黄石国家公园</a>|<a href="#">圣巴巴拉郡</a>|<a href="#">圣地亚哥</a>|<a href="#">佩奇</a>|<a href="#">优胜美地国家公园</a>|<a href="#">蒙特雷</a>|<a href="#">棕榈泉</a>|<a href="#">亚利桑那州</a>|<a href="#">锡安国家公园</a></p>-->
+      <div class="cf partTab">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr height="35">
+            <td align="left">合作官方旅游局：</td>
+          </tr>
+          <tr>
+            <td>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part1.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part2.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part3.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part4.png"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part6.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part5.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/part8.jpg"></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="cf partTab">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr height="35">
+            <td align="left">旅游合作：</td>
+          </tr>
+          <tr>
+            <td>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz1.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz2.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz3.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz4.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz5.jpg"></p>
+              <p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz6.jpg"></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="cf partTab safeBox">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr height="35">
+            <td align="left">网站认证：</td>
+          </tr>
+          <tr>
+            <td>
+              <p class="tac"><a href="http://www.isc.org.cn/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe1_3.0.png" ></a></p>
+              <p class="tac"><a href="http://wsgs.fjaic.gov.cn/creditpub/notice/view?uuid=1gM0nGULIzO5wVPW8xQpfwZUq0lfoM7X&amp;tab=01" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe2_3.0.png"></a></p>
+              <p class="tac"><a href="http://www.12377.cn/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe3_3.0.png"></a></p>
+              <p class="tac"><a href="http://www.cyberpolice.cn/wfjb/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe4_3.0.png"></a></p>
+              <p class="tac"><a href="https://ss.knet.cn/verifyseal.dll?sn=e16091435020064717vyo0000000&amp;comefrom=trust&amp;trustKey=dn&amp;trustValue=www.57us.com" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe5_3.0.png"></a></p>
+              <p class="tac"><a href="http://webscan.360.cn/index/checkwebsite/url/www.57us.com" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe6_3.0.png"></a></p>
+              <p class="tac"><a href="http://ec.eqixin.com/?sn=QX2066134012191473748886" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe7_3.0.png"></a></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<div class="hidden">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?21f9def31aa89e3cd98d7b6b95068701";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256811158'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256811158' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>

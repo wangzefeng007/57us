@@ -1,0 +1,206 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 StudyLocation">您当前位置：
+    <a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+    <a href="/consultant/">找顾问</a><span>&gt;</span>
+    <span class="Position">{$UserInfo[NickName]}</span>
+</div>
+<div class="w1200 consultantBody">
+    <div class="centerUser cf">
+        <p class="img"><i class="{if $UserInfo[Sex]==0}ico WomanIco{elseif $UserInfo[Sex]==1}ico ManIco{/if}"></i><img src="{if $UserInfo[Avatar]}{if strpos($UserInfo[Avatar],'http://')===false}{echo LImageURL}{/if}{$UserInfo[Avatar]}{else}{echo ImageURL}/img/study/man3.0.png{/if}" width="96" height="96"></p>
+        <p class="name">{$UserInfo[NickName]}</p>
+        <p class="mt10"><i class="cityIco "></i>{$UserInfo[City]}</p>
+        <p class="">从业{$ConsultantInfo[WorkingAge]}年</p>
+    </div>
+    <p class="tac mt15 n_tip">
+        {loop json_decode($ConsultantInfo[Tags],true) $key $val}
+        <span>{$val}</span>
+        {/loop}
+    </p>
+    <p class="tac mt10" style="color: #fff;">{$ConsultantInfo[ServiceDeclaration]}</p>
+    
+</div>
+<div class="w1200 po mt20 cf">
+    <div class="SlideLeft fl">
+        <div class="contMenu" id="contMenu">
+            <ul>
+                <li class="on">个人信息<span class="line"></span></li>
+                <li>所有服务&报价({echo count($ServiceList)})<span class="line"></span></li>
+                <li>成功案例({echo count($CaseList)})<span class="line"></span></li>
+            </ul>
+        </div>
+        <div class="cf DetailContM">
+            <div class="contBox">
+                <div class="contBoxT"><span class="name fl">个人信息</span><span class="line"></span></div>
+                <div class="consulAboutBox mt10 cf">
+                    <p class="green f18">自我介绍</p>
+                    <div class="nr mt15">
+                        <i class="lefTop"></i>
+                        <i class="rightBottom"></i>
+                        <p>{$ConsultantInfo[Introduction]}</p>
+                        <p class="mt20">服务项目：<span class="green">{loop $ServiceProjectInfo $val}{$val}{/loop}</span></p>
+                    </div>
+                </div>
+                <div class="consulAboutBox mt10 cf">
+                    <p class="green f18">从业经历</p>
+                    <ul class="experList mt20">
+                        {loop json_decode($ConsultantInfo[PastExperience],true) $list}
+                        <li>
+                            <span class="circle"></span>
+                            <p class="date">{echo date('Y.m',strtotime($list[startdate]))}-{if $list[enddate]!='至今'}{echo date('Y.m',strtotime($list[enddate]))}{else}至今{/if}</p>
+                            <p class="tit">{$list[company]}</p>
+                            <p class="exnr">{$list[undergo]}</p>
+                        </li>
+                        {/loop}
+                    </ul>
+                </div>
+
+            </div>
+            <div class="contBox">
+                <div class="contBoxT"><span class="name fl">所有服务&报价({echo count($ServiceList)})</span><span class="line"></span></div>
+                <ul class="otherSerList AllSerList">
+                    {loop $ServiceList $key=>$list}
+                    <li {if $key==count($ServiceList)-1}class="last"{/if}>
+                        <div class="BoxR">
+                            <p class="price tal">￥<em>{$list[SalePrice]}</em></p>
+                            <a href="/consultant_service/{$list[ServiceID]}.html" class="CheckMore transition mt15" target="_blank" title="{$list[ServiceName]}">查看详情</a>
+                        </div>
+                        <a href="/consultant_service/{$list[ServiceID]}.html" target="_blank"><img src="{if json_decode($list[ImagesJson],true)}{echo ImageURLP2}{echo json_decode($list[ImagesJson],true)[$list[CoverImageKey]]}{else}{echo ImageURL}/img/study/defaultService3.0.jpg{/if}" alt="{$list[ServiceName]}" width="130" height="97"></a>
+                        <p class="tit">
+                            <a href="/consultant_service/{$list[ServiceID]}.html" target="_blank" title="{$list[ServiceName]}">{$list[ServiceName]}</a>
+                        </p>
+                        <p class="nr mt20">服务简介：{$list[ServiceDescription]}</p>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="contBox">
+                <div class="contBoxT"><span class="name fl">成功案例({echo count($CaseList)})</span><span class="line"></span></div>
+                <ul class="suCase mt20">
+                    {loop $CaseList $key $list}
+                    <li {if ($CID==0 && $key==0) || $list[CaseID]==$CID}class="on"{/if} data-id="{$list[CaseID]}">
+                        <div class="FirstCont cf">
+                            <i></i>
+                            <img src="{if $list[StudentImage]}{echo LImageURL}{$list[StudentImage]}{else}{echo ImageURL}/img/study/man3.0.png{/if}" width="72" height="72">
+                            <p>{$list[StudentName]}</p>
+                            <p>{$list[School]}</p>
+                        </div>
+                        <div class="SecondCont cf">
+                            <div class="caseOtherBox">
+                                <div class="caseOtherBoxT"><img src="http://images.57us.com/img/study/caseT1.png"/></div>
+                                <div class="caseOtherM mt15">
+                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                        <tr height="60">
+                                            <th width="80" valign="top">学生姓名：</th>
+                                            <td width="310">{$list[StudentName]}</td>
+                                            <th width="80" valign="top">申请季：</th>
+                                            <td width="310">{$list[ApplySeason]}</td>
+                                        </tr>
+                                        <tr height="60">
+                                            <th valign="top">录取院校：</th>
+                                            <td>{$list[AdmissionSchool]}</td>
+                                            <th valign="top">申请学校：</th>
+                                            <td>{$list[ApplySchool]}</td>
+                                        </tr>
+                                        <tr height="60">
+                                            <th valign="top">入读院校：</th>
+                                            <td>{$list[AttendSchool]}</td>
+                                            <th valign="top">奖学金：</th>
+                                            <td>{$list[Scholarship]}</td>
+                                        </tr>
+                                        <tr height="60">
+                                            <th valign="top">录取专业：</th>
+                                            <td>{$list[AdmissionSpecialty]}</td>
+                                            <th valign="top">背景院校：</th>
+                                            <td>{$list[OnSchool]}</td>
+                                        </tr>
+                                        <tr height="60">
+                                            <th valign="top">背景专业：</th>
+                                            <td>{$list[OnSpecialty]}</td>
+                                            <th valign="top"></th>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <table border="0" cellspacing="1" cellpadding="0" width="100%" class="langeScrol">
+                                    <tr height="60">
+                                        <th>GPA</th>
+                                        <th>托福</th>
+                                        <th>雅思</th>
+                                        <th>GRE</th>
+                                        <th>GMAT</th>
+                                        <th>SAT</th>
+                                        <th>SSAT</th>
+                                        <th>ACT</th>
+                                    </tr>
+                                    <tr height="50">
+                                        <td>{if $list[GPA]>1}{$list[GPA]}{/if}</td>
+                                        <td>{if $list[TOEFL]>1}{$list[TOEFL]}{/if}</td>
+                                        <td>{if $list[IELTS]>1}{$list[IELTS]}{/if}</td>
+                                        <td>{if $list[GRE]>1}{$list[GRE]}{/if}</td>
+                                        <td>{if $list[GMAT]>1}{$list[GMAT]}{/if}</td>
+                                        <td>{if $list[SAT]>1}{$list[SAT]}{/if}</td>
+                                        <td>{if $list[SSAT]>1}{$list[SSAT]}{/if}</td>
+                                        <td>{if $list[ACT]>1}{$list[ACT]}{/if}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="caseOtherBox">
+                                <div class="caseOtherBoxT"><img src="http://images.57us.com/img/study/caseT2.png"/></div>
+                                <div class="OfferScroll">
+                                    <a href="JavaScript:void(0)" class="prev"></a>
+                                    <a href="JavaScript:void(0)" class="next"></a>
+                                    <div class="ScrollMain">
+                                        <ul class="pic">
+                                            {loop json_decode($list[OfferImage],true) $val}
+                                            <li><img src="{echo LImageURL}{$val}" width="320" height="225"/></li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SecondLine"></div>
+                            <div class="caseOtherBox">
+                                <div class="caseOtherBoxT"><img src="http://images.57us.com/img/study/caseT3.png"/></div>
+                                <div class="cf Casedescr">
+                                    <div class="mt25 cf">
+                                        <p class="f18">优势分析</p>
+                                        <p class="summary mt10">{$list[Advantage]}</p>
+                                    </div>
+                                    <div class="mt25 cf">
+                                        <p class="f18">劣势分析</p>
+                                        <p class="summary mt10">{$list[Disadvantage]}</p>
+                                    </div>
+                                    <div class="mt25 cf">
+                                        <p class="f18">申请总结</p>
+                                        <p class="summary mt10">{$list[ApplySummary]}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="SlideRight autofix_sb fr">
+        <ul class="adList">
+            {loop $StudyRightADLists $val}
+            <li>
+                <a href="{$val[Link]}" target="_blank" ><img width="100%" src="{echo ImageURLP4}{$val[Picture]}"></a>
+            </li>
+            {/loop}
+        </ul>
+        <div class="wxShare mt20">
+            <img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99" />
+            <p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<script src="{echo JsURL}/study/ConsultantDetail.js"></script>
+</body>
+</html>

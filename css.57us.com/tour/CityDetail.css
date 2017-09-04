@@ -1,0 +1,521 @@
+/*城市专题详情css*/
+body{
+	background-color: #ffffff;
+	min-width: 1200px;
+	max-width: 1920px;
+	margin: 0 auto;
+}
+.banner{
+	height: 790px;
+}
+
+.header{
+	height: 101px;
+	background-color: rgba(0,0,0,0.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#4C000000', endColorstr='#4C000000');
+}
+
+.header .top{
+	color: #c6c6c6;
+	font-size: 14px;
+	line-height: 30px;
+	height: 50px;
+}
+.header .top a{
+	color: #c6c6c6;
+}
+.header .top a:hover{
+	color: #939292;
+}
+.header .nav{
+	height: 51px;
+}
+
+.header .nav .fl .logo{
+	width: 160px;
+	height: 51px;
+}
+
+.header .nav .fr{
+	width: 982px;
+	height: 51px;
+	line-height: 47px;
+}
+.header .nav .TourMenu{background: none;border-bottom: 0;}
+.header .nav .TourMenu .FirstA{color: #fff; display: block;height: 51px;margin: 0;  padding: 0 24px;}
+.header .nav .TourMenu li:hover .FirstA{color: #ffb901; height: 49px; border-bottom: 2px solid #fff;  }
+.header .nav .TourMenu ul li .SecondUl{ padding-top: 5px;  background-color: rgba(0,0,0,0.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#4C000000', endColorstr='#4C000000');width: 100%; min-width: 100%; border: 0;height: auto; overflow: hidden; top: 51px; left: 0; margin-left: 0;}
+.header .nav .TourMenu ul li .SecondUl a{width: 100%; height: 33px; line-height:33px; padding: 0; display: block; text-align: center; color: #fff; text-indent: -10px;}
+.header .nav .TourMenu ul li .SecondUl a:hover{color: #ffb901; background: none;}
+.header .nav .HotIcon{position: absolute;}
+
+.panel1{height: 1042px;margin-bottom: 108px;}
+
+.panel1 .bg{
+	height: 507px;
+	position: absolute;
+	width: 100%;
+	min-width: 1200px;
+	max-width: 1920px;
+	background-color: #eeeeee;
+	margin-top: 193px;
+	z-index: 1;
+}
+
+.panel1 .title{
+	position: absolute;
+	padding-left: 118px;
+	padding-top: 167px;
+	z-index: 2;
+}
+
+.panel1 .pic1{width: 669px;height: 448px;position: relative; z-index: 2;float: left;margin: 160px 0 0 10px;}
+.panel1 .pic1 img,.panel1 .pic1 .img{width: 669px;height:448px;position: relative;}
+.panel1 .pic1 .triangle{border-color: transparent transparent transparent #eeeeee;}
+.panel1 .pic2{width: 445px;height: 297px;position: relative; float: left;z-index: 3;margin: 496px 0 0 35px;}
+.panel1 .pic2 img,.panel1 .pic2 .img{width: 445px;height:297px;position: relative;}
+.panel1 .pic2 .text{}
+.panel1 .pic3 img{width: 245px;height:359px;}
+.panel1 .text{position: absolute;width: 485px;height: 160px;}
+.panel1 .pic1 .text{padding-top: 150px;right: 675px;text-align: right;}
+.panel1 .pic2 .text { top: 300px; right: 0; text-align: right;}
+.panel1 .pic3 .text{width: 450px; left:255px ; top: 52px;}
+.panel1 .text .content{padding: 10px 5px 10px 30px;}
+.panel1 .pic3{width: 245px;height: 359px;position: relative; z-index: 2;float: left;margin: 10px 0 0 10px;}
+.panel1 .text .subhead{
+	text-align: right;
+	font-size: 20px;
+	font-weight:bold;
+	color: #333333;
+	height: 35px;
+	line-height: 35px;
+}
+
+.panel1 .text .depict{
+	padding-top: 8px;
+	font-size: 15px;
+	height: 64px;
+	line-height: 31px;
+}
+
+.panel1 .details{
+	float: right;
+	font-size: 15px;
+	color: #333333;
+	border: 1px solid #333333;
+	padding: 3px 20px;
+	margin-top: 20px;
+}
+.panel1 .details:hover{color: #ffb901;}
+
+.panel1 .pic3 .text{
+	
+}
+
+.panel1 .pic3 .text .content{
+	padding: 10px 5px 10px 0px;
+}
+
+.panel1 .pic3 .subhead{
+	text-align: left !important;
+}
+
+.panel1 .pic3 .depict{
+	text-align: left;
+	float: left;
+	padding-left: -50px;
+}
+
+.panel1 .pic3 .details{float: left !important;}
+
+
+.panel1 .triangle{
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	border-color: transparent transparent transparent #ffffff;
+	border-style: solid;
+	border-width: 14px;
+	position: absolute;
+	margin-top: -238px;
+}
+.panel1 .pic2 .triangle{
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	border-color: transparent transparent #ffffff transparent;
+	border-style: solid;
+	border-width: 14px;
+	position: absolute;
+	margin-top: -28px;
+	margin-left: 208px;
+}
+
+.panel1 .pic3 .triangle{
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	border-color: transparent #ffffff transparent transparent;
+	border-style: solid;
+	border-width: 14px;
+	position: absolute;
+	margin-top: -194px;
+	margin-left: 217px;
+}
+
+.panel2{
+	border-top: 1px solid #cacaca;
+	height: 987px;
+	z-index: 1;
+}
+
+.panel2 .title{
+	text-align: center;
+	margin-top: -45px;
+}
+
+.panel2 .title img{
+	background-color: #FFFFFF;
+}
+
+.panel2 ul{
+	margin-top: 35px;
+	width:1230px;
+}
+
+.panel2 ul li{
+	float: left;
+	width: 380px;
+	height: 398px;
+	border: 1px solid #cacaca;
+	margin: 0 28px 30px 0;
+	overflow: hidden;
+}
+
+.panel2 ul li:hover{
+	box-shadow: 1px 3px 15px 3px #d5d5d5;
+}
+
+.panel2 ul li a:hover{
+	color: #29beb5;
+}
+
+.panel2 ul li .img{width: 350px;height: 262px;overflow: hidden;margin: 15px;background: #000;}
+.panel2 ul li .img img{width: 350px;height: 262px;}
+.panel2 ul li:hover img{width: 390px;height: 292px;margin:-15px -20px;opacity:0.9;filter:alpha(opacity=90);}
+.panel2 ul li span{
+	display: block;
+	padding: 0px 15px;
+}
+
+.panel2 ul li .subhead{
+	font-size: 18px;
+	height: 60px;
+	line-height: 30px;
+	overflow:hidden
+}
+
+.panel2 ul li .price{
+	text-align: right;
+	font-size: 18px;
+	margin-top: 10px;
+	color: #333333;
+}
+
+.panel2 ul li .price em{
+	font-size: 30px;
+	color: #f13c3c;
+}
+
+.panel3 {
+	height:1175px;
+}
+
+.panel3 ul{
+	margin-top: -150px;
+	width: 1230px;
+}
+
+.panel3 ul li{
+	float: left;
+	width: 386px;
+	height:426px;
+	margin: 0 24px 40px 0;
+	background: url(http://images.57us.com/img/tour/CityDetail/bg_1.jpg) no-repeat;
+	background-position:0px 284px;
+}
+
+.panel3 ul li ol{
+	width: 379px;
+	height: 416px;
+	background-color: #ffffff;
+	border: 1px solid #eeeeee;
+}
+
+.panel3 ul li a:hover{
+	color: #29beb5;
+}
+
+
+
+.panel3 ul li .img{width: 350px;height: 262px;overflow: hidden;margin: 15px;background: #000;}
+.panel3 ul li .img img{width: 350px;height: 262px;}
+.panel3 ul li:hover img{width: 390px;height: 292px;margin:-15px -20px;opacity:0.8;filter:alpha(opacity=80);}
+.panel3 ul li span{
+	display: block;
+	padding: 0px 15px;
+}
+
+.panel3 ul li .subhead{
+	font-size: 18px;
+}
+
+.panel3 ul li .price{
+	padding-top: 30px;
+	font-size: 18px;
+	margin-top: 10px;
+	color: #333333;
+}
+
+.panel3 ul li .price em{
+	font-size: 30px;
+	color: #f13c3c;
+}
+
+.panel3 ul li .bookbtn{
+	display: inline;
+	float: right;
+	color: #ffffff;
+	background-color: #ff5353;
+	border-radius: 4px;
+	padding:8px 25px;
+	margin-top:-14px ;
+}
+
+.panel3 .bg{
+	background: url(http://images.57us.com/img/tour/CityDetail/title_3.png) no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 366px;
+}
+
+.panel4{
+	height: 745px;
+	background-color: #eeeeee;
+}
+
+.panel4 .xian{
+	border-bottom: 1px solid #cacaca;
+	padding-top: 105px;
+}
+
+.panel4 .pic1 img{
+	width: 320px;
+	height:200px;
+}
+
+.panel4 .pic2 img{
+	 width: 570px;
+	 height:300px;
+ }
+
+.panel4 .pic3 img{
+	width: 299px;
+	height:300px;
+}
+
+.panel4 .pic4 img{
+	width: 320px;
+	height:280px;
+}
+
+.panel4 .pic5 img{
+	width: 875px;
+	height:180px;
+}
+
+.panel4 .title{
+	text-align: center;
+	margin-top: -45px;
+}
+
+.panel4 .title img{
+	background-color: #eeeeee;
+}
+
+.panel4 .pic1{
+	position: absolute;
+	padding-top: 56px;
+	z-index: 10;
+	width: 320px;
+	height: 200px;
+	overflow: hidden;
+}
+
+.panel4 .pic2{
+	position: absolute;
+	padding-top: 56px;
+	padding-left: 325px;
+	z-index: 9;
+	width: 570px;
+	height: 300px;
+	overflow: hidden;
+}
+
+.panel4 .pic3{
+	position: absolute;
+	padding-top: 56px;
+	padding-left: 902px;
+	z-index: 8;
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+}
+
+.panel4 .pic4{
+	position: absolute;
+	padding-top: 262px;
+	z-index: 7;
+	width: 320px;
+	height: 280px;
+	overflow: hidden;
+}
+
+.panel4 .pic5{
+	position: absolute;
+	padding-top: 362px;
+	padding-left: 325px;
+	z-index: 6;
+	width: 875px;
+	height: 180px;
+	overflow: hidden;
+}
+
+.panel4 span{
+	display: block;
+	padding: 0px 15px;
+	height:41px;
+	line-height: 41px;
+	position: absolute;
+	margin-top: -41px;
+	font-size: 16px;
+	color: #ffffff;
+	background-color: rgba(0,0,0,0.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#4C000000', endColorstr='#4C000000');
+}
+
+.panel4 .pic1 span{
+	 width: 290px;
+ }
+
+.panel4 .pic2 span{
+	width: 540px;
+}
+
+.panel4 .pic3 span{
+	width: 270px;
+}
+
+.panel4 .pic4 span{
+	width: 290px;
+}
+
+.panel4 .pic5 span{
+	width: 845px;
+}
+
+.panel5 {
+	height: 689px;
+}
+
+.panel5 ul li img,.panel5 ul li .img{
+	width: 285px;
+	height:392px;position: relative;
+}
+.panel5 ul li img{filter:alpha(opacity=50);opacity:0.5;}
+.panel5 ul li .img{background: #000;}
+.panel5 ul li:hover img{filter:alpha(opacity=100);opacity:1.0;}
+.joinbtn:hover{background: #ffb901; color: #fff !important;}
+.panel5 .xian{
+	background-color: #cacaca;
+	height: 1px;
+	width: 100%;
+	margin-top: 132px;
+}
+
+.panel5 .title{
+	text-align: center;
+	margin-top: -45px;
+}
+
+.panel5 .title img{
+	background-color: #ffffff;
+}
+.panel5 ul{
+	margin-top: 100px;
+	width: 1220px;
+}
+
+.panel5 ul li{
+	float: left;
+	width: 285px;
+	margin-right: 20px;
+}
+
+
+.panel5 ul li span{
+	display: block;
+	color: #333333;
+	font-size: 18px;
+	height: 30px;
+	line-height: 30px;
+	padding: 10px 0px;
+}
+
+.panel5 .joinbtn{
+	text-align: center;
+	font-size: 16px;
+	color: #ffb901;
+	text-align: center;line-height: 38px;
+	border: 1px solid #ffb901;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 110px; height: 38px;
+	margin: -20px 0 0 -56px;
+	z-index: 5;
+}
+
+.footer{
+	padding-top: 20px;
+	padding-bottom: 50px;
+	background-color: #27272f;
+}
+
+.footer .content{
+/*	border-top:1px solid #35353f;*/
+	padding-top: 65px;
+}
+
+.footer .TourFootCopy{
+	color: #FFFFFF !important;
+}
+
+.footer .TourFootCopy a{
+	color: #FFFFFF !important;
+}
+
+.footer .TourFootMeida a{
+	color: #FFFFFF !important;
+}
+
+.TourFoot{background: #27272f;}

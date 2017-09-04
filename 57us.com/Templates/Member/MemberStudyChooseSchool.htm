@@ -1,0 +1,68 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberStudyLeft}
+    <div class="mRight MyOrderBox cf fr">
+        <div class="myNewsTit">
+            <span class="name">选校定校</span>
+        </div>
+        <!--多个订单循环输出，以下html-->
+        {loop $List $Key $Data}
+        <div class="mRight_v mt10 cf content">
+            <!--此处绑定此订单对应的id-->
+            <input type="hidden" class="orderId" value="{$Data[OrderID]}">
+            <div class="stuconListBody {if $Data['LastStatus']==3}on{/if}" >
+                <span class="FigureIndia"></span>
+                {if $Data['Data'] && $Data['LastStatus']!=3}
+                <a href="javascript:void(0)" class="publicBtn1 finaLize sureBtn fr {if $OrderConsultant['Status']==3}hidden{/if}">确认定校？</a>
+                {/if}
+                <img src="{if $Data['Avatar']}{$Data['Avatar']}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="60" height="60">
+                <p>顾问：{$Data[RealName]}</p>
+                <p>服务名称：{$Data['OrderName']}</p>
+<!--
+                <p>状态：<span class="green">{$Data['StatusName']}</span></p>
+-->
+            </div>
+            <div class="stuconListM mt30">
+                <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab">
+                    <tbody>
+                    <tr>
+                        <th width="150">学校名称</th>
+                        <th width="70">开学时间</th>
+                        <th width="70">学制</th>
+                        <th width="70">语言要求</th>
+                        <th width="150">链接</th>
+                        <th width="120">备注</th>
+                        <th width="">操作</th>
+                    </tr>
+                    <!--此处绑定这条记录对应的id-->
+                    {loop $Data['Data'] $key $lists}
+                    <tr data-id="{$lists[ID]}">
+                        <td><p class="resultTex">{$lists[SchoolName]}</p></td>
+                        <td><p class="resultTex">{$lists[SchoolOpensTime]}</p></td>
+                        <td><p class="resultTex">{$lists[EducationalSystem]}</p></td>
+                        <td><p class="resultTex">{$lists[LanguageRequirements]}</p></td>
+                        <td><p class="resultTex">{$lists[Links]}</p></td>
+                        <td><p class="resultTex">{$lists[Describe]}</p></td>
+                        {if $lists[Status]==1}
+                        <td>
+                            <a href="javascript:void(0)" class="publicBtn0 Operbtn Accepted">确认</a>
+                            <a href="javascript:void(0)" class="publicBtn0 Operbtn mt5 Reject">驳回</a>
+                        </td>
+                        {elseif $lists[Status]==2}
+                        <td><span class="red">已确认</span></td>
+                        {elseif $lists[Status]==3}
+                        <td><span class="red">已驳回</span></td>
+                        {/if}
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {/loop}
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberStudyChooseSchool.js" type="text/javascript"></script>
+</body>
+</html>

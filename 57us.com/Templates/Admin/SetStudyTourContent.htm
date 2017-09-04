@@ -1,0 +1,145 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">留学管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=StudyTour&Action=Lists">游学产品管理</a>
+                </li>
+                <li class="active">编辑游学产品</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <!--{template StudyTourTop}-->
+                <div class="panel-body">
+                    <form action='/index.php?Module=StudyTour&Action=SetStudyTourContent&YoosureID={$YoosureID}'  method='post' enctype="multipart/form-data">
+                        <div class="tourlist">
+                        {loop $NewContentArray $Key $Lists}
+                        <table class="table table-bordered table-striped table-hover" style="border: 0px solid #f0f2f7!important;width: 80% !important;">
+                            <tbody>
+                            <tr>
+                                <td colspan="2"><strong class="red">第{echo $Key+1}天</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" width="150">概览：</td>
+                                <td>
+                                    <div class="col-sm-5 cf">
+                                        <input type="text" name="Title[]" value="{$Lists['Title']}" class="form-control"/>
+                                    </div>
+                                    <p class="help-block">规范：控制在80个字符内</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">交通：</td>
+                                <td>
+                                    <div class="col-sm-3 cf">
+                                        <input type="text" name="Traffic[]" value="{$Lists[Traffic]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">酒店：</td>
+                                <td>
+                                    <div class="col-sm-3 cf">
+                                        <input type="text" name="Accommodation[]" value="{$Lists[Accommodation]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" style="min-width: 150px !important;">行程介绍：</td>
+                                <td width="90%">
+                                    <script id="Content{echo $Key}" name="Content{echo $Key}" type="text/plain"></script>
+                                    <script>
+                                        var ue = UE.getEditor('Content{echo $Key}',{initialContent:'{$Lists[Content]}',initialFrameHeight:250,autoHeightEnabled:false});
+                                    </script>
+                                </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        {/loop}
+                </div>
+                            <table class="table table-bordered table-striped table-hover" style="width: 81.5% !important;">
+                                <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type='button' value='添加天数' data="name{$list[PropertyID]}[]" class="btn btn-warning appendBtn"/>
+                                        <span style="color: #737373;padding-left: 5px;margin-top: 2px">备注：如果增加了多余的天数，概览置空就不会添加该天内容！</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="t-r" width="150"></td>
+                                    <td>
+                                        <div class="col-sm-5">
+                                            <input type="hidden" name="YoosureID" id="YoosureID" value="{$YoosureID}" />
+                                            <input class="btn btn-danger" type='submit' value='提交保存'/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+{template Foot}
+        <script type="text/javascript" >
+            var i={$I};
+            var j={$I}-1;
+            $('.appendBtn').on('click',function(){
+                var divDom = $('.tourlist:last');
+                $('<table class="table table-bordered table-striped table-hover" style="border: 0px solid #f0f2f7!important;width: 80% !important;">' +
+                        '<tbody>' +
+                        '<tr>' +
+                        '<td colspan="2"><strong class="red">第'+i+'天</strong></td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td class="t-r" width="150">概览：</td>' +
+                        '<td>' +
+                        '<div class="col-sm-5 cf"><input type="text" name="Title[]" value="" class="form-control"/>' +
+                        '</div>' +
+                        '<p class="help-block">规范：控制在80个字符内</p>' +
+                        '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td class="t-r">交通：</td>' +
+                        '<td>' +
+                        '<div class="col-sm-3 cf"><input type="text" name="Traffic[]" value="" class="form-control"/>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td class="t-r">酒店：</td>' +
+                        '<td>' +
+                        '<div class="col-sm-3 cf"><input type="text" name="Accommodation[]" value="" class="form-control"/>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td class="t-r" style="min-width: 150px !important;">行程介绍：</td>' +
+                        '<td width="90%">' +
+                        '<script id="Content'+i+'" name="Content'+j+'" type="text/plain"><\/script>' +
+                        '</td>' +
+                        '</tr>' +
+                        '</tbody>'+
+                        '</table>').appendTo($(divDom));
+                var ue = UE.getEditor('Content'+i,{initialContent:"",initialFrameHeight:200,autoHeightEnabled:false});
+                i++;j++;
+            })
+            {if $I==1}.trigger('click'){/if}
+        </script>

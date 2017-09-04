@@ -1,0 +1,171 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/hotel/hotel.css" rel="stylesheet" type="text/css" />
+<div class="HotelBan">
+	<div class="ban">
+		<ul class="pic">
+			<li><img src="{echo ImageURL}/img/hotel/pic/ban.jpg" width="1920" height="399" /></li>
+		</ul>
+	</div>
+	<div class="SearchBox">
+		<table border="0" cellspacing="0" cellpadding="0" width="100%">
+			<tr height="28">
+				<th width="270">目的地</th>
+				<th width="270">入住时间</th>
+				<th width="270">离店日期</th>
+				<th rowspan="2"><input type="button" id="" value="" class="SearchBtn" /></th>
+			</tr>
+			<tr>
+				<td>
+					<input name="StartCity" type="text" class="SearchBoxInput AddressIco" placeholder="请输入目的地" size="15" id="homecity_name" name="homecity_name" mod="address|notice" mod_address_source="hotel" mod_address_reference="cityid" mod_notice_tip="请输入目的地" value="夏威夷">
+					<input id="cityid" name="cityid" type="hidden" value="{$cityid}" />
+				</td>
+				<td style="position:relative;"><input type="text" value="" name="startDate" class="SearchBoxInput DateIco" readonly placeholder="请选择入住时间" id="startDate" onFocus="var endDate=$dp.$('endDate');WdatePicker({onpicked:function(){endDate.focus();},doubleCalendar:true,dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d+0}'})" /></td>
+				<td style="position:relative;"><input type="text" value="" name="endDate" class="SearchBoxInput DateIco" readonly placeholder="请选择离店日期" id="endDate" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'startDate\',{d:1});}',doubleCalendar:true,dateFmt:'yyyy-MM-dd'})" /></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="w1200 PublicBox mt20">
+	<div class="PublicBoxTop">
+		<!--<a href="#" class="fr more">更多</a>-->
+		<span class="fl name"><i></i>热门推荐</span>
+	</div>
+	<ul class="HotelTjList mt20">
+		{loop $hot_info $List}
+		<li>
+			<div class="img"> <img src="{if $List.img}{$List.img}{else}http://images.57us.com/img/common/loadpic.jpg{/if}" alt="{$List[hotel_name]}" class="bgimg">
+				<div class="HotelInstro">
+					{$List[Introduce]}
+				</div>
+			</div>
+			<p class="tit">{$List[hotel_name]}</p>
+			<p class="fun"> <span class="fun_price fr">¥<b>{$List[LowPrice]}</b></span> <span class="time fl"><i class="i1"></i>{$List[CityCame]}</span> </p>
+			<a href="/hotel/{$List[HotelID]}.html" class="more_btn" title="{$List[hotel_name]}" target="_blank">查看详细</a>
+		</li>
+		{/loop}
+	</ul>
+</div>
+<div class="w1200 PublicBox mt20">
+	<div class="PublicBoxTop">
+		<!--<a href="#" class="fr more">更多</a>-->
+		<span class="fl name"><i></i>热门城市</span>
+	</div>
+	<input type="hidden" id="sdDtae" name="sdDtae" value="">
+	<input type="hidden" id="edDate" name="edDate" value="">
+	<ul class="HotCityList">
+		<li class="i1">
+			<a href="javascript:;" data-citycode="{echo $hot_city[0][CityCode]}">
+				<img src="{echo $hot_city[0][Img]}" width="793" height="290" />
+				<p class="tit">{echo $hot_city[0][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[0][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+		<li class="i2">
+			<a href="javascript:;" data-citycode="{echo $hot_city[1][CityCode]}">
+				<img src="{echo $hot_city[1][Img]}" width="390" height="290" />
+				<p class="tit">{echo $hot_city[1][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[1][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+		<li class="i3">
+			<a href="javascript:;" data-citycode="{echo $hot_city[2][CityCode]}">
+				<img src="{echo $hot_city[2][Img]}" width="390" height="290" />
+				<p class="tit">{echo $hot_city[2][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[2][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+		<li class="i4">
+			<a href="javascript:;" data-citycode="{echo $hot_city[3][CityCode]}">
+				<img src="{echo $hot_city[3][Img]}" width="390" height="290" />
+				<p class="tit">{echo $hot_city[3][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[3][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+		<li class="i5">
+			<a href="javascript:;" data-citycode="{echo $hot_city[4][CityCode]}">
+				<img src="{echo $hot_city[4][Img]}" width="390" height="290" />
+				<p class="tit">{echo $hot_city[4][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[4][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+		<li class="i6">
+			<a href="javascript:;" data-citycode="{echo $hot_city[5][CityCode]}">
+				<img src="{echo $hot_city[5][Img]}" width="390" height="290" />
+				<p class="tit">{echo $hot_city[5][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[5][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+		<li class="i7">
+			<a href="javascript:;" data-citycode="{echo $hot_city[6][CityCode]}">
+				<img src="{echo $hot_city[6][Img]}" width="793" height="290" />
+				<p class="tit">{echo $hot_city[6][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[6][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+		<li class="i8">
+			<a href="javascript:;" data-citycode="{echo $hot_city[7][CityCode]}">
+				<img src="{echo $hot_city[7][Img]}" width="591" height="290" />
+				<p class="tit">{echo $hot_city[7][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[7][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+		<li class="i9">
+			<a href="javascript:;" data-citycode="{echo $hot_city[8][CityCode]}">
+				<img src="{echo $hot_city[8][Img]}" width="591" height="290" />
+				<p class="tit">{echo $hot_city[8][CityeName]}</p>
+				<div class="CircleBox transition">
+					<p class="CircleTit">{echo $hot_city[8][Num]}</p>
+					<p class="CircleNr">家推荐酒店</p>
+					<p class="CircleMore">查看详细</p>
+				</div>
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="w1200 WhyHotel mt50">
+	<div class="tit">如何预订我们的酒店</div>
+	<div class="WhyHotelList mt30"></div>
+</div>
+<div class="cf mt50"></div>
+<div id="jsContainer" class="jsContainer" style="height:0">
+	<div id="tuna_alert" style="display:none;position:absolute;z-index:999;overflow:hidden;"></div>
+	<div id="tuna_jmpinfo" style="visibility:hidden;position:absolute;z-index:120;"></div>
+</div>
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<script src="<?php echo JsURL;?>/base/CarCity/1.0.0/fixdiv.js"></script>
+<script src="<?php echo JsURL;?>/hotel/us_address.js"></script>
+<script src="<?php echo JsURL;?>/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="<?php echo JsURL;?>/hotel/hotelindex.js"></script>
+{template 'Common/TourFooter',1}

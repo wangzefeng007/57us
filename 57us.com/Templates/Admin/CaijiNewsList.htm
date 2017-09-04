@@ -1,0 +1,88 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i>Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=GetNews&Action=Lists">采集资讯模块</a>
+                </li>
+                <li class="active">采集栏目列表</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <!--{template CaijiNewsTop}-->
+                <div class="panel-body">
+                    <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">URL：</span>
+                    <form class="form-inline" role="form" action="/index.php" method="get">
+                        <input type="hidden" name="Module" value="GetNews">
+                        <input type="hidden" name="Action" value="Lists">
+                        <input type="text" class="form-control" placeholder="链接" name="Url" value="{$Url}">
+                        <button class="btn btn-info">搜索</button>
+                        <input type="button" onClick="location.href='/index.php?Module=GetNews&Action=Add'" value="添加" class="btn btn-danger">
+                    </form>
+                </div>
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>链接</th>
+                            <th>控制器</th>
+                            <th>方法</th>
+                            <th>组别</th>
+                            <th>类别</th>
+                            <th>采集时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $Data[Data] $lists}
+                        <tr height="35" align="center">
+                            <td nowrap="nowrap">{$lists[ColumnID]}</td>
+                            <td nowrap="nowrap">{$lists[Url]}</td>
+                            <td nowrap="nowrap">{$lists[MyModule]}</td>
+                            <td nowrap="nowrap">{$lists[MyAction]}</td>
+                            <td nowrap="nowrap">{if $lists[ArticleType]==1}留学{elseif $lists[ArticleType]==2}旅游{elseif $lists[ArticleType]==3}移民{/if}</td>
+                            <td nowrap="nowrap">{$lists[Category]}</td>
+                            <td nowrap="nowrap">{$lists[LastGetTime]}</td>
+                            <td nowrap="nowrap"><a href="/index.php?Module={$lists[MyModule]}&Action={$lists[MyAction]}&ColumnID={$lists[ColumnID]}" target="_blank">采集</a> | <a href="/index.php?Module=GetNews&Action=Add&ColumnID={$lists[ColumnID]}">修改</a> | <a href="/index.php?Module=GetNews&Action=Delete&ColumnID={$lists[ColumnID]}" data-id="{$lists[ID]}" class="del">删除</a>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    <form action="/index.php?Module=GetNews&Action=Lists{$PageUrl}" method="POST">
+                        <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                <li><a href="/index.php?Module=GetNews&Action=Lists&Page=1{$PageUrl}">首页</a></li>
+                                {if $Previous}
+                                <li><a href="/index.php?Module=GetNews&Action=Lists&Page={$Previous}{$PageUrl}">上一页</a></li>
+                                {/if}
+                                {loop $Data[PageNums] $page}
+                                <li><a href="/index.php?Module=GetNews&Action=Lists&Page={$page}{$PageUrl}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+                                {/loop}
+                                {if $Next}
+                                <li><a href="/index.php?Module=GetNews&Action=Lists&Page={$Next}{$PageUrl}">下一页</a></li>
+                                {/if}
+                                <li><a href="/index.php?Module=GetNews&Action=Lists&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+                                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

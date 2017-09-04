@@ -1,0 +1,115 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=Advertisement&Action=Lists" class="position">广告模块</a>
+                </li>
+                <li class="active" id="modify">广告模块</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=Advertisement&Action=AdSave'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <td class="t-h" colspan="2">广告详情：</td>
+                            </tr>
+                            <tr>
+                                <td width="150" class="t-r">广告名称（必填选项）</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="ADTitle" value="{$AdInfo[ADTitle]}" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">广告别名</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="Key" value="{$AdInfo[Key]}" />
+                                    </div>
+                                    <p class="help-block">（必填选项,只允许半角英文字母,减号,数字组成的字符串,且不能重复）</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">广告类型</td>
+                                <td>
+                                <div class="col-sm-2">
+                                    <select class="form-control" name="ADType" id="ADType">
+                                        <option value="图片" {if $AdInfo[ADType]=="图片"}selected="true"{/if}>图片</option>
+                                        <option value="文字"  {if $AdInfo[ADType]=="文字"}selected="true"{/if}>文字</option>
+                                    </select>
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">广告类别</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" name="Type" id="Type">
+                                            <option value="0">请选择广告类别</option>
+                                            <option value="1" {if $AdInfo[Type]=="1"}selected="true"{/if}>资讯</option>
+                                            <option value="2"  {if $AdInfo[Type]=="2"}selected="true"{/if}>留学</option>
+                                            <option value="3"  {if $AdInfo[Type]=="3"}selected="true"{/if}>旅游</option>
+                                            <option value="4"  {if $AdInfo[Type]=="4"}selected="true"{/if}>移民</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">广告示例图片:</td>
+                                <td>
+                                    <div class="col-sm-10">
+                                        <input type="file" name="Images[]" id="Images" style="margin-bottom: 8px"/>
+                                        {if $AdInfo[Images]}
+                                        <a href="{echo LImageURL}{$AdInfo[Images]}" target="_blank"><img src="{echo LImageURL}{$AdInfo[Images]}" style="height:80px;" data-width="1920" data-height="800"/></a>
+                                        {/if}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">备注</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                    <textarea type="text" class="form-control" name="Remarks" >{$AdInfo[Remarks]}</textarea>
+                                    </div>
+                                    <p class="help-block">（选填选项,可备注广告图片信息）</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <form action='/index.php?Module=Advertisement&Action=AdSave'  method='post'  enctype="multipart/form-data">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="ADID" value="{$AdInfo[ADID]}" />
+                                        <input class="btn btn-danger" type="submit" name="submit" value="保存">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                        <tr>
+                            <td height="35" width="500px"> <a class="right"  href="/index.php?Module=Advertisement&Action=Lists">返回列表</a></td>
+                        </tr>
+                    </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{template Foot}-->

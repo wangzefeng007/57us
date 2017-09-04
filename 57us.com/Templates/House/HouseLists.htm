@@ -1,0 +1,310 @@
+{template Header}
+{template Nav}
+<div class="w1200 StudyLocation">您当前位置：
+    <a href="http://study.57us.com">首页</a><span>&gt;</span>
+    <span class="Position">院校库</span>
+    <span id="Position"></span>
+</div>
+<div class="w1200 cf">
+    <div class="selectBox" id="Filter">
+        <div class="selectList cf">
+            <div class="ChoseMore">
+                <a href="JavaScript:void(0)">更多<i></i></a>
+                <a href="JavaScript:void(0)" class="change">收起<i></i></a>
+            </div>
+            <div class="selectListL"><i class="ico ico1"></i>选择地区：</div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="javascript:void(0);" class="allBtn" id="LevelAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox" id="Level">
+                        <li><label name="cbt" type="checkbox" val="1" class="cbt cb"><i></i>洛杉矶</label></li>
+                        <li><label name="cbt" type="checkbox" val="2" class="cbt cb"><i></i>纽约</label></li>
+                        <li><label name="cbt" type="checkbox" val="3" class="cbt cb"><i></i>洛杉矶</label></li>
+                        <li><label name="cbt" type="checkbox" val="4" class="cbt cb"><i></i>休斯顿</label></li>
+                        <li><label name="cbt" type="checkbox" val="3" class="cbt cb"><i></i>圣安东尼奥</label></li>
+                        <li><label name="cbt" type="checkbox" val="4" class="cbt cb"><i></i>芝加哥</label></li>
+                        <li><label name="cbt" type="checkbox" val="4" class="cbt cb"><i></i>波士顿</label></li>
+                    </ul>
+                    <div class="moreList">
+                        <div class="pxhd" id="WayCity">
+                            <span class="">A</span><span>B</span><span>C</span><span class="">D</span><span class="on">E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
+                        </div>
+                        <ul class="choseBox ScrollChose" id="A" style="display: block;">
+                            <li><label name="cbt" type="checkbox" val="奥特莱斯" class="cbt cb"><i></i>奥特莱斯</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥特莱斯购物/纽约市区/大西洋赌城" class="cbt cb"><i></i>奥特莱斯购物/纽约市区/大西洋赌城</label></li>
+                            <li><label name="cbt" type="checkbox" val="安大略湖游船" class="cbt cb"><i></i>安大略湖游船</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥特莱斯购物/纽约市区自由探访 /公务活动/大西洋赌城" class="cbt cb"><i></i>奥特莱斯购物/纽约市区自由探访 /公务活动/大西洋赌城</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿卡苏卡兰花园" class="cbt cb"><i></i>阿卡苏卡兰花园</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿卡卡瀑布" class="cbt cb"><i></i>阿卡卡瀑布</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿米什" class="cbt cb"><i></i>阿米什</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥特莱斯购物/纽约" class="cbt cb"><i></i>奥特莱斯购物/纽约</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥林匹克国家公园" class="cbt cb"><i></i>奥林匹克国家公园</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥林匹克市" class="cbt cb"><i></i>奥林匹克市</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥林匹亚市" class="cbt cb"><i></i>奥林匹亚市</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿斯托利亚小镇" class="cbt cb"><i></i>阿斯托利亚小镇</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥林匹克体育馆" class="cbt cb"><i></i>奥林匹克体育馆</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿米希人村庄" class="cbt cb"><i></i>阿米希人村庄</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿米西农庄" class="cbt cb"><i></i>阿米西农庄</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿米什村庄" class="cbt cb"><i></i>阿米什村庄</label></li>
+                            <li><label name="cbt" type="checkbox" val="安大略湖" class="cbt cb"><i></i>安大略湖</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿灵顿公墓" class="cbt cb"><i></i>阿灵顿公墓</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥特莱斯购物" class="cbt cb"><i></i>奥特莱斯购物</label></li>
+                            <li><label name="cbt" type="checkbox" val="爱达荷州" class="cbt cb"><i></i>爱达荷州</label></li>
+                            <li><label name="cbt" type="checkbox" val="爱达荷瀑布" class="cbt cb"><i></i>爱达荷瀑布</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿米什人的村庄" class="cbt cb"><i></i>阿米什人的村庄</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿卡迪亚国家公园" class="cbt cb"><i></i>阿卡迪亚国家公园</label></li>
+                            <li><label name="cbt" type="checkbox" val="阿米什村" class="cbt cb"><i></i>阿米什村</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥兰多市区" class="cbt cb"><i></i>奥兰多市区</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥兰多自选" class="cbt cb"><i></i>奥兰多自选</label></li>
+                            <li><label name="cbt" type="checkbox" val="奥林匹亚市 -- 波特兰" class="cbt cb"><i></i>奥林匹亚市 -- 波特兰</label></li>
+                        </ul>
+                        <ul class="choseBox ScrollChose" id="D" style="display: none;">
+                            <li><label name="cbt" type="checkbox" val="大峡谷国家公园" class="cbt cb"><i></i>大峡谷国家公园</label></li>
+                            <li><label name="cbt" type="checkbox" val="丹麦村" class="cbt cb"><i></i>丹麦村</label></li>
+                            <li><label name="cbt" type="checkbox" val="独立厅" class="cbt cb"><i></i>独立厅</label></li>
+                            <li><label name="cbt" type="checkbox" val="迪士尼乐园" class="cbt cb"><i></i>迪士尼乐园</label></li>
+                            <li><label name="cbt" type="checkbox" val="DECO街" class="cbt cb"><i></i>DECO街</label></li>
+                            <li><label name="cbt" type="checkbox" val="杜佛街" class="cbt cb"><i></i>杜佛街</label></li>
+                            <li><label name="cbt" type="checkbox" val="多伦多" class="cbt cb"><i></i>多伦多</label></li>
+                            <li><label name="cbt" type="checkbox" val="大雾山加特林堡" class="cbt cb"><i></i>大雾山加特林堡</label></li>
+                            <li><label name="cbt" type="checkbox" val="达加特林堡" class="cbt cb"><i></i>达加特林堡</label></li>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="selectList last cf">
+            <div class="selectListL"><i class="ico ico2"></i>选择学校：</div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="javascript:void(0);" class="allBtn" id="ServiceTypeAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox" id="ServiceType">
+                        <li><label name="cbt1" type="checkbox" val="1" class="cbt cb checked"><i></i>全程服务</label></li>
+                        <li><label name="cbt1" type="checkbox" val="2" class="cbt cb"><i></i>申请学校</label></li>
+                        <li><label name="cbt1" type="checkbox" val="3" class="cbt cb"><i></i>文书服务</label></li>
+                        <li><label name="cbt1" type="checkbox" val="4" class="cbt cb"><i></i>定校方案修改</label></li>
+                        <li><label name="cbt1" type="checkbox" val="5" class="cbt cb"><i></i>签证培训</label></li>
+                        <li><label name="cbt1" type="checkbox" val="6" class="cbt cb"><i></i>材料翻译</label></li>
+                        <li><label name="cbt1" type="checkbox" val="7" class="cbt cb"><i></i>背景提升</label></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="selectList last cf">
+            <div class="selectListL"><i class="ico ico3"></i>选择价格：</div>
+            <dl class="selectListM">
+                <dd class="fl">
+                    <div class="layout-slider">
+                        <span>
+                            <input id="range_1" type="text" name="range_1" value="" />
+                        </span>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="selectList last cf">
+            <div class="selectListL"><i class="ico ico4"></i>选择租期：</div>
+            <dl class="selectListM">
+                <dd class="fl">
+                    <div class="layout-slider">
+                        <span>
+                            <input id="range_2" type="text" name="range_2" value="" />
+                        </span>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="w1200 Sequence">
+    <ul class="SequenceUl f16" id="Ranking">
+        <li class="on firstLeft">
+            <a href="javascript:void(0)" id="Default">综合排序</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" id="PicerSort">价格排序<i></i></a>
+            <div class="SequenceChose">
+                <a href="javascript:void(0)" id="PicerAsce">价格从低到高</a>
+                <a href="javascript:void(0)" id="PicerDown">价格从高到低</a>
+            </div>
+        </li>
+        <li class="hidden">
+            <a href="javascript:void(0)" id="SalesSort">销量排序<i></i></a>
+            <div class="SequenceChose" style="width: 110px;">
+                <a href="javascript:void(0)" id="SalesAsce">销量上升</a>
+                <a href="javascript:void(0)" id="SalesDown">销量下降</a>
+            </div>
+        </li>
+    </ul>
+    <span class="fr allPro">为您找到<i class="pcolor" id="ProductNum">309</i>个服务</span>
+</div>
+<div class="w1200 cf">
+    <div class="SlideLeft fl">
+        <ul class="ServiceLineList" id="StudyLineList">
+            <li>
+                <div class="ListLeft">
+                    <p class="tit">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">美国高中全程服务-美国高中全程服务</a>
+                    </p>
+                    <div class="img">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">
+                            <img src="http://images.57us.com/img/study/defaultService3.0.jpg" class="transition" width="200" height="150" alt="美国高中全程服务-美国高中全程服务">
+                        </a>
+                    </div>
+                    <p class="ListService mt15">
+                        <span>接送机</span>
+                        <span>中文服务</span>
+                        <span>中文服务</span>
+                    </p>
+                    <p class="ListDescion mt20"><b>服务简介</b>：哈佛老师亲自授课，哈佛学子担任助教，领教哈佛名师的风采，零距离感受哈佛学术氛围，深刻理解领导力的精髓世界名企参访：前往世界500强企业--英特尔公司，了解500强</p>
+                </div>
+                <div class="ListRight">
+                    <span class="price mt10">¥<em>23000</em></span>
+                    <a href="http://study.57us.com/consultant_service/328.html" class="CheckMore transition mt25" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <div class="ListLeft">
+                    <p class="tit">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">美国高中全程服务-美国高中全程服务</a>
+                    </p>
+                    <div class="img">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">
+                            <img src="http://images.57us.com/img/study/defaultService3.0.jpg" class="transition" width="200" height="150" alt="美国高中全程服务-美国高中全程服务">
+                        </a>
+                    </div>
+                    <p class="ListService mt15">
+                        <span>接送机</span>
+                        <span>中文服务</span>
+                        <span>中文服务</span>
+                    </p>
+                    <p class="ListDescion mt20"><b>服务简介</b>：哈佛老师亲自授课，哈佛学子担任助教，领教哈佛名师的风采，零距离感受哈佛学术氛围，深刻理解领导力的精髓世界名企参访：前往世界500强企业--英特尔公司，了解500强</p>
+                </div>
+                <div class="ListRight">
+                    <span class="price mt10">¥<em>23000</em></span>
+                    <a href="http://study.57us.com/consultant_service/328.html" class="CheckMore transition mt25" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <div class="ListLeft">
+                    <p class="tit">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">美国高中全程服务-美国高中全程服务</a>
+                    </p>
+                    <div class="img">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">
+                            <img src="http://images.57us.com/img/study/defaultService3.0.jpg" class="transition" width="200" height="150" alt="美国高中全程服务-美国高中全程服务">
+                        </a>
+                    </div>
+                    <p class="ListService mt15">
+                        <span>接送机</span>
+                        <span>中文服务</span>
+                        <span>中文服务</span>
+                    </p>
+                    <p class="ListDescion mt20"><b>服务简介</b>：哈佛老师亲自授课，哈佛学子担任助教，领教哈佛名师的风采，零距离感受哈佛学术氛围，深刻理解领导力的精髓世界名企参访：前往世界500强企业--英特尔公司，了解500强</p>
+                </div>
+                <div class="ListRight">
+                    <span class="price mt10">¥<em>23000</em></span>
+                    <a href="http://study.57us.com/consultant_service/328.html" class="CheckMore transition mt25" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <div class="ListLeft">
+                    <p class="tit">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">美国高中全程服务-美国高中全程服务</a>
+                    </p>
+                    <div class="img">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">
+                            <img src="http://images.57us.com/img/study/defaultService3.0.jpg" class="transition" width="200" height="150" alt="美国高中全程服务-美国高中全程服务">
+                        </a>
+                    </div>
+                    <p class="ListService mt15">
+                        <span>接送机</span>
+                        <span>中文服务</span>
+                        <span>中文服务</span>
+                    </p>
+                    <p class="ListDescion mt20"><b>服务简介</b>：哈佛老师亲自授课，哈佛学子担任助教，领教哈佛名师的风采，零距离感受哈佛学术氛围，深刻理解领导力的精髓世界名企参访：前往世界500强企业--英特尔公司，了解500强</p>
+                </div>
+                <div class="ListRight">
+                    <span class="price mt10">¥<em>23000</em></span>
+                    <a href="http://study.57us.com/consultant_service/328.html" class="CheckMore transition mt25" target="_blank">查看详情</a>
+                </div>
+            </li>
+            <li>
+                <div class="ListLeft">
+                    <p class="tit">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">美国高中全程服务-美国高中全程服务</a>
+                    </p>
+                    <div class="img">
+                        <a href="http://study.57us.com/consultant_service/328.html" title="美国高中全程服务-美国高中全程服务" target="_blank">
+                            <img src="http://images.57us.com/img/study/defaultService3.0.jpg" class="transition" width="200" height="150" alt="美国高中全程服务-美国高中全程服务">
+                        </a>
+                    </div>
+                    <p class="ListService mt15">
+                        <span>接送机</span>
+                        <span>中文服务</span>
+                        <span>中文服务</span>
+                    </p>
+                    <p class="ListDescion mt20"><b>服务简介</b>：哈佛老师亲自授课，哈佛学子担任助教，领教哈佛名师的风采，零距离感受哈佛学术氛围，深刻理解领导力的精髓世界名企参访：前往世界500强企业--英特尔公司，了解500强</p>
+                </div>
+                <div class="ListRight">
+                    <span class="price mt10">¥<em>23000</em></span>
+                    <a href="http://study.57us.com/consultant_service/328.html" class="CheckMore transition mt25" target="_blank">查看详情</a>
+                </div>
+            </li>
+        </ul>
+        <div class="page mt35" id="Page2">
+            <form action="/highschool/" method="GET">
+                <a href="javascript:void(0);">上一页</a>
+                <a href="/highschool/?&amp;page=1" class="on">1</a>
+                <a href="/highschool/?&amp;page=2">2</a>
+                <a href="/highschool/?&amp;page=3">3</a> ...
+                <a href="/highschool/?&amp;page=89">89</a>
+                <a href="/highschool/?&amp;page=2">下一页</a>
+                <div class="GoPage">到 <input type="text" name="p" value="" class="input" maxlength="4"> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn"></div>
+            </form>
+        </div>
+    </div>
+    <div class="SlideRight fr">
+        <ul class="adList">
+            <li>
+                <a href="http://study.57us.com/consultant_service/382.html" target="_blank" class="ImgBlackBg"><img class="transition lazy" width="100%" src="http://images.57us.com/p4/up/2017/0122/201701221440585082.jpg" alt="0元职业测评，免费诚意奉上"></a>
+            </li>
+            <li>
+                <a href="http://study.57us.com/teacher_course/236.html" target="_blank" class="ImgBlackBg"><img class="transition lazy" width="100%" src="http://images.57us.com/p4/up/2017/0122/201701221441258288.jpg" alt="终结英语三部曲1000元优惠"></a>
+            </li>
+            <li>
+                <a href="http://study.57us.com/teacher_course/281.html" target="_blank" class="ImgBlackBg"><img class="transition lazy" width="100%" src="http://images.57us.com/p4/up/2017/0122/201701221441541007.jpg" alt="托福寒假冲刺班 低至23元/小时"></a>
+            </li>
+        </ul>
+        <div class="NewNews">
+            <div class="NewNewsT">最新资讯</div>
+            <ul class="NewNewsList">
+                <li>
+                    <a href="http://www.57us.com/study/7685.html" target="_blank" alt="【政策】2017年美国留学新政策"><b>●</b>【政策】2017年美国留学新政策</a>
+                </li>
+                <li>
+                    <a href="http://www.57us.com/study/7634.html" target="_blank" alt="扒一扒 那些年 我和米国海关间的那些狗血事"><b>●</b>扒一扒 那些年 我和米国海关间的那些狗血事</a>
+                </li>
+                <li>
+                    <a href="http://www.57us.com/study/7463.html" target="_blank" alt="【解析】川普与EB-5投资移民得不说的故事"><b>●</b>【解析】川普与EB-5投资移民得不说的故事</a>
+                </li>
+                <li>
+                    <a href="http://www.57us.com/study/7462.html" target="_blank" alt="美国帝国大厦一次特殊的点亮方式。。只为濒危的野生动物！！"><b>●</b>美国帝国大厦一次特殊的点亮方式。。只为濒危的野生动物！！</a>
+                </li>
+                <li class="last">
+                    <a href="http://www.57us.com/study/7213.html" target="_blank" alt="57美国留学课堂|2018年中学生留学美国新形势"><b>●</b>57美国留学课堂|2018年中学生留学美国新形势</a>
+                </li>
+            </ul>
+        </div>
+        <div class="wxShare mt20">
+            <img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99">
+            <p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/jquery.rangeSlider/2.1.6/js/ion.rangeSlider.min.js" type="text/javascript"></script>
+<script src="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+<script src="{echo JsURL}/house/HouseLists.js"></script>
+</body>
+</html>

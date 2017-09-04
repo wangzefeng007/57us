@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li>
+                <a href="#"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="#">旅游产品管理</a>
+            </li>
+            <li>
+                <a href="/index.php?Module=TourLine&Action=TourLineList">跟团游管理</a>
+            </li>
+            <li class="active">编辑产品</li>
+        </ul>
+        <span class="hidden position">跟团游管理</span>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+        <div class="panel-body special-details" style="padding-bottom: 0px">
+            {if $TourProductID || $ProductSkuID}
+            <input class="{if $_GET[Action]=='Add'}btn btn-info{else}btn btn-default{/if}" type="button" value="产品详息"
+                   onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=Add&TourProductID={$TourProductID}'">
+            <input class="{if $_GET[Action]=='SetLineContent'}btn btn-info{else}btn btn-default{/if}" type="button" value="设置行程"
+                   onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetLineContent&TourProductID={$TourProductID}'">
+            <input class="{if $_GET[Action]=='SetLineDescription'}btn btn-info{else}btn btn-default{/if}" type="button" value="产品介绍"
+                   onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetLineDescription&TourProductID={$TourProductID}'">
+            <input class="{if $_GET[Action]=='SetLineExplanation'}btn btn-info{else}btn btn-default{/if}" type="button" value="费用说明"
+                   onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetLineExplanation&TourProductID={$TourProductID}'">
+            <input class="{if $_GET[Action]=='SetLineNoticet'}btn btn-info{else}btn btn-default{/if}" type="button" value="预定需知"
+                   onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetLineNoticet&TourProductID={$TourProductID}'">
+            <input class="{if $_GET[Action]=='SetLineWatch'}btn btn-info{else}btn btn-default{/if}" type="button" value="注意事项"
+                   onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetLineWatch&TourProductID={$TourProductID}'">
+            <input class="{if $_GET[Action]=='TourImages'}btn btn-info{else}btn btn-default{/if}" type="button" value="图片管理"
+                   onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=TourImages&TourProductID={$TourProductID}'">
+            <input class="{if $_GET[Action]=='TourProductLineSkuList' || $ProductSkuID}btn btn-info{else}btn btn-default{/if}" type="button" value="SKU管理"
+                   onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=TourProductLineSkuList&TourProductID={$TourProductID}'">
+            {/if}
+        </div>

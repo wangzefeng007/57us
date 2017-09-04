@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$Title}</title>
+    <meta name="keywords" content="{$Keywords}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="description" content="{$Description}">
+    <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{echo CssURL}/study/studypublic3.0.css" rel="stylesheet" type="text/css" />
+    <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{echo JsURL}/base/base.js"></script>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else{
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrap">
+    {template 'Common/TopLoginStatus',1}
+    {template 'Common/RightNav',1}
+    <div class="header">
+        <div class="w1200 cf">
+            <ul class="centerMenu">
+                <li><a href="/teachermanage/myinfosettings/" class="{if $Nav=='myinfosettings'}on{/if}">个人信息设置</a></li>
+                <li><a href="/teachermanage/assets/" class="{if $Nav=='assets'}on{/if}">我的资产</a></li>
+                <li><a href="/teachermanage/successcase/" class="{if $Nav=='successcase'}on{/if}">成功案例</a></li>
+                <li><a href="/teachermanage/myorder/" class="{if $Nav=='myorder'}on{/if}">我的订单</a></li>
+                <li><a href="/teachermanage/courselist/" class="{if $Nav=='courselist'}on{/if}">课程管理</a></li>
+                <li><a href="/teachermanage/mycenter/" class="{if $Nav=='mycenter'}on{/if}">我的主页</a></li>
+            </ul>
+            <a target="_blank" href="{echo WEB_STUDY_URL}" class="StudyLogo" title="57美国网">57美国网</a>
+        </div>
+    </div>

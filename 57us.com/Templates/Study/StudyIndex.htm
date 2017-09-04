@@ -1,0 +1,353 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    body{background: #fff;}
+</style>
+<div class="IndexBan">
+    <div class="IndexBanScr">
+        <a href="JavaScript:void(0)" class="prev"></a>
+        <a href="JavaScript:void(0)" class="next"></a>
+        <ul class="pic">
+            {loop $BannerList $list}
+            <li><a href="{$list[Link]}" target="_blank"><img src="{echo LImageURL}{$list[Picture]}" width="1920" height="650" alt="{$list[Title]}" /></a></li>
+            {/loop}
+        </ul>
+    </div>
+    <div class="IndexProgramMask"></div>
+    <div class="IndexProgram bor">
+        <div name="applyItem" type="selectbox" class="DiySelect" style="width: 147px;" id="Project">
+            <div class="opts">
+                <a href="javascript:void(0);" value="博士">博士</a>
+                <a href="javascript:void(0);" value="硕士">硕士</a>
+                <a href="javascript:void(0);" value="本科">本科</a>
+                <a href="javascript:void(0);" value="高中">高中</a>
+                <a href="javascript:void(0);" value="小学">小学</a>
+                <a href="javascript:void(0);" value="语言课程">语言课程</a>
+                <a href="javascript:void(0);" value="单签证">单签证</a>
+                <a href="javascript:void(0);" value="申请项目" class="selected">申请项目</a>
+            </div>
+        </div>
+        <div name="class" type="selectbox" class="DiySelect" id="Grade">
+            <div class="opts">
+                <a href="javascript:void(0);" value="本科毕业及以后">本科毕业及以后</a>
+                <a href="javascript:void(0);" value="大四">大四</a>
+                <a href="javascript:void(0);" value="大三">大三</a>
+                <a href="javascript:void(0);" value="大二">大二</a>
+                <a href="javascript:void(0);" value="大一">大一</a>
+                <a href="javascript:void(0);" value="高中毕业已工作">高中毕业已工作</a>
+                <a href="javascript:void(0);" value="高三">高三</a>
+                <a href="javascript:void(0);" value="高二">高二</a>
+                <a href="javascript:void(0);" value="高一">高一</a>
+                <a href="javascript:void(0);" value="初三">初三</a>
+                <a href="javascript:void(0);" value="初二及以前">初二及以前</a>
+                <a href="javascript:void(0);" value="目前就读年级" class="selected">目前就读年级</a>
+            </div>
+        </div>
+        <div name="scrol" type="selectbox" class="DiySelect" id="Results">
+            <div class="opts">
+                <a href="javascript:void(0);" value="95 - 100">95 - 100</a>
+                <a href="javascript:void(0);" value="90 - 94">90 - 94</a>
+                <a href="javascript:void(0);" value="82 - 84">82 - 84</a>
+                <a href="javascript:void(0);" value="78 - 81">78 - 81</a>
+                <a href="javascript:void(0);" value="75 - 77">75 - 77</a>
+                <a href="javascript:void(0);" value="68 - 71">68 - 71</a>
+                <a href="javascript:void(0);" value="68及以下">68及以下</a>
+                <a href="javascript:void(0);" value="国内平均成绩" class="selected">国内平均成绩</a>
+            </div>
+        </div>
+        <input type="button" name="application" id="application" value="获取申请方案" class="btn" />
+    </div>
+</div>
+<div class="w1200 IndexBox mt35 cf">
+    <div class="IndexBoxT"><a href="/consultant_service/" class="indexMore" target="_blank">更多></a><span class="name">精选服务<em class="en">Selected Services</em></span></div>
+    <ul class="SelectSerList">
+        <li class="i2"><a href="{$ServiceList[0][Link]}" target="_blank"><img src="{echo LImageURL}{$ServiceList[0][Picture]}" width="795" height="292" alt="{$ServiceList[0][Title]}"/><p class="tit transition">{$ServiceList[0][Title]}</p></a></li>
+        <li><a href="{$ServiceList[1][Link]}" target="_blank"><img src="{echo LImageURL}{$ServiceList[1][Picture]}" width="390" height="217" alt="{$ServiceList[1][Title]}"/><p class="tit transition">{$ServiceList[1][Title]}</p></a></li>
+        <li class="i3"><a href="{$ServiceList[4][Link]}" target="_blank"><img src="{echo LImageURL}{$ServiceList[4][Picture]}" width="390" height="292" alt="{$ServiceList[4][Title]}"/><p class="tit transition">{$ServiceList[4][Title]}</p></a></li>
+        <li class="i4"><a href="{$ServiceList[2][Link]}" target="_blank"><img src="{echo LImageURL}{$ServiceList[2][Picture]}" width="390" height="217" alt="{$ServiceList[2][Title]}"/><p class="tit transition">{$ServiceList[2][Title]}</p></a></li>
+        <li class="i5"><a href="{$ServiceList[3][Link]}" target="_blank"><img src="{echo LImageURL}{$ServiceList[3][Picture]}" width="390" height="217" alt="{$ServiceList[3][Title]}"/><p class="tit transition">{$ServiceList[3][Title]}</p></a></li>
+    </ul>
+</div>
+<div class="indexNews cf">
+    <div class="w1200 IndexBox cf">
+        <div class="IndexBoxT"><a href="/teacher_course/" class="indexMore" target="_blank">更多></a><span class="name">精选课程<em class="en">Selected Courses</em></span></div>
+        <ul class="SelectSerList">
+            <li class="i3"><a href="{$CourseList[0][Link]}" target="_blank"><img src="{echo LImageURL}{$CourseList[0][Picture]}" width="390" height="292" alt="{$CourseList[0][Title]}"/><p class="tit transition">{$CourseList[0][Title]}</p></a></li>
+            <li><a href="{$CourseList[1][Link]}" target="_blank"><img src="{echo LImageURL}{$CourseList[1][Picture]}" width="390" height="217" alt="{$CourseList[1][Title]}"/><p class="tit transition">{$CourseList[1][Title]}</p></a></li>
+            <li><a href="{$CourseList[2][Link]}" target="_blank"><img src="{echo LImageURL}{$CourseList[2][Picture]}" width="390" height="217" alt="{$CourseList[2][Title]}"/><p class="tit transition">{$CourseList[2][Title]}</p></a></li>
+            <li class="i2"><a href="{$CourseList[4][Link]}" target="_blank"><img src="{echo LImageURL}{$CourseList[4][Picture]}" width="795" height="292" alt="{$CourseList[4][Title]}"/><p class="tit transition">{$CourseList[4][Title]}</p></a></li>
+            <li class="i4"><a href="{$CourseList[3][Link]}" target="_blank"><img src="{echo LImageURL}{$CourseList[3][Picture]}" width="390" height="217" alt="{$CourseList[3][Title]}"/><p class="tit transition">{$CourseList[3][Title]}</p></a></li>
+        </ul>
+    </div>
+</div>
+<div class="w1200 IndexBox mt35 cf">
+    <div class="IndexBoxT"><span class="name">成功案例<em class="en">Successful Case</em></span></div>
+    <div class="IndexCaseScrol mt5">
+        <div class="scrolMain">
+            <ul class="pic">
+                {loop $ConsultantCaseList $list}
+                <li class="transition">
+                    <a href="/consultant/{$list[UserID]}.html?CID={$list[CaseID]}" target="_blank"><div class="IndexCaseBody">
+                        <img src="{if $list[StudentImage]}{echo ImageURLP2}{$list[StudentImage]}{else}{echo ImageURL}/img/study/man3.0.png{/if}" width="72" height="72" alt="{$list[StudentName]}">
+                        <p class="name">{$list[StudentName]}</p>
+                        <p class="">入读：{$list[AttendSchool]}</p>
+                    </div>
+                        <div class="CaseListIns">
+                            <p class="InsLis">录取院校：{$list[AdmissionSchool]}</p>
+                            <p class="InsLis">申请学校：{$list[ApplySchool]}</p>
+                        </div>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <a href="JavaScript:void(0)" class="prev"></a>
+        <a href="JavaScript:void(0)" class="next"></a>
+    </div>
+</div>
+<div class="w1200 mt20 cf">
+    <div class="IndexAd">
+        {loop $BottomBannerList $list}
+        <a href="{$list[Link]}" target="_blank"><img src="{echo ImageURLP6}{$list[Picture]}" width="595" height="90" alt="{$list[Title]}"/></a>
+        {/loop}
+    </div>
+</div>
+<div class="indexNews mt25 cf">
+    <div class="w1200 cf">
+        <div class="indexNewsLeft fl">
+            <div class="IndexBoxT"><a href="{echo WEB_MAIN_URL}/studytopic_uscolege/" class="indexMore" target="_ blank">更多></a><span class="name">最新资讯<em class="en">Latest Information</em></span></div>
+            <ul class="indexNewsList">
+                {loop $NewsList $key $list}
+                <li {if $key==0}class="on"{/if}>
+                    <p class="time">{echo date('Y/m/d',strtotime($list[AddTime]))}</p>
+                    <p class="firstTit">{$list[Title]}</p>
+                    <div class="secondCont">
+                        <img src="{echo ImageURLP2}{$list[Image]}" width="110" height="82" alt="{$list[Title]}"/>
+                        <p class="tit"><a href="{echo WEB_MAIN_URL}/study/{$list[StudyID]}.html" target="_blank" title="{$list[Title]}">{$list[Title]}</a></p>
+                        <p class="nr mt5">{echo mb_substr($list[Description],0,48,'utf-8')}...<a href="{echo WEB_MAIN_URL}/study/{$list[StudyID]}.html" target="_blank">【查看详情】</a></p>
+                    </div>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="indexNewsLeft indexNewsRight fr">
+            <div class="IndexBoxT"><a href="/college/" class="indexMore" target="_blank">更多></a><span class="name">热门学校<em class="en">Hot School</em></span></div>
+            <ul class="HotSchool">
+                {loop $SchoolList $list}
+                <li>
+                    <a href="/college/{$list[CollegeID]}.html" target="_blank">
+                        <p class="img"><img src="{$list[LogoUrl]}" width="96" height="96" alt="{$list[CollegeName]}"></p>
+                        <p class="tit mt5">{$list[CollegeName]}</p>
+                        <p class="map mt20"><i class="mapIco"></i>{$list[Seat]} , {$list[Region]}</p>
+                        <span class="shotLine"></span>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="w1200 IndexBox mt35 cf">
+    <p class="processT mt5">57US留学平台流程</p>
+    <ul class="processList mt15">
+        <li>
+            <p class="tit">搜索服务/课程</p>
+            <p class="nr">按照多种条件进行筛选（如顾问、老师、服务/课程类别、价格、地理位置等），找到心仪的顾问/老师</p>
+        </li>
+        <li>
+            <p class="tit">签约展开服务</p>
+            <p class="nr">面询或试听满意，与顾问/老师签订服务合同，在平台缴款，资金托管在平台服务有保障。三个工作日内无理由全额退费</p>
+        </li>
+        <li>
+            <p class="tit">选校定校</p>
+            <p class="nr">顾问选校，在平台与学生确认定校</p>
+        </li>
+        <li>
+            <p class="tit">录取申请</p>
+            <p class="nr">申请材料递交时间、学校录取及时通知学生</p>
+        </li>
+        <li>
+            <p class="tit">增值服务</p>
+            <p class="nr">学生可在平台购买机票、美国境内接机、住宿等服务，省时省力</p>
+        </li>
+        <li class="i6">
+            <p class="tit">咨询缴纳订金</p>
+            <p class="nr">在平台与顾问/老师咨询，初步达成意向，平台支付服务定金。首次面询或听课不满意可全额退订</p>
+        </li>
+        <li>
+            <p class="tit">语言培训</p>
+            <p class="nr">与老师约定上课地点、按时上课，考取理想成绩</p>
+        </li>
+        <li>
+            <p class="tit">文书服务</p>
+            <p class="nr">一旦确定学校，马上开展文书服务，学生可要求修改三次。如有分歧，平台提供文书仲裁保障</p>
+        </li>
+        <li>
+            <p class="tit">签证办理</p>
+            <p class="nr">签证办理，为您做好出国留学的关键一步</p>
+        </li>
+    </ul>
+    <p class="mt50"></p>
+</div>
+<div class="indexNews mt25 cf">
+    <div class="w1200 mt20 cf">
+        <p class="Whyt">留学，为什么选择57美国网,作为一个中立的第三方平台，我们不直接提供留学服务，而是优秀服务的搬运工与监理员，为学生留学美国提供保障。</p>
+        <ul class="whyList cf mt50">
+            <li class="i1">
+                <i class="ico"></i>
+                <p class="tit f18 mt10">优选服务方</p>
+                <span class="whyLine"></span>
+                <p class="nr c9 mt5">甄选五年以上行业经验顾问或老师</p>
+
+            </li>
+            <li class="i2">
+                <i class="ico"></i>
+                <p class="tit f18 mt10">签约合同审核</p>
+                <span class="whyLine"></span>
+                <p class="nr c9 mt5">根据学生不同需求，完善合同条款</p>
+
+            </li>
+            <li class="i3">
+                <i class="ico"></i>
+                <p class="tit f18 mt10">资金托管</p>
+                <span class="whyLine"></span>
+                <p class="nr c9 mt5">顾问服务不好拿不到钱，学生资金有保障</p>
+
+            </li>
+            <li class="i4">
+                <i class="ico"></i>
+                <p class="tit f18 mt10">服务进度监管</p>
+                <span class="whyLine"></span>
+                <p class="nr c9 mt5">服务节点全程监控，进度有保障</p>
+
+            </li>
+            <li class="i5">
+                <i class="ico"></i>
+                <p class="tit f18 mt10">维权保障</p>
+                <span class="whyLine"></span>
+                <p class="nr c9 mt5">平台特设专职维权团队，帮你轻松维权</p>
+
+            </li>
+        </ul>
+        <div class="mt20"></div>
+    </div>
+</div>
+<div class="cf StudyFoot">
+    <div class="w1200 cf">
+        <div class="fHotSchool">
+            <p class="tit">热门学校<span class="tLine"></span></p>
+            <ul class="fHotSchoolList mt15">
+                <li>
+                    {loop $FootHighList $key $list}
+                    <a href="/highschool/{$list[HighSchoolID]}.html" target="_blank" title="{$list[HighSchoolName]}">{$list[HighSchoolName]}</a>
+                    {/loop}
+                </li>
+                <li>
+                    {loop $FootCollegeList $key $list}
+                    <a href="/college/{$list[CollegeID]}.html" target="_blank" title="{$list[CollegeName]}">{$list[CollegeName]}</a>
+                    {/loop}
+                </li>
+                <li>
+                    {loop $FootGrduateList $key $list}
+                    <a href="/graduateschool/{$list[CollegeID]}.html" target="_blank" title="{$list[CollegeName]}">{$list[CollegeName]}</a>
+                    {/loop}
+                </li>
+            </ul>
+        </div>
+        <div class="fHotSchool Training">
+            <p class="tit">热门服务&培训<span class="tLine"></span></p>
+            <ul class="fHotSchoolList mt15">
+                <li>
+                    <a href="/consultant_service/?t=1" target="_blank">全程服务</a><a href="/consultant_service/?t=2" target="_blank">申请学校</a><a href="/consultant_service/?t=4" target="_blank">定校方案修改</a><a href="/consultant_service/?t=3" target="_blank">文书服务</a><a href="/consultant_service/?t=7" target="_blank">背景提升</a><a href="/consultant_service/?t=6" target="_blank">材料翻译</a><a href="/consultant_service/?t=5" target="_blank">签证培训</a>
+                </li>
+                <li>
+                    <a href="/teacher_course/?t=1" target="_blank">雅思培训</a><a href="/teacher_course/?t=2" target="_blank">托福培训</a><a href="/teacher_course/?t=3" target="_blank">SAT培训</a><a href="/teacher_course/?t=4" target="_blank">ACT培训</a><a href="/teacher_course/?t=5" target="_blank">GMAT培训</a><a href="/teacher_course/?t=6" target="_blank">GRE培训</a><a href="/teacher_course/?t=7" target="_blank">PTE培训</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fHotSchool Cooperation">
+            <p class="tit">合作伙伴<span class="tLine"></span></p>
+            <div class="CooperationM cf mt10">
+                <a href=""><img src="{echo ImageURL}/img/common/part1.jpg"></a>
+                <a href=""><img src="{echo ImageURL}/img/common/part2.jpg"></a>
+                <a href=""><img src="{echo ImageURL}/img/common/part3.jpg"></a>
+                <a href=""><img src="{echo ImageURL}/img/common/part4.png"></a>
+                <a href=""><img src="{echo ImageURL}/img/common/part6.jpg"></a>
+                <a href=""><img src="{echo ImageURL}/img/common/part5.jpg"></a>
+            </div>
+        </div>
+    </div>
+    <div class="w1200 cf link mt40">
+        友情链接：
+        {loop $LinksList $list}
+        <a href="{$list[Url]}" target="_blank">{$list[Name]}</a>
+        {/loop}
+    </div>
+    <div class="w1200 mt10 cf">
+        <a class="FootLogo mt10" href="{echo WEB_MAIN_URL}" title="57美国网">57美国网</a>
+        <div class="FootCont fl">
+            <a href="{echo WEB_MAIN_URL}/about/contacts.html" target="_blank" title="公司简介" style="padding-left: 0;">公司简介</a>
+            <a href="JavaScript:void(0)">|</a>
+            <a href="{echo WEB_MAIN_URL}/about/contact.html" target="_blank" title="联系我们">联系我们</a>
+            <a href="JavaScript:void(0)">|</a>
+            <a href="{echo WEB_MAIN_URL}/about/map.html" target="_blank" title="站点地图">站点地图</a>
+            <a href="JavaScript:void(0)">|</a>
+            <a href="{echo WEB_MAIN_URL}/about/tiaokuan.html" target="_blank" title="使用条款">使用条款</a>
+            <a href="JavaScript:void(0)">|</a>
+            <a href="{echo WEB_MAIN_URL}/about/privacy.html" target="_blank" title="隐私保护">隐私保护</a>
+            <a href="JavaScript:void(0)">|</a>
+            <!--<a href="{echo WEB_MAIN_URL}/about/zhifu.html" target="_blank" title="帮助中心">帮助中心</a>-->
+            <span class="wecome">欢迎拨打电话咨询</span>
+            <br> 地址：厦门市思明区软件园二期观日路34号之一201Z&nbsp;&nbsp;&nbsp;电话：0592-5919203
+            <span class="FootTell">400-018-5757</span><br> Copyright © 2016 57US.com
+            <a href="{echo WEB_MAIN_URL}" title="57美国网">57美国网</a>&nbsp;&nbsp;&nbsp;美华通（厦门）网络科技有限公司&nbsp;&nbsp;&nbsp;闽ICP备15017345号
+        </div>
+        <ul class="FootMeida fr">
+            <li class="i1">
+                <div class="ChatCode transition"><img src="{echo ImageURL}/img/common/wxstudy.jpg" width="112" height="112"><em></em></div>
+            </li>
+            <li class="i2">
+                <div class="ChatCode transition"><img src="{echo ImageURL}/img/common/wb.jpg" width="112" height="112"><em></em></div>
+            </li>
+        </ul>
+    </div>
+    <div class="w1200 safeBox mt10 cf">
+        <a href="http://www.isc.org.cn/" target="_blank" rel="nofollow"><img src="{echo ImageURL}/img/common/safe1_3.0.png" height="47"></a>
+        <a href="http://wsgs.fjaic.gov.cn/creditpub/notice/view?uuid=1gM0nGULIzO5wVPW8xQpfwZUq0lfoM7X&amp;tab=01" target="_blank" rel="nofollow"><img src="{echo ImageURL}/img/common/safe2_3.0.png" height="47"></a>
+        <a href="http://www.12377.cn/" target="_blank" rel="nofollow"><img src="{echo ImageURL}/img/common/safe3_3.0.png" height="47"></a>
+        <a href="http://www.cyberpolice.cn/wfjb/" target="_blank" rel="nofollow"><img src="{echo ImageURL}/img/common/safe4_3.0.png" height="47"></a>
+        <a href="http://webscan.360.cn/index/checkwebsite/url/www.57us.com" rel="nofollow" target="_blank"><img border="0" src="{echo ImageURL}/img/common/safe6_3.0.png" height="47"></a>
+        <a href="https://ss.knet.cn/verifyseal.dll?sn=e16091435020064717vyo0000000&amp;comefrom=trust&amp;trustKey=dn&amp;trustValue=www.57us.com" target="_blank" rel="nofollow"><img src="{echo ImageURL}/img/common/safe5_3.0.png" height="47"></a>
+        <a href="http://ec.eqixin.com/?sn=QX2066134012191473748886" rel="nofollow" target="_blank"><img src="{echo ImageURL}/img/common/safe7_3.0.png" height="47"></a>
+    </div>
+</div>
+<div class="mask"></div>
+<div class="getProgram">
+    <span class="close">关闭</span>
+    <input type="text" name="tel" id="tel" value="" class="input" placeholder="留下电话，方便沟通。" />
+    <div class="btn tar">
+        <!--<a href="javascript:void(0)" class="no fl close2">暂不</a>-->
+        <a href="javascript:void(0)" class="sure fr surebtn">确认</a>
+    </div>
+</div>
+<script src="{echo JsURL}/base/jquery.SuperSlide/2.1/jquery.SuperSlide.2.1.js"></script>
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<script src="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/StudyIndex.js"></script>
+
+
+<div class="hidden">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?21f9def31aa89e3cd98d7b6b95068701";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256811158'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256811158' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>

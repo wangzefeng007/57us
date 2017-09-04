@@ -1,0 +1,195 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 StudyLocation">您当前位置：
+    <a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+    <a href="{echo WEB_STUDY_URL}/college/">大学院校</a><span>&gt;</span><span class="Position">{$CollegeInfo['CollegeName']}</span>
+</div>
+<div class="w1200 cf">
+    <div class="SchoolDetailBody" style="background: url(http://images.57us.com/img/study/detailHome3.0.jpg) center center no-repeat;">
+        <img src="{$CollegeInfo[LogoUrl]}" width="150" height="150" class="schoolLogo" alt="{$CollegeInfo['CollegeName']}"/>
+        <a href="javascript:void(0)" class="collect"  style="display: none"><i></i>收藏</a>
+        <div class="SchoolCont">
+            <p class="tit">{$CollegeInfo['CollegeName']}<span class="en">{$CollegeInfo['CollegeNameEng']}</span></p>
+            <p class="mt5 cf">
+                <span class="fl" style="width: 50%;">地址：{$CollegeInfo['Seat']} {$CollegeInfo['Region']}</span>
+                <span class="fl" style="width: 50%;">排名：{$CollegeInfo['CollegeType']} - {$CollegeInfo['Ranking']}</span>
+            </p>
+            <div class="requireCont mt20">
+                <span>相关成绩要求：	录取率: {$CollegeInfo['AcceptanceRate']}%</span>
+                <span>申请费: ${$CollegeInfo['Application']}</span>
+                <span>总费用: ${$CollegeInfo['TotalTuition']}</span>
+                <span>托福成绩要求: {$CollegeInfo['TOEFL']}</span>
+                <span>雅思成绩要求: {$CollegeInfo['IELTS']}</span>
+                <span class="i6">{$CollegeInfo['SATACT']}SAT或ACT成绩</span>
+                <span>SAT II绩要求：{$CollegeInfo['SATII']}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="w1200 po mt20 cf">
+    <div class="slideFixMenu transition">
+        <ul>
+            {if $CollegeInfo['Introduction']}<li class="on">学校简介<span class="sj"></span></li>{/if}
+            {if $CollegeImages}<li>图片展示<span class="sj"></span></li> {/if}
+            {if $CollegeInfo['CollegeData']}<li>院校数据<span class="sj"></span></li>{/if}
+            {if $CollegeInfo['AcademicInformation']}<li>学术信息<span class="sj"></span></li>{/if}
+            {if $CollegeInfo['SchoolLife']}<li>校园生活<span class="sj"></span></li>{/if}
+            {if $CollegeInfo['Environment']}<li>周边环境<span class="sj"></span></li>{/if}
+            {if $CollegeInfo['Safety']!=''}<li>学校安全<span class="sj"></span></li>{/if}
+            {if $Direction}<li>本科专业<span class="sj"></span></li>{/if}
+        </ul>
+    </div>
+    <div class="SchoolDetailLeft fl">
+        {if $CollegeInfo['Introduction']}
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">学校简介</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height: 32px;">{$CollegeInfo['Introduction']}</p>
+                <p class="tac mt15">
+                    <a href="javascript:void(0)" class="moreBtn">查看更多<i></i></a>
+                </p>
+            </div>
+        </div>
+        {/if}
+        {if $CollegeImages}
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">图片展示</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <div class="schoolScroll">
+                    <div class="hd">
+                        {loop $CollegeImages $key}
+                        <span></span>
+                        {/loop}
+                    </div>
+                    <a href="JavaScript:void(0)" class="prev"></a>
+                    <a href="JavaScript:void(0)" class="next"></a>
+                    <div class="scrollPic">
+                        <ul>
+                            {loop $CollegeImages $key $lists}
+                            <li><img src="{$lists[ImagesUrl]}" width="536" height="357" /></li>
+                            {/loop}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/if}
+        {if $CollegeInfo['CollegeData']}
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">院校数据</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height: 37px;">{$CollegeInfo['CollegeData']}</p>
+            </div>
+        </div>
+        {/if}
+        {if $CollegeInfo['AcademicInformation']}
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">学术信息</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height:28px;">{echo mb_substr( $CollegeInfo['AcademicInformation'], 0, 550, 'utf-8')}</p>
+                <p  style="line-height:28px;" class="content hidden">{echo mb_substr( $CollegeInfo['AcademicInformation'], 550, 5000, 'utf-8')}</p>
+                {if $CollegeInfo['AcademicInformation']}
+                <p class="tac mt15">
+                    <a href="javascript:void(0)" class="moreBtn">查看更多<i></i></a>
+                </p>
+                {/if}
+            </div>
+        </div>
+        {/if}
+        {if $CollegeInfo['SchoolLife']}
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">校园生活</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height:28px;">
+                    {loop $CollegeInfo['SchoolLife'] $key $lists}
+                    {if $key!=''}
+                    <class><b>{$key}</b></class>:{$lists}<br>
+                    {/if}
+                    {/loop}
+                </p>
+            </div>
+        </div>
+        {/if}
+        {if $CollegeInfo['Environment']}
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">周边环境</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height:28px;">
+                    {loop $CollegeInfo['Environment'] $key $lists}
+                    {if $key!=''}
+                    <class><b>{$key}</b></class>:{$lists}<br>
+                    {/if}
+                    {/loop}
+                </p>
+            </div>
+        </div>
+        {/if}
+        {if $CollegeInfo['Safety']!=''}
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">学校安全</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height:28px;">
+                    {loop $CollegeInfo['Safety'] $key $lists}
+                <p style="line-height:28px;">{$lists}</p>
+                {/loop}
+                </p>
+            </div>
+        </div>
+        {/if}
+        {if $Direction}
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">本科专业</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolPro">
+                    {loop $Direction $key $list}
+                    <tr>
+                        <th width="104">{$list['ProfessionName']}</th>
+                        <td width="603">{loop $Specific $Key $List}{if $Key==$key}{loop $List $value}<span>{$value['ProfessionName']}</span>{/loop}{/if}{/loop}</td>
+                    </tr>
+                    {/loop}
+                </table>
+            </div>
+        </div>
+        {/if}
+    </div>
+    <div class="SlideRight autofix_sb fr">
+        <ul class="adList">
+            {loop $StudyRightADLists $lists}
+            <li>
+                <a href="{$lists['Link']}" target="_blank" title="{$lists[Title]}"><img width="100%" src="{echo LImageURL}{$lists['Picture']}" alt="{$lists[Title]}"></a>
+            </li>
+            {/loop}
+        </ul>
+        <div class="NewNews">
+            <div class="NewNewsT">最新资讯</div>
+            <ul class="NewNewsList">
+                {loop $TblStudyAbroad $lists}
+                <li>
+                    <a href="{echo WEB_MAIN_URL}/study/{$lists[StudyID]}.html" title="{$lists['Title']}"><b>●</b>{$lists['Title']}</a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="wxShare mt20">
+            <img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99" />
+            <p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/schoolDetail.js"></script>
+<script type="text/javascript">
+    $(".contBoxT .hd a").hover(function(){
+        var num =$(this).index();
+        $(this).addClass("on").siblings().removeClass("on");
+        $(this).parents(".contBox").find(".tabList").addClass("hidden").eq(num).removeClass("hidden")
+    })
+    $(".contBoxM .moreBtn").click(function(){
+        $(this).parents(".contBoxM").find(".moreBtn").addClass("hidden")
+        $(this).parents(".contBoxM").find(".content").removeClass("hidden")
+    })
+</script>
+</body>
+</html>

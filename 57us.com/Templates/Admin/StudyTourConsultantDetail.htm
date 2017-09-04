@@ -1,0 +1,148 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">顾问管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=StudyTour&Action=StudyTourConsultantDetail&ID={$UserID}" class="active">顾问详情</a>
+                </li>
+                <span class="position hidden">顾问管理</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <td colspan="3" class="t-h">基本信息：</td>
+                        </tr>
+                        <tr>                    <!--一行-->
+                            <td width="20%">真实姓名:{if $UserInfo[RealName]}{$UserInfo[RealName]}{else}未填写{/if}</td>        <!--一列-->
+                            <td  width="40%">账号:{$Account}</td>
+                            <td  width="40%">性别:{if $UserInfo[Sex] == 0}女{elseif $UserInfo['Sex'] == 1}男{else}保密{/if}</td>
+                        </tr>
+                        <tr>                    <!--一行-->
+                            <td>昵称:{$UserInfo[NickName]}</td>        <!--一列-->
+                            <td>地址:{$UserInfo[Country]}{$UserInfo[Province]}{$UserInfo[City]}{$UserInfo[Area]}</td>
+                            <td>详细地址:{$UserInfo[Address]}</td>
+                        </tr>
+                        <tr>
+                            <td>从业工龄:{$ConsultantInfo[WorkingAge]}年</td><!--一行-->
+                            <td></td>        <!--一列-->
+                            <td>学历:{$EduBackground[$ConsultantInfo[EduBackground]]}</td>
+
+                        </tr>
+                        <tr>
+                            <td>辅导对象:{$TutorialObject[$ConsultantInfo[TutorialObject]]}</td><!--一行-->
+                            <td>中文介绍:{$ConsultantInfo[Introduction]}</td>        <!--一列-->
+                            <td>英文介绍:{$ConsultantInfo[ENIntroduction]}</td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <td colspan="4" class="t-h">过往经历：</td>
+                        </tr>
+                        {loop $PastExperience $key $val}
+                        <tr>                    <!--一行-->
+                            <td width="20%">开始时间：{$val['startdate']}</td>
+                            <td width="20%">结束时间：{$val['enddate']}</td>
+                            <td width="30%">就职公司:{$val['company']}</td>
+                            <td width="30%">简要描述:{$val['undergo']}</td>
+                        </tr>
+                        {/loop}
+                    </table>
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <td colspan="3" class="t-h">认证图文展示：</td>
+                        </tr>
+                        <tr>
+                        <td>身份证正面:<a href="{$UserInfo[CardPositive]}" target="_blank"><img src="{$UserInfo[CardPositive]}" width="150px" height="150px" title="点击显示大图"></a></td>
+                        <td>手持身份证:<a href="{$UserInfo[CardHold]}" target="_blank"><img src="{$UserInfo[CardHold]}" width="150px" height="150px"  title="点击显示大图"></a></td>
+                        <td>身份证:{$UserInfo[CardNum]}</td>
+                        </tr>
+                        <tr>
+                        <td>学历认证照:<a href="{$ImageText[0]}" target="_blank"><img src="{$ImageText[0]}" width="150px" height="150px" title="点击显示大图"></a></td>
+                        <td>身份证正面:<a href="{$UserInfo[CardPositive]}" target="_blank"><img src="{$UserInfo[CardPositive]}" width="150px" height="150px" title="点击显示大图"></a></td>
+                        <td></td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered table-striped table-hover">
+                        <form action='/index.php?Module=StudyTour&Action=ConsultantDetail'  method='post'  enctype="multipart/form-data">
+                            <tbody>
+                            <tr>
+                                <td class="t-r" width="150">审核状态：</td>
+                                <td>
+                                    <select name="Status" id="Status" class="form-control" style="width:200px;float:left;margin-right: 10px" onchange="GetNewTourAreaID(this.value)" >
+                                        <option value="0" {if !$UserInfo[IdentityState]}selected="selected"{/if}>请选择状态</option>
+                                        <option value="0" {if $UserInfo[IdentityState] == 0}selected="selected"{/if}>未提交审核</option>
+                                        <option value="1" {if $UserInfo[IdentityState] == 1}selected="selected"{/if}>审核中</option>
+                                        <option value="2" {if $UserInfo[IdentityState] == 2}selected="selected"{/if}>审核通过</option>
+                                        <option value="3" {if $UserInfo[IdentityState] == 3}selected="selected"{/if}>审核不通过</option>
+                                    </select>
+                                    <input type="hidden" name="UserID" value="{$UserID}" />
+                                    <input class="btn btn-danger" type="submit" name="submit" value="修改">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </form>
+                    </table>
+                    <table class="table table-bordered table-striped table-hover">
+                        <form action='/index.php?Module=StudyTour&Action=ConsultantDetail'  method='post'  enctype="multipart/form-data">
+                            <tbody>
+                            <tr>
+                            <td width="150px" class="t-r">(虚拟数据)选择该顾问的人数：</td>
+                            <td>
+                                    <input type="text" name="Choosed" class="form-control" value="{$ConsultantInfo[Choosed]}" style="width: 150px"/>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" width="150px">匹配度：(匹配度输入范例：0.59)</td>
+                                <td>
+                                符合一个条件：<br><input type="text" name="OneCondition" value="{$ConsultantInfo[OneCondition]}" class="form-control" style="width: 150px" />
+
+                               符合两个条件：<br><input type="text" name="TwoCondition" value="{$ConsultantInfo[TwoCondition]}" class="form-control" style="width: 150px"/>
+
+                                符合三个条件：<br><input type="text" name="ThreeCondition" value="{$ConsultantInfo[ThreeCondition]}" class="form-control" style="width: 150px"/></td>
+                            </tr>
+                            <tr>
+                                <td width="150px" class="t-r">推荐选择：</td>
+                                <td>
+                                    <div class="col-sm-9 t-d">
+                                        <input name="MIndexRecommend" type="checkbox" id="MIndexRecommend" value="1"{if $ConsultantInfo[MIndexRecommend]} checked="checked"{/if} />
+                                        手机站首页推荐
+                                        <input type="text" name="RecommendSort" value="{$ConsultantInfo[RecommendSort]}"/>
+                                        &nbsp;（注意：推荐后面跟随着本推荐排序，排序数值越高越靠前。）
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="150px" class="t-r"></td>
+                                <input type="hidden" name="ID" value="{$ConsultantInfo[ID]}" />
+                                <td>
+                                    <input class="btn btn-danger" type="submit" name="submit" value="保存">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </form>
+                    </table>
+                    <tr>
+                        <td><a class="right" href="/index.php?Module=StudyTour&Action=ConsultantList">返回列表</a></td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<!--{template Foot}-->
+

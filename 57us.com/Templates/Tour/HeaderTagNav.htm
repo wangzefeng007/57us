@@ -1,0 +1,14 @@
+{if $SoWhere}
+<div class="searchd">
+        <a href="{echo WEB_TOUR_URL}/tour/search/{$SoWhere}" {if $TagNav=="search"}class="on"{/if}>全部</a>
+        <a href="{echo WEB_TOUR_URL}/group/home/{$SoWhere}" {if $TagNav=='home'}class="on"{/if} title="国内参团">国内参团</a>
+        <a href="{echo WEB_TOUR_URL}/group/local/{$SoWhere}" {if $TagNav=='local'}class="on"{/if} title="当地参团">当地参团</a>
+        <a href="{echo WEB_TOUR_URL}/play/feature/{$SoWhere}" {if $TagNav=='feature'}class="on"{/if} title="特色体验">特色体验</a>
+        <a href="{echo WEB_TOUR_URL}/play/daily/{$SoWhere}" {if $TagNav=='daily'}class="on"{/if} title="一日游">一日游</a>
+        <a href="{echo WEB_TOUR_URL}/play/ticket/{$SoWhere}" {if $TagNav=='ticket'}class="on"{/if} title="门票">门票</a>
+        <a href="{echo WEB_TOUR_URL}/play/wifi/{$SoWhere}" {if $TagNav=='wifi'}class="on"{/if} title="WiFi" class="hidden">WiFi</a>
+        <a href="{echo WEB_TOUR_URL}/play/shuttle/{$SoWhere}" {if $TagNav=='shuttle'}class="on"{/if} title="接送机" class="hidden">接送机</a>
+        <a href="{echo WEB_HOTEL_URL}/hotel/hotelsearchlist/{$SoWhere}" {if $TagNav=='hotel'}class="on"{/if} title="酒店">酒店</a>
+        <a href="{echo WEB_VISA_URL}/visa/lists/{$SoWhere}" {if $TagNav=='visa'}class="on"{/if} title="签证">签证</a>
+</div>
+{/if}

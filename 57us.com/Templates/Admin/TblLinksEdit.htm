@@ -1,0 +1,80 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">友情链接</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TblLinks&Action=Lists" class="active">友情链接管理</a>
+                </li>
+                <li class="active" id="modify">添加/修改</li>
+            </ul>
+                <span class="position hidden">友情链接</span>
+
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=TblLinks&Action=Edit'  method='post'	enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td width="150" class="t-r">所属类别：</td>
+                                <td><input name="Type" type="radio" id="type" value="1" {if $TblLinksInfo[Type] ==1}checked="checked"{/if}/>
+                                    首页友情链接
+                                    <input type="radio" name="Type" id= "type1" value="2" {if $TblLinksInfo[Type] ==2}checked="checked"{/if}/>
+                                    旅游友情链接
+                                    <input type="radio" name="Type" id="type2" value="3" {if $TblLinksInfo[Type] ==3}checked="checked"{/if}/>
+                                    留学友情链接
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">标签名：</td>
+                                <td>
+                                    <div class="col-sm-2 cf">
+                                        <input type="text" name="Name" value="{$TblLinksInfo[Name]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">URL：</td>
+                                <td>
+                                    <div class="col-sm-4 cf">
+                                        <textarea name="Url" rows="2" class="form-control" id="TourFootTagUrl">{$TblLinksInfo[Url]}</textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">排序：</td>
+                                <td>
+                                    <div class="col-sm-2 cf">
+                                        <input type="text" name="Sort" value="{$TblLinksInfo[Sort]}" class="form-control"/>
+                                    </div>
+                                    <p class="help-block">越大排越前</p>
+                                </td>
+                            </tr>
+                            <tr id="MaterialRequested">
+                                <td width="150" align="right"></td>
+                                <td>
+                                    <input type="hidden" name="ID" id="ID" value="{$TblLinksInfo[ID]}" />
+                                    <input class="btn btn-danger" type='submit' value='提交保存'/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

@@ -1,0 +1,23 @@
+{
+  "ResultCode": 200,
+  "RecordCount":4,
+  "Data": [
+    {
+      "StudyId": "10010",
+      "StudyName": "卢文斌",
+      "StudyImg": "http://images.57us.com/l/Uploads/Member/20160708/14679422346750.jpeg",
+      "StudyUrl": "/play/10010.html",
+      "StudyTag": "<span>启德教育</span><span>资深顾问</span><span>启德教育</span>",
+      "StudyTerm":"5",
+      "StudyPosition":"北京"
+    },{
+      "StudyId": "10010",
+      "StudyName": "卢文斌",
+      "StudyImg": "http://images.57us.com/l/Uploads/Member/20160708/14679422346750.jpeg",
+      "StudyUrl": "/play/10010.html",
+      "StudyTag": "<span>启德教育</span><span>资深顾问</span><span>启德教育</span>",
+      "StudyTerm":"5",
+      "StudyPosition":"北京"
+    }
+  ]
+}

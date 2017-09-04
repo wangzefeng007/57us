@@ -1,0 +1,57 @@
+{
+  "ResultCode": 200,
+  "RecordCount": "250",
+  "PageSize": 6,
+  "PageCount": 39,
+  "Page": 1,
+  "Data": [
+    {
+      "Study_name": "老王",
+      "StudyID": "10010",
+      "StudyExperience": "100",
+      "StudyServiceRegion": "厦门",
+      "StudyImg": "http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "StudyUrl": "/group/10010.html",
+      "StudyTag": "<span>买二送一</span><span>中文导游</span>",
+      "StudyDepict": "我回家的爽肤水的理发师的立刻开始调查下句话绝对是空手道解放山东金矿附件东金矿附件东金矿附件东金矿附件是的开发"
+    },
+    {
+      "Study_name": "老王",
+      "StudyID": "10010",
+      "StudyExperience": "100",
+      "StudyServiceRegion": "厦门",
+      "StudyImg": "http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "StudyUrl": "/group/10010.html",
+      "StudyTag": "<span>买二送一</span><span>中文导游</span>",
+      "StudyDepict": "我回家的爽肤水的理发师的立刻开始调查下句话绝对是空手道解放山东金矿附件东金矿附件东金矿附件东金矿附件是的开发"
+    },{
+      "Study_name": "老王",
+      "StudyID": "10010",
+      "StudyExperience": "100",
+      "StudyServiceRegion": "厦门",
+      "StudyImg": "http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "StudyUrl": "/group/10010.html",
+      "StudyTag": "<span>买二送一</span><span>中文导游</span>",
+      "StudyDepict": "我回家的爽肤水的理发师的立刻开始调查下句话绝对是空手道解放山东金矿附件东金矿附件东金矿附件东金矿附件是的开发"
+    },{
+      "Study_name": "老王",
+      "StudyID": "10010",
+      "StudyExperience": "100",
+      "StudyServiceRegion": "厦门",
+      "StudyImg": "http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "StudyUrl": "/group/10010.html",
+      "StudyTag": "<span>买二送一</span><span>中文导游</span>",
+      "StudyDepict": "我回家的爽肤水的理发师的立刻开始调查下句话绝对是空手道解放山东金矿附件东金矿附件东金矿附件东金矿附件是的开发"
+    }
+  ],
+  "NextPage": 2,
+  "LastPage": 39,
+  "PageNums": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6
+  }
+}

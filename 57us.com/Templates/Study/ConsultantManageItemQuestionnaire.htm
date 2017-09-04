@@ -1,0 +1,183 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt50 cf">
+	{template ConsultantManageClientManageLeftData}
+	<div class="w877 cf fr" id="CustomerRight">
+		{$CommonData['ProgressTitle']}
+		<ul class="QuestionProcess mt50">
+			<input type="hidden" value="{$CommonData['ClienteleName']}" id="ClienteleName"/>
+
+			<!--处理中状态操作id绑在此处-->
+			<input type="hidden" value="" id="OperateID"/>
+			{if $CommonData['ProgressStatus'] == 1}
+			<li>
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">上传调查表</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl QuestionRlB">
+						<p>请上传调查表供"{$CommonData['ClienteleName']}同学"参考  </p>
+					</div>
+					<div class="QuestionRr">
+						<a href="javascript:void(0)" class="upbtn" data-type="1">上传</a>
+					</div>
+				</div>
+			</li>
+			{elseif $CommonData['ProgressStatus'] == 2}
+			<li class="CounselorCB" style="display: none">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">我的反馈</p>
+					<p class="time mt5"></p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl QuestionRlB">
+						<p class="green" val=""></p>
+						<p class="Message">我的留言：<span></span></p>
+						<p>请将此反馈信息发给学生，请等待{$CommonData['ClienteleName']}学生的反馈</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="javascript:void(0)" class="delivery">发送</a>
+						<a href="javascript:void(0)" class="upbtn2" data-type="2">重新上传</a>
+					</div>
+				</div>
+			</li>
+			{if $Result['Data']}
+			<li class="CounselorCA">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">{$Result['Data']['Question_CoupleBackName']}</p>
+					<p class="time mt5">{$Result['Data']['Question_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$Result['Data']['Question_FileName']}</p>
+						<p>备注：{$Result['Data']['Question_Message']}</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$Result['Data']['Question_DownUrl']}" target="_blank">下载</a>
+						<a href="javascript:void(0)" class="upbtn CoupleBack" data-type="2">反馈</a>
+						<!--此处data-id绑定此条记录的id-->
+						{if $Result['Data']['Feedback'] == 1}
+						<a href="javascript:void(0)" class="DeadCopy QuestionnaireID" data-id="{$Result['Data']['QuestionnaireID']}">确认定稿</a>
+						{/if}
+					</div>
+				</div>
+			</li>
+			{/if}
+			{loop $Result['Data2'] $val}
+			<li class="HistoryData" style="display: none">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">{$val['Question_CoupleBackName']}</p>
+					<p class="time mt5">{$val['Question_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$val['Question_FileName']}</p>
+						<p>备注:{$val['Question_Message']}</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$val['Question_DownUrl']}" target="_blank">下载</a>
+						<!--<a href="javascript:void(0)">反馈</a>-->
+						<!--<a href="javascript:void(0)">确认定稿</a>-->
+					</div>
+				</div>
+			</li>
+			{/loop}
+			<li>
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">上传调查表</p>
+					<p class="time mt5">{$Result['UpQuestion']['UpQuestion_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p>已上传   调查表 {$Result['UpQuestion']['UpQuestion_FileName']} 等待{$CommonData['ClienteleName']}反馈  </p>
+						<p>备注:{$Result['UpQuestion']['UpQuestion_Message']}</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$Result['UpQuestion']['UpQuestion_DownUrl']}" target="_blank">下载</a>
+
+					</div>
+				</div>
+			</li>
+			{else}
+			<li class="CounselorCA">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">确认定稿</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$Result['DeadCopyData']['DeadCopyd_FileName']}</p>
+						<p class="time mt5">{$Result['DeadCopyData']['DeadCopyd_Date']}</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$Result['DeadCopyData']['DeadCopyd_DownUrl']}" target="_blank">下载</a>
+					</div>
+				</div>
+			</li>
+			{loop $Result['Data2'] $val}
+			<li class="HistoryData" style="display: none">
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">{$val['Question_CoupleBackName']}</p>
+					<p class="time mt5">{$val['Question_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p class="green">{$val['Question_FileName']}</p>
+						<p>备注:{$val['Question_Message']}</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$val['Question_DownUrl']}" target="_blank">下载</a>
+						<!--<a href="javascript:void(0)">反馈</a>-->
+						<!--<a href="javascript:void(0)">确认定稿</a>-->
+					</div>
+				</div>
+			</li>
+			{/loop}
+			<li>
+				<span class="circle"></span>
+				<div class="QuestionL">
+					<p class="tit">上传调查表</p>
+					<p class="time mt5">{$Result['UpQuestion']['UpQuestion_Date']}</p>
+				</div>
+				<div class="QuestionR cf">
+					<em class="sj"></em>
+					<div class="QuestionRl">
+						<p>已上传   调查表 {$Result['UpQuestion']['UpQuestion_FileName']} 等待{$CommonData['ClienteleName']}反馈  </p>
+						<p>备注:{$Result['UpQuestion']['UpQuestion_Message']}</p>
+					</div>
+					<div class="QuestionRr">
+						<a href="{$Result['UpQuestion']['UpQuestion_DownUrl']}" target="_blank">下载</a>
+
+					</div>
+				</div>
+			</li>
+			{/if}
+		</ul>
+		{if $Result['Data2']}
+		<div class="QuestionMore">
+			<a href="javascript:void(0)" class="ExamineAll">查看全部<i></i></a>
+		</div>
+		{/if}
+	</div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<!--顾问客户管理，上传模态窗口-->
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageCustomerUpModal.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageItemQuestionnaire.js"></script>
+</div>
+</body>
+</html>

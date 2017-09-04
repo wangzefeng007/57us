@@ -1,0 +1,183 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">旅游产品管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TourProductOrder&Action=TourProductOrderList">订单管理</a>
+                </li>
+                <li class="active" id="modify">管理订单信息 </li>
+            </ul>
+            <span class="position hidden">旅游订单管理</span>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <input type="hidden" name="OrderID" value="{$ListByOrderID[OrderID]}" />
+                    <table class="table table-bordered table-striped table-hover">
+                        <form action='/index.php?Module=TourProductOrder&Action=TourProductOrderEdit'  method='post'  enctype="multipart/form-data">
+                            <tbody>
+                            <tr>
+                                <td width="150px" class="t-r">消费码：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="Consumercode" value="{$ListByOrderID[Consumercode]}" class="form-control"/>
+                                        <input type="hidden" name="OrderID" value="{$ListByOrderID[OrderID]}" />
+                                    </div>
+                                    <input class="btn btn-danger" type='submit' name='submit1' value='保存'/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </form>
+                    </table>
+                    <table class="table table-bordered table-striped table-hover">
+                        <form action='/index.php?Module=TourProductOrder&Action=TourProductOrderEdit'  method='post'  enctype="multipart/form-data">
+                            <tbody>
+                            <tr>
+                                <td width="150px" class="t-r">订单状态：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <select name="Status" id="Status" class="form-control" onchange="GetNewTourAreaID(this.value)">
+                                            <option value="{$ListByOrderID[Status]}">{if $ListByOrderID[Status]==1}待付款{elseif $ListByOrderID[Status]==2}已付款待确认{elseif $ListByOrderID[Status]==3}已付款确认中{elseif $ListByOrderID[Status]==4}已付款已确认{elseif $ListByOrderID[Status]==5}退款中{elseif $ListByOrderID[Status]==6}退款（处理中）{elseif $ListByOrderID[Status]==7}退款审核不通过{elseif $ListByOrderID[Status]==8}退款审核通过{elseif $ListByOrderID[Status]==9}交易关闭(超时){elseif $ListByOrderID[Status]==10}交易关闭(超时){elseif $ListByOrderID[Status]==11}交易关闭(改价格){elseif $ListByOrderID[Status]==12}交易关闭(禁购买){/if}</option>
+                                            <option value="1">待付款</option>
+                                            <option value="2">已付款待确认</option>
+                                            <option value="3">已付款确认中</option>
+                                            <option value="4">已付款已确认</option>
+                                            <option value="5">退款中</option>
+                                            <option value="6">退款（处理中）</option>
+                                            <option value="7">退款审核不通过</option>
+                                            <option value="8">退款审核通过</option>
+                                            <option value="9">退款完成</option>
+                                            <option value="10">交易关闭(超时)</option>
+                                            <option value="11">交易关闭(改价格)</option>
+                                            <option value="12">交易关闭(禁购买)</option>
+                                        </select>
+                                    </div>
+                                    <input type="hidden" name="OrderID" value="{$ListByOrderID[OrderID]}" />
+                                    <input class="btn btn-danger" type='submit' name='submit2' value='修改'/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </form>
+                    </table>
+                    <table class="table table-bordered table-striped table-hover">
+                        <form action='/index.php?Module=TourProductOrder&Action=TourProductOrderEdit'  method='post'  enctype="multipart/form-data">
+                            <tbody>
+                            <tr>
+                                <td width="150px" class="t-r">备注：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <textarea  type="text" name="Remarks" class="form-control">{$ListByOrderID[Remarks]}</textarea>
+                                        <input type="hidden" name="OrderID" value="{$ListByOrderID[OrderID]}" />
+                                    </div><br>
+                                    <input class="btn btn-danger" type='submit' name='submit3' value='保存'/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </form>
+                    </table>
+                     <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <td colspan="3" class="t-h">订单详情：</td>
+                            </tr>
+                            <tr>
+                                <td>订单号：{$ListByOrderID[OrderNumber]}</td>
+                                <td>订单总金额：{$ListByOrderID[TotalAmount]}</td>
+                                <td>订单状态：{if $ListByOrderID[Status]==1}待付款{elseif $ListByOrderID[Status]==2}已付款待确认{elseif $ListByOrderID[Status]==3}已付款确认中{elseif $ListByOrderID[Status]==4}已付款已确认{elseif $ListByOrderID[Status]==5}退款中{elseif $ListByOrderID[Status]==6}退款（处理中）{elseif $ListByOrderID[Status]==7}退款审核不通过{elseif $ListByOrderID[Status]==8}退款审核通过{elseif $ListByOrderID[Status]==9}交易关闭(超时){elseif $ListByOrderID[Status]==10}交易关闭(超时){elseif $ListByOrderID[Status]==11}交易关闭(改价格){elseif $ListByOrderID[Status]==12}交易关闭(禁购买){/if}</td>
+                            </tr>
+                            <tr>
+                                <td>产品编号：{$TourProductID}</td>
+                                <td>下单时间：{$ListByOrderID[AddTime]}</td>
+                                <td>电子邮箱：{$ListByOrderID[Email]}</td>
+                            </tr>
+                            <tr>
+                                <td>是否已付款：{if $ListByOrderID[PaymentMethod]>0}已付款{else}未付款{/if}</td>
+                                <td>付款时间:{if $ListByOrderID[PayTime]}{echo date('Y-m-d H:i:s',$ListByOrderID[PayTime])}{else}-{/if}</td>
+                                <td>付款方式：{if $ListByOrderID[PaymentMethod]==1}支付宝{elseif $ListByOrderID[PaymentMethod]==2}微信{elseif $ListByOrderID[PaymentMethod]==3}网银{/if}</td>
+                            </tr>
+                            <tr>
+                                <td>联系人：{$ListByOrderID[Contacts]}</td>
+                                <td>联系电话：{$ListByOrderID[Tel]}</td>
+                                <td>客户端IP：{$ListByOrderID[FromIP]}</td>
+                            </tr>
+                            <tr>
+                              <td>出游人姓名：</td>
+                              <td colspan="2">{loop $ListByOrderID['TravelPeopleInfo'] $kk $ll}{echo $ListByOrderID[TravelPeopleInfo][$kk][last] .' '. $ListByOrderID[TravelPeopleInfo][$kk][name]}<br />{/loop}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">需求备注：{$ListByOrderID[Message]}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="t-h">订单内容：</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">产品名：<a href="{echo WEB_TOUR_URL}/{if $CategoryType==1}group{else}play{/if}/{$ListByOrderNumber['TourProductID']}.html" target="_blank">{$ListCategoryID[ProductName]}</a></td>
+                                <td>产品类型:{$CategoryInfo[CnName]}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">出发城市：{$TourAreaInfo[CnName]}</td>
+                                <td>出发日期：{$ListByOrderNumber[Depart]}</td>
+                            </tr>
+                        </table>
+<table class="table table-bordered table-striped table-hover">
+                            {if $CategroyType==1}
+                            <tr>
+                                <td colspan="5" class="t-h">清单明细：</td>
+                            </tr>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>价格</th>
+                                    <th>成人</th>
+                                    <th>儿童</th>
+                                    <th>总人数</th>
+                                </tr>
+                                {loop $OrderInfoList $val}
+                                <tr>
+                                    <td>{$val[SkuName]}</td>
+                                    <td>{$val[Money]}</td>
+                                    <td>{if $val[AdultNum]}{$val[AdultNum]}{else}无限制{/if}</td>
+                                    <td>{if $val[ChildrenNum]}{$val[ChildrenNum]}{else}无限制{/if}</td>
+                                    <td>{if $val[PeopleNum]}{$val[PeopleNum]}{else}{echo $val[AdultNum]+$val[ChildrenNum]}{/if}</td>
+                                </tr>
+                                {/loop}                                
+                            {else}
+                            <tr>
+                                <td colspan="4" class="t-h">清单明细：</td>
+                            </tr>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>单价</th>
+                                    <th>数量</th>                                 
+                                    <th>总价</th>
+                                </tr>
+                                {loop $OrderInfoList $val}
+                                <tr>
+                                    <td>{$val[SkuName]}</td>
+                                    <td>{$val[UnitPrice]}</td>
+                                    <td>{$val[Num]}</td>
+                                    <td>{$val[Money]}</td>
+                                </tr>  
+                                {/loop}
+                            {/if}
+                        </table>
+                    <tr>
+                        <td colspan="3">
+                            <a href="javascript:history.go(-1)" style="margin-left: 5px">返回列表</a>
+                        </td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

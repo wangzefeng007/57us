@@ -1,0 +1,21 @@
+{template 'Common/TourTop',1}
+	<div class="w1200 PayMain cf">
+    	<div class="PaySuccess">
+            {$Message}
+            <a href="{$RedirectUrl}" class="PayCheckBtn mt20" target="_blank">查看订单</a>
+        </div>
+    </div>
+</div>
+<div class="cf mt30"></div>
+<script type="text/javascript">
+    $(window).load(function(){
+        IndexMain();
+    })
+    $(window).resize(function(e) {
+        IndexMain();
+    });
+    function IndexMain(){
+        $(".PayMain").height($(window).height()-$(".top_bar").height()-$(".study_header").height()-$(".blue_line").height()-$(".TourFoot").outerHeight()-30)
+    }
+</script>
+{template 'Common/TourFooter',1}

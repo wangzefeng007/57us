@@ -1,0 +1,117 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight_v cf fr" id="rightContent">
+        <div class="mRightit">
+            <span class="name">旅客信息</span>
+        </div>
+        <div class="addTab mt20">
+            <p class="zhushi">注：中文名与英文名两者必填一项</p>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <th><em class="red">*</em>中文姓名：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="zhName" id="zhName" value="{$PassengerInfo[ZhName]}" class="tabInput" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>姓名拼音：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="zhXinPin" id="zhXinPin" value="{$PassengerInfo[ZhXinPin]}" class="tabInput" style="width: 162px;" placeholder="姓" />
+                        </div>
+                        <div class="posDiv">
+                            <input type="text" name="zhMingPin" id="zhMingPin" value="{$PassengerInfo[ZhMingPin]}" class="tabInput" style="width: 162px;" placeholder="名" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><em class="red">*</em>性&nbsp;&nbsp;&nbsp;&nbsp;别：</th>
+                    <td>
+                        <div class="sexChose" id="sex">
+                            <label name="rbt1" type="radiobox" val="1" class="cbt cb {if $PassengerInfo[Sex]=='男' || $PassengerInfo[Sex]==''}rb_active{/if} rb"><i></i>男</label>
+                            <label name="rbt1" type="radiobox" val="0" class="cbt cb {if $PassengerInfo[Sex]=='女'}rb_active{/if} rb"><i></i>女</label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><em class="red">*</em>出生日期：</th>
+                    <td>
+                        <div class="posDiv">
+                            <i class="icon iconfont icon-up1-copy"></i>
+                            <input type="text" name="birthDay" id="birthDay" value="{$PassengerInfo[BirthDay]}" class="tabInput" onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" readonly/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><em class="red">*</em>手机号码：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="mobile" id="mobile" value="{$PassengerInfo[Mobile]}" class="tabInput" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>常用邮箱：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="email" name="mail" id="mail" value="{$PassengerInfo[Mail]}" class="tabInput" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mRightit mt25">
+            <span class="name">证件</span>
+        </div>
+        <div class="addTab mt20">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <th><em class="red">*</em>护照号：</th>
+                    <td>
+                        <div class="posDiv">
+                            <input type="text" name="idCard" id="idCard" value="{$PassengerInfo[IdCard]}" class="tabInput" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><em class="red">*</em>有效期：</th>
+                    <td>
+                        <div class="posDiv">
+                            <i class="icon iconfont icon-up1-copy"></i>
+                            <input type="text" name="cardEndDate" id="cardEndDate" value="{$PassengerInfo[CardEndDate]}" class="tabInput" onfocus="WdatePicker({skin:'whyGreen',minDate:'%y-%M-{%d+1}'})" readonly/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><em class="red">*</em>国籍：</th>
+                    <td>
+                        <div name="countrystyle" type="selectbox" class="diyselect" id="nationality">
+                            <div class="opts">
+                                <a href="javascript:void(0);" value="美国" {if $PassengerInfo[Nationality]=='美国'}class="selected"{/if}>美国</a>
+                                <a href="javascript:void(0);" value="中国" {if $PassengerInfo[Nationality]=='中国' || $PassengerInfo[Nationality]==''}class="selected"{/if}>中国</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <td>
+                        <input type="hidden" name="PassengerID" id="PassengerID"  value="{$PassengerInfo[PassengerID]}"/>
+                        <a href="JavaScript:void(0)" class="publicBtn2 sureBtn" id="save">保存</a>
+                        <a href="JavaScript:history.go(-1)" class="publicBtn2 canceBtn">取消</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{template MemberFooter}
+<!--日期选择插件-->
+<script type="text/javascript" src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="{echo JsURL}/member/MemberPassengerAdd.js" type="text/javascript"></script>
+</body>
+</html>

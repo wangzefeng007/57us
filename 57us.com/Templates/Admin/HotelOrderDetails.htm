@@ -1,0 +1,122 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">酒店产品管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=HotelOrder&Action=Lists" class="position">酒店订单管理</a>
+                </li>
+                <li class="active" id="modify">订单管理</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=HotelOrder&Action=Details'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <td colspan="3" class="t-h">订单详情：</td>
+                            </tr>
+                            <tr>
+                                <td>订单号：{$OrderInfo[OrderNo]}</td>
+                                <td>姓名：{$OrderInfo[ContactLastName]}{$OrderInfo[ContactFirstName]}</td>
+                                <td>手机号：{$OrderInfo[ContactPhone]}</td>
+                            </tr>
+                            <tr>
+                                <td>酒店名称：{$OrderInfo[HotelName]}</td>
+                                <td>房间名称：{$OrderInfo[RoomName]}</td>
+                                <td>房间数：{$OrderInfo[RoomNum]}</td>
+                            </tr>
+                            <tr>
+                                <td>入住时间：{$OrderInfo[CheckInDate]}</td>
+                                <td>退房时间：{$OrderInfo[CheckOutDate]}</td>
+                                <td>订单状态：{$StatusInfo[$OrderInfo[Status]]}</td>
+                            </tr>
+                            <tr>
+                                <td>付款方式：{$Pay[$OrderInfo[PayType]]}</td>
+                                <td>金额：{$OrderInfo[Money]}</td>
+                                <td>创建时间：{$OrderInfo[AddTime]}</td>
+                            </tr>
+                            <tr>
+                                <td>入住人数信息：{if $RoomPersonNum[0][AdultCount]>0}成人:{$RoomPersonNum[0][AdultCount]}{/if} {if $RoomPersonNum[0][ChildCount]>0}儿童:{$RoomPersonNum[0][ChildCount]}{/if}</td>
+                                <td>邮箱：{$OrderInfo[ContactEMail]}</td>
+                                <td>用户特殊请求：{$OrderInfo[CustomerRequest]}</td>
+                            </tr>
+                        </table>
+                        {if $Edit ==1}
+                        <table class="table table-bordered table-striped table-hover">
+                            <form action='/index.php?Module=HotelOrder&Action=Details'  method='post'  enctype="multipart/form-data">
+                                <tbody>
+                                <tr>
+                                    <td width="150px" class="t-r">订单状态：</td>
+                                    <td>
+                                        <div class="col-sm-2">
+                                            <select name="Status" id="Status" class="form-control" onchange="GetNewTourAreaID(this.value)">
+                                                <option value="{$OrderInfo[Status]}">{$StatusInfo[$OrderInfo[Status]]}</option>
+                                                {loop $StatusInfo $key $value}
+                                                <option  value="{$key}">{$value}</option>
+                                                {/loop}
+                                            </select>
+                                        </div><br><br>
+                                        <div class="col-sm-4">
+                                            <textarea type="text" name="VoucherRemark" class="form-control" rows="2" placeholder="确认函备注信息">{$OrderInfo[VoucherRemark]}</textarea>
+                                        </div>  
+                                        <input type="hidden" name="OrderID" value="{$OrderInfo[OrderID]}" />
+                                        <input class="btn btn-danger" type="submit" name="submit" value="修改">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <form action='/index.php?Module=HotelOrder&Action=Details'  method='post'  enctype="multipart/form-data">
+                                <tbody>
+                                <tr>
+                                    <td width="150px" class="t-r">关闭订单：</td>
+                                    <td>
+                                        <input type="checkbox" id="Confirm" name="Confirm"/>
+                                        <input type="hidden" name="OrderID" value="{$OrderInfo[OrderID]}" />(注：用于通过接口关闭道旅订单)
+                                        <input class="btn btn-danger" type="submit" name="submit" value="关闭">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <form action='/index.php?Module=HotelOrder&Action=Details'  method='post'  enctype="multipart/form-data">
+                                <tbody>
+                                <tr>
+                                    <td width="150px" class="t-r">备注：</td>
+                                    <td>
+                                        <div class="col-sm-4">
+                                            <textarea type="text" name="Remark" class="form-control" rows="2">{$OrderInfo[Remark]}</textarea>
+                                            <input type="hidden" name="OrderID" value="{$OrderInfo[OrderID]}" />
+                                        </div><br>
+                                        <input class="btn btn-danger" type="submit" name="submit" value='保存'/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                        {/if}
+                        <tr>
+                            <td height="35" width="500px"> <a class="right"  href="/index.php?Module=HotelOrder&Action=Lists">返回列表</a></td>
+                        </tr>
+                    </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{template Foot}-->

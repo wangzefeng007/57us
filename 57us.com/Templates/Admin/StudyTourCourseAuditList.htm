@@ -1,0 +1,106 @@
+{template Head}
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-12">
+			<!--breadcrumbs start -->
+			<ul class="breadcrumb panel">
+				<li>
+					<a href="#"><i class="fa fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">课程审核管理</a>
+				</li>
+				<li>
+					<a href="/index.php?Module=StudyTour&Action=CourseAuditList" class="active">教师课程审核列表</a>
+				</li>
+				<span class="position hidden">课程审核管理</span>
+			</ul>
+			<!--breadcrumbs end -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel breadcrumb">
+				<div class="panel-body">
+					<form class="form-inline" role="form" action="/index.php?Module=StudyTour&Action=CourseAuditList" method="GET">
+						<input type="hidden" name="Module" value="StudyTour">
+						<input type="hidden" name="Action" value="CourseAuditList">
+					<span style="float: left;line-height: 36px;margin-left: -10px;padding-right: 10px">课程：</span>
+					<input type="text" class="form-control" name="Title" placeholder="课程ID/课程名称" value="{$Title}" style="width:300px;">
+					&nbsp;&nbsp;课程类型：
+					<select  style="width:200px;" name="CourseType" id="CourseType" class="form-control">
+						<option value="0" {if $CourseType == 0}selected="selected"{/if}>请选择状态</option>
+						<option value="1" {if $CourseType == 1}selected="selected"{/if}>雅思</option>
+						<option value="2" {if $CourseType == 2}selected="selected"{/if}>托福</option>
+						<option value="3" {if $CourseType == 3}selected="selected"{/if}>SAT</option>
+						<option value="4" {if $CourseType == 4}selected="selected"{/if}>ACT</option>
+						<option value="5" {if $CourseType == 5}selected="selected"{/if}>GAMT</option>
+						<option value="6" {if $CourseType == 6}selected="selected"{/if}>GRE</option>
+						<option value="7" {if $CourseType == 7}selected="selected"{/if}>PTE</option>
+					</select>
+					&nbsp;&nbsp;审核状态：
+						<select  style="width:200px;" name="Status" id="Status" class="form-control">
+							<option value="0" {if $Status == 0}selected="selected"{/if}>请选择状态</option>
+							<option value="1" {if $Status == 1}selected="selected"{/if}>提交审核</option>
+							<option value="2" {if $Status == 2}selected="selected"{/if}>审核失败</option>
+							<option value="3" {if $Status == 3}selected="selected"{/if}>上架</option>
+							<option value="4" {if $Status == 4}selected="selected"{/if}>下架</option>
+							<option value="5" {if $Status == 5}selected="selected"{/if}>删除</option>
+						</select>
+						<button class="btn btn-info">搜索</button>
+					</form>
+				</div>
+				<section id="unseen">
+					<table class="table table-bordered table-striped table-condensed">
+						<thead>
+						<tr>
+							<th>课程ID</th>
+							<th>课程名称</th>
+							<th>课程类型</th>
+							<th>类型</th>
+							<th>班级价格</th>
+							<th>审核状态</th>
+							<th>教师姓名</th>
+							<th>操作</th>
+						</tr>
+						</thead>
+						<tbody>
+						{loop $Data['Data'] $lists}
+						<tr height="35" align="center">
+							<td>{$lists[CourseID]}</td>
+							<td>{$lists[CourseName]}</td>
+							<td>{$Type[$lists[CourseType]]}</td>
+							<td>{$TeachType[$lists[TeachType]]}</td>
+							<td>{$lists[CoursePrice]}元</td>
+							<td>{$Statu[$lists[Status]]}</td>
+							<td>{$lists[TeacherName]}</td>
+							<td>&nbsp;<a href="/index.php?Module=StudyTour&Action=CourseAuditDetail&ID={$lists[CourseID]}">操作</a>
+						</tr>
+						{/loop}
+						</tbody>
+					</table>
+					<form action="/index.php?Module=StudyTour&Action=CourseAuditList{$PageUrl}" method="POST">
+						<div class="text-center">
+							<ul class="pagination" data-id="{$Page}">
+								<li><a href="/index.php?Module=StudyTour&Action=CourseAuditList&Page=1{$PageUrl}">首页</a></li>
+								{if $Previous}
+								<li><a href="/index.php?Module=StudyTour&Action=CourseAuditList&Page={$Previous}{$PageUrl}">上一页</a></li>
+								{/if}
+								{loop $Data[PageNums] $page}
+								<li><a href="/index.php?Module=StudyTour&Action=CourseAuditList&Page={$page}{$PageUrl}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+								{/loop}
+								{if $Next}
+								<li><a href="/index.php?Module=StudyTour&Action=CourseAuditList&Page={$Next}{$PageUrl}">下一页</a></li>
+								{/if}
+								<li><a href="/index.php?Module=StudyTour&Action=CourseAuditList&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+								<span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+								<button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+							</ul>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+{template Foot}

@@ -1,0 +1,26 @@
+[
+  {
+    "DemandName": "办理签证",
+    "EnName": "visa",
+    "img": null,
+    "Description": "签证(Visa)是一国政府机关依照本国法律规定为申请入出或通过本国的外国人颁发的一种许可证明。"
+  },
+  {
+    "DemandName": "办理保险",
+    "EnName": "insure",
+    "img": null,
+    "Description": "从经济角度看，保险是分摊意外事故损失的一种财务安排。"
+  },
+  {
+    "DemandName": "买wifi",
+    "EnName": "wifi",
+    "img": null,
+    "Description": "无线网络上网可以简单的理解为无线上网，几乎所有智能手机、平板电脑和笔记本电脑都支持无线保真上网，是当今使用最广的一种无线网络传输技术。"
+  },
+  {
+    "DemandName": "购买机票",
+    "EnName": "FlightTicket",
+    "img": null,
+    "Description": "机票（Flight Ticket）即飞机票，它是人们乘坐飞机的一种凭证。"
+  }
+]

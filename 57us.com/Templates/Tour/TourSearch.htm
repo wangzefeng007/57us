@@ -1,0 +1,214 @@
+{template 'Common/TourTop',1}
+<link href="{echo CssURL}/tour/touline.css" rel="stylesheet" type="text/css" />
+    <div class="w1200 TourLocation">您当前位置：
+        <a href="{echo WEB_TOUR_URL}">首页</a><span>&gt;</span>
+        <span class="Position">搜索<em class="red">“{$SearchKeyWords}”</em>结果</span>
+</div>
+    <div class="w1200 cf">
+        <div class="SlideLeft fl" style="background: none;">
+        {template HeaderTagNav}
+            {if $Count==1}
+            <div class="seachNoBox ">
+                <div class="Nosearch" id="Nosearch">
+                    <em class="f20 c9">sorry，没有找到“{$SearchKeyWords}”相关的内容！</em><br><em class="c9 f16">不妨让旅行顾问为你<a href="/dingzhi/#/question/" target="_blank">高端定制</a></em>
+                </div>
+            </div>
+            {/if}
+            {if !($HomeRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox cf">
+                <p class="sutit">
+                    {if $Count==1}<a href="/group/home/" class="more fr" target="_blank">全部国内参团 ></a>{else}{if count($HomeList)>2}<a href="{echo WEB_TOUR_URL}/group/home/{$SoWhere}" class="more fr" target="_blank">更多国内参团 ></a>{/if}{/if}
+                    <a class="name" href="/group/home/" target="_blank">国内参团{if $Count==1}推荐{/if}</a>
+                </p>
+                <ul class="TourLineList" id="TourLineList">
+                    {loop $HomeList $lists}
+                    <li>
+                        <div class="ListLeft">
+                            <p class="tit"><a href="{$lists[TourUrl]}" title="{$lists[Tour_name]}" target="_blank">{$lists[Tour_name]}</a></p>
+                            <div class="img">
+                                <span data-id="{$lists[TourRecommend]}" id="Recommend" {if $lists[TourRecommend]==1}class="HotTj1"{/if}></span>
+                                <a href="{$lists[TourUrl]}" title="{$lists[Tour_name]}" target="_blank">
+                                    <img src="{$lists[TourImg]}" class="transition" width="200" height="150"/>
+                                </a>
+                                <div class="TourLineFun">
+                                    <a href="javascript:void(0)" class="_MustLogin" id="collection" data-type="4" data-id="{$lists[TourID]}"><i class="i1"></i>收藏</a>|<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=280612744&amp;site=qq&amp;menu=yes" target="_blank"><i class="i2"></i>在线咨询</a>
+                                </div>
+                            </div>
+                            <p class="where"><span class="startcitytext">出发：{$lists[TourStartCity]}</span></p>
+                            <p class="ListService mt15">{$lists[TourService]}</p>
+                            <div class="ListIns mt15">{$lists[TourDepict]}</div>
+                        </div>
+                        <div class="ListRight">
+                            <p class="f16">行程天数：<span>{$lists[TouStroke]}天</span></p>
+                            <p class="nprcie f18 mt10">￥<span>{$lists[TourPicre]}</span><i class="f14">/人起</i></p>
+                            <p class="oldprice f12 mt10">原价：￥{$lists[TourCostPrice]}</p>
+                            <a href="{$lists[TourUrl]}" class="CheckMore transition mt15">查看详情</a>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($LocalRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox cf">
+                <p class="sutit">
+                    {if $Count==1}<a href="/group/local/" class="more fr" target="_blank">全部当地参团 ></a>{else}{if count($LocalList)>2}<a href="{echo WEB_TOUR_URL}/group/local/{$SoWhere}" class="more fr" target="_blank">更多当地参团 ></a>{/if}{/if}
+                    <a class="name" href="/group/local/" target="_blank">当地参团{if $Count==1}推荐{/if}</a>
+                </p>
+                <ul class="TourLineList" id="TourLineList">
+                    {loop $LocalList $lists}
+                    <li>
+                        <div class="ListLeft">
+                            <p class="tit"><a href="{$lists[TourUrl]}" title="{$lists[Tour_name]}" target="_blank">{$lists[Tour_name]}</a></p>
+                            <div class="img">
+                                <span data-id="{$lists[TourRecommend]}" id="Recommend" {if $lists[TourRecommend]==1}class="HotTj1"{/if}></span>
+                                <a href="{$lists[TourUrl]}" title="{$lists[Tour_name]}" target="_blank">
+                                    <img src="{$lists[TourImg]}" class="transition" width="200" height="150"/>
+                                </a>
+                                <div class="TourLineFun">
+                                    <a href="javascript:void(0)" class="_MustLogin" id="collection" data-type="4" data-id="{$lists[TourID]}"><i class="i1"></i>收藏</a>|<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=280612744&amp;site=qq&amp;menu=yes" target="_blank"><i class="i2"></i>在线咨询</a>
+                                </div>
+                            </div>
+                            <p class="where"><span class="startcitytext">出发：{$lists[TourStartCity]}</span></p>
+                            <p class="ListService mt15">{$lists[TourService]}</p>
+                            <div class="ListIns mt15">{$lists[TourDepict]}</div>
+                        </div>
+                        <div class="ListRight">
+                            <p class="f16">行程天数：<span>{$lists[TouStroke]}天</span></p>
+                            <p class="nprcie f18 mt10">￥<span>{$lists[TourPicre]}</span><i class="f14">/人起</i></p>
+                            <p class="oldprice f12 mt10">原价：￥{$lists[TourCostPrice]}</p>
+                            <a href="{$lists[TourUrl]}" class="CheckMore transition mt15">查看详情</a>
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($FeatureRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox cf" style="background: none;">
+                <p class="sutit">
+                    {if $Count==1}<a href="/play/feature/" class="more fr" target="_blank">全部特色体验 ></a>{else}{if count($FeatureList)>2}<a href="{echo WEB_TOUR_URL}/play/feature/{$SoWhere}" class="more fr" target="_blank">更多特色体验 ></a>{/if}{/if}
+                    <a class="name" href="/play/feature/" target="_blank">特色体验{if $Count==1}推荐{/if}</a>
+                </p>
+                <ul class="ChacList cf">
+                    {loop $FeatureList $lists}
+                    <li>
+                        <a href="{$lists[TourUrl]}" target="_blank">
+                            <p class="img"><img src="{$lists[TourImg]}" title="{$lists[Tour_name]}"></p>
+                            <p class="destination f16"><span class="startcitytext">出发地：{$lists[TourEndCity]}</span></p>
+                            <p class="tit" title="{$lists[Tour_name]}">{$lists[Tour_name]}</p>
+                            <p class="c9 playDate ">游玩时间：{$lists[TouDate]}</p>
+                            <p class="cf price">
+                                <span class="nowPrice"><em>￥</em><i>{$lists[TourPicre]}</i>起</span>
+                                <span class="oldPrice c9">￥{$lists[TourCostPrice]}</span>
+                            </p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($DailyRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox cf" style="background: none;">
+                <p class="sutit">
+                    {if $Count==1}<a href="/play/daily/" class="more fr" target="_blank">全部一日游 ></a>{else}{if count($DailyList)>2}<a href="{echo WEB_TOUR_URL}/play/daily/{$SoWhere}" class="more fr" target="_blank">更多一日游 ></a>{/if}{/if}
+                    <a class="name" href="/play/daily/" target="_blank">一日游{if $Count==1}推荐{/if}</a>
+                </p>
+                <ul class="ChacList">
+                    {loop $DailyList $lists}
+                    <li>
+                        <a href="{$lists[TourUrl]}" target="_blank">
+                            <p class="img"><img src="{$lists[TourImg]}" title="{$lists[Tour_name]}"></p>
+                            <p class="destination f16"><span class="startcitytext">出发地：{$lists[TourEndCity]}</span></p>
+                            <p class="tit" title="{$lists[Tour_name]}">{$lists[Tour_name]}</p>
+                            <p class="c9 playDate ">游玩时间：{$lists[TouDate]}</p>
+                            <p class="cf price">
+                                <span class="nowPrice"><em>￥</em><i>{$lists[TourPicre]}</i>起</span>
+                                <span class="oldPrice c9">￥{$lists[TourCostPrice]}</span>
+                            </p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($TicketRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox cf" style="background: none;">
+                <p class="sutit">
+                    {if $Count==1}<a href="/play/ticket/" class="more fr" target="_blank">全部门票 ></a>{else}{if count($TicketList)>2}<a href="{echo WEB_TOUR_URL}/play/ticket/{$SoWhere}" class="more fr" target="_blank">更多门票 ></a>{/if}{/if}
+                    <a class="name" href="/play/ticket/" target="_blank">门票{if $Count==1}推荐{/if}</a>
+                </p>
+                <ul class="ChacList cf">
+                    {loop $TicketList $lists}
+                    <li>
+                        <a href="{$lists[TourUrl]}" target="_blank">
+                            <p class="img"><img src="{$lists[TourImg]}" title="{$lists[Tour_name]}"></p>
+                            <p class="destination f16"><span class="startcitytext">出发地：{$lists[TourEndCity]}</span></p>
+                            <p class="tit" title="{$lists[Tour_name]}">{$lists[Tour_name]}</p>
+                            <p class="c9 playDate ">游玩时间：{$lists[TouDate]}</p>
+                            <p class="cf price">
+                                <span class="nowPrice"><em>￥</em><i>{$lists[TourPicre]}</i>起</span>
+                                <span class="oldPrice c9">￥{$lists[TourCostPrice]}</span>
+                            </p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($HotelRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox cf" style="background: none;">
+                <p class="sutit">
+                    {if $Count==1}<a href="{echo WEB_HOTEL_URL}" class="more fr" target="_blank">全部酒店 ></a>{else}{if count($HotelList)>2}<a href="{echo WEB_HOTEL_URL}/hotel/hotelsearchlist/{$SoWhere}" class="more fr" target="_blank">更多酒店 ></a>{/if}{/if}
+                    <a class="name" href="{echo WEB_HOTEL_URL}" target="_blank">酒店{if $Count==1}推荐{/if}</a>
+                </p>
+                <ul class="hoteList cf">
+                    {loop $HotelList $lists}
+                    <li>
+                        <a href="{echo WEB_HOTEL_URL}/hotel/{$lists[HotelID]}.html" target="_blank" title="{$lists[Name_Cn]}">
+                            <img src="{if $lists['Image']}{echo ImageURLP2}{$lists['Image']}{else}http://images.57us.com/img/common/loadpic.jpg{/if}" title="{$lists[Name_Cn]}">
+                            <p class="tit" title="{$lists[Name_Cn]}">{$lists[Name_Cn]}</p>
+                            <p class="cf other mt10">
+                                <span class="fl c9"><i class="mapIco"></i>{$lists[CityCame_Cn]}</span>
+                                <span class="nowPrice fr"><em>￥</em><i>{echo intval($lists[LowPrice])}</i>起</span>
+                            </p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+            {if !($VisaRscount['Num']==0 && $Count!=1)}
+            <div class="seachHasBox cf" style="background: none;">
+                <p class="sutit">
+                    {if $Count==1}<a href="{echo WEB_VISA_URL}/visa/lists/" class="more fr" target="_blank">全部签证 ></a>{else}{if count($VisaList)>2}<a href="{echo WEB_VISA_URL}/visa/lists/{$SoWhere}" class="more fr" target="_blank">更多签证 ></a>{/if}{/if}
+                    <a class="name" href="{echo WEB_VISA_URL}/visa/lists/" target="_blank">签证{if $Count==1}推荐{/if}</a>
+                </p>
+                <ul class="hoteList cf">
+                    {loop $VisaList $lists}
+                    <li>
+                        <a href="{echo WEB_VISA_URL}/visadetail/{$lists[VisaID]}.html" target="_blank" title="{$lists[Title]}">
+                            <img src="{echo ImageURLP2}{$lists[Image]}" title="{$lists[Title]}">
+                            <p class="tit" title="{$lists[Title]}">{$lists[Title]}</p>
+                            <p class="cf other mt10">
+                                <span class="nowPrice fl"><em>￥</em><i>{echo intval($lists[PresentPrice])}</i>起</span>
+                            </p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            {/if}
+        </div>
+        <div class="SlideRight mt30 fr">
+            {loop $TourSearchADLists $lists}
+            <div class="tourRad">
+                <a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP4}{$lists[Picture]}" class="transition " width="100%"/></a>
+            </div>
+            {/loop}
+        </div>
+    </div>
+</div>
+{template Footer}
+</body>
+</html>

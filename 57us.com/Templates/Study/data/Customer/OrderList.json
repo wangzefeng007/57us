@@ -1,0 +1,66 @@
+{
+  "ResultCode": 200,
+  "RecordCount": "233",
+  "PageSize": 8,
+  "PageCount": 39,
+  "Page": 1,
+  "BackPage":1,
+  "NextPage": 2,
+  "LastPage": 39,
+  "PageNums": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6
+  },
+  "OrderList": [
+    {
+      "Id":"123", //订单ID
+      "OrderId":"22545465464625", //订单号
+      "OrderDate":"2016-10-14", //订单日期
+      "OrderNameImg":"http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg", //订单服务用户头
+      "OrderUrl":"/consultantmanage/myorderdetails", //查看详情url
+      "OrderName":"111学生姓名", //订单用户姓名
+      "OrderTrainSubject":"雅思", //订单培训科目
+      "OrderCoursePrice":"课程价格", //订单课程价格
+      "OrderCourseNum":"20", //订单课程购买数量
+      "OrderImg":"http://images.57us.com/p8/up/2016/0928/201609281606086704.jpg", //订单服务头像
+      "OrderServiceName":"23333", //订单服务名称
+      "OrderPrice":"20000", //订单总价格
+      "OrderWhetherPay":"已支付", //订单是否支付
+      "OrderPayment":"在线支付" //订单支付方式
+    },{
+      "Id":"123",
+      "OrderId":"22545465464625",
+      "OrderDate":"2016-10-14",
+      "OrderNameImg":"http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "OrderUrl":"/consultantmanage/myorderdetails",
+      "OrderName":"111学生姓名",
+      "OrderTrainSubject":"雅思",
+      "OrderCoursePrice":"课程价格",
+      "OrderCourseNum":"20",
+      "OrderImg":"http://images.57us.com/p8/up/2016/0928/201609281606086704.jpg",
+      "OrderServiceName":"23333",
+      "OrderPrice":"20000",
+      "OrderWhetherPay":"已支付",
+      "OrderPayment":"在线支付"
+    },{
+      "Id":"123",
+      "OrderId":"22545465464625",
+      "OrderDate":"2016-10-14",
+      "OrderNameImg":"http://member.57us.com/Uploads/Member/20160722/14691853206658.jpeg",
+      "OrderUrl":"/consultantmanage/myorderdetails",
+      "OrderName":"111学生姓名",
+      "OrderTrainSubject":"雅思",
+      "OrderCoursePrice":"课程价格",
+      "OrderCourseNum":"20",
+      "OrderImg":"http://images.57us.com/p8/up/2016/0928/201609281606086704.jpg",
+      "OrderServiceName":"23333",
+      "OrderPrice":"20000",
+      "OrderWhetherPay":"已支付",
+      "OrderPayment":"在线支付"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb panel">
+            <li>
+                <a href="#"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="#">旅游产品管理</a>
+            </li>
+            <li>
+                <a href="/index.php?Module=TourPlay&Action=TourPlayList">当地玩乐管理</a>
+            </li>
+            <li class="active">编辑产品</li>
+        </ul>
+        <span class="hidden position">当地玩乐管理</span>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-body special-details" style="padding-bottom: 0px">
+                {if $TourProductID || $ProductSkuID}
+                <input class="{if $_GET[Action]=='Add'}btn btn-info{else}btn btn-default{/if}" type="button" value="产品详息"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourPlay&Action=Add&TourProductID={$TourProductID}'">
+                <input class="{if $_GET[Action]=='SetPlayDescription'}btn btn-info{else}btn btn-default{/if}" type="button" value="产品介绍"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourPlay&Action=SetPlayDescription&TourProductID={$TourProductID}'">
+                <input class="{if $_GET[Action]=='SetPlayBookingPolicy'}btn btn-info{else}btn btn-default{/if}" type="button" value="预订须知"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourPlay&Action=SetPlayBookingPolicy&TourProductID={$TourProductID}'">
+                <input class="{if $_GET[Action]=='SetPlayConsumerNotice'}btn btn-info{else}btn btn-default{/if}" type="button" value="消费须知"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourPlay&Action=SetPlayConsumerNotice&TourProductID={$TourProductID}'">
+                <input class="{if $_GET[Action]=='SetPlayVisaInformation'}btn btn-info{else}btn btn-default{/if}" type="button" value="费用说明"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourPlay&Action=SetPlayVisaInformation&TourProductID={$TourProductID}'">
+                <input class="{if $_GET[Action]=='SetPlayTimeline'}btn btn-info{else}btn btn-default{/if}" type="button" value="时间轴管理"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourPlay&Action=SetPlayTimeline&TourProductID={$TourProductID}'">
+                <input class="{if $_GET[Action]=='TourProductPlayImages'}btn btn-info{else}btn btn-default{/if}" type="button" value="图片管理"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourPlay&Action=TourProductPlayImages&TourProductID={$TourProductID}'">
+                <input class="{if $_GET[Action]=='TourProductPlaySkuList' || $ProductSkuID}btn btn-info{else}btn btn-default{/if}" type="button" value="SKU管理"
+                       onclick="javascrtpt:window.location.href='/index.php?Module=TourPlay&Action=TourProductPlaySkuList&TourProductID={$TourProductID}'">
+                {/if}
+            </div>

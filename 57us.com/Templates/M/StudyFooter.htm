@@ -1,0 +1,18 @@
+<nav class="bar bar-tab fixBottom">
+	<a class="tab-item external {if $Nav == 'Index'}active{/if}" href="{echo WEB_M_URL}/study/index/">
+		<i class="icon iconfont">&#xe6b4;</i>
+		<span class="tab-label">首页</span>
+	</a>
+	<a class="tab-item external {if $Nav == 'ConsultantList'}active{/if}" href="{echo WEB_M_URL}/study/consultantlist/">
+		<i class="icon iconfont">&#x3492;</i>
+		<span class="tab-label">找顾问</span>
+	</a>
+	<a class="tab-item external {if $Nav == 'StudyTourList'}active{/if}" href="{echo WEB_M_URL}/study/studytourlist/">
+		<i class="icon iconfont icon-boshimao1"></i>
+		<span class="tab-label">去游学</span>
+	</a>
+	<a class="tab-item external {if $Nav == 'MyCenterDaitle'}active{/if}" href="javascript:void(0)" id="MyInfo" data-type="{if $_SESSION['UserID']}1{else}0{/if}">
+		<i class="icon iconfont">&#xe606;</i>
+		<span class="tab-label">我的</span>
+	</a>
+</nav>

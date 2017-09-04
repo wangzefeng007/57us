@@ -1,0 +1,122 @@
+{template StudyTop}
+<link rel="stylesheet" href="/Plugins/fonts/mobile/iconfont.css">
+<link href="{echo CssURL}/bbs/study/style.css" rel="stylesheet" type="text/css"/>
+<div class="w1200 BbsLocation">您当前位置：
+	<a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+	<a href="{echo WEB_STUDY_URL}/ask/">问答专区</a><span>&gt;</span><a href="{echo WEB_STUDY_URL}/ask/section?id={$AskCategoryInfo['AskCategoryID']}">{$AskCategoryInfo['AskCategoryName']}</a><span>&gt;</span><span class="Position"> 问题详情</span></div>
+<div class="w1200 cf">
+
+	<!--分享描述-->
+	<span data-cmd='depict' class="hidden"></span>
+	<!--
+        作者：xiao15980751809@126.com
+        时间：2016-12-27
+        描述：固定问题跟功能
+    -->
+	<input type="hidden" name="AskId" id="AskId" value="{$AskInfo[AskID]}">
+	<div class="transition fixedFun">
+		<a href="JavaScript:void(0)" class="fr bradius comeAsk myReply">回答</a>
+		<a href="JavaScript:void(0)" class="fr bradius red askshare"><i class="icon iconfont icon-fenxiang"></i>分享</a>
+		<a href="javascript:void(0)" class="fr bradius red {if !$_SESSION['UserID']}_MustLogin{else}AskAttention{/if}" {if !$_SESSION['UserID']}data-type="tc_login"{/if}><i class="icon iconfont {if $AskInfo[IsCollection]}icon-ok{else}icon-start{/if}"></i>{if $AskInfo[IsCollection]}已关注{else}关注{/if}</a>
+		<span class="fl f16 pl10 tit">问题：{echo mb_substr($AskInfo['AskInfo'], 0, 25, 'utf-8')}</span>
+	</div>
+	<div class="w900 fl">
+		<div class="cf proDetailBox">
+			<div class="proDetailHead cf">
+				<span class="time fr">{echo date("Y-m-d H:i:s",$AskInfo['AddTime'])}</span>
+				<p class="fl user"><img src="{echo ImageURLP2}{$UserInfo['Avatar']}" width="36" height="36">{$UserInfo['NickName']}{if $UserInfo['Identity']!=1}<span class="compeTip {if $UserInfo['Identity']== 4}redtip{elseif $UserInfo['Identity'] == 3 || $UserInfo['Identity']== 2}bluetip{/if}">{$UserInfo['IdentityName']}</span>{/if}</p>
+			</div>
+			<h1 class="prodetailCont mt15">{$AskInfo['AskInfo']}</h1>
+			<p class="tip mt15 cf">
+				{loop $AskInfo['Tags'] $key $val}
+				<a href="/ask/topic?id={$val[TagID]}" class="bradius">{$val['TagName']}</a>
+				{/loop}
+			</p>
+			<div class="mt5 bradius proDetailBottom">
+				<a href="JavaScript:void(0)" class="fr comeAsk myReply">我来回答</a>
+				<p class="fr funDiv">
+					<a href="JavaScript:void(0)" class="askshare"><i class="icon iconfont icon-fenxiang"></i>分享</a>|
+					<a href="JavaScript:void(0)" class="{if !$_SESSION['UserID']}_MustLogin{else}AskAttention{/if} {if $AskInfo[IsCollection]}on{/if}" {if !$_SESSION['UserID']}data-type="tc_login"{/if}"><i class="icon iconfont {if $AskInfo[IsCollection]}icon-ok{else}icon-start{/if}"></i>{if $AskInfo[IsCollection]}已关注{else}关注{/if}</a>
+				</p>
+				<p class="otherFun fl">
+					<span><i class="icon iconfont icon-yanjing"></i>{$AskInfo['BrowseNum']}次浏览</span>
+					<span><i class="icon iconfont icon-start"></i><span class="AskAttentionNum" style="margin: 0!important;">{$AskInfo[FollowNum]}</span>人关注</span>
+					<span><i class="icon iconfont icon-iconfont02"></i>{$AskInfo['AnswerNum']}人回答</span>
+				</p>
+			</div>
+		</div>
+		<ul class="appendManList">
+			{if $Data['Data']}
+			{loop $Data['Data'] $key $val}
+			<li>
+				<img src="{echo ImageURLP2}{$val['Avatar']}" width="36" height="36">
+				<p class="tit">{$val['NickName']}{if $val['Identity']!=1}<span class="compeTip {if $val['Identity']== 4}redtip{elseif $val['Identity'] == 3 || $val['Identity']== 2}bluetip{/if}">{$val['IdentityName']}</span>{/if}</p>
+				<p class="nr">{$val['AnswerInfo']}
+				</p>
+				<p class="mt5 cf">
+					<a class="fr zan AskZan" href="JavaScript:void(0)" data-id="{$val[AnswerID]}"><i class="icon iconfont icon-zan"></i><em class="AskZanNum">{$val[PraiseNum]}</em></a>
+					<span class="time fl">{$val['NowTime']}</span>
+				</p>
+			</li>
+			{/loop}
+			{/if}
+		</ul>
+		{if $Data['PageCount'] > 1}
+		<div class="page mt35" id="Page2">
+			<form action="" method="GET">
+				{$Listpage}
+				<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button"  name="" id="" value="确定" class="PageBtn" /></div>
+			</form>
+		</div>
+		{/if}
+		<input type="hidden" id="AskPageCount" name="AskPageCount" value="{$Data['PageCount']}">
+		<input type="hidden" id="AskGoPageUrl" name="AskGoPageUrl" value="{$GoPageUrl}">
+	</div>
+	<div class="w280 fr SlideRight">
+		{template AskMode}
+		<ul class="adW280 adList">
+		</ul>
+		<ul class="adW280">
+			{loop $StudyAskADLists $lists}
+			<li>
+				<a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP4}{$lists[Picture]}" width="280" /></a>
+			</li>
+			{/loop}
+		</ul>
+		<div class="relatePro mt5">
+			<p class="mainTit">
+				<span class="name fl">热门问题</span>
+			</p>
+			<ul class="relateList">
+				{loop $HotAsks $key $val}
+				<li>
+					<a href="/ask_section/{$val['AskID']}.html" target="_blank">{$val['AskInfo']}</a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="hotTopic mt5">
+			<p class="mainTit">
+				<a href="javascript:void (0)" class="changeChan fr" id="changeTags" data-type="2">换一换<i class="icon iconfont icon-shuaxin"></i></a>
+				<span class="name fl">人气话题</span>
+			</p>
+			<div class="hotTopicM cf" id="changeChanHtml">
+				{loop $HotTagList $lists}
+				<a href="/ask/topic?id={$lists[TagID]}" class="bradius" title="{$lists['TagName']}" target="_blank">{$lists['TagName']}</a>
+				{/loop}
+			</div>
+		</div>
+		<div class="wxShare mt20">
+			<img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99">
+			<p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+		</div>
+	</div>
+</div>
+{template Footer}
+<!--留学公用js-->
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<!--问答公用js-->
+<script type="text/javascript" src="{echo JsURL}/bbs/study/AskPublic.js"></script>
+<script type="text/javascript" src="{echo JsURL}/bbs/study/AskDetail.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{template StudyHeader}
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav diybar">
+            <h1 class="title">订单详情</h1>
+            <a class="pull-left back external" href="javascript:window.history.back();"><i class="icon iconfont icon-Left"></i></a>
+        </header>
+        {if $OrderInfo[Status]==1}
+        <div class="bar bar-tab fixFun">
+            <p class="pull-left">
+                需付定金：
+                <span class="nPrice"><em>￥</em>{$OrderInfo[Money]}</span></p>
+            <a href="{echo WEB_M_URL}/studytourorder/{$OrderInfo['OrderNum']}.html" class="pull-right payMone">立即付款</a>
+        </div>
+        {elseif $OrderInfo[Status]==10}
+        <div class="bar bar-tab detailB">
+            <a href="{echo WEB_M_URL}/study/studytourlist" class="button button-fill againBtn hidden">重新购买</a>
+        </div>
+        {elseif $OrderInfo[Status]==11}
+        <div class="bar bar-tab detailB">
+            <span class="noPro">该产品已下架</span>
+        </div>
+        {/if}
+        <div class="content">
+            {if $OrderInfo[Status]==1}
+            <div class="howTime">
+                订单支付剩余时间<div class="downBox settime"  endTime="{$OrderInfo[ExpirationTime]}" data-order="{$OrderInfo[OrderID]}" data-type="studytour"></div>
+            </div>
+            {/if}
+            <div class="orderDet">
+                <img src="{$OrderInfo[Image]}"/>
+                <p class="tit">{$OrderInfo[OrderName]}</p>
+                <p class="c9">出发日期：{$OrderInfo[GoDate]}</p>
+                <div class="c9">
+                    <p class="pull-left">
+                        总价：<span>￥{$OrderInfo[Money]}</span>
+                    </p>
+                    <p class="pull-right red">{$OrderStatus[$OrderInfo[Status]]}</p>
+                </div>
+            </div>
+            <div class="goman detaGoman mt10">
+                <div class="gomanT">
+                    <span class="name">出行人信息</span>
+                </div>
+                {loop $OrderInfo['TravelerInformation'] $key $lists}
+                <div class="cf manIns">
+                    <p class="sutit"><i class="icon iconfont icon-weibiaoti5"></i>出行人{echo $key+1}</p>
+                    <div class="row">
+                        <div class="col-50">姓名：{$lists['Name']}</div>
+                        <div class="col-50">是否有护照：{if $lists['PassPort']!=''}是{else}否{/if}</div>
+                        <div class="col-66">护照号：{$lists['PassPort']}</div>
+                    </div>
+                </div>
+                {/loop}
+            </div>
+            <div class="goman mt10">
+                <div class="gomanT">
+                    <span class="name">订单人信息</span>
+                </div>
+                <div class="contacDe row">
+                    订单人姓名：{$OrderInfo[Contact]}<br>
+                    订单人手机号：{$OrderInfo[Mobile]}<br>
+                    邮箱：{$OrderInfo[Email]}<br>
+                    购买留言：{$OrderInfo[Message]}
+                </div>
+            </div>
+            <div class="goman mt10">
+                <div class="gomanT">
+                    <span class="name">交易信息</span>
+                </div>
+                <div class="row">
+                    <div class="col-50">订单号：{$OrderInfo[OrderNum]}</div>
+                    <div class="col-50">下单时间：{echo date('Y-m-d',strtotime($OrderInfo[CreateTime]))}</div>
+                    <div class="col-50">定金金额：￥{$OrderInfo[Money]}</div>
+                    <div class="col-50">订单状态：{$OrderStatus[$OrderInfo[Status]]}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/tour/TourCountdown.js" charset='utf-8'></script>
+</body>
+</html>

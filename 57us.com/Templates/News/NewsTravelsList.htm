@@ -1,0 +1,157 @@
+{template Header}
+<div class="wrap">
+	{template Newstourmenu}
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" title="57美国网" target="_blank">首页</a>><a href="/tour/" title="旅游资讯" target="_blank">旅游资讯</a>><span>美国游记</span></div>
+    <div class="w1200 cf">
+    	<div class="TravelNoteSearch f16">
+    		<dl class="destination">
+    			<dt><i></i>热门目的地：</dt>
+    			<dd>
+    				<a href="{$MyUrl}{$DoneUrl[a][rmmdd]}{if $DoneUrl[a][rmmdd]}/{/if}" class="all {if !strstr($SoUrl,'_rmmdd')}on{/if}">不限</a>
+					{loop $Rmmdd $key $lists}
+						<a href="{$MyUrl}{$DoneUrl[a][rmmdd]}_rmmdd{$lists['CategoryID']}/" {if strstr($SoUrl,'_rmmdd'.$lists['CategoryID'])}class="on"{/if}>
+							{$lists[CategoryName]}
+						</a>
+					{/loop}
+    			</dd>
+    		</dl>
+    		<dl class="month">
+    			<dt><i></i>旅游月份：</dt>
+    			<dd>
+					<a href="{$MyUrl}{$DoneUrl[a][lyyf]}{if $DoneUrl[a][lyyf]}/{/if}" class="all {if !strstr($SoUrl,'_lyyf')}on{/if}">不限</a>
+					{loop $Lyyf $key $val}
+					<a href="{$MyUrl}{$DoneUrl[a][lyyf]}_lyyf{$key}/" {if strstr($SoUrl,'_lyyf'.$key)}class="on"{/if}>
+						{$val}
+					</a>
+					{/loop}
+    			</dd>
+    		</dl>
+    		<dl class="days">
+    			<dt><i></i>游记天数：</dt>
+    			<dd>
+					<a href="{$MyUrl}{$DoneUrl[a][yjts]}{if $DoneUrl[a][yjts]}/{/if}" class="all {if !strstr($SoUrl,'_yjts')}on{/if}">不限</a>
+					{loop $Days $key $val}
+					<a href="{$MyUrl}{$DoneUrl[a][yjts]}_yjts{$key}/" {if strstr($SoUrl,'_yjts'.$key)}class="on"{/if}>
+						{$val}
+					</a>
+					{/loop}
+    			</dd>
+    		</dl>
+    	</div>
+    </div>
+	{if 0 == 1}
+    <div class="w1200 GiftsTj  mt5 cf">
+    	<div class="TourBoxTitle">
+			<span class="name">精品推荐</span>
+		</div>
+		<ul class="TourFind">
+			{loop $AdHead $lists}
+			<li>
+				<a href="{$lists[Link]}" title="{$lists[Title]}"><img class="transition lazy" width="386" height="289" src="{echo ImageURLP4}{$lists[Picture]}" title="{$lists[Title]}" alt="{$lists[Title]}">
+					<p class="tit">{$lists[Title]}</p>
+				</a>
+			</li>
+			{/loop}
+		</ul>
+    </div>
+	{/if}
+    <div class="w1200 Travelnotes mt10 cf">
+    	<div class="NewsTourSlideL fl">
+			<ul class="NewsStudyList mt20">
+				{loop $Data[Data] $lists}
+				<li>
+					<span class="date">{$lists[AddTime]}</span>
+					<p class="tit"> <a href="/travels/{$lists[TravelsID]}.html" target="_blank" title="{$lists[Title]}">{$lists[Title]}</a></p>
+					<p class="nr mt10">{$lists[Description]}</p>
+					<div class="fun cf">
+						<span class="viewTip fr"><i></i>{$lists[ViewCount]}{if $lists[ViewCount]==''}0{/if}</span>
+						<span class="MapSend fr"><i></i>{$lists['CategoryName']}</span>
+                                                {if $lists[Keywords][0]!=''}
+						<p class="TourTip mt5 fl">{loop $lists[Keywords] $key $value}{if $key<2}<span><i></i><a href="/travels/tags_{$value}.html" target="_blank" title="{$value}">{$value}</a></span>{/if}{/loop}</p>
+                                                {/if}
+					</div>
+					{if $lists['ContentImage']}
+					<div class="ListImg1 mt15 fl">
+						{loop $lists['ContentImage'] $key $val}
+						{if $key < 3}
+						<a href="/travels/{$lists[TravelsID]}.html" target="_blank" title="{$lists[Title]}"><p><img class="transition lazy"  src="{if strpos($val,'http://')===false}{echo ImageURLP2}{/if}{$val}" alt="{$lists[Title]}" title="{$lists[Title]}" width="200" height="150" /></p></a>
+						{/if}
+						{/loop}
+					</div>
+					{/if}
+				</li>
+				{/loop}
+			</ul>
+			{if $Data['PageNums'] >1}
+			<div class="page mt50">
+				<a href="{if $Data[BackPage]}{$MyUrl}{$DoneUrl[p][Url]}_pa{$Data[BackPage]}/{else}javascript:;{/if}" class="prve">上一页</a>
+				{loop $Data[PageNums] $val}
+				<a href="{if $val==$Page}javascript:;{else}{$MyUrl}{$DoneUrl[p][Url]}_pa{$val}{/if}/" {if $val==$Page} class="on"{/if}>{$val}</a>
+				{/loop}
+				<a href="{if $Data[NextPage]}{$MyUrl}{$DoneUrl[p][Url]}_pa{$Data[NextPage]}/{else}javascript:;{/if}" class="next">下一页</a>
+				<div class="GoPage">到 <input type="" name="" id="gopage" value="" class="input" /> 页 <input type="button" name="" id="" value="确定" class="PageBtn" /></div>
+			</div>
+			{/if}
+		</div>
+    	<div class="NewsTourSlideR fr">
+			{loop $AdHotel $key $lists}
+			{if $key==0}
+			<div class="TourAd mt20"><a href="{$lists[Link]}" target="_blank" title="{$lists[Title]}"><img class="transition lazy"  src="{echo ImageURLP4}{$lists[Picture]}" title="{$lists[Title]}" alt="{$lists[Title]}" width="100%" /></a></div>
+			{/if}
+			{/loop}
+			<ul class="TjTourList">
+				{loop $AdTour $key $lists}
+				{if $key<2}
+				<li>
+					<a href="{$lists[Link]}" target="_blank" title="{$lists[Title]}">
+						<p><img class="transition lazy"  src="{echo ImageURLP4}{$lists[Picture]}" alt="{$lists[Title]}" title="{$lists[Title]}" width="320" height="208"/></p>
+						<p class="tit">{$lists[Title]}</p>
+					</a>
+				</li>
+				{/if}
+				{/loop}
+			</ul>
+                        {template TagsCloud}
+			<div class="HotTip cf mt25">
+				<div class="HotTipT"><i></i>热门标签</div>
+				<div class="HotTipM">
+					{loop $Keyhot $lists}<a href="/travels/tags_{$lists['Keyword']}.html" title="{$lists['Keyword']}" target="_blank">{$lists['Keyword']}</a>{/loop}
+				</div>
+			</div>
+			<div class="NowNews mt25">
+				<div class="HotTipT"><i></i>热门游记</div>
+				<ul class="NewsList">
+					{loop $Travelshot $lists}<li {if $lists[key]==1}class="i1"{elseif $lists[key]==2}class="i2"{elseif $lists[key]==3}class="i3"{/if}><a href="/travels/{$lists[TravelsID]}.html" target="_blank" title="{$lists[Title]}"><i>{$lists[key]}</i>{$lists[Title]}</a></li>{/loop}
+				</ul>
+			</div>
+                        <div class="NowNews LikeNews mt25">
+				<div class="HotTipT"><i></i>猜你喜欢</div>
+				<ul class="NewsList">
+					{loop $TourLike $key $lists}
+					<li><a href="/travels/{$lists[TravelsID]}.html" target="_blank" title="{$lists[Title]}"><i>{echo $key+1}</i>{$lists[Title]}</a></li>
+					{/loop}
+				</ul>
+			</div>                              
+		</div>
+    </div>
+	<script>
+		$(".PageBtn").click(function(){
+			var gopage = $("#gopage").val();
+			var lastpage = {$Data['PageCount']};
+			if(!gopage){
+				alert("请输入页码");return false;
+			}
+			if( lastpage < gopage ){
+				alert("您输入的页码超过最大页数");return false;
+			}
+			var gourl = '{$MyUrl}{$DoneUrl[p][Url]}';
+			window.location.href=gourl+'_pa'+gopage+'/';
+			return false;
+		});
+	</script>
+	{template Footer}

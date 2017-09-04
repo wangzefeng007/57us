@@ -1,0 +1,78 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">会员中心管理</a>
+        </li>
+        <li class="active">站内信管理</li>
+        <span class="position hidden">站内信管理</span>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+        
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+          <!--{template TourNewsTop}-->
+        <div class="panel-body">
+          <form action='/index.php?Module=MemberUser&Action=SaveMessage'  method='post'>
+            <table class="table table-bordered table-striped table-hover">
+              <tbody>
+              <tr>
+                <td class="t-r">标题：</td>
+                <td>
+                  <div class="col-lg-4">
+                      <input type="text" name="Title" value="{$Data[Title]}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">发送对象：</td>
+                <td>
+                  <div class="col-lg-2">
+                      <select class="form-control" name="SendType" id="SendType">
+                          <!--{loop $SendType $key $val}-->
+                          <option value="{$key}" {if $Data[SendType]== $key }selected="selected"{/if}>
+                          &nbsp;&nbsp;{$val}
+                          </option>
+                          <!--{/loop}-->
+                        </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">内容:</td>
+                <td>
+                  <div class="col-lg-2">
+                     <textarea name="Content" cols="80" rows="5">{$Data[Content]}</textarea>
+                  </div>
+                </td>
+              </tr>
+              <input type="hidden" name="ID" value="{$ID}">
+              <tr id="MaterialRequested">
+                <td width="150" align="right"></td>
+                <td>
+                  <div class="col-lg-2">
+                  <input class="btn btn-danger" style="width:100px;" type='submit' name='submit' value='提交保存'/>
+                  </div>
+                </td>
+              </tr>              
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

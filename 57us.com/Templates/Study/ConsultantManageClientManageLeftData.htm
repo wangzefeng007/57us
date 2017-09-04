@@ -1,0 +1,25 @@
+<div class="w272 fl">
+	<ul class="hd">
+		<li {if $IsComplete == 1}class="on"{/if}><a href="/consultantmanage/clientmanage/?IsComplete=1">在办</a><span class="line"></span></li>
+		<li {if $IsComplete == 2}class="on"{/if}><a href="/consultantmanage/clientmanage/?IsComplete=2">已完成</a><span class="line"></span></li>
+	</ul>
+	<div class="search mt25">
+		<input type="" name="" id="" value="" class="input fl" placeholder="" />
+		<input type="button" id="" value="" class="searchBtn fl" />
+	</div>
+	<ul class="studentList">
+		{loop $LeftData $key $val}
+		<li>
+			<div class="ListHeader">
+				<img src="{$val['Avatar']}" width="60" height="60"/>
+				<p class="tit f16">{$val['StudentName']}</p>
+				<p class="mt10">{$val['Depict']}</p>
+			</div>
+			<div class="ListBottom">
+				<a href="/consultantmanage/clientmanageservice/?ID={$val['StudentID']}&IsComplete={$val['IsComplete']}" {if $UserID == $val['StudentID'] && $Navv != 'StudentInfo'}class="on"{/if}>TA的服务</a>
+				<a href="/consultantmanage/clientmanagestudent/?ID={$val['StudentID']}&IsComplete={$val['IsComplete']}" {if $UserID == $val['StudentID'] && $Navv == 'StudentInfo'}class="on"{/if}>Ta的资料</a>
+			</div>
+		</li>
+		{/loop}
+	</ul>
+</div>

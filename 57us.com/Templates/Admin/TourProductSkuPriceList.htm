@@ -1,0 +1,137 @@
+{template Head}
+<!-- 顶部 --> 
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script> 
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.js"> </script> 
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div id="middle"><!--{template LeftMenu}-->
+  
+  <div class="right" id="mainFrame">
+    <div class="right_cont">
+    <ul class="breadcrumb">当前位置：
+  旅游产品 <span class="divider">
+</ul>
+    {if $TourProductID}
+      <table class="table table-bordered table-striped table-hover">
+        <tbody>
+          <tr>
+            <td colspan="2"><h5>
+                <input class="nobth" type="button" value="产品详息" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=TourlineAdd&TourProductID={$TourProductID}'">
+                &nbsp;&nbsp;
+                <input class="nobth" type="button" value="设置行程" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetLineContent&TourProductID={$TourProductID}'">
+ 				&nbsp;&nbsp;
+                <input class="nobth" type="button" value="设置图片" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=TourImages&TourProductID={$TourProductID}'">
+                &nbsp;&nbsp;
+                <input class="nobth" type="button" value="设置属性" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=SetProperty&TourProductID={$TourProductID}'">
+                &nbsp;&nbsp;
+                <input class="bth" type="button" value="设置价格" 
+onclick="javascrtpt:window.location.href='/index.php?Module=TourLine&Action=TourPorductSkulist&TourProductID={$TourProductID}'">
+              </h5></td>
+          </tr>
+        </tbody>
+      </table>
+      {/if}
+      <table class="table table-bordered table-striped table-hover">
+        <tbody>
+        <tr height="35" align="center">
+          <td nowrap="nowrap"><strong>售卖时间</strong></td>
+          <td nowrap="nowrap" center="left"><strong>售卖星期</strong></td>
+          <td nowrap="nowrap"><strong>优惠价</strong></td>
+          <td nowrap="nowrap"><strong>市场价</strong></td>
+          <td nowrap="nowrap"><strong>采购价</strong></td>
+          <td nowrap="nowrap"><strong>销售价</strong></td>
+          <td nowrap="nowrap"><strong>利润</strong></td>
+          <td width="150" nowrap="nowrap"><strong> 操作 </strong></td>
+        </tr>
+        {loop $SKUPriceList $list}
+        <tr height="35" align="center">
+          <td nowrap="nowrap">{$list[StartDate]} - {$list[EndDate]}</td>
+          <td nowrap="nowrap">{if $list[Monday]}一{/if}&nbsp;{if $list[Tuesday]}二{/if}&nbsp;{if $list[Wednesday]}三{/if}&nbsp;{if $list[Thursday]}四{/if}&nbsp;{if $list[Friday]}五{/if}&nbsp;{if $list[Saturday]}六{/if}&nbsp;{if $list[Sunday]}日{/if}</td>
+          <td nowrap="nowrap">￥{$list[Price]}/人</td>
+          <td nowrap="nowrap">￥{$list[MarketPrice]}/人</td>
+          <td nowrap="nowrap">￥{$list[PurchasePrice]}/人</td>
+          <td nowrap="nowrap">￥{$list[SellPrice]}/人</td>
+          <td nowrap="nowrap">￥{$list[Profit]}/人</td>
+          <td nowrap="nowrap"><a class="getinfo"  href="/index.php?Module=TourLine&Action=TourProductSkuPriceList&ProductSkuID={$list[ProductSkuID]}&TourPricetID={$list[TourPricetID]}">编辑</a> | <a class="getinfo" href="javascript:if(confirm('确认删除吗?'))window.location='/index.php?Module=TourLine&Action=DeletePriceInfo&ProductSkuID={$list[ProductSkuID]}&TourPricetID={$list[TourPricetID]}'">删除</a></td>
+        </tr>
+        {/loop}
+          </tbody>
+        
+      </table>
+      
+      <form action='/index.php?Module=TourLine&Action=TourProductSkuPriceList&ProductSkuID={$ProductSkuID}'  method='post' enctype="multipart/form-data">
+        <table class="table table-bordered table-striped table-hover">
+          <tbody>
+            <tr>
+              <td colspan="2" ><h5> &nbsp;&nbsp; 设置价格：</h5></td>
+            </tr>
+            <tr>
+              <td width="150px" height="35" align="right">*起始时间： </td>
+              <td>
+              <input type="text" name="startDate" value="{$SkuPriceInfo[StartDate]}" id="startDate" style="width:500px;" onclick="return Calendar('startDate');"/></td>
+            </tr>
+            <tr>
+              <td width="150px" height="35" align="right">*终止时间：</td>
+              <td><input type="text" name="endDate" value="{$SkuPriceInfo[EndDate]}" id="endDate"style="width:500px;" onclick="return Calendar('endDate');"/></td>
+            </tr>
+            <tr>
+              <td width="150px" align="right" height ="35">选择星期：</td>
+              <td colspan="2"> 
+                <input type="checkbox" id="Monday" name="Monday" value="1" {if $SkuPriceInfo[Monday] == 1}checked="checked"{/if}>&nbsp;一&nbsp;&nbsp;
+                  <input type="checkbox" id="Tuesday" name="Tuesday" value="1" {if $SkuPriceInfo[Tuesday] == 1}checked="checked"{/if}>&nbsp;二&nbsp;&nbsp;
+                <input type="checkbox" id="Wednesday" name="Wednesday" value="1" {if $SkuPriceInfo[Wednesday] == 1}checked="checked"{/if}>&nbsp;三&nbsp;&nbsp;
+                  <input type="checkbox" id="Thursday" name="Thursday" value="1" {if $SkuPriceInfo[Thursday] == 1}checked="checked"{/if}>&nbsp;四&nbsp;&nbsp;
+                  <input type="checkbox" id="Friday" name="Friday" value="1" {if $SkuPriceInfo[Friday] == 1}checked="checked"{/if}>&nbsp;五&nbsp;&nbsp;
+                  <input type="checkbox" id="Saturday" name="Saturday" value="1" {if $SkuPriceInfo[Saturday] == 1}checked="checked"{/if}>&nbsp;六&nbsp;&nbsp;
+                  <input type="checkbox" id="Sunday" name="Sunday" value="1" {if $SkuPriceInfo[Sunday] == 1}checked="checked"{/if}>&nbsp;七&nbsp;&nbsp;
+               </td>
+            </tr>
+            <tr>
+              <td width="150px" height="35" align="right">*优惠价： </td>
+              <td><input type="text" name="Price" value="{$SkuPriceInfo[Price]}" style="width:500px;"/>
+              &nbsp;元/人</td>
+            </tr>
+            <tr>
+              <td width="150px" height="35" align="right">*市场价： </td>
+              <td><input type="text" name="MarketPrice" value="{$SkuPriceInfo[MarketPrice]}" style="width:500px;"/>
+              &nbsp;元/人</td>
+            </tr>
+            <tr>
+              <td width="150px" height="35" align="right">*采购价： </td>
+              <td><input type="text" name="PurchasePrice" value="{$SkuPriceInfo[PurchasePrice]}" style="width:500px;"/>
+              &nbsp;元/人</td>
+            </tr>
+            <tr>
+              <td width="150px" height="35" align="right">*销售价： </td>
+              <td><input type="text" name="SellPrice" value="{$SkuPriceInfo[SellPrice]}" style="width:500px;"/>
+              &nbsp;元/人</td>
+            </tr>
+            <tr>
+              <td width="150px" height="35" align="right">*库存： </td>
+              <td><input type="text" name="Inventory" value="{$SkuPriceInfo[Inventory]}" style="width:500px;"/></td>
+            </tr>
+            <tr>
+              <td width="150px" height="35" align="right">*有效时间： </td>
+              <td><input type="text" id="EffectiveTime" name="EffectiveTime" value="{$SkuPriceInfo[EffectiveTime]}" onclick="return Calendar('EffectiveTime');" style="width:500px;"/></td>
+            </tr>
+            <tr id="MaterialRequested">
+              <td width="150px" height="35" align="right"></td>
+              <td><input class="bth" style="width:100px;" type='submit' name='submit' value='保存'/>
+                &nbsp;&nbsp;
+                <input type="button" class="bth" onclick="javascript:history.go(-1)" style="width:100px;" value="返回" >
+                <input type="hidden" name="TourPricetID" id="TourPricetID" value="{$TourPricetID}" />
+                <input type="hidden" name="ProductSkuID" id="ProductSkuID" value="{$ProductSkuID}" />
+                <input type="hidden" name="TourProductID" id="TourProductID" value="{$TourProductID}" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/Plugins/rili/calendar.js"></script>
+<!-- 底部 --> 
+<!--{template Foot}-->

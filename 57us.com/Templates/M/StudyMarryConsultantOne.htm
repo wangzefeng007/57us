@@ -1,0 +1,129 @@
+{template StudyHeader}
+<div class="page page-current" style="background: #fff;" id="conmath">
+	<header class="bar bar-nav diybar">
+		<a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+		<h1 class="title">顾问匹配</h1>
+	</header>
+	<div class="content">
+		<ul class="matchProcess mt10">
+			<li class="on">
+				<p class="text">提交个人信息</p>
+				<span class="num">1</span>
+				<span class="line"></span>
+			</li>
+			<li>
+				<p class="text">为您匹配顾问</p>
+				<span class="num">2</span>
+				<span class="line"></span>
+			</li>
+			<li>
+				<p class="text">您挑选顾问</p>
+				<span class="num">3</span>
+				<span class="line"></span>
+			</li>
+		</ul>
+		<div class="evaluationMain">
+			<ul class="evaluaTab ">
+				<li>
+					<div class="left">您的姓名<span class="red">*</span></div>
+					<div class="right">
+						<div class="seleft">
+							<input type="text" name="name" id="name" value="" placeholder="怎么称呼您？" />
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="left">您的城市<span class="red">*</span></div>
+					<div class="right">
+						<div class="seleft" style="width: 90%;">
+							<i class="icon iconfont">&#xe63c;</i>
+							<input type="text" name="city-picker" id="city-picker" value="北京市" placeholder="选择城市" readonly/>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="left">您的性别<span class="red">*</span></div>
+					<div class="right">
+						<div class="sexyChose">
+							<label class="label-checkbox item-content on" data-type="男">
+								<input type="radio" name="my-radio" checked>
+								<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+								<span>男</span>
+							</label>
+							<label class="label-checkbox item-content" data-type="女">
+								<input type="radio" name="my-radio">
+								<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+								<span>女</span>
+							</label>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="left">申请层次<span class="red">*</span></div>
+					<div class="right">
+						<div class="seleft" style="width: 7rem;">
+							<i class="icon iconfont">&#xe63c;</i>
+							<select name="Level" id="Level">
+							</select>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="left">意向服务<span class="red">*</span></div>
+					<div class="right">
+						<div class="seleft" style="width: 7rem;">
+							<i class="icon iconfont">&#xe63c;</i>
+							<select name="ServiceType" id="ServiceType">
+							</select>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="left">所在年级<span class="red">*</span></div>
+					<div class="right">
+						<div class="seleft" style="width: 7rem;">
+							<i class="icon iconfont">&#xe63c;</i>
+							<select name="grade" id="grade">
+								<option value="本科毕业及以后">本科毕业及以后</option>
+								<option value="大四">大四</option>
+								<option value="大三">大三</option>
+								<option value="大二">大二</option>
+								<option value="大一" selected="selected">大一</option>
+								<option value="高中毕业已工作">高中毕业已工作</option>
+								<option value="高三">高三</option>
+								<option value="高二">高二</option>
+								<option value="高一">高一</option>
+								<option value="初三">初三</option>
+								<option value="初二及以前">初二及以前</option>
+							</select>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="left">预计出国时间<span class="red">*</span></div>
+					<div class="right">
+						<div class="seleft" style="width: 100%;">
+							<input type="text" value="" name="GoAbroadTime" id="GoAbroadTime" placeholder="如：2017年春季">
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="left">联系方式<span class="red">*</span></div>
+					<div class="right">
+						<div class="seleft">
+							<input type="text" name="ContactWay" id="ContactWay" value="" placeholder="留下电话，方便沟通" />
+						</div>
+					</div>
+				</li>
+			</ul>
+			<p class="red tac mt10">温馨提示：信息填写越详细，匹配度越高哦~.</p>
+			<div class="cf mt10">
+				<a href="javascript:void(0)" class="button button-fill getSolution">提交</a>
+			</div>
+		</div>
+	</div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/study/StudyMarryConsultantOne.js" charset='utf-8'></script>
+</body>
+</html>

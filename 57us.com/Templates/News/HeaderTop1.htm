@@ -1,0 +1,10 @@
+    <div class="Newshead cf w1200">
+        <div class="NewsSearchBox fr">
+            <form action="/so.html" method="post" target="_blank">
+                <input type="submit" id="" value="" class="SearchBtn" />
+                <input type="hidden" name="t" value="{$this->SoType}" />
+                 <input type="text" name="keyword" id="keyword" {if empty($Keyword)} value="极光" onfocus="this.value=''" onblur="if(this.value==''){this.value='极光'}" {/if} class="input" autocomplete="off" />
+            </form>
+        </div>
+        <a href="{echo WEB_MAIN_URL}" class="NewsLogo" title="57美国网">57美国网</a>
+    </div>

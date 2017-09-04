@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$title}</title>
+    <script src="http://js.57us.com/common/jquery-1.8.3.min.js"></script>
+    <link href="http://css.57us.com/common/common.css" rel="stylesheet" type="text/css" />
+    <link href="http://css.57us.com/common/TourCommon.css" rel="stylesheet" type="text/css" />
+    <link href="http://css.57us.com/CarRent/CarRent.css" rel="stylesheet" type="text/css" />
+	<script src="http://js.57us.com/common/fixRight.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="fix_menu">
+        <ul class="cf">
+            <li class="i1"><a class="a"><i class="transition"></i><span class="transition">联系<br>电话</span></a></li>
+            <li class="i2">
+                <a class="a"><i class="transition"></i><span class="transition">在线<br>QQ</span></a>
+                <div class="online_qq">
+                    <p class="online_qq_t">在线客服</p>
+                    <div class="online_qq_list">
+                        <span><a target=blank href=http://wpa.qq.com/msgrd?V=3&uin=1822130344&Site=QQ客服&Menu=yes><img src="http://images.57us.com/img/common/qq.png" width="20">QQ客服1</a></span>
+                        <span><a target=blank href=http://wpa.qq.com/msgrd?V=3&uin=1822130344&Site=QQ客服&Menu=yes><img src="http://images.57us.com/img/common/qq.png" width="20">QQ客服1</a></span>
+                        <span><a target=blank href=http://wpa.qq.com/msgrd?V=3&uin=1822130344&Site=QQ客服&Menu=yes><img src="http://images.57us.com/img/common/qq.png" width="20">QQ客服1</a></span>
+                        <span><a target=blank href=http://wpa.qq.com/msgrd?V=3&uin=1822130344&Site=QQ客服&Menu=yes><img src="http://images.57us.com/img/common/qq.png" width="20">QQ客服1</a></span>
+                    </div>
+                </div>
+            </li>
+            <li class="i3"><a class="a"><i class="transition"></i><span class="transition">意见<br>反馈</span></a></li>
+            <li class="i4"><a class="a"><i class="transition"></i><span class="transition">手机<br>扫码</span></a>
+                <div class="fix_ewm"><img src="http://images.57us.com/img/common/wx.png"></div>
+            </li>
+            <li class="i5"><a class="a"><i class="transition"></i><span class="transition">添加<br>收藏</span></a></li>
+            <li class="i6"><a class="a"><i class="transition"></i><span class="transition">在线<br>分享</span></a>
+                <div class="share transition"></div>
+            </li>
+            <li class="i7 backtop"><a class="a"><i class="transition"></i><span class="transition">返回<br>顶部</span></a></li>
+        </ul>
+    </div>
+</div>
+<div class="TourOrdHead">
+    <div class="w1003 cf">
+        <ul class="Tourprocess">
+            <li class="on"><span>提交订单</span><i>1</i></li>
+            <li class="i2 on"><span>高端定制订单确认</span><i>2</i></li>
+            <li><span>支付成功</span><i>3</i></li>
+        </ul>
+        <a href="{echo WEB_MAIN_URL}" class="TourOrdLogo">57美国网留学</a>
+    </div>
+</div>
+<div class="w1003 cf">
+    <div class="DetailBox">
+        <div class="SurplusPay">
+            <!--剩余<div class="red Countdown"><span class="days">0</span>天:<span class="hours">0</span>小时:<span class="minutes">0</span>分:<span class="seconds">0</span>秒</div>完成支付，逾期订单将自动取消-->
+            高端定制订单支付
+        </div>
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        	<tr height="35">
+                <td width="33%">高端定制：<b class="blue">{$City}</b></td>
+                <td width="33%">订单号：<em id="OrderNum">{$OrderInfo[OrderNo]}</em></td>
+                <td></td>
+           </tr>
+            <tr height="35">
+                <td>出发地点：{$OrderInfo[StartCity]}</td>
+                <td>出发时间：{$OrderInfo[StartDate]}</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="PayStyleBox mt20">
+        <div class="hd"><a href="JavaScript:void(0)" class="on">微信支付</a><a href="JavaScript:void(0)">支付宝支付</a></div>
+        <div class="bd">
+            <div class="BdTab" id="ChatPay" style="display: block;">
+                <div class="ChatPay"></div>
+                <div class="PayPrice mt30">
+                    <a href="{echo WEB_MEMBER_URL}/payhighlevel/payorder/?id={$OrderInfo[OrderNo]}&type=wxpay" class="PayImmedBtn fr">立即支付</a>
+                    <div class="PayNum fr">
+                        应付金额：<span class="price">¥<i>{$OrderInfo[Money]}</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="BdTab" id="Alipay">
+                <div class="Alipay"></div>
+                <div class="PayPrice mt30">
+                    <a href="{echo WEB_MEMBER_URL}/payhighlevel/payorder/?id={$OrderInfo[OrderNo]}&type=alipay" class="PayImmedBtn fr">立即支付</a>
+                    <div class="PayNum fr">
+                        应付金额：<span class="price">¥<i>{$OrderInfo[Money]}</i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="cf mt50"></div>
+<script type="text/javascript" src="http://js.57us.com/common/jquery.downCount.js"></script>
+<script class="source" type="text/javascript">
+    $('.Countdown').downCount({
+        date: '{$CreateTime[0]} {$H}:{$M}:{$S}',
+        offset: +8
+    },function () {
+        $('.PayImmedBtn').css('background-color','#e6e6e6');
+        $('.PayImmedBtn').on('click', function(event){
+            alert('超出付款时间，请重新下订单');
+            event.preventDefault();
+        });
+        var OrderNumID =  $('#OrderNum').html();
+        $.ajax({
+            type: 'POST',
+            url: 'http://member.57us.com/ajaxorderpay.html',
+            data: {
+                Status : '3',
+                OrderNum : OrderNumID
+            },
+            cache:false,
+            dataType:'json',
+        });
+    });
+</script>
+<script src="http://js.57us.com/CarRent/CarRentPay.js"></script>
+{template 'Common/TourFooter',1}

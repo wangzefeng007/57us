@@ -1,0 +1,78 @@
+{template Header}
+{if $Type=='bindmail'}
+<div class="page-group">
+	<div class="page page-current" id="binding">
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">绑定邮箱</h2>
+		</header>
+		<div class="content">
+			<ul class="changePhone">
+				<li>
+					<div class="input">
+						<input type="text" name="newMail" class="newMail" value="" placeholder="请输入新邮箱" />
+					</div>
+				</li>
+				<li>
+					<div class="input">
+						<input type="text" name="newCode" class="newCode" value="" placeholder="请输入邮箱验证码" />
+					</div>
+					<input type="button"  name="newCodeBtn" class="sendyam newCodeBtn" value="获取邮箱验证码"/>
+				</li>
+			</ul>
+			<div class="sendBox">
+				<a href="javascript:void(0)" class="button button-fill button-orange saveBtn">保存</a>
+			</div>
+		</div>
+	</div>
+</div>
+{else}
+<div class="page-group">
+	<div class="page page-current" id="amend">
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">更改邮箱</h2>
+		</header>
+		<div class="content index1">
+			<ul class="changePhone">
+				<li>
+					<div class="input">
+						<input type="text" value="{$User['E-Mail']}" readonly/>
+					</div>
+				</li>
+				<li>
+					<div class="input">
+						<input type="text" name="oldCode" value="" class="oldCode" placeholder="请输入邮箱验证码"/>
+					</div>
+					<input type="button" name="oldCodeBtn" value="获取邮箱验证码" class="sendyam oldCodeBtn" />
+				</li>
+			</ul>
+			<div class="sendBox">
+				<a href="javascript:void(0)" class="button button-fill button-orange nextBtn1">下一步</a>
+			</div>
+		</div>
+		<div class="content index2" style="display: none">
+			<ul class="changePhone">
+				<li>
+					<div class="input">
+						<input type="text" name="newMail" class="newMail" value="" placeholder="请输入新邮箱" />
+					</div>
+				</li>
+				<li>
+					<div class="input">
+						<input type="text" name="newCode" class="newCode" value="" placeholder="请输入邮箱验证码" />
+					</div>
+					<input type="button"  name="newCodeBtn" class="sendyam newCodeBtn" value="获取邮箱验证码"/>
+				</li>
+			</ul>
+			<div class="sendBox">
+				<a href="javascript:void(0)" class="button button-fill button-orange nextBtn2">保存</a>
+			</div>
+		</div>
+	</div>
+</div>
+{/if}
+{template Footer}
+<script src="{echo JsURL}/m/muser/MuserEditInformationEditMail.js" type="text/javascript"></script>
+</body>
+</html>

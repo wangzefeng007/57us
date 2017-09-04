@@ -1,0 +1,13 @@
+{if $SearchKeyWords}
+    <div class="searchd">
+        <a href="{echo WEB_STUDY_URL}/study/search/?K={$SearchKeyWords}" {if $TagNav=="index"}class="on"{/if}>全部</a>
+        <a href="/consultant_service/?K={$SearchKeyWords}" {if $TagNav=='service'}class="on"{/if}>服务</a>
+        <a href="/teacher_course/?K={$SearchKeyWords}" {if $TagNav=='course'}class="on"{/if}>课程</a>
+        <a href="/studytour/?K={$SearchKeyWords}" {if $TagNav=='studytour'}class="on"{/if}>游学</a>
+        <a href="/consultant/?K={$SearchKeyWords}" {if $TagNav=='consultant'}class="on"{/if}>顾问</a>
+        <a href="/teacher/?K={$SearchKeyWords}" {if $TagNav=='teacher'}class="on"{/if}>教师</a>
+        <a href="/highschool/?K={$SearchKeyWords}" {if $TagNav=='highschool'}class="on"{/if}>高中</a>
+        <a href="/college/?K={$SearchKeyWords}" {if $TagNav=='college'}class="on"{/if}>本科</a>
+        <a href="/graduateschool/?K={$SearchKeyWords}" {if $TagNav=='graduateschool'}class="on"{/if}>研究生</a>
+    </div>
+{/if}

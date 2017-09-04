@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$Title}</title>
+	<link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+	<link href="{echo CssURL}/common/TourPublic.css" rel="stylesheet" type="text/css" />
+	<link href="{echo CssURL}/hotel/hotel.css" rel="stylesheet" type="text/css" />
+	<script src="<?php echo JsURL;?>/base/jquery/1.10.2/jquery.min.js"></script>
+	<script src="<?php echo JsURL;?>/base/base.js"></script>
+	<script src="<?php echo JsURL;?>/base/layer/2.4/layer.js"></script>
+	<script src="<?php echo JsURL;?>/base/jquery.SuperSlide/2.1/jquery.SuperSlide.2.1.js"></script>
+	<script src="<?php echo JsURL;?>/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+</head>
+<body>
+  {template 'Common/RightNav',1}
+<div class="wrap">
+	<div class="OrderHeader">
+		<div class="w1200 cf">
+			<a href="{echo WEB_MAIN_URL}" class="NewsLogo" title="57美国网">57美国网</a>
+			<ul class="TourLineProcess">
+				<li class="on"><span>填写信息</span><i>1</i><em></em></li>
+				<li><span>支付</span><i>2</i><em></em></li>
+				<li><span>完成</span><i>3</i><em></em></li>
+			</ul>
+		</div>
+	</div>
+			<div class="w1200 cf mt20" style="position: relative;">
+				<div class="SlideLeft">
+					<div class="HotelOrderBox">
+						<div class="cf mt10">
+							<div class="DetailBoxTit">预定信息</div>
+							<div class="OrderInstroTab mt20">
+								<table border="0" cellspacing="0" cellpadding="0" width="100%">
+									<tr height="56">
+										<td width="75">房型名称：</td>
+										<td>{$OrderInfo[RoomName]}</td>
+									</tr>
+									<tr height="56">
+										<td width="75">入离日期：</td>
+										<td>
+											<input type="hidden" name="" id="" value="{$CheckInDate}" class="OldStart" />
+											<input type="hidden" name="" id="" value="{$CheckOutDate}" class="OldEnd" />
+											<input type="hidden" name="" id="" value="{$Days}" class="OldMuch" />
+											<span class="StartTime">{$CheckInDate}</span>至 <span class="EndTime">{$CheckOutDate}</span><span class="days">{$Days}晚 </span>
+											<!--
+                                        	作者：xiao15980751809@126.com
+                                        	时间：2016-06-17
+                                        	描述：暂时不做修改
+                                        <a href="JavaScript:void(0)" class="ChangeDate">修改</a>-->
+										</td>
+									</tr>
+									<tr height="56">
+										<td width="75">房间数量：</td>
+										<td>
+											<div class="num_box fl RoomNum">
+												<a class="num_btn">-</a>
+												<input name="RoomNum" class="num_input" value="1" readonly="">
+												<a class="num_btn">+</a>
+											</div>
+											<p class="AllFree">房费（含税费） 总计<span> ¥<i class="AllPrice">{$OrderInfo[Price]}</i></span><input type="hidden" name="" id="" value="{$OrderInfo[Price]}" /></p>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="line mt20"></div>
+						<div class="cf mt40">
+							<div class="DetailBoxTit">入住信息</div>
+							<div class="blue mt30">★ 住客姓名</div>
+							<div class="cf RoomNumAdd">
+								<div class="cf RoomNumDe">
+									<div class="CustomInstr" data-id="a1">
+										<div class="CustomInstrTop mt10">
+											<span class="RoomNum">房间<i class="RoomI">1</i></span>
+											<p class="OccupancyDetails" data-adultcount="{$AdultCount}" data-childcount="{$ChildCount}" data-childage="{$ChildAgeStr}">入住人：<span id="adultNum">{$AdultCount}</span>成人，<span id="childrenNum">{$ChildCount}</span>儿童</p>
+											<a href="JavaScript:void(0)" class="ChangeNum">修改</a>
+										</div>
+										<p class="mt10">拼音姓名 (★ 请至少填写一位入住人的信息)</p>
+										<div class="CustomMan">
+											<div class="CustomManLi">
+												<div class="CustomManLiB">
+													<i>姓</i>
+													<input type="text" name="pyname" class="LastName" id="" value="" placeholder="如：ZHANG" />
+												</div>
+												<div class="ErroTip">请填写正确姓，以确保正确入住</div>
+											</div>
+											<div class="CustomManLi">
+												<div class="CustomManLiB">
+													<i>名</i>
+													<input type="text" name="pyname" class="FirstName" id="" value="" placeholder="如：SAN" />
+												</div>
+												<div class="ErroTip">请填写正确名字，以确保正确入住</div>
+											</div>
+											<a href="JavaScript:void(0)" class="AddBtn AddPerson">+</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="cf mt20 ContactIns">
+							<div class="DetailBoxTit">联系人信息</div>
+							<table border="0" cellspacing="0" cellpadding="0" width="100%" class="mt20">
+								<tr>
+									<td>
+										<p class="ContactInsP">姓 <input type="" class="LastName" name="pyname" id="" value="" placeholder="如：ZHANG" /></p>
+									</td>
+									<td>
+										<p class="ContactInsP">名 <input type="" class="FirstName" name="pyname" id="" value="" placeholder="如：SAN" /></p>
+									</td>
+									<td>
+										<p class="ContactInsP">手机号<input type="" class="Phone" name="phone" id="" value="" placeholder="接收订单短信" /></p>
+									</td>
+									<td>
+										<p class="ContactInsP">邮箱<input type="" class="EMail" name="email" id="" value="" placeholder="接收订单邮件" /></p>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="line mt40"></div>
+						<div class="RoomOther mt30">
+							<p>★ 酒店偏好<span>（您所提交及填写的特殊需求申请我们均会提交至酒店，但需以酒店前台办理入住手续时酒店最终确认为准）</span></p>
+							<div class="RoomOtherLi">
+								<label class="cbt1" name="check" type="checkbox" val="尽量安排无烟房间"><i></i>尽量安排无烟房间</label>
+								<label class="cbt1" name="check" type="checkbox" val="尽量安排不靠马路的房间"><i></i>尽量安排不靠马路的房间</label>
+							</div>
+							<div class="mt20 CancellationPolicy">
+								<p>★ 取消政策</p>
+								{if isset($OrderInfo[Cancel][CancellationPolicy])} {if isset($OrderInfo[Cancel][CancellationPolicy][FromDate])} {if strtotime($OrderInfo[Cancel][CancellationPolicy][FromDate])>time()}
+								<p>在 {echo date('Y-m-d',strtotime($OrderInfo[Cancel][CancellationPolicy][FromDate]))} 之前可以免费取消，从 {echo date('Y-m-d',strtotime($OrderInfo[Cancel][CancellationPolicy][FromDate]))} 开始取消订单,需缴纳罚金 ¥{echo ceil($OrderInfo[Cancel][CancellationPolicy][Amount]*0.1+$OrderInfo[Cancel][CancellationPolicy][Amount])}</p>
+								{else}
+								<p>预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费</p>
+								{/if} {else} {if strtotime($OrderInfo[Cancel][CancellationPolicy][0][FromDate])>time()}
+								<p>在 {echo date('Y-m-d',strtotime($OrderInfo[Cancel][CancellationPolicy][0][FromDate]))} 之前可以免费取消，从 {echo date('Y-m-d',strtotime($OrderInfo[Cancel][CancellationPolicy][0][FromDate]))} 开始取消订单,需缴纳罚金 ¥{echo ceil($OrderInfo[Cancel][CancellationPolicy][count($OrderInfo[Cancel][CancellationPolicy])-1][Amount]*0.1+$OrderInfo[Cancel][CancellationPolicy][count($OrderInfo[Cancel][CancellationPolicy])-1][Amount])}</p>
+								{else}
+								<p>预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费</p>
+								{/if} {/if} {else}
+								<p>预定成功后，订单将不可申请退订或变更，如未到店入住，酒店收取全额房费</p>
+								{/if}
+							</div>
+							<div class="mt20">
+								<p>★ 税费</p>
+								<p>价格均已含酒店服务费和税费（部分城市建设费除外，具体以酒店前台实际收取为准）</p>
+							</div>
+						</div>
+						<div class="line mt30"></div>
+						<div class="tac mt30">
+							<a href="javascript:;" class="NextOrderBtn">下一步，去支付</a>
+						</div>
+					</div>
+				</div>
+				<div class="SlideRight sidebar fr">
+					<div class="HotelOrderIns">
+						<img src="{$HotelInfo[Img]}" />
+						<p class="tit">{$HotelInfo[Name]}{if $HotelInfo[Name_Cn]}({$HotelInfo[Name_Cn]}){/if}</p>
+						<div class="HotelOrderInsCont">
+							<p>地址：{$HotelInfo[Address]}</p>
+							<p>电话：{if $HotelInfo[Phone]}{$HotelInfo[Phone]}{else}无{/if}</p>
+						</div>
+						<div class="HotelOrdercont mt10">
+							房型：{$OrderInfo[RoomName]}<br> 床型：{$OrderInfo[BedType]}
+						</div>
+						<div class="HotelOrderPrice mt10">
+							<input type="hidden" name="" id="Allprice" value="{$OrderInfo[Price]}" /><span id="" class="price fr">¥<i>{$OrderInfo[Price]}</i></span> 房费（含税费）总计：
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="cf mt50"></div>
+			<div class="RoomAddTpl hidden">
+				<div class="CustomInstr">
+					<div class="CustomInstrTop mt10">
+						<span class="RoomNum">房间<i class="RoomI"></i></span>
+						<p class="OccupancyDetails" data-adultcount="2" data-childcount="0" data-childage="">入住人：<span id="adultNum">{$AdultCount}</span>成人，<span id="childrenNum">{$ChildCount}</span>儿童</p>
+						<a href="JavaScript:void(0)" class="ChangeNum">修改</a>
+					</div>
+					<p class="mt10">拼音姓名 (★ 请至少填写一位入住人的信息)</p>
+					<div class="CustomMan">
+						<div class="CustomManLi">
+							<div class="CustomManLiB">
+								<i>姓</i>
+								<input type="text" name="pyname" class="LastName" id="" value="" placeholder="如：ZHANG" />
+							</div>
+							<div class="ErroTip">请填写正确姓，以确保正确入住</div>
+						</div>
+						<div class="CustomManLi">
+							<div class="CustomManLiB">
+								<i>名</i>
+								<input type="text" name="pyname" class="FirstName" id="" value="" placeholder="如：SAN" />
+							</div>
+							<div class="ErroTip">请填写正确名字，以确保正确入住</div>
+						</div>
+						<a href="JavaScript:void(0)" class="AddBtn AddPerson">+</a>
+					</div>
+				</div>
+			</div>
+			<div class="PersonBlock hidden">
+				<div class="CustomMan">
+					<div class="CustomManLi">
+						<div class="CustomManLiB">
+							<i>姓</i>
+							<input type="text" name="pyname" class="LastName" id="" value="" placeholder="如：ZHANG" />
+						</div>
+						<div class="ErroTip">请填写正确姓，以确保正确入住</div>
+					</div>
+					<div class="CustomManLi">
+						<div class="CustomManLiB">
+							<i>名</i>
+							<input type="text" name="pyname" class="FirstName" id="" value="" placeholder="如：SAN" />
+						</div>
+						<div class="ErroTip">请填写正确名字，以确保正确入住</div>
+					</div>
+					<a href="JavaScript:void(0)" class="AddBtn DelPerson">-</a>
+				</div>
+			</div>
+			<div class="HotelPop hidden" name="PopNum">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr height="34">
+						<th>成人</th>
+						<th>孩童</th>
+					</tr>
+					<tr height="40">
+						<td>
+							<div class="num_box fl adultNum">
+								<a class="num_btn">-</a>
+								<input name="adultNum" class="num_input" value="{$AdultCount}" readonly="">
+								<a class="num_btn">+</a>
+							</div>
+						</td>
+						<td>
+							<div class="num_box fl childrenNum">
+								<a class="num_btn">-</a>
+								<input name="childrenNum" class="num_input" value="{$ChildCount}" readonly="">
+								<a class="num_btn">+</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="fl ChildAge hidden">
+								<p>儿童1</p>
+								<div name="age" type="selectbox" class="diyselect">
+									<div class="opts">
+										<a href="javascript:;" value="1">1岁</a>
+										<a href="javascript:;" value="2">2岁</a>
+										<a href="javascript:;" value="3">3岁</a>
+										<a href="javascript:;" value="4">4岁</a>
+										<a href="javascript:;" value="5">5岁</a>
+										<a href="javascript:;" value="6">6岁</a>
+										<a href="javascript:;" value="7">7岁</a>
+										<a href="javascript:;" value="8">8岁</a>
+										<a href="javascript:;" value="9">9岁</a>
+										<a href="javascript:;" value="10">10岁</a>
+										<a href="javascript:;" value="11">11岁</a>
+										<a href="javascript:;" value="12">12岁</a>
+										<a href="javascript:;" value="13">13岁</a>
+										<a href="javascript:;" value="14">14岁</a>
+										<a href="javascript:;" value="15">15岁</a>
+										<a href="javascript:;" value="16">16岁</a>
+										<a href="javascript:;" value="17">17岁</a>
+									</div>
+								</div>
+							</div>
+							<div class="fl ChildAge hidden">
+								<p>儿童2</p>
+								<div name="age" type="selectbox" class="diyselect">
+									<div class="opts">
+										<a href="javascript:;" value="1" class="selected">1岁</a>
+										<a href="javascript:;" value="2">2岁</a>
+										<a href="javascript:;" value="3">3岁</a>
+										<a href="javascript:;" value="4">4岁</a>
+										<a href="javascript:;" value="5">5岁</a>
+										<a href="javascript:;" value="6">6岁</a>
+										<a href="javascript:;" value="7">7岁</a>
+										<a href="javascript:;" value="8">8岁</a>
+										<a href="javascript:;" value="9">9岁</a>
+										<a href="javascript:;" value="10">10岁</a>
+										<a href="javascript:;" value="11">11岁</a>
+										<a href="javascript:;" value="12">12岁</a>
+										<a href="javascript:;" value="13">13岁</a>
+										<a href="javascript:;" value="14">14岁</a>
+										<a href="javascript:;" value="15">15岁</a>
+										<a href="javascript:;" value="16">16岁</a>
+										<a href="javascript:;" value="17">17岁</a>
+									</div>
+								</div>
+							</div>
+							<div class="fl ChildAge hidden">
+								<p>儿童3</p>
+								<div name="age" type="selectbox" class="diyselect">
+									<div class="opts">
+										<a href="javascript:;" value="1" class="selected">1岁</a>
+										<a href="javascript:;" value="2">2岁</a>
+										<a href="javascript:;" value="3">3岁</a>
+										<a href="javascript:;" value="4">4岁</a>
+										<a href="javascript:;" value="5">5岁</a>
+										<a href="javascript:;" value="6">6岁</a>
+										<a href="javascript:;" value="7">7岁</a>
+										<a href="javascript:;" value="8">8岁</a>
+										<a href="javascript:;" value="9">9岁</a>
+										<a href="javascript:;" value="10">10岁</a>
+										<a href="javascript:;" value="11">11岁</a>
+										<a href="javascript:;" value="12">12岁</a>
+										<a href="javascript:;" value="13">13岁</a>
+										<a href="javascript:;" value="14">14岁</a>
+										<a href="javascript:;" value="15">15岁</a>
+										<a href="javascript:;" value="16">16岁</a>
+										<a href="javascript:;" value="17">17岁</a>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="HotelPop TimePop hidden" name="PopTime">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr height="34">
+						<th>入住时间</th>
+						<th>离店时间</th>
+					</tr>
+					<tr height="40">
+						<td><input type="" name="startDate" id="startDate" value="{$CheckInDate}" class="PopInput" /></td>
+						<td><input type="" name="endDate" id="endDate" value="{$CheckOutDate}" class="PopInput" /></td>
+					</tr>
+					<tr height="60">
+						<td colspan="2" align="center">
+							<div class="PopBtn">
+								<a href="JavaScript:void(0)" class="SureBtn">确定</a>
+								<a href="JavaScript:void(0)" class="CanceBtn">取消</a>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<!--<script data-main="{echo JsURL}/hotel/HotelOrder" src="{echo JsURL}/require.js"  defer async></script>-->
+			<script src="<?php echo JsURL;?>/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+			<script src="<?php echo JsURL;?>/hotel/hotelorder.js"></script>
+			{template 'Common/TourFooter',1}

@@ -1,0 +1,61 @@
+{template StudyHeader}
+<div class="page-group">
+	<div class="page page-current" id="ConsultantDetail">
+		<header class="bar bar-nav diybar">
+			<a class="pull-left back"><i class="icon iconfont">&#xe604;</i></a>
+			<h1 class="title">顾问详情</h1>
+		</header>
+		<div class="content">
+			<ul class="contantList contdetail">
+				<li>
+					<img src="{echo LImageURL}{$ConsultantInfo['Avatar']}" width="96" height="96">
+					<div class="listCont">
+						<div class="tit cf">
+							<p class="name pull-left">{$ConsultantInfo['NickName']}<!--<span class="TopTip"><i class="icon iconfont">&#xe60e;</i></span>--></p>
+						</div>
+						<div class="fun cf">
+							<span><i class="icon iconfont">&#xe647;</i>{$ConsultantInfo['City']}</span>
+							<span><i class="icon iconfont">&#xe62f;</i>从业{$ConsultantInfo['WorkingAge']}年</span>
+						</div>
+						{if $ConsultantInfo[Tags]}
+						<div class="tip cf">
+							{loop json_decode($ConsultantInfo[Tags],true) $list}
+							<span>{$list}</span>
+							{/loop}
+						</div>
+						{/if}
+						<div class="xuany">
+							服务宣言：{if $ConsultantInfo[ServiceDeclaration]}{$ConsultantInfo[ServiceDeclaration]}{else}暂无宣言{/if}
+						</div>
+					</div>
+				</li>
+
+			</ul>
+			<div class="contanDetail mt10">
+				<div class="detailBox">
+					<div class="detailBoxT"><i class="icon iconfont">&#xe60d;</i>自我介绍</div>
+					<p class="nr">{$ConsultantInfo['Introduction']}</p>
+					{if $IsShow == 1}
+					<p class="tac moreBox"><i class="icon iconfont">&#xe61e;</i></p>
+					{/if}
+				</div>
+				<div class="detailBox mt10">
+					<div class="detailBoxT"><i class="icon iconfont">&#xe664;</i>从业经历</div>
+					<ul class="experList">
+						{loop json_decode($ConsultantInfo[PastExperience],true) $key $val}
+						<li>
+							<span class="num">{echo $key+1}</span>
+							<p>时间：{$val['startdate']}~{$val['enddate']}<br>就职：{$val['company']}<br>{$val['undergo']}</p>
+						</li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+		{template StudyCustomService}
+	</div>
+	{template Consulting}
+</div>
+{template StudyFooter2}
+</body>
+</html>

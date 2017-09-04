@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$Title}</title>
+    <meta name="keywords" content="{$Keywords}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="description" content="{$Description}">
+    <link href="{echo CssURL}/common/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{echo CssURL}/study/studypublic3.0.css" rel="stylesheet" type="text/css" />
+    <script src="{echo JsURL}/base/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{echo JsURL}/base/base.js"></script>
+    <script>(function() {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if(curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();</script>
+</head>
+<body>
+<div class="wrap">
+    {template 'Common/TopLoginStatus',1}
+    <div class="NfixMenu studyFixMenu">
+        <ul class="cf">
+            <li class="i1"><a class="a transition" href="JavaScript:void(0)"><i></i></a></li>
+            <li class="i4">
+                <a class="a transition" href="JavaScript:void(0)"><i></i></a>
+                <div class="FixSecond FixPhone">
+                    <em></em>
+                    <div class="FixSecondM">400-018-5757</div>
+                </div>
+            </li>
+            <li class="i3" href="JavaScript:void(0)">
+                <a class="a transition" href="JavaScript:void(0)"><i></i></a>
+                <div class="FixSecond FixEwm">
+                    <em></em>
+                    <div class="FixSecondM">
+                        <p class="tit">57US留学微信</p>
+
+                        <img src="{echo ImageURL}/img/common/wxstudy.jpg" width="134"></div>
+                </div>
+            </li>
+            <li class="i5 backtop">
+                <a class="a transition" href="JavaScript:void(0)"><i></i></a>
+            </li>
+            <li class="i6"></li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="w1200 cf">
+            <span class="fr HeaderTell">欢迎拨打电话咨询400-018-5757</span>
+            <div class="StudySearch fr">
+                <div class="StudySearchTool">
+                    <a href="/tools/gpa/">GPA计算器</a>
+                    <!--<a href="">考试日历</a>
+                    <a href="">货币换算</a>-->
+                </div>
+                <div class="StudySearchBox">
+                    <form action="{echo WEB_STUDY_URL}/so.html" method="post" target="_blank">
+                        <input type="text" name="keyword" id="keyword" value="{$SearchKeyWords}" placeholder="" class="input"/>
+                        <input type="submit" id="" value="搜索" class="SearchBtn transition"/>
+                        <input id="t" name="t"  value="{$TagNav}"  type="hidden"/>
+                    </form>
+                </div>
+            </div>
+            <a href="{echo WEB_STUDY_URL}" class="StudyLogo" title="57美国网">57美国网</a>
+        </div>
+    </div>
+    <div class="StudyMenu">
+        <ul class="w1200 cf">
+            <li {if $TagNav == ''}class="on"{/if}>
+            <a href="{echo WEB_STUDY_URL}" class="FirstA">首页</a><span class="line"></span></li>
+            <li {if $TagNav == 'consultant'}class="on"{/if}>
+            <a href="/consultant/" class="FirstA">找顾问</a><span class="line"></span></li>
+            <li {if $TagNav == 'teacher'}class="on"{/if}>
+            <a href="/teacher/" class="FirstA">找教师</a><span class="line"></span></li>
+            <li {if $TagNav == 'service' || $TagNav == 'course'}class="on"{/if}>
+            <a href="/consultant_service/" class="FirstA">留学商城<i></i></a><span class="line"></span>
+            <div class="SeconMenu" style="width:488px; margin-left: -245px;">
+                <em></em>
+                <div class="SeconMenuM1">
+                    <dl class="fl">
+                        <dt><a href="/consultant_service/">所有服务</a></dt>
+                        <dd style="border-right: 1px solid #e5e5e5;">
+                            <a href="/consultant_service/?t=1">全程服务</a>
+                            <a href="/consultant_service/?t=2">申请学校</a>
+                            <a href="/consultant_service/?t=3">文书服务</a>
+                            <a href="/consultant_service/?t=4">定校方案修改</a>
+                            <a href="/consultant_service/?t=7">背景提升</a>
+                            <a href="/consultant_service/?t=6">材料翻译</a>
+                            <a href="/consultant_service/?t=5">签证培训</a>
+                        </dd>
+                    </dl>
+                    <dl class="fr" style="width: 180px;">
+                        <dt><a href="/teacher_course/">所有课程</a></dt>
+                        <dd>
+                            <a href="/teacher_course/?t=1">雅思</a>
+                            <a href="/teacher_course/?t=2">托福</a>
+                            <a href="/teacher_course/?t=3">SAT</a>
+                            <a href="/teacher_course/?t=4">ACT</a>
+                            <a href="/teacher_course/?t=5">GMAT</a>
+                            <a href="/teacher_course/?t=6">GRE</a>
+                            <a href="/teacher_course/?t=7">PTE</a>
+
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            </li>
+            <li {if $TagNav == 'highschool' || $TagNav == 'college' || $TagNav == 'graduateschool'}class="on"{/if}>
+            <a href="/highschool/" class="FirstA">院校库<i></i></a><span class="line"></span>
+            <div class="SeconMenu"> <em></em>
+                <div class="SeconMenuM">
+                    <a href="/highschool/">高中</a>
+                    <a href="/college/">本科</a>
+                    <a href="/graduateschool/">研究生</a>
+                </div>
+            </div>
+            </li>
+            <li>
+                <a href="/studytour/" class="FirstA">去游学</a><span class="line"></span>
+            </li>
+            <li>
+                <a href="{echo WEB_MAIN_URL}/study/" class="FirstA" target="_blank">留学资讯<i></i></a><span class="line"></span>
+                <div class="SeconMenu">
+                    <em></em>
+                    <div class="SeconMenuM">
+                        <a href="{echo WEB_MAIN_URL}/studytopic_uscolege/" target="_blank">院校</a>
+                        <a href="{echo WEB_MAIN_URL}/studytopic_news/" target="_blank">留学</a>
+                        <a href="{echo WEB_MAIN_URL}/studytopic_exam/" target="_blank">考试</a>
+                        <a href="{echo WEB_MAIN_URL}/studytopic_guide/" target="_blank">签证</a>
+                        <a href="{echo WEB_MAIN_URL}/topic/lecture/" target="_blank">留学讲堂</a>
+                    </div>
+                </div>
+            </li>
+            <!--<li {if $TagNav == 'ask'}class="on"{/if}>
+            <a href="{echo WEB_STUDY_URL}/ask/" class="FirstA">问答专区</a><span class="line"></span></li>-->
+        </ul>
+    </div>

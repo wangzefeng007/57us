@@ -1,0 +1,40 @@
+<div class="inforLeftBody">
+    <div class="InforImg" id="InforImg">
+        <img src="{if $UserInfo[Avatar]}{$UserInfo[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="90" height="90">
+    </div>
+    <p class="name mt15">{if $UserInfo['NickName']}{$UserInfo['NickName']}{else}{$UserInfo[RealName]}{/if}</p>
+    <p class="green mt10">
+        <a href="javascript:void(0)" class="UpBtn" id="UpAvatar">{if $UserInfo[Avatar]}修改头像{else}上传头像{/if}</a>
+        <input type="file" name="head_photo" id="head_photo" value="" accept="image/*" style="display: none">
+    </p>
+</div>
+<ul class="inforLeftMenu" id="LeftMenu">
+    <li {if $Nav=='myorder'}class="on"{/if}>
+        <a href="javascript:void(0)" class="a"><i></i>我的订单<em class="ico"></em></a>
+        <ul class="SecondtMenu">
+            <li><a href="/studentmanage/myorder/">服务订单</a></li>
+            <li><a href="/studentmanage/mytourorder/">游学订单</a></li>
+        </ul>
+    </li>
+    <li {if $Nav=='service'}class="on"{/if}>
+        <a href="javascript:void(0)" class="a"><i></i>我的服务<em class="ico"></em></a>
+        <ul class="SecondtMenu">
+            <li><a href="/studentmanage/collectinfo/">信息收集</a></li>
+            <li><a href="/studentmanage/choseschool/">选校定校</a></li>
+            <li><a href="/studentmanage/instruments/">文书材料</a></li>
+            <li><a href="/studentmanage/applyschool/">学校申请</a></li>
+            <li><a href="/studentmanage/visa/">签证办理</a></li>
+            <li><a href="/studentmanage/translation/">材料翻译</a></li>
+            <li><a href="/studentmanage/background/">背景提升</a></li>
+        </ul>
+    </li>
+    <li {if $Nav=='messages'}class="on"{/if}>
+        <a href="/studentmanage/messages/" class="a"><i></i>消息中心</a>
+    </li>
+    <li {if $Nav=='collection'}class="on"{/if} hidden="hidden">
+        <a href="JavaScript:void(0)" class="a" ><i></i>我的收藏</a>
+    </li>
+    <li {if $Nav=='wallet'}class="on"{/if}>
+        <a href="/studentmanage/wallet/" class="a"><i></i>我的钱包</a>
+    </li>
+</ul>

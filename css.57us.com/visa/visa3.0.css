@@ -1,0 +1,341 @@
+body{background: url(http://images.57us.com/img/Visa/bg3.0.jpg) center top no-repeat;}
+.TourMenu ul li .FirstA{padding: 0 22px;}
+.visaBan{ width:1920px; height:650px; position:relative; left:50%; margin-left:-960px; overflow:hidden; position:relative;z-index: 1;}
+.visaBan .pic{ position:relative; z-index:0; }
+.visaBan .pic img { width:1920px; height:650px; display: block; }
+.visaBan .hd { width:100%; position: absolute; bottom: 10px; text-align: center; font-size:0; z-index:1; }
+.visaBan .hd li{ background:#d5d5d4; border-radius:100%; width:11px;height:11px;overflow: hidden;display:inline-block; *display:inline; zoom:1; cursor: pointer;margin: 0 5px; box-shadow:0 0 3px rgba(255,255,255,0.5)}
+.visaBan .hd .on{background:#0f3775; }
+.visaBan .prev,.visaBan .next{ background: url(http://images.57us.com/img/www/indexicon.png) no-repeat; width: 31px; height: 55px; display: block; overflow: hidden;text-indent: -999px; position: absolute; top: 50%; left: 50%; z-index: 3; cursor: pointer;filter:alpha(opacity=30);opacity: 0.3; display: none;}
+.visaBan .prev{ background-position: -225px -4px; margin: -28px 0 0 -600px;}
+.visaBan .next{ background-position: -269px -4px;margin: -28px 0 0 560px;}
+.visaBan .prev:hover,.visaBan .next:hover{filter:alpha(opacity=70) !important;opacity: 0.7 !important; }
+
+.visaBox{}
+.visaBoxT{ height: 74px; text-align: center;}
+.visaBoxT .name{width:544px; height: 74px; overflow: hidden; display: inline-block; text-indent: -9999px;}
+.visaBoxT .more{margin-top:25px;font-size: 18px; color: #1e1f1f;}
+/*我们的承诺*/
+.commitment .visaBoxT .name{background:url(http://images.57us.com/img/Visa/t5-3.0.png) no-repeat;}
+.commitList li{ height: 150px; width: 25%; float: left; text-align: center; padding: 50px 0 30px; color: #a0a0a5;}
+.commitList li .ico{ background: url(http://images.57us.com/img/Visa/icon13.0.png) no-repeat; width: 82px; height: 82px; display: inline-block; overflow: hidden;}
+.commitList li.i1 .ico{ background-position: 0 0;}
+.commitList li.i2 .ico{ background-position: -82px 0;}
+.commitList li.i3 .ico{ background-position: 0 -82px;}
+.commitList li.i4 .ico{ background-position: -82px -82px;}
+.commitList li .tit{font-size: 18px; padding: 10px 0;}
+/*常见问题*/
+.question{}
+.question .visaBoxT .name{background:url(http://images.57us.com/img/Visa/t4-3.0.png) center top no-repeat;}
+.questionList li{width: 550px; height: auto; overflow: hidden; float: left;margin-top:30px;}
+.questionList li .ques{height: 56px;line-height: 56px; overflow: hidden; padding: 0 15px; color: #093976;font-size: 24px;}
+.questionList li .ques .ico{background:url(http://images.57us.com/img/Visa/detail3.0.png) -4px -427px no-repeat; width:64px; height: 55px; text-align: center; line-height: 55px; color: #fff; font-style: italic;display: inline-block; text-indent: -11px;margin-right: 10px;}
+.questionList li .answ{ height: 100px; overflow: hidden; line-height: 25px;color: #1e1f1f;padding:5px 15px 0 90px; font-size: 16px;line-height: 26px;}
+/*精品推荐*/
+.recommend .visaBoxT .name{background:url(http://images.57us.com/img/Visa/t3-3.0.png) center top no-repeat;}
+.visaProList{width: 1230px;}
+.visaProList li{ background: #fff; width: 384px; height:393px;border: 1px solid #504f51; float: left;margin:24px 24px 0 0; position: relative;}
+.visaProList li img{width: 100%; height: 287px;}
+.visaProList li .tit{height: 35px; line-height: 35px; padding: 10px 15px 0; overflow: hidden;font-size: 18px;}
+.visaProList li .price{color: #d0372f; padding: 10px 15px 0;font-size: 20px;}
+.visaProList li .price span{font-size: 30px;}
+.visaProList li:hover{box-shadow: 0 0 15px rgba(0,0,0,0.3);transition: all 0.3s linear;-webkit-transition: all 0.3s linear;-ms-transition: all 0.3s linear;-moz-transition: all 0.3s linear;-o-transition: all 0.3s linear;}
+.visaProList li .tip,.visaDetailBox .img .ico{background:url(http://images.57us.com/img/Visa/tip-3.0.png) no-repeat;width: 108px;height: 108px;position: absolute;top: 0;left: 0;z-index: 1;display: block;display: none;}
+
+/*特价签证*/
+.SpecialVisa .visaBoxT .name{background:url(http://images.57us.com/img/Visa/t6-3.0.png) center top no-repeat;}
+/*办理流程*/
+.visaProcess .visaBoxT .name{background:url(http://images.57us.com/img/Visa/t1-3.0.png) center top no-repeat;}
+.processList{width: 1284px;}
+.processList li{width:169px; float: left; margin-right: 40px; text-align: center;}
+.processList li .ico{background:url(http://images.57us.com/img/Visa/icon3.0.png) no-repeat; width: 111px; height: 110px;display: inline-block;overflow: hidden;}
+.processList li.i1 .ico{background-position: 0 0;}
+.processList li.i2 .ico{background-position: -111px 0;}
+.processList li.i3 .ico{background-position: -222px 0;}
+.processList li.i4 .ico{background-position: 0 -110px;}
+.processList li.i5 .ico{background-position: -111px  -110px;}
+.processList li.i6 .ico{background-position: -222px -110px;}
+ .processList li .tit{font-size: 18px; color: #1e1f1f;padding-top: 15px;}
+ 
+ /*地区分块*/
+.areaList{ background: #c9c9c9; height: 476px; box-shadow: 0 0 15px rgba(0,0,0,0.3);}
+.areaList ul{width: 1148px; float: left;}
+.areaList li{width:68px; height: 474px; border: 1px solid #fff; overflow: hidden; float: left;border-radius: 15px 0 0 15px;transition: all 0.3s linear;-webkit-transition: all 0.3s linear;-ms-transition: all 0.3s linear;-moz-transition: all 0.3s linear;-o-transition: all 0.3s linear;}
+.areaList li img{width: 444px; height: 474px; float: left;}
+.areaList li .tit{width: 68px; height: 474px;display: block;position: absolute;top: 0;left: 0; z-index: 1; text-align: center;overflow: hidden; line-height: 474px;cursor: pointer;}
+.areaList li .tit span{display:inline-block; vertical-align: middle; color: #fff;font-size: 20px;width: 20px; line-height: 28px;  overflow: hidden;}
+.areaList li .map{width: 382px; height:110px; padding: 364px 20px 0; overflow: hidden; text-align: center;}
+.areaList li .map a{color: #4e5152;font-size: 16px;margin: 2px 12px; display: inline-block;}
+.areaList li .map a:hover{color: #d0372f;}
+.areaList li.i1 .map{background:url(http://images.57us.com/img/Visa/pic/citymap1.jpg) no-repeat; text-align:left ;}
+.areaList li.i2 .map{background:url(http://images.57us.com/img/Visa/pic/citymap2.jpg) no-repeat;}
+.areaList li.i3 .map{background:url(http://images.57us.com/img/Visa/pic/citymap3.jpg) no-repeat;}
+.areaList li.i4 .map{background:url(http://images.57us.com/img/Visa/pic/citymap4.jpg) no-repeat;}
+.areaList li.i5 .map{background:url(http://images.57us.com/img/Visa/pic/citymap5.jpg) no-repeat;}
+.areaList li .areaMain{width: 866px;height: 476px;position: relative; overflow: hidden;}
+.areaList li.on{width: 866px;border-color: #c9c9c9;border-radius: 0;}
+.areaList li.on .tit{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5);width:55px ;cursor: default;}
+.areaList .more{ background: #0f3775; width: 50px; height: 474px;display:block; float: left;border: 1px solid #fff; overflow: hidden; text-align: center;line-height: 474px;}
+.areaList .more span{width:20px; height:56px; display: inline-block; vertical-align:middle ;line-height: 28px;font-size: 20px;color: #fff;}
+/*我们的优势*/
+.advantage{width: 652px; float: left;margin:50px 0 0 43px;position: relative;}
+.advantage .visaBoxT .name{background:url(http://images.57us.com/img/Visa/t2-3.0.png) right top no-repeat;width:100% ;}
+.advantageM{background: #fff;border: 1px solid #505052; height: 320px;}
+.advantage .tip{background:url(http://images.57us.com/img/Visa/seal3.0.png) no-repeat;width: 215px; height: 148px; position: absolute;top: 150px; left: -150px;display: block;}
+.advantageList{padding: 45px 25px 25px 70px;}
+.advantageList li{height: 54px; line-height: 54px; overflow: hidden;font-size:19px; color: #1e1f1f;}
+.advantageList li b{font-size: 16px;padding-right: 8px;}
+/*已办理签证*/
+.hasVisa{ background: #fff; border: 1px solid #505052;width: 358px; height: 422px; padding: 0 20px 0;margin-top:83px;position: relative;}
+.hasVisaT{background:url(http://images.57us.com/img/Visa/zs3.0.png) no-repeat; width: 418px; height: 107px;position: absolute;top:-70px;left: 50%; margin-left: -209px; text-align: center;color: #fff;font-size: 18px; padding-top: 75px;line-height: 28px;}
+.hasVisaT .red{color: #d0372f;font-size: 30px;}
+
+.hasVisaScrol{height:279px; overflow: hidden;padding-top: 110px;}
+.hasVisaScrol li{height:63px; border-bottom: 1px dashed #d7d7d7; padding: 15px 0;color: #1e1f1f;font-size: 16px;}
+.hasVisaScrol li img{width: 45px; height: 45px; float: left;border-radius: 100%; margin: 9px 15px 0 0;}
+.hasVisaScrol li .tit{height: 27px;line-height: 27px;}
+.hasVisaScrol li .tit span{color: #d0372f;font-size: 20px;}
+.hasVisaScrol li .nr{padding-top: 5px; height: 24px; overflow: hidden;}
+.hasVisaScrol li .nr .time{ color: #b2b2b4;}
+
+/*签证列表页*/
+.sideR{width: 298px; height: auto; overflow: hidden;float: right;}
+.sideRL{width: 882px; height: auto; overflow: hidden;float: left;}
+.sideRBox{ background: #fff;height: auto;overflow: hidden; border: 1px solid #dcdcdc; padding: 20px;}
+.sideRBoxT{font-size: 24px; color: #202020;line-height: 35px;}
+.committed{padding: 0;}
+.committedT{background: #0f3775;height: 53px; line-height: 53px;color: #fff;font-size: 20px;padding: 0 25px;}
+.committedList{padding: 15px 0;}
+.committedList li{width: 50%;float: left;text-align: center;margin-top: 15px;}
+.committedList li .ico{ background: url(http://images.57us.com/img/Visa/icon23.0.png) no-repeat; width:54px; height: 54px; display: inline-block; overflow: hidden;}
+.committedList li.i1 .ico{ background-position: 0 0;}
+.committedList li.i2 .ico{ background-position: -54px 0;}
+.committedList li.i3 .ico{ background-position: 0 -54px;}
+.committedList li.i4 .ico{ background-position: -54px -54px;}
+.committedList li .tit{font-size: 18px; padding: 10px 0; color: #999999;}
+/*最新美国签证动态*/
+.visaNews{padding: 15px 0 0px;}
+.visaNews li{padding: 9px 0; height: 24px;overflow: hidden;}
+.visaNews li a{color: #818187;}
+.visaNews li a b{padding-right: 5px;}
+.visaNews li a:hover{color: #d0372f;}
+/*办理说明*/
+.visaInsM{color: #999999;padding: 10px 0 5px;}
+.visaInsM p{padding: 6px 0;}
+/*常见问题*/
+.sideRQues{}
+.sideRQues li{padding: 10px 0; height: auto; overflow: hidden;}
+.sideRQues li .tit{max-height: 56px; overflow: hidden;line-height:28px;color: #202020;font-size: 16px;}
+.sideRQues li .nr{color: #999999; padding-top: 8px;}
+/*签证列表*/
+.visaList{background: #fff;border: 1px solid #dcdcdc; padding: 0 30px 20px; height: auto; min-height: 100px; overflow: hidden;}
+.visaList li{padding: 25px 0; height: auto; overflow: hidden;border-bottom: 1px dashed #c1c1c4;color: #202020;}
+.visaList li .img{width:200px;height: 150px; float: left; position: relative;margin-right: 30px;}
+.visaList li .img img{width: 200px;height: 150px;}
+.visaList li .visaStyle{height: 32px; color: #fff;line-height: 32px;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5);margin-top: -32px;position: relative;font-size: 16px;text-align: center;}
+.visaList li .cont{width:445px;float: left;}
+.visaList li .cont .tit{ color: #202020; font-size: 18px;height: 24px;overflow: hidden;}
+.visaList li .cont .tit a:hover{color: #d0372f;}
+.visaList li .cont .ins{height: 48px;overflow: hidden;}
+.visaList li .cont .condition{margin:10px 0 0 -10px;line-height:30px;}
+.visaList li .cont .condition span{padding: 0 10px;}
+.visaList li .ListR{width: 130px; float: right;padding-top: 28px;}
+.visaList li .ListR .price{color: #d0372f; font-size: 24px;}
+.ListBuyBtn{width:123px; height: 41px; text-align: center; line-height: 41px; border: 1px solid #0f3775;color: #0f3775;font-size: 18px;display: inline-block;border-radius: 7px;}
+.ListBuyBtn:hover{color: #fff;background: #0f3775;}
+.visaList li .ListR .collect{ background: url(http://images.57us.com/img/Visa/icon33.0.png) center -120px no-repeat; width: 40px; height: 40px; display: inline-block; margin-right:5px; vertical-align: middle;}
+.visaList li .ListR .collect.on{background-position: center -160px; cursor: default;}
+/*分页*/
+.page{text-align:center;font-size:16px;}
+.page a{display:inline-block;height:30px;line-height:30px;margin:0 5px;border:1px solid #b8b8b8;padding:0px 10px;border-radius:3px;font-family:arial,'\5FAE\8F6F\96C5\9ED1';color:#666;}
+.page a.prve,.page a.next{padding:0px 10px;}
+.page a.on{background:#0f3775;border:1px solid #0f3775;color:#fff;}
+.page a.on:hover{color:#fff;}
+.page a:hover{color:#d0372f;}
+.page .prvestop,.page .prvestop:hover,.page .nextstop,.page .nextstop:hover{color:#d3d2d2 !important;cursor:default !important;
+    border-color:#d3d2d2 !important;}
+.GoPage{display:inline-block;font-size:16px;color:#9e9e9e;margin-left:10px;vertical-align:top;line-height:32px;}
+.GoPage .input{background:none;width:40px;height:30px;line-height:30px;display:inline-block;border:1px solid #b8b8b8;border-radius:3px;text-align:center;color:#eab66a;font-weight:bold;vertical-align:top;}
+.GoPage .PageBtn{background:#0f3775;width:72px;height:32px;line-height:32px;display:inline-block;border:1px solid #0f3775;border-radius:3px;color:#fff;cursor:pointer;font-size:18px;margin:0 5px;}
+/*排序*/
+.Sequence{height:50px;line-height:50px;color:#666666;padding-top:7px;position: relative;z-index: 1;}
+.allPro{color:#999999;}
+.allPro i{padding:0 4px;}
+.SequenceUl{position:relative;z-index:10;}
+.SequenceUl li{float:left;margin-right:40px;position:relative;}
+.SequenceUl li a{color:#666;}
+.SequenceUl li a i{    background: url(http://images.57us.com/img/tour/TourProIcon.png) -10px -812px  no-repeat;width:20px;height:20px;display:inline-block;vertical-align:middle;}
+.SequenceUl li.on a{color:#d0372f;}
+.SequenceChose{background:#fff;width:140px;height:auto;overflow:hidden;position:absolute;top:-6px;left:-23px;box-shadow:0 0 2px rgba(0,0,0,0.1); display:none;border: 1px solid #dcdcdc;border-bottom: 0;}
+.SequenceChose a{height:60px;line-height:60px;display:block;text-indent:22px;border-bottom: 1px solid #dcdcdc;}
+.SequenceChose a:hover{color:#0f3775;}
+.SequenceUl li.on .SequenceChose a{color:#666;}
+.SequenceUl li:hover .SequenceChose{display:block;}
+/*筛选条件*/
+.selectBox{ background: #fff;border: 1px solid #dcdcdc;padding: 0 35px;position: relative;z-index: 5;}
+.selectList{border-bottom:1px dashed #e3e3e3;padding:12px 0;}
+.selectList.last{ border-bottom:0;}
+.selectListL{width:120px;float:left;position:relative;color:#202020;}
+.selectListL span{position:absolute;bottom:-5px;right:19px;line-height:15px;font-size:12px;}
+.selectListL .ico{background: url(http://images.57us.com/img/Visa/icon33.0.png) no-repeat;width:40px;height:40px;display:inline-block;vertical-align:middle;margin-right:5px;}
+.selectListL .ico1{background-position:0 0;}
+.selectListL .ico2{background-position:0 -40px;}
+.selectListL .ico3{background-position:0 -80px;}
+.selectListL .ico4{background-position:0 -480px;}
+.selectListM{width:690px;float:left;position: relative;}
+.selectListM dt{width:65px;height:26px;line-height:26px;padding: 7px 0;}
+.selectListM dt .allBtn{width:50px;height:26px;text-align:center;line-height:26px;display:inline-block;vertical-align:middle;border-radius:5px;}
+.selectListM dt.on .allBtn,.selectListM dd li.on a{background:#0f3775;color:#fff;}
+.selectListM dd{width:620px;padding: 7px 0;}
+.selectListM dd a{color: #202020; padding: 0 12px; margin: 0 2px; height: 26px; line-height: 26px; display: inline-block;border-radius: 5px;}
+.selectListM dd a:hover,.choseBox li:hover a{color: #d0372f;}
+.choseBox li{float:left;margin:0 13px 0 0;}
+.choseBox li .selectCity{position: absolute; top: 33px; left:0; margin-left:0; width: 657px; padding: 15px;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#C1000000', endColorstr='#C1000000');background:rgba(0,0,0,0.76);border-radius: 5px;z-index: 10;display: none;}
+.choseBox li .selectCity a{color: #fff; margin-right: 25px;}
+.choseBox li .selectCity a:hover{color: #d13e36;}
+.choseBox li:hover .selectCity{display: block;}
+/*签证详情*/
+.visaDetailBox{border: 1px solid #dcdcdc; padding:35px; background: #fff; font-size: 16px;}
+.visaDetailBox .img{width: 400px; height: 300px; position: relative; float: left; margin-right: 35px;}
+.visaDetailBox .img img{width: 400px; height: 300px;}
+.visaDetailBox .tit{font-size: 28px; color:#202020; line-height: 35px;}
+.visaDetailBox .detailMain{background:#f2f2f2;height:40px;padding: 15px;line-height: 40px;color: #202020;}
+.visaDetailBox .detailMain p{float: left;margin-right: 30px;}
+.Accepted{position: relative;}
+.detailR{width: 690px; float: right;position: relative;}
+.OrderBtn{ background:#0f3775; width:240px; height:55px; text-align:center; line-height:55px; overflow:hidden; color:#fff; font-size:18px; display:inline-block; margin-top:20px; border-radius: 5px;}
+.OrderBtn:hover{ background:#0a306a; color:#fff;}
+.visaIns span{margin-right: 30px; color: #202020;}
+.howMuch{line-height: 38px;margin-right: 35px;}
+.num_box{ height:38px;line-height:38px;  border:1px solid #e0e1e1; overflow:hidden; margin-left: 15px;}
+.num_box a.num_btn{width:42px; height:38px;  text-align: center;overflow:hidden; float:left; font-size:22px; vertical-align:middle; cursor:pointer; color:#0f3775}
+.num_box a.num_btn:hover{ background:#f4f4f4}
+.num_input{ border:none; border-right:1px solid #e0e1e1;border-left:1px solid #e0e1e1; background:#fff; color:#202020; width:79px;height:38px;text-align:center; float:left; overflow:hidden}
+.dataInput{background: url(http://images.57us.com/img/Visa/detail3.0.png) 160px -642px no-repeat; width: 222px; height: 40px; line-height: 40px; border: 1px solid #dcdcdc; color: #b0b0b0;margin-left: 10px; text-indent: 10px; float: left;}
+
+.Nprice span{font-size: 20px; color: #d0372f;vertical-align: middle;}
+.Nprice span em{font-size: 36px; }
+.oldPrice span{text-decoration: line-through;}
+.Accepted{ margin-right: 0;}
+.Accepted .ico{background: url(http://images.57us.com/img/Visa/detail3.0.png) -24px -720px no-repeat;  width: 30px; height: 30px; display: inline-block; vertical-align: middle;margin-left:8px;cursor: pointer;}
+
+.package{}
+.package .visaBoxT .name{background:url(http://images.57us.com/img/Visa/t7-3.0.png) center top no-repeat;width:100%;height: 80px;}
+.detailTab{ background:#dcdcdc;}
+.detailTab th{height: 34px; background: #c0c0c0; color: #fff;font-weight: normal; text-align:left; font-size: 18px;}
+.detailTab th,.detailTab td{padding:15px 30px;}
+.detailTab td{background: #fff;color: #202020;font-size: 16px;}
+.visaDetailMain .visaBoxT .name{background:url(http://images.57us.com/img/Visa/t8-3.0.png) center top no-repeat;width:100%;height: 80px;}
+.VisaDetailMenu{ width:100%;height:82px; }
+.VisaDetailMenuLi{width: 100%;background:#fff; height:68px; line-height:68px;border: 1px solid #dcdcdc; font-size:20px;border-right: 0;}
+.VisaDetailMenuLi li{ float:left;width: 20%;}
+.VisaDetailMenuLi li a{height:68px; text-align: center; color:#202020; border-right: 1px solid #dcdcdc; display:block}
+.VisaDetailMenuLi li.on a,.VisaDetailMenuLi li.on a:hover{ background:#0f3775; color:#fff;}
+.VisaDetailMenuLi li a:hover{ background:#e5e5e5;}
+.FixMenu{ width:1200px; position:fixed; top:0; left:50%; margin-left:-600px; z-index:100; box-shadow:0 0 2px rgba(0,0,0,0.2); }
+
+
+.VisaDetailList{ padding: 0 30px; height: auto; overflow: hidden;}
+.VisaDetailListTit{font-size: 28px; color: #202020; line-height: 38px;}
+.VisaDetailList .detailTab th,.VisaDetailList .detailTab td{text-align: center;padding: 12px 20px;}
+.visaPro li{ padding: 0 0 45px 174px; position: relative; height: auto; overflow: hidden;}
+.visaPro li .visaCont{background: #eeeeee; padding: 15px 25px; height: auto; overflow: hidden;}
+.visaPro li .visaCont .tit{font-size: 20px; color: #0f3775;}
+.visaPro li .visaCont .nr{ padding-top: 15px;color: #202020; line-height:32px;font-size: 16px;}
+.visaPro li .sjIco{width: 0;height: 0;border-top: 20px solid #eeeeee;border-left: 20px solid transparent; display: inline-block;position: absolute; top: 0; left:155px; }
+.visaPro li .sline{height: 60%;width: 0; display: block;border-left: 1px dashed #7d7d7d;position: absolute; top:84px;left: 56px;}
+.visaPro li .stit{width: 100%; height: 28px; line-height: 28px; color: #7d7d7d;position: absolute;top: 0;left: 0;font-size: 16px;}
+.visaPro li .ico,.visaPro li .upIco{ background:url(http://images.57us.com/img/Visa/detail3.0.png) no-repeat;width: 70px; height: 70px; display: block;position: absolute;top: 20px; left:22px}
+.visaPro li.i1 .ico{background-position: 0 0;}
+.visaPro li.i2 .ico{background-position: 0 -70px;}
+.visaPro li.i3 .ico{background-position: 0 -140px;}
+.visaPro li.i4 .ico{background-position: 0 -210px;}
+.visaPro li .upIco{ background-position: 0 -560px;top: auto;bottom: -20px;}
+
+/*受理范围*/
+.ReceiveArea{}
+.ReceiveAreaTab{background:#0f3775; width:508px; color:#666 !important; font-size:14px;}
+.ReceiveAreaTab th{ height:49px !important; color:#fff; padding-left:20px; font-size:16px}
+.ReceiveAreaTab td{ background:#fff; padding:15px}
+.diyPop{margin-left:10px !important;margin-top:-100px !important;}
+.diyPop .layui-layer-content{background: none !important;box-shadow: none !important; }
+.diyPop .layui-layer-TipsG{display: none;}
+
+.VisaInv{ width:100%; height:auto; overflow:hidden}
+.VisaInv .hd{ height:45px; border-bottom: 4px solid #ebebeb;}
+.VisaInv .hd li{ float:left; margin-right:60px; padding:0 10px; line-height:45px; cursor:pointer; border-bottom:4px solid #ebebeb; color: #202020; font-size: 18px;}
+.VisaInv .hd li.on{ border-bottom:4px solid #d0372f; color:#d0372f}
+.VisaInv .hd li:hover{color: #d0372f;}
+.bdList .tit{font-size: 20px;color: #0f3775;padding: 15px 0;}
+.VisaTable th,.VisaTable td{background:#fff; text-align:left;font-weight: normal; padding: 15px 30px;}
+.VisaTable th{ line-height: 36px; }
+.VisaTable{ background:#dcdcdc; color: #202020; font-size: 16px;}
+.VisaTable .tableins{ padding:18px 0;}
+.VisaTable .btn{border: 1px solid #0f3775;border-radius: 5px; color: #0f3775; width: 107px; height: 34px; line-height: 34px; text-align: center; float: right;}
+.bdList{display: none;}
+
+.xuzhiCont{color: #202020; line-height: 26px;}
+
+/*订单填写*/
+.VisaOrderLeft{width: 785px; height: auto; overflow: hidden; padding: 30px 30px 50px;border: 1px solid #dcdcdc;background: #fff;float: left;}
+.VisaOrderRight{width: 323px; height: auto; overflow: hidden; float: right;}
+.visaDeOrd{height: 201px;color: #202020; font-size: 16px; line-height: 32px;border-bottom: 1px dashed #dedede;padding-bottom: 45px;}
+.visaDeOrd img{width: 268px;height: 201px;float: left; margin-right: 40px;border: 1px solid #dcdcdc;}
+.visaDeOrd .tit{font-size: 20px; color: #202020;}
+.visaDeOrdTit{font-size: 28px; color: #505052;padding: 10px 0;}
+.orderTab{font-size:18px;}
+.orderTab th,.orderTab td{padding: 15px 0;}
+.orderTab th{font-weight: normal; padding-right: 50px;color: #505052; }
+.OrderInput{width: 407px; height: 31px; line-height: 31px; border: 1px solid #505052; text-indent: 10px;}
+.inputBox{position: relative;}
+.OrderPayPrice{ color:#505052; font-size:28px; margin-top:10px;}
+.OrderPayPrice i{ font-size:20px;}
+.OrderPayPrice .red{color: #d0372f !important;}
+.PayAll{width: 449px; padding: 25px 0 0 130px;}
+.PayAll .GoPayBtn{ background:#0f3775; width:150px; height:45px; text-align:center; line-height:45px; float; color:#fff; font-size:18px;border-radius: 5px;cursor: pointer;display: inline-block;}
+.PayAll .GoPayBtn:hover{ background:#0a306a;}
+.protocol{text-align: right;color: #cfcdcd;}
+.protocol  label i{    background: url(http://images.57us.com/img/tour/TourProIcon.png) -10px -1490px  no-repeat;  width: 20px; height: 20px; display: inline-block; vertical-align: middle; margin-right: 5px;}
+.protocol  label.checked i,.choseBox  label.rb_active i{background-position: -10px -1531px;}
+.Inventory{border: 1px solid #dcdcdc; background: #fff; height: auto; overflow: hidden;}
+.InventoryT{ background: #0f3775; height: 54px; line-height: 54px; text-align: center;font-size: 18px; color: #ffffff;}
+.InventoryTab{padding: 15px 25px; height: auto; overflow: hidden;}
+.InventoryTab th{font-weight: normal;text-align: left;}
+.InventoryTab th,.InventoryTab td{padding: 10px;}
+.InventoryTab .aPrice{font-size: 20px; color: #d0372f;}
+.InventoryTab .aPrice em{font-size: 24px;}
+.InventoryTit{font-size: 24px; text-align: center; color: #505052; font-weight: bold;padding: 15px 0;}
+.InventoryM{padding: 10px 30px; height: auto;color: #999999;}
+.InventoryM p{padding-bottom: 10px;}
+
+.PayStyleBox .bd .ChatPay{ background:url(http://images.57us.com/img/common/ChatPay3.1.jpg) center center no-repeat #fff; }
+.PayStyleBox .bd .Alipay{ background:url(http://images.57us.com/img/common/AlipayPay3.1.jpg) center center no-repeat #fff; }
+.PayStyleBox .hd a{background: none;}
+.PayStyleBox .hd a.on{border-color: #0f3775;color: #0f3775;}
+.PayOrderFoot{background: none;}
+.PayOrderFoot .nextPay{background: #0f3775;border-radius: 5px;height: 48px; line-height: 48px;font-size: 20px; margin-top: 6px;}
+.PayOrderFoot .nextPay:hover{background: #0f3775;}
+.SurplusPay .Countdown{font-size: 24px;}
+
+/**/
+.inputBox.ErroBox .OrderInput{border:solid 1px #ff6767 !important;}
+.inputBox.ErroBox .erroText{display:block;}
+.inputBox .erroText,#yesphone{display:none;color:#ff6767;line-height:27px;position:absolute;top:33px;left:0;font-size: 14px;}
+#yesphone{color: #202020;}
+#yesphone a{color: #d0372f;}
+.TourLocation{height:25px;line-height:25px;color:#999999;padding:10px 0 0;margin-bottom:10px;font-family:\5B8B\4F53;overflow:hidden;}
+.TourLocation a,.TourLocation span{margin:0 5px;}
+.TourLocation a{color:#999999;display:inline-block;}
+.TourLocation a:hover{color:#0f3775;}
+
+.backBtn{ font-size: 14px; padding-top: 10px;}
+.backBtn a{color:#cfcdcd;}
+.backBtn a:hover{color:#00a1e8;}
+
+.noProIco{ background: url(http://images.57us.com/img/tour/noProIco3.0.png) center center no-repeat; width:250px; height: 250px; display: block;position: absolute;left:60px; bottom:16px; z-index: 10; overflow: hidden;text-indent: -9999px;}
+.noOrderBtn{background: #f1f1f1;color: #999; cursor: default;}
+.noOrderBtn:hover{background: #f1f1f1;color: #999;}
+/*新增*/
+.searchd{height: 34px;border-bottom: 2px solid #0f3775;overflow: hidden;}
+.searchd a{float: left;height: 34px; line-height: 34px; float: left;padding: 0 17px;font-size: 16px;}
+.searchd a.on{background: #0f3775;color: #fff;border-radius:4px 4px 0 0;}

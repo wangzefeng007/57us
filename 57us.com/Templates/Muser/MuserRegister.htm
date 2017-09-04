@@ -1,0 +1,89 @@
+{template Header}
+<div class="page-group">
+    <div class="page page-current loginPage" id="index1">
+        <header class="bar bar-nav loginBar">
+            <a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+            <h2 class="title">快速注册</h2>
+        </header>
+        <div class="content">
+            <div class="loginCont">
+                <form id="registerIndex1">
+                    <p class="loginLogo">57美国</p>
+                    <div class="erroTip" style="display: none">
+                        <i class="icon iconfont icon-close"></i><span class="erroIfno"></span>
+                    </div>
+                    <div class="mt30 cf">
+                        <div class="loginInput">
+                            <div class="input"><input type="text" name="user" class="user" value="" placeholder="请输入手机号或者邮箱" /></div>
+                        </div>
+                    </div>
+                    <div class="mt20">
+                        <a href="javascript:void(0)" class="button button-fill loginBtn smsBtn">获取验证码</a>
+                    </div>
+                    <div class="xieyi">
+                        我已同意并阅读 <a href="#">用户服务协议</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="page page-current loginPage" id="index2" style="display: none">
+        <header class="bar bar-nav loginBar">
+            <a href="javascript:void(0);" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+            <h2 class="title">验证短信</h2>
+        </header>
+        <div class="content">
+            <div class="loginCont">
+                <form id="registerIndex2">
+                    <div class="sendNum tac">
+                        已发送验证码短信到<br><span class="num tel"></span>
+                    </div>
+                    <div class="erroTip" style="display: none">
+                        <i class="icon iconfont icon-close"></i><span class="erroIfno"></span>
+                    </div>
+                    <div class="mt30 cf">
+                        <div class="loginInput">
+                            <div class="input"><input type="text" name="code" class="code" value="" placeholder="请输入动态验证码" /></div>
+                            <input type="button" class="sendSm smsBtn" id="smsBtn" value="获取动态密码">
+                        </div>
+                    </div>
+                    <div class="mt20">
+                        <a href="javascript:void(0)" class="button button-fill loginBtn nextBtn">下一步</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="page page-current loginPage" id="index3" style="display: none">
+        <header class="bar bar-nav loginBar">
+            <a href="javascript:void(0)" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+            <h2 class="title">设置密码</h2>
+        </header>
+        <div class="content">
+            <div class="loginCont">
+                <form id="registerIndex3">
+                    <div class="erroTip" style="display: none">
+                        <i class="icon iconfont icon-close"></i><span class="erroIfno"></span>
+                    </div>
+                    <p class="loginT">请设置密码</p>
+                    <div class="mt30 cf">
+                        <div class="loginInput">
+                            <div class="input"><input type="password" name="password" class="password" value="" placeholder="请设置6位数以上的密码" /></div>
+                        </div>
+                        <div class="loginInput">
+                            <div class="input"><input type="password" name="rePassword" class="rePassword" value="" placeholder="请再次输入密码" /></div>
+                        </div>
+                    </div>
+                    <div class="mt20">
+                        <a href="javascript:void(0)" class="button button-fill loginBtn registerBtn">立即注册</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserRegister.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserLoginPublic.js" charset='utf-8'></script>
+</body>
+</html>

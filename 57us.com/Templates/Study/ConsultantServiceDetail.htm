@@ -1,0 +1,252 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 StudyLocation">您当前位置：
+    <a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+    <a href="/consultant_service/">所有服务</a><span>&gt;</span>
+    <span class="Position">{$ServiceInfo[ServiceName]}</span>
+</div>
+<div class="w1200 cf">
+    <div class="DetailBox cf">
+        <div class="DePicScroll">
+            <a href="javascript:void(0);" class="prev"></a>
+            <a href="javascript:void(0);" class="next"></a>
+            <ul class="pic">
+                {if json_decode($ServiceInfo[ImagesJson],true)}
+                {loop json_decode($ServiceInfo[ImagesJson],true) $val}
+                <li><img src="{echo ImageURLP6}{$val}" alt="{$ServiceInfo[ServiceName]}"></li>
+                {/loop}
+                {else}
+                <li><img src="{echo ImageURL}/img/study/defaultService3.0.jpg" alt="{$ServiceInfo[ServiceName]}"></li>
+                {/if}
+            </ul>
+        </div>
+        <div class="DetailInfor">
+            <h1 class="tit" title="{$ServiceInfo[ServiceName]}">{$ServiceInfo[ServiceName]}</h1>
+            <div class="DetailFunBox mt15">
+                <div class="DetailFunBoxL">
+                    {if $ServiceInfo['ServiceTags'] != 'null'}
+                    <p class="ListService mt25">
+                        {loop json_decode($ServiceInfo[ServiceTags],true) $val}
+                        <span>{$val[ServiceTag]}</span>
+                        {/loop}
+                    </p>
+                    {/if}
+                    <div class="DetailFunList mt15">
+                        服务类型： {$ServiceType}<br> 服务地区： {$UserInfo['City']}<br> 服务顾问： {$UserInfo[NickName]}
+                    </div>
+                </div>
+                <div class="DetailFunBoxR mt35">
+                    <p class="price">￥<em>{$ServiceInfo[SalePrice]}</em></p>
+                    <!--此处绑定服务id-->
+                    <a href="javascript:void(0)" class="NowBuyBtn fl mt20" data-id="{$ServiceInfo[ServiceID]}" id="OrdersBtn"><span>立即购买</span></a>
+                </div>
+            </div>
+            <p class="description mt15">服务简介：{$ServiceInfo[ServiceDescription]}
+            </p>
+        </div>
+    </div>
+</div>
+<div class="w1200 po mt20 cf">
+    <div class="SlideLeft fl">
+        <div class="contMenu" id="contMenu">
+            <ul>
+                <li class="on">服务介绍<span class="line"></span></li>
+                <li>服务保障<span class="line"></span></li>
+                <li>57美国网说明<span class="line"></span></li>
+                <li>顾问介绍<span class="line"></span></li>
+            </ul>
+        </div>
+        <div class="cf DetailContM">
+            <div class="contBox">
+                <div class="contBoxT"><span class="name fl">服务介绍</span><span class="line"></span></div>
+                <div class="detailList mt20">
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                        {if $ServiceInfo['ServiceType']==1}
+                        <tr>
+                            <td width="33%"><i class="ico1"></i>目标人群：{$ServiceInfo[TargetPeople]}</td>
+                            <td width="33%"><i class="ico2"></i>目标国家：{$ServiceInfo[TargetCountry]}</td>
+                            <td width="33%"><i class="ico3"></i>申请层次：{$TargetLevel[$ServiceInfo[TargetLevel]]}</td>
+                        </tr>
+                        <tr>
+                            <td width="33%"><i class="ico4"></i>服务周期：{$ServiceInfo[ServiceCycle]}</td>
+                            <td width="33%"><i class="ico5"></i>是否含第三方费用：{$ServiceInfo[OtherFees]}</td>
+                            <td width="33%"><i class="ico6"></i>套餐包含申请学校数量：{$ServiceInfo[SchoolNum]}</td>
+                        </tr>
+                        <tr>
+                            <td width="33%"><i class="ico7"></i>文书数量：{$ServiceInfo[DocumentsNum]}</td>
+                            <td width="33%"><i class="ico8"></i>文书修改次数：{$ServiceInfo[DocumentsModifyNum]}</td>
+                            <td width="33%"><i class="ico9"></i>签证培训次数：{$ServiceInfo[VisaDirectNum]}</td>
+                        </tr>
+                        {elseif $ServiceInfo['ServiceType']==2}
+                        <tr>
+                            <td width="33%"><i class="ico1"></i>目标人群：{$ServiceInfo[TargetPeople]}</td>
+                            <td width="33%"><i class="ico2"></i>目标国家：{$ServiceInfo[TargetCountry]}</td>
+                            <td width="33%"><i class="ico3"></i>申请层次：{$TargetLevel[$ServiceInfo[TargetLevel]]}</td>
+                        </tr>
+                        <tr>
+                            <td width="33%"><i class="ico4"></i>服务周期：{$ServiceInfo[ServiceCycle]}</td>
+                            <td width="33%"><i class="ico5"></i>是否含第三方费用：{$ServiceInfo[OtherFees]}</td>
+                            <td width="33%"><i class="ico6"></i>套餐包含申请学校数量：{$ServiceInfo[SchoolNum]}</td>
+                        </tr>
+                        <tr>
+                            <td width="33%"><i class="ico7"></i>文书数量：{$ServiceInfo[DocumentsNum]}</td>
+                            <td width="33%"><i class="ico8"></i>文书修改次数：{$ServiceInfo[DocumentsModifyNum]}</td>
+                            <td width="33%"></td>
+                        </tr>
+                        {elseif $ServiceInfo['ServiceType']==4}
+                        <tr>
+                            <td width="33%"><i class="ico1"></i>目标人群：{$ServiceInfo[TargetPeople]}</td>
+                            <td width="33%"><i class="ico2"></i>目标国家：{$ServiceInfo[TargetCountry]}</td>
+                            <td width="33%"><i class="ico3"></i>申请层次：{$TargetLevel[$ServiceInfo[TargetLevel]]}</td>
+                        </tr>
+                        <tr>
+                            <td width="33%"><i class="ico4"></i>服务周期：{$ServiceInfo[ServiceCycle]}</td>
+                            <td width="33%"></td>
+                            <td width="33%"></td>
+                        </tr>
+                        {elseif $ServiceInfo['ServiceType']==3}
+                        <tr>
+                            <td width="33%"><i class="ico1"></i>目标人群：{$ServiceInfo[TargetPeople]}</td>
+                            <td width="33%"><i class="ico2"></i>目标国家：{$ServiceInfo[TargetCountry]}</td>
+                            <td width="33%"><i class="ico3"></i>申请层次：{$TargetLevel[$ServiceInfo[TargetLevel]]}</td>
+                        </tr>
+                        <tr>
+                            <td width="33%"><i class="ico4"></i>服务周期：{$ServiceInfo[ServiceCycle]}</td>
+                            <td width="33%"><i class="ico7"></i>文书数量：{$ServiceInfo[DocumentsNum]}</td>
+                            <td width="33%"><i class="ico8"></i>文书修改次数：{$ServiceInfo[DocumentsModifyNum]}</td>
+                        </tr>
+                        {elseif $ServiceInfo['ServiceType']==7}
+                        <tr>
+                            <td width="33%"><i class="ico1"></i>目标人群：{$ServiceInfo[TargetPeople]}</td>
+                            <td width="33%"><i class="ico2"></i>目标国家：{$ServiceInfo[TargetCountry]}</td>
+                            <td width="33%"><i class="ico3"></i>申请层次：{$TargetLevel[$ServiceInfo[TargetLevel]]}</td>
+                        </tr>
+                        {elseif $ServiceInfo['ServiceType']==6}
+                        <tr>
+                            <td width="33%"><i class="ico1"></i>目标人群：{$ServiceInfo[TargetPeople]}</td>
+                            <td width="33%"><i class="ico2"></i>目标国家：{$ServiceInfo[TargetCountry]}</td>
+                            <td width="33%"><i class="ico3"></i>申请层次：{$TargetLevel[$ServiceInfo[TargetLevel]]}</td>
+                        </tr>
+                        <tr>
+                            <td width="33%"><i class="ico4"></i>服务周期：{$ServiceInfo[ServiceCycle]}</td>
+                            <td width="33%"><i class="ico8"></i>文书修改次数：{$ServiceInfo[DocumentsModifyNum]}</td>
+                            <td width="33%"></td>
+                        </tr>
+                        {else}
+                        <tr>
+                            <td width="33%"><i class="ico1"></i>目标人群：{$ServiceInfo[TargetPeople]}</td>
+                            <td width="33%"><i class="ico2"></i>目标国家：{$ServiceInfo[TargetCountry]}</td>
+                            <td width="33%"><i class="ico3"></i>申请层次：{$TargetLevel[$ServiceInfo[TargetLevel]]}</td>
+                        </tr>
+                        <tr>
+                            <td width="33%"><i class="ico9"></i>签证培训次数：{$ServiceInfo[VisaDirectNum]}</td>
+                            <td width="33%"></td>
+                            <td width="33%"></td>
+                        </tr>
+                        {/if}
+                    </table>
+                </div>
+                <div class="contBoxNr">
+                    {echo StrReplaceImages($ServiceInfo[ServiceDetails],$ServiceInfo[ServiceName])}
+                </div>
+            </div>
+            <div class="contBox">
+                <div class="contBoxT"><span class="name fl">服务保障</span><span class="line"></span></div>
+                <div class="contBoxNr">
+                    在57美国网平台选择购买服务后的学生，将获得以下服务保障：<br><br>
+
+                    1、依据教育部“留学中介服务合同”范本精神，并结合实际情况协助学生审核留学服务合同，规避陷阱。<br>
+                    2、57美国网构建顾问服务反馈系统，管理留学申请进程。顾问提供的背景提升方案、选校定校方案、文书、offer等均上传到57美国网平台，美国留学过程中的8大关键环节提醒并需要学生确认，全程服务可视化。<br>
+                    3、平台留学管家全程跟进服务商的办理情况，系统也会及时告知学生的办理进度，确保您的服务过程顺利进行。<br>
+                    4、学生可通过电脑、移动端（手机等）查看自己的留学申请状态，时刻了解到留学中介办理的进度和情况。<br>
+                    5、学生中介服务费支付到57美国网平台，先由平台代收托管，定校、文书、offer、签证等环节学生确认满意后平台再打款给服务商，资金安全，维权有保障。<br>
+                    6、全程服务或院校申请服务，学生享有签约后3天（72小时）内无条件退款的犹豫期。<br>
+                    7、服务不满意或未达承诺，57us先行调解，确实因为服务商主观原因导致拒录，中介费用依约先行赔付，为学生和家长争取最大利益。
+                </div>
+            </div>
+            <div class="contBox">
+                <div class="contBoxT"><span class="name fl">57美国网说明</span><span class="line"></span></div>
+                <div class="contBoxNr">
+                    1、购买服务后，学生需在3个工作日内进入"我的申请"填写个人基本信息。个人信息逾期未填写、填写不完整将会导致院校评估延期。<br>
+                    2、确认服务可以开展后，学生须定期登陆电脑或移动端查看自己的留学申请状态，并及时响应或确认服务商提供的服务请求与反馈。<br>
+                    3、所申请学校排名以购买产品当年的USNEWS 排名为准。<br>
+                    4、申请成功以收到学校的录取通知书为准。包括有条件的录取通知书和无条件的录取通知书，通知书形式包括电子版录取通知书以及纸质版录取通知书。<br>
+                    5、全程服务及申请院校院校的服务，学生享有签约后3天内（72小时）无条件退款的犹豫期。如果你在平台成功支付，72小时内你可在个人中心“我的订单”，点击“申请退款”，并附上退款缘由，我们将在48小时内与你联系处理退款事宜。<br>
+                    6、如犹豫期内学生无异议，那么视为服务可以开展，一旦开始服务，将按合同约定执行。<br>
+                    7、其他退款规定以学生与服务商签订的合同约定为准。所签订的服务合同须上传至平台备案。<br>
+                    8、文书服务约定在三周内完成，学生有三次修改的权利。<br>
+                    9、57美国网是中立的第三方平台，此项服务由进驻的独立留学顾问或留学工作室提供，其真实性、准确性和合法性由信息拥有者（机构）负责，本站不承担任何法律责任。
+                </div>
+            </div>
+            <div class="contBox">
+                <div class="contBoxT"><span class="name fl">顾问介绍</span><span class="line"></span></div>
+                <div class="consultantIns cf mt30">
+                    <div class="consultantInsL fl">
+                        <img src="{if strpos($UserInfo[Avatar],'http://')===false}{echo LImageURL}{/if}{$UserInfo[Avatar]}" width="124" height="124" alt="{$UserInfo[NickName]}"/>
+                        <p class="more mt10"><a href="/consultant/{$ServiceInfo[UserID]}.html" target="_blank">了解更多</a></p>
+                    </div>
+                    <p class="tit"><span class="name">{$UserInfo[NickName]}</span><span>从业：{$ConsultantInfo[WorkingAge]}年</span><span>地点：{$UserInfo[Province]}省 {$UserInfo[City]}</span></p>
+                    <p class="mt10 consultantTip">
+                        {loop json_decode($ConsultantInfo[Tags],true) $key $val}
+                        <span>{$val}</span>
+                        {/loop}
+                    </p>
+                    <p class="nr mt10">自我介绍：{$ConsultantInfo[Introduction]}</p>
+                </div>
+                <div class="otherSer mt20">
+                    <div class="otherSerT">顾问其他服务：</div>
+                    <!--数据绑定时，不要动ul的id-->
+                    <!--li大于3条时，第四条li添加style="display: none"-->
+                    <ul class="otherSerList" id="servic">
+                        {loop $ServiceList $key $val}
+                        <li {if $key>2}style="display: none"{/if}>
+                            <div class="BoxR">
+                                <p class="price tal">￥<em>{$val[SalePrice]}</em></p>
+                                <a href="/consultant_service/{$val[ServiceID]}.html" class="CheckMore transition mt15" title="{$val[ServiceName]}">查看详情</a>
+                            </div>
+                            <a href="/consultant_service/{$val[ServiceID]}.html"><img src="{if json_decode($val[ImagesJson],true)}{echo ImageURLP4}{echo json_decode($val[ImagesJson],true)[$val[CoverImageKey]]}{else}{echo ImageURL}/img/study/defaultService3.0.jpg{/if}" alt="{$val[ServiceName]}" width="130" height="97"></a>
+                            <p class="tit">
+                                <a href="/consultant_service/{$val[ServiceID]}.html" title="{$val[ServiceName]}">{$val[ServiceName]}</a>
+                            </p>
+                            <p class="nr mt20">服务简介：{$val[ServiceDescription]}</p>
+                        </li>
+                        {/loop}
+                    </ul>
+                    <!--数据绑定时，不要动以下div-->
+                    <div class="more" id="servicemore" style="display: none"><a href="javascript:void(0)">更多<i></i></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="SlideRight autofix_sb fr">
+        <div class="RelatedTj cf adList">
+            <h3 class="RelatedTjT">相关推荐</h3>
+            <ul>
+                {loop $RecommendServiceList $list}
+                <li class="transition">
+                    <a href="/consultant_service/{$list[ServiceID]}.html">
+                        <p class="img"><img src="{if json_decode($list[ImagesJson],true)}{echo ImageURLP4}{echo json_decode($list[ImagesJson],true)[$list[CoverImageKey]]}{else}{echo ImageURL}/img/study/defaultService3.0.jpg{/if}" width="280" height="210" alt="{$list[ServiceName]}"/></p>
+                        <div class="RelatedM">
+                            <p>服务名称：{$list[ServiceName]}</p>
+                            <p>价格：<span class="red">￥<em class="f18">{$list[SalePrice]}</em></span></p>
+                        </div>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="">
+            <div class="wxShare mt20">
+                <img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99" />
+                <p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<script src="{echo JsURL}/study/ConsultantServiceDetail.js"></script>
+</body>
+</html>

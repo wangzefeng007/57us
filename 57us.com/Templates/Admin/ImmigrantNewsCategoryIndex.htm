@@ -1,0 +1,113 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">资讯内容管理</a>
+        </li>
+        <li>
+          <a href="/index.php?Module=ImmigrantNewsCategory&Action=Lists">移民模块</a>
+        </li>
+        <li class="active">添加分类</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+        
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+          <!--{template TourNewsTop}-->
+        <div class="panel-body">
+          <form action='/index.php?Module=ImmigrantNewsCategory&Action=Add'  method='post'>
+            <table class="table table-bordered table-striped table-hover">
+              <tbody>
+              <tr>
+                <td class="t-r"> 分类名称：</td>
+                <td>
+                  <div class="col-lg-2">
+                      <input type="text" name="CategoryName" value="{$CategoryInfo[CategoryName]}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">父级分类：</td>
+                <td>
+                  <div class="col-lg-2">
+                      <select class="form-control" name="ParentCategoryID" id="ParentCategoryID">
+			<option value="0">&nbsp;&nbsp;Top&nbsp;&nbsp;</option>
+			<!--{loop $CategoryList $Category}-->
+			<option value="{$Category[CategoryID]}" {if $CategoryInfo[ParentCategoryID]==$Category[CategoryID]}selected="selected"{/if}>&nbsp;&nbsp;{echo
+			str_repeat('&nbsp;',$Category[Level]*3)}|- {$Category[CategoryName]}</option>
+			<!--{/loop}-->
+                        </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">分类别名：</td>
+                <td>
+                  <div class="col-lg-2">
+                    <input type="text" name="Alias" value="{$CategoryInfo[Alias]}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">Title：</td>
+                <td>
+                  <div class="col-lg-2">
+                    <textarea name="SeoTitle" cols="50" rows="2">{$CategoryInfo[SeoTitle]}</textarea> 
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">Keywords：</td>
+                <td>
+                  <div class="col-lg-2">
+                    <textarea name="SeoKeywords" cols="50" rows="2">{$CategoryInfo[SeoKeywords]}</textarea> 
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="t-r">Description:</td>
+                <td>
+                  <div class="col-lg-2">
+                     <textarea name="SeoDescription" cols="80" rows="5">{$CategoryInfo[SeoDescription]}</textarea> 
+                  </div>
+                </td>
+              </tr>
+               <tr>
+                <td class="t-r"> 同级排序：</td>
+                <td>
+                  <div class="col-lg-2">
+                      <input type="text" name="DisplayOrder" value="{$CategoryInfo[DisplayOrder]}" class="form-control"/>
+                  </div>
+                </td>
+              </tr>
+              <tr id="MaterialRequested">
+                <td width="150" align="right"></td>
+                <td>
+                  <input name="CategoryID" type="hidden" value="{$CategoryInfo[CategoryID]}" />
+                  <div class="col-lg-2">
+                  <input class="btn btn-danger" style="width:100px;" type='submit' name='submit' value='提交保存'/>
+                  </div>
+                </td>
+              </tr>              
+              </tbody>
+            </table>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

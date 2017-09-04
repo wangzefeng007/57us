@@ -1,0 +1,20 @@
+{
+  "ResultCode":200,
+  "Type":"0",
+  "ChildData":[
+    {
+      "skuid":"2016",
+      "num":"1"
+    },
+    {
+      "skuid":"2017",
+      "num":"2"
+    }
+  ],
+  "PriceData":{
+    "dultnum":"2",
+    "childnum":"2",
+    "cost":"3344",
+    "skuid":"2555"
+  }
+}

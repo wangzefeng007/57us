@@ -1,0 +1,100 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TourCarRent&Action=TourCarRentList">租车产品管理</a>
+                </li>
+                <li class="active">租车订单管理</li>
+                <span class="position hidden">租车订单管理</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel breadcrumb">
+                <div class="panel-body">
+                    <span style="float: left;line-height: 36px;margin-left: -10px;padding-right: 10px">订单号：</span>
+                    <form class="form-inline" role="form" action="/index.php?Module=TourCarRent&Action=TourCarRentList" method="GET">
+                        <input type="hidden" name="Module" value="TourCarRent">
+                        <input type="hidden" name="Action" value="TourCarRentList">
+                        <input type="text" class="form-control" name="OrderNo" placeholder="订单号" value="{$OrderNo}" style="width: 200px" >
+                        订单状态：
+                        <select name="Status" id="Status"  class="form-control" onchange="GetNewTourAreaID(this.value)">
+                            <option style="width:200px;"  value="{$Status}">{if !$StatusInfo[$Status]}请选择状态{else}{$StatusInfo[$Status]}{/if}</option>
+                            <option  value="">全部</option>
+                            {loop $StatusInfo $key $value}
+                            <option  value="{$key}">{$value}</option>
+                            {/loop}
+                        </select>
+                        <button class="btn btn-info">搜索</button>
+                    </form>
+                </div>
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr  align="center">
+                            <th>订单编号</th>
+                            <th>下单时间</th>
+                            <th>驾驶员姓名</th>
+                            <th>联系人姓名</th>
+                            <th>国籍</th>
+                            <th>租租车订单号</th>
+                            <th>金额</th>
+                            <th>状态</th>
+                            <th>手机号</th>
+                            <th>邮箱</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $Data[Data] $list}
+                        <tr  height="35" align="center">
+                            <td>{$list[OrderNum]} </td>
+                            <td>{$list[CreateTime]}</td>
+                            <td>{$list[driverSurname]}{$list[driverGivenname]}</td>
+                            <td>{$list[contractGivenname]}</td>
+                            <td>{$list[contractNationality]}</td>
+                            <td>{$list[OrderNo]}</td>
+                            <td>{$list[Money]}</td>
+                            <td>{$StatusInfo[$list[Status]]}</td>
+                            <td>{$list[contractPhone]}</td>
+                            <td>{$list[contractEmail]}</td>
+                            <td>
+                                <a href="/index.php?Module=TourCarRent&Action=TourCarRentEdit&ID={$list[ID]}">订单管理</a>&nbsp;|&nbsp;<a class="getinfo"  href="/index.php?Module=TourCarRent&Action=TourCarRentDetail&ID={$list[ID]}">详情</a>
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    <form action="/index.php?Module=TourCarRent&Action=TourCarRentList{$PageUrl}" method="POST">
+                        <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                <li><a href="/index.php?Module=TourCarRent&Action=TourCarRentList&Page=1{$PageUrl}">首页</a></li>
+                                {if $Previous}
+                                <li><a href="/index.php?Module=TourCarRent&Action=TourCarRentList&Page={$Previous}{$PageUrl}">上一页</a></li>
+                                {/if}
+                                {loop $Data[PageNums] $page}
+                                <li><a href="/index.php?Module=TourCarRent&Action=TourCarRentList&Page={$page}{$PageUrl}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+                                {/loop}
+                                {if $Next}
+                                <li><a href="/index.php?Module=TourCarRent&Action=TourCarRentList&Page={$Next}{$PageUrl}">下一页</a></li>
+                                {/if}
+                                <li><a href="/index.php?Module=TourCarRent&Action=TourCarRentList&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+                                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

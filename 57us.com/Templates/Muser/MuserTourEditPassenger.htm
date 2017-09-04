@@ -1,0 +1,73 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current" id="editeTrave">
+		<header class="bar bar-nav suvBar">
+			{if $PassengerInfo}<span class="pull-right deteTrave">删除</span>{/if}
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<div class="title mangeList">编辑常用旅客</div>
+		</header>
+		<!--旅客id-->
+		<div class="content">
+			<div class="changPass">
+				<div class="changeList">
+					<span class="listName">中文姓名</span>
+					<div class="listInput">
+						<input type="text" name="zhName" id="zhName" value="{$PassengerInfo[ZhName]}" placeholder="确保与证件保持一致" />
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">性别</span>
+					<div class="listInput">
+						<input type="text" name="sex" id='sex' value="{$PassengerInfo[Sex]}" placeholder="请选择出性别" readonly/>
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">出生日期</span>
+					<div class="listInput">
+						<input type="text" name="BirthDay" id='birthDay' value="{$PassengerInfo[BirthDay]}" placeholder="请选择出生年月份" data-toggle='date' readonly/>
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">手机号</span>
+					<div class="listInput">
+						<input type="text" name="mobile" id="mobile" value="{$PassengerInfo[Mobile]}" placeholder="请输入11位的手机号码" />
+					</div>
+				</div>
+				<div class="changeList mt10">
+					<span class="listName">护照号</span>
+					<div class="listInput">
+						<input type="text" name="idCard" id="idCard" value="{$PassengerInfo[IdCard]}" placeholder="请填写护照号" />
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">有效期</span>
+					<div class="listInput">
+						<input type="text" name="cardEndDate" id="cardEndDate" value="{$PassengerInfo[CardEndDate]}" placeholder="请选择护照有效期" data-toggle='date' readonly/>
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">国籍</span>
+					<div class="listInput">
+						<input type="text" name="nationality" id="nationality" value="{$PassengerInfo[Nationality]}"  placeholder="请选择出生国籍" readonly/>
+					</div>
+				</div>
+				<div class="changeList">
+					<span class="listName">设为默认</span>
+					<div class="listInput">
+						<div class="label-switch" id="isDefault">
+							<input type="checkbox" {if $PassengerInfo[IsDefault]==1}checked="checked"{/if}>
+							<div class="checkbox"></div>
+						</div>
+					</div>
+				</div>
+				<div class="sendBox">
+					<a href="javascript:void(0)" class="button button-fill button-orange" id="saveBtn">保存</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserTourEditPassenger.js" charset='utf-8'></script>
+</body>
+</html>

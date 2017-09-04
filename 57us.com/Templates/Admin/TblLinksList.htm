@@ -1,0 +1,65 @@
+{template Head}
+<style>
+    .panel-body ul{
+        margin-bottom: 10px;
+    }
+    .panel-body ul li{
+        margin-bottom: 10px;
+    }
+</style>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li> <a href="#"><i class="fa fa-home"></i> Home</a> </li>
+        <li> <a href="#">友情链接</a> </li>
+        <li class="active">友情链接管理</li>
+      </ul>
+      <!--breadcrumbs end -->
+      <span class="position hidden">友情链接</span> </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel breadcrumb">
+        <div class="panel-body" style="border-bottom: 1px solid #dfdfdf"> <span style="float: left;line-height: 38px;margin-left: -10px;padding-right: 10px">
+          <input type="button" onClick="location.href='/index.php?Module=TblLinks&Action=Edit'" value="添加" class="btn btn-danger">
+          </span> </div>
+        <div class="panel-body">
+          <p style="color:#FF0000;">首页友情链接</p>
+          <ul class="list-inline" style="width:100%; height:auto; overflow:hidden">
+            {loop $FirstLinks $lists}
+            <li> [<a href="{$lists[Url]}" target="_blank">{$lists[Name]}</a>&nbsp; <a href="/index.php?Module=TblLinks&Action=Edit&ID={$lists[ID]}">修改</a>&nbsp; <a href="javascript:void(0)" data-id="{$lists[ID]}" class="del">删除</a> ] </li>
+            {/loop}
+          </ul>
+          <p style="color:#FF0000;">旅游友情链接</p>
+          <ul class="list-inline" style="width:100%; height:auto; overflow:hidden">
+            {loop $TourLinks $lists}
+            <li> [<a href="{$lists[Url]}" target="_blank">{$lists[Name]}</a>&nbsp; <a href="/index.php?Module=TblLinks&Action=Edit&ID={$lists[ID]}">修改</a>&nbsp; <a href="javascript:void(0)" data-id="{$lists[ID]}" class="del">删除</a> ] </li>
+            {/loop}
+          </ul>
+          <p style="color:#FF0000;">留学友情链接</p>
+          <ul class="list-inline" style="width:100%; height:auto; overflow:hidden">
+            {loop $StudyLinks $lists}
+            <li> [<a href="{$lists[Url]}" target="_blank">{$lists[Name]}</a>&nbsp; <a href="/index.php?Module=TblLinks&Action=Edit&ID={$lists[ID]}">修改</a>&nbsp; <a href="javascript:void(0)" data-id="{$lists[ID]}" class="del">删除</a> ] </li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}
+<script>
+    $('.del').click(function () {
+        var delid = $(this).attr('data-id');
+        var text = $(this).prev().prev().text();
+        layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+            title: '删除提示',
+            btn: ['确定','取消'] //按钮
+        }, function(index){
+            window.location.href='/index.php?Module=TblLinks&Action=Delete&ID='+delid;
+            layer.close(index);
+        });
+    })
+</script>

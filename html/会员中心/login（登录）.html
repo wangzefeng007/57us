@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>登录</title>
+		<meta name="keywords" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+		<meta name="description" content="">
+		<link href="http://css.57us.com/common/reset.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="http://css.57us.net/member/v3.1/style.css" />
+	</head>
+
+	<body>
+		<div class="logiBody">
+			<div class="tac mt50"><a href="" class="loginLogo">57美国</a></div>
+			<div class="loginBox mt20">
+				<div class="hd cf">
+					<a href="JavaScript:void(0)" class="on">普通登录</a>
+					<a href="JavaScript:void(0)">手机短信登录</a>
+				</div>
+				<div class="loginBoxM cf">
+					<p class="wecome">欢迎登录57美国网</p>
+					<div class="bd">
+						<div class="loginCont" style="display: block;">
+							<div class="erroTip">
+								<i class="icon iconfont icon-close"></i>手机号或密码错误，请重新输入
+							</div>
+							<div class="inputBox cf erro">
+								<i class="icon iconfont icon-user"></i>
+								<input type="text" name="" id="" value="" class="input" placeholder="13606905225"/>
+							</div>
+							<div class="inputBox cf">
+								<i class="icon iconfont icon-lock"></i>
+								<input type="text" name="" id="" value="" class="input" placeholder="请输入密码"/>
+							</div>
+							<a href="" class="publicBtn1 mt50 loginBtn">登录</a>
+							<div class="loginB mt20 cf">
+								<p class="fr loginBr"><a href="">忘记密码？</a>|<a href="">立即注册</a></p>
+								<label class="cbt fl" name="check" id="auto" type="checkbox"><span><i class="icon iconfont icon-ok1"></i></span>两周内自动登录</label>
+							</div>
+						</div>	
+						<div class="loginCont">
+							<div class="erroTip">
+								<i class="icon iconfont icon-close"></i>手机号或密码错误，请重新输入
+							</div>
+							<div class="inputBox cf erro">
+								<i class="icon iconfont icon-dianhua"></i>
+								<input type="text" name="" id="" value="" class="input" placeholder="13606905225"/>
+							</div>
+							<div class="inputBox cf yzmBox">
+								<span class="yzmpic fr"><img src="http://member.57us.com/code/pic.jpg" width="155" height="54"/></span>
+								<input type="text" name="" id="" value="" class="input fl" placeholder="请输入图形验证码"/>
+							</div>
+							<div class="inputBox cf dtyzmBox">
+								<div class="SendSms fr">
+									<!--
+                                    	作者：xiao15980751809@126.com
+                                    	时间：2017-02-14
+                                    	描述：发送验证码后 加on
+                                    -->
+									<input type="button" class="btnsms" id="btnsms" value="获取动态密码">
+								</div>
+								<input type="text" name="" id="" value="" class="input fl" placeholder="请输入图形验证码"/>
+							</div>
+							<a href="" class="publicBtn1 mt25 loginBtn">登录</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w1200 mt30 loginFoot">
+				Copyright © 2016 57US.com 57美国网 All rights reserved. 闽ICP备15017345号 <br>
+公司地址：厦门市思明区软件园二期观日路34号之一201Z单元 客服电话：400-018-5757 网站地图
+			</div>
+		</div>
+		<script src="http://js.57us.com/base/jquery/1.8.3/jquery.min.js"></script>
+		<script src="http://js.57us.com/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+		<script src="http://js.57us.com/base/base.js"></script>
+		<script type="text/javascript">
+		//切换登录方式
+		$(".loginBox .hd a").click(function(){
+			$(this).addClass("on").siblings().removeClass("on");
+			var num =$(this).index();
+			$(this).parents(".loginBox").find(".loginCont").hide().eq(num).show();
+		})
+		//两周内的自动登录
+		$('.cbt').inputbox();
+		</script>
+	</body>
+</html>

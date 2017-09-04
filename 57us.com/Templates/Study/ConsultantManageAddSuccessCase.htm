@@ -1,0 +1,155 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="cf w1200 AddServiceBox mt40">
+    <div class="AddServiceBoxT">
+        <a href="javascript:window.history.back()" class="backBtn transition fr">返回上一页</a>
+        <span class="name fl">添加成功案例</span>
+    </div>
+    <div class="cf AddCaseM mt20">
+        <div class="AddCaseList">
+            <p class="left fl">学生姓名：</p>
+            <div class="inputBox">
+                <input type="text" name="StudentName" id="StudentName" value="" placeholder="不方便留全名，可：刘同学或L同学" class="InsInput" maxlength="10">
+                <div class="erroText"></div>
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl">申请季：</p>
+            <div class="inputBox">
+                <input type="text" name="ApplySeason" id="ApplySeason" value="" placeholder="" class="InsInput" maxlength="15">
+                <div class="erroText"></div>
+            </div>
+        </div>
+        <div class="AddCaseList full">
+            <p class="left fl">录取院校：</p>
+            <div class="inputBox">
+                <input type="text" name="AdmissionSchool" id="AdmissionSchool" value="" placeholder="不同的学校用逗号隔开" class="InsInput">
+                <div class="erroText"></div>
+            </div>
+        </div>
+        <div class="AddCaseList full">
+            <p class="left fl">申请学校：</p>
+            <div class="inputBox">
+                <input type="text" name="ApplySchool" id="ApplySchool" value="" placeholder="不同的学校用逗号隔开" class="InsInput">
+                <div class="erroText"></div>
+                <span class="currentIco"></span>
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl">入读院校：<span class="c9 chos">（选填）</span></p>
+            <div class="inputBox">
+                <input type="text" name="AttendSchool" id="AttendSchool" value="" placeholder="" class="InsInput" maxlength="20">
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl">奖学金：<span class="c9 chos">（选填）</span></p>
+            <div class="inputBox">
+                <input type="text" name="Scholarship" id="Scholarship" value="" placeholder="" class="InsInput" maxlength="20">
+            </div>
+        </div>
+        <div class="AddCaseList full">
+            <p class="left fl">录取专业：<span class="c9 chos">（选填）</span></p>
+            <div class="inputBox">
+                <input type="text" name="AdmissionSpecialty" id="AdmissionSpecialty" value="" placeholder="不同的学校用逗号隔开" class="InsInput">
+            </div>
+        </div>
+        <table border="0" cellspacing="1" cellpadding="0" width="100%" class="langeScrol" id="LangeScrol">
+            <form>
+                <tbody>
+                <tr height="60">
+                    <th>GPA</th>
+                    <th>托福</th>
+                    <th>雅思</th>
+                    <th>GRE</th>
+                    <th>GMAT</th>
+                    <th>SAT</th>
+                    <th>SSAT</th>
+                    <th>ACT</th>
+                </tr>
+                <tr height="50">
+                    <td><input type="text" name="GPA" id="GPA" value=""  class="studentScrol" maxlength="5"/></td>
+                    <td><input type="text" name="TOEFL" id="TOEFL" value=""  class="studentScrol" maxlength="5"/></td>
+                    <td><input type="text" name="IELTS" id="IELTS" value=""  class="studentScrol" maxlength="5"/></td>
+                    <td><input type="text" name="GRE" id="GRE" value=""  class="studentScrol" maxlength="5"/></td>
+                    <td><input type="text" name="GMAT" id="GMAT" value=""  class="studentScrol" maxlength="5"/></td>
+                    <td><input type="text" name="SAT" id="SAT" value=""  class="studentScrol" maxlength="5"/></td>
+                    <td><input type="text" name="SSAT" id="SSAT" value=""  class="studentScrol" maxlength="5"/></td>
+                    <td><input type="text" name="ACT" id="ACT" value=""  class="studentScrol" maxlength="5"/></td>
+                </tr>
+                </tbody>
+            </form>
+        </table>
+        <div class="cf mt15 full fl"></div>
+        <div class="AddCaseList">
+            <p class="left fl">背景院校：<span class="c9 chos">（选填）</span></p>
+            <div class="inputBox currentBox">
+                <input type="text" name="OnSchool" id="OnSchool" value="" placeholder="" class="InsInput" maxlength="15"/>
+            </div>
+        </div>
+        <div class="AddCaseList">
+            <p class="left fl">背景专业：<span class="c9 chos">（选填）</span></p>
+            <div class="inputBox">
+                <input type="text" name="OnSpecialty" id="OnSpecialty" value="" placeholder="" class="InsInput" maxlength="15"/>
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl" style="width: 112px;">添加学生头像：<span class="c9 chos">（必填）</span></p>
+            <div class="right fl">
+                <p class="mt10 red">如果没有学生照片，可以添加录取学校的校徽，请尽量清晰，不能超过 512KB</p>
+                <ul class="addPic mt15" id="PicPortraits">
+                    <span class="AddBtn" id="AddPortraits"><i></i></span>
+                    <input type="file" id="addpreview" style="display: none"/>
+                </ul>
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl" style="width: 120px;">添加学生Offer：<span class="c9 chos">（选填）</span></p>
+            <div class="right fl">
+                <p class="mt10 red"></p>
+                <ul class="addPic mt15" id="PicOffer">
+                    <span class="AddBtn" id="AddOfferImg"><i></i></span>
+                    <input type="file" id="addOfferpreview" style="display: none"/>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="AddServiceBoxT"><span class="name fl">案例分析</span></div>
+    <div class="cf AddCaseM">
+        <div class="AddCaseList mt20 cf" style="width: 100%;">
+            <p class="left fl">优势分析：<span class="c9 chos">（选填）<b class="pl20"></b></span></p>
+            <div class="right fl">
+                <textarea class="textare" name="Advantage" id="Advantage" rows="" cols="" placeholder="总体介绍服务该学生的过程或者遇到的问题并如何解决。"></textarea>
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl">劣势分析：<span class="c9 chos">（选填）<b class="pl20"></b></span></p>
+            <div class="right fl">
+                <textarea class="textare" name="Disadvantage" id="Disadvantage" rows="" cols="" placeholder="简单介绍学生的劣势，全面分析学生。"></textarea>
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl">申请总结：</p>
+            <div class="right fl">
+                <div class="inputBox">
+                    <textarea class="textare" name="ApplySummary" id="ApplySummary" rows="" cols="" placeholder="简单介绍学生的优势，让有同样优势的学生看到。"></textarea>
+                    <div class="erroText"></div>
+                </div>
+            </div>
+        </div>
+        <div class="AddCaseList cf" style="width: 100%;">
+            <p class="left fl"></p>
+            <div class="right fl">
+                <a href="javascript:void(0)" id="SubmitAudit" class="submitChange publicBtn1 fr">立即发布</a>
+                <div class="saveBoxL fl mt15">
+                    <a href="javascript:void(0)" id="SaveView">保存并预览一下</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/plupload/1.0.0/plupload.full.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageAddSuccessCase.js"></script>
+</body>
+</html>

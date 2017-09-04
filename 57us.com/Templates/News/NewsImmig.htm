@@ -1,0 +1,163 @@
+{template Header}
+<div class="wrap">
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" title="57美国网" target="_blank">首页</a>><span>移民资讯</span></div>
+	<div class="w1200 NewsStudyMain cf">
+		<div class="NewsTourSlideL fl">
+			{loop $AllInfo $key $val}
+			{if in_array($val['CategoryID'],array(1126))}
+			<div class="ImmBox">
+				<div class="ImmBoxTit">
+					<a href="/immigtopic_{$val['Alias']}/" target="_blank" class="more fr">更多>></a>
+					<span class="name">{$val['CategoryName']}</span>
+				</div>
+				<div class="hd mt5">
+					{loop $val['Two'] $k $v}
+					<a href="/immigrant_{$v['Alias']}/" target="_blank" {if $k == 0}class="on"{/if}>{$v['CategoryName']}</a>
+					{/loop}
+				</div>
+				<div class="bd">
+					{loop $val['Two'] $k1 $v1}
+					<div class="BdList cf" {if $k1 == 0}style="display: block;"{/if}>
+					<div class="ImgBoxCont fl">
+						<div class="ListBox">
+							<a href="/immigrant/{$v1['NewsTopic'][0]['ImmigrationID']}.html"><p class="img"><img  src="{echo ImageURLP4}{$v1['NewsTopic'][0]['Image']}" alt="{$v1['NewsTopic'][0]['Title']}" title="{$v1['NewsTopic'][0]['Title']}" class="transition lazy" width="400" height="300" /></p></a>
+							<p class="tit mt15"><a href="/immigrant/{$v1['NewsTopic'][0]['ImmigrationID']}.html">{$v1['NewsTopic'][0]['Title']}</a></p>
+							<p class="nr mt10">{echo mb_substr($v1['NewsTopic'][0]['Description'], 0, 45, 'utf-8')}{if $v1['NewsTopic'][0]['Description']}…<a href="/immigrant/{$v1['NewsTopic'][0]['ImmigrationID']}.html">【查看全部】</a>{/if}</p>
+						</div>
+						<ul class="ListBoxList mt10">
+							<li><a href="/immigrant/{$v1['News'][0]['ImmigrationID']}.html"><span class="fr date">{echo date("Y-m-d",strtotime($v1['News'][0]['AddTime']))}</span><b>●</b>{$v1['News'][0]['Title']}</a></li>
+							<li><a href="/immigrant/{$v1['News'][1]['ImmigrationID']}.html"><span class="fr date">{echo date("Y-m-d",strtotime($v1['News'][1]['AddTime']))}</span><b>●</b>{$v1['News'][1]['Title']}</a></li>
+						</ul>
+					</div>
+					<div class="ImgBoxCont fr">
+						<div class="ListBox">
+							<a href="/immigrant/{$v1['NewsTopic'][1]['ImmigrationID']}.html"><p class="img"><img  src="{echo ImageURLP4}{$v1['NewsTopic'][1]['Image']}" alt="{$v1['NewsTopic'][1]['Title']}" title="{$v1['NewsTopic'][1]['Title']}" class="transition lazy" width="400" height="300" /></p></a>
+							<p class="tit mt15"><a href="/immigrant/{$v1['NewsTopic'][1]['ImmigrationID']}.html">{$v1['NewsTopic'][1]['Title']}</a></p>
+							<p class="nr mt10">{echo mb_substr($v1['NewsTopic'][1]['Description'], 0, 45, 'utf-8')}{if $v1['NewsTopic'][1]['Description']}…<a href="/immigrant/{$v1['NewsTopic'][1]['ImmigrationID']}.html">【查看全部】</a>{/if}</p>
+						</div>
+						<ul class="ListBoxList mt10">
+							<li><a href="/immigrant/{$v1['News'][2]['ImmigrationID']}.html"><span class="fr date">{echo date("Y-m-d",strtotime($v1['News'][2]['AddTime']))}</span><b>●</b>{$v1['News'][2]['Title']}</a></li>
+							<li><a href="/immigrant/{$v1['News'][3]['ImmigrationID']}.html"><span class="fr date">{echo date("Y-m-d",strtotime($v1['News'][3]['AddTime']))}</span><b>●</b>{$v1['News'][3]['Title']}</a></li>
+						</ul>
+					</div>
+				</div>
+				{/loop}
+				</div>
+			</div>
+			{elseif in_array($val['CategoryID'],array(1138,1143))}
+			<div class="ImmBox mt20">
+				<div class="ImmBoxTit">
+					<a href="/immigtopic_{$val['Alias']}/" target="_blank" class="more fr">更多>></a>
+					<span class="name">{$val['CategoryName']}</span>
+				</div>
+				<div class="hd mt5">
+					{loop $val['Two'] $k $v}
+					<a href="/immigrant_{$v['Alias']}/" target="_blank" {if $k == 0}class="on"{/if}>{$v['CategoryName']}</a>
+					{/loop}
+				</div>
+				<div class="bd">
+					{loop $val['Two'] $k1 $v1}
+					<div class="BdList cf" {if $k1==0}style="display: block;"{/if}>
+					{if $v1['News']}
+					<div class="RaidersCont">
+						<a href="/immigrant/{$v1['NewsTopic'][0]['ImmigrationID']}.html"><p class="img fl"><img  src="{echo ImageURLP4}{$v1['NewsTopic'][0]['Image']}" alt="{$v1['NewsTopic'][0]['Title']}" title="{$v1['NewsTopic'][0]['Title']}" class="transition lazy" width="400" height="300" /></p></a>
+						<p class="tit mt25"><a href="/immigrant/{$v1['NewsTopic'][0]['ImmigrationID']}.html">{$v1['NewsTopic'][0]['Title']}</a></p>
+						<p class="nr mt30">{echo mb_substr($v1['NewsTopic'][0]['Description'], 0, 140, 'utf-8')}{if $v1['NewsTopic'][0]['Description']} …<a href="/immigrant/{$v1['NewsTopic'][0]['ImmigrationID']}.html">【查看全部】</a>{/if}</p>
+					</div>
+					<ul class="ExamNewsList fl mt10">
+						{if $v1['News'][0]}<li><a href="/immigrant/{$v1['News'][0]['ImmigrationID']}.html"><b>●</b>{$v1['News'][0]['Title']}</a></li>{/if}
+						{if $v1['News'][1]}<li><a href="/immigrant/{$v1['News'][1]['ImmigrationID']}.html"><b>●</b>{$v1['News'][1]['Title']}</a></li>{/if}
+						{if $v1['News'][2]}<li><a href="/immigrant/{$v1['News'][2]['ImmigrationID']}.html"><b>●</b>{$v1['News'][2]['Title']}</a></li>{/if}
+					</ul>
+					<ul class="ExamNewsList fr mt10">
+						{if $v1['News'][3]}<li><a href="/immigrant/{$v1['News'][3]['ImmigrationID']}.html"><b>●</b>{$v1['News'][3]['Title']}</a></li>{/if}
+						{if $v1['News'][4]}<li><a href="/immigrant/{$v1['News'][4]['ImmigrationID']}.html"><b>●</b>{$v1['News'][4]['Title']}</a></li>{/if}
+						{if $v1['News'][5]}<li><a href="/immigrant/{$v1['News'][5]['ImmigrationID']}.html"><b>●</b>{$v1['News'][5]['Title']}</a></li>{/if}
+					</ul>
+					{/if}
+				</div>
+				{/loop}
+			</div>
+			</div>
+			{elseif in_array($val['CategoryID'],array(1131))}
+			<div class="ImmBox GuideBox mt20">
+				<div class="ImmBoxTit">
+					<a href="/immigtopic_{$val['Alias']}/" target="_blank" class="more fr">更多>></a>
+					<span class="name">{$val['CategoryName']}</span>
+				</div>
+				<div class="hd mt5">
+					{loop $val['Two'] $k $v}
+					<a href="/immigrant_{$v['Alias']}/" target="_blank" {if $k == 0}class="on"{/if}>{$v['CategoryName']}</a>
+					{/loop}
+				</div>
+				<div class="focusBox mt20 fl">
+					<ul class="pic">
+						<li><a href="/immigrant/{$val['Two'][0]['NewsTopic'][0]['ImmigrationID']}.html" target="_blank"><img src="{echo ImageURLP4}{$val['Two'][0]['NewsTopic'][0]['Image']}" alt="{$val['Two'][0]['NewsTopic'][0]['Title']}" title="{$val['Two'][0]['NewsTopic'][0]['Title']}" class="transition lazy" width="400" height="300" /><p class="tit">{$val['Two'][0]['NewsTopic'][0]['Title']}</p></a></li>
+						<li><a href="/immigrant/{$val['Two'][1]['NewsTopic'][0]['ImmigrationID']}.html" target="_blank"><img src="{echo ImageURLP4}{$val['Two'][1]['NewsTopic'][0]['Image']}" alt="{$val['Two'][1]['NewsTopic'][0]['Title']}" title="{$val['Two'][1]['NewsTopic'][0]['Title']}" class="transition lazy" width="400" height="300" /><p class="tit">{$val['Two'][1]['NewsTopic'][0]['Title']}</p></a></li>
+						<li><a href="/immigrant/{$val['Two'][2]['NewsTopic'][0]['ImmigrationID']}.html" target="_blank"><img src="{echo ImageURLP4}{$val['Two'][2]['NewsTopic'][0]['Image']}" alt="{$val['Two'][2]['NewsTopic'][0]['Title']}" title="{$val['Two'][2]['NewsTopic'][0]['Title']}" class="transition lazy" width="400" height="300" /><p class="tit">{$val['Two'][2]['NewsTopic'][0]['Title']}</p></a></li>
+					</ul>
+					<a class="sprev" href="javascript:void(0)"></a>
+					<a class="snext" href="javascript:void(0)"></a>
+					<ul class="num">
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				<div class="bd fr">
+					{loop $val['Two'] $k1 $v1}
+					{if $v1['News']}
+					<div class="BdList GuideCont cf" {if $k1==0}style="display: block;"{/if}>
+					<p class="tit mt5"><a href="/immigrant/{$v1['News'][0]['ImmigrationID']}.html">{$v1['News'][0]['Title']}</a></p>
+					<ul class="ExamNewsList fl mt10">
+						{loop $v1['News'] $key $val}
+						{if $key > 0}
+						<li><a href="/immigrant/{$val['ImmigrationID']}.html"><b>●</b>{$val['Title']}</a></li>
+						{/if}
+						{/loop}
+					</ul>
+				</div>
+				{/if}
+				{/loop}
+			</div>
+		</div>
+		{/if}
+		{/loop}
+		</div>
+		<div class="NewsTourSlideR fr">
+			{loop $TopicTour $key $val}
+			<div class="NewsAd">
+				<a href="{$val['Link']}" target="_blank" title="{$val[Title]}"><img src="{echo ImageURLP4}{$val[Picture]}" class="transition lazy" alt="{$val[Title]}" title="{$val[Title]}" width="100%" /></a>
+			</div>{/loop}
+                        {template TagsCloud}    
+			<div class="HotTip cf mt25">
+				<div class="HotTipT"><i></i>热门标签</div>
+				<div class="HotTipM">
+					{loop $Keyhot $list}<a href="{echo WEB_MAIN_URL}/immigrant/tags_{$list[Keyword]}.html" target="_blank" title="{$list[Keyword]}">{$list[Keyword]}</a>{/loop}
+				</div>
+			</div>
+			<div class="NowNews mt25">
+				<div class="HotTipT"><i></i>热门文章</div>
+				<ul class="NewsList">
+					{loop $Tourhot $key $lists}
+					<li {if $key<3}class="i{echo $key+1}{/if}"><a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank" title="{$lists[Title]}"><i>{echo $key+1}</i>{$lists[Title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="NowNews LikeNews mt25">
+				<div class="HotTipT"><i></i>猜你喜欢</div>
+				<ul class="NewsList">
+					{loop $TourLike $key $lists}
+					<li><a href="/immigrant/{$lists[ImmigrationID]}.html" target="_blank" title="{$lists[Title]}"><i>{echo $key+1}</i>{$lists[Title]}</a></li>
+					{/loop}
+				</ul>
+			</div>                            
+		</div>
+	</div>
+	<script src="{echo JsURL}/www/newsimmgindex.js" type="text/javascript" charset="utf-8"></script>
+	{template Footer}

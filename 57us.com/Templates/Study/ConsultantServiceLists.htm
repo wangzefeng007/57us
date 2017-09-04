@@ -1,0 +1,195 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+{if $SearchKeyWords}
+<div class="w1200 StudyLocation">您当前位置：
+    <a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+    <a href="/consultant_service/">找服务</a><span>&gt;</span>
+    <span class="Position"><em class="c9">搜索</em>“{$SearchKeyWords}”</span>
+</div>
+{else}
+<div class="w1200 StudyLocation">您当前位置：
+    <a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+    <span class="Position">服务列表</span>
+    <span id="Position"></span>
+</div>
+{/if}
+<div class="w1200 cf">
+	{template SearchOption}
+    <div class="selectBox" id="Filter">  
+        <div class="selectList cf">
+            <div class="selectListL"><i class="ico ico1"></i>申请层次：</div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="javascript:void(0);" class="allBtn" id="LevelAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox" id="Level">
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="selectList cf">
+            <div class="selectListL"><i class="ico ico2"></i>服务类型：</div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="javascript:void(0);" class="allBtn" id="ServiceTypeAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox" id="ServiceType">
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="selectList last cf">
+            <div class="ChoseMore"><a href="JavaScript:void(0)">更多<i></i></a><a href="JavaScript:void(0)"
+                                                                                class="change">收起<i></i></a></div>
+            <div class="selectListL"><i class="ico ico3"></i>选择地区：</div>
+            <dl class="selectListM">
+                <dt class="fl on"><a href="javascript:void(0);" class="allBtn" id="RegionAll">不限</a></dt>
+                <dd class="fl">
+                    <ul class="choseBox" id="Region">
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="w1200" id="AjaxDom" style="display: none">
+    <div id="AjaxLevel">
+        <span data-id="All">All</span>
+    </div>
+    <div id="AjaxServiceType">
+        <span data-id="All">All</span>
+    </div>
+    <div id="AjaxRegion">
+        <span data-id="All">All</span>
+    </div>
+    <div id="AjaxSort">
+        Default
+    </div>
+    <div id="AjaxKeyword">
+    </div>
+</div>
+<div class="w1200 Sequence">
+    <ul class="SequenceUl f16" id="Ranking">
+        <li class="on firstLeft">
+            <a href="javascript:void(0)" id="Default">综合排序</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" id="PicerSort">价格排序<i></i></a>
+
+            <div class="SequenceChose">
+                <a href="javascript:void(0)" id="PicerAsce">价格从低到高</a>
+                <a href="javascript:void(0)" id="PicerDown">价格从高到低</a>
+            </div>
+        </li>
+        <li class="hidden">
+            <a href="javascript:void(0)" id="SalesSort">销量排序<i></i></a>
+
+            <div class="SequenceChose" style="width: 110px;">
+                <a href="javascript:void(0)" id="SalesAsce">销量上升</a>
+                <a href="javascript:void(0)" id="SalesDown">销量下降</a>
+            </div>
+        </li>
+    </ul>
+    <span class="fr allPro">为您找到<i class="pcolor" id="ProductNum">{$Rscount['Num']}</i>个服务</span>
+</div>
+<div class="w1200 cf">
+    <div class="SlideLeft fl">
+        <div id="NoProduct" {if $Rscount[Num]}style="display: none"{/if}>
+            <div class="Nosearch" id="Nosearch">{if $SearchKeyWords!=''}sorry，没有找到“ <span>{$SearchKeyWords}</span>”相关的服务！{else}<i class="ico"></i>很抱歉，暂时无法找到符合您要求的服务。{/if}</div>
+            <div class="TjList">
+                <div class="TjListT mt20"><span class="name">倾情推荐</span></div>
+            </div>
+        </div>
+        <ul class="ServiceLineList" id="StudyLineList">
+            {loop $ServiceList $lists}
+            <li>
+                <div class="ListLeft">
+                    <p class="tit">
+                        <a href="{$lists[StudyUrl]}" title="{$lists[Study_name]}" target="_blank">{$lists[Study_name]}</a>
+                    </p>
+                    <div class="img">
+                        <a href="{$lists[StudyUrl]}" title="{$lists[Study_name]}" target="_blank">
+                            <img src="{$lists[StudyImg]}" class="transition" width="200" height="150" alt="{$lists[Study_name]}"/>
+                        </a>
+                    </div>
+                    <p class="where">
+                        <span>层次：{$lists[StudyLevel]}</span>
+                        <span>类型：{$lists[StudyServiceType]}</span>
+                        <span>地区：{$lists[StudyServiceRegion]}</span>
+                    </p>
+                    <p class="ListService mt15">{$lists[StudyService]}</p>
+                    <p class="ListDescion mt10"><b>服务简介</b>：{$lists[StudyDepict]}</p>
+                </div>
+                <div class="ListRight">
+                    <span class="price">&yen;<em>{$lists[StudyPicre]}</em></span>
+                    <a href="{$lists[StudyUrl]}" class="CheckMore transition mt15" target="_blank">查看详情</a>
+                </div>
+            </li>
+            {/loop}
+        </ul>
+        {if $ShowPage}
+        <div class="page mt35" id="Page2">
+            <form action="/consultant_service/" method="GET">
+                {$ShowPage}
+                <div class="GoPage">到 <input type="text" name="p" value="" class="input" maxlength="4"/> 页 <input type="submit" id="pagebtn" value="确定" class="PageBtn" /></div>
+            </form>
+        </div>
+        {/if}
+        <div class="page mt35" id="Page" style="display: none" data-type="0">
+        </div>
+        <script type="text" id="pageDemo">
+
+			<a class="prve cupo" data-id="{{d.Page-1}}">上一页</a>
+
+			<a class="first cupo" data-id="1">1</a>
+
+			{{# for(var p in d.PageNums){ }}
+
+			<a class="cupo" data-id="{{d.PageNums[p]}}">{{d.PageNums [p] }}</a>
+
+			{{# } }}
+
+			<span class="lastEllipsis"href="javascript:void(0)">...</span>
+
+			<a class="cupo PageCount" data-id="{{d.PageCount}}">{{d.PageCount}}</a>
+
+			<a class="cupo next" data-id="{{d.NextPage}}">下一页</a>
+
+			<div class="GoPage">到 <input type="text" id="pagenum" value="" class="input" maxlength="4"/> 页 <input type="button" name="" id="pagebtn" value="确定" class="PageBtn" /></div>
+		</script>
+    </div>
+    <!--右侧内容,start-->
+    <div class="SlideRight fr">
+        <!--广告-->
+        <ul class="adList">
+            {loop $StudyRightADLists $val}
+            <li>
+                <a href="{$val[Link]}" target="_blank" class="ImgBlackBg"><img class="transition lazy" width="100%" src="{echo ImageURLP4}{$val[Picture]}" alt="{$val[Title]}"></a>
+            </li>
+            {/loop}
+        </ul>
+        <!--new资讯-->
+        <div class="NewNews">
+            <div class="NewNewsT">最新资讯</div>
+            <ul class="NewNewsList">
+                {loop $NewsList $key $list}
+                <li {if ($key+1)==count($NewsList)}class="last"{/if}>
+                    <a href="{echo WEB_MAIN_URL}/study/{$list[StudyID]}.html" target="_blank" alt="{$list[Title]}"><b>●</b>{$list[Title]}</a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="wxShare mt20">
+            <img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99"/>
+
+            <p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+        </div>
+    </div>
+    <!--右侧内容,End-->
+</div>
+{template Footer}
+<script src="{echo JsURL}/study/StudyListsPublic.js"></script>
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<script src="{echo JsURL}/base/laytpl/1.1/laytpl.js"></script>
+<script src="{echo JsURL}/base/Page/1.0/Page.js"></script>
+<script src="{echo JsURL}/study/ConsultantServiceLists.js"></script>
+</body>
+</html>

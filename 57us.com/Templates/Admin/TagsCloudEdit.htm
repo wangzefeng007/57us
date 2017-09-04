@@ -1,0 +1,69 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TagsCloud&Action=Lists" class="position">标签云模块</a>
+                </li>
+                <li class="active" id="modify">标签云模块</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action='/index.php?Module=TagsCloud&Action=Save'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <td colspan="2" class="t-h">标签详情：</td>
+                            </tr>
+                            <tr>
+                                <td width="150" class="t-r">标签</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="TagsName" value="{$TagsInfo[TagsName]}" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">地址</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="TagsUrl" value="{$TagsInfo[TagsUrl]}" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <form action='/index.php?Module=TagsCloud&Action=Save'  method='post'  enctype="multipart/form-data">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="TagsID" value="{$TagsInfo[TagsID]}" />
+                                        <input class="btn btn-danger" type="submit" name="submit" value="保存">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </form>
+                        </table>
+                        <tr>
+                            <td height="35" width="500px"> <a class="right"  href="/index.php?Module=TagsCloud&Action=Lists">返回列表</a></td>
+                        </tr>
+                    </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{template Foot}-->

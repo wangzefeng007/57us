@@ -1,0 +1,135 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+	{template MemberTourOrderLeft}
+	<div class="mRight cf fr">
+		<div class="mRight_v">
+			<div class="mRightit">
+				<a href="" class="fr abackList">返回订单列表 ></a>
+				<span class="name">订单信息</span>
+			</div>
+			<div class="orderDetailM">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%" class="orderDetTab">
+					<tr data-type="hotel" data-id="{$OrderInfo[OrderID]}" {if  $OrderInfo[ExpirationTime]>$CurrentTime} class="settime" endTime="{$OrderInfo[ExpirationTime]}"{/if}>
+						<td width="90">订单编号：</td>
+						<td width="180">{$OrderInfo[OrderNo]}</td>
+						<td width="90">预定时间：</td>
+						<td width="180">{$OrderInfo[AddTime]}</td>
+						<td rowspan="2" class="tac">
+							{if $OrderInfo[Status]==1}
+							<a href="{echo WEB_HOTEL_URL}/order/{$OrderInfo[OrderNo]}.html" class="publicBtn2 btn applyTk">去支付</a>
+							<a href="javascript:void(0)" class="publicBtn2 btn applyTk">取消订单</a>
+							{elseif $OrderInfo[Status]==2 || $OrderInfo[Status]==3 || $OrderInfo[Status]==4}
+							<a href="javascript:void(0)" class="publicBtn2 btn applyTk">申请退款</a>
+							{/if}
+						</td>
+					</tr>
+					<tr>
+						<td>总金额：</td>
+						<td><span class="red">￥<em class="f22">{$OrderInfo[Money]}</em></span></td>
+						<td>订单状态：</td>
+						<td><span class="red">{$OrderStatus[$OrderInfo[Status]]}</span></td>
+					</tr>
+				</table>
+			</div>
+			{if $OrderInfo[Status]==5 || $OrderInfo[Status]==6 || $OrderInfo[Status]==7 ||$OrderInfo[Status]==8 ||$OrderInfo[Status]==9}
+			<div class="tkBox">
+				<div class="fr mt20">
+					退款申请已通过审核，客服将在<span class="green">3</span>个工作日内将金额退至付款账户
+				</div>
+				<div class="tkLoading fl">
+					<span class="sline"></span>
+					<ul>
+						<li class="{if $OrderInfo[Status]==5 || $OrderInfo[Status]==6 || $OrderInfo[Status]==7 || $OrderInfo[Status]==8 ||$OrderInfo[Status]==9}on{/if}">
+							<span class="cirle">1</span>
+							<p class="tit">申请退款</p>
+						</li>
+						<li class="{if $OrderInfo[Status]==5 || $OrderInfo[Status]==6}i2{elseif $OrderInfo[Status]==7 || $OrderInfo[Status]==8 ||$OrderInfo[Status]==9}on{/if}">
+							<span class="cirle">2</span>
+							<p class="tit">{if $OrderInfo[Status]==7}审核不通过{elseif $OrderInfo[Status]==8}审核通过{/if}</p>
+						</li>
+						<li class="{if $OrderInfo[Status]==5 || $OrderInfo[Status]==6 || $OrderInfo[Status]==7 || $OrderInfo[Status]==8}i3{elseif $OrderInfo[Status]==9}on{/if}">
+							<span class="cirle"><i class="icon iconfont icon-ok1"></i></span>
+							<p class="tit">退款</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			{/if}
+		</div>
+		<div class="mRight_v mt20">
+			<div class="mRightit">
+				<span class="name">入住信息</span>
+			</div>
+			<div class="orderDetailM proIns">
+				<p class="proInsTit mt10">{$OrderInfo[HotelName]}</p>
+				<table border="0" cellspacing="0" cellpadding="0" width="100%" class="mt15">
+					<tbody>
+					<tr>
+						<td>酒店地址：300 W 44th St, New York</td>
+					</tr>
+					<tr>
+						<td>酒店电话： 1-212-803-4500</td>
+					</tr>
+					<tr>
+						<td>入离日期： 2016年12月17日 星期六 入住，2016年12月18日 星期日 离店，共 1 晚 </td>
+					</tr>
+					<tr>
+						<td>房型名称： 高级 客房 不含早(Superior Room Room Only)</td>
+					</tr>
+					<tr>
+						<td>床型： 1张双人床</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<p class="roomName">住客姓名：</p>
+							<p class="roomNum">房间1<span class="pl20">成人 0儿童<br>HAI ZOU<br>HAI ZOU</span></p>
+							<p class="roomNum">房间2<span class="pl20">成人 0儿童<br>HAI ZOU<br>HAI ZOU</span></p>
+							<p class="roomNum">房间3<span class="pl20">成人 0儿童<br>HAI ZOU<br>HAI ZOU</span></p>
+						</td>
+					</tr>
+					<tr>
+						<td>到店时间： 2016/12/17 17:00（当地时间）</td>
+					</tr>
+
+					</tbody></table>
+			</div>
+		</div>
+		<div class="mRight_v mt20">
+			<div class="mRightit">
+				<span class="name">联系信息</span>
+			</div>
+			<div class="orderDetailM">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%" class="contactTab mt15">
+					<tr>
+						<th>姓名：</th>
+						<td>周海</td>
+					</tr>
+					<tr>
+						<th>联系号码：</th>
+						<td>13030885056</td>
+					</tr>
+					<tr>
+						<th>联系邮箱：</th>
+						<td>shaizou@163.com</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="mRight_v mt20">
+			<div class="mRightit">
+				<span class="name">取消规则</span>
+				<span class="freeTip"><em></em>可免费取消</span>
+			</div>
+			<div class="orderDetailM">
+				具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则具体取消规则
+			</div>
+		</div>
+		<div class="cf mt20 tac">
+			<a href="" class="publicBtn2 backList">返回订单列表</a>
+		</div>
+	</div>
+</div>
+<script src="{echo JsURL}/member/MemberTourPublic.js" type="text/javascript"></script>
+{template MemberFooter}
+</body>
+</html>

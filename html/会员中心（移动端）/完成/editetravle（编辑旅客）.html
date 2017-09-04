@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>个人中心</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/msui/0.6.2/sm-extend.min.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/lib/reset.css">
+		<link rel="stylesheet" href="http://css.57us.net/m/member/v3.1/style.css">
+		<script type='text/javascript' src="http://js.57us.net/m/lib/zepto/1.2/zepto.js" charset='utf-8'></script>
+		<script type="text/javascript">
+		$.config = {routerFilter: function($link){return false;}}
+		</script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-extend.min.js" charset='utf-8'></script>
+		<script type='text/javascript' src="http://js.57us.net/m/lib/msui/0.6.2/sm-city-picker.min.js" charset='utf-8'></script>
+		<script type="text/javascript" src="http://js.57us.net/m/member/v3.1/app.js"></script>
+	</head>
+	<body>
+		<div class="page-group">
+			<div class="page page-current" id="editeTrave">
+				<header class="bar bar-nav suvBar">
+					<span class="pull-right deteTrave">删除</span>
+					<a href="" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+					<div class="title mangeList">编辑常用旅客</div>
+				</header>
+				<div class="content">
+					<div class="changPass">
+						<div class="changeList">
+							<span class="listName">中文姓名</span>
+							<div class="listInput">
+								<input type="text" name="" id="" value="" placeholder="确保与证件保持一致" />
+							</div>
+						</div>
+						<div class="changeList">
+							<span class="listName">性别</span>
+							<div class="listInput">
+								<select>
+									<option value="">请选择您的性别</option>
+									<option value="">男</option>
+									<option value="">女</option>
+								</select>
+							</div>
+						</div>
+						<div class="changeList">
+							<span class="listName">出生日期</span>
+							<div class="listInput">
+								<input type="text" name="" value="" placeholder="请选择出生年月份"  id='birthday' data-toggle='date'/>
+							</div>
+						</div>
+						<div class="changeList">
+							<span class="listName">手机号</span>
+							<div class="listInput">
+								<input type="text" name="" id="" value="" placeholder="请输入11位的手机号码" />
+							</div>
+						</div>
+						<div class="changeList mt10">
+							<span class="listName">护照号</span>
+							<div class="listInput">
+								<input type="text" name="" id="" value="" placeholder="请填写护照号" />
+							</div>
+						</div>
+						<div class="changeList">
+							<span class="listName">有效期</span>
+							<div class="listInput">
+								<input type="text" name="" value="" placeholder="请选择护照有效期" id='huzhao' data-toggle='date' />
+							</div>
+						</div>
+						<div class="changeList">
+							<span class="listName">国籍</span>
+							<div class="listInput">
+								<select>
+									<option value="">请选择您的国籍</option>
+									<option value="">中国</option>
+									<option value="">美国</option>
+								</select>
+							</div>
+						</div>
+						<div class="changeList">
+							<span class="listName">设为默认</span>
+							<div class="listInput">
+								<div class="label-switch">
+				                  <input type="checkbox">
+				                  <div class="checkbox"></div>
+				                </div>
+							</div>
+						</div>
+						<div class="sendBox">
+							<a href="#" class="button button-fill button-orange">保存</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>

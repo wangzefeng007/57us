@@ -1,0 +1,192 @@
+{template Header}
+<div class="wrap">
+	{template Newstourmenu}
+	<div class="NewsHeader">
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" title="57美国网" target="_blank">首页</a>><span>旅游资讯</span></div>
+	<div class="w1200 NewsStudyMain cf">
+		<div class="TourFindBox cf mt10">
+			<div class="TourBoxTitle">
+				<a href="/tour_tournews/" class="more fr" target="_blank" title="旅游新发现">更多></a>
+				<span class="name">旅游新发现</span>
+			</div>
+			<div class="TourFindBoxM cf">
+				<div id="list" class="findPic">
+				        <ul>
+				            {loop $Lyxfx $lists}
+						<li><a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"></a><img src="{echo ImageURLP8}{$lists[Image]}" class="transition lazy" alt="{$lists[Title]}" title="{$lists[Title]}" width="100%" ><p class="tit">{$lists[Title]}</p></li>
+						{/loop}
+				        </ul>
+				        <b class="findPicbtn prev"></b>
+				        <b class="findPicbtn next"></b>
+			 </div>
+			 
+			</div>
+		</div>
+		<div class="cf TourAd1 mt30"><a href="{$AdTourOne[0]['Link']}" target="_blank" title="{$AdTourOne[0][Title]}"><img  src="{echo LImageURL}{$AdTourOne[0][Picture]}" class="transition lazy" alt="{$AdTourOne[0][Title]}" title="{$AdTourOne[0][Title]}" width="1200" height="90" /></a></div>
+		<div class="TourNoteBox mt10">
+			<div class="TourBoxTitle">
+				<a href="/travels/" class="more fr" target="_blank" title="http://images.57us.com/img/likeActive/">更多></a>
+				<span class="name">美国游记</span>
+			</div>
+			<ul class="WaterFall cf">
+				{loop $Mgyj $key $lists}
+                                {if $key<4}
+	    		<li>
+	    			<a href="/travels/{$lists[TravelsID]}.html" class="img" target="_blank" title="{$lists[Title]}"><img  src="{echo ImageURLP4}{$lists[Image]}" alt="{$lists[Title]}" title="{$lists[Title]}" width="285" height="199" class="transition lazy"/></a>
+	    			<div class="WaterFallM">
+	    				<p class="tit"><a href="/travels/{$lists[TravelsID]}.html" target="_blank" title="{$lists[Title]}">{$lists[Title]}</a></p>
+	    				<p class="nr">{$lists[Description]}</p>
+	    				<p class="fun mt10">
+	    					<span class="map fl"><i></i>纽约</span>
+	    					<span class="view fr"><i></i>{$lists[ViewCount]}</span>
+	    				</p>
+	    			</div>
+	    			<div class="WaterFallB cf">
+	    				<span class="fl">by：{if $lists[Redactor]}{$lists[Redactor]}{else}57美国网{/if}</span>
+	    				<span class="fr">{$lists[AddTime]}</span>
+	    			</div>
+	    		</li>
+                            {/if}
+				{/loop}
+    		</ul>
+		</div>
+		<div class="TourNoteBox mt10">
+			<ul class="WaterFall cf">
+				{loop $Mgyj $key $lists}
+                                {if $key>=4}
+	    		<li>
+	    			<a href="/travels/{$lists[TravelsID]}.html" class="img" target="_blank" title="{$lists[Title]}"><img  src="{echo ImageURLP4}{$lists[Image]}" alt="{$lists[Title]}" title="{$lists[Title]}" width="285" height="199" class="transition lazy"/></a>
+	    			<div class="WaterFallM">
+	    				<p class="tit"><a href="/travels/{$lists[TravelsID]}.html" target="_blank" title="{$lists[Title]}">{$lists[Title]}</a></p>
+	    				<p class="nr">{$lists[Description]}</p>
+	    				<p class="fun mt10">
+	    					<span class="map fl"><i></i>纽约</span>
+	    					<span class="view fr"><i></i>{$lists[ViewCount]}</span>
+	    				</p>
+	    			</div>
+	    			<div class="WaterFallB cf">
+	    				<span class="fl">by：{if $lists[Redactor]}{$lists[Redactor]}{else}57美国网{/if}</span>
+	    				<span class="fr">{$lists[AddTime]}</span>
+	    			</div>
+	    		</li>
+                            {/if}
+				{/loop}
+    		</ul>
+		</div>                
+		<div class="w1200 mt20 cf">
+			<div class="tourMedia cf">
+			<div class="tourMediaList">
+				<p class="tit" style="background: url(http://images.57us.com/img/www/newsTit1.png) no-repeat;">旅游新发现</p>
+				<ul class="mediaUl cf">
+                                    {loop $AllLyxfx $key $lists}
+                                        {if $key<2}
+					<li class="imgLi">
+						<a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"><img src="{echo ImageURLP2}{$lists[Image]}" width="186" height="117" alt="{$lists[Title]}" title="{$lists[Title]}"/>
+						<p class="sutit">{$lists[Title]}</p></a>
+					</li>
+                                        {else}
+					<li class="nomal">
+						<p class="sutit"><a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}">{$lists[Title]}</a></p>
+						<p class="nr mt5">{$lists[Description]}</p>
+					</li>
+                                        {/if}
+                                    {/loop}
+				</ul>
+				<p class="tar mt5 more"><a href="/tour_tournews/" target="blank">更多></a></p>
+			</div>
+			<div class="tourMediaList">
+				<p class="tit" style="background: url(http://images.57us.com/img/www/newsTit2.png) no-repeat;">当季推荐</p>
+				<ul class="mediaUl cf">
+                                    {loop $ALLDjtj $key $lists}
+                                        {if $key<2}
+					<li class="imgLi">
+						<a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"><img src="{echo ImageURLP2}{$lists[Image]}" width="186" height="117" alt="{$lists[Title]}" title="{$lists[Title]}"/>
+						<p class="sutit">{$lists[Title]}</p></a>
+					</li>
+                                        {else}
+					<li class="nomal">
+						<p class="sutit"><a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}">{$lists[Title]}</a></p>
+						<p class="nr mt5">{$lists[Description]}</p>
+					</li>
+                                        {/if}
+                                    {/loop}
+				</ul>
+				<p class="tar mt5 more"><a href="/tour_fengjing/" target="_blank">更多></a></p>
+			</div>
+			<div class="tourMediaList">
+				<p class="tit" style="background: url(http://images.57us.com/img/www/newsTit3.png) no-repeat;">美食购物</p>
+				<ul class="mediaUl cf">
+                                    {loop $ALLMsxh $key $lists}
+                                        {if $key<2}
+					<li class="imgLi">
+						<a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"><img src="{echo ImageURLP2}{$lists[Image]}" width="186" height="117" alt="{$lists[Title]}" title="{$lists[Title]}"/>
+						<p class="sutit">{$lists[Title]}</p></a>
+					</li>
+                                        {else}
+					<li class="nomal">
+						<p class="sutit"><a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}">{$lists[Title]}</a></p>
+						<p class="nr mt5">{$lists[Description]}</p>
+					</li>
+                                        {/if}
+                                    {/loop}
+				</ul>
+				<p class="tar mt5 more"><a href="/tour_meishi/" target="_blank">更多></a></p>
+			</div>
+		</div>	
+		</div>
+		
+		<div class="ScrollPic mt30">
+			<a href="JavaScript:void(0)" class="prev transition" title="{$lists[Title]}"><i>上一页</i></a>
+			<div class="ScrollMain">
+				<ul>
+					{loop $AdGtycp $lists}
+					<li><a href="{$lists[Link]}" target="_blank" title="{$lists[Title]}"><img  src="{echo ImageURLP4}{$lists[Picture]}" class="transition lazy" title="{$lists[Title]}" alt="{$lists[Title]}"  width="280" height="210"/><p class="tit">{$lists[Title]}</p></a></li>
+					{/loop}
+					<li class="more"><a href="http://tour.57us.com/group/" target="_blank" title="美国跟团游">美国跟团游</a></li>
+				</ul>
+			</div>
+			<a href="JavaScript:void(0)" class="next transition"><i>下一页</i></a>
+		</div>
+		<div class="TourBox mt20 cf">
+			<div class="TourBoxTitle">
+				<a href="/tour_fengjing/" class="more fr" target="_blank" title="当季推荐">更多></a>
+				<span class="name">当季推荐</span>
+			</div>
+			<ul class="TourFind">
+				<li class="i1">
+					<a href="/tour/{$DjtjTopicRecommend[TourID]}.html" target="_blank" title="{$DjtjTopicRecommend[Title]}"><img  src="{echo ImageURLP6}{$DjtjTopicRecommend[Image]}" class="transition lazy" width="600" height="440" title="{$DjtjTopicRecommend[Title]}" alt="{$DjtjTopicRecommend[Title]}" />
+						<p class="tit">{$DjtjTopicRecommend[Title]}</p>
+					</a>
+				</li>
+				{loop $Djtj $lists}
+				<li>
+					<a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"><img  src="{echo ImageURLP4}{$lists[Image]}" class="transition lazy" width="400" height="146" title="{$lists[Title]}" alt="{$lists[Title]}" />
+						<p class="tit">{$lists[Title]}</p>
+					</a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="cf TourAd1"><a href="{$AdTourTwo[0]['Link']}" target="_blank" title="{$AdTourTwo[0][Title]}"><img src="{echo LImageURL}{$AdTourTwo[0][Picture]}"  src="{echo LImageURL}{$AdTourTwo[0][Picture]}" class="transition lazy" alt="{$AdTourTwo[0][Title]}" title="{$AdTourTwo[0][Title]}" width="1200" height="90" /></a></div>
+		<div class="TourBox mt10 cf">
+			<div class="TourBoxTitle">
+				<a href="/tour_meishi/" class="more fr" target="_blank" title="美食购物">更多></a>
+				<span class="name">美食购物</span>
+			</div>
+			<ul class="TourFoodList">
+				{loop $Msxh $lists}
+				<li>
+					<a href="/tour/{$lists[TourID]}.html" target="_blank" title="{$lists[Title]}"><img class="transition lazy" width="285" height="214" src="{echo ImageURLP4}{$lists[Image]}" title="{$lists[Title]}" alt="{$lists[Title]}">
+						<p class="tit">{$lists[Title]}</p>
+					</a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+	<script src="{echo JsURL}/www/newstourindex.js" type="text/javascript" charset="utf-8"></script>
+	{template Footer}

@@ -1,0 +1,63 @@
+<div class="page popLogin studyPopLogin" id="popLogin" style="background-color:#ffffff;">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diyBar">
+        <a class="pull-left back"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">登录</h1>
+    </header>
+    <div class="content poploginCont">
+        <div class="LoginBox1">
+            <p class="LoginLogo tac"><img src="{echo ImageURL}/img/m/member/logo.png" /></p>
+            <div class="buttons-tab mt10">
+                <a href="#tab1" class="tab-link button active">普通登录</a>
+                <a href="#tab2" class="tab-link button">快速登录</a>
+            </div>
+            <div class="tabs">
+                <div id="tab1" class="tab active">
+                    <div class="loginMain">
+                        <div class="loginList">
+                            <span class="listL">用户名</span>
+                            <div class="listR"><input type="text" name="user" id="user" value="" placeholder="请输入手机号码" autocomplete="off"></div>
+                        </div>
+                        <div class="loginList">
+                            <span class="listL">密码</span>
+                            <div class="listR"><input type="password" name="password" id="password" value="" placeholder="请输入密码" autocomplete="off"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab2" class="tab">
+                    <div class="loginMain">
+                        <div class="loginList">
+                            <span class="listL">用户名</span>
+                            <div class="listR"><input type="text" name="mobile" id="mobile" value="" placeholder="请输入手机号码" autocomplete="off"></div>
+                        </div>
+                        <div class="loginList">
+                            <span class="listL">验证码</span>
+                            <div class="listR"><input type="text" name="Codes" id="Codes" value="" placeholder="请输入图形验证码" autocomplete="off"></div>
+                            <div class="picYzm">
+                                <div class="fr CodesImg"><img src="/code/pic.jpg" id="codeb"></div>
+                            </div>
+                        </div>
+                        <div class="loginList">
+                            <div class="listR"><input type="text" name="sms" id="sms" value="" placeholder="请输入短信验证码"></div>
+                            <span class="GetYzm"><input type="button" id="sms_btn" name="sms_btn" value="获取动态密码" /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+                    作者：xiao15980751809@126.com
+                    时间：2016-11-02
+                    描述：当登录按钮激活的时候 添加active
+                -->
+            <p class="mt30 LoginBtn active">
+                <a href="JavaScript:void(0)" class="button button-big" id="LoginBtn">登录</a>
+            </p>
+            <p class="mt20">
+                <a href="{echo WEB_MUSER_URL}/member/getpassword/" class="pull-left loginquesion">登录遇到问题</a>
+            </p>
+        </div>
+        <div class="speedregist">
+            <a href="{echo WEB_MUSER_URL}/member/register/">快速注册</a>
+        </div>
+    </div>
+</div>

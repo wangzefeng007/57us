@@ -1,0 +1,99 @@
+body{background: #f2f2f2;}
+.f18{font-size: 18px;}
+.pl2{padding-left: 2rem;display: inline-block;}
+.textIn{ text-indent: 2em; display: inline-block;}
+.line{border-top: 1px dashed #eaeaea;}
+.textUn{text-decoration: underline;}
+.fod{font-weight: bold;}
+.MtopBar{background: #242424;}
+.InHeader{background: #313131;}
+/*左边*/
+.styleLeft{ background: #fff; width: 248px; height: auto;overflow: hidden; padding: 15px 0;}
+.styleRight{ background: #fff; width: 816px; height: auto;min-height: 584px; overflow: hidden; padding: 20px 57px; color: #666;font-size: 14px; line-height: 32px;}
+.styleRight .tit{padding: 20px 0; height: 24px; border-bottom: 1px solid #e2e2e2;}
+.styleRight .tit .name{border-left: 5px solid #eab66a; padding-left:9px;font-size: 22px; line-height: 23px; color: #666666; font-weight: bold;}
+.styleMenu{width: 100%; height: auto; overflow: hidden;}
+.styleMenu .FirstA{width: 248px; height: 56px; display: block; overflow: hidden;line-height: 56px; color: #999999; text-indent:45px ;font-size: 18px;margin-top: 3px;}
+.styleMenu i,.styleMenu em{ background: url(http://images.57us.com/img/www/tourstyle3.0.png?20170103) no-repeat; width: 25px; height: 25px;display: inline-block;vertical-align: middle; margin-right: 6px;}
+.styleMenu .ico1 i{background-position: 0 0;}
+.styleMenu .ico2 i{background-position: 0 -25px;}
+.styleMenu .ico3 i{background-position: 0 -75px;}
+.styleMenu .ico4 i{background-position: 0 -100px;}
+.styleMenu .ico5 i{background-position: 0 -50px;}
+.styleMenu .ico6 i{background-position: 0 -125px;}
+.styleMenu .ico7 i{background-position: 0 -175px;}
+.styleMenu em{background-position: 0 -150px;}
+.styleMenu li:hover .FirstA,.styleMenu li.on .FirstA{background: #29beb5;}
+.styleMenu li:hover .FirstA,.styleMenu li.on .FirstA{color: #fff;}
+.styleMenu li:hover i,.styleMenu li.on i,.styleMenu li:hover em,.styleMenu li.on em{background-image: url(http://images.57us.com/img/www/tourstyleh3.0.png?20170103);}
+.styleMenu .styleSecondMenu{padding-top: 9px;display: none;}
+.styleMenu li:hover .styleSecondMenu,.styleMenu li.on .styleSecondMenu{display: block;}
+.styleMenu .styleSecondMenu a{width: 100%; height: 35px; display: block;line-height: 35px; color: #999999; font-size: 16px;text-indent:75px ;}
+.styleMenu .styleSecondMenu a:hover,.styleMenu .styleSecondMenu a.on{color: #29beb5;}
+/*退款说明*/
+.tuikuanTab{padding-top: 10px;}
+.tuikuanTab th{ background: #ededed;}
+.tuikuanTab th,.tuikuanTab td{padding: 8px 0; text-align: center;}
+/*站点地图*/
+.mapList{}
+.mapList li{border-bottom: 1px dashed #eaeaea;padding: 20px 0; margin-bottom: 10px;}
+.mapList li .first{font-size: 18px; padding-bottom: 6px;}
+.mapList li a{color: #666;}
+.mapList li dl{ padding: 8px 0; height: auto;overflow: hidden;}
+.mapList li dt{width: 65px; margin-right: 5px; float: left; font-size: 16px;}
+.mapList li dt a{color: #26b1a9;}
+.mapList li dd{width:980px; float: left;color: #aeaeae;font-size: 16px;}
+.mapList li dd a{margin: 0 9px;}
+.mapList li dd a:hover{color: #26b1a9}
+.mapList li.last{border-bottom: 0;}
+.mapList li dd a.green{color: #26b1a9;}
+
+/*底部*/
+.NewsFoot{ background: #3c3c3c; padding: 30px 0; height: auto; color: #8e8e8e;}
+.NewsFooter{position: relative;}
+.FootMeida{ width: 230px;}
+.FootMeida li{ background: url(http://images.57us.com/img/www/media.png) no-repeat; width: 100px; height: 100px; float: left;position: relative; margin-left:15px; cursor: pointer;}
+.FootMeida li.i1{background-position: 0 0;}
+.FootMeida li.i2{background-position: 0 -106px;}
+.FootMeida li.i1:hover{background-position: -103px 0;}
+.FootMeida li.i2:hover{background-position: -103px -106px;}
+.ChatCode{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#B2000000', endColorstr='#B2000000');background:rgba(0,0,0,0.7); width:126px; height:126px;position:absolute; top: auto; bottom:110px; left:50%; margin-left: -63px; display:none}
+.ChatCode em{background:url(http://images.57us.com/img/www/sj.png) no-repeat;  width:30px; height:7px; display:inline-block; position:absolute; bottom:-7px; left:50%; margin-left:-15px;}
+.FootMeida li:hover .ChatCode{display: block;}
+.FootMeida li img{ margin: 7px;}
+.FootLogo{ background: url(http://images.57us.com/img/www/flogo.png) no-repeat; width:236px; height:68px; float: left;display: inline-block;overflow: hidden; text-indent: -999px;}
+.FootCont{ width: 700px; margin: 10px 0 0 0; text-align: center; color: #8e8e8e;}
+.NewsFoot a{color: #8e8e8e; padding: 0 6px;}
+.NewsFoot a:hover{color: #eab66a;}
+.safeBox a{padding: 0;padding-right: 4px;}
+
+.mediaList li{border-bottom: 1px dashed #e2e2e2;padding: 15px 0 25px;}
+.mediaList li .title a{font-size: 22px;color: #666666;}
+.mediaList li .othe{color: #999;}
+.mediaList li .othe span{padding-right: 15px;}
+.mediaList li .nr{line-height: 30px;}
+.mediaList li .img{width:49%; float: left;margin-right: 1%;}
+.mediaList li .img img{max-width: 100%;}
+.mediaList li.last{border-bottom: 0;}
+
+/*20170118留学帮助中心*/
+.styleRight .stutit .name{border-color: #29beb5;}
+.styleMenuSt .dian{margin-right: 5px;}
+.styleMenuSt li{position: relative;}
+.styleMenuSt li:hover .FirstA, .styleMenuSt li.on .FirstA{background: #ff6767;}
+.styleMenuSt .styleSecondMenu a:hover, .styleMenuSt .styleSecondMenu a.on{color: #ff6767;}
+.styleMenuSt .styleSecondMenu a{text-indent: 57px;line-height:33px;}
+.styleMenuSt .line{width: 194px;border-top:1px solid #e2e2e2;position: absolute;top: 0;left: 50%;margin-left: -97px;}
+.styleMenuSt li:hover .line,.styleMenuSt li.on .line{display: none;}
+.green{color: #29beb5; text-decoration: underline;margin: 0 3px;}
+.green:hover{color: #29beb5; text-decoration: underline;}
+.faqTab th{font-weight: normal;width: 10px;}
+.faqTab td{line-height: 25px;}
+.faqTab .greenTr{color: #29beb5;}
+.faqTab .greenbackgr{background: #29beb5;color: #fff;}
+.faqTab table{background: #dcdcdc;}
+.faqTab table td,.faqTab table th{background: #fff;}
+.faqTab .pd15{padding: 15px;}
+.faqTab .pdtb{padding: 15px 0;}
+.faqTab .lett{letter-spacing: 5px;}
+.styleRight img{max-width: 100%;}

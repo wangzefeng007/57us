@@ -1,0 +1,137 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight cf fr">
+        <div class="mUserCont">
+            <div class="mUserLeft fl">
+                <a href="{echo WEB_MEMBER_URL}">
+                    <input class="hidden" id="avatarInput" name="avatar_file" type="file" data-size="1" data-msg="512kb" data-ratio="1">
+                    <img onclick="$('input[id=avatarInput]').click();" src="{echo LImageURL}{$UserInfo[Avatar]}" width="90" height="90" />
+                </a>
+                <a href="{echo WEB_MEMBER_URL}/member/information/" class="userName">{$UserInfo[NickName]}</a>
+            </div>
+            <div class="mUserSafe fl">
+                帐户安全：<span class="red">{if $SafeLevel==1}低{elseif $SafeLevel==2}中{elseif $SafeLevel==3}高{/if}</span>
+                <div class="safeLine">
+                    <span style="width:{if $SafeLevel==1}20{elseif $SafeLevel==2}50{elseif $SafeLevel==3}100{/if}%;"></span>
+                </div>
+                <a href="{echo WEB_MEMBER_URL}/member/accountsafety/" class="GetUp">提升安全度</a>
+            </div>
+        </div>
+        <div class="mUserFun cf mt20">
+            <div class="funList fl">
+                <img src="{echo ImageURL}/img/member/v3.1/fun1.png" class="fl" width="200" height="145" />
+                <div class="priceCont fr f16">
+                    账户余额：<span class="price">￥<em>{echo intval($UserBank[TotalBalance])}</em></span><br> 可提现余额：
+                    <span class="price">￥<em>{echo intval($UserBank[FreeBalance])}</em></span>
+                </div>
+            </div>
+            <div class="funList fr">
+                <img src="{echo ImageURL}/img/member/v3.1/fun2.png" class="fl"  width="200" height="145"/>
+                <div class="cf funOrder">
+                    <dl>
+                        <dt><a href="{echo WEB_MEMBER_URL}/membertour/tourorderlist/" target="_blank">旅游订单</a></dt>
+                        <dd><a href="{echo WEB_MEMBER_URL}/membertour/tourorderlist/" target="_blank"><span class="red">{$TourCount}</span></a></dd>
+                    </dl>
+                    <dl class="last">
+                        <dt><a href="{echo WEB_MEMBER_URL}/memberstudy/serviceorderlist/" target="_blank">留学订单</a></dt>
+                        <dd><a href="{echo WEB_MEMBER_URL}/memberstudy/serviceorderlist/" target="_blank"><span class="red">{$StudyCount}</span></a></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="proBox mt20 cf">
+            <div class="proBoxT">
+                <a href="/member/mycollect/" class="more fr" target="_blank">更多 ></a>
+                <span class="name fl">最新收藏</span>
+            </div>
+            <ul class="proList cf mt20">
+                <!--此处遍历输出三个最新收的产品 三个li  cancelColl里面的data-id绑定此条记录对应的id-->
+                {loop $CollectionList $lists}
+                <li>
+                    <span class="canceColl cancelColl" data-id="{$lists[CollectionID]}">取消<br>收藏</span>
+                    <a href="{$lists[Url]}" title="{$lists[ProductName]}" target="_blank">
+                        <span class="tip">{$lists[Type]}</span>
+                        <img src="{$lists[ImageUrl]}" width="276" height="172" title="{$lists[ProductName]}" alt="{$lists[ProductName]}"/>
+                        <p class="title">{$lists[ProductName]}</p>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        {if $BrowsingHistoryList}
+        <div class="proBox cf">
+            <div class="proBoxT">
+                <span class="name fl">浏览记录</span>
+            </div>
+            <ul class="proList cf mt20">
+                {loop $BrowsingHistoryList $lists}
+                <li>
+                    <span class="close"></span>
+                    <a href="{$lists[Url]}" title="{$lists[ProductName]}" target="_blank">
+                        <span class="tip">{$lists[Type]}</span>
+                        <img src="{$lists[ImageUrl]}" width="276" height="172"  title="{$lists[ProductName]}" alt="{$lists[ProductName]}"/>
+                        <p class="title">{$lists[ProductName]}</p>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        {/if}
+        <!--浏览记录，暂时不做-->
+        <!--<div class="proBox cf">-->
+        <!--<div class="proBoxT">-->
+        <!--<span class="name fl">浏览记录</span>-->
+        <!--</div>-->
+        <!--<ul class="proList cf mt20">-->
+        <!--<li>-->
+        <!--<span class="close"></span>-->
+        <!--<a href="">-->
+        <!--<span class="tip">租车</span>-->
+        <!--<img src="http://images.57us.com/p6/up/2016/0902/201609021419295807.jpg" width="276" height="172" />-->
+        <!--<p class="title">美国东海岸常春藤名校游学冬令营游学冬令营</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<span class="close"></span>-->
+        <!--<a href="">-->
+        <!--<span class="tip">跟团</span>-->
+        <!--<img src="http://images.57us.com/p6/up/2016/0902/201609021419295807.jpg" width="276" height="172" />-->
+        <!--<p class="title">美国东海岸常春藤名校游学冬令营游学冬令营</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<span class="close"></span>-->
+        <!--<a href="">-->
+        <!--<span class="tip">酒店</span>-->
+        <!--<img src="http://images.57us.com/p6/up/2016/0902/201609021419295807.jpg" width="276" height="172" />-->
+        <!--<p class="title">美国东海岸美国东海岸常春藤名校游学冬令营游学冬令营常春藤名校游学冬令营</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<span class="close"></span>-->
+        <!--<a href="">-->
+        <!--<span class="tip">酒店</span>-->
+        <!--<img src="http://images.57us.com/p6/up/2016/0902/201609021419295807.jpg" width="276" height="172" />-->
+        <!--<p class="title">美国东海岸常春藤名校游学冬令营游学冬令营</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<span class="close"></span>-->
+        <!--<a href="">-->
+        <!--<span class="tip">酒店</span>-->
+        <!--<img src="http://images.57us.com/p6/up/2016/0902/201609021419295807.jpg" width="276" height="172" />-->
+        <!--<p class="title">美国东海岸常春藤名校游学冬令营</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberIndex.js" type="text/javascript"></script>
+<!--头像裁剪上传-->
+<script type="text/javascript" src="{echo JsURL}/base/cropper/2.3.2/cropper.js"></script>
+<script type="text/javascript" src="{echo JsURL}/base/cropper/2.3.2/main.js"></script>
+</body>
+</html>

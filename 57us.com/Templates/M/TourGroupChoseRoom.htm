@@ -1,0 +1,77 @@
+{template TourHeader}
+<div class="page page-current" id="choseroom">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">选择房型</h1>
+    </header>
+    <div class="content pd25">
+        <p class="choseRoomT">请选择出发日期</p>
+        <a class="resultDate" href="#pageDate" id="choseDate">
+            <span class="pull-right"><i class="icon iconfont">&#xe613;</i></span>
+            <span class="pull-left dateChose"></span>
+        </a>
+        <p class="choseRoomT">请选择酒店房间</p>
+        <div class="roomStyleBox">
+            <p class="roomStyleBoxT">房型安排</p>
+            <table border="0" cellspacing="1" cellpadding="1" width="100%">
+                <tr>
+                    <th colspan="4">此房型最多入住4人</th>
+                </tr>
+                <tr id="RoomPricePic">
+                    <td width="25%">
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span>
+                    </td>
+                    <td width="25%">
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span>
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span>
+                    </td>
+                    <td width="25%">
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span><br>
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span>
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span>
+                    </td>
+                    <td width="25%">
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span>
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span><br>
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span>
+                        <span class="roomMan"><i class="icon iconfont">&#xe6a2;</i></span>
+                    </td>
+                </tr>
+                <tr id="RoomPriceList">
+                </tr>
+            </table>
+            <!--房间列表-->
+            <ul class="roomAddMan mt10" id="roomnum">
+                <li class="addLi c50" id="addLi" style="display: none"><a href="javascript:void(0)" class="green">+添加房间</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bar bar-tab OrderBottom">
+        <div class="pull-left ObottomLeft">
+            <p class="allPrice pull-left ">总价：<span class="red">¥<i class="Pricenum" id="TotalPrice"></i></span></p>
+            <span class="green pull-right freeDetails">费用明细</span>
+        </div>
+        <a class="nextBtn pull-right" id="nextBtn">填写旅客信息</a>
+    </div>
+    <!--费用明细弹窗-->
+    <div class="freeDetaBox transition">
+        <p class="freeDetaBoxT">
+            <span class="pull-left name">费用明细</span>
+            <span class="pull-right close"><i class="icon iconfont">&#xe601;</i></span>
+        </p>
+        <div class="freeDetaBoxM grid-demo" id="costlist">
+        </div>
+    </div>
+    <!--遮罩透明层-->
+    <div class="mask"></div>
+</div>
+<!--日期选择页面-->
+<div class="page" id="pageDate">
+</div>
+{template TourFooter}
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/dev/swiper.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/tour/GroupChoseRoom.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/lib/DatePicker/1.0.0/GroupDate.js" charset='utf-8'></script>
+</body>
+</html>

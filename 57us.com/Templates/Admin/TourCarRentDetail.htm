@@ -1,0 +1,60 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">租车产品管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=TourCarRent&Action=TourCarRentList" class="position">租车订单管理</a>
+                </li>
+                <li class="active" id="modify">订单管理</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <td colspan="3" class="t-h">订单详情：</td>
+                        </tr>
+                        <tr>
+                            <td>订单号：{$OderInfo[OrderNum]}</td>
+                            <td>会员ID：{$OderInfo[UserID]}</td>
+                            <td>驾驶人：{$OderInfo[driverSurname]}{$OderInfo[driverGivenname]}</td>
+                        </tr>
+                        <tr>
+                            <td>国籍： {$OderInfo[contractNationality]}</td>
+                            <td>下单时间： {$OderInfo[CreateTime]}</td>
+                            <td>客户端IP： {$OderInfo[IP]}</td>
+                        </tr>
+                        <tr>
+                            <td>订单金额： {$OderInfo[Money]}</td>
+                            <td>订单状态：{$StatusInfo[$OderInfo[Status]]}</td>
+                            <td>支付方式： {if $OderInfo[PayType]==1}支付宝{elseif $OderInfo[PayType]==2}微信支付{elseif $OderInfo[PayType]==3}网银{/if}</td>
+                        </tr>
+                        <tr>
+                            <td>联系人： {$OderInfo[contractGivenname]}</td>
+                            <td>手机号： {$OderInfo[contractPhone]}</td>
+                            <td>邮箱： {$OderInfo[contractEmail]}</td>
+                        </tr>
+                        <tr>
+                    </table>
+                    <tr>
+                        <td><a class="right" href="/index.php?Module=TourCarRent&Action=TourCarRentList">返回列表</a></td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<!--{template Foot}-->

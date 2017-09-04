@@ -1,0 +1,70 @@
+{if $Category==1}
+{loop $Data[Data] $key $val}
+        <li>
+                <div class="pjlistLeft">
+                        <p class="pjUser">{$val[UserInfo][NickName]}</p>
+                        <p class="prostyle mt10">{$val[CategoryInfo][CnName]}</p>
+                        <p class="c9 f12">出发时间：{$val[Depart]}</p>
+                        <p class="c9 f12">出游人数： {if $TourProductLineInfo['SkuType']==1}{$val[AdultNum]} 成人 {$val[ChildrenNum]} 儿童{else}{$val[AdultNum]} 人{/if}</p>
+                </div>
+                <div class="pjmain">
+                        <div class="pjmainHead cf">
+                                <p class="fl">满意度 <span class="yellow">{$val[Score]}</span>分</p>
+                                <p class="pjStart fl"><i {if $val[Score]>=1}class="on"{/if}></i><i {if $val[Score]>=2}class="on"{/if}></i><i {if $val[Score]>=3}class="on"{/if}></i><i {if $val[Score]>=4}class="on"{/if}></i><i {if $val[Score]>=5}class="on"{/if}></i></p>
+                        </div>
+                        <div class="pjmainNr mt10">
+                                {$val[Content]}
+                        </div>
+                        <div class="pjmainPic cf">
+                                {loop $val[Images] $Img}
+                                <img src="{echo ImageURLP4}{$Img}"/>
+                                {/loop}
+                        </div>
+                        <div class="pjmainBot f12">
+                                <span class="fr TourZan" data-id="{$val[EvaluateID]}"><a href="javascript:void(0);"><i></i></a><span class="zanNum">{$val[PraiseNum]}</span></span>
+                                <span class="fl">{echo date('Y-m-d',$val[AddTime])}</span>
+                        </div>
+                        {if $val[Reply]}
+                        <div class="mt15 shopback cf">
+                                <span class="shopbackL">商家回复：</span>
+                                <span class="shopbackR">{$val[Reply]}</span>
+                        </div>
+                        {/if}
+                </div>
+        </li>
+        {/loop}
+{else}
+{loop $Data[Data] $key $val}
+<li>
+    <div class="pjlistLeft">
+        <p class="pjUser">{$val[UserInfo][NickName]}</p>
+        <p class="prostyle mt10">{$val[CategoryInfo][CnName]}</p>
+        <p class="c9 f12">出发时间：{$val[Depart]}</p>
+    </div>
+    <div class="pjmain">
+        <div class="pjmainHead cf">
+            <p class="fl">满意度 <span class="yellow">{$val[Score]}</span>分</p>
+            <p class="pjStart fl"><i {if $val[Score]>=1}class="on"{/if}></i><i {if $val[Score]>=2}class="on"{/if}></i><i {if $val[Score]>=3}class="on"{/if}></i><i {if $val[Score]>=4}class="on"{/if}></i><i {if $val[Score]>=5}class="on"{/if}></i></p>
+        </div>
+        <div class="pjmainNr mt10">
+            {$val[Content]}
+        </div>
+        <div class="pjmainPic cf">
+            {loop $val[Images] $Img}
+            <img src="{echo ImageURLP4}{$Img}"/>
+            {/loop}
+        </div>
+        <div class="pjmainBot f12">
+            <span class="fr TourZan" data-id="{$val[EvaluateID]}"><a href="javascript:void(0);"><i></i></a><span class="zanNum">{$val[PraiseNum]}</span></span>
+            <span class="fl">{echo date('Y-m-d',$val[AddTime])}</span>
+        </div>
+        {if $val[Reply]}
+        <div class="mt15 shopback cf">
+            <span class="shopbackL">商家回复：</span>
+            <span class="shopbackR">{$val[Reply]}</span>
+        </div>
+        {/if}
+    </div>
+</li>
+{/loop}
+{/if}

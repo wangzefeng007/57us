@@ -1,0 +1,81 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current" id="commonly">
+		<div class="collectMask"></div>
+		<header class="bar bar-nav suvBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<div class="title mangeList">常用信息</div>
+		</header>
+		<div class="buttons-tab commonTab">
+			<a href="#tab1" class="tab-link active button">旅客</a>
+			<a href="#tab2" class="tab-link button">地址</a>
+		</div>
+		<div class="content">
+			<div class="tabs">
+				<div id="tab1" class="tab active">
+					{if $PassengerList}
+					<ul class="travelist">
+						{loop $PassengerList $Passenger}
+						<li class="card">
+							<div class="card-header">
+								{$Passenger[ZhName]}<span>{$Passenger[IdCard]}</span>
+							</div>
+							<div class="card-footer">
+								<label class="label-checkbox item-content passengerSetDef" data-id="{$Passenger[PassengerID]}">
+									<input type="radio" name="passenger" {if $Passenger[IsDefault]==1}checked="true"{/if}>
+									<div class="item-media">
+										<i class="icon icon-form-checkbox"></i>
+										<span class="text">默认旅客</span>
+									</div>
+								</label>
+								<a href="/musertour/editpassenger/?ID={$Passenger[PassengerID]}" class="editeBtn"><i class="icon iconfont icon-bianji"></i>编辑</a>
+							</div>
+						</li>
+						{/loop}
+					</ul>
+					{else}
+					<div class="notrave tac c9 mt20">还没有常用旅客，快添加吧</div>
+					{/if}
+					<div class="content-block">
+						<a href="/musertour/editpassenger/" class="button button-big addComBtn">+ 新增常用旅客</a>
+					</div>
+				</div>
+				<div id="tab2" class="tab">
+					{if $AddressList}
+					<ul class="travelist">
+						{loop $AddressList $Address}
+						<li class="card">
+							<div class="card-header">
+								{$Address[Recipients]}<span></span>{$Address[Mobile]}
+							</div>
+							<div class="card-content">
+								<div class="card-content-inner">{$Address[Province]}{$Address[City]}{$Address[Area]}{$Address[Address]}</div>
+							</div>
+							<div class="card-footer">
+								<label class="label-checkbox item-content addressSetDef" data-id="{$Address[ShippingAddressID]}">
+									<input type="radio" name="address" {if $Address[IsDefault]==1}checked="checked"{/if}>
+									<div class="item-media">
+										<i class="icon icon-form-checkbox"></i>
+										<span class="text">默认地址</span>
+									</div>
+								</label>
+								<a href="/musertour/editshippingaddress/?ID={$Address[ShippingAddressID]}" class="editeBtn"><i class="icon iconfont icon-bianji"></i>编辑</a>
+							</div>
+						</li>
+						{/loop}
+					</ul>
+					{else}
+					<div class="notrave tac c9 mt20">还没有常用地址，快添加吧</div>
+					{/if}
+					<div class="content-block">
+						<a href="/musertour/editshippingaddress/" class="button button-big addComBtn">+ 新增邮寄地址</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserTourCommonInfo.js" charset='utf-8'></script>
+</body>
+</html>

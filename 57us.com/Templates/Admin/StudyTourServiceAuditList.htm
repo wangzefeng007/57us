@@ -1,0 +1,105 @@
+{template Head}
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-12">
+			<!--breadcrumbs start -->
+			<ul class="breadcrumb panel">
+				<li>
+					<a href="#"><i class="fa fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">服务审核管理</a>
+				</li>
+				<li>
+					<a href="/index.php?Module=StudyTour&Action=ServiceAuditList" class="active">顾问服务审核列表</a>
+				</li>
+				<span class="position hidden">服务审核管理</span>
+			</ul>
+			<!--breadcrumbs end -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel breadcrumb">
+				<div class="panel-body">
+					<form class="form-inline" role="form" action="/index.php?Module=StudyTour&Action=ServiceAuditList" method="GET">
+						<input type="hidden" name="Module" value="StudyTour">
+						<input type="hidden" name="Action" value="ServiceAuditList">
+						<span style="float: left;line-height: 36px;margin-left: -10px;padding-right: 10px">服务：</span>
+						<input type="text" class="form-control" name="Title" placeholder="服务ID/服务名称" value="{$Title}" style="width:300px;">
+						&nbsp;&nbsp;服务类型：
+						<select  style="width:200px;" name="ServiceType" id="ServiceType" class="form-control">
+							<option value="0" {if $ServiceType == 0}selected="selected"{/if}>请选择状态</option>
+							<option value="1" {if $ServiceType == 1}selected="selected"{/if}>全程服务</option>
+							<option value="2" {if $ServiceType == 2}selected="selected"{/if}>申请学校</option>
+							<option value="3" {if $ServiceType == 3}selected="selected"{/if}>文书服务</option>
+							<option value="4" {if $ServiceType == 4}selected="selected"{/if}>定校方案修改</option>
+							<option value="5" {if $ServiceType == 5}selected="selected"{/if}>签证培训</option>
+							<option value="6" {if $ServiceType == 6}selected="selected"{/if}>材料翻译</option>
+							<option value="7" {if $ServiceType == 7}selected="selected"{/if}>背景提升</option>
+						</select>
+						&nbsp;&nbsp;审核状态：
+
+						<select  style="width:200px;" name="Status" id="Status" class="form-control">
+							<option value="0" {if $Status == 0}selected="selected"{/if}>请选择状态</option>
+							<option value="1" {if $Status == 1}selected="selected"{/if}>提交审核</option>
+							<option value="2" {if $Status == 2}selected="selected"{/if}>审核失败</option>
+							<option value="3" {if $Status == 3}selected="selected"{/if}>上架</option>
+							<option value="4" {if $Status == 4}selected="selected"{/if}>下架</option>
+							<option value="5" {if $Status == 5}selected="selected"{/if}>删除</option>
+						</select>
+						<button class="btn btn-info">搜索</button>
+					</form>
+				</div>
+				<section id="unseen">
+					<table class="table table-bordered table-striped table-condensed">
+						<thead>
+						<tr>
+							<th>服务ID</th>
+							<th>服务名称</th>
+							<th>服务类型</th>
+							<th>服务价格</th>
+							<th>审核状态</th>
+							<th>顾问名称</th>
+							<th>操作</th>
+						</tr>
+						</thead>
+						<tbody>
+						{loop $Data['Data'] $lists}
+						<tr height="35" align="center">
+							<td>{$lists[ServiceID]}</td>
+							<td>{$lists[ServiceName]}</td>
+							<td>{$Type[$lists[ServiceType]]}</td>
+							<td>{$lists[SalePrice]}元</td>
+							<td>{$lists[Status]}</td>
+							<td>{$lists[ConsultantName]}</td>
+							<td><a href="/index.php?Module=StudyTour&Action=ServiceAuditDetail&ID={$lists[ServiceID]}">操作</a>
+						</tr>
+						{/loop}
+						</tbody>
+					</table>
+					<form action="/index.php?Module=StudyTour&Action=ServiceAuditList{$PageUrl}" method="POST">
+						<div class="text-center">
+							<ul class="pagination" data-id="{$Page}">
+								<li><a href="/index.php?Module=StudyTour&Action=ServiceAuditList&Page=1{$PageUrl}">首页</a></li>
+								{if $Previous}
+								<li><a href="/index.php?Module=StudyTour&Action=ServiceAuditList&Page={$Previous}{$PageUrl}">上一页</a></li>
+								{/if}
+								{loop $Data[PageNums] $page}
+								<li><a href="/index.php?Module=StudyTour&Action=ServiceAuditList&Page={$page}{$PageUrl}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+								{/loop}
+								{if $Next}
+								<li><a href="/index.php?Module=StudyTour&Action=ServiceAuditList&Page={$Next}{$PageUrl}">下一页</a></li>
+								{/if}
+								<li><a href="/index.php?Module=StudyTour&Action=ServiceAuditList&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+								<span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+								<button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+							</ul>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+{template Foot}

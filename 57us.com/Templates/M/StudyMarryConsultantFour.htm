@@ -1,0 +1,28 @@
+{template StudyHeader}
+<div class="page-group">
+	<div class="page page-current" style="background: #fff;" id="conmath4">
+		<header class="bar bar-nav diybar">
+			<a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+			<h1 class="title">顾问匹配</h1>
+		</header>
+		<div class="content">
+			<div class="matchSuccess">
+				<p class="red tac mt30">恭喜您成功选择了</p>
+				<p class="tac counName">{$Info['NickName']}顾问</p>
+				<p class="tac ins mt30">顾问将按照您选择的时间联系您</p>
+				<div class="cf tac mt30 successBtn">
+					<a href="{echo WEB_MUSER_URL}/muserstudy/matchingdetail/?MarryID={$MarryID}" class="button button-fill mt10">继续匹配顾问</a>
+					<a href="{echo WEB_MUSER_URL}/muserstudy/matching/" class="button button-fill mt10 external">查看匹配列表</a>
+					<a href="#Consulting" class="Consulting kefu mt30">
+						<span class="ico"><i class="icon iconfont">&#xe63e;</i></span>
+						<p>在线客服</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{template Consulting}
+</div>
+{template StudyFooter2}
+</body>
+</html>

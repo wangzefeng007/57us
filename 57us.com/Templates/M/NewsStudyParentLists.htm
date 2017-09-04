@@ -1,0 +1,76 @@
+{template NewsHeader}
+<body>
+<div class="page-group">
+  <div class="page page-current">
+    <div class="content pd25 tourCont">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav indexHeader"> <a class="pull-right searchBtn" href="{echo WEB_M_URL}/search.html"><i class="icon iconfont">&#xe6b5;</i></a>
+        <h1 class="title">美国留学</h1>
+        <span class="logo pull-left"><img src="http://images.57us.com//img/m/www/logo.png" /></span> </header>
+      <div class="swiper-container ban">
+        <div class="swiper-wrapper"> {loop $WapTourIndexBaner $lists}
+          <div class="swiper-slide"><a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP6}{$lists[Picture]}" width="100%" /></a></div>
+          {/loop} </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Pagination -->
+      </div>
+      <div class="sumenu">
+        <div class="downBox"> {if count($CategoryLists)>4}<span class="down"><i class="icon iconfont">&#xe61e;</i></span>{/if} <span class="up"><i class="icon iconfont">&#xe7f5;</i></span> </div>
+        <nav> {loop $CategoryLists $lists} <a href="/news/study_{$lists[Alias]}/">{$lists[CategoryName]}</a> {/loop} </nav>
+      </div>
+      <div class="diyCard">
+        <div class="diyCardHead"><span class="name">精彩活动</span></div>
+        {loop $WapTourIndexJingCai $lists}
+        <div class="diyCardCont"> <a href="{$lists[Link]}" target="_blank"><img src="{echo ImageURLP6}{$lists[Picture]}"/>
+          <p class="tit">{$lists[Title]}</p>
+          </a>
+          <!--<p class="diyCardFun"><span>2016.10.18</span><span><i class="icon iconfont">&#xe18;</i>170</span></p>-->
+        </div>
+        {/loop} </div>
+        {if 0}
+        <!--
+        <div class="yxAd">
+        	<a href=""><img src="http://images.57us.com/img/m/www/adpic/yx.jpg"/></a>
+        </div>
+        
+        <div class="nstudyAd cf mt10">
+        	<ul>
+        		<li><a href=""><img src="http://images.57us.com/img/m/www/adpic/sad1.jpg"/></a></li>
+        		<li><a href=""><img src="http://images.57us.com/img/m/www/adpic/sad2.jpg"/></a></li>
+        		<li><a href=""><img src="http://images.57us.com/img/m/www/adpic/sad3.jpg"/></a></li>
+        		<li><a href=""><img src="http://images.57us.com/img/m/www/adpic/sad4.jpg"/></a></li>
+        		<li><a href=""><img src="http://images.57us.com/img/m/www/adpic/sad5.jpg"/></a></li>
+        		<li><a href=""><img src="http://images.57us.com/img/m/www/adpic/sad6.jpg"/></a></li>
+        		<li><a href=""><img src="http://images.57us.com/img/m/www/adpic/sad7.jpg"/></a></li>
+        	</ul>
+        </div>-->
+        {/if}
+      <div class="diyCard tjCard">
+        <div class="diyCardHead"><span class="name">推荐</span></div>
+        <ul class="newsList">
+          {loop $TourTuijian $lists}
+          {if $lists[Image]!=''}
+          <li class="onePic"><a href="{echo WEB_M_URL}/news/study/{$lists[StudyID]}.html">
+            <p class="tit">{$lists[Title]}</p>
+            <div class="cf">
+              <p class="picImg"><img src="{echo ImageURLP4}{$lists[Image]}"  alt="{$lists[Title]}" title="{$lists[Title]}"></p>
+              <p class="nr">{$lists[Description]}</p>
+              <p class="diyCardFun"><span>{echo date("Y.m.d",strtotime($lists[AddTime]))}</span><span><i class="icon iconfont">&#xe620;</i>{$lists[ViewCount]}</span></p>
+            </div>
+            </a> </li>
+          {else}
+          <li><a href="{echo WEB_M_URL}/news/study/{$lists[StudyID]}.html">
+            <p class="tit">{$lists[Title]}</p>
+            <p class="nr">{$lists[Description]}</p>
+            <p class="diyCardFun"><span>{echo date("Y.m.d",strtotime($lists[AddTime]))}</span><span><i class="icon iconfont">&#xe620;</i>{$lists[ViewCount]}</span></p>
+            </a></li>
+          {/if}
+          {/loop}
+        </ul>
+      </div>
+    </div>
+    {template NewsFoot} </div>
+</div>
+</body>
+</html>

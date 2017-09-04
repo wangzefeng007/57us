@@ -1,0 +1,71 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">留学管理</a>
+                </li>
+                <li>
+                <a href="/index.php?Module=StudyTour&Action=Lists" class="active">游学产品管理</a>
+                </li>
+                <span class="position hidden">游学产品管理</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel breadcrumb">
+                <div class="panel-body">
+                    <span style="float: left;line-height: 36px;margin-left: -10px;padding-right: 10px">产品名称：</span>
+                    <form class="form-inline" role="form" action="/index.php?Module=StudyTour&Action=Lists" method="GET">
+                        <input type="hidden" name="Module" value="StudyTour">
+                        <input type="hidden" name="Action" value="Lists">
+                        <input type="text"  placeholder="产品名称" name="ProductName" value="{$ProductName}" class="form-control" style="width: 300px" >
+                        产品状态：
+                        <select  style="width:200px;" name="Status" id="Status" class="form-control">
+                            <option style="width:200px;" name="Status" value="0">请选择状态</option>
+                            {loop $Status $key $val}
+                            <option style="width:200px;" name="Status" value="{$key}" {if $StatusInfo == $key}selected="selected"{/if}>{$val}</option>
+                            {/loop}
+                        </select>
+                        <button class="btn btn-info">搜索</button>
+                        <input type="button" onClick="location.href='/index.php?Module=StudyTour&Action=StudyTourAdd'" value="添加产品" class="btn btn-danger">
+                    </form>
+                </div>
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>产品编号</th>
+                            <th>产品名称</th>
+                            <th>游学主题</th>
+                            <th>产品状态</th>
+                            <th>价格</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $Data[Data] $list}
+                        <tr height="35" align="center">
+                            <td>{$list[YoosureID]}</td>
+                            <td><a href="http://study.57us.com/studytour/{$list[YoosureID]}.html" target="_blank">{$list[Title]}</a></td>
+                            <td>{$YoosureTitle[$list[YoosureTitle]]}</td>
+                            <td>{$Status[$list['Status']]}</td>
+                            <td>￥{$list[Price]}</td>
+                            <td><a class="getinfo"  href="/index.php?Module=StudyTour&Action=StudyTourAdd&YoosureID={$list[YoosureID]}">编辑</a> | <a class="getinfo" href="javascript:if(confirm('确认删除吗?'))window.location='/index.php?Module=StudyTour&Action=Delete&YoosureID={$list[YoosureID]}'">删除</a> </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

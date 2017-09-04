@@ -1,0 +1,95 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li href="/index.php?Module=Advertisement&Action=Lists" class="active">广告模块</li>
+            </ul>
+            <span class="position hidden">广告模块</span>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel breadcrumb">
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <tr>
+                            <td colspan="4" class="t-h">广告信息</td>
+                        </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>广告名称</th>
+                            <th>广告类型</th>
+                            <th>别名 (用于调用广告标示)</th>
+                        </tr>
+                        <tr>
+                            <td>{$AdInfo[ADID]}</td>
+                            <td>{$AdInfo[ADTitle]}</td>
+                            <td>{$AdInfo[ADType]}</td>
+                            <td>{$AdInfo[Key]}</td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered table-striped table-condensed">
+                        <th>
+                            <input class="{if $TopNavs=='CategoryAdd'}btn btn-info{else}btn btn-danger{/if}" type="button" value="添加广告详情"
+                                   onclick="javascrtpt:window.location.href='/index.php?Module=Advertisement&Action=AdManageEdit&ID={$AdInfo[ADID]}'">
+                        </th>
+                    </table>
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <td colspan="6" class="t-h">广告内容</td>
+                        </tr>
+                        <tr>
+                            <th>标题</th>
+                            <th>描述</th>
+                            <th>链接地址</th>
+                            <th>排序</th>
+                            <th>缩略图</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $AdContent $lists}
+                        <tr height="35"  align="center">
+                            <td>{$lists[Title]}</td>
+                            <td>{$lists[Description]}</td>
+                            <td>{$lists[Link]}</td>
+                            <td>{$lists[DisplayOrder]}</td>
+                            <td><a href="{echo ImageURLP2}{$lists[Picture]}" target="_blank"><img src="{echo ImageURLP2}{$lists[Picture]}" width="200px" height="100px"></a></td>
+                            <td nowrap="nowrap">
+                                <a href="/index.php?Module=Advertisement&Action=AdManageEdit&ID={$AdInfo[ADID]}&ConID={$lists['ContentID']}">编辑</a>
+                                &nbsp;|&nbsp;
+                                <a class="getinfo del" href="javascript:void(0)" data-id="{$lists[ContentID]}" data-text="{$lists[Title]}">删除</a>
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}
+<script>
+    $('.del').click(function () {
+        var delid = $(this).attr('data-id');
+        var text = $(this).attr('data-text');
+        layer.confirm('您确定要删除<span style="color: red">'+text+'</span>？', {
+            title: '删除提示',
+            btn: ['确定','取消'] //按钮
+        }, function(index){
+            window.location.href='/index.php?Module=Advertisement&Action=AdManageDelete&ID='+delid;
+            layer.close(index);
+        });
+    });
+</script>

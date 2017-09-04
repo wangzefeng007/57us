@@ -1,0 +1,41 @@
+{template NewsHeader}
+<body>
+<div class="page-group">
+  <div class="page page-current" style="background: #fff !important;" id="search">
+    <div class="content pd25">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav indexHeader contBar"> <a class="pull-left back" href="javascript:history.go(-1)"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">搜索</h1>
+      </header>
+      <div class="bar bar-header-secondary diySearch">
+        <div class="searchbar"> <a class="searchbar-cancel">取消</a>
+          <div class="search-input">
+            <form name="form1" method="post" action="/so.html">
+              <label class="icon iconfont" for="search">&#xe6b5;</label>
+              <input type="search" id='search' name="keyword" placeholder='输入关键字...' />
+              <input type="hidden" name="t" value="{$SoType}" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="hotSearch">
+        <p class="hotSearchT"><i class="icon iconfont">&#xe677;</i><span class="name">热门搜索</span></p>
+        <div class="hotSearchM"> 
+        <a href="{echo WEB_M_URL}/tour/" title="美国旅游">美国旅游</a> 
+        <a href="{echo WEB_M_URL}/news/tour/" title="美国旅游攻略">美国旅游攻略</a> 
+        <a href="{echo WEB_M_URL}/news/tour_meishi/" title="美国美食攻略">美食攻略</a> 
+        <a href="{echo WEB_M_URL}/news/tour_fengjing/" title="美国当季推荐">当季推荐</a> 
+        <a href="{echo WEB_M_URL}/news/search_study_美国社区大学.html" title="美国社区大学排名">社区大学排名</a> 
+        <a href="{echo WEB_M_URL}/news/search_study_美国留学申请.html" title="美国留学申请">留学申请</a> 
+        <a href="{echo WEB_M_URL}/news/study_scost/" title="美国美国游学费用">游学费用</a> 
+        <a href="{echo WEB_M_URL}/news/study_policyinfo/" title="美国美国留学政策">留学政策</a> 
+        <a href="{echo WEB_M_URL}/news/search_immigrant_移民条件.html" title="美国移民条件">移民条件</a> 
+        <a href="{echo WEB_M_URL}/news/search_immigrant_EB5.html" title="美国移民项目">EB5移民项目</a> 
+        <a href="{echo WEB_M_URL}/news/immigrant_invest/" title="美国投资移民">投资移民</a> 
+        </div>
+      </div>
+    </div>
+    {template NewsFoot} </div>
+</div>
+</body>
+</html>

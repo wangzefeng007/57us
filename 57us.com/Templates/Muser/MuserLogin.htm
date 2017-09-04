@@ -1,0 +1,47 @@
+{template Header}
+<div class="page-group">
+	<div class="page page-current loginPage" id="login">
+		<header class="bar bar-nav loginBar">
+			<a href="javascript:window.history.back();" class="pull-left back backBtn"><i class="icon iconfont icon-left"></i></a>
+			<h2 class="title">登录</h2>
+		</header>
+		<div class="content">
+			<input type="hidden" name="study" class="study" value="{$ComeFrom}"/>
+			<div class="loginCont">
+				<form id="loginForm">
+					<p class="loginLogo">57美国</p>
+					<div class="erroTip" style="display: none">
+						<i class="icon iconfont icon-close"></i><span class="erroIfno"></span>
+					</div>
+					<div class="mt30 cf">
+						<div class="loginInput">
+							<div class="input"><input type="text" name="user" class="user" value="" placeholder="请输入手机号或者邮箱" /></div>
+						</div>
+						<div class="loginInput">
+							<div class="input"><input type="password" name="password" class="password" value="" placeholder="请输入密码" /></div>
+						</div>
+						<div class="loginInput yzm" style="display: none">
+							<div class="input"><input type="text" name="imgCode" class="imgCode" value="" placeholder="请输入图形验证码" /></div>
+							<div class="picYz">
+								<img src="/code/pic.jpg" class="img_yzm click_code" width="155" height="54"/>
+							</div>
+						</div>
+					</div>
+					<div class="mt20">
+						<a href="javascript:void(0)" class="button button-fill loginBtn">登录</a>
+					</div>
+					<div class="loginFun">
+						<a href="/muser/resetpassword/" class="pull-left">登录遇到问题</a>
+						<a href="/muser/mobilelogin/" class="pull-right">短信登录</a>
+					</div>
+				</form>
+			</div>
+			<div class="speedResi"><a href="/member/register/">快速注册</a></div>
+		</div>
+	</div>
+</div>
+{template Footer}
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserLogin.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/muser/MuserLoginPublic.js" charset='utf-8'></script>
+</body>
+</html>

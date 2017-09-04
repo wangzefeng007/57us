@@ -1,0 +1,79 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li>
+                    {if $Navs=='TourNewsArticle'}
+                    <a href="/index.php?Module=TourNewsCategory&Action=Lists">旅游模块</a>
+                    {elseif $Navs=='StudyAbroadNewsArticle'}
+                    <a href="/index.php?Module=StudyAbroadNewsArticle&Action=Lists">留学模块</a>
+                    {elseif $Navs=='ImmigrantNewsArticle'}
+                    <a href="/index.php?Module=ImmigrantNewsArticle&Action=Lists">移民模块</a>
+                    {elseif $Navs=='TravelsNewsArticle'}
+                    <a href="/index.php?Module=TravelsNewsCategory&Action=Lists">游记攻略</a>
+                    {/if}
+                </li>
+                <li class="active">添加编辑标签</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <!--{template TourNewsTop}-->
+                <div class="panel-body">
+                    <form action='/index.php?Module={$Navs}&Action=TagEdit'  method='post'	enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td class="t-r">标签名：</td>
+                                <td>
+                                    <div class="col-sm-2 cf">
+                                        <input type="text" name="Keyword" value="{$TagInfo[Keyword]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="hidden">
+                                <td class="t-r">点击量：</td>
+                                <td>
+                                    <div class="col-sm-2 cf">
+                                        <input type="text" name="Traffic" value="{$TagInfo[Traffic]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">热门标签：</td>
+                                <td>
+                                    <div class="col-sm-9 t-d">
+                                        <input name="Hot" type="checkbox" id="Hot" value="1"{if $TagInfo[Hot]} checked="checked"{/if} />
+                                        <input type="text" name="Sort" value="{$TagInfo[Sort]}"/>
+                                        （注意：热门标签后面跟随着热门排序，排序数值越高越靠前。）
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="MaterialRequested">
+                                <td width="150" align="right"></td>
+                                <td>
+                                    <input type="hidden" name="ID" id="ID" value="{$TagInfo[KeyID]}" />
+                                    <input class="btn btn-danger" type='submit' value='提交保存'/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

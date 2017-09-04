@@ -1,0 +1,33 @@
+{
+  "ResultCode":200,
+  "Type":"1",
+  "AdultData":[
+    {
+      "skuid":"2015",
+      "num":"1"
+    },
+    {
+      "skuid":"2016",
+      "num":"2"
+    },
+    {
+      "skuid":"2017",
+      "num":"3"
+    },
+    {
+      "skuid":"2018",
+      "num":"4"
+    }
+  ],
+  "PriceData":{
+    "checknum":"2",
+    "cost":"2",
+    "skuid":"2016"
+  },
+  "RoomPriceList":[
+    "1000",
+    "0",
+    "3000",
+    "4000"
+  ]
+}

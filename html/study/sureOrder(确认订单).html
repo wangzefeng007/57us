@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>确认订单</title>
+		<script src="http://js.57us.net/base/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://js.57us.net/base/base.js"></script>
+		<link href="http://css.57us.net/common/reset.css" rel="stylesheet" type="text/css" />
+		<link href="http://css.57us.net/study/studypublic3.0.css" rel="stylesheet" type="text/css" />
+		<link href="http://css.57us.net/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="header">
+				<div class="w1200 cf">
+					<ul class="OrderProcess fr">
+						<li class="on"><span>确认订单</span><i>1</i><em></em></li>
+						<li><span>支付</span><i>2</i><em></em></li>
+						<li><span>完成</span><i>3</i><em></em></li>
+					</ul>
+					<a href="http://www.57us.com" class="StudyLogo" title="57美国网">57美国网</a>
+				</div>
+			</div>
+			<div class="w1200 mt45 cf">
+				<div class="sureOrder">
+					<div class="sureOrderL fl">
+						<div class="sureOrderBox">
+							<div class="sureOrderBoxT"><span class="name">订单信息</span></div>
+							<div class="sureOrderBoxM">
+								<ul class="deoferDetailList">
+									<li>课程名称：服务名称XXXXXXXX<span class="tipCLass">标签1</span><span class="tipCLass">标签2</span></li>
+									<li>培训科目： GRE</li>
+									<li>授课教师： 卢文斌</li>
+									<li>上课方式： 线下</li>
+									<li>班级规模： 小班</li>
+									<li>课时数量： 10</li>
+								</ul>
+							</div>
+						</div>
+						<div class="sureOrderBox mt15">
+							<div class="sureOrderBoxT"><span class="name">联系人信息</span></div>
+							<div class="sureOrderBoxM">
+								<table border="0" cellspacing="0" cellpadding="0" width="100%" class="contactTab">
+									<tr>
+										<th width="120">姓名：</th>
+										<td>
+											
+											<div class="inputBox"><input type="" name="" id="" value="" class="InsInput" /></div>
+										</td>
+									</tr>
+									<tr>
+										<th>手机号码：</th>
+										<td>
+											<div class="inputBox ErroBox">
+												<input type="" name="" id="" value="" class="InsInput" />
+												<div class="erroText">333</div>
+											</div>
+											<span id="yesphone" class="c9 f14">您的号码已注册，可立即<a href="javascript:void(0)" class="GoLogin _MustLogin" id="TourOrder">登录</a></span>
+										</td>
+									</tr>
+									<tr>
+										<th>验证码：</th>
+										<td>
+											<div class="inputBox"><input placeholder="请输入6位验证码" type="" name="" id="" value="" class="InsInput" />
+											<input type="button" id="codebtn" value="获取验证码" class="yzmInput">
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>留学目标：</th>
+										<td>
+											<div type="selectbox" class="DiySelect">
+												<div class="opts">
+													<a href="javascript:;" val="中国" class="selected">中国</a>
+													<a href="javascript:;" val="美国">美国</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>计划留学时间：</th>
+										<td>
+											<div class="inputBox"><input type="" name="" id="" value="" class="InsInput" /></div>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="sureOrderBox mt15">
+							<div class="sureOrderBoxT"><span class="name">购买留言</span><span class="c9 f16">（选填）</span></div>
+							<div class="sureOrderBoxM">
+								<textarea name="message" id="message" rows="" cols="" class="feedback" placeholder="如您有什么特殊需要，请留言。"></textarea>
+							</div>
+						</div>
+						<div class="orderFoot mt20">
+							<a href="javascript:void(0)" class="nextPay fr" id="paybtn">去支付</a>
+							<p class="allPrice  fr">总价：<b>￥<i>2586</i></b></p>
+							<a href="javascript:void(0)" class="prevStep" id="BackBtn">
+								&lt; 返回上一步</a>
+						</div>
+						<div class="protocol">
+							<label name="rbt2" id="protocol" type="checkbox" val="" class="cbt cb checked"><i></i></label>我已阅读并接受《
+							<a href="http://www.57us.com/about/xieyi.html" target="_blank"><span>用户协议</span></a>》
+						</div>
+					</div>
+					<div class="OrderRight mt40 sidebar fr autofix_sb">
+						<div class="orderIns">
+							<div class="orderInsTop"></div>
+							<div class="orderInsM">
+								<div class="OrderRightTit">
+									<span class="name">订单详情</span>
+									<div class="OrderRightP f20 mt15">服务名称XXXXXXXX</div>
+									<div class="OrderRightP f16 mt10">服务顾问： 卢文斌</div>
+									<div class="OrderRightP f16">课时数量： 10</div>
+									<p class="allPrice cf mt25">总价：<b>￥<i>2586</i></b></p>
+								</div>
+							</div>
+							<div class="orderInsB"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mt50"></div>
+			<div class="cf StudyFoot">
+				<div class="w1200 cf">
+					<a class="FootLogo mt10" href="http://www.57us.com" title="57美国网">57美国网</a>
+					<div class="FootCont fl">
+						<a href="http://www.57us.com/about/contacts.html" target="_blank" title="公司简介" style="padding-left: 0;">公司简介</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/about/contact.html" target="_blank" title="联系我们">联系我们</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/about/map.html" target="_blank" title="站点地图">站点地图</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/about/tiaokuan.html" target="_blank" title="使用条款">使用条款</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/about/privacy.html" target="_blank" title="隐私保护">隐私保护</a>
+						<a href="JavaScript:void(0)">|</a>
+						<a href="http://www.57us.com/help/zhifu.html" target="_blank" title="帮助中心">帮助中心</a>
+						<span class="wecome">欢迎拨打电话咨询</span>
+						<br> 地址：厦门市思明区软件园二期观日路34号之一201Z&nbsp;&nbsp;&nbsp;电话：0592-5919203
+						<span class="FootTell">400-018-5757</span><br> Copyright © 2016 57US.com
+						<a href="http://www.57us.com" title="57美国网">57美国网</a>&nbsp;&nbsp;&nbsp;美华通（厦门）网络科技有限公司&nbsp;&nbsp;&nbsp;闽ICP备15017345号
+					</div>
+					<ul class="FootMeida fr">
+						<li class="i1">
+							<div class="ChatCode transition"><img src="http://images.57us.com/img/common/wxstudy.jpg" width="112" height="112"><em></em></div>
+						</li>
+						<li class="i2">
+							<div class="ChatCode transition"><img src="http://images.57us.com/img/common/wb.jpg" width="112" height="112"><em></em></div>
+						</li>
+					</ul>
+				</div>
+				<div class="w1200 safeBox mt10 cf">
+					<a href="http://www.isc.org.cn/" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe1_3.0.png" height="47"></a>
+					<a href="http://wsgs.fjaic.gov.cn/creditpub/notice/view?uuid=1gM0nGULIzO5wVPW8xQpfwZUq0lfoM7X&amp;tab=01" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe2_3.0.png" height="47"></a>
+					<a href="http://www.12377.cn/" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe3_3.0.png" height="47"></a>
+					<a href="http://www.cyberpolice.cn/wfjb/" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe4_3.0.png" height="47"></a>
+					<a href="http://webscan.360.cn/index/checkwebsite/url/www.57us.com" rel="nofollow" target="_blank"><img border="0" src="http://images.57us.com/img/common/safe6_3.0.png" height="47"></a>
+					<a href="https://ss.knet.cn/verifyseal.dll?sn=e16091435020064717vyo0000000&amp;comefrom=trust&amp;trustKey=dn&amp;trustValue=www.57us.com" target="_blank" rel="nofollow"><img src="http://images.57us.com/img/common/safe5_3.0.png" height="47"></a>
+					<a href="http://ec.eqixin.com/?sn=QX2066134012191473748886" rel="nofollow" target="_blank"><img src="http://images.57us.com/img/common/safe7_3.0.png" height="47"></a>
+				</div>
+			</div>
+		</div>
+		<script src="http://j.57us.com/base/inputbox/1.0.0/jquery.inputbox.min.js"></script>
+		<script src="http://j.57us.com/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+		<script type="text/javascript" src="http://js.57us.net/study/sureOrder.js"></script>
+	</body>
+
+</html>

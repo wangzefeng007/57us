@@ -1,0 +1,50 @@
+{template StudyHeader}
+<div class="page-group">
+	<div class="page page-current" style="background: #fff;" id="mymatchdetail">
+		<header class="bar bar-nav diybar">
+			<a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+			<h1 class="title">我的匹配</h1>
+		</header>
+		<div class="content pull-to-refresh-content infinite-scroll ConsultantList mt40">
+			<ul class="matchList">
+				<li>
+					<a href="">
+						<span class="left">{echo mb_substr($MarryInfo['MarryName'],0,1,'utf-8')}</span>
+						<div class="cont">
+							<p class="tit">{$MarryInfo['MarryName']}</p>
+							<div class="row no-gutter">
+								<div class="col-50">{$MarryInfo['MarryCity']}</div>
+								<div class="col-50">目前：{$MarryInfo['MarryGrade']}</div>
+							</div>
+							<div class="row no-gutter">
+								<div class="col-50">{$MarryInfo['GoAbroadTime']}</div>
+								<div class="col-50">目标：{$TargetLevel[$MarryInfo['MarryTargetLevel']]}</div>
+							</div>
+						</div>
+						<div class="right">
+							<p class="red howNum">{$MarryInfo['Consultants']}位顾问</p>
+							<p class="matchSu">{if $MarryInfo['Consultants'] == 0}匹配失败{else}匹配成功{/if}</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div class="hasMatch">
+				<span class="left">匹配到的顾问</span>
+				<span>还有<em class="red Times">{$MarryInfo['Times']}</em>次机会</span>
+			</div>
+			<ul class="contantList mt10">
+			</ul>
+			<div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+			<!-- 加载提示符 -->
+			<div class="infinite-scroll-preloader" style="display: none">
+				<div class="preloader">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/study/app.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/user/StudyMuserMatchingDetail.js" charset='utf-8'></script>
+</body>
+</html>

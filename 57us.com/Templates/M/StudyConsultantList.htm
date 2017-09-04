@@ -1,0 +1,71 @@
+{template StudyHeader}
+<div class="page-group">
+	<div class="page page-current" style="background: #fff;" id="ConsultantList">
+		<header class="bar bar-nav diybar">
+			<a class="pull-right searchBtn"><i class="icon iconfont">&#xe6b5;</i></a>
+			<a class="pull-left checkBtn"><i class="icon iconfont">&#xe63b;</i></a>
+			<h1 class="title">顾问列表</h1>
+		</header>
+		<div class="content pull-to-refresh-content infinite-scroll pd25 ConsultantList">
+			<!-- 默认的下拉刷新层 -->
+			<div class="pull-to-refresh-layer">
+				<div class="preloader"></div>
+				<div class="pull-to-refresh-arrow"></div>
+			</div>
+			<!--列表内容-->
+			<ul class="contantList">
+			</ul>
+			<div class="pullUpLabel" style="display: none;text-align: center">亲，没有更多内容了！</div>
+			<!-- 加载提示符 -->
+			<div class="infinite-scroll-preloader" style="display: none">
+				<div class="preloader">
+				</div>
+			</div>
+		</div>
+		<a href="/study/marryconsultantone/" class="fixeva">马上匹配</a>
+		<!--
+            作者：xiao15980751809@126.com
+            时间：2016-11-09
+            描述：筛选窗口
+        -->
+		<div class="contanCheckBox" data-type="0">
+			<span class="close"><i class="icon iconfont">&#xe601;</i></span>
+			<div class="row no-gutter">
+				<div class="col-25">选择地区：</div>
+				<div class="col-75">
+					<input type="text" name="" id="city-picker" value="" placeholder="请选择地区" class="areaInput"  readonly/>
+				</div>
+			</div>
+			<div class="row no-gutter">
+				<div class="col-25">从业年限：</div>
+				<div class="col-75 checkBox">
+					<a class="on" data-id="All">不限</a><a data-id="0-3">3年以内</a><a data-id="3-5">3~5年</a><a data-id="5-10">5~10年</a><a data-id="10-All">10年以上</a>
+				</div>
+			</div>
+			<div class="row tac contanCheckBtn">
+				<a href="javascript:void(0)" id="cancel">取消</a>
+				<a href="javascript:void(0)" id="sure">确定</a>
+			</div>
+		</div>
+		<!--
+            作者：xiao15980751809@126.com
+            时间：2016-11-09
+            描述：搜索页面
+        -->
+		<div class="searchbar diySearch">
+			<span class="close"><i class="icon iconfont">&#xe601;</i></span>
+			<div class="search-input">
+				<form>
+					<label class="icon icon-search" for="search"></label>
+					<input type="search" id="search" placeholder="输入关键字...">
+					<input type="submit" value="Submit" style="display: none"/>
+				</form>
+			</div>
+		</div>
+		{template StudyFooter}
+	</div>
+</div>
+{template StudyFooter2}
+<script type='text/javascript' src="{echo JsURL}/m/study/ConsultantList.js" charset='utf-8'></script>
+</body>
+</html>

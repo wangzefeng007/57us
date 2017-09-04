@@ -1,0 +1,95 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<link rel="stylesheet" type="text/css" href="/Plugins/tourmorefile/css/webuploader.css" />
+<link rel="stylesheet" type="text/css" href="/Plugins/tourmorefile/css/style.css" />
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">留学管理</a>
+        </li>
+        <li>
+          <a href="/index.php?Module=StudyTour&Action=Lists">游学产品管理</a>
+        </li>
+        <li class="active">编辑游学产品</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <!--{template StudyTourTop}-->
+  <div class="panel-body">
+    <div style="color:#FF0000; margin-left:15px;">上传图片比例4:3,上传图片后选择一张图片作为封面图片，否则默认第一张为封面图片</div>
+    <div id="wrapper">
+      <div id="container">
+        <div id="uploader">
+          <div class="queueList">
+            <div id="dndArea" class="placeholder">
+              <div id="filePicker"></div>
+              <p>或将照片拖到这里，单次最多可选300张</p>
+            </div>
+          </div>
+          <div class="statusBar" style="display:none;">
+            <div class="progress"> <span class="text">0%</span> <span class="percentage"></span> </div>
+            <div class="info"></div>
+            <div class="btns">
+              <div id="filePicker2"></div>
+              <div class="uploadBtn">开始上传</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <ul class="list-inline special-details-img" style="margin: 0px 11px 0px 11px">
+      <p style="text-align:left;margin-top: 10px">
+        <a class="getinfotour" href="javascript:void(0)" data-id="{$YoosureID}">全部删除</a>
+      </p>
+      {loop $StudyTourImagesList $List}
+      <li>
+        <a href="javascript:void(0)"><img src="{echo ImageURLP2}{$List[Image]}" style="width:200px; height:200px;" data-width="1200" data-height="1200"></a><br />
+        <p style="text-align:center;margin-top: 10px">
+          <a class="getinfo" href="javascript:void(0)" data-id="{$List[ImageID]}">删除</a> | {if $List[IsDefault]}封面图片{else}
+          <a href="/index.php?Module=StudyTour&Action=StudyTourImagesSetDefault&ImageID={$List[ImageID]}">设置封面图片</a>{/if}
+        </p>
+      </li>
+      {/loop}
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}
+<script type="text/javascript" src="/Plugins/tourmorefile/js/webuploader.js"></script>
+<script type="text/javascript" src="/Plugins/tourmorefile/js/upload_studytour.js"></script>
+<script>
+  $('.getinfo').click(function () {
+    var ListId = $(this).attr('data-id');
+    layer.confirm('您确定要删除该图片？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=StudyTour&Action=DeleteStudyTourImages&ImageID='+ListId;
+      layer.close(index);
+    });
+  })
+  $('.getinfotour').click(function () {
+    var ListId = $(this).attr('data-id');
+    layer.confirm('您确定要删除全部图片？', {
+      title: '删除提示',
+      btn: ['确定','取消'] //按钮
+    }, function(index){
+      window.location.href='/index.php?Module=StudyTour&Action=DeleteStudyTourImages&YoosureID='+ListId;
+      layer.close(index);
+    });
+  })
+</script>
+

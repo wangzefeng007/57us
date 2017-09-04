@@ -1,0 +1,56 @@
+{
+  "ResultCode": 200,
+  "Intention": "5",
+  "Type": "1",
+  "ProgressTitle": "<div class=\"serviceProcess\" data-id=\"1001\"><a href=\"javascript:void(0)\" class=\"first carryout\" data-type=\"Questionnaire\">调查表</a><em></em><a href=\"javascript:void(0)\" class=\"carryout\" data-type=\"SchoolSelection\">选校定校</a><em></em><a href=\"javascript:void(0)\" class=\"carryout\" data-type=\"DocumentManage\">文书管理</a><em></em><a href=\"javascript:void(0)\" class=\"carryout\" data-type=\"SchoolApply\">学校申请</a><em></em><a href=\"javascript:void(0)\" class=\"on\" data-type=\"ApplyVisa\">办理签证</a></div>",
+  "ProgressStatus": "3",
+  "ClienteleName": "老王",
+  "DeadCopyData":{
+    "DeadCopyd_Date":"2016-11-11 16:00",
+    "DeadCopyd_FileName":"BBB.docx",
+    "DeadCopyd_DownUrl":"http://images.57us.com/img/study/test.docx"
+  },
+  "UpQuestion": {
+    "UpQuestion_Date": "2016-11-11 16:00",
+    "UpQuestion_FileName": "AAA.docx",
+    "UpQuestion_DownUrl": "http://images.57us.com/img/study/test.docx",
+    "Question_Message": "天在在在地"
+  },
+  "Data": {
+    "Question_Date": "2016-09-02 16:00",
+    "Question_CoupleBackName": "我的反馈",
+    "Question_FileName": "学生.docx",
+    "Question_Message": "天在在在&nbsp;&nbsp;<br>地地<br><br>&nbsp;地地地地<br><br><br>地",
+    "Question_DownUrl": "http://images.57us.com/img/study/test.docx"
+  },
+  "Data2": [
+    {
+      "Question_CoupleBackName": "我的反馈",
+      "Question_Date": "2016-09-02 16:00",
+      "Question_FileName": "学生.docx",
+      "Question_Message": "我的留言：这个调查表，有过垃圾的请给我份正常点的",
+      "Question_DownUrl": ""
+    },
+    {
+      "Question_CoupleBackName": "学生反馈",
+      "Question_Date": "2016-09-02 16:00",
+      "Question_FileName": "学生.docx",
+      "Question_Message": "学生反馈：这个调查表，有过垃圾的请给我份正常点的",
+      "Question_DownUrl": "http://images.57us.com/img/study/test.docx"
+    },
+    {
+      "Question_CoupleBackName": "我的反馈",
+      "Question_Date": "2016-09-02 16:00",
+      "Question_FileName": "学生.docx",
+      "Question_Message": "我的留言：这个调查表，有过垃圾的请给我份正常点的",
+      "Question_DownUrl": "http://images.57us.com/img/study/test.docx"
+    },
+    {
+      "Question_CoupleBackName": "学生反馈",
+      "Question_Date": "2016-09-02 16:00",
+      "Question_FileName": "学生.docx",
+      "Question_Message": "学生反馈：这个调查表，有过垃圾的请给我份正",
+      "Question_DownUrl": ""
+    }
+  ]
+}

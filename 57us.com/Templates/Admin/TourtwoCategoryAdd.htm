@@ -1,0 +1,96 @@
+{template Head}
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <!--breadcrumbs start -->
+      <ul class="breadcrumb panel">
+        <li>
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#">旅游产品管理</a>
+        </li>
+        <li>
+          <a href="/index.php?Module=TourCategory&Action=TourCategoryList" class="position">产品类别管理</a>
+        </li>
+        <li class="active">编辑产品类别信息</li>
+      </ul>
+      <!--breadcrumbs end -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-body"><form action='/index.php?Module=TourCategory&Action=Add&TourCategoryID={$TourCategoryID}'  method='post'  enctype="multipart/form-data">
+          <table class="table table-bordered table-striped table-hover">
+            <tbody>
+            <tr>
+              <td width="150px" class="t-r">上级类别：</td>
+              <td>
+                <div class="col-sm-2">
+                  <select class="form-control" name="ParentID" id="ParentID" onchange="GetNewParentID(this.value)">
+                    <option  value="0" style="width:300px;">-- Top --</option>
+                    {loop $TourCategory $value}
+                    <option value="{$value[TourCategoryID]}" {if $TourCategoryDetails[ParentID]==$value[TourCategoryID]}selected="selected" {/if}>{$value[CnName]} </option>
+                    {/loop}
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="t-r"><span style="color:#FF0000">*&nbsp;</span>产品：</td>
+              <td>
+                <div class="col-sm-2">
+                  <input type="text" name="CnName" value="{$TourCategoryDetails[CnName]}" class="form-control"/>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="t-r">拼音：</td>
+              <td>
+                <div class="col-sm-2">
+                  <input type="text" name="Alias" value="{$TourCategoryDetails[Alias]}" class="form-control"/>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="t-r">Title：</td>
+              <td>
+                <div class="col-sm-4">
+                  <textarea name="Title" rows="4" class="form-control">{$TourCategoryDetails[Title]}</textarea>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="t-r">Keywords：</td>
+              <td>
+                <div class="col-sm-4">
+                  <textarea name="Keywords" rows="4" class="form-control">{$TourCategoryDetails[Keywords]}</textarea>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="t-r">Description：</td>
+              <td>
+                <div class="col-sm-4">
+                  <textarea name="Description" rows="5" class="form-control">{$TourCategoryDetails[Description]}</textarea>
+                </div>
+              </td>
+            </tr>
+            <tr id="MaterialRequested">
+              <td class="t-r"></td>
+              <td>
+                <div class="col-sm-5">
+                  <input class="btn btn-danger" type='submit' value='提交保存'/>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{template Foot}

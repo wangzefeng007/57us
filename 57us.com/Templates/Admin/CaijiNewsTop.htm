@@ -1,0 +1,14 @@
+<span class="position hidden">采集资讯模块</span>
+<div class="panel-body special-details" style="padding-bottom: 0px">
+    <input class="{if $TopNavs=='Lists'}btn btn-info{else}btn btn-default{/if}" type="button" value="采集栏目列表"
+           onclick="javascrtpt:window.location.href='/index.php?Module=GetNews&Action=Lists'">
+    <input class="{if $ArticleType==1}btn btn-info{else}btn btn-default{/if}" type="button" value="留学资讯采集管理"
+           onclick="javascrtpt:window.location.href='/index.php?Module=CaiJiNews&Action=Lists&Type=1'">
+    <input class="{if $ArticleType==2}btn btn-info{else}btn btn-default{/if}" type="button" value="旅游资讯采集管理"
+           onclick="javascrtpt:window.location.href='/index.php?Module=CaiJiNews&Action=Lists&Type=2'">
+    <input class="{if $ArticleType==3}btn btn-info{else}btn btn-default{/if}" type="button" value="移民资讯采集管理"
+           onclick="javascrtpt:window.location.href='/index.php?Module=CaiJiNews&Action=Lists&Type=3'">
+          
+          <input class="{if $ArticleType=='Log'}btn btn-info{else}btn btn-default{/if}" type="button" value="已经入库资讯管理"
+           onclick="javascrtpt:window.location.href='/index.php?Module=CaiJiNews&Action=Logs'">
+</div>

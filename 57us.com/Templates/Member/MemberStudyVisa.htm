@@ -1,0 +1,58 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberStudyLeft}
+    <div class="mRight MyOrderBox cf fr">
+        <div class="myNewsTit">
+            <span class="name">签证申请</span>
+        </div>
+        {loop $List $Key $Data}
+        <div class="mRight_v mt10 cf content">
+            <!--此处绑定此订单对应的id -->
+            <input type="hidden" class="orderId" value="{$Data[OrderID]}">
+            <div class="stuconListBody {if $Data['OrderConsultant']['Status'] == 3}on{/if}">
+                <span class="FigureIndia"></span>
+                <img src="{if $Data[Avatar]}{$Data[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="60" height="60">
+                <p>顾问：{$Data[RealName]}</p>
+                <p>服务名称：{$Data[OrderName]}</p>
+            </div>
+            {loop $Data['Data'] $key $lists}
+            <div class="stuconListM mt35">
+                <table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab">
+                    <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <p class="tabTime"><span class="fl">递交签证日期：{$lists[SubmitVisaTime]}</span><span class="fl">签证结果日期：{$lists[VisaEndTime]}</span></p>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tbody><tr>
+                        <th width="129">签证国家</th>
+                        <th width="142">入读学校</th>
+                        <th width="138">入学时间</th>
+                        <th width="102">状态</th>
+                        <th width="191">备注</th>
+
+                    </tr>
+                    <tr>
+                        <td><p class="resultTex">{$lists[Country]}</p></td>
+                        <td><p class="resultTex">{$lists[AdmissionSchool]}</p></td>
+                        <td><p class="resultTex">{$lists[StartSchoolTime]}</p></td>
+                        <td><p class="resultTex">{$Status[$lists[Status]]}</p></td>
+                        <td><p class="resultTex"><a href=""></a>{$lists[Remarks]}</p></td>
+                    </tr>
+                    </tbody></table>
+                    {if $Data[OrderConsultant]['Status']!=3}
+                    <div class="tac mt20">
+                            <a href="javascript:void(0)" class="publicBtn3 sureVisa confirmVisa">确定</a>
+                    </div>
+                    {/if}
+            </div>
+            {/loop}
+        </div>
+        {/loop}
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberStudyVisa.js" type="text/javascript"></script>
+</body>
+</html>

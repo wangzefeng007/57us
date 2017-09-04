@@ -1,0 +1,44 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberLeft}
+    <div class="mRight_v cf fr">
+        <div class="mRightit">
+            <span class="name">邮寄地址</span>
+        </div>
+        <div class="mRightSub cf mt15">
+            <a href="/member/addressadd/" class="publicBtn3 addTraveBtn"><i class="icon iconfont icon-jiajian02"></i>新增邮寄地址</a>
+        </div>
+        <div class="travesTab mt15">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" id="list">
+                <tr>
+                    <th width="90">姓名</th>
+                    <th width="180">所在地区</th>
+                    <th width="225">详细地址</th>
+                    <th width="80">邮编</th>
+                    <th width="120">手机号</th>
+                    <th width="205">操作</th>
+                </tr>
+                <!--此处循环遍历输出,如果是默认的 tr增加on class  data-id绑定此条ID -->
+                {loop $Data['Data'] $lists}
+                <tr class="{if $lists[IsDefault]}on{/if} addressLine"  data-id="{$lists[ShippingAddressID]}">
+                    <td>{$lists[Recipients]}</td>
+                    <td>{$lists[Province]}{$lists[City]}{$lists[Area]}</td>
+                    <td>{$lists[Address]}</td>
+                    <td>{$lists[Postcode]}</td>
+                    <td>{$lists[Mobile]}</td>
+                    <td>
+                        <a href="JavaScript:void(0)" class="hasDef">默认地址</a>
+                        <a href="JavaScript:void(0)" class="stepDef setDef">设为默认</a>
+                        <a href="/member/addressadd/?ID={$lists[ShippingAddressID]}" class="stepchange">修改</a>
+                        <a href="JavaScript:void(0)" class="stepdete delAddress">删除</a>
+                    </td>
+                </tr>
+                {/loop}
+            </table>
+        </div>
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberAddressList.js" type="text/javascript"></script>
+</body>
+</html>

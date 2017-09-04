@@ -1,0 +1,30 @@
+    <footer>
+        <ul>
+            <li {if $Nav == 'index'} class="on" {/if}>
+                <a href="/vote/index/"><i class="icon iconfont">&#xe607;</i><br>首页</span>
+                </a>
+            </li>
+            <li {if $Nav == 'ranking'} class="on" {/if}>
+                <a href="/vote/ranking/"><i class="icon iconfont">&#xe06;</i><br>投票排行</span>
+                </a>
+            </li>
+            <li {if $Nav == 'member'} class="on" {/if}>
+                <a href="/vote/member?id={$_SESSION['UserInfo']['UserID']}">{if $_SESSION['UserInfo']['IsVote'] == 0}<em>报名</em>{/if}<i class="icon iconfont">&#xe604;</i><br>个人主页</span>
+                </a>
+            </li>
+            <li {if $Nav == 'rule'} class="on" {/if}>
+                <a href="/vote/rule/"><i class="icon iconfont">&#xe05;</i><br>活动规则</span>
+                </a>
+            </li>
+            <li {if $Nav == 'prize'} class="on" {/if}>
+                <a href="/vote/prize/"><i class="icon iconfont">&#xe09;</i><br>活动奖品</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+<!--
+<div class="gameOver hidden">
+	<span>
+		活动已结束！
+	</span>
+</div>-->

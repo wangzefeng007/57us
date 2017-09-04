@@ -1,0 +1,42 @@
+{template Header}
+<div class="wrap">
+	<div class="NewsHeader"> 
+		{template HeaderTop}
+		{template HeaderTop1}
+	</div>
+	{template HeaderTop2}
+	<div class="w1200 NewsLocation f16">您当前位置：<a href="{echo WEB_MAIN_URL}" title="57美国网" target="_blank">首页</a>><a href="/immigrant/" title="移民资讯" target="_blank">移民资讯</a>><span>{$info[CategoryName]}</span></div>
+	<div class="w1200 NewsStudyMain cf">
+		<div class="w1248 cf">
+		{loop $Immigration $lists}
+		{if $lists[key] == 1}<div class="Examination">{elseif $lists[key] == 2}<div class="Examination">{elseif $lists[key] == 3}<div class="Examination mt20">{elseif $lists[key] == 4}<div class="Examination mt20">{/if}
+			<div class="ExaminationTit">
+				<a href="/immigrant_{$lists[Alias]}/" class="more fr" target="_blank" title="{$lists[CategoryName]}">更多&gt;</a>
+				<span class="name fl">{$lists[CategoryName]}</span>
+			</div>
+			<div class="ExamNewsbox cf">
+				{loop $lists[info] $list}
+				{if $list[key]==1}
+				<div class="ExamNewsCont">
+					<a href="/immigrant/{$list[ImmigrationID]}.html" target="_blank" title="{$list[Title]}"><img src="{echo ImageURLP2}{$list[Image]}" title="{$list[Title]}" alt="{$list[Title]}" src="{echo LImageURL}{$list[Image]}" class="transition lazy" width="204" height="154"/></a>
+					<div class="ExamNewsContR fr">
+						<p class="tit"><a href="/immigrant/{$list[ImmigrationID]}.html" target="_blank" title="{$list[Title]}">{$list[Title]}</a></p>
+						<p class="nr">{$list[Description]}<a href="/immigrant/{$list[ImmigrationID]}.html" target="_blank" title="{$list[Title]}">【查看全部】</a></p>
+					</div>
+				</div>
+				{/if}
+				{/loop}
+				<ul class="ExamNewsList mt10">
+					{loop $lists[info] $list}
+					{if $list[key] !=1}
+					<li><a href="/immigrant/{$list[ImmigrationID]}.html" target="_blank" title="{$list[Title]}"><span class="fr date">{$list[time]}</span><b>●</b>{$list[Title]}</a></li>
+					{/if}
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		{/loop}
+	</div>
+	</div>
+	<script src="{echo JsURL}/www/newsexam.js" type="text/javascript" charset="utf-8"></script>
+{template Footer}

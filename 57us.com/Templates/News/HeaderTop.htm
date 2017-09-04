@@ -1,0 +1,43 @@
+<div class="w1200 cf NewsTop">
+    <div class="fl">欢迎来到57美国网!</div>
+    <div class="fr"> </div>
+    <div class="fr">
+        <div class="UserStatus fr">
+            <?php if($_SESSION[UserID] && !empty($_SESSION[UserID])){?>
+            <div class="UserLogin">
+                <div class="UserMain">
+                    <a href="">
+                        <img src="<?php echo LImageURL ?><?php echo $_SESSION[Avatar];?>">
+                        <span id="" class="UserName"><?php echo $_SESSION[NickName];?></span>
+                    </a>
+                    <div class="UserList">
+                        <b class="ico"></b>
+                        <div class="UserListM">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                <tr>
+                                    <th width="80">账户管理</th>
+                                    <td>
+                                        <a href="<?php echo WEB_MEMBER_URL;?>">个人中心</a>
+                                        <a href="<?php echo WEB_MEMBER_URL;?>/member/securitycenter/">安全中心</a>
+                                        <a href="<?php echo WEB_MEMBER_URL;?>/tourmember/address/">收货地址</a>
+                                        <a href="<?php echo WEB_MEMBER_URL;?>/member/signout/">安全退出</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--<a id="" class="letter" href=""></a>--><span id="">|</span>
+                <a href="<?php echo WEB_MEMBER_URL;?>/member/signout/">退出</a>
+            </div>
+            {else}
+            <div class="UserLogin ">
+                <a href="<?php echo WEB_MEMBER_URL;?>/member/login/">登录</a><span id="">|</span>
+                <a href="<?php echo WEB_MEMBER_URL;?>/member/register/">免费注册</a>
+            </div>
+            {/if}
+        </div>
+    </div>
+</div>

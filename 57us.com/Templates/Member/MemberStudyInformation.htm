@@ -1,0 +1,93 @@
+{template MemberHeader}
+<div class="w1200 cf mt20">
+    {template MemberStudyLeft}
+    <div class="mRight MyOrderBox cf fr">
+        <div class="myNewsTit">
+            <span class="name">信息收集</span>
+        </div>
+        <!--多个订单循环输出，以下html-->
+        {loop $Data $Key $val}
+        <div class="mRight_v mt10 cf content">
+            <!--此处绑定此订单对应的id-->
+            <input type="hidden" class="orderId" value="{$val['OrderID']}">
+            <div class="stuconListBody {if $val['Isok']}on{/if}">
+                <span class="FigureIndia"></span>
+                <img src="{if $val[Avatar]}{$val[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="60" height="60">
+                <p>顾问：{$val[RealName]}</p>
+                <p>服务名称：{$val['OrderName']}</p>
+                <p>状态：<span class="green">{$val['StatusName']}</span></p>
+            </div>
+            <div class="stuconListM">
+                <ul class="dialogueList mt20 cf">
+                    {if $val['Show']}
+                    {loop $val['Show'] $k $v}
+                    <li class="{if $v['Feedback']==2}even{/if}">
+                        <span class="sj"></span>
+                        <img src="{if $v['Feedback']==2}{if $val[Avatar]}{$val[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}{elseif $v['Feedback']==1} {if $UserInfo[Avatar]}{$UserInfo[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}{/if}" width="48" height="48">
+                        <div class="dialogueCont">
+                            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                <tbody>
+                                <tr>
+                                    <td width="300">
+                                        <p><span class="fr">{$v[DocumentName]}</span><span class="fl">{echo date("Y-m-d",$v[AddTime])}</span><span class="pl20">{echo date("H:i:s",$v[AddTime])}</span></p>
+                                        <p><span class="red">{if $v['Feedback']==1}我的反馈{elseif $v['Feedback']==2}顾问_{$val[RealName]}的反馈{/if}：{$v[Describe]}</span></p>
+                                    </td>
+                                    <td class="pl20 tac">
+                                        {if $v[Document]}<a href="{echo ImageURL}{$v[Document]}" class="btn publicBtn0">下载</a>{/if}
+                                        {if ($val[Isok] == 0 || $k == 0) && $v['Feedback']==2 }
+                                        <a href="javascript:void(0)" class="btn publicBtn0 mt10 uploadModal">反馈</a>
+                                        {/if}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    {/loop}
+                    {/if}
+                    {if $val['NoShow']}
+                    {loop $val['NoShow'] $k $v}
+                    <li style="display: none" class="{if $v['Feedback']==2}even{/if} qhide">
+                        <span class="sj"></span>
+                        <img src="{if $v['Feedback']==2}{if $val[Avatar]}{$val[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}{elseif $v['Feedback']==1}{if $UserInfo[Avatar]}{$UserInfo[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}{/if}" width="48" height="48">
+                        <div class="dialogueCont">
+                            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                <tbody>
+                                <tr>
+                                    <td width="300">
+                                        <p><span class="fr">{$v[DocumentName]}</span><span class="fl">{echo date("Y-m-d",$v[AddTime])}</span><span class="pl20">{echo date("H:i:s",$v[AddTime])}</span></p>
+                                        <p><span class="red">{if $v['Feedback']==1}我的反馈{elseif $v['Feedback']==2}顾问_{$val[RealName]}的反馈{/if}：{$v[Describe]}</span></p>
+                                    </td>
+                                    <td class="pl20 tac">
+                                        {if $v[Document]}
+                                        <a href="{echo ImageURL}{$v[Document]}" class="btn publicBtn0">下载</a>
+                                        {/if}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    {/loop}
+                    {/if}
+                </ul>
+                {if !$val['Show']}
+                <div class="cf mt40 tac upfilebox">
+                    <span class="f20">等待顾问上传调查表</span>
+                </div>
+                {/if}
+                {if $val['NoShow']}
+                <div class="QuestionMore mt40 tar" style="display:block">
+                    <a href="JavaScript:void(0)" class="More">查看全部<i class="icon iconfont icon-up-copy"></i></a>
+                </div>
+                {/if}
+            </div>
+        </div>
+        {/loop}
+    </div>
+</div>
+{template MemberFooter}
+<script src="{echo JsURL}/member/MemberStudyUpModal.js" type="text/javascript"></script>
+<script src="{echo JsURL}/member/MemberStudyInformation.js" type="text/javascript"></script>
+</body>
+</html>

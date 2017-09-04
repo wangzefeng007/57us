@@ -1,0 +1,88 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt50 cf">
+	{template ConsultantManageClientManageLeftData}
+	<div class="w877 cf fr">
+		{$CommonData['ProgressTitle']}
+		<!--此处表示流程是否完成  3表示此步骤已经完成-->
+		<input value="{$Result['ChooseSchoolStatus']}" id="ChooseSchoolStatus" type="hidden">
+		<!--学校申请，未推送数据 start-->
+		<div class="choseSchool mt25 new">
+			<div class="choseSchoolT">
+				<span class="name fl">学校申请</span>
+			</div>
+			<div class="EditeHeader mt25"><a href="JavaScript:void(0)" class="editeBtn editeBtn1">编辑</a>请编辑已投递学校数据，给学生查看。</div>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab mt25 SchoolTable">
+				<tr>
+					<th width="173">学校名称</th>
+					<th width="139">课程/专业名称</th>
+					<th width="123">投递时间</th>
+					<th width="94">申请状态</th>
+					<th width="137">备注</th>
+					<th width="84" class="white"></th>
+				</tr>
+				<!--学校申请此处循环输出-->
+				{loop $Result['SchoolApplyNewData'] $val}
+				<tr class="NewData">
+					<td height="30px"><p class="resultTex">{$val[SchoolName]}</p><input type="text" name="SchoolName" class="SchoolName" value="{$val[SchoolName]}" placeholder="学校名称" maxlength="30"/></td>
+					<td><p class="resultTex">{$val[MajorName]}</p><input type="text" name="MajorName" class="MajorName" value="{$val[MajorName]}" placeholder="课程/专业名称" maxlength="30"/></td>
+					<td><p class="resultTex">{$val[DeliveryTime]}</p><input type="text" name="DeliveryTime" class="DeliveryTime" value="{$val[DeliveryTime]}" onfocus="WdatePicker({skin:'whyGreen'})" readonly placeholder="投递时间"/></td>
+					<td><p class="resultTex">{$val['Status']}</p><input type="text" name="Status" class="Status" value="{$val['Status']}" placeholder="当前状态" maxlength="5"/></td>
+					<td><p class="resultTex">{$val['Remark']}</p><input type="text" name="Remark" class="Remark" value="{$val['Remark']}" placeholder="备注" maxlength="30"/></td>
+					<td class="white"><a href="javascript:void(0)" class="delete delete1">删除</a></td>
+				</tr>
+				{/loop}
+			</table>
+			<div class="schoolAdd"><a href="javascript:void(0)" class="green" id="AddNewTr">+添加</a></div>
+			<div class="editeSchoolBtn mt30">
+				<a href="javascript:void(0)" id="SchoolSave">保存并发送</a>
+			</div>
+		</div>
+		<!--学校申请，未推送数据 end-->
+
+		<!--学校申请，发布录取通知 start-->
+		<div class="choseSchool mt50 EnrollSchool">
+			<div class="choseSchoolT">
+				<span class="name fl">发布录取通知</span>
+			</div>
+			<div class="EditeHeader mt25"><a href="JavaScript:void(0)" class="editeBtn editeBtn2">编辑</a>请将录取通知书发送给学生</div>
+			<table border="0" cellspacing="1" cellpadding="0" width="100%" class="schoolTab mt25 SchoolTable2">
+				<tr>
+					<td colspan="4">
+						<p class="tabTime"><span>学生选择学校/专业：{$Result['SchoolMajorName']}</span><span>学生确实状态：<em class="green" id="SelectionState">{$Result['SchoolApplicationStatus']}</em></span></p>
+					</td>
+					<td class="white"></td>
+				</tr>
+				<tr>
+					<th width="172">录取学校名称 </th>
+					<th width="172">录取专业名称</th>
+					<th width="172">计划入学时间</th>
+					<th width="171">Offer</th>
+					<th width="84" class="white"></th>
+				</tr>
+				<!--发布录取通知，如果有存在数据 此处循环输出-->
+				{loop $Result['EnrollSchoolHistoryData'] $val}
+				<tr class="EnrollData">
+					<td><p class="resultTex">{$val['AttendSchool']}</p><input type="text" name="AttendSchool" class="AttendSchool" value="{$val['AttendSchool']}" /></td>
+					<td><p class="resultTex">{$val['AttendMajor']}</p><input type="text" name="AttendMajor" class="AttendMajor" value="{$val['AttendMajor']}" /></td>
+					<td><p class="resultTex">{$val['PlanAttendDate']}</p><input type="text" name="PlanAttendDate" class="PlanAttendDate" value="{$val['PlanAttendDate']}" onfocus="WdatePicker({skin:\'whyGreen\'})" readonly/></td>
+					<td class="offerimg"><p class="resultTex"><a href="{$val['OfferImgUrl']}" download="'+list.OfferImgName+'">{$val['OfferImgName']}</a></p><span class="input"><a href="{$val['OfferImgUrl']}" download="{$val['OfferImgUrl']}" class="edittext">{$val['OfferImgUrl']}</a><a href="javascript:void(0);" class="fileimg uppic">重新上传<input type="file" name="uppic" class="addpreview" /></a></span></td>
+					<td class="white"><a href="javascript:void(0)" class="delete delete2">删除</a></td>
+				</tr>
+				{/loop}
+			</table>
+			<div class="schoolAdd"><a href="javascript:void(0)" id="AddNewTr2" class="green">+添加</a></div>
+			<div class="editeSchoolBtn mt30">
+				<a href="javascript:void(0)" id="EnrollSave">保存并发送</a>
+			</div>
+		</div>
+		<!--学校申请，发布录取通知 end-->
+	</div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script src="{echo JsURL}/base/loading/1.0.0/spin.min.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageItemSchoolApply.js"></script>
+</div>
+</body>
+</html>

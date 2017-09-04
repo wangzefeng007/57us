@@ -1,0 +1,89 @@
+{template Head}
+<div class="wrapper">
+	<div class="row">
+		<div class="col-md-12">
+			<!--breadcrumbs start -->
+			<ul class="breadcrumb panel">
+				<li>
+					<a href="#"><i class="fa fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">身份审核管理</a>
+				</li>
+				<li>
+					<a href="/index.php?Module=StudyTour&Action=IdentityAuditList" class="active">身份审核列表</a>
+				</li>
+				<span class="position hidden">身份审核管理</span>
+			</ul>
+			<!--breadcrumbs end -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel breadcrumb">
+				<div class="panel-body">
+					<form class="form-inline" role="form" action="/index.php?Module=StudyTour&Action=IdentityAuditList" method="GET">
+						<span style="float: left;line-height: 36px;margin-left: -10px;padding-right: 10px">会员：</span>
+						<input type="text" class="form-control" name="Title" placeholder="账号/姓名" value="{$Title}" style="width:300px;">
+						&nbsp;&nbsp;审核状态：
+                        <input type="hidden" name="Module" value="StudyTour">
+                        <input type="hidden" name="Action" value="IdentityAuditList">
+						<select  style="width:200px;" name="Status" id="Status" class="form-control">
+                            <option value="0" {if $Status == 0}selected="selected"{/if}>请选择状态</option>
+                            <option value="1" {if $Status == 1}selected="selected"{/if}>审核中</option>
+                            <option value="2" {if $Status == 2}selected="selected"{/if}>审核通过</option>
+                            <option value="3" {if $Status == 3}selected="selected"{/if}>审核不通过</option>
+						</select>
+						<button class="btn btn-info">搜索</button>
+					</form>
+				</div>
+				<section id="unseen">
+					<table class="table table-bordered table-striped table-condensed">
+						<thead>
+						<tr>
+							<th>用户ID</th>
+							<th>账号</th>
+							<th>真实姓名</th>
+							<th>审核身份</th>
+							<th>审核状态</th>
+							<th>操作</th>
+						</tr>
+						</thead>
+						<tbody>
+						{loop $Data['Data'] $lists}
+						<tr height="35" align="center">
+							<td>{$lists[UserID]}</td>
+							<td>{if $lists[Mobile]}{$lists[Mobile]}{else}{$lists[Email]}{/if}</td>
+							<td>{if $lists[RealName]}{$lists[RealName]}{else}未填写{/if}</td>
+							<td>{if $lists[Identity] == 1}学生{elseif $lists[Identity] == 2 }顾问{elseif $lists[Identity]==3}教师{/if}</td>
+							<td>{if $lists[IdentityState] == 1}审核中{elseif $lists[IdentityState] == 2}审核通过{else}审核不通过{/if}</td>
+							<td>&nbsp;<a href="/index.php?Module=StudyTour&Action=ConsultantDetail&ID={$lists[UserID]}">操作</a></td>
+						</tr>
+						{/loop}
+						</tbody>
+					</table>
+                    <form action="/index.php?Module=StudyTour&Action=OrderList{$PageUrl}" method="POST">
+                        <div class="text-center">
+                            <ul class="pagination" data-id="{$Page}">
+                                <li><a href="/index.php?Module=StudyTour&Action=IdentityAuditList&Page=1{$PageUrl}">首页</a></li>
+                                {if $Previous}
+                                <li><a href="/index.php?Module=StudyTour&Action=IdentityAuditList&Page={$Previous}{$PageUrl}">上一页</a></li>
+                                {/if}
+                                {loop $Data[PageNums] $page}
+                                <li><a href="/index.php?Module=StudyTour&Action=IdentityAuditList&Page={$page}{$PageUrl}" {if $Page==$page}class="on"{/if}>{$page}</a></li>
+                                {/loop}
+                                {if $Next}
+                                <li><a href="/index.php?Module=StudyTour&Action=IdentityAuditList&Page={$Next}{$PageUrl}">下一页</a></li>
+                                {/if}
+                                <li><a href="/index.php?Module=StudyTour&Action=IdentityAuditList&Page={$Data[PageCount]}{$PageUrl}">尾页</a></li>
+                                <span style="line-height: 27px;margin-right: 10px">第{$Page}页&nbsp;&nbsp;共{$PageMax}页&nbsp;&nbsp;到<input type="text" name ='Page' value ='' style="width:30px;height: 27px;line-height: 27px;margin: 0px 8px 0px 8px">页</span>
+                                <button class="btn btn-info" style="background-color: #65CEA7;border-color: #65CEA7;color: #fff;">确定</button>
+                            </ul>
+                        </div>
+                    </form>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+{template Foot}

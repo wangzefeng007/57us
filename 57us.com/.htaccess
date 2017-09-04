@@ -1,0 +1,223 @@
+ErrorDocument 404 /404.html
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^index.html$ /Index.php [QSA]
+
+##############################57us资讯 WWW.57US.COM######################################################################
+RewriteRule ^ajaxwww.html$ /Index.php?Module=Ajax&Action=Index [QSA]
+#自定义页面START
+RewriteRule ^about/map.html$ /Index.php?Module=About&Action=Map [QSA]
+RewriteRule ^about/([a-z]+).html$ /Index.php?Module=About&Action=Help&Alias=$1 [QSA]
+RewriteRule ^about/([0-9]+).html$ /Index.php?Module=About&Action=HelpInfo&ID=$1 [QSA]
+#自定义页面END
+#移民模块START
+RewriteRule ^immigrant(|\/)$ /Index.php?Module=Immigrant&Action=NewsImmig [QSA]
+RewriteRule ^immigtopic_([a-z]+)/(|\/)$ /Index.php?Module=Immigrant&Action=NewsImmigTopic&Alias=$1 [QSA]
+RewriteRule ^immigrant_([a-z]+)/(|\/)$ /Index.php?Module=Immigrant&Action=NewsImmigList&Alias=$1 [QSA]
+RewriteRule ^immigrant_([a-z]+)_([0-9]+)(|\/)$ /Index.php?Module=Immigrant&Action=NewsImmigList&Alias=$1&page=$2 [QSA]
+RewriteRule ^immigrant/([0-9]+).html(|\/)$ /Index.php?Module=Immigrant&Action=NewsImmigDetail&ID=$1 [QSA]
+#移民模块END
+
+#旅游模块START
+RewriteRule ^tour(|\/)$ /Index.php?Module=Tour&Action=NewsTour [QSA]
+RewriteRule ^tour_([a-z]+)/(|\/)$ /Index.php?Module=Tour&Action=NewsTourList&Alias=$1 [QSA]
+RewriteRule ^tour_([a-z]+)_([0-9]+)(|\/)$ /Index.php?Module=Tour&Action=NewsTourList&Alias=$1&page=$2 [QSA]
+RewriteRule ^tour/([0-9]+).html(|\/)$ /Index.php?Module=Tour&Action=NewsTourDetail&ID=$1 [QSA]
+#旅游模块END
+
+#就医产子START
+RewriteRule ^medical/([0-9]+).html(|\/)$ /Index.php?Module=Tour&Action=NewsTourDetail&ID=$1 [QSA]
+#就医产子END
+
+#留学模块START
+RewriteRule ^study/(|\/)$ /Index.php?Module=Study&Action=StudyAbroad [QSA]
+RewriteRule ^studytopic_([a-z]+)(|\/)$ /Index.php?Module=Study&Action=StudyAbroadTopic&type=$1 [QSA]
+RewriteRule ^study_([a-z]+)(|\/)$ /Index.php?Module=Study&Action=StudyAbroadList&type=$1 [QSA]
+RewriteRule ^study_([a-z]+)_([0-9]+)(|\/)$ /Index.php?Module=Study&Action=StudyAbroadList&type=$1&page=$2 [QSA]
+RewriteRule ^study_([a-z]+)_([a-z]+)(|\/)$ /Index.php?Module=Study&Action=StudyAbroadList&type=$1&nexttype=$2 [QSA]
+RewriteRule ^study_([a-z]+)_([a-z]+)_([0-9]+)(|\/)$ /Index.php?Module=Study&Action=StudyAbroadList&type=$1&nexttype=$2&page=$3 [QSA]
+RewriteRule ^study/([0-9]+).html(|\/)$ /Index.php?Module=Study&Action=StudyAbroadDetail&ID=$1 [QSA]
+#留学模块END
+
+#留学讲堂START
+RewriteRule ^topic/lecture/(|\/)$ /Index.php?Module=Study&Action=LectureHall [QSA]
+#留学讲堂END
+
+#留学问答START
+RewriteRule ^ask_section/([0-9]+).html$ /Index.php?Module=Ask&Action=AskDetail&ID=$1 [QSA]
+RewriteRule ^ask_section/([0-9]+)_([0-9]+).html$ /Index.php?Module=Ask&Action=AskDetail&ID=$1&p=$2 [QSA]
+#留学问答END
+
+#游记模块START
+RewriteRule ^travels(|\/)$ /Index.php?Module=Travels&Action=NewsTravelsList [QSA]
+RewriteRule ^travels/([a-z0-9_]+)(|\/)$ /Index.php?Module=Travels&Action=NewsTravelsList&SoUrl=$1 [QSA]
+RewriteRule ^travels/([0-9]+).html(|\/)$ /Index.php?Module=Travels&Action=NewsTravelsDetail&ID=$1 [QSA]
+#游记模块END
+
+#标签搜索START
+RewriteRule ^tour/tags_(.*)_([0-9]+).html$ /Index.php?Module=Tour&Action=TourSearchTag&Keyword=$1&page=$2 [QSA]
+RewriteRule ^tour/tags_(.*).html$ /Index.php?Module=Tour&Action=TourSearchTag&Keyword=$1 [QSA]
+RewriteRule ^study/tags_(.*)_([0-9]+).html$ /Index.php?Module=Study&Action=StudySearchTag&Keyword=$1&page=$2 [QSA]
+RewriteRule ^study/tags_(.*).html$ /Index.php?Module=Study&Action=StudySearchTag&Keyword=$1 [QSA]
+RewriteRule ^travels/tags_(.*)_([0-9]+).html$ /Index.php?Module=Travels&Action=TravelsSearchTag&Keyword=$1&page=$2 [QSA]
+RewriteRule ^travels/tags_(.*).html$ /Index.php?Module=Travels&Action=TravelsSearchTag&Keyword=$1 [QSA]
+RewriteRule ^immigrant/tags_(.*)_([0-9]+).html$ /Index.php?Module=Immigrant&Action=ImmigSearchTag&Keyword=$1&page=$2 [QSA]
+RewriteRule ^immigrant/tags_(.*).html$ /Index.php?Module=Immigrant&Action=ImmigSearchTag&Keyword=$1 [QSA]
+#标签搜索END
+
+
+#搜索列表START
+RewriteRule ^so.html$ /So.php [QSA]
+RewriteRule ^search_([a-z]+)_(.*)_([0-9]+).html$ /Index.php?Module=News&Action=Search&Type=$1&KeyWord=$2&page=$3 [QSA]
+RewriteRule ^search_([a-z]+)_(.*).html$ /Index.php?Module=News&Action=Search&Type=$1&KeyWord=$2 [QSA]
+#搜索列表END
+
+##############################57us旅游主站 TOUR.57US.COM######################################################################
+#私人定制START
+RewriteRule ^dingzhi(|\/)$ /Index.php?Module=Tour&Action=HighLevelIndex [QSA]
+RewriteRule ^dingzhi_(.*)_([0-9]+)(|\/)$ /Index.php?Module=Tour&Action=HighLevelDetail&name=$1&phone=$2 [QSA]
+RewriteRule ^ajaxtour.html$ /Index.php?Module=Ajax&Action=Index [QSA]
+RewriteRule ^ajaxcustom.html$ /Index.php?Module=Ajax&Action=PrivateCustom [QSA]
+RewriteRule ^highlevelorder(|\/)$ /Index.php?Module=Tour&Action=HighLevelOrder [QSA]
+RewriteRule ^highorderpay/([A-Z0-9|-]+).html$ /Index.php?Module=Tour&Action=HighOrderPay&NO=$1 [QSA]
+RewriteRule ^hightorderdetail/([A-Z0-9|-]+).html$ /Index.php?Module=TourMember&Action=HightOrderDetail&NO=$1 [QSA]
+#私人定制END
+
+#跟团游START
+RewriteRule ^group/([0-9]+).html$ /Index.php?Module=Group&Action=LineDetails&TourProductID=$1 [QSA]
+RewriteRule ^group/([A-Z0-9]+).html$ /Index.php?Module=Group&Action=ChoicePay&OrderNumber=$1 [QSA]
+#跟团游END
+
+#当地玩乐START
+RewriteRule ^play/([0-9]+).html$ /Index.php?Module=Play&Action=Details&TourProductID=$1 [QSA]
+RewriteRule ^playorder/([A-Z0-9_]+).html$ /Index.php?Module=Play&Action=ChoicePay&OrderNumber=$1 [QSA]
+#当地玩乐END
+
+#城市专题START
+RewriteRule ^city(|\/)$ /Index.php?Module=City&Action=Index [QSA]
+RewriteRule ^city/([a-z]+)(|\/)$ /Index.php?Module=City&Action=CityDetail&City=$1 [QSA]
+#城市专题END
+
+
+
+##############################57us签证 VISA.57US.COM######################################################################
+RewriteRule ^ajaxvisa.html$ /Index.php?Module=Ajax&Action=Index [QSA]
+RewriteRule ^visalists(|\/)$ /Index.php?Module=Visa&Action=Lists [QSA]
+RewriteRule ^visalists/([a-z0-9]+)(|\/)$ /Index.php?Module=Visa&Action=Lists&SoUrl=$1 [QSA]
+RewriteRule ^visadetail/([0-9]+).html(|\/)$ /Index.php?Module=Visa&Action=Detail&VisaID=$1 [QSA]
+RewriteRule ^visaorder(|\/)$ /Index.php?Module=Visa&Action=Order [QSA]
+RewriteRule ^visapay/([A-Z][0-9]+).html$ /Index.php?Module=Visa&Action=Pay&NO=$1 [QSA]
+
+##############################57us酒店 HOTEL.57US.COM######################################################################
+RewriteRule ^hotel/([0-9]+).html /Index.php?Module=Hotel&Action=Detail&HotelID=$1 [QSA]
+RewriteRule ^ajaxhotel.html$ /Index.php?Module=Ajax&Action=Index [QSA]
+RewriteRule ^ajaxgetroom.html$ /Index.php?Module=Ajax&Action=GetRoom [QSA]
+RewriteRule ^ajaxhotellist.html$ /Index.php?Module=Ajax&Action=GetHotelList [QSA]
+RewriteRule ^ajaxhotelcity.html$ /Index.php?Module=Ajax&Action=GetCity [QSA]
+
+##############################57us留学平台 STUDY.57US.COM######################################################################
+RewriteRule ^messagelist(|\/)$  /Index.php?Module=CommonController&Action=RedirectMessagePage [QSA]
+RewriteRule ^identity(|\/)$  /Index.php?Module=CommonController&Action=IdentitySelection [QSA]
+RewriteRule ^consultant(|\/)$ /Index.php?Module=Consultant&Action=Lists [QSA]
+RewriteRule ^consultant/([0-9]+).html /Index.php?Module=Consultant&Action=Detail&ID=$1 [QSA]
+RewriteRule ^consultant_service(|\/)$ /Index.php?Module=Consultant&Action=ServiceLists [QSA]
+RewriteRule ^consultant_service/([0-9]+).html /Index.php?Module=Consultant&Action=ServiceDetail&ID=$1 [QSA]
+RewriteRule ^teacher(|\/)$ /Index.php?Module=Teacher&Action=Lists [QSA]
+RewriteRule ^teacher/([0-9]+).html /Index.php?Module=Teacher&Action=Detail&ID=$1 [QSA]
+RewriteRule ^teacher_course(|\/)$ /Index.php?Module=Teacher&Action=CourseLists [QSA]
+RewriteRule ^teacher_course/([0-9]+).html /Index.php?Module=Teacher&Action=CoursesDetail&ID=$1 [QSA]
+RewriteRule ^college/([0-9]+).html /Index.php?Module=College&Action=Details&CollegeID=$1 [QSA]
+RewriteRule ^graduateschool/([0-9]+).html /Index.php?Module=GraduateSchool&Action=Details&CollegeID=$1 [QSA]
+RewriteRule ^highschool/([0-9]+).html /Index.php?Module=HighSchool&Action=Details&HighSchoolID=$1 [QSA]
+RewriteRule ^majorgrad/([0-9]+).html  /Index.php?Module=GraduateSchool&Action=MajorGrad&MajorID=$1 [QSA]
+RewriteRule ^studytour/([0-9]+).html  /Index.php?Module=StudyTour&Action=Detail&ID=$1 [QSA]
+RewriteRule ^ask_team/([0-9]+).html  /Index.php?Module=Ask&Action=TeamDetail&ID=$1 [QSA]
+##############################57us留学、酒店支付 STUDY.57US.COM、HOTEL.57US.COM############################################
+RewriteRule ^ajaxstudyconmanage.html$ /Index.php?Module=ConsultantManageAjax&Action=Index [QSA]
+#订单处理
+RewriteRule ^ajaxorder.html$ /Index.php?Module=AjaxOrder&Action=Index [QSA]
+#交易选择
+RewriteRule ^order/([0-9|a-z|A-Z]+).html$ /Index.php?Module=Order&Action=ChoicePay&ID=$1 [QSA]
+#留学、酒店支付宝支付
+RewriteRule ^alipay/([0-9|a-zA-Z]+)(|\/)$ Index.php?Module=Order&Action=Pay&Type=alipay&ID=$1 [QSA]
+#留学、酒店微信支付
+RewriteRule ^wxpay/([0-9|a-zA-Z]+)(|\/)$ /Index.php?Module=Order&Action=Pay&Type=wxpay&ID=$1 [QSA]
+
+##############################57us会员 MEMBER.57US.COM######################################################################
+#会员中心AJAX
+RewriteRule ^userajax.html$ /Index.php?Module=Ajax&Action=Index [QSA]
+RewriteRule ^loginajax.html$ /Index.php?Module=AjaxLogin&Action=Index [QSA]
+RewriteRule ^usertcajax.html$ /Index.php?Module=TCAjax&Action=Index [QSA]
+#出游订单详情
+RewriteRule ^tourorderdetail/([A-Z|0-9|-]+).html$ /Index.php?Module=MemberTour&Action=TourOrderDetail&NO=$1 [QSA]
+#租车订单详情
+RewriteRule ^carrentorderdetail/([A-Z|0-9|-]+).html$ /Index.php?Module=MemberTour&Action=CarrentOrderDetail&NO=$1 [QSA]
+#酒店订单详情
+RewriteRule ^hotelorderdetail/([A-Z|0-9|-]+).html$ /Index.php?Module=MemberTour&Action=HotelOrderDetail&NO=$1 [QSA]
+#签证订单详情
+RewriteRule ^visaorderdetail/([A-Z|0-9|-]+).html$ /Index.php?Module=MemberTour&Action=VisaOrderDetail&NO=$1 [QSA]
+#高端定制订单详情
+RewriteRule ^highlevelorderdetail/([A-Z|0-9|-]+).html$ /Index.php?Module=MemberTour&Action=HighLevelOrderDetail&NO=$1 [QSA]
+#租车支付
+RewriteRule ^carrentpay/([A-Z|0-9|-]+).html$ /Index.php?Module=CarRent&Action=CarRentPay&ID=$1 [QSA]
+##############################手机站 M.57US.COM######################################################################
+
+RewriteRule ^search.html$ /Index.php?Module=News&Action=Search [QSA]
+RewriteRule ^news/travels/([0-9]+).html$ /Index.php?Module=News&Action=TravelsDetail&ID=$1 [QSA]
+RewriteRule ^news/tour_([a-z]+)_([0-9]+)(|\/)$ /Index.php?Module=News&Action=TourLists&Alias=$1&page=$2 [QSA]
+RewriteRule ^news/tour_([a-z]+)(|\/)$ /Index.php?Module=News&Action=TourLists&Alias=$1 [QSA]
+RewriteRule ^news/tour/([0-9]+).html$ /Index.php?Module=News&Action=TourDetail&ID=$1 [QSA]
+
+RewriteRule ^news/studytopic_([a-z]+)(|\/)$ /Index.php?Module=News&Action=StudyParentLists&Alias=$1 [QSA]
+RewriteRule ^news/study_([a-z]+)_([0-9]+)(|\/)$ /Index.php?Module=News&Action=StudyLists&Alias=$1&page=$2 [QSA]
+RewriteRule ^news/study_([a-z]+)(|\/)$ /Index.php?Module=News&Action=StudyLists&Alias=$1 [QSA]
+RewriteRule ^news/study/([0-9]+).html$ /Index.php?Module=News&Action=StudyDetail&ID=$1 [QSA]
+
+RewriteRule ^news/immigtopic_([a-z]+)(|\/)$ /Index.php?Module=News&Action=ImmigrantParentLists&Alias=$1 [QSA]
+RewriteRule ^news/immigrant_([a-z]+)_([0-9]+)(|\/)$ /Index.php?Module=News&Action=ImmigrantLists&Alias=$1&page=$2 [QSA]
+RewriteRule ^news/immigrant_([a-z]+)(|\/)$ /Index.php?Module=News&Action=ImmigrantLists&Alias=$1 [QSA]
+RewriteRule ^news/immigrant/([0-9]+).html$ /Index.php?Module=News&Action=ImmigrantDetail&ID=$1 [QSA]
+
+RewriteRule ^news/search_([a-z]+)_(.*)_([0-9]+).html$ /Index.php?Module=News&Action=Search&Type=$1&KeyWord=$2&page=$3 [QSA]
+RewriteRule ^news/search_([a-z]+)_(.*).html$ /Index.php?Module=News&Action=Search&Type=$1&KeyWord=$2 [QSA]
+
+RewriteRule ^news/travels_([0-9]+)(|\/)$ /Index.php?Module=News&Action=TravelsLists&page=$1 [QSA]
+
+###留学
+RewriteRule ^study/consultant/([0-9]+).html /Index.php?Module=Study&Action=ConsultantDetail&ID=$1 [QSA]
+###游学交易选择
+RewriteRule ^studytourorder/([0-9|a-z|A-Z]+).html$ /Index.php?Module=Study&Action=ChoicePay&OrderNumber=$1 [QSA]
+##############################手机站 MUSER.57US.COM######################################################################
+
+
+
+##############################通用，每个域名都要######################################################################
+#AJAX
+RewriteRule ^ajax.html$ /Index.php?Module=Ajax&Action=Index [QSA]
+#验证码
+RewriteRule ^code/pic.jpg$ /Plugins/Code/Class.DoCode.php [QSA]
+#SEO
+RewriteRule ^robots.txt$ /robots.php [QSA]
+RewriteRule ^sitemap.xml$ /sitemap.php [QSA]
+#通用地址
+RewriteRule ^([a-z]+)(|\/)$ /Index.php?Module=$1 [QSA]
+RewriteRule ^([a-z]+)/([a-z]+)(|\/)$ /Index.php?Module=$1&Action=$2 [QSA]
+RewriteRule ^([a-z]+)_([a-z]+)(|\/)$ /Index.php?Module=$1&Action=$2 [QSA]
+
+#主站301重定向START
+RewriteRule ^immigrant_([a-z]+)_([a-z]+)(|\/)$ /Index.php [QSA]
+RewriteRule ^school/([0-9]+).html(|\/)$ /Index.php[QSA]
+#主站301重定向END
+
+#旅游301重定向START
+RewriteRule ^group/([a-z0-9]+)(|\/)$ /Index.php [QSA]
+RewriteRule ^play/([a-z0-9]+)(|\/)$ /Index.php [QSA]
+#旅游301重定向END
+
+#留学301重定向START
+RewriteRule ^highschool/((_[a-z]+[0-9]+)+)(|\/)$ /Index.php?Module=Study301&Action=HighSchool [QSA]
+RewriteRule ^college/((_[a-z]+[0-9]+)+)(|\/)$ /Index.php?Module=Study301&Action=College [QSA]
+RewriteRule ^consultant/((_[a-z]+[0-9]+)+)(|\/)$ /Index.php?Module=Study301&Action=Service [QSA]
+RewriteRule ^teacher/((_[a-z]+[0-9]+)+)(|\/)$ /Index.php?Module=Study301&Action=Course [QSA]
+#留学301重定向END
+</IfModule>

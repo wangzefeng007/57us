@@ -1,0 +1,176 @@
+{template Head}
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/Plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">资讯内容管理</a>
+                </li>
+                <li>
+                    <a href="/index.php?Module=GetNews&Action=Lists">采集资讯模块</a>
+                </li>
+                <li class="active">添加采集信息</li>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <!--{template CaijiNewsTop}-->
+                <div class="panel-body">
+                    <form action='/index.php?Module=GetNews&Action=Add'  method='post'  enctype="multipart/form-data">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr>
+                                <td colspan="2" class="t-h">
+                                    采集信息
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" style="width: 150px">栏目：</td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" name="ArticleType" id="ArticleType" onchange="GetArticleType(this.value)">
+                                            <option style="width:300px;"  value="">请选择栏目</option>
+                                            <option style="width:300px;"  value="1" {if $Details[ArticleType] ==1} selected="selected"{/if} >留学</option>
+                                            <option style="width:300px;"  value="2" {if $Details[ArticleType] ==2} selected="selected"{/if}>旅游</option>
+                                            <option style="width:300px;"  value="3" {if $Details[ArticleType] ==3} selected="selected"{/if}>移民</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r" style="width: 150px">类别：</td>
+                                <td >
+                                    <div class="col-sm-2">
+
+                                        <select  class="form-control" name="CategoryID[]" id="ArticleType11" style="display:{if $Details[ArticleType] !=1} none{/if}">
+                                            <option  value="">选择类别</option>
+                                            {loop $StudyCategory $Lists}
+                                            <option value="{$Lists[CategoryID]}" {if $Details[CategoryID] ==$Lists[CategoryID]} selected="selected"{/if}>|-{$Lists[CategoryName]} </option>
+                                            {loop $Lists[Parent] $PLists}
+                                            <option value="{$PLists[CategoryID]}" {if $Details[CategoryID] ==$PLists[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;|- {$PLists[CategoryName]} </option>
+                                            {loop $PLists[TwoCategory] $List}
+                                            <option value="{$List[CategoryID]}" {if $CategoryID ==$List[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;  |- {$List[CategoryName]} </option>
+                                            {/loop}
+                                            {/loop}
+                                            {/loop}
+                                        </select>
+
+                                        <select  class="form-control" name="CategoryID[]" id="ArticleType12" style="display: {if $Details[ArticleType] !=2} none{/if}">
+                                            <option  value="">选择类别</option>
+                                            {loop $TourCategory $Lists}
+                                            <option value="{$Lists[CategoryID]}" {if $Details[CategoryID] ==$Lists[CategoryID]} selected="selected"{/if}>|-{$Lists[CategoryName]} </option>
+                                            {loop $Lists[Parent] $PLists}
+                                            <option value="{$PLists[CategoryID]}" {if $Details[CategoryID] ==$PLists[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;|- {$PLists[CategoryName]} </option>
+                                            {/loop}
+                                            {/loop}
+                                        </select>
+
+                                        <select  class="form-control" name="CategoryID[]" id="ArticleType13" style="display: {if $Details[ArticleType] !=3} none{/if}">
+                                            <option  value="">选择类别</option>
+                                            {loop $ImmigrationCategory $Lists}
+                                            <option value="{$Lists[CategoryID]}" {if $Details[CategoryID] ==$Lists[CategoryID]} selected="selected"{/if}>|-{$Lists[CategoryName]} </option>
+                                            {loop $Lists[Parent] $PLists}
+                                            <option value="{$PLists[CategoryID]}" {if $Details[CategoryID] ==$PLists[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;|- {$PLists[CategoryName]} </option>
+                                            {/loop}
+                                            {/loop}
+                                        </select>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">链接：</td>
+                                <td>
+                                    <div class="col-sm-2" style="width: 400px">
+                                        <input type="text" name="Url" value="{$Details[Url]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">控制器：</td>
+                                <td>
+                                    <div class="col-sm-2" style="width: 400px">
+                                        <input type="text" name="MyModule" value="{$Details[MyModule]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">方法：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="MyAction" value="{$Details[MyAction]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">采集页数：</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="Page" value="{$Details[Page]}" class="form-control"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-r">栏目说明:</td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <textarea name="ColumnTitle" rows="5" class="form-control">{$Details[ColumnTitle]}</textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            <tr id="MaterialRequested">
+                                <td width="150" class="t-h"></td>
+                                <td>
+                                    <div class="col-sm-4">
+                                        <input type="hidden" name="ColumnID" id="ColumnID" value="{$Details[ColumnID]}" />
+                                        <input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}
+<script>
+    $(function () {
+        $('#ArticleType').click(function () {
+            var type = $("#ArticleType  option:selected").val();
+            if(type == '1'){
+                $("#ArticleType11").show();
+                $("#ArticleType12").hide();
+                $("#ArticleType13").hide();
+            }else if(type == '2'){
+                $("#ArticleType11").hide();
+                $("#ArticleType12").show();
+                $("#ArticleType13").hide();
+            }else if(type == '3'){
+                $("#ArticleType11").hide();
+                $("#ArticleType12").hide();
+                $("#ArticleType13").show();
+            }else {
+                $("#ArticleType11").hide();
+                $("#ArticleType12").hide();
+                $("#ArticleType13").hide();
+            }
+        })
+    })
+</script>

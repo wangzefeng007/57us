@@ -1,0 +1,125 @@
+{template VoteHeader}
+<body class="home">
+<div class="body" style="background: #2a3549;">
+    <!--
+        作者：xiao15980751809@126.com
+        时间：2016-08-10
+        描述：弹出二维码
+    -->
+    <div class="appendEwm">
+        <b>投票成功<br>扫一扫，有惊喜</b>
+        <img src="{echo ImageURL}/img/common/wxstudy.jpg" />
+    </div>
+    <div class="op1"></div>
+
+    <div class="wrap">
+        <header class="homeHeader">
+            <div class="userBox">
+                <p class="img"><img src="{$_SESSION['UserInfo']['HeadImgUrl']}" /></p>
+                <p class="name">{$_SESSION['UserInfo']['Nickname']}</p>
+            </div>
+        </header>
+        <section>
+            <ul class="ViewsBox">
+                <li>总票数<br><b>{$CountInfo['VoteCount']}</b></li>
+                <li>当前排名<br><b>{if $UserInfo['IsVote'] == 1}{$Ranking}{else}暂无{/if}</b></li>
+                <li>围观人次<br><b>{$CountInfo['Onlookers']}</b></li>
+            </ul>
+        </section>
+        <section class="append">
+            <!--<a href="JavaScript:void(0)" class="appendBtn gotojoinvote"></a>-->
+        </section>
+        <!--<section class="attention attention1">
+            <img src="{echo ImageURL}/img/common/wxstudy.jpg" />
+            <div class="text">
+                扫一扫 <br>更多惊喜等着你 ~
+            </div>
+        </section>-->
+        <section class="attention">
+			<div class="fl tac attenList">
+				<img src="{echo ImageURL}/img/chat/vote/logov3.png" />
+			</div>
+			<div class="fl tac attenList">
+				<img src="{echo ImageURL}/img/chat/vote/logov1.png" />
+			</div>
+			<div class="fl tac attenList">
+				<img src="{echo ImageURL}/img/chat/vote/logov2.png" />
+			</div>
+		</section>
+    </div>
+    {template VoteFooter}
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        debug: false,
+        appId: '{$SignPackage[appId]}',
+        timestamp: {$SignPackage[timestamp]},
+        nonceStr: '{$SignPackage[nonceStr]}',
+        signature: '{$SignPackage[signature]}',
+        jsApiList: [
+        // 所有要调用的 API 都要加到这个列表中
+        'checkJsApi',
+        'openLocation',
+        'getLocation',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage'
+    ]
+    });
+</script>
+<script>
+    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在 页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready 函数中。
+    wx.ready(function(){
+        wx.onMenuShareAppMessage({
+            title: '美腿女神总决赛| 57美国&不多不少&宜买车', // 分享标题
+            desc: '{$Title}正在参加美腿女神总决赛，快来帮她投票！',
+            imgUrl: '{echo ImageURL}/img/chat/vote/wechat_fx_logo.jpg',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                // alert('用户点击发送给朋友');
+            },
+            success: function (res) {
+                // alert('已分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: '{$Title}正在参加美腿女神总决赛，快来帮她投票！【57美国网】',
+            imgUrl: '{echo ImageURL}/img/chat/vote/wechat_fx_logo.jpg',
+            trigger: function (res) {
+                // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                // alert('用户点击分享到朋友圈');
+            },
+            success: function (res) {
+                // alert('已分享');
+            },
+            cancel: function (res) {
+                // alert('已取消');
+            },
+            fail: function (res) {
+                // alert(JSON.stringify(res));
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    var Url = '{$Url}';
+    $(".gotosubscribe").click(function(){
+        $(".appendEwm").show();
+        $(".op1").show();
+    });
+    $(".op1").click(function(){
+        $(this).hide();
+        $(".appendEwm").hide();
+    })
+    $(".gotojoinvote").click(function(){
+        location.href = Url;
+    })
+</script>
+</body>
+</html>

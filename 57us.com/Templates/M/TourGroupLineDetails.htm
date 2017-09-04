@@ -1,0 +1,187 @@
+{template TourHeader}
+<div class="page page-current" id="prodetail">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar detailBar transition" id="diybar" style="z-index: 101">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">产品详情</h1>
+    </header>
+    <div class="content detailCont">
+        <div class="detailMain pd25">
+            <div class="detailImg">
+                <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+                <!--此处data-id绑定当前产品的id-->
+                <a href="#pagePhoto" data-id="{$TourProductLineInfo[TourProductID]}" class="pagePhoto"><img src="{if $TourImages[0][ImageUrl]}{echo ImageURLP6}{$TourImages[0][ImageUrl]}{/if}" width="100%" alt="{$TourProductLineInfo[ProductName]}" title="{$TourProductLineInfo[ProductName]}"></a>
+            </div>
+            <div class="ProFun">
+                <span class="pull-left">{$TourProductLineInfo[Departure]}出发</span>
+                <span class="pull-right">产品编号：{$TourProductLineInfo[TourProductID]}</span>
+            </div>
+            <div class="ProdetailBox">
+                <p class="tit">{$TourProductLineInfo[ProductName]}</p>
+                <p class="price"><span class="red">¥<i>{echo ceil($TourProductLineInfo[LowPrice])}</i></span>/人起</p>
+                <div class="Dbottom">
+                    <p class="pull-left">	
+                        {if $TourProductLineInfo[TagInfo]!=''} 
+                            {loop explode(',',$TourProductLineInfo[TagInfo]) $k $val}
+				{if $k<2}<span>{$val}</span>{/if} 
+                            {/loop} 
+                        {/if}</p>
+                    <p class="pull-right DbottomDay">行程天数：{$TourProductLineInfo[Days]}天</p>
+                </div>
+            </div>
+            <div class="ProdetailBox mt10">
+                <p class="sutit">产品特色</p>
+                {loop $TourProductLineInfo[ProductSimpleName] $key $val}
+                    <article class="nr {if $key>0}sutithide{/if}">{$val}</article>
+                {/loop}
+                <!--
+                {if count($TourProductLineInfo[ProductSimpleName])>1}
+                <p class="tac moreBox">查看更多<i class="icon iconfont" style="padding-left: 0.15rem">&#xe61e;</i></p>
+                {/if}
+                -->
+            </div>
+
+            <div class="proTab native-scroll mt10">
+                <div class="buttons-tab">
+                    <a href="#tab1" class="tab-link active button fitst">{$TourProductLineInfo[Days]}日行程</a>
+                    <a href="#tab2" class="tab-link button">费用说明</a>
+                    <a href="#tab3" class="tab-link button">注意事项</a>
+                    <a href="#booking" class="button">预定须知</a>
+                </div>
+                <div class="tabs">
+                    <div id="tab1" class="tab active">
+                    	
+                        <p class="c9 cityIns cf">
+                            {if $TourProductLineInfo[Destination]}<span class="pull-right">结束城市：{$TourProductLineInfo[Destination]}</span>{/if}
+                            <span class="pull-left">出发城市：{$TourProductLineInfo[Departure]}</span>
+                        </p>
+                        <div id="DetailsText">
+                            {loop range(1,$TourProductLineInfo[Days],1) $val}
+                            <div class="dayBox">
+                                <p class="dayBoxT">
+                                    <span class="day">第{$val}天</span>
+                                    <span class="tit">{$NewContent[TodayTitle][$val-1]}</span>
+                                </p>
+                                <div class="dayBoxM">
+                                    <dl>
+                                        <dt><span class="ico"><i class="icon iconfont">&#x347e;</i></span>交通</dt>
+                                        <dd>{$NewContent[Traffic][$val-1]}</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><span class="ico"><i class="icon iconfont">&#xe603;</i></span>前往景点</dt>
+                                        <dd>{$NewContent[Spot][$val-1]}</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><span class="ico"><i class="icon iconfont">&#xe740;</i></span>用餐安排</dt>
+                                        <dd>{$NewContent[Diet][$val-1]}</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><span class="ico"><i class="icon iconfont">&#x347f;</i></span>酒店住宿</dt>
+                                        <dd>{$NewContent[Hotel][$val-1]}</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><span class="ico"><i class="icon iconfont">&#x3483;</i></span>行程简介</dt>
+                                        <dd>{$NewContent[Trip][$val-1]}</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            {/loop}
+                        </div>
+                        <div id="DetailsPic" style="display: none">
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab">
+                        {loop $Explanation[ExpTitle] $key $val}
+                        <div class="detailBox">
+                            <h3 class="sutit">{$Explanation[ExpTitle][$key]}</h3>
+                            <article>
+                               {$Explanation[ExpContentPic][$key]}
+                            </article>
+                        </div>
+                        {/loop}
+                    </div>
+                    <div id="tab3" class="tab">
+                        {loop $Watch[WatTitle] $key $val}
+                        <div class="detailBox">
+                            <h3 class="sutit">{$Watch[WatTitle][$key]}</h3>
+                            <article>
+                                {$Watch[WatContentPic][$key]}
+                            </article>
+                        </div>
+                        {/loop}
+                    </div>
+                </div>
+            </div>
+            <div class="list-block diyList">
+                <ul>
+                    <li>
+                        <a href="#booking" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">预定须知</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="PhotoBtn" id="PhotoBtn" data-id="0" data-type="0">图文<br>详情</span>
+    <span class="BackTop"><i class="icon iconfont">&#xe60a;</i></span>
+    <nav class="bar bar-tab fixFun">
+        <a class="col-50 online chat" href="#chat"><i class="icon iconfont">&#xe649;</i>在线咨询</a>
+        <a class="col-50 nowOrder" href="javascript:void(0)" data-id="{$TourProductLineInfo[TourProductID]}">马上预定</a>
+    </nav>
+</div>
+<!--预定须知页面-->
+<div class="page" id="booking" style="background: #fff;">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">预定须知</h1>
+    </header>
+    <div class="content">
+        {loop $Notice[NotTitle] $key $val}
+        <div class="detailBox pd25" >
+            <h3 class="sutit">{$Notice[NotTitle][$key]}</h3>
+            <article>
+               {$Notice[NotContentPic][$key]}
+            </article>
+        </div>
+        {/loop}
+    </div>
+    <nav class="bar bar-tab fixFun">
+        <a class="col-50 online chat" href="#chat"><i class="icon iconfont">&#xe649;</i>在线咨询</a>
+        <a class="col-50 nowOrder" href="javascript:void(0)" data-id="{$TourProductLineInfo[TourProductID]}">马上预定</a>
+    </nav>
+</div>
+<!--图片列表页面-->
+<div class="page" id="pagePhoto" style="background: #fff;">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">景点图片</h1>
+    </header>
+    <div class="content">
+        <ul class="picList">
+        </ul>
+    </div>
+    <nav class="bar bar-tab fixFun">
+        <a class="col-50 online chat" href="#chat"><i class="icon iconfont">&#xe649;</i>在线咨询</a>
+        <a class="col-50 nowOrder" href="javascript:void(0)" data-id="{$TourProductLineInfo[TourProductID]}">马上预定</a>
+    </nav>
+</div>
+<!--百度商桥页面-->
+<div class="page" id="chat">
+    <!-- 标题栏 -->
+    <header class="bar bar-nav diybar">
+        <a class="back pull-left"><i class="icon iconfont">&#xe604;</i></a>
+        <h1 class="title">在线咨询</h1>
+    </header>
+    <div class="content">
+    </div>
+</div>
+{template TourFooter}
+<script type='text/javascript' src="{echo JsURL}/m/lib/msui/0.6.2/dev/photo-browser.js" charset='utf-8'></script>
+<script type='text/javascript' src="{echo JsURL}/m/tour/GroupDetails.js" charset='utf-8'></script>
+</body>
+</html>

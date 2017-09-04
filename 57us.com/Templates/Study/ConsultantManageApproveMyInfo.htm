@@ -1,0 +1,210 @@
+{template StudyConsultantManageTop}
+<link href="{echo CssURL}/study/studyStyleCenter3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 mt30 cf">
+    <div class="inforLeft fl">
+        <div class="inforLeftBody">
+            <div class="InforImg" id="InforImg">
+                <img src="{if $UserInfo[Avatar]}{echo LImageURL}{$UserInfo[Avatar]}{else}http://images.57us.com/img/study/default3.0.png{/if}" width="90" height="90" style="cursor:pointer">
+                <p class="mt10">
+                    <a href="javascript:void(0)" class="UpBtn" id="UpAvatar">上传头像</a>
+                    <input type="file" name="head_photo" id="head_photo" value="" accept="image/*" style="display: none">
+                </p>
+            </div>
+            <p class="name mt15">{$UserInfo[RealName]}</p>
+            <p class="green mt10"><i></i>{if $UserInfo[IdentityState]==0}未提交审核{elseif $UserInfo[IdentityState]==1}待审核{elseif $UserInfo[IdentityState]==2}已审核{elseif $UserInfo[IdentityState]==3}审核失败{/if}</p>
+        </div>
+        <ul class="inforLeftMenu" id="LeftMenu">
+            <li class="on" id="BasicInfo"><a href="javascript:void(0);"><i></i>基本信息</a></li>
+            <li id="Resume"><a href="javascript:void(0);"><i></i>背景资料</a></li>
+            <li id="IdVerifiCation"><a href="javascript:void(0);"><i></i>身份验证</a></li>
+        </ul>
+    </div>
+    <!--基本信息-->
+    <div class="inforRight fr" id="Index1">
+        <div class="AddServiceBoxT">
+            <span class="name fl">基本信息</span>
+        </div>
+        <div class="InforList InforListStep cf">
+            <div class="InforListLi cf">
+                <p class="left">姓名：</p>
+                <div class="right">
+                    <div class="inputBox">
+                        <input type="text" name="Name" id="Name" value="{$UserInfo[RealName]}" class="InsInput" />
+                    </div>
+                </div>
+            </div>
+            <div class="InforListLi cf">
+                <p class="left">昵称：</p>
+                <div class="right">
+                    <div class="inputBox">
+                        <input type="text" name="Nickname" id="Nickname" value="{$UserInfo[NickName]}" class="InsInput" placeholder="昵称将展示给用户" />
+                    </div>
+                </div>
+            </div>
+            <div class="InforListLi cf" style="width:520px;">
+                <p class="left">所在城市：</p>
+                <div class="right" style="width:390px;">
+                    <div type="selectbox" class="DiySelect fl" id="Country">
+                        <div class="opts">
+                            <a href="javascript:;" value="cn" {if $UserInfo[Country] =='中国'|| $UserInfo[Country] =='cn'}class="selected"{/if}>中国</a>
+                            <a href="javascript:;" value="us" {if $UserInfo[Country] =='美国'|| $UserInfo[Country] =='us'}class="selected"{/if}>美国</a>
+                        </div>
+                    </div>
+                    <div class="fl diyCitySelect" id="cnopts">
+                        <div class="gf-select" id="province">
+                            <span><em>{if $UserInfo[Province]}{$UserInfo[Province]}{else}请选择省份{/if}</em><i class="icon-jt"><input type="hidden" name="province" value="{$UserInfo[Province]}"></i></span>
+                            <ul>
+                                <li data-value="{$UserInfo[Province]}">{if $UserInfo[Province]}{$UserInfo[Province]}{else}请选择省份{/if}</li>
+                            </ul>
+                        </div>
+                        <div class="gf-select" id="city">
+                            <span><em>请选择城市</em><i class="icon-jt"><input type="hidden" name="city" value="{$UserInfo[City]}"></i></span>
+                            <ul>
+                                <li data-value="">{if $UserInfo[City]}{$UserInfo[City]}{else}请选择城市{/if}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="inputBox" id="usopts" style="display: none; margin-left: 10px;">
+                        <input type="text" name="usinput" id="usinput" value="" class="InsInput" style="width: 101px;" />
+                    </div>
+                </div>
+            </div>
+            <div class="InforListLi cf" style="width:270px;">
+                <p class="left">性别：</p>
+                <div class="right" style="width:140px;">
+                    <div class="labelList fl" id="Sex">
+                        <label name="studyStyle" type="radiobox" val="1" class="cbt {if $UserInfo[Sex] ==1}checked{/if} rb"><i></i>男</label>
+                        <label name="studyStyle" type="radiobox" val="0" class="cbt {if $UserInfo[Sex] ==0}checked{/if} rb"><i></i>女</label>
+                    </div>
+                </div>
+            </div>
+            <div class="InforListLi cf" style="width: 100%;">
+                <p class="left">服务宣言：<span class="c9 chos">（选填）</span></p>
+                <div class="right" style="width: 660px;">
+                    <input type="text" name="ServiceManifesto" id="ServiceManifesto" value="{$ConsultantInfo[ServiceDeclaration]}" class="InsInput" style="width: 604px;"/>
+                </div>
+            </div>
+            <div class="InforListLi cf" style="width: 100%;">
+                <p class="left">我的标签<span class="c9 chos">（选填）</span><i class="tipIco" data-text="添加属于你自己的标签，让学生更加了解你。不超过6字"></i></p>
+                <div class="right" style="width: 660px;" id="MyTag">
+                    {loop $Tags $value}<div class="inputBox"><span class="closeIco"></span><input type="text" name="" value="{$value}" class="InsInput TipInput Tag"></div>{/loop}
+                    <span id="AddTag" class="AddTip"></span>
+                </div>
+            </div>
+            <div class="InforListLi cf">
+                <p class="left">&nbsp;</p>
+                <div class="right">
+                    <a href="JavaScript:void(0)" class="AginSaveBtn" id="Index1Sava">提交并审核</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--基本信息 End-->
+    <!--背景资料-->
+    <div class="inforRight fr" id="Index2" style="display: none">
+        <div class="AddServiceBoxT">
+            <span class="name fl">背景资料</span>
+        </div>
+        <div class="InforList">
+            <div class="InforListLi cf">
+                <p class="left">从业经验：</p>
+                <div class="right">
+                    <div class="inputBox">
+                        <input type="text" name="Experience" id="Experience" value="{$ConsultantInfo[WorkingAge]}" class="InsInput" style="width: 106px;" />
+                    </div>
+                    <span class="c9 f16 pl10">年</span>
+                </div>
+            </div>
+            <div class="InforListLi cf">
+            <p class="left">您服务的项目：</p>
+            <div class="right">
+                <div class="ItemLabelList fl" id="ItemChose">
+                    {loop $ServiceProject $key $val}
+                    <label name="studyStyle" type="checkbox" val="{$key}" class="cbt {if strpos($ConsultantInfo['ServiceProject'],(string)$key) !== false}checked{/if}" ><i></i>{$val}</label>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+            <div class="InforListLi cf">
+                <p class="left">自我介绍：<span class="c9 chos">（300字以内）</span></p>
+                <div class="right">
+                    <div class="inputBox">
+                        <textarea class="textare" name="Introduction" id="Introduction" rows="" cols="" placeholder="中英文不限" style="height: 167px;width: 628px;">{$ConsultantInfo[Introduction]}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="InforListLi cf">
+                <p class="left">从业经历：</p>
+                <div class="right" id="WorkExperience">
+                    {loop $PastExperience $key $list}
+                    <div class="rightBox cf">
+                        <i class="numIco">{echo $key+1}</i>
+                        <div class="InforListLi cf">
+                            <p class="left">时间：</p>
+                            <div class="right">
+                                <div class="inputBox"><input placeholder="起始时间" type="text" name="StartDate" value="{$list[startdate]}" class="InsInput tac StartDate" style="width: 116px;" onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" readonly/></div>
+                                <span class="fl pl10 f18 c9">—</span>
+                                <div class="inputBox pl10"><input placeholder="结束时间" type="text" name="EndDate" value="{$list[enddate]}" class="InsInput tac EndDate" style="width: 116px;"  onfocus="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d'})" readonly/></div>
+                            </div>
+                        </div>
+                        <div class="InforListLi cf">
+                            <p class="left">就职公司：</p>
+                            <div class="inputBox"><input placeholder="" type="text" name="Company" value="{$list[company]}" class="InsInput Company" style="width:493px;" /></div>
+                        </div>
+                        <div class="InforListLi cf">
+                            <p class="left">从业经历：<span class="c9 chos">（300字以内）</span></p>
+                            <div class="inputBox"><textarea class="textare Undergo" name="Undergo" rows="" cols="" placeholder="简要描述您在该公司的工作经历等，有助于学生更好的了解你！" style="height: 151px;width:478px;">{$list[undergo]}</textarea></div>
+                        </div>
+                    </div>
+                    {/loop}
+                    <span><a href="JavaScript:void(0)" class="AddExpr" id="AddExpr">+增加经历</a></span>
+                    <span class="pl20"><a href="JavaScript:void(0)" class="DelExpr red" id="DelExpr" style="display: none">-删除经历</a></span>
+                </div>
+            </div>
+            <div class="InforListLi cf">
+                <p class="left">&nbsp;</p>
+                <div class="right">
+                    <a href="JavaScript:void(0)" class="AginSaveBtn publicBtn0" id="Index2Sava">提交并审核</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--背景资料 End-->
+    <!--身份验证-->
+    <div class="inforRight fr" id="Index3" style="display: none">
+        <div class="AddServiceBoxT">
+            <span class="name fl">身份验证</span>
+        </div>
+        <div class="InforList">
+            <div class="InforListLi cf">
+                <p class="left">身份证号码：</p>
+                <div class="right">
+                    <div class="inputBox">
+                        <input type="" name="" id="" value="{$UserInfo[CardNum]}" class="InsInput" readonly="readonly"><span class="pl10 c9 f16"><i class="hasIco"></i>已认证</span><br><span class="c9 f14">57us保证您的信息只用作认证身份，不会挪作他用</span>
+                    </div>
+                </div>
+            </div>
+            <div class="InforListLi cf">
+                <p class="left">身份证照片</p>
+                <div class="right">
+                    <ul class="addPic cf mt10">
+                        <li><img src="{$UserInfo[CardPositive]}" width="200" height="150"><i class="upSucess"></i></li>
+                        <li class="AddBtn"><i></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--身份验证 End-->
+</div>
+{template Footer}
+<!--城市联动插件-->
+<script type="text/javascript" src="{echo JsURL}/study/inforCity.js"></script>
+<!--图片裁剪插件-->
+<link href="{echo JsURL}/base/cropper/2.3.2/cropper.css" rel="stylesheet">
+<script src="{echo JsURL}/base/cropper/2.3.2/cropper.js"></script>
+<!--日期插件-->
+<script type="text/javascript" src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/ConsultantManageApproveMyInf.js"></script>
+</body>
+</html>

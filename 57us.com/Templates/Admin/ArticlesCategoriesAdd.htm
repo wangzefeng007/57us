@@ -1,0 +1,98 @@
+{template Head}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--breadcrumbs start -->
+            <ul class="breadcrumb panel">
+                <li>
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#">系统内容管理</a>
+                </li>
+                <li>
+                    <a href="JavaScript:void (0)" class="active">编辑自定义类别页面</a>
+                </li>
+                <span class="position hidden">自定义页面</span>
+            </ul>
+            <!--breadcrumbs end -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body"><form action='/index.php?Module=Articles&Action=CategoriesAdd'  method='post'  enctype="multipart/form-data">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tbody>
+                        <tr>
+                            <td width="150px" class="t-r">上级类别：</td>
+                            <td>
+                                <div class="col-sm-2" style="width: 300px">
+                                    <select name="ParentCategoryID" id="ParentCategoryID" class="form-control" onchange="GetNewParentCategoryID(this.value)">
+                                        <option value="">选择类别</option>
+                                        {loop $Category $Lists}
+                                        <option value="{$Lists[CategoryID]}" {if $ArticlesCategoriesInfo[ParentCategoryID] ==$Lists[CategoryID]} selected="selected"{/if}>|-{$Lists[CategoryName]} </option>
+                                        {loop $Lists[Two] $PLists}
+                                        <option value="{$PLists[CategoryID]}" {if $ArticlesCategoriesInfo[ParentCategoryID] ==$PLists[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;|- {$PLists[CategoryName]} </option>
+                                        {loop $PLists[Three] $List}
+                                        <option value="{$List[CategoryID]}" {if $ArticlesCategoriesInfo[ParentCategoryID] ==$List[CategoryID]} selected="selected"{/if}>&nbsp;&nbsp;  |-- {$List[CategoryName]} </option>
+                                        {/loop}
+                                        {/loop}
+                                        {/loop}
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="t-r"><span style="color:#FF0000">*&nbsp;</span>类别名称：</td>
+                            <td>
+                                <div class="col-sm-2">
+                                    <input type="text" name="CategoryName" value="{$ArticlesCategoriesInfo[CategoryName]}" class="form-control"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="t-r">别名：</td>
+                            <td>
+                                <div class="col-sm-2">
+                                    <input type="text" name="Alias" value="{$ArticlesCategoriesInfo[Alias]}" class="form-control"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="t-r">排序：</td>
+                            <td >
+                                <div class="col-sm-2">
+                                    <input type="text" name="Sort" value="{if $ArticlesCategoriesInfo[Sort]}{$ArticlesCategoriesInfo[Sort]}{else}0{/if}" class="form-control">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="t-r">编辑器：</td>
+                            <td>
+                                <div class="col-sm-2" style="padding-top: 7px">
+                                    <input name="IsEdit" type="radio" id="IsEdit1" value="1" {if $ArticlesCategoriesInfo[IsEdit]==1}checked="checked"{/if}/>
+                                    需要
+                                    <input name="IsEdit" type="radio" id="IsEdit2" value="0" {if $ArticlesCategoriesInfo[IsEdit]==0}checked="checked"{/if}/>
+                                    不需要
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="MaterialRequested">
+                            <td class="t-r"></td>
+                            <td>
+                                <div class="col-sm-5">
+                                    <input type="hidden" name="ID" id="ID" value="{$ArticlesCategoriesInfo[CategoryID]}" />
+                                    <input class="btn btn-danger" type='submit' value='提交保存'/>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{template Foot}

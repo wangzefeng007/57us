@@ -1,0 +1,416 @@
+{template 'Common/TourTop',1}
+<link href="{echo WEB_TOUR_URL}/Templates/Tour/Customize/css/Customize.css" rel="stylesheet" type="text/css" />
+<link href="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.css" rel="stylesheet" type="text/css" />
+<script>
+</script>
+<div class="w1200 StepProcess Step1 mt40" ></div>
+<div class="w1200 mt45 cf">
+	<div class="MakeLeft cf fl" id="home">
+		<table border="0" cellspacing="0" cellpadding="0" width="100%" id="index_1">
+			<tr>
+				<th width="110">从哪出发:</th>
+				<td>
+					<input type="text" class="input" size="15" id="homecity_name" name="homecity_name" mod="address|notice" mod_address_source="hotel" mod_address_suggest="" mod_address_reference="cityid" placeholder="请输入出发城市" />
+					<input id="cityid" name="cityid" type="hidden" value="">
+					<div id="jsContainer" class="jsContainer" style="height:0">
+					</div>
+					<p class="HotCity mt10 city_hot"><span>热门出发地:</span><a id="bj">北京</a><a id="ss">上海</a><a id="tj">天津</a><a id="gz">广州</a></p>
+				</td>
+			</tr>
+			<tr>
+				<th width="85">出发时间:</th>
+				<td>
+					<div class="">
+						<input type="text" name="sd" id="sd" value="" placeholder="请选择出发日期" class="input DateInput" onfocus="var sd=$dp.$('ed');WdatePicker({onpicked:function(){sd.focus();},minDate:'%y-%M-{%d+0}',maxDate:'#F{$dp.$D(\'ed\',{d:0});}'})" />
+						<span class="pl10 f16">返回时间:</span>
+						<input type="text" name="ed" id="ed" value="" placeholder="请选择返回日期" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'sd\',{d:1});}'})" class="input DateInput" />
+					</div>
+					<p class="mt10 MakeAdjust"><label class="fl cbt" name="check" id="adjus" value="0" type="checkbox"><i></i>可根据实际情况调整出发日期</label>
+						<input type="hidden" id="adjust" value="1" />
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<th width="85">出游人数:</th>
+				<td>
+					<div class="TravelNum Number">
+						<div class="num_box fl" id="addul">
+							<a class="num_btn" id="minus">-</a>
+							<input name="numbers" class="num_input" id="num" maxlength="5"  value="1">
+							<a class="num_btn" id="plus">+</a>
+						</div>
+						<span id="" class="fl">个成人</span>
+						<div class="num_box fl" id="mino">
+							<a class="num_btn" id="minus1">-</a>
+							<input name="numbers" class="num_input" id="num1"  maxlength="5" value="1">
+							<input type="hidden" name="sss" id="sss" value="">
+							<a class="num_btn" id="plus1">+</a>
+						</div>
+						<span id="" class="fl">儿童</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th width="85">酒店星级:</th>
+				<td>
+					<div class="HotelStart Hotel">
+						<a class="on"><i></i>二星级/经济</a>
+						<a><i></i>三星级/舒适</a>
+						<a><i></i>四星级/高档</a>
+						<a><i></i>五星级/豪华</a>
+						<a><i></i>连锁</a>
+						<a><i></i>特色客栈</a>
+						<p class="fl"><span class="fl">自定义</span>
+							<a><i></i><input type="text" name="zdxj" id="zdxj" value="" class="input" maxlength="15" style="border: 0px solid #000"/></a>
+						</p>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th width="85">到哪儿去玩:</th>
+				<td>
+					<div class="cf">
+						<div class="GoResult"></div>
+						<!--<input type="" name="" id="" value="" class="input" placeholder="请输入您想去的地点" />-->
+					</div>
+					<div id="outer">
+						<ul id="tab">
+							<li class="current" id="east">美国东岸</li>
+							<li id="west">美国西岸</li>
+							<li id="other">其它城市</li>
+						</ul>
+						<div id="content">
+							<ul class="Gocity" style="display:block;" id="East">
+							</ul>
+							<ul class="Gocity" id="West">
+							</ul>
+							<ul class="Gocity" id="Other">
+							</ul>
+						</div>
+					</div>
+
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>
+					<div class="PageBtn">
+						<a class="next" id="next2">下一步</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table border="0" cellspacing="0" cellpadding="0" width="100%" id="index_2" style="display: none;">
+			<tbody id="ScenicSpots">
+			</tbody>
+			<tr>
+				<th></th>
+				<td>
+					<div class="PageBtn">
+						<a class="prev" id="prev1">上一步</a>
+						<a class="next" id="next3">下一步</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table border="0" cellspacing="0" cellpadding="0" width="100%" id="index_3" style="display: none">
+			<tr>
+				<th width="110">特色定制：</th>
+				<td>
+					<div class="HotelStart cf Customiza">
+						<ul id="Customiza" class="Attractions">
+						</ul>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th width="110">是否需要：</th>
+				<td>
+					<div class="HotelStart cf Demand">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th width="110">其它需求：</th>
+				<td>
+					<div class="HotelStart cf OtherDemand">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>
+					<div class="PageBtn">
+						<a class="prev" id="prev2">上一步</a>
+						<a class="next" id="next4">下一步</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div id="index_4" class="MakeLeft1" style="display: none;">
+			<div class="OkBox">
+				<i></i>已经完成您的需求定制，请留下您的联系方式
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr height="62">
+					<th width="100">姓&nbsp;&nbsp;&nbsp;名：</th>
+					<td><input type="text" name="" id="dname" value="" class="input" placeholder="请输入姓名"/></td>
+				</tr>
+				<tr height="62">
+					<th width="50">手&nbsp;&nbsp;&nbsp;机：</th>
+					<td>
+						<input type="text" name="dphone" id="dphone" value="" class="input" placeholder="请输入手机号码"/>
+					</td>
+				</tr>
+				<tr height="62">
+					<th width="50">图形验证码：</th>
+					<td>
+						<input type="text" name="yzm" id="yzm" value="" class="input fl" placeholder="请输入图形验证码" style="width:190px;margin-right: 10px" />
+						<input type="hidden" value="" name="Yzm" id="Yzm">
+						<div class="dis SendSms">
+							<img src="/code/pic.jpg" onclick="this.src='/code/pic.jpg?'+Math.random();"/>
+						</div>
+					</td>
+				</tr>
+				<tr height="62">
+					<th width="200">短信验证码：</th>
+					<td>
+						<input type="text" name="sms" id="sms" value="" class="input fl" style="width:200px;" placeholder="请输入短信验证码" />
+						<input type="hidden" name="Sms" id="Sms" value="">
+						<div class="dis SendSms">
+							<div class="set_yzm" style="display:inline">
+								<input class="cupo" type="button" id="SmsBtn" value="点击发送验证码"/>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr height="62">
+					<th width="50">邮&nbsp;&nbsp;&nbsp;箱：</th>
+					<td><input type="text" name="" id="dmail" value=""  class="input" placeholder="请输入电子邮箱" /></td>
+				</tr>
+				<tr height="62">
+					<th width="50"></th>
+					<td>
+						<div class="PageBtn">
+							<a class="prev" id="prev3">上一步</a>
+							<input class="next" id="submit" value="提交" type="button">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="MakeRight cf fr">
+		<div class="MakeRightTop">
+			<i></i>我的出游清单
+		</div>
+		<div class="MakeRightMid">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<th width="76">从哪儿出发</th>
+					<td width="260"><b id="StartCity"></b></td>
+				</tr>
+				<tr>
+					<th width="76">出发时间</th>
+					<td><b id="StartDate"></b></td>
+				</tr>
+				<tr>
+					<th width="76">返回时间</th>
+					<td><b id="EndDate"></b></td>
+				</tr>
+				<tr>
+					<th width="76">出游人数</th>
+					<td><b><span id="addult">1</span>成人<span id="minor" style="padding-left: 5px">1</span>儿童</b></td>
+				</tr>
+				<tr>
+					<th width="76">酒店</th>
+					<td><b id="StarHotel">二星级/经济</b></td>
+				</tr>
+				<tr>
+					<th width="76" valign="top">目的地</th>
+					<td>
+						<div class="destination">
+							<ul id="destination">
+							</ul>
+						</div>
+					</td>
+				</tr>
+				<tr style="display: none">
+					<th width="76" >到达城市</th>
+					<td id="EndCity">
+					</td>
+				</tr>
+				<tr style="display: none">
+					<th width="76" >旅游城市</th>
+					<td id="Scenic">
+					</td>
+				</tr>
+				<tr>
+					<th width="76" >特色定制</th>
+					<td id="Customizatin">
+					</td>
+				</tr>
+				<tr style="display: none">
+					<th width="76" >特色定制提交內容</th>
+					<td id="Customizatinfrom">
+					</td>
+				</tr>
+				<tr>
+					<th width="76">需要</th>
+					<td id="Demand">
+					</td>
+				</tr>
+				<tr style="display: none">
+					<th width="76">需求提交內容</th>
+					<td id="Demandfrom">
+					</td>
+				</tr>
+				<tr>
+					<th width="76">其它需求</th>
+					<td id="OtherDemand">
+					</td>
+				</tr>
+				<tr style="display: none">
+					<th width="76">其它需求提交內容</th>
+					<td id="OtherDemandfrom">
+					</td>
+				</tr>
+				<tr>
+					<th width="76">姓名</th>
+					<td>
+						<span id="name"></span></td>
+				</tr>
+				<tr>
+					<th width="76">手机</th>
+					<td>
+						<span id="phone"></span></td>
+				</tr>
+				<tr>
+					<th width="76">邮箱</th>
+					<td>
+						<span id="mail"></span></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="TourFoot mt40 cf">
+	<div class="w1200 cf">
+		<ul class="TourFootMeida fr">
+			<li class="i1"><a href="javascript:void(0)"><i></i>关注微博平台</a>
+				<div class="ChatCode"><img src="{echo ImageURL}/img/common/wb.jpg" width="112" height="112"><em></em></div>
+			</li>
+			<li class="i2"><a href="javascript:void(0)"><i></i>关注微信平台</a>
+				<div class="ChatCode"><img src="{echo ImageURL}/img/common/wxtravel.jpg" width="112" height="112"><em></em></div>
+			</li>
+		</ul>
+		<div class="TourFootBox">
+			<div class="TourFootMenu"><a href="{echo WEB_MAIN_URL}/about/contacts.html" class="i1" target="_blank"><i></i>公司简介</a>|<a href="{echo WEB_MAIN_URL}/about/contact.html" class="i2" target="_blank"><i></i>联系我们</a>|<a href="{echo WEB_MAIN_URL}/about/map.html" class="i3" target="_blank"><i></i>站点地图</a>|<a href="{echo WEB_MAIN_URL}/about/privacy.html" class="i4" target="_blank"><i></i>隐私保护</a>|<a href="{echo WEB_MAIN_URL}/about/xieyi.html" class="i5" target="_blank"><i></i>用户协议</a>|<a href="{echo WEB_MAIN_URL}/about/xiugai.html" class="i6" target="_blank"><i></i>修改和取消</a>|<a href="{echo WEB_MAIN_URL}/about/zhifu.html" class="i7" target="_blank"><i></i>支付方式</a>|<a href="{echo WEB_MAIN_URL}/about/zhifu.html" class="i8" target="_blank"><i></i>帮助中心</a></div>
+			<div class="TourFootCopy">Copyright © 2016 57US.com <a href="{echo WEB_MAIN_URL}/">57美国网</a> All rights reserved. 闽ICP备15017345号 </div>
+		</div>
+		<div class="HotThing fl mt20 cf">
+			<p class="cf">热门旅游目的地：
+				<?php foreach($this->TourFootTagM as $Value){?>
+				<a href="<?php echo $Value['TourFootTagUrl'];?>" title="<?php echo $Value['TourFootTagName'];?>" target="_blank"><?php echo $Value['TourFootTagName'];?></a>|
+				<?php }?>
+			</p>
+			<p class="cf">热门旅游景点：
+				<?php foreach($this->TourFootTagJ as $Value){?>
+				<a href="<?php echo $Value['TourFootTagUrl'];?>" title="<?php echo $Value['TourFootTagName'];?>" target="_blank"><?php echo $Value['TourFootTagName'];?></a>|
+				<?php }?>
+			</p>
+			<!--<p class="cf">热门搜索：<a href="##">拉斯维加斯</a>|<a href="#">大峡谷国家公园</a>|<a href="#">博尔德城</a>|<a href="#">旧金山</a>|<a href="#">盐湖城</a>|<a href="#">黄石国家公园</a>|<a href="#">圣巴巴拉郡</a>|<a href="#">圣地亚哥</a>|<a href="#">佩奇</a>|<a href="#">优胜美地国家公园</a>|<a href="#">蒙特雷</a>|<a href="#">棕榈泉</a>|<a href="#">亚利桑那州</a>|<a href="#">锡安国家公园</a></p>-->
+			<div class="cf partTab">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr height="35">
+						<td align="left">合作官方旅游局：</td>
+					</tr>
+					<tr>
+						<td>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/part1.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/part2.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/part3.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/part4.png"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/part6.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/part5.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/part8.jpg"></p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="cf partTab">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr height="35">
+						<td align="left">旅游合作：</td>
+					</tr>
+					<tr>
+						<td>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz1.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz2.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz3.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz4.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz5.jpg"></p>
+							<p class="tac"><img src="<?php echo ImageURL;?>/img/common/hz6.jpg"></p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="cf partTab safeBox">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr height="35">
+						<td align="left">网站认证：</td>
+					</tr>
+					<tr>
+						<td>
+							<p class="tac"><a href="http://www.isc.org.cn/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe1_3.0.png" ></a></p>
+							<p class="tac"><a href="http://wsgs.fjaic.gov.cn/creditpub/notice/view?uuid=1gM0nGULIzO5wVPW8xQpfwZUq0lfoM7X&amp;tab=01" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe2_3.0.png"></a></p>
+							<p class="tac"><a href="http://www.12377.cn/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe3_3.0.png"></a></p>
+							<p class="tac"><a href="http://www.cyberpolice.cn/wfjb/" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe4_3.0.png"></a></p>
+							<p class="tac"><a href="https://ss.knet.cn/verifyseal.dll?sn=e16091435020064717vyo0000000&amp;comefrom=trust&amp;trustKey=dn&amp;trustValue=www.57us.com" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe5_3.0.png"></a></p>
+							<p class="tac"><a href="http://webscan.360.cn/index/checkwebsite/url/www.57us.com" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe6_3.0.png"></a></p>
+							<p class="tac"><a href="http://ec.eqixin.com/?sn=QX2066134012191473748886" target="_blank" rel="nofollow"><img height="47" src="<?php echo ImageURL;?>/img/common/safe7_3.0.png"></a></p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="SceneryBoxMain hidden">
+	<div class="SceneryBox">
+		<img src="" />
+		<p class="nr"><b>描述：</b><span></span></p>
+	</div>
+</div>
+<div class="SureBoxTit hidden"><i></i>温馨提示</div>
+<div class="cf SureBoxMain hidden">
+	<div class="SureBox">
+		<p class="">我们已经收到您的定制信息，我们的旅游规划师会在24个小时内与您联系，谢谢！</p>
+		<p class="mt40">你可以到 <span>我的订单 > 个人中心 > 高端定制 查看订单信息噢！</span></p>
+		<a href="" class="CheckBtn">查看订单</a>
+	</div>
+</div>
+<script src="{echo JsURL}/base/inputbox/1.0.0/jquery.inputbox.js"></script>
+<script src="{echo JsURL}/base/layer/2.4/layer.js"></script>
+<script src="{echo JsURL}/base/placeholder/2.0.7/placeholder.min.js"></script>
+<script src="{echo JsURL}/base/My97Date/4.8/WdatePicker.js"></script>
+<!--城市插件-->
+<script src="{echo JsURL}/base/zh_city/1.0.0/fixdiv.js"></script>
+<script src="{echo JsURL}/base/zh_city/1.0.0/address.js"></script>
+<script src="{echo WEB_TOUR_URL}/Templates/Tour/Customize/js/HighLevelDetail.js"></script>
+<div class="hidden">
+	<script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?21f9def31aa89e3cd98d7b6b95068701";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+	</script>
+
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256811158'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256811158' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+{template StudyTop}
+<link href="{echo CssURL}/study/studyStyle3.0.css" rel="stylesheet" type="text/css" />
+<div class="w1200 StudyLocation">您当前位置：
+    <a href="{echo WEB_STUDY_URL}">首页</a><span>&gt;</span>
+    <a href="{echo WEB_STUDY_URL}/highschool/">高中院校</a><span>&gt;</span><span class="Position">{$HighSchoolInfo['HighSchoolName']}</span>
+</div>
+<div class="w1200 cf">
+    <div class="SchoolDetailBody" style="background: url(http://images.57us.com/img/study/detailHome3.0.jpg) center center no-repeat;">
+        <img src="{$HighSchoolInfo['Icon']}" width="150" height="150" class="schoolLogo" alt="{$HighSchoolInfo['HighSchoolName']}"/>
+        <a href="javascript:void(0)" class="collect" style="display: none"><i></i>收藏</a>
+        <div class="SchoolCont">
+            <p class="tit">{$HighSchoolInfo['HighSchoolName']}<span class="en">{$HighSchoolInfo['HighSchoolNameEng']}</span></p>
+            <p class="mt5">地址：{$HighSchoolInfo['Region']}  {$HighSchoolInfo['Location']}</p>
+            <div class="requireCont mt20">
+                <span>相关成绩要求：SAT成绩：{$HighSchoolInfo['SAT']}</span>
+                <span>AP课程：{$HighSchoolInfo['AP']}门</span>
+                <span>荣誉课程：{$HighSchoolInfo['HonorsProgram']}门</span>
+                <span>ESL课程：{if $HighSchoolInfo['ESL']==1}有{elseif $HighSchoolInfo['ESL']==2}无{/if}</span>
+                <span>住宿方式：{$HighSchoolInfo['Stay']}</span>
+                <span class="i6">年总费用：{$HighSchoolInfo['Cost']}</span>
+                <span>要求面试：要求</span>
+                <span>招收年级：{$HighSchoolInfo['AllYear']}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="w1200 mt20 cf">
+    <div class="slideFixMenu transition">
+        <ul>
+            <li class="on">学校简介<span class="sj"></span></li>
+            <li>图片展示<span class="sj"></span></li>
+            <li>校园生活<span class="sj"></span></li>
+            <li>周围环境<span class="sj"></span></li>
+            <li>社团活动<span class="sj"></span></li>
+            <li>课程设置<span class="sj"></span></li>
+        </ul>
+    </div>
+    <div class="SchoolDetailLeft fl">
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">学校简介</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height: 37px;">学校性质: {$HighSchoolInfo['SchoolNature']}<br>
+                    男校女校: {$HighSchoolInfo['MSchoolGirls']}<br>
+                    宗教背景: {$HighSchoolInfo['Religion']}<br>
+                    建校时间: {$HighSchoolInfo['SchoolTime']}<br>
+                    概述: {$HighSchoolInfo['Description']}<br>
+                    学校官方网站: {$HighSchoolInfo['Website']}
+                </p>
+            </div>
+        </div>
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">图片展示</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <div class="schoolScroll">
+                    <div class="hd">
+                        {loop $Images $key}
+                        <span></span>
+                        {/loop}
+                    </div>
+                    <a href="JavaScript:void(0)" class="prev"></a>
+                    <a href="JavaScript:void(0)" class="next"></a>
+                    <div class="scrollPic">
+                        <ul>{loop $Images $key $lists}
+                            <li><img src="{$lists[Img]}" width="536" height="357"/></li>
+                            {/loop}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">校园生活</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height: 37px;">寄宿方式: {$HighSchoolInfo['Stay']}<br>
+                    学校占地面积: {$HighSchoolInfo['SchoolCovers']}平方英里<br>
+                    学校设施: {$HighSchoolInfo['SchoolFacilities']}<br>
+                </p>
+            </div>
+        </div>
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">周围环境</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height:28px;">
+                    机场：{$HighSchoolInfo['Airport']}<br>
+                    地理位置及周边文化: {$HighSchoolInfo['GeographyCulture']}
+                </p>
+            </div>
+        </div>
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">社团活动</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p  style="line-height:28px;">
+                    社团活动：{$HighSchoolInfo['SocialActivity']}<br>
+                    体育项目:{$HighSchoolInfo['Sports']}
+                </p>
+            </div>
+        </div>
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">课程设置</span><span class="line"></span></div>
+            <div class="contBoxM">
+                <p>1、ESL课程<span class="red pl10">{if $HighSchoolInfo['ESL']==1}有{elseif $HighSchoolInfo['ESL']==2}无{/if}</span></p>
+                <p class="mt5">2、AP课程-{$HighSchoolInfo['AP']}门  （标<i class="start"></i>表示必修）</p>
+                <table border="0" cellspacing="1" cellpadding="0" class="classLisTest mt10" width="100%">
+                    {loop $SchoolAps $K $lists}
+                    <tr height="78">
+                        {loop $lists['list'] $key $value}
+                        <td {if $value[AP]==1}class="has"{/if} width="33%"><i class="start"></i>{$value['APNameEng']}</td>
+                        {/loop}
+                    </tr>
+                    {/loop}
+                </table>
+                <p class="mt15">3、荣誉课程-{$HighSchoolInfo['HonorsProgram']}门:<br>
+                    <span class="pl20">{$HighSchoolInfo['HonorsProgramContent']}</span></p>
+            </div>
+
+        </div>
+        <div class="contBox">
+            <div class="contBoxT"><span class="name fl">附近学校</span><span class="line"></span></div>
+            <ul class="nearSchool cf">
+                {loop $NearbySchool $lists}
+                <li>
+                    <a href="/highschool/{$lists[HighSchoolID]}.html" target="_blank" title="{$lists[HighSchoolName]}"><img src="{$lists[Icon]}" width="96" height="96" alt="{$lists[HighSchoolName]}"></a>
+                    <a href="/highschool/{$lists[HighSchoolID]}.html" target="_blank" title="{$lists[HighSchoolName]}"><p class="tit mt15">{$lists[HighSchoolName]}</p></a>
+                    <p class="map mt20"><i class="mapIco"></i>{$lists[Region]}  {$lists['Location']}</p>
+                    <span class="shotLine"></span>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+    <div class="SlideRight fr">
+        <ul class="adList">
+            {loop $StudyRightADLists $lists}
+            <li>
+                <a href="{$lists['Link']}" target="_blank" class="ImgBlackBg" title="{$lists[Title]}"><img class="transition lazy" width="100%" src="{echo LImageURL}{$lists['Picture']}" alt="{$lists[Title]}"></a>
+            </li>
+            {/loop}
+        </ul>
+        <div class="NewNews">
+            <div class="NewNewsT">最新资讯</div>
+            <ul class="NewNewsList">
+                {loop $TblStudyAbroad $lists}
+                <li>
+                    <a href="{echo WEB_MAIN_URL}/study/{$lists[StudyID]}.html" title="{$lists['Title']}"><b>●</b>{$lists['Title']}</a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="wxShare mt20">
+            <img src="http://images.57us.com/img/common/wxstudy.jpg" width="99" height="99" />
+            <p class="mt15">名师大咖分享会<br>最新留学资讯<br>美国名校学生专访</p>
+        </div>
+    </div>
+</div>
+{template Footer}
+<script type="text/javascript" src="{echo JsURL}/base/jquery.autofix_anything/1.0.0/jquery.autofix_anything.js"></script>
+<script src="{echo JsURL}/study/StudyPublic.js"></script>
+<script type="text/javascript" src="{echo JsURL}/study/schoolDetail.js"></script>
+</body>
+</html>

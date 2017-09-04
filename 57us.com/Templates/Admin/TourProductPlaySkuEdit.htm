@@ -1,0 +1,116 @@
+{template Head}
+<link href="{echo JsURL}/admin/common/iCheck/skins/flat/green.css" rel="stylesheet">
+<div class="wrapper">
+  {template TourProductPlayTop}
+  <div class="panel-body">
+    <form action='/index.php?Module=TourPlay&Action=TourProductPlaySkuEdit'  method='post' enctype="multipart/form-data">
+      <table class="table table-bordered table-striped table-hover">
+        <tbody>
+        <tr>
+          <td colspan="2" class="t-h">编辑SKU：</td>
+        </tr>
+        <tr>
+          <td width="150" class="t-r"><span class="red">*</span>&nbsp;SKU名称：</td>
+          <td>
+            <div class="col-sm-5 cf">
+              <input type="text" name="SKUName" value="{$ProductSku[SKUName]}" class="form-control"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r"><span class="red">*</span>&nbsp;SKU状态：</td>
+          <td>
+            <div class="icheck">
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input tabindex="3" name="Status" type="radio" id="Status" value="1" {if $ProductSku[Status]==1}checked="checked"{/if}/>
+                  <label>启用</label>
+                </div>
+              </div>
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input tabindex="3" type="radio" name="Status" id="Status2" value="0" {if $ProductSku[Status]==0}checked="checked"{/if}/>
+                  <label>禁用</label>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">酒店信息：</td>
+          <td>
+            <div class="icheck">
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input name="IsNeedHotel" type="radio" id="IsNeedHotel" value="1" {if $ProductSku[IsNeedHotel]==1}checked="checked"{/if}/>
+                  <label>需要</label>
+                </div>
+              </div>
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input name="IsNeedHotel" type="radio" id="IsNeedHotel2" value="0" {if $ProductSku[IsNeedHotel]==0}checked="checked"{/if}/>
+                  <label>不需要</label>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">接机信息：</td>
+          <td>
+            <div class="icheck">
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input name="IsNeedGiveAirport" type="radio" id="IsNeedGiveAirport" value="1" {if $ProductSku[IsNeedGiveAirport]==1}checked="checked"{/if}/>
+                  <label>需要</label>
+                </div>
+              </div>
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input name="IsNeedGiveAirport" type="radio" id="IsNeedGiveAirport2" value="0" {if $ProductSku[IsNeedGiveAirport]==0}checked="checked"{/if}/>
+                  <label>不需要</label>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="t-r">送机信息：</td>
+          <td>
+            <div class="icheck">
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input name="IsNeedSendAirport" type="radio" id="IsNeedSendAirport" value="1" {if $ProductSku[IsNeedSendAirport]==1}checked="checked"{/if}/>
+                  <label>需要</label>
+                </div>
+              </div>
+              <div class="flat-green">
+                <div class="radio cf">
+                  <input name="IsNeedSendAirport" type="radio" id="IsNeedSendAirport2" value="0" {if $ProductSku[IsNeedSendAirport]==0}checked="checked"{/if}/>
+                  <label>不需要</label>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr id="MaterialRequested">
+          <td width="150px" height="35" align="right"></td>
+          <input type="hidden" name="TourProductID" id="TourProductID" value="{if $TourProductID}{$TourProductID}{elseif $ProductSku[TourProductID]}{$ProductSku[TourProductID]}{/if}" />
+          <input type="hidden" name="ProductSkuID" id="ProductSkuID" value="{$ProductSku[ProductSkuID]}" />
+          <td><input class="btn btn-danger" type='submit' name='submit' value='提交保存'/>
+            &nbsp;&nbsp;
+            <input type="button" class="btn btn-success" onClick="javascript:history.go(-1)" value="返回"/>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+{template Foot}
+<!--icheck -->
+<script src="{echo JsURL}/admin/common/iCheck/jquery.icheck.js"></script>
+<script src="{echo JsURL}/admin/common/icheck-init.js"></script>
